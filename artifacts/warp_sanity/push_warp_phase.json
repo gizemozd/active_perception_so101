@@ -9,5 +9,10 @@
   "resolution": [
     96,
     72
-  ]
+  ],
+  "overview_resolution": [
+    1920,
+    1080
+  ],
+  "overview_renderer": "native MuJoCo OpenGL of Warp state"
 }

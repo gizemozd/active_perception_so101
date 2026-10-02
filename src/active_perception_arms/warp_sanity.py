@@ -13,11 +13,31 @@ from mjlab.envs import ManagerBasedRlEnv
 
 from .config import OCCLUSIONS, TASKS, Experiment
 from .environment import make_env_cfg
+from .mdp import instantaneous_success
 from .native import NativeEnv, ScriptedPolicy
-from .sanity import mosaic
+from .sanity import OverviewRecorder, mosaic
+from .scenes import OVERVIEW_SIZE
 
 
-def run(task, output, device="cpu", seconds=8.0, occlusion="phase"):
+def sync_native_state(proxy, env, step):
+    """Mirror Warp state for diagnostic IK and the OpenGL observer camera."""
+    proxy.data.qpos[:] = env.sim.data.qpos[0].cpu().numpy()
+    proxy.data.qvel[:] = env.sim.data.qvel[0].cpu().numpy()
+    for body in ("fixture/fixture", "occluder/panel"):
+        native_id = proxy.model.body(body).mocapid[0]
+        warp_id = env.sim.mj_model.body(body).mocapid[0]
+        proxy.data.mocap_pos[native_id] = env.sim.data.mocap_pos[0, warp_id].cpu().numpy()
+        proxy.data.mocap_quat[native_id] = env.sim.data.mocap_quat[0, warp_id].cpu().numpy()
+    proxy.data.time = step * proxy.cfg.step_dt
+    proxy.step_count = step
+    for name in proxy.targets:
+        proxy.targets[name] = (
+            env.action_manager.get_term("arms").targets[name][0].cpu().numpy().copy()
+        )
+    mujoco.mj_forward(proxy.model, proxy.data)
+
+
+def run(task, output, device="cpu", seconds=8.0, occlusion="phase", overview=True):
     cfg = Experiment(
         task=task, num_envs=1, randomize=False, occlusion=occlusion, episode_seconds=seconds
     )
@@ -38,37 +58,29 @@ def run(task, output, device="cpu", seconds=8.0, occlusion="phase"):
     policy = ScriptedPolicy(proxy)
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
+    observer = (
+        OverviewRecorder(
+            proxy.model, output / f"{task}_warp_{occlusion}_overview.mp4", fps=1 / cfg.step_dt
+        )
+        if overview
+        else None
+    )
     frames = []
     successful, hold = False, 0
     try:
         obs, _ = env.reset()
+        sync_native_state(proxy, env, 0)
         with imageio.get_writer(
             output / f"{task}_warp_{occlusion}.mp4", fps=1 / (cfg.step_dt * 3), macro_block_size=2
         ) as writer:
             for step in range(math.ceil(seconds / cfg.step_dt)):
                 # Diagnostic-only CPU synchronization for analytical IK. The learned
                 # joint-action environment never copies images or state to the CPU.
-                proxy.data.qpos[:] = env.sim.data.qpos[0].cpu().numpy()
-                proxy.data.qvel[:] = env.sim.data.qvel[0].cpu().numpy()
-                for body in ("fixture/fixture", "occluder/panel"):
-                    native_id = proxy.model.body(body).mocapid[0]
-                    warp_id = env.sim.mj_model.body(body).mocapid[0]
-                    proxy.data.mocap_pos[native_id] = (
-                        env.sim.data.mocap_pos[0, warp_id].cpu().numpy()
-                    )
-                    proxy.data.mocap_quat[native_id] = (
-                        env.sim.data.mocap_quat[0, warp_id].cpu().numpy()
-                    )
-                proxy.data.time = step * cfg.step_dt
-                proxy.step_count = step
-                for name in proxy.targets:
-                    proxy.targets[name] = (
-                        env.action_manager.get_term("arms").targets[name][0].cpu().numpy().copy()
-                    )
-                mujoco.mj_forward(proxy.model, proxy.data)
                 action = torch.as_tensor(policy(), device=device, dtype=torch.float32)[None]
                 obs, _, _, _, _ = env.step(action)
-                from .mdp import instantaneous_success
+                sync_native_state(proxy, env, step + 1)
+                if observer:
+                    observer.capture(proxy.data)
 
                 hold = hold + 1 if instantaneous_success(env)[0].item() else 0
                 successful = successful or hold >= 3
@@ -90,6 +102,8 @@ def run(task, output, device="cpu", seconds=8.0, occlusion="phase"):
         for index, frame in enumerate(frames):
             gallery.paste(frame, (0, index * frame.height))
         gallery.save(output / f"{task}_warp_{occlusion}.png")
+        if observer:
+            observer.save_frame(output / f"{task}_warp_{occlusion}_overview.png")
         report = {
             "task": task,
             "backend": "MjLab / MuJoCo Warp",
@@ -99,10 +113,14 @@ def run(task, output, device="cpu", seconds=8.0, occlusion="phase"):
             "final_success": bool(hold >= 3),
             "training_started": False,
             "resolution": [cfg.width, cfg.height],
+            "overview_resolution": list(OVERVIEW_SIZE) if observer else None,
+            "overview_renderer": "native MuJoCo OpenGL of Warp state" if observer else None,
         }
         (output / f"{task}_warp_{occlusion}.json").write_text(json.dumps(report, indent=2))
         return report
     finally:
+        if observer:
+            observer.close()
         env.close()
 
 
@@ -112,12 +130,23 @@ def main(argv=None):
     p.add_argument("--device", default="cpu")
     p.add_argument("--seconds", type=float, default=8.0)
     p.add_argument("--occlusion", choices=OCCLUSIONS, default="phase")
+    p.add_argument("--no-overview", action="store_true", help="Skip the 1080p observer render")
     p.add_argument("--output", type=Path, default=Path("artifacts/warp_sanity"))
     args = p.parse_args(argv)
     torch.set_num_threads(1)
     for task in args.tasks:
         print(
-            json.dumps(run(task, args.output, args.device, args.seconds, args.occlusion), indent=2)
+            json.dumps(
+                run(
+                    task,
+                    args.output,
+                    args.device,
+                    args.seconds,
+                    args.occlusion,
+                    overview=not args.no_overview,
+                ),
+                indent=2,
+            )
         )
 
 

@@ -1,0 +1,101 @@
+[
+  {
+    "video": "artifacts/sanity/plug_clean_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  },
+  {
+    "video": "artifacts/sanity/plug_phase_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  },
+  {
+    "video": "artifacts/sanity/push_clean_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  },
+  {
+    "video": "artifacts/sanity/push_phase_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  },
+  {
+    "video": "artifacts/sanity/transfer_clean_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  },
+  {
+    "video": "artifacts/sanity/transfer_phase_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  },
+  {
+    "video": "artifacts/warp_sanity/plug_warp_phase_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  },
+  {
+    "video": "artifacts/warp_sanity/push_warp_phase_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  },
+  {
+    "video": "artifacts/warp_sanity/transfer_warp_phase_overview.mp4",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "duration_seconds": 10.0,
+    "last_frame_decoded": 249,
+    "scripted_success": true
+  }
+]

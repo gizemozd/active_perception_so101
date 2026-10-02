@@ -103,3 +103,21 @@
   0/1/2, random occlusion, randomized object/fixture XY) reached and retained success.
   This small feasibility check is saved in `artifacts/randomized_script_checks.json`;
   it is not a learned-policy or statistical generalization result.
+
+## 2026-10-01 — white arms and high-resolution external videos
+
+- Changed both SO-101 arm shells from yellow to white in the common scene builder.
+- Added a named `overview` camera framing both arms, the tool/object, and the work
+  area from the front left. Overview recording is native 1920×1080 at 25 fps.
+- Both sanity commands now save `*_overview.mp4` and `*_overview.png`; pass
+  `--no-overview` to omit this optional diagnostic rendering.
+- MjLab/Warp overview videos use the current Warp physics state rendered through
+  MuJoCo OpenGL. The paired wrist/camera-arm videos remain actual Warp RGB outputs.
+  Policy cameras retain their existing observations, FOV, and 96×72 resolution.
+- Regenerated the clean/phase native rollouts and phase Warp rollouts for all three
+  tasks, including white-arm policy-camera videos and full-HD outside views. All
+  nine rollouts reach and retain success. Video encoding and final frames were
+  checked at 1920×1080, 25 fps, 10 seconds; results are in
+  `artifacts/overview_validation.json`.
+- Existing suite after the change: **53 passed, 3 CUDA tests skipped** (29.40 s).
+  No training or cluster submission was performed.

@@ -63,8 +63,11 @@ def test_static_grid_has_real_overhead_and_equal_intrinsics():
     assert len(static_candidates()) == 26
     assert (0.0, 0.025, 0.6) in static_candidates()
     model = native_spec(Experiment()).compile()
-    np.testing.assert_allclose(model.cam_fovy, model.cam_fovy[0])
-    assert model.ncam == 3
+    sensing = [
+        model.camera(name).id for name in ("manipulator/wrist_cam", "camera_arm/wrist_cam", "fixed")
+    ]
+    np.testing.assert_allclose(model.cam_fovy[sensing], model.cam_fovy[sensing[0]])
+    assert model.ncam == 4
     assert model.nu == 12
 
 

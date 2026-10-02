@@ -9,6 +9,9 @@ import numpy as np
 from .config import CAMERA_BASE, CAMERA_BASE_YAW, FOVY, MANIP_BASE, Experiment
 
 ROBOT_XML = Path(__file__).parent / "assets/so101/so101_arm.xml"
+OVERVIEW_SIZE = (1920, 1080)
+OVERVIEW_POSITION = (-0.92, -0.55, 0.67)
+OVERVIEW_TARGET = (-0.15, -0.21, 0.13)
 
 
 def yaw_quat(angle):
@@ -49,7 +52,7 @@ def arm_spec():
     # Preserve all mechanical collisions. Visual groups exclude collision proxies.
     for material in spec.materials:
         if material.rgba[0] > 0.5:
-            material.rgba = [1.0, 0.82, 0.12, 1.0]
+            material.rgba = [0.92, 0.92, 0.94, 1.0]
     box(spec.body("base"), "riser", (0, 0, -0.025), (0.05, 0.05, 0.025), (0.2, 0.2, 0.23, 1))
     return spec
 
@@ -151,8 +154,7 @@ def finish_scene(spec, cfg: Experiment):
     spec.option.cone = mujoco.mjtCone.mjCONE_PYRAMIDAL
     spec.option.iterations = 30
     spec.option.ls_iterations = 10
-    spec.visual.global_.offwidth = 1280
-    spec.visual.global_.offheight = 960
+    spec.visual.global_.offwidth, spec.visual.global_.offheight = OVERVIEW_SIZE
     spec.visual.headlight.ambient = [0.4, 0.4, 0.4]
     spec.worldbody.add_light(name="task_light", pos=(0, 0, 1.5), dir=(0, 0, -1))
     spec.worldbody.add_camera(
@@ -160,6 +162,14 @@ def finish_scene(spec, cfg: Experiment):
         pos=cfg.fixed_position,
         quat=look_at_quat(cfg.fixed_position, cfg.fixed_lookat),
         fovy=FOVY,
+    )
+    # Observer camera for full-resolution videos. Policy sensors are registered
+    # separately, so this adds no high-resolution rendering to the training loop.
+    spec.worldbody.add_camera(
+        name="overview",
+        pos=OVERVIEW_POSITION,
+        quat=look_at_quat(OVERVIEW_POSITION, OVERVIEW_TARGET),
+        fovy=42,
     )
     if cfg.task == "push":
         # A small rigid pushing tip keeps contact below the bare jaw edges.

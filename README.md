@@ -2,7 +2,8 @@
 
 Three two-arm manipulation environments in **MjLab / MuJoCo Warp**, with a shared
 visual actor controlling the manipulation arm and (where enabled) the camera arm.
-The SO-101 models are self-contained copies of the supplied legacy assets.
+The SO-101 models are self-contained copies of the supplied legacy assets, with
+white arm shells. [Watch the full-HD outside-view videos](artifacts/README.md).
 **No training has been run or submitted.**
 
 ## Tasks and controls
@@ -20,8 +21,8 @@ or attachment assists the transfer/push diagnostic controllers.
 
 All modes receive joint positions, joint velocities, servo targets, fixed camera
 calibration, and elapsed time. Object/goal state and occlusion timers are restricted
-to the training critic and reward calculation. Images are 96×72 RGB at 25 Hz with
-identical 48.46° vertical FOV. Actions are bounded joint target increments; the
+to the training critic and reward calculation. Policy images are 96×72 RGB at
+25 Hz with identical 48.46° vertical FOV. Actions are bounded joint target increments; the
 transfer gripper has an additional aperture command. Both arms retain collisions.
 
 | Condition | Actor images | Camera control |
@@ -49,11 +50,19 @@ uv run arms-sanity --output artifacts/sanity --occlusion phase
 uv run python -m active_perception_arms.warp_sanity --device cpu
 ```
 
+Both sanity commands also save an **external overview video at 1920×1080, 25 fps**
+(`*_overview.mp4`) and a full-resolution PNG (`*_overview.png`). The fixed `overview`
+camera frames both arms and the workspace from the front left. Use `--no-overview`
+to skip this additional diagnostic rendering. Policy observations keep their
+existing 96×72 cameras; the overview is not registered as an RL sensor.
+
 `arms-sanity` uses native MuJoCo for fast scripted physics/video and segmentation
 visibility audits. `warp_sanity` uses the actual MjLab/Warp physics and batch RGB
 renderer, with the same diagnostic controller. The latter is slow on CPU; use
-`--device cuda:0` on a GPU node. Neither command trains a policy. Diagnostic IK
-uses privileged state and is not evidence of visual policy success.
+`--device cuda:0` on a GPU node. Warp overview videos render the actual Warp state
+through native MuJoCo OpenGL; the wrist/camera-arm videos retain the Warp batch RGB
+output. Neither command trains a policy. Diagnostic IK uses privileged state and
+is not evidence of visual policy success.
 
 The lock pins MjLab 1.4.0, MuJoCo 3.9.0, RSL-RL 5.2.0, Torch 2.10.0, Warp 1.13.0,
 and MuJoCo Warp commit `88b55fc`. Linux uses CUDA 12.8 PyTorch wheels. The MuJoCo

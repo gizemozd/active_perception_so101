@@ -11,6 +11,39 @@ from PIL import Image, ImageDraw
 
 from .config import OCCLUSIONS, TASKS, Experiment
 from .native import NativeEnv, ScriptedPolicy
+from .scenes import OVERVIEW_SIZE
+
+
+class OverviewRecorder:
+    """Full-HD OpenGL view of the supplied native or mirrored Warp state."""
+
+    def __init__(self, model, video_path=None, fps=25):
+        self.renderer = mujoco.Renderer(model, width=OVERVIEW_SIZE[0], height=OVERVIEW_SIZE[1])
+        self.option = mujoco.MjvOption()
+        self.option.geomgroup[:] = (1, 1, 1, 0, 0, 0)
+        self.option.sitegroup[:] = 0
+        self.writer = (
+            imageio.get_writer(video_path, fps=fps, macro_block_size=2, codec="libx264", quality=8)
+            if video_path
+            else None
+        )
+        self.last_frame = None
+
+    def capture(self, data):
+        self.renderer.update_scene(data, camera="overview", scene_option=self.option)
+        self.last_frame = self.renderer.render().copy()
+        if self.writer:
+            self.writer.append_data(self.last_frame)
+
+    def save_frame(self, path):
+        Image.fromarray(self.last_frame).save(path)
+
+    def close(self):
+        try:
+            if self.writer:
+                self.writer.close()
+        finally:
+            self.renderer.close()
 
 
 class CameraAudit:
@@ -74,7 +107,17 @@ def mosaic(images, labels, scale=3):
     return canvas
 
 
-def run(task, output, *, occlusion="clean", seed=0, seconds=12.0, randomize=False, video=True):
+def run(
+    task,
+    output,
+    *,
+    occlusion="clean",
+    seed=0,
+    seconds=12.0,
+    randomize=False,
+    video=True,
+    overview=True,
+):
     cfg = Experiment(
         task=task,
         condition="active",
@@ -97,6 +140,15 @@ def run(task, output, *, occlusion="clean", seed=0, seconds=12.0, randomize=Fals
         if video
         else None
     )
+    observer = (
+        OverviewRecorder(
+            env.model,
+            output / f"{task}_{occlusion}_overview.mp4" if video else None,
+            fps=1 / cfg.step_dt,
+        )
+        if overview
+        else None
+    )
     successful = False
     success_hold = 0
     max_contacts = 0
@@ -107,6 +159,8 @@ def run(task, output, *, occlusion="clean", seed=0, seconds=12.0, randomize=Fals
             max_contacts = max(max_contacts, env.data.ncon)
             if not np.isfinite(env.data.qpos).all():
                 raise RuntimeError(f"Non-finite physics in {task} at step {step}")
+            if observer and video:
+                observer.capture(env.data)
             if step % 3:
                 continue
             images, labels = [], []
@@ -135,6 +189,7 @@ def run(task, output, *, occlusion="clean", seed=0, seconds=12.0, randomize=Fals
             "max_contacts": int(max_contacts),
             "physics": "native MuJoCo",
             "policy_resolution": [cfg.width, cfg.height],
+            "overview_resolution": list(OVERVIEW_SIZE) if observer else None,
             "frames": records,
         }
         (output / f"{task}_{occlusion}.json").write_text(json.dumps(report, indent=2))
@@ -144,21 +199,18 @@ def run(task, output, *, occlusion="clean", seed=0, seconds=12.0, randomize=Fals
             gallery.paste(snapshot, (0, y))
             y += snapshot.height
         gallery.save(output / f"{task}_{occlusion}.png")
-        # Independent overview makes table/arm/fixture placement reviewable.
-        world = mujoco.Renderer(env.model, height=600, width=800)
-        try:
-            camera = mujoco.MjvCamera()
-            camera.lookat[:] = (0, 0.16, 0.08)
-            camera.distance, camera.azimuth, camera.elevation = 1.15, 145, -30
-            world.update_scene(env.data, camera=camera, scene_option=audit.option)
-            Image.fromarray(world.render()).save(output / f"{task}_overview.png")
-        finally:
-            world.close()
+        if observer:
+            if not video:
+                observer.capture(env.data)
+            observer.save_frame(output / f"{task}_{occlusion}_overview.png")
+            observer.save_frame(output / f"{task}_overview.png")
         return {k: v for k, v in report.items() if k != "frames"}
     finally:
         audit.close()
         if writer:
             writer.close()
+        if observer:
+            observer.close()
 
 
 def main(argv=None):
@@ -170,6 +222,7 @@ def main(argv=None):
     parser.add_argument("--seconds", type=float, default=12)
     parser.add_argument("--randomize", action="store_true")
     parser.add_argument("--no-video", action="store_true")
+    parser.add_argument("--no-overview", action="store_true", help="Skip the 1080p observer render")
     args = parser.parse_args(argv)
     import torch
 
@@ -183,6 +236,7 @@ def main(argv=None):
             seconds=args.seconds,
             randomize=args.randomize,
             video=not args.no_video,
+            overview=not args.no_overview,
         )
         for task in args.tasks
     ]
