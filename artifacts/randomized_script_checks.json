@@ -1,0 +1,56 @@
+[
+  {
+    "task": "plug",
+    "seed": 0,
+    "scripted_success": true,
+    "final_success": true
+  },
+  {
+    "task": "plug",
+    "seed": 1,
+    "scripted_success": true,
+    "final_success": true
+  },
+  {
+    "task": "plug",
+    "seed": 2,
+    "scripted_success": true,
+    "final_success": true
+  },
+  {
+    "task": "transfer",
+    "seed": 0,
+    "scripted_success": true,
+    "final_success": true
+  },
+  {
+    "task": "transfer",
+    "seed": 1,
+    "scripted_success": true,
+    "final_success": true
+  },
+  {
+    "task": "transfer",
+    "seed": 2,
+    "scripted_success": true,
+    "final_success": true
+  },
+  {
+    "task": "push",
+    "seed": 0,
+    "scripted_success": true,
+    "final_success": true
+  },
+  {
+    "task": "push",
+    "seed": 1,
+    "scripted_success": true,
+    "final_success": true
+  },
+  {
+    "task": "push",
+    "seed": 2,
+    "scripted_success": true,
+    "final_success": true
+  }
+]

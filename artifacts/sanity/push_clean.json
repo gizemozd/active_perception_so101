@@ -1,0 +1,2209 @@
+{
+  "task": "push",
+  "occlusion": "clean",
+  "seed": 0,
+  "scripted_success": true,
+  "final_success": true,
+  "final_object": [
+    -0.0265565741159808,
+    0.049882715983693184,
+    0.008942866596208413
+  ],
+  "goal": [
+    -0.025,
+    0.055,
+    0.009
+  ],
+  "max_contacts": 9,
+  "physics": "native MuJoCo",
+  "policy_resolution": [
+    96,
+    72
+  ],
+  "frames": [
+    {
+      "time": 0.04000000000000002,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 597,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7601273148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 60,
+        "fixture_pixels": 90,
+        "table_fraction": 0.4778645833333333,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 57,
+        "fixture_pixels": 89,
+        "table_fraction": 0.4144965277777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 0.16000000000000011,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 596,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7602719907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 60,
+        "fixture_pixels": 87,
+        "table_fraction": 0.47077546296296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 55,
+        "fixture_pixels": 88,
+        "table_fraction": 0.4401041666666667,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 0.2800000000000002,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 596,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7602719907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 60,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4636863425925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 54,
+        "fixture_pixels": 90,
+        "table_fraction": 0.5085358796296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 0.4000000000000003,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 596,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7602719907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 60,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4713541666666667,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 50,
+        "fixture_pixels": 93,
+        "table_fraction": 0.5539641203703703,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 0.5200000000000004,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 596,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7602719907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 60,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4644097222222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 50,
+        "fixture_pixels": 92,
+        "table_fraction": 0.5512152777777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 0.6400000000000005,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 596,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7602719907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 60,
+        "fixture_pixels": 91,
+        "table_fraction": 0.45630787037037035,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 47,
+        "fixture_pixels": 94,
+        "table_fraction": 0.5458622685185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 0.7600000000000006,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 596,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7602719907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 55,
+        "fixture_pixels": 91,
+        "table_fraction": 0.44950810185185186,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 93,
+        "table_fraction": 0.5397858796296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 0.8800000000000007,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 596,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7602719907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 47,
+        "fixture_pixels": 91,
+        "table_fraction": 0.44140625,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 41,
+        "fixture_pixels": 92,
+        "table_fraction": 0.5354456018518519,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.0000000000000007,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 596,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7602719907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 41,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4340277777777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 38,
+        "fixture_pixels": 91,
+        "table_fraction": 0.5318287037037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.1200000000000008,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 618,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7570891203703703,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 47,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4461805555555556,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 47,
+        "fixture_pixels": 92,
+        "table_fraction": 0.5455729166666666,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.2400000000000009,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 625,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7560763888888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 47,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4620949074074074,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 48,
+        "fixture_pixels": 91,
+        "table_fraction": 0.5617766203703703,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.360000000000001,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 599,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7598379629629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 46,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4749710648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 48,
+        "fixture_pixels": 88,
+        "table_fraction": 0.5771122685185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.480000000000001,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 565,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7647569444444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 45,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4866898148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 51,
+        "fixture_pixels": 85,
+        "table_fraction": 0.58984375,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.6000000000000012,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 534,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7692418981481481,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 46,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4986979166666667,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 54,
+        "fixture_pixels": 81,
+        "table_fraction": 0.6017071759259259,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.7200000000000013,
+      "stage": 0,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 505,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7734375,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 19,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4917534722222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 47,
+        "fixture_pixels": 68,
+        "table_fraction": 0.6044560185185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.8400000000000014,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 547,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7673611111111112,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 15,
+        "fixture_pixels": 91,
+        "table_fraction": 0.4986979166666667,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 40,
+        "fixture_pixels": 59,
+        "table_fraction": 0.6077835648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 1.9600000000000015,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 517,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7717013888888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 11,
+        "fixture_pixels": 90,
+        "table_fraction": 0.5085358796296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 39,
+        "fixture_pixels": 59,
+        "table_fraction": 0.6168981481481481,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 2.0799999999999925,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 538,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7686631944444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 1,
+        "fixture_pixels": 87,
+        "table_fraction": 0.5179398148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 40,
+        "fixture_pixels": 53,
+        "table_fraction": 0.6244212962962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 2.1999999999999793,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 536,
+        "fixture_pixels": 0,
+        "table_fraction": 0.7689525462962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 0,
+        "fixture_pixels": 84,
+        "table_fraction": 0.52734375,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 37,
+        "fixture_pixels": 51,
+        "table_fraction": 0.6316550925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 2.319999999999966,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 532,
+        "fixture_pixels": 5,
+        "table_fraction": 0.7688078703703703,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 13,
+        "fixture_pixels": 82,
+        "table_fraction": 0.5516493055555556,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 38,
+        "fixture_pixels": 55,
+        "table_fraction": 0.6357060185185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 2.439999999999953,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 523,
+        "fixture_pixels": 23,
+        "table_fraction": 0.7675057870370371,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 5,
+        "fixture_pixels": 76,
+        "table_fraction": 0.5536747685185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 38,
+        "fixture_pixels": 50,
+        "table_fraction": 0.6336805555555556,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 2.5599999999999397,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 533,
+        "fixture_pixels": 56,
+        "table_fraction": 0.7612847222222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 1,
+        "fixture_pixels": 72,
+        "table_fraction": 0.5594618055555556,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 36,
+        "fixture_pixels": 47,
+        "table_fraction": 0.6358506944444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 2.6799999999999264,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 525,
+        "fixture_pixels": 96,
+        "table_fraction": 0.7566550925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 0,
+        "fixture_pixels": 67,
+        "table_fraction": 0.5632233796296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 36,
+        "fixture_pixels": 39,
+        "table_fraction": 0.6359953703703703,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 2.7999999999999132,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 536,
+        "fixture_pixels": 166,
+        "table_fraction": 0.7449363425925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 36,
+        "fixture_pixels": 61,
+        "table_fraction": 0.5925925925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 38,
+        "fixture_pixels": 45,
+        "table_fraction": 0.6354166666666666,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 2.9199999999999,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 543,
+        "fixture_pixels": 249,
+        "table_fraction": 0.7319155092592593,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 31,
+        "fixture_pixels": 53,
+        "table_fraction": 0.5905671296296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 34,
+        "fixture_pixels": 39,
+        "table_fraction": 0.6287615740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.039999999999887,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 574,
+        "fixture_pixels": 369,
+        "table_fraction": 0.7113715277777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 27,
+        "fixture_pixels": 45,
+        "table_fraction": 0.5954861111111112,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 32,
+        "fixture_pixels": 31,
+        "table_fraction": 0.6316550925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.1599999999998736,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 588,
+        "fixture_pixels": 488,
+        "table_fraction": 0.6912615740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 22,
+        "fixture_pixels": 37,
+        "table_fraction": 0.5991030092592593,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 25,
+        "fixture_pixels": 24,
+        "table_fraction": 0.6344039351851852,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.2799999999998604,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 618,
+        "fixture_pixels": 576,
+        "table_fraction": 0.6763599537037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 28,
+        "fixture_pixels": 29,
+        "table_fraction": 0.6322337962962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 23,
+        "fixture_pixels": 30,
+        "table_fraction": 0.6150173611111112,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.399999999999847,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 641,
+        "fixture_pixels": 667,
+        "table_fraction": 0.6600115740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 22,
+        "fixture_pixels": 23,
+        "table_fraction": 0.6390335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 22,
+        "fixture_pixels": 23,
+        "table_fraction": 0.6209490740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.519999999999834,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 672,
+        "fixture_pixels": 752,
+        "table_fraction": 0.6439525462962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 22,
+        "fixture_pixels": 18,
+        "table_fraction": 0.6429398148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 21,
+        "fixture_pixels": 19,
+        "table_fraction": 0.6245659722222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.6399999999998207,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 618,
+        "fixture_pixels": 865,
+        "table_fraction": 0.6351273148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": false
+      },
+      "fixed": {
+        "object_pixels": 19,
+        "fixture_pixels": 25,
+        "table_fraction": 0.6662326388888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 23,
+        "fixture_pixels": 28,
+        "table_fraction": 0.5993923611111112,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.7599999999998075,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 613,
+        "fixture_pixels": 976,
+        "table_fraction": 0.6203703703703703,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 23,
+        "fixture_pixels": 26,
+        "table_fraction": 0.6685474537037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 22,
+        "fixture_pixels": 32,
+        "table_fraction": 0.6127025462962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.8799999999997943,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 614,
+        "fixture_pixels": 1088,
+        "table_fraction": 0.6022858796296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 19,
+        "fixture_pixels": 30,
+        "table_fraction": 0.6730324074074074,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 23,
+        "fixture_pixels": 28,
+        "table_fraction": 0.6167534722222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 3.999999999999781,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 611,
+        "fixture_pixels": 1167,
+        "table_fraction": 0.5925925925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 20,
+        "fixture_pixels": 30,
+        "table_fraction": 0.6765046296296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 23,
+        "fixture_pixels": 29,
+        "table_fraction": 0.6195023148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 4.119999999999768,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 613,
+        "fixture_pixels": 1242,
+        "table_fraction": 0.5794270833333334,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 21,
+        "fixture_pixels": 34,
+        "table_fraction": 0.6811342592592593,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 24,
+        "fixture_pixels": 33,
+        "table_fraction": 0.6160300925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 4.239999999999755,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 616,
+        "fixture_pixels": 1263,
+        "table_fraction": 0.5768229166666666,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 22,
+        "fixture_pixels": 34,
+        "table_fraction": 0.6850405092592593,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 22,
+        "fixture_pixels": 31,
+        "table_fraction": 0.6193576388888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 4.359999999999742,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 608,
+        "fixture_pixels": 1310,
+        "table_fraction": 0.5726273148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 23,
+        "fixture_pixels": 36,
+        "table_fraction": 0.6882233796296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 21,
+        "fixture_pixels": 33,
+        "table_fraction": 0.6215277777777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 4.479999999999729,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 611,
+        "fixture_pixels": 1258,
+        "table_fraction": 0.578125,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 21,
+        "fixture_pixels": 33,
+        "table_fraction": 0.6919849537037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 22,
+        "fixture_pixels": 32,
+        "table_fraction": 0.6236979166666666,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 4.599999999999715,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 604,
+        "fixture_pixels": 1267,
+        "table_fraction": 0.5788483796296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 21,
+        "fixture_pixels": 35,
+        "table_fraction": 0.6957465277777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 21,
+        "fixture_pixels": 37,
+        "table_fraction": 0.6222511574074074,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 4.719999999999702,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 603,
+        "fixture_pixels": 1170,
+        "table_fraction": 0.5912905092592593,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 21,
+        "fixture_pixels": 33,
+        "table_fraction": 0.6982060185185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 19,
+        "fixture_pixels": 33,
+        "table_fraction": 0.6255787037037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 4.839999999999689,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 600,
+        "fixture_pixels": 1092,
+        "table_fraction": 0.6048900462962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 19,
+        "fixture_pixels": 35,
+        "table_fraction": 0.7016782407407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 17,
+        "fixture_pixels": 36,
+        "table_fraction": 0.6284722222222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 4.959999999999676,
+      "stage": 1,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 600,
+        "fixture_pixels": 1028,
+        "table_fraction": 0.61328125,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 22,
+        "fixture_pixels": 34,
+        "table_fraction": 0.7029803240740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 18,
+        "fixture_pixels": 33,
+        "table_fraction": 0.6232638888888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 5.079999999999663,
+      "stage": 1,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 598,
+        "fixture_pixels": 965,
+        "table_fraction": 0.6235532407407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 20,
+        "fixture_pixels": 36,
+        "table_fraction": 0.7051504629629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 18,
+        "fixture_pixels": 34,
+        "table_fraction": 0.6280381944444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 5.199999999999649,
+      "stage": 1,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 598,
+        "fixture_pixels": 851,
+        "table_fraction": 0.6385995370370371,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 19,
+        "fixture_pixels": 39,
+        "table_fraction": 0.7073206018518519,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 24,
+        "fixture_pixels": 34,
+        "table_fraction": 0.6307870370370371,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 5.319999999999636,
+      "stage": 2,
+      "success": false,
+      "manipulator/wrist_cam": {
+        "object_pixels": 509,
+        "fixture_pixels": 720,
+        "table_fraction": 0.6695601851851852,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 24,
+        "fixture_pixels": 36,
+        "table_fraction": 0.7103587962962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 29,
+        "fixture_pixels": 29,
+        "table_fraction": 0.6320891203703703,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 5.439999999999623,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 438,
+        "fixture_pixels": 622,
+        "table_fraction": 0.6931423611111112,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 34,
+        "fixture_pixels": 33,
+        "table_fraction": 0.7123842592592593,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 35,
+        "fixture_pixels": 32,
+        "table_fraction": 0.6325231481481481,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 5.55999999999961,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 377,
+        "fixture_pixels": 535,
+        "table_fraction": 0.7145543981481481,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 41,
+        "fixture_pixels": 38,
+        "table_fraction": 0.7139756944444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 42,
+        "fixture_pixels": 34,
+        "table_fraction": 0.6429398148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 5.6799999999995965,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 330,
+        "fixture_pixels": 450,
+        "table_fraction": 0.7100694444444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 44,
+        "table_fraction": 0.7152777777777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 39,
+        "table_fraction": 0.640625,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 5.799999999999583,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 287,
+        "fixture_pixels": 404,
+        "table_fraction": 0.7012442129629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7175925925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 40,
+        "table_fraction": 0.6427951388888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 5.91999999999957,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 254,
+        "fixture_pixels": 356,
+        "table_fraction": 0.7090567129629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7212094907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 40,
+        "table_fraction": 0.6443865740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.039999999999557,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 227,
+        "fixture_pixels": 303,
+        "table_fraction": 0.7243923611111112,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7238136574074074,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 40,
+        "table_fraction": 0.6472800925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.159999999999544,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 206,
+        "fixture_pixels": 278,
+        "table_fraction": 0.7359664351851852,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7138310185185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 45,
+        "fixture_pixels": 43,
+        "table_fraction": 0.6941550925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.27999999999953,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 190,
+        "fixture_pixels": 235,
+        "table_fraction": 0.7482638888888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7188946759259259,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 45,
+        "table_fraction": 0.6809895833333334,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.399999999999517,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 181,
+        "fixture_pixels": 229,
+        "table_fraction": 0.7562210648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7236689814814815,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 45,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6824363425925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.519999999999504,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 176,
+        "fixture_pixels": 218,
+        "table_fraction": 0.7594039351851852,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7271412037037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 45,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6854745370370371,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.639999999999491,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 169,
+        "fixture_pixels": 207,
+        "table_fraction": 0.7633101851851852,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7314814814814815,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 49,
+        "table_fraction": 0.6877893518518519,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.7599999999994775,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 167,
+        "fixture_pixels": 211,
+        "table_fraction": 0.7633101851851852,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7115162037037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 45,
+        "fixture_pixels": 50,
+        "table_fraction": 0.7310474537037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.879999999999464,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 173,
+        "fixture_pixels": 247,
+        "table_fraction": 0.7566550925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 42,
+        "fixture_pixels": 38,
+        "table_fraction": 0.6909722222222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6967592592592593,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 6.999999999999451,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 179,
+        "fixture_pixels": 259,
+        "table_fraction": 0.7534722222222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 45,
+        "table_fraction": 0.6895254629629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 46,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7042824074074074,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 7.119999999999438,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 184,
+        "fixture_pixels": 278,
+        "table_fraction": 0.7462384259259259,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 45,
+        "table_fraction": 0.6876446759259259,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 46,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7025462962962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 7.239999999999425,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 192,
+        "fixture_pixels": 304,
+        "table_fraction": 0.7434895833333334,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 45,
+        "table_fraction": 0.6856192129629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 46,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6996527777777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 7.3599999999994115,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 201,
+        "fixture_pixels": 340,
+        "table_fraction": 0.7482638888888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6650752314814815,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 46,
+        "fixture_pixels": 49,
+        "table_fraction": 0.7306134259259259,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 7.479999999999398,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 208,
+        "fixture_pixels": 349,
+        "table_fraction": 0.7364004629629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 0,
+        "fixture_pixels": 1,
+        "table_fraction": 0.6391782407407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 45,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6996527777777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 7.599999999999385,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 216,
+        "fixture_pixels": 398,
+        "table_fraction": 0.7228009259259259,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 8,
+        "fixture_pixels": 7,
+        "table_fraction": 0.6401909722222222,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 43,
+        "fixture_pixels": 51,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 7.719999999999372,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 228,
+        "fixture_pixels": 411,
+        "table_fraction": 0.7133969907407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 7,
+        "fixture_pixels": 7,
+        "table_fraction": 0.6387442129629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 43,
+        "fixture_pixels": 51,
+        "table_fraction": 0.6995081018518519,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 7.839999999999359,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 437,
+        "table_fraction": 0.7041377314814815,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 0,
+        "fixture_pixels": 0,
+        "table_fraction": 0.6115451388888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 41,
+        "fixture_pixels": 54,
+        "table_fraction": 0.6971932870370371,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 7.959999999999345,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 0,
+        "fixture_pixels": 0,
+        "table_fraction": 0.6138599537037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 52,
+        "table_fraction": 0.6990740740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 8.079999999999368,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 0,
+        "fixture_pixels": 0,
+        "table_fraction": 0.6138599537037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 52,
+        "table_fraction": 0.6990740740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 8.199999999999408,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 0,
+        "fixture_pixels": 0,
+        "table_fraction": 0.6138599537037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 52,
+        "table_fraction": 0.6990740740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 8.319999999999448,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 2,
+        "fixture_pixels": 5,
+        "table_fraction": 0.6235532407407407,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 51,
+        "table_fraction": 0.6976273148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 8.439999999999488,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 2,
+        "fixture_pixels": 5,
+        "table_fraction": 0.6238425925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 43,
+        "fixture_pixels": 52,
+        "table_fraction": 0.6976273148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 8.559999999999528,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 2,
+        "fixture_pixels": 5,
+        "table_fraction": 0.6238425925925926,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 43,
+        "fixture_pixels": 52,
+        "table_fraction": 0.6976273148148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 8.679999999999568,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 3,
+        "fixture_pixels": 18,
+        "table_fraction": 0.6569733796296297,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 50,
+        "table_fraction": 0.6817129629629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 8.799999999999608,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 20,
+        "fixture_pixels": 23,
+        "table_fraction": 0.6553819444444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 43,
+        "fixture_pixels": 50,
+        "table_fraction": 0.6945891203703703,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 8.919999999999648,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 20,
+        "fixture_pixels": 23,
+        "table_fraction": 0.6553819444444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 49,
+        "table_fraction": 0.6947337962962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 9.039999999999688,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 20,
+        "fixture_pixels": 23,
+        "table_fraction": 0.6553819444444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 49,
+        "table_fraction": 0.6947337962962963,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 9.159999999999728,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 42,
+        "table_fraction": 0.6840277777777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 47,
+        "table_fraction": 0.6657986111111112,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 9.279999999999768,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6856192129629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 49,
+        "table_fraction": 0.6879340277777778,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 9.399999999999809,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6857638888888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 45,
+        "fixture_pixels": 47,
+        "table_fraction": 0.6877893518518519,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 9.519999999999849,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.6857638888888888,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 45,
+        "fixture_pixels": 47,
+        "table_fraction": 0.6877893518518519,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 9.639999999999889,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7129629629629629,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 45,
+        "table_fraction": 0.6786747685185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 9.759999999999929,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.71484375,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 47,
+        "fixture_pixels": 47,
+        "table_fraction": 0.6747685185185185,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 9.879999999999969,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7146990740740741,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 46,
+        "fixture_pixels": 47,
+        "table_fraction": 0.6749131944444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    },
+    {
+      "time": 10.000000000000009,
+      "stage": 2,
+      "success": true,
+      "manipulator/wrist_cam": {
+        "object_pixels": 242,
+        "fixture_pixels": 442,
+        "table_fraction": 0.7015335648148148,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "fixed": {
+        "object_pixels": 43,
+        "fixture_pixels": 48,
+        "table_fraction": 0.7280092592592593,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "camera_arm/wrist_cam": {
+        "object_pixels": 44,
+        "fixture_pixels": 44,
+        "table_fraction": 0.6475694444444444,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      }
+    }
+  ]
+}

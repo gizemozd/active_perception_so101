@@ -1,0 +1,41 @@
+{
+  "experiment": {
+    "task": "plug",
+    "condition": "active",
+    "occlusion": "random",
+    "seed": 0,
+    "num_envs": 2,
+    "width": 96,
+    "height": 72,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 12.0,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_position": [
+      -0.119,
+      -0.187,
+      0.274
+    ],
+    "fixed_lookat": [
+      0.0,
+      0.025,
+      0.045
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru"
+  },
+  "device": "cpu",
+  "gpu": null,
+  "warmup_steps": 3,
+  "timed_steps": 10,
+  "elapsed_seconds": 1.345163874910213,
+  "environment_steps_per_second": 14.86807694812274,
+  "actor_inference": true,
+  "training_started": false,
+  "torch_peak_bytes": null,
+  "note": "Torch memory excludes Warp allocations; inspect nvidia-smi for total VRAM. Inference only; PPO update cost excluded."
+}

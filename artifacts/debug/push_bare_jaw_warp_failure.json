@@ -1,0 +1,13 @@
+{
+  "task": "push",
+  "backend": "MjLab / MuJoCo Warp",
+  "device": "cpu",
+  "occlusion": "phase",
+  "scripted_success": false,
+  "final_success": false,
+  "training_started": false,
+  "resolution": [
+    96,
+    72
+  ]
+}
