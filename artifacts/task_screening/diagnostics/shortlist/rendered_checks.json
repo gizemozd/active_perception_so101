@@ -1,0 +1,398 @@
+{
+  "source": "artifacts/task_screening/pixel_screen/screening.json",
+  "candidates": {
+    "shuttered_insertion": {
+      "counterfactual": {
+        "seed": 41000,
+        "phase": 1,
+        "oracle_index": 11,
+        "marker_displacement_m": 0.006,
+        "sensors": [
+          {
+            "sensor": "wrist",
+            "direct_marker_pixels": [
+              0,
+              0
+            ],
+            "changed_rgb_pixels_gt_8": 0,
+            "ray_visibility": [
+              {
+                "fraction": 0.0,
+                "sampled_pixels": 0,
+                "marker_pixels": 0,
+                "visible": false
+              },
+              {
+                "fraction": 0.0,
+                "sampled_pixels": 0,
+                "marker_pixels": 0,
+                "visible": false
+              }
+            ]
+          },
+          {
+            "sensor": "searched_static",
+            "direct_marker_pixels": [
+              19,
+              10
+            ],
+            "changed_rgb_pixels_gt_8": 25,
+            "ray_visibility": [
+              {
+                "fraction": 0.64,
+                "sampled_pixels": 18,
+                "marker_pixels": 19,
+                "visible": true
+              },
+              {
+                "fraction": 0.46,
+                "sampled_pixels": 13,
+                "marker_pixels": 10,
+                "visible": true
+              }
+            ]
+          },
+          {
+            "sensor": "oracle_camera",
+            "direct_marker_pixels": [
+              9,
+              3
+            ],
+            "changed_rgb_pixels_gt_8": 17,
+            "ray_visibility": [
+              {
+                "fraction": 0.72,
+                "sampled_pixels": 14,
+                "marker_pixels": 9,
+                "visible": true
+              },
+              {
+                "fraction": 0.22,
+                "sampled_pixels": 6,
+                "marker_pixels": 3,
+                "visible": true
+              }
+            ]
+          }
+        ]
+      },
+      "servo_video": {
+        "seed": 41000,
+        "phases": [
+          {
+            "phase": 0,
+            "planned_route": {
+              "index": 21,
+              "feasible": true,
+              "duration_s": 0.4,
+              "first_seen_s": 0.0
+            },
+            "frames": 30,
+            "visible_frames": 30,
+            "final_joint_error_rad": 0.00043798826733798535
+          },
+          {
+            "phase": 1,
+            "planned_route": {
+              "index": 11,
+              "feasible": true,
+              "duration_s": 0.96,
+              "first_seen_s": 0.92
+            },
+            "frames": 44,
+            "visible_frames": 27,
+            "final_joint_error_rad": 0.0005706583598064086
+          },
+          {
+            "phase": 2,
+            "planned_route": {
+              "index": 11,
+              "feasible": true,
+              "duration_s": 0.96,
+              "first_seen_s": 0.96
+            },
+            "frames": 44,
+            "visible_frames": 23,
+            "final_joint_error_rad": 0.0005706583598064086
+          }
+        ],
+        "stow_segments": [
+          {
+            "before_phase": 1,
+            "frames": 30,
+            "collision_frames": 0
+          },
+          {
+            "before_phase": 2,
+            "frames": 44,
+            "collision_frames": 0
+          }
+        ],
+        "camera_collision_frames": 0,
+        "nonfinite": false
+      }
+    },
+    "two_site_seating": {
+      "counterfactual": {
+        "seed": 41000,
+        "phase": 1,
+        "oracle_index": 2,
+        "marker_displacement_m": 0.006,
+        "sensors": [
+          {
+            "sensor": "wrist",
+            "direct_marker_pixels": [
+              0,
+              0
+            ],
+            "changed_rgb_pixels_gt_8": 0,
+            "ray_visibility": [
+              {
+                "fraction": 0.0,
+                "sampled_pixels": 0,
+                "marker_pixels": 0,
+                "visible": false
+              },
+              {
+                "fraction": 0.0,
+                "sampled_pixels": 0,
+                "marker_pixels": 0,
+                "visible": false
+              }
+            ]
+          },
+          {
+            "sensor": "searched_static",
+            "direct_marker_pixels": [
+              22,
+              11
+            ],
+            "changed_rgb_pixels_gt_8": 40,
+            "ray_visibility": [
+              {
+                "fraction": 0.78,
+                "sampled_pixels": 25,
+                "marker_pixels": 22,
+                "visible": true
+              },
+              {
+                "fraction": 0.4,
+                "sampled_pixels": 12,
+                "marker_pixels": 11,
+                "visible": true
+              }
+            ]
+          },
+          {
+            "sensor": "oracle_camera",
+            "direct_marker_pixels": [
+              7,
+              4
+            ],
+            "changed_rgb_pixels_gt_8": 14,
+            "ray_visibility": [
+              {
+                "fraction": 0.78,
+                "sampled_pixels": 13,
+                "marker_pixels": 7,
+                "visible": true
+              },
+              {
+                "fraction": 0.4,
+                "sampled_pixels": 9,
+                "marker_pixels": 4,
+                "visible": true
+              }
+            ]
+          }
+        ]
+      },
+      "servo_video": {
+        "seed": 41000,
+        "phases": [
+          {
+            "phase": 0,
+            "planned_route": {
+              "index": 21,
+              "feasible": true,
+              "duration_s": 0.4,
+              "first_seen_s": 0.0
+            },
+            "frames": 30,
+            "visible_frames": 30,
+            "final_joint_error_rad": 0.00043798826733798535
+          },
+          {
+            "phase": 1,
+            "planned_route": {
+              "index": 2,
+              "feasible": true,
+              "duration_s": 1.56,
+              "first_seen_s": 1.2
+            },
+            "frames": 59,
+            "visible_frames": 50,
+            "final_joint_error_rad": 0.0002799673986564055
+          },
+          {
+            "phase": 2,
+            "planned_route": {
+              "index": 30,
+              "feasible": true,
+              "duration_s": 1.32,
+              "first_seen_s": 1.2
+            },
+            "frames": 53,
+            "visible_frames": 36,
+            "final_joint_error_rad": 0.000813732247017751
+          }
+        ],
+        "stow_segments": [
+          {
+            "before_phase": 1,
+            "frames": 30,
+            "collision_frames": 0
+          },
+          {
+            "before_phase": 2,
+            "frames": 59,
+            "collision_frames": 0
+          }
+        ],
+        "camera_collision_frames": 0,
+        "nonfinite": false
+      }
+    },
+    "open_slot_push": {
+      "counterfactual": {
+        "seed": 41000,
+        "phase": 1,
+        "oracle_index": 21,
+        "marker_displacement_m": 0.006,
+        "sensors": [
+          {
+            "sensor": "wrist",
+            "direct_marker_pixels": [
+              119,
+              129
+            ],
+            "changed_rgb_pixels_gt_8": 175,
+            "ray_visibility": [
+              {
+                "fraction": 1.0,
+                "sampled_pixels": 46,
+                "marker_pixels": 119,
+                "visible": true
+              },
+              {
+                "fraction": 1.0,
+                "sampled_pixels": 45,
+                "marker_pixels": 129,
+                "visible": true
+              }
+            ]
+          },
+          {
+            "sensor": "searched_static",
+            "direct_marker_pixels": [
+              0,
+              0
+            ],
+            "changed_rgb_pixels_gt_8": 1,
+            "ray_visibility": [
+              {
+                "fraction": 0.0,
+                "sampled_pixels": 0,
+                "marker_pixels": 0,
+                "visible": false
+              },
+              {
+                "fraction": 0.02,
+                "sampled_pixels": 1,
+                "marker_pixels": 0,
+                "visible": false
+              }
+            ]
+          },
+          {
+            "sensor": "oracle_camera",
+            "direct_marker_pixels": [
+              1,
+              6
+            ],
+            "changed_rgb_pixels_gt_8": 8,
+            "ray_visibility": [
+              {
+                "fraction": 0.22,
+                "sampled_pixels": 4,
+                "marker_pixels": 1,
+                "visible": false
+              },
+              {
+                "fraction": 0.64,
+                "sampled_pixels": 11,
+                "marker_pixels": 6,
+                "visible": true
+              }
+            ]
+          }
+        ]
+      },
+      "servo_video": {
+        "seed": 41000,
+        "phases": [
+          {
+            "phase": 0,
+            "planned_route": {
+              "index": 21,
+              "feasible": true,
+              "duration_s": 0.4,
+              "first_seen_s": 0.0
+            },
+            "frames": 30,
+            "visible_frames": 30,
+            "final_joint_error_rad": 0.00043798826733798535
+          },
+          {
+            "phase": 1,
+            "planned_route": {
+              "index": 21,
+              "feasible": true,
+              "duration_s": 0.4,
+              "first_seen_s": 0.0
+            },
+            "frames": 30,
+            "visible_frames": 30,
+            "final_joint_error_rad": 0.00043798826733798535
+          },
+          {
+            "phase": 2,
+            "planned_route": {
+              "index": 21,
+              "feasible": true,
+              "duration_s": 0.4,
+              "first_seen_s": 0.0
+            },
+            "frames": 30,
+            "visible_frames": 30,
+            "final_joint_error_rad": 0.00043798826733798535
+          }
+        ],
+        "stow_segments": [
+          {
+            "before_phase": 1,
+            "frames": 30,
+            "collision_frames": 0
+          },
+          {
+            "before_phase": 2,
+            "frames": 30,
+            "collision_frames": 0
+          }
+        ],
+        "camera_collision_frames": 0,
+        "nonfinite": false
+      }
+    }
+  }
+}

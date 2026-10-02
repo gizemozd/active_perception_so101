@@ -1,5 +1,9 @@
 # Pre-training task screen
 
+**[Watch the three shortlisted prototype videos](diagnostics/shortlist/README.md)**
+for freshly recorded, synchronized outside and sensor views with the camera-stow
+sequence applied to every scene.
+
 Read the [shortlist, methods, results and limitations](../../docs/TASK_SCREENING.md).
 These are **visibility prototypes with prescribed query states**, not successful
 manipulation policies. Camera destinations use privileged information. Camera

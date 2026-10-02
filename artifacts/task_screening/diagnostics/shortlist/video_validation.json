@@ -1,0 +1,71 @@
+{
+  "count": 6,
+  "videos": [
+    {
+      "path": "artifacts/task_screening/diagnostics/shortlist/shuttered_insertion_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 192,
+      "duration_s": 7.68,
+      "first_middle_last_frames_decoded": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/shortlist/shuttered_insertion_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 192,
+      "duration_s": 7.68,
+      "first_middle_last_frames_decoded": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/shortlist/two_site_seating_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 231,
+      "duration_s": 9.24,
+      "first_middle_last_frames_decoded": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/shortlist/two_site_seating_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 231,
+      "duration_s": 9.24,
+      "first_middle_last_frames_decoded": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/shortlist/open_slot_push_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 150,
+      "duration_s": 6.0,
+      "first_middle_last_frames_decoded": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/shortlist/open_slot_push_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 150,
+      "duration_s": 6.0,
+      "first_middle_last_frames_decoded": true
+    }
+  ]
+}

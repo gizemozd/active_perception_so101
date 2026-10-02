@@ -170,3 +170,19 @@
   and decoded the last frame of all 14 videos: overview streams are 1920×1080,
   sensor mosaics are 864×258, and every stream is 25 fps. Current code uses the stow
   correction; the earlier recordings and their failure metadata remain preserved.
+
+## 2026-10-02 — requested videos for each shortlisted prototype
+
+- Freshly rendered shrouded insertion, two-site seating and open-slot pushing into
+  `artifacts/task_screening/diagnostics/shortlist/`. Each has a full-HD outside video
+  and synchronized wrist/searched-fixed/camera-arm comparison, all at 25 fps.
+- Applied the camera-stow sequence to all three recordings. Their durations are
+  7.68 s, 9.24 s and 6.00 s respectively; all have finite states, zero detected camera
+  collision frames, and visible frames at every query phase.
+- Checked all six encoded videos against the recorded simulation frame counts and
+  decoded their first, middle and final frames. Outside resolution is 1920×1080;
+  sensor mosaics are 864×258, displaying enlarged 96×72 sensor images.
+- Added a direct three-video index and reproduction command. Labels explicitly
+  identify prescribed query states and scripted camera motion. The clips do not
+  claim completed contact-dependent task mechanics or trained-policy success.
+- No source-code changes, training or cluster submission were needed.
