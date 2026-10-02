@@ -6,6 +6,12 @@ The SO-101 models are self-contained copies of the supplied legacy assets, with
 white arm shells. [Watch the full-HD outside-view videos](artifacts/README.md).
 **No training has been run or submitted.**
 
+The new [task-screening report](docs/TASK_SCREENING.md) evaluates six visibility
+prototypes against 522 fixed viewpoints, initial-only sensing, memory, scans,
+waiting and hand retreat. It recommends connector/seating variants for further
+mechanical validation and retains pushing as a negative control. These are
+pre-training diagnostics, not learned-policy success results.
+
 ## Tasks and controls
 
 | Task | Physical task | Information question |

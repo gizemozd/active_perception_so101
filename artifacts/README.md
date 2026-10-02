@@ -1,5 +1,10 @@
 # Rendered checks
 
+The new [task-screening gallery](task_screening/README.md) contains the candidate
+enclosures, searched-fixed comparisons, scripted camera-motion videos, retained
+failures and pre-training results. These prototypes are separate from the complete
+original-task rollouts below.
+
 The arms are white. The fixed outside camera records both arms and the work area
 at **1920×1080, 25 fps**. These videos use MjLab/Warp physics with an OpenGL observer
 render of the actual simulation state.

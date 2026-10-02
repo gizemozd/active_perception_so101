@@ -5,6 +5,12 @@ changes or is hidden. Precision alone does not establish a need for camera motio
 Remembering, waiting, and finding a good initial view are competing explanations.
 A successful script only establishes mechanical feasibility.
 
+The [pre-training task screen](TASK_SCREENING.md) records the current shortlist,
+visibility experiments and rejected explanations. It supersedes the tentative
+physical-task suggestions below: ordinary tray-to-cubby transfer is too weak a
+positive test, and the proposed contact-dependent seating variants still require
+mechanical validation.
+
 ## Comparisons
 
 Keep randomization, resolution/FOV, control rate, reward, elapsed-time budget,

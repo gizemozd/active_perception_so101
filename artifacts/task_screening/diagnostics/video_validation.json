@@ -1,0 +1,159 @@
+{
+  "videos": [
+    {
+      "path": "artifacts/task_screening/diagnostics/open_reference_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 90,
+      "duration_s": 3.6,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/open_reference_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 90,
+      "duration_s": 3.6,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/open_slot_push_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 90,
+      "duration_s": 3.6,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/open_slot_push_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 90,
+      "duration_s": 3.6,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/recess_with_slip_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 125,
+      "duration_s": 5.0,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/recess_with_slip_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 125,
+      "duration_s": 5.0,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/shuttered_insertion_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 111,
+      "duration_s": 4.44,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/shuttered_insertion_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 111,
+      "duration_s": 4.44,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/static_recess_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 98,
+      "duration_s": 3.92,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/static_recess_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 98,
+      "duration_s": 3.92,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/stowed_two_site/two_site_seating_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 231,
+      "duration_s": 9.24,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/stowed_two_site/two_site_seating_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 231,
+      "duration_s": 9.24,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/two_site_seating_overview.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 25.0,
+      "frames": 167,
+      "duration_s": 6.68,
+      "decoded_last_frame": true
+    },
+    {
+      "path": "artifacts/task_screening/diagnostics/two_site_seating_sensors.mp4",
+      "size": [
+        864,
+        258
+      ],
+      "fps": 25.0,
+      "frames": 167,
+      "duration_s": 6.68,
+      "decoded_last_frame": true
+    }
+  ],
+  "count": 14
+}

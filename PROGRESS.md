@@ -121,3 +121,52 @@
   `artifacts/overview_validation.json`.
 - Existing suite after the change: **53 passed, 3 CUDA tests skipped** (29.40 s).
   No training or cluster submission was performed.
+
+## 2026-10-02 — task shortlist and pre-training information screen
+
+- Implemented six separate native MuJoCo visibility prototypes and a reproducible
+  screening CLI. The existing three trainable MjLab/Warp environments are unchanged.
+  No new prototype is advertised as a validated manipulation environment.
+- Searched 418 coarse fixed views, including overhead and all 32 sampled camera-arm
+  endpoints, then 104 local refinements chosen using validation data only. Final
+  96×72 screen: 24 validation seeds (12000–12023), 48 test seeds (41000–41047).
+- Compared wrist, static, wrist+static, oracle initial placement, a predefined phase
+  route, repeated two-view scan, and per-query endpoint selection. Explicit state
+  epochs distinguish valid memory from a stale observation. Fixed views are not
+  restricted to camera-arm reach. Moving-arm wrist visibility is recomputed.
+- Replaced a development ray-bin approximation with pixel-center ray counts and
+  checked these against actual segmentation. Saved marker-only counterfactual RGB
+  pairs and a matched 192×144 sensitivity screen. Development probes remain locally
+  archived/ignored and are excluded from the promoted report.
+- Changing side access: searched fixed+wrist covers both queries in 8/48 episodes;
+  a repeated endpoint scan covers 31/48 and the sampled-endpoint oracle 34/48.
+  At 192×144 the scan covers 47/48 and the oracle 48/48. This is not strong evidence
+  for an advantage of feedback-driven camera control over scanning.
+- Two-site seating: fixed+wrist covers 0/48 at 96×72, while a known phase route and
+  the endpoint oracle each cover 40/48. At 192×144 fixed+wrist reaches 22/48 and both
+  moving conditions reach 48/48. Resolution and predefined motion explain much of
+  the apparent benefit. Open-slot pushing is visible to the wrist in every episode.
+- Audited sampled joint paths, camera/environment contacts, hand retreat and
+  removal of the housing as an optimistic waiting control. A 45 mm hand lift reveals
+  all sampled states; this is a substantive loophole, not hidden or disabled.
+  The shortlist therefore focuses on connector/clip states whose actual physical
+  mechanics require assessment under maintained engagement, pending validation.
+- Rendered six original native camera-servo demonstrations, paired sensor mosaics
+  and full-HD external views. Preserved the unstowed two-site failure (five camera
+  collision frames and a missed final query). A corrected demonstration stows
+  before hand relocation, has no camera collision frames, and observes every phase.
+  Phase/feature changes remain prescribed interventions, not manipulation success.
+- Wrote `docs/TASK_SCREENING.md` with concrete task definitions, quantitative
+  comparisons, competing strategies, mechanical readiness gates and reproduction
+  commands. Added the media/results index at `artifacts/task_screening/README.md`.
+- Added tests for fresh-state memory invalidation, validation-only view selection,
+  stronger scan controls, wrist visibility under camera movement, fixture clearance,
+  reachable hand poses, hidden-offset proprioception leakage, stationary two-site
+  geometry, joint-limit rejection and ray/segmentation agreement.
+- Full suite: **69 passed, 3 CUDA checks skipped** (22.21 s); lint and formatting pass.
+  Native rendering was exercised locally. No CUDA performance claim, learned-policy
+  comparison, optimizer step, training run, Slurm submission or hardware motion.
+- After the camera-stow correction, all **16 screening tests** pass again. Validated
+  and decoded the last frame of all 14 videos: overview streams are 1920×1080,
+  sensor mosaics are 864×258, and every stream is 25 fps. Current code uses the stow
+  correction; the earlier recordings and their failure metadata remain preserved.

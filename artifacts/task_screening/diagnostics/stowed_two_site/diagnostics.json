@@ -1,0 +1,1978 @@
+{
+  "source": "artifacts/task_screening/pixel_screen/screening.json",
+  "interpretation": "Instantaneous visibility checks, without memory accumulation, and selected native camera-servo checks; not learned success. Oracle routes use true marker visibility. Paths sample commands at .035 rad and do not prove swept-volume safety. Hand retreat does not preserve contact; waiting removes the housing entirely. These are optimistic alternative-strategy controls. The phase schedule returns home before hand relocation; a blind scan may collide when trying the next phase's view prematurely.",
+  "candidates": {
+    "two_site_seating": {
+      "episodes": 48,
+      "queries": 96,
+      "oracle_route_query_coverage": 0.8229166666666666,
+      "oracle_route_episode_coverage": 0.6666666666666666,
+      "oracle_route_median_duration_s": 1.56,
+      "oracle_route_max_duration_s": 2.2800000000000002,
+      "scan_route_episode_coverage": 0.0,
+      "scheduled_stow_episode_coverage": 0.8333333333333334,
+      "scheduled_stow_feasible_episode_fraction": 0.9583333333333334,
+      "scheduled_stow_median_roundtrip_s": 2.64,
+      "scan_route_feasible_episode_fraction": 0.0,
+      "scan_median_full_cycle_s": 1.56,
+      "hand_lift_episode_coverage": 1.0,
+      "hand_lift_collision_queries": 0,
+      "wait_until_housing_removed_episode_coverage": 0.875,
+      "records": [
+        {
+          "seed": 41000,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.2
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41000,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.96
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41001,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.2
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41001,
+          "phase": 2,
+          "oracle_route": {
+            "index": 17,
+            "feasible": true,
+            "duration_s": 2.12,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41002,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.32
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41002,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.6400000000000001
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41003,
+          "phase": 1,
+          "oracle_route": {
+            "index": 24,
+            "feasible": true,
+            "duration_s": 1.16,
+            "first_seen_s": 1.12
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41003,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 1.24,
+            "first_seen_s": 1.24
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41004,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.2
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41004,
+          "phase": 2,
+          "oracle_route": {
+            "index": 21,
+            "feasible": true,
+            "duration_s": 1.6,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41005,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.24
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41005,
+          "phase": 2,
+          "oracle_route": {
+            "index": 21,
+            "feasible": true,
+            "duration_s": 1.6,
+            "first_seen_s": 1.32
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41006,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.2
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41006,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 2.12
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41007,
+          "phase": 1,
+          "oracle_route": {
+            "index": 22,
+            "feasible": true,
+            "duration_s": 0.96,
+            "first_seen_s": 0.04
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41007,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41008,
+          "phase": 1,
+          "oracle_route": {
+            "index": 24,
+            "feasible": true,
+            "duration_s": 1.16,
+            "first_seen_s": 1.16
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41008,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 1.24,
+            "first_seen_s": 0.52
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41009,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.2
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41009,
+          "phase": 2,
+          "oracle_route": {
+            "index": 21,
+            "feasible": true,
+            "duration_s": 1.6,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41010,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.16
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41010,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.92
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41011,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.32
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41011,
+          "phase": 2,
+          "oracle_route": {
+            "index": 21,
+            "feasible": true,
+            "duration_s": 1.6,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41012,
+          "phase": 1,
+          "oracle_route": {
+            "index": 10,
+            "feasible": true,
+            "duration_s": 1.68,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41012,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41013,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.32
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41013,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41014,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.24
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41014,
+          "phase": 2,
+          "oracle_route": {
+            "index": 17,
+            "feasible": true,
+            "duration_s": 2.12,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41015,
+          "phase": 1,
+          "oracle_route": {
+            "index": 22,
+            "feasible": true,
+            "duration_s": 0.96,
+            "first_seen_s": 0.0
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.8399999999999999,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41015,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 1.44,
+            "first_seen_s": 1.36
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.2,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41016,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.2
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.8399999999999999,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41016,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.6400000000000001
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.2,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": false
+        },
+        {
+          "seed": 41017,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41017,
+          "phase": 2,
+          "oracle_route": {
+            "index": 17,
+            "feasible": true,
+            "duration_s": 2.12,
+            "first_seen_s": 1.32
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41018,
+          "phase": 1,
+          "oracle_route": {
+            "index": 10,
+            "feasible": true,
+            "duration_s": 1.68,
+            "first_seen_s": 1.6400000000000001
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41018,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41019,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41019,
+          "phase": 2,
+          "oracle_route": {
+            "index": 21,
+            "feasible": true,
+            "duration_s": 1.6,
+            "first_seen_s": 1.36
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41020,
+          "phase": 1,
+          "oracle_route": {
+            "index": 24,
+            "feasible": true,
+            "duration_s": 1.16,
+            "first_seen_s": 0.32
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41020,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 1.24,
+            "first_seen_s": 0.32
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41021,
+          "phase": 1,
+          "oracle_route": {
+            "index": 10,
+            "feasible": true,
+            "duration_s": 1.68,
+            "first_seen_s": 1.68
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41021,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41022,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41022,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": false
+        },
+        {
+          "seed": 41023,
+          "phase": 1,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.96,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": false
+        },
+        {
+          "seed": 41023,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.32,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41024,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.2
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41024,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 2.08
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41025,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.24
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41025,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.72
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41026,
+          "phase": 1,
+          "oracle_route": {
+            "index": 10,
+            "feasible": true,
+            "duration_s": 1.68,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.8399999999999999,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41026,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.2,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": false
+        },
+        {
+          "seed": 41027,
+          "phase": 1,
+          "oracle_route": {
+            "index": 24,
+            "feasible": true,
+            "duration_s": 1.16,
+            "first_seen_s": 1.12
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.96,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41027,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.32,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41028,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.8399999999999999,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41028,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.72
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.2,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41029,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41029,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.8800000000000001
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41030,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.16
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41030,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.68
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41031,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.16
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.8399999999999999,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41031,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 2.08
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.2,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41032,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.28
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.56,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": false,
+          "scheduled_stow_roundtrip_s": 1.56,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41032,
+          "phase": 2,
+          "oracle_route": {
+            "index": 21,
+            "feasible": true,
+            "duration_s": 1.6,
+            "first_seen_s": 1.56
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.56,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41033,
+          "phase": 1,
+          "oracle_route": {
+            "index": 10,
+            "feasible": true,
+            "duration_s": 1.68,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41033,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41034,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.16
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41034,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.8
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41035,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.4000000000000001
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41035,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 2.0
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41036,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.24
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.8399999999999999,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41036,
+          "phase": 2,
+          "oracle_route": {
+            "index": 21,
+            "feasible": true,
+            "duration_s": 1.6,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.2,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41037,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.16
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41037,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.84
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41038,
+          "phase": 1,
+          "oracle_route": {
+            "index": 24,
+            "feasible": true,
+            "duration_s": 1.16,
+            "first_seen_s": 1.12
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.8399999999999999,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41038,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.2,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": false
+        },
+        {
+          "seed": 41039,
+          "phase": 1,
+          "oracle_route": {
+            "index": 22,
+            "feasible": true,
+            "duration_s": 0.96,
+            "first_seen_s": 0.04
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41039,
+          "phase": 2,
+          "oracle_route": {
+            "index": 17,
+            "feasible": true,
+            "duration_s": 1.0,
+            "first_seen_s": 0.84
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": false
+        },
+        {
+          "seed": 41040,
+          "phase": 1,
+          "oracle_route": {
+            "index": 22,
+            "feasible": true,
+            "duration_s": 0.96,
+            "first_seen_s": 0.08
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41040,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41041,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.56
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.8399999999999999,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41041,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.96
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.2,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41042,
+          "phase": 1,
+          "oracle_route": {
+            "index": 10,
+            "feasible": true,
+            "duration_s": 1.68,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.96,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41042,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.32,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41043,
+          "phase": 1,
+          "oracle_route": {
+            "index": 10,
+            "feasible": true,
+            "duration_s": 1.68,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41043,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41044,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.16
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41044,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.76
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41045,
+          "phase": 1,
+          "oracle_route": {
+            "index": 10,
+            "feasible": true,
+            "duration_s": 1.68,
+            "first_seen_s": 1.6
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.92,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41045,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.27999999999999997,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41046,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.2
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.56,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": false,
+          "scheduled_stow_roundtrip_s": 1.56,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41046,
+          "phase": 2,
+          "oracle_route": {
+            "index": null,
+            "feasible": false,
+            "duration_s": 0.0,
+            "first_seen_s": null
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.56,
+          "scheduled_stow_seen": false,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41047,
+          "phase": 1,
+          "oracle_route": {
+            "index": 2,
+            "feasible": true,
+            "duration_s": 1.56,
+            "first_seen_s": 1.36
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 1.88,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 3.36,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        },
+        {
+          "seed": 41047,
+          "phase": 2,
+          "oracle_route": {
+            "index": 30,
+            "feasible": true,
+            "duration_s": 2.2800000000000002,
+            "first_seen_s": 1.68
+          },
+          "scan_feasible": false,
+          "scan_seen": false,
+          "scan_duration_s": 0.24000000000000002,
+          "scheduled_stow_seen": true,
+          "scheduled_stow_feasible": true,
+          "scheduled_stow_roundtrip_s": 2.64,
+          "hand_lift_seen": true,
+          "hand_lift_collision": false,
+          "wait_until_housing_removed_seen": true
+        }
+      ],
+      "counterfactual": {
+        "seed": 41000,
+        "phase": 1,
+        "oracle_index": 2,
+        "marker_displacement_m": 0.006,
+        "sensors": [
+          {
+            "sensor": "wrist",
+            "direct_marker_pixels": [
+              0,
+              0
+            ],
+            "changed_rgb_pixels_gt_8": 0,
+            "ray_visibility": [
+              {
+                "fraction": 0.0,
+                "sampled_pixels": 0,
+                "marker_pixels": 0,
+                "visible": false
+              },
+              {
+                "fraction": 0.0,
+                "sampled_pixels": 0,
+                "marker_pixels": 0,
+                "visible": false
+              }
+            ]
+          },
+          {
+            "sensor": "searched_static",
+            "direct_marker_pixels": [
+              22,
+              11
+            ],
+            "changed_rgb_pixels_gt_8": 40,
+            "ray_visibility": [
+              {
+                "fraction": 0.78,
+                "sampled_pixels": 25,
+                "marker_pixels": 22,
+                "visible": true
+              },
+              {
+                "fraction": 0.4,
+                "sampled_pixels": 12,
+                "marker_pixels": 11,
+                "visible": true
+              }
+            ]
+          },
+          {
+            "sensor": "oracle_camera",
+            "direct_marker_pixels": [
+              7,
+              4
+            ],
+            "changed_rgb_pixels_gt_8": 14,
+            "ray_visibility": [
+              {
+                "fraction": 0.78,
+                "sampled_pixels": 13,
+                "marker_pixels": 7,
+                "visible": true
+              },
+              {
+                "fraction": 0.4,
+                "sampled_pixels": 9,
+                "marker_pixels": 4,
+                "visible": true
+              }
+            ]
+          }
+        ]
+      },
+      "servo_video": {
+        "seed": 41000,
+        "phases": [
+          {
+            "phase": 0,
+            "planned_route": {
+              "index": 21,
+              "feasible": true,
+              "duration_s": 0.4,
+              "first_seen_s": 0.0
+            },
+            "frames": 30,
+            "visible_frames": 30,
+            "final_joint_error_rad": 0.00043798826733798535
+          },
+          {
+            "phase": 1,
+            "planned_route": {
+              "index": 2,
+              "feasible": true,
+              "duration_s": 1.56,
+              "first_seen_s": 1.2
+            },
+            "frames": 59,
+            "visible_frames": 50,
+            "final_joint_error_rad": 0.0002799673986564055
+          },
+          {
+            "phase": 2,
+            "planned_route": {
+              "index": 30,
+              "feasible": true,
+              "duration_s": 1.32,
+              "first_seen_s": 1.2
+            },
+            "frames": 53,
+            "visible_frames": 36,
+            "final_joint_error_rad": 0.000813732247017751
+          }
+        ],
+        "stow_segments": [
+          {
+            "before_phase": 1,
+            "frames": 30,
+            "collision_frames": 0
+          },
+          {
+            "before_phase": 2,
+            "frames": 59,
+            "collision_frames": 0
+          }
+        ],
+        "camera_collision_frames": 0,
+        "nonfinite": false
+      }
+    }
+  }
+}
