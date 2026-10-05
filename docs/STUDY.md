@@ -11,6 +11,12 @@ physical-task suggestions below: ordinary tray-to-cubby transfer is too weak a
 positive test, and the proposed contact-dependent seating variants still require
 mechanical validation.
 
+The October 5 correction in that report restores the original hidden-prong plug
+as a primary candidate. The current centered-pin/marker prototypes did not test
+the legacy task's unknown prong offset, and their retreat result cannot be used
+to dismiss its reported active-camera benefit. Best-static and initial-inspection
+comparisons for the original task remain open.
+
 ## Comparisons
 
 Keep randomization, resolution/FOV, control rate, reward, elapsed-time budget,

@@ -10,6 +10,11 @@ manipulation policies. Camera destinations use privileged information. Camera
 motion in the videos executes native MuJoCo servo dynamics; the hand/feature phase
 changes are prescribed. No training was performed.
 
+**Scope correction, October 5:** these clips use the new centered-pin/marker
+geometry, not the original project's plug with hidden ±15 mm prong offsets.
+Their hand-retreat results do not assess that original task. See the correction
+at the start of the [study report](../../docs/TASK_SCREENING.md).
+
 The first two rows are the leading candidates for further mechanical development.
 The third is an intentional negative control. Outside videos are 1920×1080 at
 25 fps; sensor mosaics enlarge the actual 96×72 images without adding detail.

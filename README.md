@@ -12,6 +12,13 @@ waiting and hand retreat. It recommends connector/seating variants for further
 mechanical validation and retains pushing as a negative control. These are
 pre-training diagnostics, not learned-policy success results.
 
+**Plug-task scope correction:** the current `plug` implementation uses a centered
+pin; it does not preserve the original project's four hidden prong-offset variants.
+The [legacy-task audit](docs/TASK_SCREENING.md#correction-the-original-hidden-prong-plug-is-a-different-task--2026-10-05)
+records the original task's reported active-camera benefit and explains why the
+new prototype's hand-retreat result does not apply to it. That original task remains
+a primary candidate and still needs a faithful port into this checkout.
+
 ## Tasks and controls
 
 | Task | Physical task | Information question |

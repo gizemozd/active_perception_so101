@@ -1,5 +1,74 @@
 # Task shortlist and pre-training screen — 2026-10-02
 
+## Correction: the original hidden-prong plug is a different task — 2026-10-05
+
+**Keep the original hidden-prong plug insertion as a primary study candidate.**
+The October 2 prototype screen below did not evaluate that task. Applying its
+hand-retreat finding to the original plug, or concluding that the original plug
+needs a new contact-dependent mechanism to be promising, was incorrect.
+
+Inspection of the user-specified legacy checkout,
+`/Users/pembe/Desktop/Projects/ActivePerception/old/active_perception_arms`, establishes
+the following distinction:
+
+- Original `specs.py` defines four plugs with identical 64×42×30 mm bodies and
+  two prongs shifted by ±15 mm along x or y. The body occludes the offset from
+  above. `_reset_plug` sets the required plug-origin position to socket center
+  minus the hidden offset. The offset therefore changes the correct action.
+- The original position-only manipulation controller holds grasp orientation.
+  Raising the hand moves the wrist camera and held plug together; it does not
+  reveal the underside in the way a hand lift reveals our independent marker.
+  Physical contact probing remains an alternative information channel.
+- Original variants have equalized mass/inertia to remove an identified
+  variant-dependent sag cue. The legacy sensors disable shadows. These details
+  are part of the original perception problem and must survive a faithful port.
+- This checkout's `scenes.py` instead builds one centered rectangular pin. Its
+  screening harness hides the socket and queries a separate green marker. Neither
+  its 522-view search nor its retreat experiment tests the original four-prong-
+  layout identification problem. The currently published prototype videos also
+  depict that different geometry.
+
+The later legacy `docs/WORK_LOG.md`, "Closing 2026-09-30", reports the following
+balanced historical re-evaluation: 3 training seeds, 400 episodes per cell.
+
+| Legacy condition | Reported equal-seed mean success |
+|---|---:|
+| Wrist only | 80.7% |
+| Fixed camera at home + wrist | 60.1% |
+| Active camera + wrist | 99.5% |
+| Active-trained policy with camera frozen | 67.1% |
+
+These are **reported legacy results**, not new runs or independently reproduced
+measurements. The task README's older "pl4 pending" paragraph is superseded by
+this later work log. The raw evaluation/checkpoint files referenced by the log
+are absent from the supplied legacy checkout. The log records camera collisions
+in 4% of episodes for active seed 0 and none for seeds 1–2; the latter still lose
+success when their camera is frozen. Freezing also changes the trained policy's
+inputs/behavior distribution, so it does not establish that every alternative
+policy requires motion.
+
+The unresolved comparison is **best searched fixed sensing and initial inspection
+with memory**, not whether the original task already has promising active-camera
+evidence. The legacy `docs/LAYOUT_DECISION_MEMO.md`, lines 44–56, reports lower
+fixed viewpoints that see all four variants in sampled socket cells. Its static
+training search was still a next step. The hidden prong offset is constant during
+an episode, so inspecting it once and retaining that information is a meaningful
+baseline. Our broad search over the different marker prototype cannot settle
+either comparison for the original task.
+
+Source locations in the legacy checkout: `tasks/insertion/specs.py:210` and
+`:268`, `tasks/insertion/mdp/events.py:849`, `tasks/insertion/insertion_env_cfg.py:680`,
+`docs/WORK_LOG.md:262`, and `docs/LAYOUT_DECISION_MEMO.md:44`. Task source paths are
+under `src/active_perception_arms/`. No legacy files, physics, policies or current
+environment implementation were modified during this inspection. A faithful
+hidden-prong port remains outstanding; the screen below must not substitute for it.
+
+## October 2 alternative designs and prototype results
+
+The following shortlist and measurements are retained as results about the
+**new marker/enclosure prototypes only**. They do not demote or replace the
+original hidden-prong plug benchmark described above.
+
 **Prioritize shrouded connector insertion and contact-dependent seating checks.
 Keep open-slot pushing as a negative control.** The screen supports a reason to
 change viewpoint in some geometries. It does **not** establish that a learned,

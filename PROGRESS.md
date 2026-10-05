@@ -186,3 +186,27 @@
   identify prescribed query states and scripted camera motion. The clips do not
   claim completed contact-dependent task mechanics or trained-policy success.
 - No source-code changes, training or cluster submission were needed.
+
+## 2026-10-05 — correction after inspecting the original plug task
+
+- Reviewed the user-specified legacy checkout's actual plug geometry, reset logic,
+  images, task README, later work log and layout memo. The original task has four
+  visually identical plug bodies with hidden two-prong offsets of ±15 mm. Correct
+  alignment depends on the unknown offset; mass/inertia are equalized to remove
+  a previously identified sag cue.
+- Identified a substantive mismatch: this checkout's plug is a single centered
+  pin, and the later screening prototype queries an independent marker. Raising
+  that hand can reveal the marker, whereas raising the original held plug keeps
+  its underside hidden relative to the wrist camera. The previous generalized
+  retreat verdict did not apply to the original task.
+- The later legacy log reports balanced historical success of active 99.5%,
+  wrist 80.7%, fixed-at-home 60.1%, and frozen-active 67.1% (3 training seeds,
+  400 episodes/cell). These numbers are transcribed from the log; checkpoints and
+  raw evaluation records were not present locally, and no evaluation was rerun.
+- Preserved the remaining scientific distinction: the legacy memo identifies lower
+  fixed views that expose all four variants. The trained best-static search and
+  initial inspection plus memory remain unresolved. Freezing is a useful policy
+  intervention, not proof that every possible fixed/initial policy must fail.
+- Corrected the report, README, study notes and media index. Restored the original
+  hidden-prong plug as a primary candidate. No legacy files or environment code
+  changed, and no training ran. A faithful port of the original task is still needed.
