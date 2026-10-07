@@ -73,7 +73,19 @@ for path in Path("logs").glob("**/runtime_*.json"):
             )
         )
 a.output.write_text(
-    json.dumps(dict(checked_at=dt.datetime.now().astimezone().isoformat(), jobs=jobs), indent=2)
+    json.dumps(
+        dict(
+            checked_at=dt.datetime.now().astimezone().isoformat(),
+            jobs=jobs,
+            queue=subprocess.run(
+                ["squeue", "-r", "-u", "pgozdil", "-p", "kempner_rtx", "-h", "-o", "%i|%T|%M|%R"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.splitlines(),
+        ),
+        indent=2,
+    )
 )
 for job in jobs:
     print(

@@ -1,0 +1,67 @@
+{
+  "experiment": {
+    "task": "plug",
+    "condition": "wrist_static",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 256,
+    "width": 128,
+    "height": 96,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 3.5,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_position": [
+      1.1021821192326179e-17,
+      0.205,
+      0.08
+    ],
+    "fixed_lookat": [
+      0.022,
+      0.045,
+      0.047
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "plug_variant": null,
+    "task_revision": "hidden_prongs_v1"
+  },
+  "kind": "simulation_and_actor_inference_only",
+  "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/v5tlqn0n",
+  "hostname": "holygpu7c1731.rc.fas.harvard.edu",
+  "python": "3.12.13",
+  "torch_cuda": "12.8",
+  "slurm_job_id": "51121860",
+  "packages": {
+    "torch": "2.10.0+cu128",
+    "mjlab": "1.4.0",
+    "mujoco": "3.9.0",
+    "mujoco-warp": "3.8.1",
+    "warp-lang": "1.13.0",
+    "rsl-rl-lib": "5.2.0"
+  },
+  "environment_initialization_seconds": 24.93426490481943,
+  "warmup_seconds": 5.831413498148322,
+  "actual_transitions": 25600,
+  "units": "One vectorized control step advances N environments = N environment transitions; 20 physics substeps/control step.",
+  "gpu_metrics": {
+    "gpu_memory_mib": 2609.0,
+    "gpu_utilization_pct": 100.0,
+    "gpu_peak_memory_mib": 2609.0,
+    "gpu_mean_utilization_pct": 23.68421052631579
+  },
+  "device": "cuda:0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "warmup_steps": 25,
+  "timed_steps": 100,
+  "elapsed_seconds": 7.605643257964402,
+  "environment_steps_per_second": 3365.9217414901027,
+  "actor_inference": true,
+  "training_started": false,
+  "torch_peak_bytes": 196813824,
+  "note": "Torch memory excludes Warp allocations; inspect nvidia-smi for total VRAM. Inference only; PPO update cost excluded."
+}

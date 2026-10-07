@@ -6,8 +6,9 @@ The separate marker/enclosure screening harness keeps its original prototype
 geometry; its results must not be attributed to the restored task.
 
 [Videos and images](../artifacts/plug_restoration/README.md) show all four
-variants in native MuJoCo and actual MjLab/MuJoCo Warp. No policies were trained
-and no cluster jobs were submitted.
+variants in native MuJoCo and actual MjLab/MuJoCo Warp. At that restoration stage no policies were trained
+and no cluster jobs were submitted. Later cluster validation and PPO benchmarks
+are recorded in [PROGRESS.md](../PROGRESS.md); use its latest inventory for current status.
 
 ## What was restored
 

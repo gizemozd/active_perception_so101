@@ -448,3 +448,52 @@ All metrics reached W&B; no offline/unsynchronized runs found. Added an explicit
   Scientific pilots remain unstarted. Remaining 15 benchmark cells may now run
   as independent one-GPU jobs with concurrency capped at four; existing cell 0
   counts as completed and will not be resubmitted.
+- Submitted remaining benchmark array **51121584**, tasks **1–15%4**, command
+  `env -u SLURM_STEPMGR sbatch --parsable --account=kempner_pgozdil_lab
+  --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch`.
+  Code `9f6d7fe`; cell 0 excluded because its PPO result is already valid.
+  Each task runs actor inference and exactly 12 disposable PPO iterations.
+
+## 2026-10-07 13:55 EDT — benchmark sweep completed; pilot count selected
+
+All **16 condition/count cells completed** (N64 wrist repaired job 51121191;
+remaining array 51121584 tasks 1–15). Each performed 12 real PPO iterations,
+first three excluded as warmup. No pilot budget has been consumed.
+[Measured comparison](artifacts/cluster_pilot/BENCHMARKS.md),
+[CSV](artifacts/cluster_pilot/benchmark_comparison.csv),
+[full current inventory](artifacts/cluster_pilot/run_inventory.json),
+[Warp compile/load totals](artifacts/cluster_pilot/compilation_timings.json).
+Machine-readable per-run JSON contains environment initialization, warmup,
+measured transitions/time, phase timing, device-wide memory/utilization, software,
+allocation, revision and W&B URL. Warp-reported module loads are extracted;
+Torch/Triton compilation and graph capture are included in initialization/warmup,
+not claimed as separately isolated measurements. Per-job caches are independent;
+PPO follows inference in the same job and usually benefits from its cached kernels.
+
+Choose **512 environments for all four pilots**, giving **100 iterations × 24 ×
+512 = 1,228,800 transitions** each. It fits every condition with at most 10,827 MiB
+sampled VRAM (97,887 available), and is fastest among tested counts. At N512:
+wrist 4512/s, wrist_static 3827/s, initial 3456/s, active 3408/s. Steady-only
+extrapolated pilot times are 4.54, 5.35, 5.93 and 6.01 minutes, respectively;
+full 18,432,000-transition runs are 1.135, 1.338, 1.482 and 1.502 GPU-hours.
+Pilot batch estimate at four-way concurrency: about 8–10 minutes including cold
+startup, excluding queues and evaluation; aggregate steady training ≈0.364 GPU-h.
+Short steady measurements span only nine iterations, with roughly 10–13% iteration
+CV; extrapolations are not confidence intervals or full-study measurements.
+
+Found and tested a second logging compatibility issue: MjLab emits `log={}`
+between resets, but RSL 5.2 reads metric keys only from its first buffered entry.
+Thus benchmark episode success metrics were silently dropped, although reward,
+length, optimization metrics and all timings were logged. Those missing histories
+cannot be reconstructed and are not reported as zero. Retain these runs as valid
+throughput measurements. A small adapter discards empty episode dictionaries
+before RSL aggregation. The regression verifies a reset after an initially empty
+step logs the actual success metric. **2 telemetry tests pass**. Installed this
+adapter only after all benchmark jobs ended; no running learner was changed.
+
+Prepared a distinct three-run same-node concurrency diagnostic, not a repeated
+scientific pilot: 12 iterations of active/GRU/N512 alone, then two independent
+single-GPU processes on that same two-GPU allocation. It also verifies corrected
+success logging on the cluster before pilot submission. Tags distinguish reference
+and paired runs, checkpoints stay under logs/benchmarks/colocation. No distributed
+learner is involved. Prepared full-study budget in study_budget.json, **unsubmitted**.

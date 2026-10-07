@@ -1,0 +1,74 @@
+{
+  "submitted": false,
+  "num_envs": 512,
+  "concurrency": 4,
+  "transitions_per_policy": 18432000,
+  "rows": [
+    {
+      "comparison": "26-view wrist+static validation search",
+      "runs": 78,
+      "transitions": 1437696000,
+      "estimated_gpu_hours": 104.35317283095274,
+      "estimated_elapsed_hours": 26.757223802808397,
+      "optional": false,
+      "timing_proxy_condition": "wrist_static"
+    },
+    {
+      "comparison": "wrist, three seeds",
+      "runs": 3,
+      "transitions": 55296000,
+      "estimated_gpu_hours": 3.40416165211031,
+      "estimated_elapsed_hours": 1.1347205507034368,
+      "optional": false,
+      "timing_proxy_condition": "wrist"
+    },
+    {
+      "comparison": "initial-only, three seeds",
+      "runs": 3,
+      "transitions": 55296000,
+      "estimated_gpu_hours": 4.445037499859205,
+      "estimated_elapsed_hours": 1.481679166619735,
+      "optional": false,
+      "timing_proxy_condition": "initial"
+    },
+    {
+      "comparison": "active, three seeds",
+      "runs": 3,
+      "transitions": 55296000,
+      "estimated_gpu_hours": 4.506892263889313,
+      "estimated_elapsed_hours": 1.5022974212964375,
+      "optional": false,
+      "timing_proxy_condition": "active"
+    },
+    {
+      "comparison": "scheduled motion, three seeds",
+      "runs": 3,
+      "transitions": 55296000,
+      "estimated_gpu_hours": 4.506892263889313,
+      "estimated_elapsed_hours": 1.5022974212964375,
+      "optional": true,
+      "timing_proxy_condition": "active"
+    },
+    {
+      "comparison": "feedforward initial+active, three seeds each",
+      "runs": 6,
+      "transitions": 110592000,
+      "estimated_gpu_hours": 9.013784527778625,
+      "estimated_elapsed_hours": 3.004594842592875,
+      "optional": true,
+      "timing_proxy_condition": "active"
+    },
+    {
+      "comparison": "trained initial snapshot, three seeds",
+      "runs": 3,
+      "transitions": 55296000,
+      "estimated_gpu_hours": 4.445037499859205,
+      "estimated_elapsed_hours": 1.481679166619735,
+      "optional": true,
+      "timing_proxy_condition": "initial"
+    }
+  ],
+  "required_transitions": 1603584000,
+  "required_gpu_hours": 116.70926424681157,
+  "assumptions": "Short benchmark extrapolation, excludes queues/startup/evaluation. Ablation rates are proxies. Search selects views by mean validation success over three seeds. Frozen-camera/live-image and frozen-camera/stale-image interventions use existing checkpoints and add evaluation cost, not training transitions."
+}

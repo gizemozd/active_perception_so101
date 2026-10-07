@@ -97,6 +97,10 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
     """Retain native RSL logger; attach synchronized phase timings and local records."""
     import wandb
 
+    from .episode_logging import install_episode_logging
+
+    install_episode_logging(runner.logger)
+
     rows = []
     state = {"scalars": {}, "mark": None, "collect": None, "learn_start": None}
     original_log = runner.logger.log

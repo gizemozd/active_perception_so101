@@ -1,0 +1,124 @@
+{
+  "note": "Sum of Warp-reported module load times across inference and PPO processes in each job. Not total compilation wall time: Torch/Triton compilation and graph capture are not isolated and remain included in separately measured environment initialization and warmup. First wrist PPO replacement did not run inference and therefore had a cold cache.",
+  "rows": [
+    {
+      "log": "logs/slurm/plug-benchmark-51116045_0.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 27.95863,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.21241
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121191_0.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 34.39619,
+      "cached_module_count": 0,
+      "reported_cached_load_seconds": 0
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_1.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 23.268729999999998,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 0.99421
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_10.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 19.79804,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 0.93382
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_11.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 20.108,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.05544
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_12.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 21.12309,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 0.92181
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_13.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 20.07313,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.29026
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_14.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 13.91904,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.18542
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_15.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 22.81181,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.04284
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_2.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 23.75137,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 0.94289
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_3.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 23.87461,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.00396
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_4.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 22.75883,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.0308599999999999
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_5.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 21.85362,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.26478
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_6.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 22.91461,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 0.90519
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_7.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 21.17155,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 0.95979
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_8.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 21.277730000000002,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 1.18727
+    },
+    {
+      "log": "logs/slurm/plug-benchmark-51121584_9.out",
+      "compiled_module_count": 40,
+      "reported_compiled_load_seconds": 23.93651,
+      "cached_module_count": 40,
+      "reported_cached_load_seconds": 0.9649
+    }
+  ]
+}
