@@ -27,7 +27,7 @@ class GpuSampler:
 
     def _sample(self):
         with self.path.open("w") as f:
-            writer = csv.writer(f)
+            writer = csv.writer(f, lineterminator="\n")
             writer.writerow(["wall_seconds", "uuid", "used_mib", "total_mib", "utilization_pct"])
             while not self.stop_event.is_set():
                 result = subprocess.run(

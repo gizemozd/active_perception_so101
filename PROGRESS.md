@@ -773,3 +773,5 @@ scientific pilots and their configurations remain unchanged; no extra pilot work
 - Follow-up accounting totals **0.719 allocated GPU-hours** including the
   phase profile and three simulator/inference diagnostics. Checked all 14 job
   exit codes, all 12 PPO budgets (12 iterations each), and 16 W&B final states.
+- Final artifact check normalized four GPU CSVs to LF and made the sampler
+  emit LF for future runs; all final whitespace checks pass.
