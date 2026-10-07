@@ -11,10 +11,13 @@
 set -euo pipefail
 source "${PROJECT_ROOT:-${SLURM_SUBMIT_DIR:-$PWD}}/scripts/slurm/common.sh"
 conditions=(wrist wrist_static initial active)
-counts=(64 128 256 512)
+read -r -a counts <<< "${BENCH_COUNTS:-64 128 256 512}"
 index="${SLURM_ARRAY_TASK_ID:-0}"
-condition="${conditions[$((index / 4))]}"
-count="${counts[$((index % 4))]}"
+if (( index < 0 || index >= 4 * ${#counts[@]} )); then
+  echo 'Array index exceeds condition/count grid' >&2; exit 2
+fi
+condition="${conditions[$((index / ${#counts[@]}))]}"
+count="${counts[$((index % ${#counts[@]}))]}"
 view=0
 if [[ "$condition" == wrist_static ]]; then view=7; fi
 output="artifacts/cluster_pilot/bench-${SLURM_JOB_ID:-local}-${condition}-${count}"
