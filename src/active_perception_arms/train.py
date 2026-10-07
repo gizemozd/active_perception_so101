@@ -7,6 +7,7 @@ import platform
 import signal
 import subprocess
 import sys
+import time
 from dataclasses import asdict
 from datetime import datetime, timezone
 from importlib.metadata import version
@@ -37,6 +38,9 @@ def parser():
     p.add_argument("--resume", type=Path)
     p.add_argument("--perturb-push", action="store_true")
     p.add_argument("--memory", choices=("gru", "none"), default="gru")
+    p.add_argument("--job-type", choices=("benchmark", "pilot", "study"), default="pilot")
+    p.add_argument("--warmup-iterations", type=int, default=3)
+    p.add_argument("--result", type=Path)
     p.add_argument("--dry-run", action="store_true")
     return p
 
@@ -45,6 +49,8 @@ def experiment_from_args(args):
     candidates = static_candidates(args.task)
     if not 0 <= args.fixed_view < len(candidates):
         raise ValueError(f"fixed-view must be in [0, {len(candidates) - 1}]")
+    if args.warmup_iterations < 0:
+        raise ValueError("warmup-iterations must be nonnegative")
     if args.iterations < 1:
         raise ValueError("iterations must be positive")
     if args.num_envs < 8 or args.num_envs % 8:
@@ -68,6 +74,7 @@ def experiment_from_args(args):
 
 
 def main(argv=None):
+    process_start = time.perf_counter()
     args = parser().parse_args(argv)
     cfg = experiment_from_args(args)
     if args.resume:
@@ -103,11 +110,26 @@ def main(argv=None):
     torch.backends.cudnn.benchmark = True
     torch.manual_seed(cfg.seed)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    name = f"{cfg.task}_{cfg.condition}_{cfg.occlusion}_{cfg.memory}_v{args.fixed_view}_s{cfg.seed}_{stamp}"
-    log_dir = args.log_root / name
-    log_dir.mkdir(parents=True, exist_ok=False)
+    name = f"{cfg.task}_{cfg.condition}_{cfg.occlusion}_{cfg.memory}_v{args.fixed_view}_s{cfg.seed}_n{cfg.num_envs}_{stamp}"
+    log_dir = args.resume.parent if args.resume else args.log_root / name
+    os.environ.setdefault("WANDB_PROJECT", "active-perception-so101")
+    os.environ.setdefault("WANDB_RUN_GROUP", f"plug-{args.job_type}-20261007")
+    os.environ.setdefault("WANDB_JOB_TYPE", args.job_type)
+    os.environ.setdefault(
+        "WANDB_TAGS", f"restored-plug,{args.job_type},{cfg.condition},{cfg.memory}"
+    )
+    if args.resume:
+        run_info = json.loads((log_dir / "wandb_run.json").read_text())
+        os.environ["WANDB_RUN_ID"] = run_info["id"]
+        os.environ["WANDB_RESUME"] = "must"
+        os.environ["WANDB_PROJECT"] = run_info["project"]
+        os.environ["WANDB_ENTITY"] = run_info["entity"]
+    log_dir.mkdir(parents=True, exist_ok=bool(args.resume))
     (log_dir / "experiment.json").write_text(json.dumps(cfg.to_dict(), indent=2))
     runner_options = runner_cfg(cfg, args.iterations)
+    runner_options.logger = "wandb"
+    runner_options.wandb_project = os.environ["WANDB_PROJECT"]
+    runner_options.save_interval = max(1, args.iterations // 2)
     (log_dir / "runner.json").write_text(json.dumps(asdict(runner_options), indent=2))
     revision = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True)
     metadata = {
@@ -122,15 +144,29 @@ def main(argv=None):
         },
         "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
         "resume": str(args.resume) if args.resume else None,
+        "slurm_account": os.environ.get("SLURM_JOB_ACCOUNT"),
+        "slurm_partition": os.environ.get("SLURM_JOB_PARTITION"),
+        "hostname": platform.node(),
+        "allocated_cpus": os.environ.get("SLURM_CPUS_PER_TASK"),
+        "allocated_memory_mb": os.environ.get("SLURM_MEM_PER_NODE"),
+        "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
     }
     (log_dir / "runtime.json").write_text(json.dumps(metadata, indent=2))
+    from .telemetry import GpuSampler, install_logging
+
+    sampler = GpuSampler(log_dir / "gpu.csv").start()
+    init_start = time.perf_counter()
     env = make_env(cfg, args.device)
+    torch.cuda.synchronize()
+    init_seconds = time.perf_counter() - init_start
     try:
         wrapped = RslRlVecEnvWrapper(env)
         runner = MjlabOnPolicyRunner(wrapped, asdict(runner_options), str(log_dir), args.device)
         if args.resume:
             runner.load(str(args.resume))
-        remaining = args.iterations - (runner.current_learning_iteration + 1 if args.resume else 0)
+            runner.current_learning_iteration += 1
+        remaining = args.iterations - (runner.current_learning_iteration if args.resume else 0)
+        install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler, process_start)
         interrupted = []
 
         def request_checkpoint(signum, frame):
@@ -144,6 +180,7 @@ def main(argv=None):
             original_log(**kwargs)
             if interrupted:
                 runner.save(str(log_dir / "interrupted.pt"))
+                runner.logger.stop_logging_writer()
                 raise SystemExit(0)
 
         runner.logger.log = log_and_checkpoint
@@ -153,6 +190,7 @@ def main(argv=None):
         if remaining > 0:
             runner.learn(num_learning_iterations=remaining, init_at_random_ep_len=False)
     finally:
+        sampler.close()
         env.close()
 
 

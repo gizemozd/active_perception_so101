@@ -41,7 +41,8 @@ run_training() {
   local args=(-m active_perception_arms.train --task "$task" --condition "$condition"
     --seed "$seed" --num-envs "$nenv" --iterations "$((budget / (nenv * 24)))"
     --occlusion "${OCCLUSION:-$default_occlusion}" --memory "${MEMORY:-gru}" --fixed-view "$view"
-    --log-root "${LOG_ROOT:-logs}")
+    --log-root "${LOG_ROOT:-logs}" --job-type "${JOB_TYPE:-pilot}")
+  if [[ -n "${RESULT_ROOT:-}" ]]; then args+=(--result "${RESULT_ROOT}/${task}-${condition}-s${seed}.json"); fi
   if [[ "${PERTURB_PUSH:-0}" == 1 ]]; then args+=(--perturb-push); fi
   if [[ -n "${RESUME:-}" ]]; then args+=(--resume "$RESUME"); fi
   if [[ "${DRY_RUN:-0}" == 1 ]]; then args+=(--dry-run); fi

@@ -1,0 +1,14 @@
+{
+  "inventory_job": "51111068",
+  "login_user": "pgozdil",
+  "verified_account": "kempner_pgozdil_lab",
+  "partition": "kempner_rtx",
+  "node": "holygpu7c1713",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "memory_total_mib": 97887,
+  "driver": "610.57.04",
+  "gpus_per_node": 8,
+  "allocated_gpus": 1,
+  "allocated_cpus": 8,
+  "allocated_host_memory_gib": 48
+}

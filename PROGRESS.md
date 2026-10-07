@@ -268,3 +268,40 @@
   GPU throughput/CUDA execution remain for the supplied cluster validation jobs.
 - No learning, cluster submission or physical robot execution. Legacy files are
   unchanged. The supplied literature PDFs remain outside the commits.
+
+## 2026-10-07 — authorized cluster pilot study (in progress)
+
+- Scope: restored plug only; disposable GPU validation/benchmarks and four seed-0
+  pilots authorized. No transfer/push training or larger study submission.
+- Read restoration/study notes and every existing Slurm script. Verified indices
+  `0,6,9,15` map to wrist, wrist_static, initial, active with seed 0; fixed view 7
+  remains a diagnostic candidate, not a success-selected baseline.
+- Direct cluster access is available from `holy8a24101`; login identity is
+  `pgozdil`. `sacctmgr -nP show assoc user=pgozdil
+  format=Cluster,Account,User,Partition,QOS,DefaultQOS` confirms account
+  `kempner_pgozdil_lab`; `scontrol show partition kempner_rtx` permits that account.
+  The user-supplied cluster identifier is the account, not this login username.
+- Partition inventory: 24 nodes, 8 advertised RTX PRO 6000 Blackwell Server
+  Edition GPUs/node, 128 CPUs and 1,547,204 MiB configured RAM/node; one node
+  drained at inspection. Resource availability is dynamic. Single-GPU jobs use
+  8 CPUs and 48 GiB host RAM initially.
+- Submitted disposable hardware inventory job `51111068` using
+  `sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx --gres=gpu:1`.
+  Its raw output is `logs/slurm/inventory-51111068.out` (ignored).
+- No project virtualenv existed on this cluster checkout. Running
+  `uv sync --locked` to install the pinned stack. Existing W&B login file exists;
+  no credentials copied into source or output. Logging verification is pending.
+- Inventory job completed successfully: RTX PRO 6000 Blackwell Server Edition,
+  **97,887 MiB VRAM**, driver **610.57.04**, on `holygpu7c1713`. Compact inventory:
+  `artifacts/cluster_pilot/hardware.json`. This is hardware validation only.
+- Existing W&B credentials authenticate successfully through the API as `pgozdil`,
+  entity `pgozdil-harvard-university`. No local project setting exists; use
+  `active-perception-so101`. Dashboard (runs pending):
+  https://wandb.ai/pgozdil-harvard-university/active-perception-so101
+- A server restart interrupted dependency installation before completion. Checked
+  Slurm and the filesystem before resuming; inventory was not submitted twice.
+- Implementing synchronized rollout/PPO timing, device-wide sampled VRAM and
+  utilization, transition-indexed W&B/local metrics, bounded checkpoints and W&B
+  resume identity. Additional GPU gates cover all four conditions at 128×96,
+  balanced offsets, initial-only freeze, and actor/critic observation separation.
+  These additions are not yet execution-validated and no optimizer has run.
