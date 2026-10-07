@@ -932,3 +932,27 @@ recovery and ordered next steps. Model clarification recorded: CNN/proprioceptio
   and diagnostics; decide whether to continue search cases to9,228,288 TOTAL
   transitions (651 additional updates from model_99), preserving their IDs/configs.
   Plan seed replication/full study afterward; do not submit the full matrix.
+
+
+### 2026-10-07 21:46 UTC — complete conversation and tuning follow-up handoff
+
+User requested that everything be consolidated into the handoff. Expanded
+[HANDOFF_2026-10-07.md](docs/HANDOFF_2026-10-07.md) with current job/progress snapshot,
+complete tuning results and W&B/video links, the exact second-stage recommendation,
+resume/evaluation instructions, model/observation/action specifications, sensing
+semantics, GRU placement, throughput findings, scope limits and unresolved historical
+run provenance. Hyperparameter tuning is explicitly UNFINISHED; first screen complete.
+
+- [Prepared next-stage plan](artifacts/hparam_search/next_stage_plan.json): all three
+  candidates to9,228,288 TOTAL transitions /751 updates, resuming model_99. Each
+  needs651 additional updates /7,999,488 transitions; all three23,998,464 additional.
+  Same W&B IDs, saved settings, N512 and frozen25a005e source. New summary/evaluation
+  paths preserve first-stage results; compare to existing baseline model_750 (44/512).
+- All three resume dry-runs passed experiment/configuration compatibility and the
+ 751-update total. The plan records exact environment/commands and expected checkpoints.
+  Status PREPARED_NOT_SUBMITTED: no additional training or evaluations submitted.
+- Snapshot: four original long pilots still RUNNING; final evaluations still PENDING
+  (Dependency). Refreshed continuation inventory with latest verified progress.
+- Later tuning should evaluate at matched budgets, inspect learning/trajectory evidence,
+  then replicate promising settings across seeds. No clear winner from the first screen.
+  Full matrix and additional seed training remain unsubmitted.

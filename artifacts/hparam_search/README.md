@@ -126,3 +126,12 @@ Measured Python training wall time sums to0.3755 GPU-hours across the three case
 Slurm allocation time is0.3831 GPU-hours, excluding evaluations.
 [Completion verification](completion_verified.json), [learning curves CSV](learning_curves.csv),
 [latest agent handoff](../../docs/HANDOFF_2026-10-07.md).
+
+## Prepared follow-up, not submitted
+
+Hyperparameter tuning remains unfinished. The recommended second stage resumes all
+three candidates to9,228,288 total transitions (751 updates), matching the existing
+baseline model_750. [Exact plan](next_stage_plan.json) contains resolved environments,
+commands, paths, IDs and three successful resume dry-runs. Each needs651 additional
+updates; the first100 count toward the budget. No extensions were submitted.
+See [the expanded handoff](../../docs/HANDOFF_2026-10-07.md) before launching anything.
