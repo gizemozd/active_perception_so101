@@ -1,6 +1,6 @@
 # Restored-plug cluster pilots
 
-Status: preparation in progress, not a trained-policy result. See `PROGRESS.md`
+Status: resumed from verified cluster inventory; benchmarks in progress. See `PROGRESS.md`
 for executed jobs and `artifacts/cluster_pilot` for compact measurements.
 
 ## Verified allocation
@@ -58,10 +58,11 @@ Choose a common environment count only after every condition fits and completes.
 Pilot command once that count has been selected (256 below is a placeholder):
 
 ```bash
-sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx \
-  --array=0,6,9,15%4 \
-  --export=ALL,NUM_ENVS=256,TOTAL_STEPS=1228800,FIXED_VIEW=7,OCCLUSION=clean,MEMORY=gru,JOB_TYPE=pilot,LOG_ROOT=logs/pilots,RESULT_ROOT=artifacts/cluster_pilot \
-  scripts/slurm/train_plug.sbatch
+env -u SLURM_STEPMGR NUM_ENVS=256 TOTAL_STEPS=1228800 FIXED_VIEW=7 \
+  OCCLUSION=clean MEMORY=gru JOB_TYPE=pilot LOG_ROOT=logs/pilots \
+  RESULT_ROOT=artifacts/cluster_pilot \
+  sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx \
+  --array=0,6,9,15%4 --export=ALL scripts/slurm/train_plug.sbatch
 ```
 
 These indices are wrist, wrist_static, initial, active, each seed 0. Budgets remain
@@ -96,3 +97,10 @@ conditional additions. Frozen-camera/live-image and frozen-camera/stale-image
 checkpoint evaluations require no extra training, but impose distribution shift.
 Use `scripts/plan_plug_study.py` after benchmarks to compute measured-rate budgets.
 Do not submit this larger matrix until pilot results justify the next comparison.
+
+Submission caveat: pass variables in the command environment with plain
+`--export=ALL`. Site Slurm treats `--export=ALL,KEY=value` as a request to
+retrieve the login environment; this failed before Python in job 51121081.
+Clear inherited `SLURM_STEPMGR` when submitting from an interactive allocation.
+Use `scripts/inventory_plug_runs.py` for a fresh read-only accounting/artifact
+snapshot; consult PROGRESS.md before any submission to avoid duplicates.

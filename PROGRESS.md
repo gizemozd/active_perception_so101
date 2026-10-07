@@ -424,3 +424,27 @@ W&B API confirms only three finished runs so far, no pilot or PPO training run:
 [wrist N64 inference](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/my5q07yk).
 All metrics reached W&B; no offline/unsynchronized runs found. Added an explicit
 `SKIP_INFERENCE=1` switch to reuse successful inference when repairing only PPO.
+
+- Missing PPO attempt **51121081_0** was held before launch with
+  `user_env_retrieval_failed_requeued_held` (no log/artifact/W&B run). Local
+  `man sbatch` confirms `--export=ALL,KEY=value` implicitly retrieves the login
+  environment. Bash startup executes Zsh; the retrieval failure is observed,
+  with that shell behavior a plausible cause. Cancelled this held, unstarted job
+  and submitted using command-environment variables and plain `--export=ALL`,
+  also clearing inherited `SLURM_STEPMGR`. No completed PPO work repeated.
+
+- Replacement **51121191_0 completed, exit 0:0, 2m28s**, on holygpu7c1731.
+  Command: `env -u SLURM_STEPMGR SKIP_INFERENCE=1 sbatch --parsable
+  --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0 --export=ALL
+  scripts/slurm/benchmark.sbatch`. All **12 PPO iterations / 18,432 transitions**
+  completed; final checkpoint `model_11.pt` in
+  `logs/benchmarks/plug_wrist_clean_gru_v0_s0_n64_20261007T174021Z`.
+  [W&B spmopn8m](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/spmopn8m)
+  API readback verifies cumulative transitions, iteration 12, PPO loss and reward.
+  Receipt: `artifacts/cluster_pilot/ppo_logging_verified.json`.
+  Measured N64 wrist training: **809.63 transitions/s**, mean rollout 1.756s,
+  PPO 0.133s, end-to-end iteration 1.897s; warmup 38.53s separately; sampled
+  peak device memory 2,081 MiB. Nine steady iterations, a short noisy benchmark.
+  Scientific pilots remain unstarted. Remaining 15 benchmark cells may now run
+  as independent one-GPU jobs with concurrency capped at four; existing cell 0
+  counts as completed and will not be resubmitted.
