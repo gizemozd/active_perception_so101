@@ -1,5 +1,9 @@
 # Task shortlist and pre-training screen — 2026-10-02
 
+**October 7 update:** the [original hidden-prong task is now restored](PLUG_RESTORATION.md).
+The dated audit below records the earlier mismatch; the October 2 prototype
+geometry remains isolated in the screening harness for reproducibility.
+
 ## Correction: the original hidden-prong plug is a different task — 2026-10-05
 
 **Keep the original hidden-prong plug insertion as a primary study candidate.**

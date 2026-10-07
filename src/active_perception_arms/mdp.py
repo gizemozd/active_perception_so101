@@ -1,12 +1,16 @@
-"""Vectorized task logic. No host transfers, image rendering, or IK in the step path."""
+"""Vectorized task logic; plug IK runs once per control step, without host transfers."""
 
 from dataclasses import dataclass
 
 import torch
 from mjlab.managers.action_manager import ActionTerm, ActionTermCfg
 
+from . import plug
 from .config import SOURCE_XY, TARGET_XY, Experiment
 from .native import calibration
+from .robots.kinematics import quat_wxyz_to_mat
+from .robots.plug_control import PlugIK
+from .scenes import grasp_relpose
 
 
 class State:
@@ -40,6 +44,10 @@ class State:
             (*cfg.fixed_position, *cfg.fixed_lookat), device=device
         )
         self.panel_pose = torch.zeros(n, 7, device=device)
+        self.plug_offsets = torch.tensor(
+            [plug.OFFSETS[plug.VARIANTS[i]] for i in plug.variant_assignment(n, cfg.plug_variant)],
+            device=device,
+        )
 
 
 def state(env, cfg=None):
@@ -53,11 +61,15 @@ def state(env, cfg=None):
 def positions(env):
     s = state(env)
     sites = env.sim.data.site_xpos
+    goal = sites[:, s.ids["fixture/goal"]]
+    if s.cfg.task == "plug":
+        goal = goal.clone()
+        goal[:, :2] -= s.plug_offsets
     return (
         sites[:, s.ids["manipulator/gripperframe"]],
         env.scene["object"].data.root_link_pos_w,
         sites[:, s.ids["object/tip"]],
-        sites[:, s.ids["fixture/goal"]],
+        goal,
     )
 
 
@@ -88,7 +100,50 @@ def reset_task(env, env_ids, cfg):
     obj[:, 2] = 0.056 if cfg.task == "transfer" else 0.009
     obj[:, 3] = 1
     if cfg.task == "plug":
-        obj[:, :7] = s.home["plug_pose"]
+        term = env.action_manager.get_term("arms")
+        xy = torch.tensor(plug.SPAWN_CENTER, device=env.device).expand(n, -1).clone()
+        if cfg.randomize:
+            xy += (torch.rand(n, 2, device=env.device) * 2 - 1) * torch.tensor(
+                plug.SPAWN_HALF, device=env.device
+            )
+        tcp = torch.cat((xy, torch.full((n, 1), plug.SPAWN_Z, device=env.device)), dim=-1)
+        tcp += torch.tensor(plug.GRIP_OFFSET, device=env.device)
+        q = term.plug_ik.reset_manip(tcp)
+        joints = s.home["manipulator"].expand(n, -1).clone()
+        joints[:, :5] = q
+        joints[:, 5] = 0.27
+        env.scene["manipulator"].write_joint_state_to_sim(
+            joints, torch.zeros_like(joints), env_ids=ids
+        )
+        joints[:, 5] = 0.24
+        env.scene["manipulator"].set_joint_position_target(joints, env_ids=ids)
+        term.tcp_target[ids] = tcp
+        term.gimbal_target[ids] = term.plug_ik.home
+        # Full-pose reset IK is accurate to numerical tolerance. The original
+        # fixed grasp defines an identity plug rotation at this pose.
+        fk_pos, fk_rot = term.plug_ik.manip.fk(q)
+        # Convert site rotation back to gripper body rotation, then apply weld.
+        model = env.sim.mj_model
+        site_quat = torch.as_tensor(
+            model.site("manipulator/gripperframe").quat, device=env.device, dtype=torch.float32
+        )[None]
+        body_rot = fk_rot @ quat_wxyz_to_mat(site_quat).transpose(-1, -2)
+        site_pos = torch.as_tensor(
+            model.site("manipulator/gripperframe").pos, device=env.device, dtype=torch.float32
+        )
+        p_rel, q_rel = grasp_relpose()
+        obj[:, :3] = term.plug_ik.manip_frame.pos_to_world(fk_pos) + (
+            body_rot @ (torch.as_tensor(p_rel, device=env.device, dtype=torch.float32) - site_pos)
+        )
+        from mjlab.utils.lab_api.math import quat_from_matrix
+
+        obj[:, 3:7] = quat_from_matrix(
+            body_rot
+            @ quat_wxyz_to_mat(torch.as_tensor(q_rel, device=env.device, dtype=torch.float32)[None])
+        )
+        fixture[:, :2] = torch.rand(n, 2, device=env.device) * 0.05 if cfg.randomize else 0.025
+        fixture[:, :2] += origins[:, :2]
+        env.scene["fixture"].write_mocap_pose_to_sim(fixture, env_ids=ids)
     obj[:, :3] += origins
     env.scene["object"].write_root_state_to_sim(obj, env_ids=ids)
     s.onset[ids] = 2 + torch.rand(n, device=env.device) * 3 if cfg.occlusion == "random" else 3
@@ -136,6 +191,12 @@ class ArmsAction(ActionTerm):
             name: env.scene[name].data.joint_pos.clone() for name in ("manipulator", "camera_arm")
         }
         self.camera = env.scene["camera_arm"]
+        self.camera_frozen = False
+        self.plug_ik = PlugIK(env.sim.mj_model, env.device) if self.exp.task == "plug" else None
+        self.tcp_target = torch.zeros(env.num_envs, 3, device=env.device)
+        self.gimbal_target = torch.tensor(plug.GIMBAL_HOME, device=env.device).repeat(
+            env.num_envs, 1
+        )
 
     @property
     def action_dim(self):
@@ -150,6 +211,8 @@ class ArmsAction(ActionTerm):
         self._raw[ids] = 0
         for name in self.targets:
             self.targets[name][ids] = self._env.scene[name].data.joint_pos[ids]
+        if self.exp.task == "plug":
+            self.targets["manipulator"][ids, 5] = 0.24
 
     def process_actions(self, actions):
         cfg, env = self.exp, self._env
@@ -157,28 +220,51 @@ class ArmsAction(ActionTerm):
         self._raw.copy_(actions.clamp(-1, 1))
         t = env.episode_length_buf * env.step_dt
         moving = t >= cfg.initial_seconds
-        self.targets["manipulator"][:, :5] += self._raw[:, :5] * cfg.joint_step * moving[:, None]
+        if cfg.task == "plug":
+            requested = self.plug_ik.low + (self._raw[:, :3] + 1) * 0.5 * (
+                self.plug_ik.high - self.plug_ik.low
+            )
+            self.tcp_target += (requested - self.tcp_target).clamp(
+                -plug.TCP_MAX_DELTA, plug.TCP_MAX_DELTA
+            ) * moving[:, None]
+            q = self.plug_ik.manip_step(self.tcp_target, self.targets["manipulator"][:, :5])
+            self.targets["manipulator"][:, :5] = torch.where(
+                moving[:, None], q, self.targets["manipulator"][:, :5]
+            )
+        else:
+            self.targets["manipulator"][:, :5] += (
+                self._raw[:, :5] * cfg.joint_step * moving[:, None]
+            )
         if cfg.task == "transfer":
             self.targets["manipulator"][:, 5] = torch.where(
                 moving, (self._raw[:, 5] + 1) * 0.6, self.targets["manipulator"][:, 5]
             )
-        if cfg.camera_control:
+        if cfg.camera_control and not self.camera_frozen:
             enabled = torch.ones_like(moving) if cfg.condition == "active" else ~moving
-            self.targets["camera_arm"][:, :5] += (
-                self._raw[:, cfg.manip_dim :] * cfg.joint_step * enabled[:, None]
-            )
+            if cfg.task == "plug":
+                self.gimbal_target += (
+                    self._raw[:, 3:] * self.plug_ik.gimbal_delta * enabled[:, None]
+                )
+                self.gimbal_target.clamp_(self.plug_ik.gimbal_low, self.plug_ik.gimbal_high)
+                q = self.plug_ik.camera_step(self.gimbal_target, self.targets["camera_arm"][:, :5])
+                self.targets["camera_arm"][:, :5] = torch.where(
+                    enabled[:, None], q, self.targets["camera_arm"][:, :5]
+                )
+            else:
+                self.targets["camera_arm"][:, :5] += (
+                    self._raw[:, cfg.manip_dim :] * cfg.joint_step * enabled[:, None]
+                )
         elif cfg.condition == "scheduled":
-            fraction = (
-                (t - cfg.initial_seconds) / (cfg.episode_seconds - cfg.initial_seconds) * 2
-            ).clamp(0, 2)
-            idx = fraction.long().clamp(max=1)
-            alpha = (fraction - idx)[:, None]
-            desired = (
-                s.home["camera_path"][idx] * (1 - alpha) + s.home["camera_path"][idx + 1] * alpha
-            )
-            self.targets["camera_arm"][:, :5] += (
-                desired - self.targets["camera_arm"][:, :5]
-            ).clamp(-cfg.joint_step, cfg.joint_step)
+            if cfg.task == "plug":
+                alpha = (t / max(cfg.initial_seconds, 0.6)).clamp(0, 1)
+                self.gimbal_target[:] = self.plug_ik.home + alpha[:, None] * torch.tensor(
+                    [-0.035, -0.035, -0.04, 0.18, -0.20], device=env.device
+                )
+                self.targets["camera_arm"][:, :5] = self.plug_ik.camera_step(
+                    self.gimbal_target, self.targets["camera_arm"][:, :5]
+                )
+            else:
+                self._joint_camera_schedule(t, s)
         for name, target in self.targets.items():
             limits = env.scene[name].data.joint_pos_limits
             target.clamp_(limits[..., 0], limits[..., 1])
@@ -186,6 +272,18 @@ class ArmsAction(ActionTerm):
         if cfg.perturb_push:
             force = torch.where((t >= 4) & (t < 4.12), 0.025 * s.side, 0.0)
             env.sim.data.xfrc_applied[:, s.object_id, 0] = force
+
+    def _joint_camera_schedule(self, t, s):
+        cfg = self.exp
+        fraction = (
+            (t - cfg.initial_seconds) / (cfg.episode_seconds - cfg.initial_seconds) * 2
+        ).clamp(0, 2)
+        idx = fraction.long().clamp(max=1)
+        alpha = (fraction - idx)[:, None]
+        desired = s.home["camera_path"][idx] * (1 - alpha) + s.home["camera_path"][idx + 1] * alpha
+        self.targets["camera_arm"][:, :5] += (desired - self.targets["camera_arm"][:, :5]).clamp(
+            -cfg.joint_step, cfg.joint_step
+        )
 
     def apply_actions(self):
         self._entity.set_joint_position_target(self.targets["manipulator"])
@@ -199,6 +297,8 @@ def proprio(env):
         pieces += [env.scene[name].data.joint_pos, env.scene[name].data.joint_vel * 0.1]
     term = env.action_manager.get_term("arms")
     pieces += [term.targets["manipulator"], term.targets["camera_arm"]]
+    if term.exp.task == "plug":
+        pieces += [term.tcp_target, term.gimbal_target]
     # Pose of each image's camera is reconstructable from the joint angles. Include
     # fixed calibration explicitly so searched external placements are distinguishable.
     fixed = state(env).fixed_calibration
@@ -238,13 +338,7 @@ def instantaneous_success(env):
     cfg = state(env).cfg
     speed = torch.linalg.vector_norm(env.scene["object"].data.root_link_lin_vel_w, dim=-1)
     if cfg.task == "plug":
-        aligned = env.scene["object"].data.root_link_quat_w[:, 0].abs() > 0.99905
-        return (
-            (torch.linalg.vector_norm(tip[:, :2] - goal[:, :2], dim=-1) < cfg.clearance * 0.8)
-            & ((tip[:, 2] - goal[:, 2]).abs() < 0.003)
-            & aligned
-            & (speed < 0.05)
-        )
+        return torch.linalg.vector_norm(obj - goal, dim=-1) < plug.SUCCESS_DISTANCE
     tol, ztol, withdraw = (0.018, 0.006, 0.045) if cfg.task == "transfer" else (0.015, 0.004, 0.025)
     return (
         (torch.linalg.vector_norm(obj[:, :2] - goal[:, :2], dim=-1) < tol)
@@ -273,8 +367,8 @@ def potential(env):
     tcp, obj, tip, goal = positions(env)
     cfg = state(env).cfg
     if cfg.task == "plug":
-        xy = torch.linalg.vector_norm(tip[:, :2] - goal[:, :2], dim=-1)
-        z = (tip[:, 2] - goal[:, 2]).abs()
+        xy = torch.linalg.vector_norm(obj[:, :2] - goal[:, :2], dim=-1)
+        z = (obj[:, 2] - goal[:, 2]).abs()
         return torch.exp(-xy / 0.035) + torch.exp(-xy / 0.008) * torch.exp(-z / 0.025)
     reach = torch.exp(-torch.linalg.vector_norm(tcp - obj, dim=-1) / 0.05)
     place = torch.exp(-torch.linalg.vector_norm(obj - goal, dim=-1) / 0.045)

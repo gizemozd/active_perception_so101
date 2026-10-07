@@ -12,10 +12,16 @@ positive test, and the proposed contact-dependent seating variants still require
 mechanical validation.
 
 The October 5 correction in that report restores the original hidden-prong plug
-as a primary candidate. The current centered-pin/marker prototypes did not test
+as a primary candidate. The earlier centered-pin/marker prototypes did not test
 the legacy task's unknown prong offset, and their retreat result cannot be used
 to dismiss its reported active-camera benefit. Best-static and initial-inspection
-comparisons for the original task remain open.
+comparisons for the original task remain open. The [faithful task port](PLUG_RESTORATION.md)
+is now implemented and mechanically checked; no comparative policies are trained.
+
+The [literature review](LITERATURE_POSITIONING.md) audits the four supplied papers
+and related active-VLA/memory work. It narrows the prospective contribution to the
+measured value of fresh physical observations under strong sensing and memory
+controls; spare-arm vision, RL gaze, random occlusion, and memory are established.
 
 ## Comparisons
 
@@ -65,7 +71,11 @@ to privileged task completion; a slow learned policy may encounter it in a
 different manipulation phase. The optical panel deliberately has no contact.
 Physical fixture walls and the hand produce additional natural occlusion.
 
-Clean episodes are essential negative controls. The random occluder can disappear
+For the restored plug, clean is the default: its occlusion comes from the plug
+body and hand. Its 3.5-second horizon means the old 3–7 second panel schedule is
+not the main plug experiment. Panel modes remain explicit supplementary controls.
+
+Clean episodes are essential controls. The random occluder can disappear
 before the 12-second deadline, so waiting is a valid strategy; do not remove that
 possibility to force a positive result. Compare completion time and camera travel
 as well as success. Add shorter deadlines or longer occlusion only as explicit,
@@ -82,8 +92,10 @@ predeclared distribution rather than tuning to maximize the active-policy gap.
 
 - Plug: pregrasped rigid fixture, no cable or insertion force sensing. The 2 mm
   clearance is a starting setting; rerun both physics sanity and pixel-resolution
-  checks if changing it. The socket has a fixed orientation and ±8 mm XY reset
-  variation. Success is not an electrical connection test.
+  checks if changing it. The socket has fixed orientation and XY uniform in [0, 50] mm². Four
+  hidden offsets of ±15 mm change the required body position. The wrist has a
+  small direct cue for one variant at the checked reset pose; three remain
+  pixel-identical there. See the restoration audit for the measured scope. Success is not an electrical connection test.
 - Transfer: the supplied camera housing needs a tall open cubby for access. The
   wrist has a strong view of grasping; movement may offer little advantage on clean
   episodes. The walls are physical and can exclude some searched static views.

@@ -11,7 +11,9 @@ def reports(tmp_path, split="validation"):
     for view in range(2):
         for seed in range(3):
             path = tmp_path / f"{view}-{seed}.json"
-            exp = Experiment(condition="wrist_static", fixed_position=static_candidates()[view])
+            exp = Experiment(
+                condition="wrist_static", fixed_position=static_candidates("plug")[view]
+            )
             path.write_text(
                 json.dumps(
                     {

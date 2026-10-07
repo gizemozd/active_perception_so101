@@ -32,8 +32,8 @@ def test_warp_rgb_actor_runner_and_subset_reset(env):
     from active_perception_arms.policy import runner_cfg
 
     obs, _ = env.reset(seed=12)
-    assert obs["proprio"].shape == (2, 43)
-    assert obs["critic"].shape == (2, 68)
+    assert obs["proprio"].shape == (2, 51)
+    assert obs["critic"].shape == (2, 76)
     for name in ("wrist", "external"):
         assert obs[name].shape == (2, 3, 32, 32)
         assert obs[name].dtype == torch.uint8
@@ -63,7 +63,7 @@ def test_camera_freeze_and_no_actor_privileged_state_leak(env):
     mdp.state(env).onset[:] += 0.5
     mdp.state(env).duration[:] += 0.7
     torch.testing.assert_close(original, mdp.proprio(env))
-    action = torch.ones(2, 10) * 0.1
+    action = torch.ones(2, 8) * 0.1
     before = term.targets["camera_arm"].clone()
     term.process_actions(action)
     assert not torch.equal(before, term.targets["camera_arm"])
@@ -110,7 +110,7 @@ def test_terminal_success_survives_auto_reset(env, monkeypatch):
     s.hold[:] = 2
     s.last_success_step = -1
     monkeypatch.setattr(mdp, "instantaneous_success", lambda _: torch.ones(2, dtype=torch.bool))
-    _, reward, terminated, _, _ = env.step(torch.zeros(2, 10))
+    _, reward, terminated, _, _ = env.step(torch.zeros(2, 8))
     assert terminated.all()
     assert env.termination_manager.get_term("success").all()
     assert (reward > 9).all()

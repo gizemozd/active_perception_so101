@@ -19,21 +19,29 @@ from .sanity import OverviewRecorder, mosaic
 from .scenes import OVERVIEW_SIZE
 
 
-def sync_native_state(proxy, env, step):
+def sync_native_state(proxy, env, step, index=0):
     """Mirror Warp state for diagnostic IK and the OpenGL observer camera."""
-    proxy.data.qpos[:] = env.sim.data.qpos[0].cpu().numpy()
-    proxy.data.qvel[:] = env.sim.data.qvel[0].cpu().numpy()
+    proxy.data.qpos[:] = env.sim.data.qpos[index].cpu().numpy()
+    proxy.data.qvel[:] = env.sim.data.qvel[index].cpu().numpy()
+    origin = env.scene.env_origins[index].cpu().numpy()
+    proxy.data.qpos[proxy.object_adr : proxy.object_adr + 3] -= origin
     for body in ("fixture/fixture", "occluder/panel"):
         native_id = proxy.model.body(body).mocapid[0]
         warp_id = env.sim.mj_model.body(body).mocapid[0]
-        proxy.data.mocap_pos[native_id] = env.sim.data.mocap_pos[0, warp_id].cpu().numpy()
-        proxy.data.mocap_quat[native_id] = env.sim.data.mocap_quat[0, warp_id].cpu().numpy()
+        proxy.data.mocap_pos[native_id] = (
+            env.sim.data.mocap_pos[index, warp_id].cpu().numpy() - origin
+        )
+        proxy.data.mocap_quat[native_id] = env.sim.data.mocap_quat[index, warp_id].cpu().numpy()
     proxy.data.time = step * proxy.cfg.step_dt
     proxy.step_count = step
     for name in proxy.targets:
         proxy.targets[name] = (
-            env.action_manager.get_term("arms").targets[name][0].cpu().numpy().copy()
+            env.action_manager.get_term("arms").targets[name][index].cpu().numpy().copy()
         )
+    if proxy.cfg.task == "plug":
+        term = env.action_manager.get_term("arms")
+        proxy.tcp_target = term.tcp_target[index].cpu().numpy().copy()
+        proxy.gimbal_target = term.gimbal_target[index].cpu().numpy().copy()
     mujoco.mj_forward(proxy.model, proxy.data)
 
 

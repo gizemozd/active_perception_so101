@@ -13,6 +13,8 @@ set -euo pipefail
 source "${PROJECT_ROOT:-${SLURM_SUBMIT_DIR:-$PWD}}/scripts/slurm/common.sh"
 : "${TASK:?Set TASK to plug, transfer, or push}"
 condition="${CONDITION:-wrist_static}"
+default_occlusion=random
+if [[ "$TASK" == plug ]]; then default_occlusion=clean; fi
 if [[ "$condition" != static && "$condition" != wrist_static ]]; then exit 2; fi
 index="${SLURM_ARRAY_TASK_ID:-0}"
 nenv="${NUM_ENVS:-256}"
@@ -20,7 +22,7 @@ budget="${TOTAL_STEPS:-18432000}"
 if (( index < 0 || index > 77 || nenv % 8 != 0 || budget % (nenv * 24) != 0 )); then exit 2; fi
 args=(-m active_perception_arms.train --task "$TASK" --condition "$condition"
   --seed "$((index % 3))" --fixed-view "$((index / 3))" --num-envs "$nenv"
-  --iterations "$((budget / (nenv * 24)))" --occlusion "${OCCLUSION:-random}"
+  --iterations "$((budget / (nenv * 24)))" --occlusion "${OCCLUSION:-$default_occlusion}"
   --memory "${MEMORY:-gru}" --log-root "${LOG_ROOT:-logs/static-search}")
 if [[ "${DRY_RUN:-0}" == 1 ]]; then args+=(--dry-run); fi
 run_python "${args[@]}"

@@ -19,8 +19,8 @@ def test_untrained_checkpoint_evaluation_and_replay_roundtrip(tmp_path):
     (tmp_path / "runner.json").write_text(json.dumps(options))
     obs = TensorDict(
         {
-            "proprio": torch.zeros(1, 43),
-            "critic": torch.zeros(1, 68),
+            "proprio": torch.zeros(1, 51),
+            "critic": torch.zeros(1, 76),
             "wrist": torch.zeros(1, 3, 32, 32, dtype=torch.uint8),
             "external": torch.zeros(1, 3, 32, 32, dtype=torch.uint8),
         },

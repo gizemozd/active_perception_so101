@@ -12,18 +12,22 @@ from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
 
-from .config import CONDITIONS, OCCLUSIONS, TASKS, Experiment, static_candidates
+from .config import CONDITIONS, OCCLUSIONS, TASKS, Experiment, saved_experiment, static_candidates
 
 
 def parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--task", choices=TASKS, required=True)
     p.add_argument("--condition", choices=CONDITIONS, default="active")
-    p.add_argument("--occlusion", choices=OCCLUSIONS, default="random")
+    p.add_argument(
+        "--occlusion", choices=OCCLUSIONS, help="Default: clean for plug, random otherwise"
+    )
     p.add_argument("--num-envs", type=int, default=256)
     p.add_argument("--seed", type=int, default=0)
-    p.add_argument("--width", type=int, default=96)
-    p.add_argument("--height", type=int, default=72)
+    p.add_argument("--width", type=int)
+    p.add_argument("--height", type=int)
+    p.add_argument("--initial-seconds", type=float, default=1.0)
+    p.add_argument("--episode-seconds", type=float)
     p.add_argument("--iterations", type=int, default=3000)
     p.add_argument(
         "--fixed-view", type=int, default=0, help="Index in the published static camera search grid"
@@ -38,7 +42,7 @@ def parser():
 
 
 def experiment_from_args(args):
-    candidates = static_candidates()
+    candidates = static_candidates(args.task)
     if not 0 <= args.fixed_view < len(candidates):
         raise ValueError(f"fixed-view must be in [0, {len(candidates) - 1}]")
     if args.iterations < 1:
@@ -55,6 +59,8 @@ def experiment_from_args(args):
         seed=args.seed,
         width=args.width,
         height=args.height,
+        initial_seconds=args.initial_seconds,
+        episode_seconds=args.episode_seconds,
         fixed_position=candidates[args.fixed_view],
         perturb_push=args.perturb_push,
         memory=args.memory,
@@ -65,7 +71,9 @@ def main(argv=None):
     args = parser().parse_args(argv)
     cfg = experiment_from_args(args)
     if args.resume:
-        original = json.loads(args.resume.with_name("experiment.json").read_text())
+        original = saved_experiment(
+            json.loads(args.resume.with_name("experiment.json").read_text())
+        ).to_dict()
         # A resume restores the same experiment; interventions belong in evaluation.
         for key, value in cfg.to_dict().items():
             if key != "num_envs" and json.dumps(value) != json.dumps(original[key]):

@@ -17,6 +17,7 @@ artifacts/**/*.log
 !artifacts/tests.log
 !artifacts/sanity/*.mp4
 !artifacts/warp_sanity/*.mp4
+!artifacts/plug_restoration/**/*.mp4
 artifacts/task_screening/*
 !artifacts/task_screening/README.md
 !artifacts/task_screening/pixel_screen/

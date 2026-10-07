@@ -1,8 +1,9 @@
-.................................sss.................................... [100%]
+.................................sss.................................... [ 85%]
+............                                                             [100%]
 =============================== warnings summary ===============================
 .venv/lib/python3.12/site-packages/torch/jit/_script.py:1480: 35 warnings
   /Users/pembe/Desktop/Projects/ActivePerception/active_perception_arms/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1480: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
     warnings.warn(
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-69 passed, 3 skipped, 35 warnings in 22.21s
+81 passed, 3 skipped, 35 warnings in 42.28s

@@ -210,3 +210,61 @@
 - Corrected the report, README, study notes and media index. Restored the original
   hidden-prong plug as a primary candidate. No legacy files or environment code
   changed, and no training ran. A faithful port of the original task is still needed.
+
+## 2026-10-06 — literature review and research positioning
+
+- Read all four user-provided papers through their methods, experiments,
+  limitations, and appendices; checked key table/diagram pages visually. Saved
+  page-specific findings and a proposed experiment sequence in
+  `docs/LITERATURE_POSITIONING.md`, linked from the study protocol.
+- Identified direct prior coverage of spare-arm vision (EFM/BAP), learned gaze
+  (EyeRobot), random-time occlusion and camera-attributable visibility (BAVO),
+  and precise manipulation with fixed stereo plus fixation (EyeRobot 2.0).
+- Checked additional primary sources including ActiveArena, TAVIS, SaPaVe, and
+  ActiveScale. Memory, VLA integration, and task-conditional comparisons are also
+  established; the memo makes no field-wide novelty claim.
+- Recommended first restoring the original hidden-prong task and testing searched
+  fixed sensing, initial inspection/history, prescribed scans, and adaptive motion.
+  Proposed separating unchanged occluded state from genuinely stale information
+  before expanding contact tasks or adding a pretrained-policy comparison.
+- This was research/documentation work only. No environment changes, policy
+  training, cluster submission, or hardware execution. User PDFs remain untracked.
+
+## 2026-10-07 — original hidden-prong plug restored and rendered
+
+- Ported the original four hidden-offset variants, two-prong/two-hole geometry,
+  holder collar, equalized inertial properties, spawn distributions, offset-based
+  2 mm success target, compliant grasp and jaw contacts. Restored the north camera
+  base and the original 3D Cartesian / 5D gimbal controls. The marker-screening
+  harness retains its historical centered-pin geometry separately.
+- Added batched tensor IK once per control step, CUDA compilation hooks, balanced
+  per-world mesh variants and revision checks that reject retired plug checkpoints.
+  Fixed MjLab 1.4's original-spec IDs remaining -1 on the variant-loading path by
+  compiling the original scene before entity initialization. Regression tests
+  verify body/mocap IDs, actual per-world prong positions and subset resets.
+- Kept study settings explicitly documented: 25 Hz, current 48.46-degree FOV,
+  128x96 plug images, common 1-second inspection pause plus 2.5-second manipulation,
+  three-step success hold and the current reward. These are not a bit-for-bit
+  legacy training reproduction. Default plug occlusion is clean. Slurm dry runs
+  use these defaults and the task-specific 26-view grid, including low fixed views.
+- Improved white-arm presentation with plastic/brass finishes, bench texture,
+  fixture fasteners, lighting and background. Added a 1080p task close-up alongside
+  the outside overview. Policy shadows remain disabled in native and Warp RGB.
+- Recorded all four variants using native physics and a balanced four-world
+  MjLab/Warp CPU rollout. All 4/4 succeed on both backends; final Warp errors are
+  0.22–0.26 mm. Twelve additional native runs over three randomized paired reset
+  seeds also succeed. Scripts use privileged goals and a blind camera schedule;
+  these results establish mechanical feasibility, not learned sensing advantage.
+- Saved 17 videos under `artifacts/plug_restoration`, decoded their first/middle/
+  last frames and verified dimensions. Inspected overview, close-up, native
+  matched-view and actual Warp RGB galleries. Reports, commands and video links
+  are in `docs/PLUG_RESTORATION.md` and the artifact directory's README.
+- Preserved the visibility caveats: the wrist has a small direct `xp` cue at the
+  matched reset (17 differing native RGB pixels / 9 Warp pixels), while the other
+  three wrist images match. Low fixed view 7 exposes all variants at that pose.
+  Best-static and initial-inspection-plus-memory success remain open comparisons.
+- Validation: `pytest -q` **81 passed, 3 skipped** (CUDA unavailable on this Mac);
+  Ruff checks and formatting pass. Test output is in `artifacts/tests.log`.
+  GPU throughput/CUDA execution remain for the supplied cluster validation jobs.
+- No learning, cluster submission or physical robot execution. Legacy files are
+  unchanged. The supplied literature PDFs remain outside the commits.

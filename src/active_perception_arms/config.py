@@ -26,25 +26,47 @@ FOVY = 48.4554906359
 class Experiment:
     task: Task = "plug"
     condition: Condition = "active"
-    occlusion: Occlusion = "random"
+    occlusion: Occlusion | None = None
     seed: int = 0
     num_envs: int = 256
-    width: int = 96
-    height: int = 72
+    width: int | None = None
+    height: int | None = None
     timestep: float = 0.002
     decimation: int = 20
-    episode_seconds: float = 12.0
+    episode_seconds: float | None = None
     initial_seconds: float = 1.0
     joint_step: float = 0.035
     randomize: bool = True
     perturb_push: bool = False
-    fixed_position: tuple[float, float, float] = CAMERA_HOME
-    fixed_lookat: tuple[float, float, float] = CAMERA_LOOKAT
+    fixed_position: tuple[float, float, float] | None = None
+    fixed_lookat: tuple[float, float, float] | None = None
     clearance: float = 0.002
     render_sensors: bool = True
     memory: Literal["gru", "none"] = "gru"
+    plug_variant: Literal["xm", "xp", "ym", "yp"] | None = None
+    task_revision: str | None = None
 
     def __post_init__(self):
+        from . import plug
+
+        defaults = {
+            "task_revision": "hidden_prongs_v1" if self.task == "plug" else "v1",
+            "occlusion": "clean" if self.task == "plug" else "random",
+            "width": 128 if self.task == "plug" else 96,
+            "height": 96 if self.task == "plug" else 72,
+            # Same inspection pause for every sensing condition, followed by the
+            # original plug task's 2.5-second manipulation budget.
+            "episode_seconds": self.initial_seconds + 2.5 if self.task == "plug" else 12.0,
+            "fixed_position": plug.GIMBAL_HOME[:3] if self.task == "plug" else CAMERA_HOME,
+            "fixed_lookat": (0.022, 0.045, 0.047) if self.task == "plug" else CAMERA_LOOKAT,
+        }
+        for name, value in defaults.items():
+            if getattr(self, name) is None:
+                object.__setattr__(self, name, value)
+        if self.task == "plug" and self.task_revision != "hidden_prongs_v1":
+            raise ValueError(
+                "The centered-pin plug prototype is incompatible with hidden_prongs_v1"
+            )
         for value, choices, name in (
             (self.task, TASKS, "task"),
             (self.condition, CONDITIONS, "condition"),
@@ -64,6 +86,10 @@ class Experiment:
             raise ValueError("perturb_push is only defined for pushing")
         if self.memory not in ("gru", "none"):
             raise ValueError("memory must be gru or none")
+        if self.plug_variant is not None and (
+            self.task != "plug" or self.plug_variant not in plug.VARIANTS
+        ):
+            raise ValueError("plug_variant requires plug and one of xm/xp/ym/yp")
 
     @property
     def step_dt(self):
@@ -75,7 +101,19 @@ class Experiment:
 
     @property
     def manip_dim(self):
-        return 6 if self.task == "transfer" else 5
+        return {"plug": 3, "transfer": 6, "push": 5}[self.task]
+
+    @property
+    def camera_base(self):
+        from . import plug
+
+        return plug.CAMERA_BASE if self.task == "plug" else CAMERA_BASE
+
+    @property
+    def camera_base_yaw(self):
+        from . import plug
+
+        return plug.CAMERA_BASE_YAW if self.task == "plug" else CAMERA_BASE_YAW
 
     @property
     def action_dim(self):
@@ -93,13 +131,25 @@ class Experiment:
         return asdict(self)
 
 
-def static_candidates():
+def static_candidates(task=None):
     """Broad view search including overhead; no test-set selection happens here."""
     import math
 
-    poses = [CAMERA_HOME, (0.0, 0.025, 0.60)]
-    for height in (0.22, 0.35, 0.50):
+    from . import plug
+
+    poses = [plug.GIMBAL_HOME[:3] if task == "plug" else CAMERA_HOME, (0.0, 0.025, 0.60)]
+    # Include grazing views of the underside: overhead-only searches would make
+    # the hidden-prong fixed-camera comparison artificially weak.
+    for height in (0.08, 0.22, 0.35) if task == "plug" else (0.22, 0.35, 0.50):
         for azimuth in (-135, -90, -45, 0, 45, 90, 135, 180):
             a = math.radians(azimuth)
-            poses.append((0.30 * math.cos(a), 0.025 + 0.30 * math.sin(a), height))
+            radius = 0.18 if height == 0.08 else 0.30
+            poses.append((radius * math.cos(a), 0.025 + radius * math.sin(a), height))
     return poses
+
+
+def saved_experiment(data):
+    """Reject old plug checkpoints instead of silently changing their task."""
+    if data.get("task", "plug") == "plug" and data.get("task_revision") != "hidden_prongs_v1":
+        raise ValueError("Legacy centered-pin experiment; restore its code revision to evaluate it")
+    return Experiment(**data)

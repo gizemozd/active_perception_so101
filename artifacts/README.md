@@ -1,9 +1,13 @@
 # Rendered checks
 
+**Current plug task:** [four restored hidden-prong variants, HD close-ups and
+actual Warp camera videos](plug_restoration/README.md). The plug videos in the
+older tables below show the retired centered-pin prototype.
+
 The new [task-screening gallery](task_screening/README.md) contains the candidate
 enclosures, searched-fixed comparisons, scripted camera-motion videos, retained
-failures and pre-training results. These prototypes are separate from the complete
-original-task rollouts below.
+failures and pre-training results. These prototypes are separate from the earlier
+three-task rollouts below.
 
 The arms are white. The fixed outside camera records both arms and the work area
 at **1920×1080, 25 fps**. These videos use MjLab/Warp physics with an OpenGL observer

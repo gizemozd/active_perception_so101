@@ -1,0 +1,78 @@
+{
+  "episodes": [
+    {
+      "variant": "xm",
+      "seed": 0,
+      "success": true,
+      "final_error_m": 0.00026572617126879454
+    },
+    {
+      "variant": "xp",
+      "seed": 0,
+      "success": true,
+      "final_error_m": 0.0002271722348272163
+    },
+    {
+      "variant": "ym",
+      "seed": 0,
+      "success": true,
+      "final_error_m": 0.00024730145667352767
+    },
+    {
+      "variant": "yp",
+      "seed": 0,
+      "success": true,
+      "final_error_m": 0.00024568151699106707
+    },
+    {
+      "variant": "xm",
+      "seed": 1,
+      "success": true,
+      "final_error_m": 0.00028113434911711916
+    },
+    {
+      "variant": "xp",
+      "seed": 1,
+      "success": true,
+      "final_error_m": 0.0002408273435106998
+    },
+    {
+      "variant": "ym",
+      "seed": 1,
+      "success": true,
+      "final_error_m": 0.00026038631610471926
+    },
+    {
+      "variant": "yp",
+      "seed": 1,
+      "success": true,
+      "final_error_m": 0.0002621571173159331
+    },
+    {
+      "variant": "xm",
+      "seed": 2,
+      "success": true,
+      "final_error_m": 0.00024042598753278908
+    },
+    {
+      "variant": "xp",
+      "seed": 2,
+      "success": true,
+      "final_error_m": 0.00020719013369892365
+    },
+    {
+      "variant": "ym",
+      "seed": 2,
+      "success": true,
+      "final_error_m": 0.0002207288742349678
+    },
+    {
+      "variant": "yp",
+      "seed": 2,
+      "success": true,
+      "final_error_m": 0.0002263257448520187
+    }
+  ],
+  "training_started": false,
+  "controller": "privileged scripted; three paired reset seeds; not a learned-policy evaluation"
+}

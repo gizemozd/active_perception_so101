@@ -12,31 +12,36 @@ waiting and hand retreat. It recommends connector/seating variants for further
 mechanical validation and retains pushing as a negative control. These are
 pre-training diagnostics, not learned-policy success results.
 
-**Plug-task scope correction:** the current `plug` implementation uses a centered
-pin; it does not preserve the original project's four hidden prong-offset variants.
-The [legacy-task audit](docs/TASK_SCREENING.md#correction-the-original-hidden-prong-plug-is-a-different-task--2026-10-05)
-records the original task's reported active-camera benefit and explains why the
-new prototype's hand-retreat result does not apply to it. That original task remains
-a primary candidate and still needs a faithful port into this checkout.
+**The original hidden-prong plug task is restored.** Four identical bodies hide
+four different two-prong offsets, with the original socket, grasp, equalized
+inertia, Cartesian control and camera-arm layout. See the
+[restoration report](docs/PLUG_RESTORATION.md) and
+[all four variants on video](artifacts/plug_restoration/README.md).
+The earlier centered-pin and marker-prototype results remain historical controls;
+they do not describe this restored task.
 
 ## Tasks and controls
 
 | Task | Physical task | Information question |
 |---|---|---|
-| `plug` | Insert a pregrasped keyed pin into a socket; 2 mm clearance | Does another viewpoint reveal alignment when the hand/plug obscures the socket? |
+| `plug` | Identify a hidden ±15 mm prong offset and insert both prongs into a two-hole socket | Does initial or continued external sensing improve offset identification and alignment? |
 | `transfer` | Grasp a cube in a shallow tray and place it inside an open cubby | Does useful viewing direction change between grasping, transport, and placement? |
 | `push` | Push a block with a rigid tip to a visible target and withdraw | Does fresh feedback help after occlusion or an optional object disturbance? |
 
-Success requires alignment/placement, low object speed, and three consecutive
-control steps. Transfer and pushing also require hand withdrawal. Plug acquisition
+Success requires three consecutive control steps. Plug success uses the original
+2 mm body-position tolerance around the offset-corrected goal; transfer and
+pushing require placement, low object speed, and hand withdrawal. Plug acquisition
 is excluded with a pregrasp weld; transfer uses contact grasping. No teleportation
 or attachment assists the transfer/push diagnostic controllers.
 
 All modes receive joint positions, joint velocities, servo targets, fixed camera
 calibration, and elapsed time. Object/goal state and occlusion timers are restricted
-to the training critic and reward calculation. Policy images are 96×72 RGB at
-25 Hz with identical 48.46° vertical FOV. Actions are bounded joint target increments; the
-transfer gripper has an additional aperture command. Both arms retain collisions.
+to the training critic and reward calculation. Policy images are RGB at 25 Hz
+with identical 48.46° vertical FOV: 128×96 for plug, 96×72 for transfer/push.
+Plug uses three absolute TCP actions with fixed grasp orientation plus five
+camera-gimbal deltas when enabled; commanded TCP/gimbal state is also observable.
+Transfer/push use bounded joint target increments; transfer additionally controls
+gripper aperture. Both arms retain collisions.
 
 | Condition | Actor images | Camera control |
 |---|---|---|
@@ -44,7 +49,7 @@ transfer gripper has an additional aperture command. Both arms retain collisions
 | `static` | Fixed external | Second arm parked |
 | `wrist_static` | Wrist + fixed external | Second arm parked |
 | `initial` | Wrist + camera arm | Learned movement for the first second, then target held |
-| `scheduled` | Wrist + camera arm | Precomputed joint path; no observation feedback |
+| `scheduled` | Wrist + camera arm | Precomputed camera path; no observation feedback |
 | `active` | Wrist + camera arm | Learned camera actions throughout |
 
 The first second holds the manipulation arm in **every** mode. A GRU is shared
@@ -61,13 +66,16 @@ uv run arms-train --task plug --condition active --dry-run
 uv run arms-sanity --output artifacts/sanity --occlusion clean
 uv run arms-sanity --output artifacts/sanity --occlusion phase
 uv run python -m active_perception_arms.warp_sanity --device cpu
+# Restored plug: all four variants, matched views, native and Warp videos:
+uv run python -m active_perception_arms.plug_audit
 ```
 
 Both sanity commands also save an **external overview video at 1920×1080, 25 fps**
 (`*_overview.mp4`) and a full-resolution PNG (`*_overview.png`). The fixed `overview`
 camera frames both arms and the workspace from the front left. Use `--no-overview`
 to skip this additional diagnostic rendering. Policy observations keep their
-existing 96×72 cameras; the overview is not registered as an RL sensor.
+task-specific policy resolution; the overview is not registered as an RL sensor.
+The restored plug also has a 1080p `task_detail` observer, excluded from RL inputs.
 
 `arms-sanity` uses native MuJoCo for fast scripted physics/video and segmentation
 visibility audits. `warp_sanity` uses the actual MjLab/Warp physics and batch RGB
@@ -116,7 +124,10 @@ and 18,432,000 transitions/run. `NUM_ENVS`, `TOTAL_STEPS`, `MEMORY`, `OCCLUSION`
 `LOG_ROOT`, `FIXED_VIEW`, `RESUME`, and `PROJECT_ROOT` are environment overrides.
 The iteration count adjusts to preserve transition budget when NUM_ENVS changes;
 use the same value within a comparison because batch size affects optimization.
-`PERTURB_PUSH=1` enables a brief lateral force in pushing.
+`PERTURB_PUSH=1` enables a brief lateral force in pushing. Plug defaults to clean
+occlusion and a 3.5-second episode (1-second inspection plus 2.5-second action
+budget); the other tasks retain random occlusion and 12 seconds. Old centered-pin
+checkpoints are rejected by the `hidden_prongs_v1` task revision check.
 
 Dry-check job dispatch without Slurm or training:
 
@@ -127,7 +138,8 @@ DRY_RUN=1 SLURM_ARRAY_TASK_ID=17 bash scripts/slurm/train_plug.sbatch
 ## Search the fixed baseline before claiming an active-camera advantage
 
 View 0 is a reference pose, **not an optimized baseline**. The grid has 26 views,
-including an overhead view and views at three heights around the table. Search
+including overhead and views at three heights around the table. For plug these
+heights are 8, 22 and 35 cm; the low ring is essential for seeing the underside. Search
 `static` and `wrist_static` separately, with the same training budget and seeds:
 
 ```bash
@@ -169,8 +181,10 @@ See [docs/STUDY.md](docs/STUDY.md) for interpretation and limitations.
 ## Performance and implementation
 
 - MjLab provides Warp batched physics, camera rendering, and CUDA graph execution.
-- Joint-space control avoids CPU IK and host transfers in the learning step path.
-- Only requested views render, once per control step; no depth, shadows, or textures.
+- Plug uses batched tensor IK once per control step, compiled on CUDA; the other
+  tasks use joint-space control. Neither learning step path copies state to the CPU.
+- Only requested views render, once per control step; no depth or policy shadows.
+  Plug enables a small workbench texture; HD observers only render in diagnostics.
 - Images remain uint8 in observation and rollout storage, converted inside the CNN.
   Two 96×72 views × 256 environments × 24 steps occupy 255 MB as uint8 versus
   1.02 GB as float32, excluding overhead and other state.

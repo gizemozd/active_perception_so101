@@ -15,7 +15,7 @@ MuJoCo Warp commit used by the earlier project. This intentionally uses a pinned
 stack rather than tracking MjLab main. `uv.lock` records full dependency versions.
 
 The copied `NOTICE.md` describes legacy FOV/material settings. In this project
-**all policy** cameras use 48.45549° vertical FOV, 96×72 pixels by default, and
+**all policy** cameras use 48.45549° vertical FOV, 128×96 pixels for plug and 96×72 for transfer/push by default, and
 white arm materials. Gripper friction and the camera mounting geometry remain
 those of the supplied model. The optical intervention panel has collision disabled;
 robot links, plug/socket, cube, tray, cubby, and table have physical collisions.
@@ -27,3 +27,11 @@ cylindrical tip below the gripper TCP (5 g). The robot XML itself stays unchange
 
 A separate `overview` camera uses a 42° vertical FOV for 1920×1080 diagnostic
 videos. It is not included in the actor observations or the fixed-view search.
+
+The restored plug reuses `assets/insertion/holder1.stl`, copied byte-for-byte
+from the user-supplied legacy repository's `assets/insertion/assets/holder1.stl`.
+The plug and socket geometry are procedural ports of its insertion specs, not
+new downloaded models. See the [local provenance notice](../src/active_perception_arms/assets/insertion/NOTICE.md).
+The bench texture, gradient background, visual legs and flush fixture fasteners
+are procedural. They add no variant labels or collision geometry. The tabletop
+is extended under the restored camera-arm base; its top surface remains z=0.

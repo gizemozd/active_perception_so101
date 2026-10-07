@@ -1,0 +1,257 @@
+[
+  {
+    "file": "native/plug_xm_clean.mp4",
+    "frames": 29,
+    "size": [
+      1152,
+      330
+    ],
+    "fps": 8.33,
+    "sampled_frames": [
+      0,
+      14,
+      28
+    ],
+    "bytes": 124690
+  },
+  {
+    "file": "native/plug_xm_clean_detail.mp4",
+    "frames": 87,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      43,
+      86
+    ],
+    "bytes": 848901
+  },
+  {
+    "file": "native/plug_xm_clean_overview.mp4",
+    "frames": 87,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      43,
+      86
+    ],
+    "bytes": 612493
+  },
+  {
+    "file": "native/plug_xp_clean.mp4",
+    "frames": 29,
+    "size": [
+      1152,
+      330
+    ],
+    "fps": 8.33,
+    "sampled_frames": [
+      0,
+      14,
+      28
+    ],
+    "bytes": 119395
+  },
+  {
+    "file": "native/plug_xp_clean_detail.mp4",
+    "frames": 87,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      43,
+      86
+    ],
+    "bytes": 745489
+  },
+  {
+    "file": "native/plug_xp_clean_overview.mp4",
+    "frames": 87,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      43,
+      86
+    ],
+    "bytes": 578564
+  },
+  {
+    "file": "native/plug_ym_clean.mp4",
+    "frames": 29,
+    "size": [
+      1152,
+      330
+    ],
+    "fps": 8.33,
+    "sampled_frames": [
+      0,
+      14,
+      28
+    ],
+    "bytes": 125545
+  },
+  {
+    "file": "native/plug_ym_clean_detail.mp4",
+    "frames": 87,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      43,
+      86
+    ],
+    "bytes": 818435
+  },
+  {
+    "file": "native/plug_ym_clean_overview.mp4",
+    "frames": 87,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      43,
+      86
+    ],
+    "bytes": 600399
+  },
+  {
+    "file": "native/plug_yp_clean.mp4",
+    "frames": 29,
+    "size": [
+      1152,
+      330
+    ],
+    "fps": 8.33,
+    "sampled_frames": [
+      0,
+      14,
+      28
+    ],
+    "bytes": 119599
+  },
+  {
+    "file": "native/plug_yp_clean_detail.mp4",
+    "frames": 87,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      43,
+      86
+    ],
+    "bytes": 828310
+  },
+  {
+    "file": "native/plug_yp_clean_overview.mp4",
+    "frames": 87,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      43,
+      86
+    ],
+    "bytes": 610105
+  },
+  {
+    "file": "warp/plug_all_variants_warp.mp4",
+    "frames": 30,
+    "size": [
+      1024,
+      468
+    ],
+    "fps": 8.33,
+    "sampled_frames": [
+      0,
+      15,
+      29
+    ],
+    "bytes": 128649
+  },
+  {
+    "file": "warp/plug_xm_warp_detail.mp4",
+    "frames": 88,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      44,
+      87
+    ],
+    "bytes": 848814
+  },
+  {
+    "file": "warp/plug_xp_warp_detail.mp4",
+    "frames": 88,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      44,
+      87
+    ],
+    "bytes": 750993
+  },
+  {
+    "file": "warp/plug_ym_warp_detail.mp4",
+    "frames": 88,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      44,
+      87
+    ],
+    "bytes": 817274
+  },
+  {
+    "file": "warp/plug_yp_warp_detail.mp4",
+    "frames": 88,
+    "size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "sampled_frames": [
+      0,
+      44,
+      87
+    ],
+    "bytes": 828144
+  }
+]

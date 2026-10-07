@@ -83,7 +83,7 @@ class ScreenScene:
         cfg = Experiment(
             task=self.base_task, condition="active", randomize=False, occlusion="clean", num_envs=1
         )
-        spec = native_spec(cfg)
+        spec = native_spec(cfg, marker_prototype=True)
         if self.base_task == "push":
             spec.delete(spec.geom("table/partition"))
         # Retain the actual gripper and its pregrasped plug as natural top occlusion.
@@ -168,7 +168,7 @@ class ScreenScene:
         self.model = spec.compile()
         self.data = mujoco.MjData(self.model)
         self.ik = Kinematics(self.model)
-        self.home = calibration(self.base_task)
+        self.home = calibration(self.base_task, marker_prototype=True)
         self.qadr = {
             name: np.array([self.model.joint(name + "/" + j).qposadr[0] for j in JOINTS])
             for name in ("manipulator", "camera_arm")

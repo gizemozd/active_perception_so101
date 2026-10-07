@@ -35,10 +35,12 @@ run_training() {
     echo 'NUM_ENVS must divide 8 minibatches; TOTAL_STEPS must divide NUM_ENVS*24.' >&2; exit 2
   fi
   local view=0
+  local default_occlusion=random
+  if [[ "$task" == plug ]]; then default_occlusion=clean; fi
   if [[ "$condition" == static || "$condition" == wrist_static ]]; then view="${FIXED_VIEW:-0}"; fi
   local args=(-m active_perception_arms.train --task "$task" --condition "$condition"
     --seed "$seed" --num-envs "$nenv" --iterations "$((budget / (nenv * 24)))"
-    --occlusion "${OCCLUSION:-random}" --memory "${MEMORY:-gru}" --fixed-view "$view"
+    --occlusion "${OCCLUSION:-$default_occlusion}" --memory "${MEMORY:-gru}" --fixed-view "$view"
     --log-root "${LOG_ROOT:-logs}")
   if [[ "${PERTURB_PUSH:-0}" == 1 ]]; then args+=(--perturb-push); fi
   if [[ -n "${RESUME:-}" ]]; then args+=(--resume "$RESUME"); fi

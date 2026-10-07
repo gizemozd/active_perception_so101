@@ -30,6 +30,11 @@ def select(reports, expected_seeds=3, allow_incomplete=False):
             exp["memory"],
             exp["width"],
             exp["height"],
+            exp.get("task_revision"),
+            exp.get("episode_seconds"),
+            exp.get("initial_seconds"),
+            tuple(exp["fixed_lookat"]),
+            exp.get("plug_variant"),
             report["seed"],
             report["episodes"],
         )
@@ -40,7 +45,7 @@ def select(reports, expected_seeds=3, allow_incomplete=False):
                 "Mixing tasks, conditions, sensors, or evaluation protocols is invalid"
             )
         position = tuple(exp["fixed_position"])
-        candidates = static_candidates()
+        candidates = static_candidates(exp["task"])
         if position not in candidates:
             raise ValueError("View is outside the published search grid")
         index = candidates.index(position)
@@ -70,7 +75,7 @@ def select(reports, expected_seeds=3, allow_incomplete=False):
         "condition": identity[1],
         "occlusion": identity[2],
         "selected_view": winner,
-        "position": static_candidates()[winner],
+        "position": static_candidates(identity[0])[winner],
         "validation_scores": scores,
         "training_seeds": sorted(seed_sets[winner]),
         "complete_grid": len(groups) == len(static_candidates()),

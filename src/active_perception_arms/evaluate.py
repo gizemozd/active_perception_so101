@@ -11,7 +11,7 @@ import numpy as np
 import torch
 from rsl_rl.utils import resolve_callable
 
-from .config import OCCLUSIONS, Experiment
+from .config import OCCLUSIONS, saved_experiment
 from .environment import make_env
 
 
@@ -20,7 +20,7 @@ def load_actor(checkpoint, observations, device):
     options = copy.deepcopy(config["actor"])
     cls = resolve_callable(options.pop("class_name"))
     options = {k: v for k, v in options.items() if v is not None}
-    experiment = Experiment(**json.loads(checkpoint.with_name("experiment.json").read_text()))
+    experiment = saved_experiment(json.loads(checkpoint.with_name("experiment.json").read_text()))
     actor = cls(observations, config["obs_groups"], "actor", experiment.action_dim, **options).to(
         device
     )
@@ -43,7 +43,9 @@ def wilson(successes, total):
 def evaluate(args):
     if args.episodes < 1 or args.num_envs < 1:
         raise ValueError("episodes and num-envs must be positive")
-    original = Experiment(**json.loads(args.checkpoint.with_name("experiment.json").read_text()))
+    original = saved_experiment(
+        json.loads(args.checkpoint.with_name("experiment.json").read_text())
+    )
     cfg = replace(
         original,
         num_envs=min(args.num_envs, args.episodes),
@@ -72,6 +74,7 @@ def evaluate(args):
         actor = load_actor(args.checkpoint, obs, args.device)
         with torch.inference_mode():
             for batch in range(batches):
+                env.action_manager.get_term("arms").camera_frozen = False
                 obs, _ = env.reset(seed=args.seed + batch)
                 actor.reset()
                 finished = torch.zeros(cfg.num_envs, device=args.device, dtype=torch.bool)
@@ -96,6 +99,8 @@ def evaluate(args):
                             action[:, cfg.manip_dim :] = replay[batch, step]
                         if args.freeze_camera_after is not None and t >= args.freeze_camera_after:
                             action[:, cfg.manip_dim :] = 0
+                            # Zero gimbal deltas would still let iterative IK move.
+                            env.action_manager.get_term("arms").camera_frozen = True
                         if args.camera_trace_out:
                             recorded.append(action[:, cfg.manip_dim :].cpu().numpy())
                     before = env.scene["camera_arm"].data.joint_pos.clone()

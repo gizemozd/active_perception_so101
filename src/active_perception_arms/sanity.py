@@ -17,7 +17,8 @@ from .scenes import OVERVIEW_SIZE
 class OverviewRecorder:
     """Full-HD OpenGL view of the supplied native or mirrored Warp state."""
 
-    def __init__(self, model, video_path=None, fps=25):
+    def __init__(self, model, video_path=None, fps=25, camera="overview"):
+        self.camera = camera
         self.renderer = mujoco.Renderer(model, width=OVERVIEW_SIZE[0], height=OVERVIEW_SIZE[1])
         self.option = mujoco.MjvOption()
         self.option.geomgroup[:] = (1, 1, 1, 0, 0, 0)
@@ -30,7 +31,7 @@ class OverviewRecorder:
         self.last_frame = None
 
     def capture(self, data):
-        self.renderer.update_scene(data, camera="overview", scene_option=self.option)
+        self.renderer.update_scene(data, camera=self.camera, scene_option=self.option)
         self.last_frame = self.renderer.render().copy()
         if self.writer:
             self.writer.append_data(self.last_frame)
@@ -63,9 +64,11 @@ class CameraAudit:
     def render(self, camera):
         self.renderer.disable_segmentation_rendering()
         self.renderer.update_scene(self.env.data, camera=camera, scene_option=self.option)
+        self.renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SHADOW] = False
         rgb = self.renderer.render().copy()
         self.renderer.enable_segmentation_rendering()
         self.renderer.update_scene(self.env.data, camera=camera, scene_option=self.option)
+        self.renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SHADOW] = False
         seg = self.renderer.render().copy()
         self.renderer.disable_segmentation_rendering()
         ids = np.where(seg[..., 1] == mujoco.mjtObj.mjOBJ_GEOM, seg[..., 0], -1)
@@ -76,7 +79,10 @@ class CameraAudit:
             "occluder_pixels": int((ids == self.panel_id).sum()),
         }
         if self.env.cfg.task == "plug":
-            metrics["pin_pixels"] = int((ids == self.env.model.geom("object/pin").id).sum())
+            for tag in ("a", "b"):
+                metrics[f"prong_{tag}_pixels"] = int(
+                    (ids == self.env.model.geom(f"object/prong_{tag}").id).sum()
+                )
         cid = self.env.model.camera(camera).id
         local = self.env.data.cam_xmat[cid].reshape(3, 3).T @ (
             self.env.goal - self.env.data.cam_xpos[cid]
@@ -117,6 +123,7 @@ def run(
     randomize=False,
     video=True,
     overview=True,
+    plug_variant=None,
 ):
     cfg = Experiment(
         task=task,
@@ -126,7 +133,9 @@ def run(
         episode_seconds=seconds,
         randomize=randomize,
         num_envs=1,
+        plug_variant=plug_variant,
     )
+    stem = f"{task}_{plug_variant}_{occlusion}" if plug_variant else f"{task}_{occlusion}"
     env = NativeEnv(cfg)
     policy, audit = ScriptedPolicy(env), CameraAudit(env)
     output = Path(output)
@@ -134,22 +143,30 @@ def run(
     cams = ("manipulator/wrist_cam", "fixed", "camera_arm/wrist_cam")
     records, snapshots = [], []
     writer = (
-        imageio.get_writer(
-            output / f"{task}_{occlusion}.mp4", fps=1 / (cfg.step_dt * 3), macro_block_size=2
-        )
+        imageio.get_writer(output / f"{stem}.mp4", fps=1 / (cfg.step_dt * 3), macro_block_size=2)
         if video
         else None
     )
     observer = (
         OverviewRecorder(
             env.model,
-            output / f"{task}_{occlusion}_overview.mp4" if video else None,
+            output / f"{stem}_overview.mp4" if video else None,
             fps=1 / cfg.step_dt,
         )
         if overview
         else None
     )
     successful = False
+    detail = (
+        OverviewRecorder(
+            env.model,
+            output / f"{stem}_detail.mp4" if video else None,
+            fps=1 / cfg.step_dt,
+            camera="task_detail",
+        )
+        if overview and task == "plug"
+        else None
+    )
     success_hold = 0
     max_contacts = 0
     try:
@@ -161,6 +178,8 @@ def run(
                 raise RuntimeError(f"Non-finite physics in {task} at step {step}")
             if observer and video:
                 observer.capture(env.data)
+            if detail and video:
+                detail.capture(env.data)
             if step % 3:
                 continue
             images, labels = [], []
@@ -180,6 +199,9 @@ def run(
             records.append(rec)
         report = {
             "task": task,
+            "task_revision": cfg.task_revision,
+            "plug_variant": env.variant if task == "plug" else None,
+            "controller": "Privileged scripted manipulation; blind scheduled camera motion",
             "occlusion": occlusion,
             "seed": seed,
             "scripted_success": successful,
@@ -192,18 +214,23 @@ def run(
             "overview_resolution": list(OVERVIEW_SIZE) if observer else None,
             "frames": records,
         }
-        (output / f"{task}_{occlusion}.json").write_text(json.dumps(report, indent=2))
+        (output / f"{stem}.json").write_text(json.dumps(report, indent=2))
         gallery = Image.new("RGB", (snapshots[0].width, sum(x.height for x in snapshots)))
         y = 0
         for snapshot in snapshots:
             gallery.paste(snapshot, (0, y))
             y += snapshot.height
-        gallery.save(output / f"{task}_{occlusion}.png")
+        gallery.save(output / f"{stem}.png")
         if observer:
             if not video:
                 observer.capture(env.data)
-            observer.save_frame(output / f"{task}_{occlusion}_overview.png")
-            observer.save_frame(output / f"{task}_overview.png")
+            observer.save_frame(output / f"{stem}_overview.png")
+            if plug_variant is None:
+                observer.save_frame(output / f"{task}_overview.png")
+        if detail:
+            if not video:
+                detail.capture(env.data)
+            detail.save_frame(output / f"{stem}_detail.png")
         return {k: v for k, v in report.items() if k != "frames"}
     finally:
         audit.close()
@@ -211,6 +238,8 @@ def run(
             writer.close()
         if observer:
             observer.close()
+        if detail:
+            detail.close()
 
 
 def main(argv=None):
@@ -221,6 +250,7 @@ def main(argv=None):
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--seconds", type=float, default=12)
     parser.add_argument("--randomize", action="store_true")
+    parser.add_argument("--plug-variant", choices=("xm", "xp", "ym", "yp"))
     parser.add_argument("--no-video", action="store_true")
     parser.add_argument("--no-overview", action="store_true", help="Skip the 1080p observer render")
     args = parser.parse_args(argv)
@@ -237,6 +267,7 @@ def main(argv=None):
             randomize=args.randomize,
             video=not args.no_video,
             overview=not args.no_overview,
+            plug_variant=args.plug_variant if task == "plug" else None,
         )
         for task in args.tasks
     ]
