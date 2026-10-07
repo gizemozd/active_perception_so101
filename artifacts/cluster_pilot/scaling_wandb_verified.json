@@ -1,0 +1,126 @@
+[
+  {
+    "path": "artifacts/cluster_pilot/bench-51136002-active-2048-ppo.json",
+    "id": "mj9kayxf",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/mj9kayxf",
+    "iterations": 12,
+    "transitions": 589824
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136003-wrist-1024-ppo.json",
+    "id": "9rb62gd4",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/9rb62gd4",
+    "iterations": 12,
+    "transitions": 294912
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136004-wrist-2048-ppo.json",
+    "id": "pduaid2e",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/pduaid2e",
+    "iterations": 12,
+    "transitions": 589824
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136005-wrist_static-1024-ppo.json",
+    "id": "0tv2p8nm",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/0tv2p8nm",
+    "iterations": 12,
+    "transitions": 294912
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136006-wrist_static-2048-ppo.json",
+    "id": "cadfwrko",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/cadfwrko",
+    "iterations": 12,
+    "transitions": 589824
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136258-initial-1024-ppo.json",
+    "id": "kfuar3ec",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/kfuar3ec",
+    "iterations": 12,
+    "transitions": 294912
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136296-initial-2048-ppo.json",
+    "id": "leytqr1o",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/leytqr1o",
+    "iterations": 12,
+    "transitions": 589824
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136315-active-1024-ppo.json",
+    "id": "v3qai9tc",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/v3qai9tc",
+    "iterations": 12,
+    "transitions": 294912
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136318-active-4096-ppo.json",
+    "id": "np51ttob",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/np51ttob",
+    "iterations": 12,
+    "transitions": 1179648
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136319-wrist-4096-ppo.json",
+    "id": "jmyarnky",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/jmyarnky",
+    "iterations": 12,
+    "transitions": 1179648
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136320-wrist_static-4096-ppo.json",
+    "id": "07y1a2ab",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/07y1a2ab",
+    "iterations": 12,
+    "transitions": 1179648
+  },
+  {
+    "path": "artifacts/cluster_pilot/bench-51136321-initial-4096-ppo.json",
+    "id": "ys6yij7u",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/ys6yij7u",
+    "iterations": 12,
+    "transitions": 1179648
+  },
+  {
+    "path": "artifacts/cluster_pilot/profile-active-512.json",
+    "id": "4hij4szn",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/4hij4szn",
+    "transitions_per_second": 4874.764436620197
+  },
+  {
+    "path": "artifacts/cluster_pilot/scaling-active-4096-actor.json",
+    "id": "yu2bqx20",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/yu2bqx20",
+    "transitions_per_second": 10464.124050912793
+  },
+  {
+    "path": "artifacts/cluster_pilot/scaling-active-4096-no-render.json",
+    "id": "jzws98yx",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/jzws98yx",
+    "transitions_per_second": 32168.652209254225
+  },
+  {
+    "path": "artifacts/cluster_pilot/scaling-active-4096-render.json",
+    "id": "tqvonryi",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/tqvonryi",
+    "transitions_per_second": 12325.485538894469
+  }
+]

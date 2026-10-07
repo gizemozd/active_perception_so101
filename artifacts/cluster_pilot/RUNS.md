@@ -46,3 +46,17 @@ No project jobs remain pending/running.
 
 Known terminal failures: 51113803 missing Python headers; 51116045_0 W&B constructor failure before PPO; 51121081_0 held before launch then cancelled; 51123808/09/11 numerical validation succeeded but separate replay failed. Later fixes and recorded diagnostic repeats are retained, not substituted into historical statuses.
 The first job 51111068 was hardware inventory, not training. The first attempted PPO job was 51116045_0; the first completed PPO benchmark was 51121191_0. The scientific pilots are 51123326_0/6/9/15.
+
+
+## Throughput follow-up — completed
+
+- 51136002_0–7: four sensing conditions × N1024,N2048; 12 disposable PPO iterations
+  each, first three warmup. All COMPLETED/0:0, elapsed 1m58s–3m46s.
+- 51136318_0–3: four sensing conditions × N4096; same 12-iteration disposable
+  protocol. All COMPLETED/0:0, elapsed 2m57s–4m23s.
+- 51136215: N512 active rollout phase profile, no learning; COMPLETED/0:0, 2m05s.
+- 51136461: N4096 simulation-only, rendered simulation and actor inference in
+  sequence, no PPO; COMPLETED/0:0, 4m10s.
+
+[Detailed results and W&B links](THROUGHPUT.md); [exact accounting, runtime metadata,
+checkpoints and commands](run_inventory.json). Queue checked empty after completion.

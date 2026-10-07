@@ -1,0 +1,67 @@
+{
+  "experiment": {
+    "task": "plug",
+    "condition": "active",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 4096,
+    "width": 128,
+    "height": 96,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 3.5,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_position": [
+      0.0,
+      0.19,
+      0.22
+    ],
+    "fixed_lookat": [
+      0.022,
+      0.045,
+      0.047
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "plug_variant": null,
+    "task_revision": "hidden_prongs_v1"
+  },
+  "kind": "simulation_and_rendering_only",
+  "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/tqvonryi",
+  "hostname": "holygpu7c1916.rc.fas.harvard.edu",
+  "python": "3.12.13",
+  "torch_cuda": "12.8",
+  "slurm_job_id": "51136461",
+  "packages": {
+    "torch": "2.10.0+cu128",
+    "mjlab": "1.4.0",
+    "mujoco": "3.9.0",
+    "mujoco-warp": "3.8.1",
+    "warp-lang": "1.13.0",
+    "rsl-rl-lib": "5.2.0"
+  },
+  "environment_initialization_seconds": 6.592696402221918,
+  "warmup_seconds": 13.70162263372913,
+  "actual_transitions": 409600,
+  "units": "One vectorized control step advances N environments = N environment transitions; 20 physics substeps/control step.",
+  "gpu_metrics": {
+    "gpu_memory_mib": 23311.0,
+    "gpu_utilization_pct": 100.0,
+    "gpu_peak_memory_mib": 23311.0,
+    "gpu_mean_utilization_pct": 76.62745098039215
+  },
+  "device": "cuda:0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "warmup_steps": 25,
+  "timed_steps": 100,
+  "elapsed_seconds": 33.23195655923337,
+  "environment_steps_per_second": 12325.485538894467,
+  "actor_inference": false,
+  "training_started": false,
+  "torch_peak_bytes": 814510592,
+  "note": "Torch memory excludes Warp allocations; inspect nvidia-smi for total VRAM. Inference only; PPO update cost excluded."
+}

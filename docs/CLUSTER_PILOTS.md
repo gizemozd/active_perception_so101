@@ -51,6 +51,11 @@ sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx scripts/slurm/bench
 
 Benchmark mapping: four conditions × N=64,128,256,512, indices 0–15; each cell
 runs inference followed by 12 actual PPO iterations, the first three warmup.
+`BENCH_COUNTS='1024 2048'` overrides the grid to eight cells (indices 0–7);
+`BENCH_COUNTS=4096` gives four cells (indices 0–3). These follow-up sweeps already
+completed; see [throughput findings](../artifacts/cluster_pilot/THROUGHPUT.md).
+Set `SKIP_INFERENCE=1` for PPO-only measurements. A larger environment batch changes
+PPO update frequency at a fixed transition budget; the existing pilots remain N512.
 The default concurrency is one for initial uncontended comparisons. Queue/node
 co-residency must be reported; partition jobs can share a node with other users.
 Choose a common environment count only after every condition fits and completes.

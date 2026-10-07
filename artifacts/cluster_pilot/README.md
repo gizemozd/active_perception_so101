@@ -74,3 +74,16 @@ are committed. W&B API readback verified all four training runs, original valida
 scores, and recorded-repeat metrics; all are finished, with no unsynchronized run.
 The supplied Mac checkout was unavailable from this cluster session; its state was
 not assumed or modified.
+
+
+## Throughput follow-up (2026-10-07)
+
+[Measured scaling and profiling](THROUGHPUT.md) extends the disposable sweep to
+N1024/2048/4096. N2048 trains 1.8–2.3× faster than N512; N4096 adds only 9–16%.
+Simulation-only reaches 32.2k transitions/s, versus 12.3k with rendering, 10.5k
+with actor inference, and 6.94k with active PPO at N4096. These are distinct
+workloads, not interchangeable throughput figures. One GPU per policy; no DDP.
+All 14 follow-up Slurm allocations completed (16 W&B runs verified finished).
+No project jobs remain queued/running. Original pilots and evaluation identities
+remain unchanged; no relative success ranking is supported. Increasing N changes
+PPO updates per transition and needs a learning-efficiency comparison before adoption.

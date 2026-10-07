@@ -681,3 +681,95 @@ captures initial-policy camera targets to verify their post-inspection freeze.
   common.sh passes bash syntax; git diff whitespace check passes after standardizing
   generated comparison CSV line endings to LF. Recorded-media validation verified
   40 videos and 20 captured trajectories. No project jobs remain in squeue.
+
+
+## 2026-10-07 — throughput follow-up (in progress)
+
+User asked about 20–30k steps/s, optimization, multi-GPU, and whether success
+comparisons are premature. Queue was empty before this follow-up. Completed
+scientific pilots and their configurations remain unchanged; no extra pilot work.
+
+- Current training is one GPU per policy, independent concurrent runs; no
+  distributed PPO launch. The adjacent legacy checkout has a retained pl3 launch
+  requesting four GPUs × 1,024 envs/GPU at 96px; that log failed with SIGBUS and
+  contains no verified throughput. Its benchmark script sweeps up to 8,192 envs.
+- Legacy insertion config uses timestep 0.0044 and five physics substeps/control
+  step; restored plug uses 0.002 and twenty substeps (25 Hz), with 128×96 RGB.
+  Thus historical steps/s needs workload, GPU count, and units checked.
+- Submitted disposable PPO array **51136002**, indices 0–7%4, all four conditions
+  × N=1024,2048, 12 iterations/cell, three warmup. Existing benchmark script,
+  BENCH_COUNTS='1024 2048', SKIP_INFERENCE=1, WANDB_RUN_GROUP=plug-scaling-20261007.
+  Code e6c80c7 at initial launch; no task/policy changes. Single GPU, 8 CPUs,
+  48 GiB per cell, kempner_rtx/account kempner_pgozdil_lab.
+- Submitted **51136215**, a disposable active/GRU N512 rollout phase profile,
+  code cda6176. First measures 100 uninstrumented actor/env control steps after
+  25 warmup, then 100 instrumented steps using CUDA-event spans and host timings.
+  No learning. Separate W&B benchmark-profile run; output profile-active-512.json.
+  CUDA spans include host scheduling gaps and are not pure kernel utilization.
+- Relative policy success is not established: only one seed, 100 updates, rare
+  successes, and recorded repeats changing episode outcomes. Current results are
+  diagnostics, not a policy ranking or evidence against active perception.
+
+- Initial N2048 wrist result: 10,491 transitions/s, peak 30,607 MiB.
+  Added all-four-condition N4096 disposable sweep (12 iterations, three warmup),
+  same unchanged task/PPO configuration, to locate the scaling/memory limit.
+
+- N4096 all-condition sweep is array **51136318**, indices 0–3%4; 12 PPO
+  iterations/cell = 1,179,648 disposable transitions each (884,736 measured after
+  warmup), same one-GPU resources. This is not additional pilot training.
+- Phase-profile job **51136215** completed successfully, W&B **4hij4szn**:
+  https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/4hij4szn
+  Uninstrumented actor/env: 51,200 transitions/10.503s = 4,874.8/s. Instrumented
+  CUDA spans/control step: physics 63.18ms, rendering 30.63ms, forward 3.04ms,
+  action/IK 2.33ms, actor 2.18ms, resets 1.11ms amortized. Physics+render dominate;
+  compiling reset IK is not the main opportunity in this measurement.
+- Job **51136461** measures N4096 active simulation without rendering, simulation
+  with rendering (both zero-action), then actor+environment inference, sequentially
+  on one GPU. Source 3e15cb1. These deliberately exclude PPO and have distinct W&B
+  types/labels; actual PPO throughput comes only from the training sweeps.
+- Larger N changes PPO rollout batch and update frequency at fixed transitions.
+  A performance win does not establish equal learning efficiency. N2048 gives
+  25 updates per 1,228,800 transitions, versus the pilots' 100 at N512; N4096
+  does not divide either proposed scientific transition budget into 24-step
+  integer iterations. Do not silently change existing pilot configuration.
+
+
+### Throughput follow-up completed
+
+- All **14** new Slurm allocations completed with exit **0:0**, no failed/resumed
+  cells; **16** W&B runs read back as finished with expected metrics/transitions.
+  No project jobs remain in squeue. [Report](artifacts/cluster_pilot/THROUGHPUT.md),
+  [plot](artifacts/cluster_pilot/throughput_scaling.png),
+  [machine-readable results](artifacts/cluster_pilot/throughput_followup.json),
+  [W&B verification](artifacts/cluster_pilot/scaling_wandb_verified.json).
+- Training transitions/s at N512 → N2048 → N4096: wrist 4512 → 10491 → 12162;
+  wrist_static/view7 3827 → 7169 → 7902; initial 3456 → 6266 → 6845;
+  active 3408 → 6223 → 6941. All one GPU, identical restored physics/vision/GRU.
+  N2048 uses 29.9–39.4 GiB, N4096 58.6–77.7 GiB. Practical scaling point: N2048;
+  doubling again adds only 9–16%. Existing pilots remain N512.
+- N4096 active zero-action simulation: **32,168.7 transitions/s**; with cameras:
+  **12,325.5/s**; untrained actor+env: **10,464.1/s**. Each measured 409,600
+  transitions after 25 warmup steps. PPO active: **6,940.8/s**, 884,736 measured
+  transitions after warmup. These are separate workloads, not additive ablations.
+- Twelve new PPO benchmarks used 8,257,536 disposable transitions, 6,193,152 after
+  warmup, **0.573 application GPU-hours** including W&B finish. Per-cell init,
+  warmup, rollout/update times, GPU memory, variation and extrapolations retained
+  in JSON/CSV. GPU utilization averages include startup; do not label them steady.
+- N2048 offers 1.8–2.3× measured throughput improvement, but only 25 PPO updates
+  per pilot-sized transition budget versus 100 at N512. A conditional 87-policy
+  N2048 budget is 62.1 GPU-h / ideal 15.5h on four GPUs, excluding overheads;
+  this has not been established as learning-equivalent and is not submitted.
+- Optimization priority: investigate physics/collision/solver and camera renderer
+  kernels while preserving task fidelity. Reset IK and actor inference were small
+  shares. Existing CUDA graphs/compiled IK already enabled. Larger timesteps or
+  fewer solver iterations require mechanical revalidation, not silent adoption.
+- Scientific interpretation unchanged: no supported success ranking from one seed,
+  100 updates and rare, repeat-sensitive successes. Resolve measurement issues,
+  then consider longer matched training. No scientific budget was extended.
+- Verified no diff in task/environment/config/policy/training source versus 4e3b8ff.
+  Added configurable benchmark grids, explicit simulation/inference labels, phase
+  profiler, plotting and inventory support. Actual GPU execution verified all paths;
+  Ruff/format/bash syntax and whitespace checks pass. No new dependency needed.
+- Follow-up accounting totals **0.719 allocated GPU-hours** including the
+  phase profile and three simulator/inference diagnostics. Checked all 14 job
+  exit codes, all 12 PPO budgets (12 iterations each), and 16 W&B final states.

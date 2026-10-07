@@ -138,7 +138,7 @@ def main(argv=None):
             "actor_inference": args.actor,
             "training_started": False,
             "torch_peak_bytes": torch.cuda.max_memory_allocated() if cuda else None,
-            "note": "Torch memory excludes Warp allocations; inspect nvidia-smi for total VRAM. Inference only; PPO update cost excluded.",
+            "note": "Torch memory excludes Warp allocations; inspect nvidia-smi for total VRAM. No PPO updates; kind distinguishes simulation, rendered simulation, and actor inference.",
         }
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(report, indent=2))

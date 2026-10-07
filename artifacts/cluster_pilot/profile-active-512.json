@@ -1,0 +1,121 @@
+{
+  "kind": "rollout_phase_profile_no_learning",
+  "experiment": {
+    "task": "plug",
+    "condition": "active",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 512,
+    "width": 128,
+    "height": 96,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 3.5,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_position": [
+      0.0,
+      0.19,
+      0.22
+    ],
+    "fixed_lookat": [
+      0.022,
+      0.045,
+      0.047
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "plug_variant": null,
+    "task_revision": "hidden_prongs_v1"
+  },
+  "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+  "slurm_job_id": "51136215",
+  "hostname": "holygpu7c1731.rc.fas.harvard.edu",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "steps_per_phase": 100,
+  "units": "N environment transitions per vector control step; 20 physics substeps",
+  "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/4hij4szn",
+  "environment_initialization_seconds": 45.47900229413062,
+  "warmup_seconds": 39.882867474108934,
+  "baseline_seconds": 10.503071618266404,
+  "baseline_transitions": 51200,
+  "baseline_transitions_per_second": 4874.764436620197,
+  "instrumented_seconds": 10.421299800742418,
+  "phases": {
+    "actor": {
+      "calls": 100,
+      "host_dispatch_ms_per_control_step": 0.45058288611471653,
+      "cuda_stream_span_ms_per_control_step": 2.1751008081436156
+    },
+    "action_processing_ik": {
+      "calls": 100,
+      "host_dispatch_ms_per_control_step": 0.6401390675455332,
+      "cuda_stream_span_ms_per_control_step": 2.3256051206588744
+    },
+    "apply_targets": {
+      "calls": 2000,
+      "host_dispatch_ms_per_control_step": 0.15129965264350176,
+      "cuda_stream_span_ms_per_control_step": 0.08841247884789481
+    },
+    "write_sim": {
+      "calls": 2001,
+      "host_dispatch_ms_per_control_step": 2.25522942841053,
+      "cuda_stream_span_ms_per_control_step": 1.2653625812754035
+    },
+    "physics": {
+      "calls": 2000,
+      "host_dispatch_ms_per_control_step": 0.29725044034421444,
+      "cuda_stream_span_ms_per_control_step": 63.17572836995125
+    },
+    "scene_update": {
+      "calls": 2000,
+      "host_dispatch_ms_per_control_step": 0.019648517481982708,
+      "cuda_stream_span_ms_per_control_step": 0.008971520024060738
+    },
+    "terminations": {
+      "calls": 100,
+      "host_dispatch_ms_per_control_step": 0.2619264181703329,
+      "cuda_stream_span_ms_per_control_step": 0.06509632036089898
+    },
+    "rewards": {
+      "calls": 100,
+      "host_dispatch_ms_per_control_step": 0.19762258511036634,
+      "cuda_stream_span_ms_per_control_step": 0.05581760033965111
+    },
+    "forward": {
+      "calls": 100,
+      "host_dispatch_ms_per_control_step": 0.023893825709819794,
+      "cuda_stream_span_ms_per_control_step": 3.043733438253403
+    },
+    "camera_rendering": {
+      "calls": 100,
+      "host_dispatch_ms_per_control_step": 0.005159666761755943,
+      "cuda_stream_span_ms_per_control_step": 30.633406715393065
+    },
+    "observations": {
+      "calls": 100,
+      "host_dispatch_ms_per_control_step": 0.3031445760279894,
+      "cuda_stream_span_ms_per_control_step": 0.15219167932868005
+    },
+    "reset_ik_nested": {
+      "calls": 1,
+      "host_dispatch_ms_per_control_step": 1.07816721778363,
+      "cuda_stream_span_ms_per_control_step": 1.0783721923828125
+    },
+    "reset_inclusive": {
+      "calls": 1,
+      "host_dispatch_ms_per_control_step": 1.109139327891171,
+      "cuda_stream_span_ms_per_control_step": 1.1092479705810547
+    }
+  },
+  "gpu_metrics": {
+    "gpu_memory_mib": 4459.0,
+    "gpu_utilization_pct": 100.0,
+    "gpu_peak_memory_mib": 4459.0,
+    "gpu_mean_utilization_pct": 25.235294117647058
+  },
+  "note": "CUDA event spans include host launch gaps, not only GPU kernel work. Instrumentation adds overhead. reset_ik_nested overlaps reset_inclusive. Baseline and instrumented windows are successive, not identical trajectories. No PPO optimization; compare real training benchmarks separately."
+}

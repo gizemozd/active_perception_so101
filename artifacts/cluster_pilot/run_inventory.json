@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-07T14:30:02.343427-04:00",
+  "checked_at": "2026-10-07T15:15:42.312255-04:00",
   "jobs": [
     {
       "JobID": "51111068",
@@ -170,6 +170,13 @@
           "checkpoint_paths": [],
           "wandb": null,
           "summary": null
+        }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51116045-wrist-64-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/my5q07yk"
         }
       ]
     },
@@ -485,6 +492,13 @@
           },
           "summary": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n128_20261007T174513Z/summary.json"
         }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121585-wrist-128-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/fttn6sel"
+        }
       ]
     },
     {
@@ -631,6 +645,13 @@
             "mode": "online"
           },
           "summary": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n256_20261007T174513Z/summary.json"
+        }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121586-wrist-256-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/13bxaqgw"
         }
       ]
     },
@@ -779,6 +800,13 @@
           },
           "summary": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n512_20261007T174551Z/summary.json"
         }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121587-wrist-512-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/y3w7y1jg"
+        }
       ]
     },
     {
@@ -925,6 +953,13 @@
             "mode": "online"
           },
           "summary": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n64_20261007T174557Z/summary.json"
+        }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121659-wrist_static-64-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/synkjswy"
         }
       ]
     },
@@ -1073,6 +1108,13 @@
           },
           "summary": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n128_20261007T174828Z/summary.json"
         }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121854-wrist_static-128-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/xao4mbh8"
+        }
       ]
     },
     {
@@ -1219,6 +1261,13 @@
             "mode": "online"
           },
           "summary": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n256_20261007T174724Z/summary.json"
+        }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121860-wrist_static-256-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/v5tlqn0n"
         }
       ]
     },
@@ -1367,6 +1416,13 @@
           },
           "summary": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n512_20261007T174809Z/summary.json"
         }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121872-wrist_static-512-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/7vq3ocs4"
+        }
       ]
     },
     {
@@ -1513,6 +1569,13 @@
             "mode": "online"
           },
           "summary": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n64_20261007T174832Z/summary.json"
+        }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121886-initial-64-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/ovbb28ja"
         }
       ]
     },
@@ -1661,6 +1724,13 @@
           },
           "summary": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n128_20261007T175059Z/summary.json"
         }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51122108-initial-128-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/blj3yhdh"
+        }
       ]
     },
     {
@@ -1807,6 +1877,13 @@
             "mode": "online"
           },
           "summary": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n256_20261007T175015Z/summary.json"
+        }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51122135-initial-256-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/0bzxuy9e"
         }
       ]
     },
@@ -1955,6 +2032,13 @@
           },
           "summary": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n512_20261007T175046Z/summary.json"
         }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51122152-initial-512-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/sozvftrl"
+        }
       ]
     },
     {
@@ -2101,6 +2185,13 @@
             "mode": "online"
           },
           "summary": "logs/benchmarks/plug_active_clean_gru_v0_s0_n64_20261007T175026Z/summary.json"
+        }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51122158-active-64-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/53qhd02q"
         }
       ]
     },
@@ -2249,6 +2340,13 @@
           },
           "summary": "logs/benchmarks/plug_active_clean_gru_v0_s0_n128_20261007T175300Z/summary.json"
         }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51122340-active-128-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/2g4ylgx3"
+        }
       ]
     },
     {
@@ -2396,6 +2494,13 @@
           },
           "summary": "logs/benchmarks/plug_active_clean_gru_v0_s0_n256_20261007T175207Z/summary.json"
         }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51122342-active-256-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/e70sok1p"
+        }
       ]
     },
     {
@@ -2542,6 +2647,13 @@
             "mode": "online"
           },
           "summary": "logs/benchmarks/plug_active_clean_gru_v0_s0_n512_20261007T175301Z/summary.json"
+        }
+      ],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/bench-51121584-active-512-inference.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/pzqmn4yw"
         }
       ]
     },
@@ -4143,6 +4255,1894 @@
         "media": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos",
         "diagnostic_repeat": true
       }
+    },
+    {
+      "JobID": "51136002_0",
+      "JobIDRaw": "51136003",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:05:55",
+      "Start": "2026-10-07T15:05:55",
+      "End": "2026-10-07T15:07:53",
+      "Elapsed": "00:01:58",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1713",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-7%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n1024_20261007T190608Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "wrist",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "1024",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136003-wrist-1024-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "e6c80c7a0451f8ca41b692310bfeac373b4a6ff0",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136003",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1713.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "wrist",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 1024,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 294912,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 294912,
+            "iteration_transitions": 24576,
+            "warmup": false,
+            "rollout_seconds": 2.0896563618443906,
+            "ppo_seconds": 0.7169686192646623,
+            "iteration_seconds": 2.8304899828508496,
+            "transitions_per_second": 8682.595645594627,
+            "wall_seconds": 110.14323873212561,
+            "torch_peak_bytes": 9137588736,
+            "gpu_memory_mib": 15949.0,
+            "gpu_utilization_pct": 99.0,
+            "gpu_peak_memory_mib": 15949.0,
+            "gpu_mean_utilization_pct": 42.70652173913044,
+            "train/Loss/value": 0.00558391198865138,
+            "train/Loss/surrogate": 0.000821294539491646,
+            "train/Loss/entropy": 1.2131803296506405,
+            "train/Loss/learning_rate": 0.004444444444444445,
+            "train/Policy/mean_std": 0.3642632067203522,
+            "train/Perf/total_fps": 8756,
+            "train/Perf/collection_time": 2.0896563618443906,
+            "train/Perf/learning_time": 0.7169686192646623,
+            "train/Episode_Reward/task": 0.03394279628992081,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 1024.0,
+            "train/Train/mean_reward": 0.265557965580374,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n1024_20261007T190608Z/model_0.pt",
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n1024_20261007T190608Z/model_11.pt",
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n1024_20261007T190608Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "9rb62gd4",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/9rb62gd4",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n1024_20261007T190608Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136002_1",
+      "JobIDRaw": "51136004",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:05:55",
+      "Start": "2026-10-07T15:05:55",
+      "End": "2026-10-07T15:08:21",
+      "Elapsed": "00:02:26",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1713",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-7%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n2048_20261007T190608Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "wrist",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "2048",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136004-wrist-2048-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "e6c80c7a0451f8ca41b692310bfeac373b4a6ff0",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136004",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1713.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "wrist",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 2048,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 589824,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 589824,
+            "iteration_transitions": 49152,
+            "warmup": false,
+            "rollout_seconds": 2.6846511638723314,
+            "ppo_seconds": 1.3097776360809803,
+            "iteration_seconds": 4.109206297900528,
+            "transitions_per_second": 11961.434018319474,
+            "wall_seconds": 126.39478910388425,
+            "torch_peak_bytes": 18265433088,
+            "gpu_memory_mib": 30607.0,
+            "gpu_utilization_pct": 95.0,
+            "gpu_peak_memory_mib": 30607.0,
+            "gpu_mean_utilization_pct": 48.99074074074074,
+            "train/Loss/value": 0.004212837549857795,
+            "train/Loss/surrogate": -0.0011620299774222076,
+            "train/Loss/entropy": 1.191049449145794,
+            "train/Loss/learning_rate": 0.0029629629629629637,
+            "train/Policy/mean_std": 0.3596343994140625,
+            "train/Perf/total_fps": 12305,
+            "train/Perf/collection_time": 2.6846511638723314,
+            "train/Perf/learning_time": 1.3097776360809803,
+            "train/Episode_Reward/task": 0.046548809856176376,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 2048.0,
+            "train/Train/mean_reward": -0.004005380347371102,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n2048_20261007T190608Z/model_0.pt",
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n2048_20261007T190608Z/model_11.pt",
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n2048_20261007T190608Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "pduaid2e",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/pduaid2e",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n2048_20261007T190608Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136002_2",
+      "JobIDRaw": "51136005",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:05:55",
+      "Start": "2026-10-07T15:05:55",
+      "End": "2026-10-07T15:09:41",
+      "Elapsed": "00:03:46",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1716",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-7%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n1024_20261007T190626Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "wrist_static",
+              "--fixed-view",
+              "7",
+              "--num-envs",
+              "1024",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136005-wrist_static-1024-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "e6c80c7a0451f8ca41b692310bfeac373b4a6ff0",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136005",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1716.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "wrist_static",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 1024,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              1.1021821192326179e-17,
+              0.205,
+              0.08
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 294912,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 294912,
+            "iteration_transitions": 24576,
+            "warmup": false,
+            "rollout_seconds": 2.4188000219874084,
+            "ppo_seconds": 1.3061709781177342,
+            "iteration_seconds": 3.7336845230311155,
+            "transitions_per_second": 6582.2379604928365,
+            "wall_seconds": 213.75135750183836,
+            "torch_peak_bytes": 11380100096,
+            "gpu_memory_mib": 20839.0,
+            "gpu_utilization_pct": 95.0,
+            "gpu_peak_memory_mib": 20839.0,
+            "gpu_mean_utilization_pct": 29.65340909090909,
+            "train/Loss/value": 0.006051873024262022,
+            "train/Loss/surrogate": 0.0025099118993239244,
+            "train/Loss/entropy": 1.1617074720561504,
+            "train/Loss/learning_rate": 0.004444444444444444,
+            "train/Policy/mean_std": 0.35673683881759644,
+            "train/Perf/total_fps": 6597,
+            "train/Perf/collection_time": 2.4188000219874084,
+            "train/Perf/learning_time": 1.3061709781177342,
+            "train/Episode_Reward/task": -0.0021326448768377304,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 1024.0,
+            "train/Train/mean_reward": 0.10459819540381432,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n1024_20261007T190626Z/model_0.pt",
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n1024_20261007T190626Z/model_11.pt",
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n1024_20261007T190626Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "0tv2p8nm",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/0tv2p8nm",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n1024_20261007T190626Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136002_3",
+      "JobIDRaw": "51136006",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:05:55",
+      "Start": "2026-10-07T15:05:55",
+      "End": "2026-10-07T15:08:36",
+      "Elapsed": "00:02:41",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1728",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-7%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n2048_20261007T190607Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "wrist_static",
+              "--fixed-view",
+              "7",
+              "--num-envs",
+              "2048",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136006-wrist_static-2048-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "e6c80c7a0451f8ca41b692310bfeac373b4a6ff0",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136006",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1728.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "wrist_static",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 2048,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              1.1021821192326179e-17,
+              0.205,
+              0.08
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 589824,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 589824,
+            "iteration_transitions": 49152,
+            "warmup": false,
+            "rollout_seconds": 3.546224907040596,
+            "ppo_seconds": 2.53968495875597,
+            "iteration_seconds": 6.1243895906955,
+            "transitions_per_second": 8025.616148697389,
+            "wall_seconds": 152.6698743556626,
+            "torch_peak_bytes": 22736202752,
+            "gpu_memory_mib": 40381.0,
+            "gpu_utilization_pct": 95.0,
+            "gpu_peak_memory_mib": 40381.0,
+            "gpu_mean_utilization_pct": 58.93181818181818,
+            "train/Loss/value": 0.0028252727861399762,
+            "train/Loss/surrogate": 0.0009106640936806798,
+            "train/Loss/entropy": 1.1948991157114506,
+            "train/Loss/learning_rate": 0.004444444444444444,
+            "train/Policy/mean_std": 0.36121416091918945,
+            "train/Perf/total_fps": 8076,
+            "train/Perf/collection_time": 3.546224907040596,
+            "train/Perf/learning_time": 2.53968495875597,
+            "train/Episode_Reward/task": 0.07186217606067657,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 2048.0,
+            "train/Train/mean_reward": -0.02754364250227809,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n2048_20261007T190607Z/model_0.pt",
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n2048_20261007T190607Z/model_11.pt",
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n2048_20261007T190607Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "cadfwrko",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/cadfwrko",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n2048_20261007T190607Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136002_4",
+      "JobIDRaw": "51136258",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:05:55",
+      "Start": "2026-10-07T15:07:56",
+      "End": "2026-10-07T15:10:17",
+      "Elapsed": "00:02:21",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1710",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-7%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n1024_20261007T190805Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "initial",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "1024",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136258-initial-1024-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136258",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1710.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "initial",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 1024,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 294912,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 294912,
+            "iteration_transitions": 24576,
+            "warmup": false,
+            "rollout_seconds": 3.111011629924178,
+            "ppo_seconds": 1.345562526024878,
+            "iteration_seconds": 4.467859103810042,
+            "transitions_per_second": 5500.6210869636425,
+            "wall_seconds": 133.57146262470633,
+            "torch_peak_bytes": 11381749248,
+            "gpu_memory_mib": 20841.0,
+            "gpu_utilization_pct": 93.0,
+            "gpu_peak_memory_mib": 20841.0,
+            "gpu_mean_utilization_pct": 50.427350427350426,
+            "train/Loss/value": 0.018477041565347463,
+            "train/Loss/surrogate": -0.00470160667100572,
+            "train/Loss/entropy": 3.8104089349508286,
+            "train/Loss/learning_rate": 0.0029192926025390638,
+            "train/Policy/mean_std": 0.3900272250175476,
+            "train/Perf/total_fps": 5514,
+            "train/Perf/collection_time": 3.111011629924178,
+            "train/Perf/learning_time": 1.345562526024878,
+            "train/Episode_Reward/task": 0.0021732812747359276,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 1024.0,
+            "train/Train/mean_reward": 0.013904384728521109,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n1024_20261007T190805Z/model_0.pt",
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n1024_20261007T190805Z/model_11.pt",
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n1024_20261007T190805Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "kfuar3ec",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/kfuar3ec",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n1024_20261007T190805Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136002_5",
+      "JobIDRaw": "51136296",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:05:55",
+      "Start": "2026-10-07T15:08:22",
+      "End": "2026-10-07T15:11:13",
+      "Elapsed": "00:02:51",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1731",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-7%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n2048_20261007T190830Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "initial",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "2048",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136296-initial-2048-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136296",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1731.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "initial",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 2048,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 589824,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 589824,
+            "iteration_transitions": 49152,
+            "warmup": false,
+            "rollout_seconds": 4.672601283993572,
+            "ppo_seconds": 2.485306871123612,
+            "iteration_seconds": 7.181946760043502,
+            "transitions_per_second": 6843.82684002273,
+            "wall_seconds": 163.73690471518785,
+            "torch_peak_bytes": 22739244544,
+            "gpu_memory_mib": 40379.0,
+            "gpu_utilization_pct": 98.0,
+            "gpu_peak_memory_mib": 40379.0,
+            "gpu_mean_utilization_pct": 62.73154362416108,
+            "train/Loss/value": 0.017366793734254315,
+            "train/Loss/surrogate": -0.0030773232047067722,
+            "train/Loss/entropy": 3.753515802323818,
+            "train/Loss/learning_rate": 0.004378938903808595,
+            "train/Policy/mean_std": 0.3859945237636566,
+            "train/Perf/total_fps": 6866,
+            "train/Perf/collection_time": 4.672601283993572,
+            "train/Perf/learning_time": 2.485306871123612,
+            "train/Episode_Reward/task": 0.0053602890111505985,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 2048.0,
+            "train/Train/mean_reward": 0.20198548618704082,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n2048_20261007T190830Z/model_0.pt",
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n2048_20261007T190830Z/model_11.pt",
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n2048_20261007T190830Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "leytqr1o",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/leytqr1o",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n2048_20261007T190830Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136002_6",
+      "JobIDRaw": "51136315",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:05:55",
+      "Start": "2026-10-07T15:08:38",
+      "End": "2026-10-07T15:11:09",
+      "Elapsed": "00:02:31",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1713",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-7%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_active_clean_gru_v0_s0_n1024_20261007T190849Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "active",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "1024",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136315-active-1024-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136315",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1713.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "active",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 1024,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 294912,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 294912,
+            "iteration_transitions": 24576,
+            "warmup": false,
+            "rollout_seconds": 3.178381572943181,
+            "ppo_seconds": 1.3189871171489358,
+            "iteration_seconds": 4.507209022063762,
+            "transitions_per_second": 5452.598244211699,
+            "wall_seconds": 117.60439277393743,
+            "torch_peak_bytes": 11381748736,
+            "gpu_memory_mib": 20733.0,
+            "gpu_utilization_pct": 94.0,
+            "gpu_peak_memory_mib": 20733.0,
+            "gpu_mean_utilization_pct": 58.75247524752475,
+            "train/Loss/value": 0.012308300894801505,
+            "train/Loss/surrogate": -0.005173520206881221,
+            "train/Loss/entropy": 3.7861961126327515,
+            "train/Loss/learning_rate": 0.0008649755859375004,
+            "train/Policy/mean_std": 0.3886898159980774,
+            "train/Perf/total_fps": 5464,
+            "train/Perf/collection_time": 3.178381572943181,
+            "train/Perf/learning_time": 1.3189871171489358,
+            "train/Episode_Reward/task": -0.003498857142403722,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 1024.0,
+            "train/Train/mean_reward": 0.05621589502319693,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n1024_20261007T190849Z/model_0.pt",
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n1024_20261007T190849Z/model_11.pt",
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n1024_20261007T190849Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "v3qai9tc",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/v3qai9tc",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_active_clean_gru_v0_s0_n1024_20261007T190849Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136002_7",
+      "JobIDRaw": "51136002",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:05:55",
+      "Start": "2026-10-07T15:09:45",
+      "End": "2026-10-07T15:12:42",
+      "Elapsed": "00:02:57",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1716",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-7%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_active_clean_gru_v0_s0_n2048_20261007T190954Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "active",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "2048",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136002-active-2048-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136002",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1716.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "active",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 2048,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 589824,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 589824,
+            "iteration_transitions": 49152,
+            "warmup": false,
+            "rollout_seconds": 4.5857783649116755,
+            "ppo_seconds": 2.49971034610644,
+            "iteration_seconds": 7.096935227047652,
+            "transitions_per_second": 6925.806482307066,
+            "wall_seconds": 165.12147168302909,
+            "torch_peak_bytes": 22739244544,
+            "gpu_memory_mib": 40379.0,
+            "gpu_utilization_pct": 95.0,
+            "gpu_peak_memory_mib": 40379.0,
+            "gpu_mean_utilization_pct": 63.733333333333334,
+            "train/Loss/value": 0.006281098598265089,
+            "train/Loss/surrogate": -0.0015001504616520833,
+            "train/Loss/entropy": 3.854662023484707,
+            "train/Loss/learning_rate": 0.0043789389038085946,
+            "train/Policy/mean_std": 0.3916547894477844,
+            "train/Perf/total_fps": 6936,
+            "train/Perf/collection_time": 4.5857783649116755,
+            "train/Perf/learning_time": 2.49971034610644,
+            "train/Episode_Reward/task": -0.003420282853767276,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 2048.0,
+            "train/Train/mean_reward": 0.11675049781799317,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n2048_20261007T190954Z/model_0.pt",
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n2048_20261007T190954Z/model_11.pt",
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n2048_20261007T190954Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "mj9kayxf",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/mj9kayxf",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_active_clean_gru_v0_s0_n2048_20261007T190954Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136215",
+      "JobIDRaw": "51136215",
+      "JobName": "plug-profile",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:07:07",
+      "Start": "2026-10-07T15:07:07",
+      "End": "2026-10-07T15:09:12",
+      "Elapsed": "00:02:05",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1731",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --job-name=plug-profile --nodes=1 --ntasks=1 --gres=gpu:1 --cpus-per-task=8 --mem=48G --time=00:30:00 --output=logs/slurm/%x-%j.out --wrap=source scripts/slurm/common.sh; run_python -m active_perception_arms.profile_rollout --num-envs 512 --steps 100 --output artifacts/cluster_pilot/profile-active-512.json",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/profile-active-512.json",
+          "kind": "rollout_phase_profile_no_learning",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/4hij4szn"
+        }
+      ]
+    },
+    {
+      "JobID": "51136318_0",
+      "JobIDRaw": "51136319",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:08:46",
+      "Start": "2026-10-07T15:08:47",
+      "End": "2026-10-07T15:11:44",
+      "Elapsed": "00:02:57",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1713",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-3%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n4096_20261007T190854Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "wrist",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "4096",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136319-wrist-4096-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136319",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1713.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "wrist",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 4096,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 1179648,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 1179648,
+            "iteration_transitions": 98304,
+            "warmup": false,
+            "rollout_seconds": 4.712397736031562,
+            "ppo_seconds": 2.5442816270515323,
+            "iteration_seconds": 7.3231401750817895,
+            "transitions_per_second": 13423.749600546473,
+            "wall_seconds": 159.52239944878966,
+            "torch_peak_bytes": 36519552512,
+            "gpu_memory_mib": 59985.0,
+            "gpu_utilization_pct": 98.0,
+            "gpu_peak_memory_mib": 59985.0,
+            "gpu_mean_utilization_pct": 65.7132867132867,
+            "train/Loss/value": 0.00412748429516796,
+            "train/Loss/surrogate": 0.0018170766270486638,
+            "train/Loss/entropy": 1.116483099758625,
+            "train/Loss/learning_rate": 0.01,
+            "train/Policy/mean_std": 0.3501489460468292,
+            "train/Perf/total_fps": 13546,
+            "train/Perf/collection_time": 4.712397736031562,
+            "train/Perf/learning_time": 2.5442816270515323,
+            "train/Episode_Reward/task": 0.04950418323278427,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 4096.0,
+            "train/Train/mean_reward": -0.07064697619527578,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n4096_20261007T190854Z/model_0.pt",
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n4096_20261007T190854Z/model_11.pt",
+            "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n4096_20261007T190854Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "jmyarnky",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/jmyarnky",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n4096_20261007T190854Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136318_1",
+      "JobIDRaw": "51136320",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:08:46",
+      "Start": "2026-10-07T15:08:47",
+      "End": "2026-10-07T15:12:37",
+      "Elapsed": "00:03:50",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1728",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-3%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n4096_20261007T190858Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "wrist_static",
+              "--fixed-view",
+              "7",
+              "--num-envs",
+              "4096",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136320-wrist_static-4096-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136320",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1728.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "wrist_static",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 4096,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              1.1021821192326179e-17,
+              0.205,
+              0.08
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 1179648,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 1179648,
+            "iteration_transitions": 98304,
+            "warmup": false,
+            "rollout_seconds": 6.4072169261053205,
+            "ppo_seconds": 4.998585970140994,
+            "iteration_seconds": 11.419951976742595,
+            "transitions_per_second": 8608.09224068559,
+            "wall_seconds": 220.0901025738567,
+            "torch_peak_bytes": 45447625728,
+            "gpu_memory_mib": 79493.0,
+            "gpu_utilization_pct": 96.0,
+            "gpu_peak_memory_mib": 79493.0,
+            "gpu_mean_utilization_pct": 72.92893401015229,
+            "train/Loss/value": 0.0036197527915646788,
+            "train/Loss/surrogate": 0.0015405702997668413,
+            "train/Loss/entropy": 1.1082054041326046,
+            "train/Loss/learning_rate": 0.01,
+            "train/Policy/mean_std": 0.3508892059326172,
+            "train/Perf/total_fps": 8618,
+            "train/Perf/collection_time": 6.4072169261053205,
+            "train/Perf/learning_time": 4.998585970140994,
+            "train/Episode_Reward/task": 0.07922496646642685,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 4096.0,
+            "train/Train/mean_reward": 0.11735128715634346,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n4096_20261007T190858Z/model_0.pt",
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n4096_20261007T190858Z/model_11.pt",
+            "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n4096_20261007T190858Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "07y1a2ab",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/07y1a2ab",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n4096_20261007T190858Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136318_2",
+      "JobIDRaw": "51136321",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:08:46",
+      "Start": "2026-10-07T15:08:47",
+      "End": "2026-10-07T15:12:58",
+      "Elapsed": "00:04:11",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1731",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-3%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n4096_20261007T190854Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "initial",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "4096",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136321-initial-4096-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136321",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1731.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "initial",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 4096,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 1179648,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 1179648,
+            "iteration_transitions": 98304,
+            "warmup": false,
+            "rollout_seconds": 8.673811693210155,
+            "ppo_seconds": 4.947523674927652,
+            "iteration_seconds": 13.635667732916772,
+            "transitions_per_second": 7209.32791305058,
+            "wall_seconds": 243.0113636981696,
+            "torch_peak_bytes": 45453944320,
+            "gpu_memory_mib": 79493.0,
+            "gpu_utilization_pct": 99.0,
+            "gpu_peak_memory_mib": 79493.0,
+            "gpu_mean_utilization_pct": 76.33482142857143,
+            "train/Loss/value": 0.007963477255543694,
+            "train/Loss/surrogate": -0.0018790427111525787,
+            "train/Loss/entropy": 3.7377353832125664,
+            "train/Loss/learning_rate": 0.006568408355712892,
+            "train/Policy/mean_std": 0.3857607841491699,
+            "train/Perf/total_fps": 7216,
+            "train/Perf/collection_time": 8.673811693210155,
+            "train/Perf/learning_time": 4.947523674927652,
+            "train/Episode_Reward/task": 0.023366842418909073,
+            "train/Episode_Metrics/success_rate": 0.0,
+            "train/Episode_Termination/success": 0.0,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 4096.0,
+            "train/Train/mean_reward": -0.07115245569497347,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n4096_20261007T190854Z/model_0.pt",
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n4096_20261007T190854Z/model_11.pt",
+            "logs/benchmarks/plug_initial_clean_gru_v0_s0_n4096_20261007T190854Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "ys6yij7u",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/ys6yij7u",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n4096_20261007T190854Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136318_3",
+      "JobIDRaw": "51136318",
+      "JobName": "plug-benchmark",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:08:46",
+      "Start": "2026-10-07T15:08:47",
+      "End": "2026-10-07T15:13:10",
+      "Elapsed": "00:04:23",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1731",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0-3%4 scripts/slurm/benchmark.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [
+        {
+          "directory": "logs/benchmarks/plug_active_clean_gru_v0_s0_n4096_20261007T190854Z",
+          "runtime": {
+            "command": [
+              "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+              "--task",
+              "plug",
+              "--condition",
+              "active",
+              "--fixed-view",
+              "0",
+              "--num-envs",
+              "4096",
+              "--memory",
+              "gru",
+              "--occlusion",
+              "clean",
+              "--seed",
+              "0",
+              "--iterations",
+              "12",
+              "--warmup-iterations",
+              "3",
+              "--job-type",
+              "benchmark",
+              "--log-root",
+              "logs/benchmarks",
+              "--result",
+              "artifacts/cluster_pilot/bench-51136318-active-4096-ppo.json"
+            ],
+            "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+            "python": "3.12.13",
+            "cudnn": 91002,
+            "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "torch_cuda": "12.8",
+            "git_revision": "cda6176c09281709b73d07ab102f782c4d5f3dc2",
+            "packages": {
+              "mjlab": "1.4.0",
+              "mujoco": "3.9.0",
+              "mujoco-warp": "3.8.1",
+              "warp-lang": "1.13.0",
+              "torch": "2.10.0+cu128",
+              "rsl-rl-lib": "5.2.0"
+            },
+            "slurm_job_id": "51136318",
+            "resume": null,
+            "slurm_account": "kempner_pgozdil_lab",
+            "slurm_partition": "kempner_rtx",
+            "hostname": "holygpu7c1731.rc.fas.harvard.edu",
+            "allocated_cpus": "8",
+            "allocated_memory_mb": "49152",
+            "cuda_visible_devices": "0"
+          },
+          "experiment": {
+            "task": "plug",
+            "condition": "active",
+            "occlusion": "clean",
+            "seed": 0,
+            "num_envs": 4096,
+            "width": 128,
+            "height": 96,
+            "timestep": 0.002,
+            "decimation": 20,
+            "episode_seconds": 3.5,
+            "initial_seconds": 1.0,
+            "joint_step": 0.035,
+            "randomize": true,
+            "perturb_push": false,
+            "fixed_position": [
+              0.0,
+              0.19,
+              0.22
+            ],
+            "fixed_lookat": [
+              0.022,
+              0.045,
+              0.047
+            ],
+            "clearance": 0.002,
+            "render_sensors": true,
+            "memory": "gru",
+            "plug_variant": null,
+            "task_revision": "hidden_prongs_v1"
+          },
+          "configured_iterations": 12,
+          "configured_transitions": 1179648,
+          "latest_progress": {
+            "iteration": 12,
+            "transitions": 1179648,
+            "iteration_transitions": 98304,
+            "warmup": false,
+            "rollout_seconds": 8.207875974941999,
+            "ppo_seconds": 5.007053395733237,
+            "iteration_seconds": 13.232439358718693,
+            "transitions_per_second": 7429.015719254265,
+            "wall_seconds": 242.11925449874252,
+            "torch_peak_bytes": 45453944320,
+            "gpu_memory_mib": 79559.0,
+            "gpu_utilization_pct": 99.0,
+            "gpu_peak_memory_mib": 79559.0,
+            "gpu_mean_utilization_pct": 75.60986547085201,
+            "train/Loss/value": 0.0035732367978198454,
+            "train/Loss/surrogate": -0.0025425551320950035,
+            "train/Loss/entropy": 3.784918285906315,
+            "train/Loss/learning_rate": 0.0044444444444444444,
+            "train/Policy/mean_std": 0.3882593810558319,
+            "train/Perf/total_fps": 7438,
+            "train/Perf/collection_time": 8.207875974941999,
+            "train/Perf/learning_time": 5.007053395733237,
+            "train/Episode_Reward/task": 2.024148464202881,
+            "train/Episode_Metrics/success_rate": 0.5,
+            "train/Episode_Termination/success": 0.5,
+            "train/Episode_Termination/failure": 0.0,
+            "train/Episode_Termination/timeout": 2047.5,
+            "train/Train/mean_reward": -0.059030128903687,
+            "train/Train/mean_episode_length": 88.0
+          },
+          "checkpoint_paths": [
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n4096_20261007T190854Z/model_0.pt",
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n4096_20261007T190854Z/model_11.pt",
+            "logs/benchmarks/plug_active_clean_gru_v0_s0_n4096_20261007T190854Z/model_6.pt"
+          ],
+          "wandb": {
+            "id": "np51ttob",
+            "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/np51ttob",
+            "entity": "pgozdil-harvard-university",
+            "project": "active-perception-so101",
+            "mode": "online"
+          },
+          "summary": "logs/benchmarks/plug_active_clean_gru_v0_s0_n4096_20261007T190854Z/summary.json"
+        }
+      ]
+    },
+    {
+      "JobID": "51136461",
+      "JobIDRaw": "51136461",
+      "JobName": "plug-profile",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T15:10:10",
+      "Start": "2026-10-07T15:10:11",
+      "End": "2026-10-07T15:14:21",
+      "Elapsed": "00:04:10",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1916",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=691,cpu=8,gres/gpu=1,mem=48G,node=1",
+      "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --export=ALL --account=kempner_pgozdil_lab --partition=kempner_rtx --job-name=plug-profile --nodes=1 --ntasks=1 --gres=gpu:1 --cpus-per-task=8 --mem=48G --time=00:30:00 --output=logs/slurm/%x-%j.out --wrap=source scripts/slurm/common.sh; run_python -m active_perception_arms.benchmark --task plug --condition active --num-envs 4096 --no-render --wandb --output artifacts/cluster_pilot/scaling-active-4096-no-render.json; run_python -m active_perception_arms.benchmark --task plug --condition active --num-envs 4096 --wandb --output artifacts/cluster_pilot/scaling-active-4096-render.json; run_python -m active_perception_arms.benchmark --task plug --condition active --num-envs 4096 --actor --wandb --output artifacts/cluster_pilot/scaling-active-4096-actor.json",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "benchmark_reports": [
+        {
+          "path": "artifacts/cluster_pilot/scaling-active-4096-actor.json",
+          "kind": "simulation_and_actor_inference_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/yu2bqx20"
+        },
+        {
+          "path": "artifacts/cluster_pilot/scaling-active-4096-no-render.json",
+          "kind": "simulation_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/jzws98yx"
+        },
+        {
+          "path": "artifacts/cluster_pilot/scaling-active-4096-render.json",
+          "kind": "simulation_and_rendering_only",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/tqvonryi"
+        }
+      ]
     }
   ],
   "queue": []
