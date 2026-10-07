@@ -1,0 +1,114 @@
+[
+  {
+    "condition": "active",
+    "seed": 0,
+    "num_envs": 512,
+    "directory": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z",
+    "final_checkpoint": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_99.pt",
+    "slurm_job_id": "51123326",
+    "wandb": {
+      "id": "u1evdury",
+      "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/u1evdury",
+      "entity": "pgozdil-harvard-university",
+      "project": "active-perception-so101",
+      "mode": "online"
+    },
+    "expected_transitions": 1228800,
+    "expected_iterations": 100,
+    "evaluation_job_id": "51123808",
+    "evaluation_output": "artifacts/cluster_pilot/evaluation-active-s0.json",
+    "evaluation_submission": [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--dependency=afterok:51123326",
+      "--export=ALL",
+      "scripts/slurm/evaluate.sbatch"
+    ]
+  },
+  {
+    "condition": "initial",
+    "seed": 0,
+    "num_envs": 512,
+    "directory": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z",
+    "final_checkpoint": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_99.pt",
+    "slurm_job_id": "51123329",
+    "wandb": {
+      "id": "i116qwyn",
+      "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/i116qwyn",
+      "entity": "pgozdil-harvard-university",
+      "project": "active-perception-so101",
+      "mode": "online"
+    },
+    "expected_transitions": 1228800,
+    "expected_iterations": 100,
+    "evaluation_job_id": "51123809",
+    "evaluation_output": "artifacts/cluster_pilot/evaluation-initial-s0.json",
+    "evaluation_submission": [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--dependency=afterok:51123329",
+      "--export=ALL",
+      "scripts/slurm/evaluate.sbatch"
+    ]
+  },
+  {
+    "condition": "wrist",
+    "seed": 0,
+    "num_envs": 512,
+    "directory": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z",
+    "final_checkpoint": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_99.pt",
+    "slurm_job_id": "51123327",
+    "wandb": {
+      "id": "a7ex2ycm",
+      "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/a7ex2ycm",
+      "entity": "pgozdil-harvard-university",
+      "project": "active-perception-so101",
+      "mode": "online"
+    },
+    "expected_transitions": 1228800,
+    "expected_iterations": 100,
+    "evaluation_job_id": "51123810",
+    "evaluation_output": "artifacts/cluster_pilot/evaluation-wrist-s0.json",
+    "evaluation_submission": [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--dependency=afterok:51123327",
+      "--export=ALL",
+      "scripts/slurm/evaluate.sbatch"
+    ]
+  },
+  {
+    "condition": "wrist_static",
+    "seed": 0,
+    "num_envs": 512,
+    "directory": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z",
+    "final_checkpoint": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_99.pt",
+    "slurm_job_id": "51123328",
+    "wandb": {
+      "id": "zj5uevwm",
+      "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/zj5uevwm",
+      "entity": "pgozdil-harvard-university",
+      "project": "active-perception-so101",
+      "mode": "online"
+    },
+    "expected_transitions": 1228800,
+    "expected_iterations": 100,
+    "evaluation_job_id": "51123811",
+    "evaluation_output": "artifacts/cluster_pilot/evaluation-wrist_static-s0.json",
+    "evaluation_submission": [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--dependency=afterok:51123328",
+      "--export=ALL",
+      "scripts/slurm/evaluate.sbatch"
+    ]
+  }
+]

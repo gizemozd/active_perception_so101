@@ -1,0 +1,123 @@
+{
+  "experiment": {
+    "task": "plug",
+    "condition": "wrist",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 512,
+    "width": 128,
+    "height": 96,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 3.5,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_position": [
+      0.0,
+      0.19,
+      0.22
+    ],
+    "fixed_lookat": [
+      0.022,
+      0.045,
+      0.047
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "plug_variant": null,
+    "task_revision": "hidden_prongs_v1"
+  },
+  "runtime": {
+    "command": [
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+      "--task",
+      "plug",
+      "--condition",
+      "wrist",
+      "--seed",
+      "0",
+      "--num-envs",
+      "512",
+      "--iterations",
+      "100",
+      "--occlusion",
+      "clean",
+      "--memory",
+      "gru",
+      "--fixed-view",
+      "0",
+      "--log-root",
+      "logs/pilots",
+      "--job-type",
+      "pilot",
+      "--result",
+      "artifacts/cluster_pilot/plug-wrist-s0.json"
+    ],
+    "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+    "python": "3.12.13",
+    "cudnn": 91002,
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "torch_cuda": "12.8",
+    "git_revision": "77a9b9a9ce969ae15d0d3caac0d81b686d575f3c",
+    "packages": {
+      "mjlab": "1.4.0",
+      "mujoco": "3.9.0",
+      "mujoco-warp": "3.8.1",
+      "warp-lang": "1.13.0",
+      "torch": "2.10.0+cu128",
+      "rsl-rl-lib": "5.2.0"
+    },
+    "slurm_job_id": "51123327",
+    "resume": null,
+    "slurm_account": "kempner_pgozdil_lab",
+    "slurm_partition": "kempner_rtx",
+    "hostname": "holygpu7c1931.rc.fas.harvard.edu",
+    "allocated_cpus": "8",
+    "allocated_memory_mb": "49152",
+    "cuda_visible_devices": "0"
+  },
+  "wandb": {
+    "id": "a7ex2ycm",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/a7ex2ycm",
+    "entity": "pgozdil-harvard-university",
+    "project": "active-perception-so101",
+    "mode": "online"
+  },
+  "job_type": "pilot",
+  "training_started": true,
+  "environment_initialization_seconds": 26.680146312806755,
+  "warmup_iterations": 3,
+  "warmup_seconds": 13.63050139322877,
+  "actual_transitions": 1228800,
+  "measured_steady_transitions": 1191936,
+  "measured_steady_seconds": 281.201241645962,
+  "steady_transitions_per_second": 4238.729505685012,
+  "measured_steady_iterations": 97,
+  "mean_rollout_seconds": 2.477921386791835,
+  "mean_ppo_seconds": 0.4039956595527834,
+  "mean_iteration_seconds": 2.8989818726387835,
+  "final_cumulative_transitions": 1228800,
+  "total_wall_seconds": 333.5098375789821,
+  "gpu_hours": 0.09264162154971725,
+  "steady_iteration_std_seconds": 0.43974921397290684,
+  "extrapolations": {
+    "1228800": {
+      "seconds": 289.89818726387836,
+      "gpu_hours": 0.08052727423996621
+    },
+    "18432000": {
+      "seconds": 4348.472808958175,
+      "gpu_hours": 1.207909113599493
+    }
+  },
+  "timing_note": "One control step produces N transitions; 24 steps/iteration. PPO time includes returns. Warmup contains lazy compilation. Extrapolations exclude startup, evaluation and queue time; short-run variance is not a CI.",
+  "gpu_memory_mib": 8461.0,
+  "gpu_utilization_pct": 99.0,
+  "gpu_peak_memory_mib": 8461.0,
+  "gpu_mean_utilization_pct": 83.20779220779221,
+  "wall_seconds_including_wandb_finish": 340.8628567219712,
+  "gpu_hours_including_wandb_finish": 0.09468412686721422
+}

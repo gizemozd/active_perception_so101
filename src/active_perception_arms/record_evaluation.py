@@ -20,6 +20,25 @@ from .sanity import OverviewRecorder, mosaic
 from .warp_sanity import sync_native_state
 
 
+def upload_records(records, out, checkpoint, report):
+    import wandb
+
+    parent = json.loads(checkpoint.with_name("wandb_run.json").read_text())
+    run = wandb.init(
+        project=parent["project"], entity=parent["entity"], id=report["wandb_id"], resume="must"
+    )
+    for record in records:
+        label = f"{record['variant']}_{'success' if record['expected_success'] else 'failure'}"
+        run.log(
+            {
+                f"validation/videos/{label}_{kind}": wandb.Video(record[key], format="mp4")
+                for kind, key in (("outside", "outside_video"), ("policy", "policy_video"))
+            }
+        )
+    run.save(str(out), base_path=str(out.parent))
+    run.finish()
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("report", type=Path)
@@ -30,6 +49,13 @@ def main():
     report = json.loads(args.report.read_text())
     cfg = saved_experiment(report["experiment"])
     checkpoint = Path(report["checkpoint"])
+    if report.get("representative_capture"):
+        from .capture_evaluation import render_capture
+
+        records = render_capture(report, args.output)
+        if args.wandb:
+            upload_records(records, args.output / "representatives.json", checkpoint, report)
+        return
     selected = {}
     for i, (variant, won) in enumerate(zip(report["variants"], report["outcomes"], strict=True)):
         selected.setdefault((variant, bool(won)), i)
@@ -128,22 +154,7 @@ def main():
         )
     )
     if args.wandb:
-        import wandb
-
-        parent = json.loads(checkpoint.with_name("wandb_run.json").read_text())
-        run = wandb.init(
-            project=parent["project"], entity=parent["entity"], id=report["wandb_id"], resume="must"
-        )
-        for record in records:
-            label = f"{record['variant']}_{'success' if record['expected_success'] else 'failure'}"
-            run.log(
-                {
-                    f"validation/videos/{label}_{kind}": wandb.Video(record[key], format="mp4")
-                    for kind, key in (("outside", "outside_video"), ("policy", "policy_video"))
-                }
-            )
-        run.save(str(out), base_path=str(args.output))
-        run.finish()
+        upload_records(records, out, checkpoint, report)
 
 
 if __name__ == "__main__":

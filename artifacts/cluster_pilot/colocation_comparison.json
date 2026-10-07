@@ -1,0 +1,24 @@
+{
+  "reference_job": "51122956",
+  "paired_job": "51123535",
+  "node": "holygpu7c1916",
+  "condition": "active",
+  "num_envs": 512,
+  "reference_transitions_per_second": 3349.040405508162,
+  "serialized_replicate_rates": [
+    3349.040405508162,
+    3364.225128293383,
+    3373.7052661598773
+  ],
+  "paired_rates": [
+    3446.922089375161,
+    3329.4054154667883
+  ],
+  "paired_change_percent": [
+    2.922678499369935,
+    -0.5862870453602231
+  ],
+  "combined_paired_rate": 6776.327504841949,
+  "steps": "JobID|State|Start|End|Elapsed|AllocTRES\n51122956|COMPLETED|2026-10-07T13:56:37|2026-10-07T14:02:30|00:05:53|billing=1383,cpu=16,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=2,gres/gpu=2,mem=96G,node=1\n51122956.batch|COMPLETED|2026-10-07T13:56:37|2026-10-07T14:02:30|00:05:53|cpu=16,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=2,gres/gpu=2,mem=96G,node=1\n51122956.extern|COMPLETED|2026-10-07T13:56:37|2026-10-07T14:02:44|00:06:07|billing=1383,cpu=16,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=2,gres/gpu=2,mem=96G,node=1\n51122956.0|COMPLETED|2026-10-07T13:56:37|2026-10-07T13:59:20|00:02:43|cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=96G,node=1\n51122956.1|COMPLETED|2026-10-07T13:59:20|2026-10-07T14:00:55|00:01:35|cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=96G,node=1\n51122956.2|COMPLETED|2026-10-07T14:00:55|2026-10-07T14:02:29|00:01:34|cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=96G,node=1\n51123535|COMPLETED|2026-10-07T14:02:51|2026-10-07T14:04:31|00:01:40|billing=1383,cpu=16,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=2,gres/gpu=2,mem=96G,node=1\n51123535.batch|COMPLETED|2026-10-07T14:02:51|2026-10-07T14:04:31|00:01:40|cpu=16,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=2,gres/gpu=2,mem=96G,node=1\n51123535.extern|COMPLETED|2026-10-07T14:02:51|2026-10-07T14:04:35|00:01:44|billing=1383,cpu=16,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=2,gres/gpu=2,mem=96G,node=1\n51123535.0|COMPLETED|2026-10-07T14:02:52|2026-10-07T14:04:25|00:01:33|cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1\n51123535.1|COMPLETED|2026-10-07T14:02:52|2026-10-07T14:04:23|00:01:31|cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1\n",
+  "notes": "Two simultaneous independent one-GPU policies, not distributed training. Each report has 12 PPO iterations, first 3 warmup. First job unintentionally serialized all three steps due to inherited 96G memory; paired-only replacement explicitly requests 48G per step. Distinct device UUIDs verified. Background jobs on other GPUs uncontrolled; differences within short-run variability, no established long-run scaling claim."
+}

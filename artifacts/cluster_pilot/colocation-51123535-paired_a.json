@@ -1,0 +1,123 @@
+{
+  "experiment": {
+    "task": "plug",
+    "condition": "active",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 512,
+    "width": 128,
+    "height": 96,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 3.5,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_position": [
+      0.0,
+      0.19,
+      0.22
+    ],
+    "fixed_lookat": [
+      0.022,
+      0.045,
+      0.047
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "plug_variant": null,
+    "task_revision": "hidden_prongs_v1"
+  },
+  "runtime": {
+    "command": [
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src/active_perception_arms/train.py",
+      "--task",
+      "plug",
+      "--condition",
+      "active",
+      "--num-envs",
+      "512",
+      "--memory",
+      "gru",
+      "--occlusion",
+      "clean",
+      "--seed",
+      "0",
+      "--iterations",
+      "12",
+      "--warmup-iterations",
+      "3",
+      "--job-type",
+      "benchmark",
+      "--log-root",
+      "logs/benchmarks/colocation/51123535/paired_a",
+      "--result",
+      "artifacts/cluster_pilot/colocation-51123535-paired_a.json"
+    ],
+    "platform": "Linux-4.18.0-553.155.1.el8_10.x86_64-x86_64-with-glibc2.28",
+    "python": "3.12.13",
+    "cudnn": 91002,
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "torch_cuda": "12.8",
+    "git_revision": "da5dc654c9e4d39ab8b43dff28ef362c2d75c3a8",
+    "packages": {
+      "mjlab": "1.4.0",
+      "mujoco": "3.9.0",
+      "mujoco-warp": "3.8.1",
+      "warp-lang": "1.13.0",
+      "torch": "2.10.0+cu128",
+      "rsl-rl-lib": "5.2.0"
+    },
+    "slurm_job_id": "51123535",
+    "resume": null,
+    "slurm_account": "kempner_pgozdil_lab",
+    "slurm_partition": "kempner_rtx",
+    "hostname": "holygpu7c1916.rc.fas.harvard.edu",
+    "allocated_cpus": "8",
+    "allocated_memory_mb": "98304",
+    "cuda_visible_devices": "0"
+  },
+  "wandb": {
+    "id": "w6upe62l",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/w6upe62l",
+    "entity": "pgozdil-harvard-university",
+    "project": "active-perception-so101",
+    "mode": "online"
+  },
+  "job_type": "benchmark",
+  "training_started": true,
+  "environment_initialization_seconds": 25.103559236973524,
+  "warmup_iterations": 3,
+  "warmup_seconds": 16.906947844661772,
+  "actual_transitions": 147456,
+  "measured_steady_transitions": 110592,
+  "measured_steady_seconds": 32.08427609689534,
+  "steady_transitions_per_second": 3446.922089375161,
+  "measured_steady_iterations": 9,
+  "mean_rollout_seconds": 2.8274856020903423,
+  "mean_ppo_seconds": 0.7205648173371123,
+  "mean_iteration_seconds": 3.564919566321704,
+  "final_cumulative_transitions": 147456,
+  "total_wall_seconds": 86.3803531541489,
+  "gpu_hours": 0.02399454254281914,
+  "steady_iteration_std_seconds": 0.2943688884392291,
+  "extrapolations": {
+    "1228800": {
+      "seconds": 356.4919566321704,
+      "gpu_hours": 0.09902554350893622
+    },
+    "18432000": {
+      "seconds": 5347.379349482556,
+      "gpu_hours": 1.4853831526340433
+    }
+  },
+  "timing_note": "One control step produces N transitions; 24 steps/iteration. PPO time includes returns. Warmup contains lazy compilation. Extrapolations exclude startup, evaluation and queue time; short-run variance is not a CI.",
+  "gpu_memory_mib": 10827.0,
+  "gpu_utilization_pct": 99.0,
+  "gpu_peak_memory_mib": 10827.0,
+  "gpu_mean_utilization_pct": 55.32432432432432,
+  "wall_seconds_including_wandb_finish": 87.39010954089463,
+  "gpu_hours_including_wandb_finish": 0.024275030428026284
+}

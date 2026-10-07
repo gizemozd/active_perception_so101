@@ -11,9 +11,14 @@ set -euo pipefail
 source "${PROJECT_ROOT:-${SLURM_SUBMIT_DIR:-$PWD}}/scripts/slurm/common.sh"
 : "${CHECKPOINT:?Set CHECKPOINT to a model .pt file}"
 output="${OUTPUT:-artifacts/cluster_pilot/evaluation-${SLURM_JOB_ID:-local}.json}"
-run_python -m active_perception_arms.evaluate "$CHECKPOINT" --episodes "${EPISODES:-512}" \
+args=(-m active_perception_arms.evaluate "$CHECKPOINT" --episodes "${EPISODES:-512}" \
  --num-envs "${NUM_ENVS:-128}" --split "${SPLIT:-validation}" --wandb \
- --output "$output"
+ --output "$output")
+if [[ "${RECORD_CAPTURE:-0}" == 1 ]]; then
+ args+=(--capture-representatives "${output%.json}-traces")
+fi
+if [[ -n "${REFERENCE_REPORT:-}" ]]; then args+=(--reference-report "$REFERENCE_REPORT"); fi
+run_python "${args[@]}"
 if [[ "${RECORD_VIDEO:-0}" == 1 ]]; then
  run_python -m active_perception_arms.record_evaluation "$output" --output "${output%.json}-videos" --wandb
 fi

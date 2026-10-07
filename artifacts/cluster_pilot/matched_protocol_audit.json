@@ -1,0 +1,100 @@
+{
+  "shared_config": {
+    "task": "plug",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 512,
+    "width": 128,
+    "height": 96,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 3.5,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_lookat": [
+      0.022,
+      0.045,
+      0.047
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "plug_variant": null,
+    "task_revision": "hidden_prongs_v1"
+  },
+  "allowed_differences": [
+    "condition",
+    "fixed_position (view7 for wrist_static, view0 otherwise)"
+  ],
+  "checks": [
+    {
+      "condition": "active",
+      "checkpoint_iteration": 99,
+      "completed_transitions": 1228800,
+      "iteration_sequence_complete": true,
+      "checkpoint_files": [
+        "model_0.pt",
+        "model_50.pt",
+        "model_99.pt"
+      ],
+      "actor_groups": [
+        "proprio",
+        "wrist",
+        "external"
+      ],
+      "finite_losses": true
+    },
+    {
+      "condition": "initial",
+      "checkpoint_iteration": 99,
+      "completed_transitions": 1228800,
+      "iteration_sequence_complete": true,
+      "checkpoint_files": [
+        "model_0.pt",
+        "model_50.pt",
+        "model_99.pt"
+      ],
+      "actor_groups": [
+        "proprio",
+        "wrist",
+        "external"
+      ],
+      "finite_losses": true
+    },
+    {
+      "condition": "wrist",
+      "checkpoint_iteration": 99,
+      "completed_transitions": 1228800,
+      "iteration_sequence_complete": true,
+      "checkpoint_files": [
+        "model_0.pt",
+        "model_50.pt",
+        "model_99.pt"
+      ],
+      "actor_groups": [
+        "proprio",
+        "wrist"
+      ],
+      "finite_losses": true
+    },
+    {
+      "condition": "wrist_static",
+      "checkpoint_iteration": 99,
+      "completed_transitions": 1228800,
+      "iteration_sequence_complete": true,
+      "checkpoint_files": [
+        "model_0.pt",
+        "model_50.pt",
+        "model_99.pt"
+      ],
+      "actor_groups": [
+        "proprio",
+        "wrist",
+        "external"
+      ],
+      "finite_losses": true
+    }
+  ]
+}

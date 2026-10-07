@@ -544,3 +544,64 @@ jobs running; do not resubmit these cells. Evaluate each once with existing
   measurements, not paired evidence. Added explicit `srun --mem=48G` and a
   paired-only phase to fill this specific missing check without repeating the
   reference. Existing running job 51122956 continues unchanged.
+- Corrected paired-only co-location job **51123535**, dependent on successful
+  completion of 51122956 and pinned to the same node holygpu7c1916. Command uses
+  `COLOCATION_PHASE=paired NUM_ENVS=512`, `--dependency=afterok:51122956`,
+  `--nodelist=holygpu7c1916`; two separate 48 GiB / one-GPU steps. Verify overlap
+  and distinct GPU UUIDs before interpreting its results.
+- Saved [pilot_manifest.json](artifacts/cluster_pilot/pilot_manifest.json) with
+  unique training directories, raw Slurm IDs, W&B identities and final checkpoints.
+  Submitted exactly one dependent evaluation per pilot using existing
+  `evaluate.sbatch`, `--dependency=afterok:TRAIN_JOB`, `RECORD_VIDEO=1`,
+  `EPISODES=512 NUM_ENVS=128 SPLIT=validation` and each `model_99.pt`:
+  active **51123808**, initial **51123809**, wrist **51123810**, wrist_static
+  **51123811**. Pending dependency is expected; do not duplicate these evaluations.
+  Outputs `artifacts/cluster_pilot/evaluation-CONDITION-s0.json`; video directories
+  use the same stem plus `-videos`. Validation W&B identity will be in each report.
+- Genuine simultaneous pair **51123535.0/.1** both started 14:02:52 EDT, each
+  cpu=8, mem=48G, gpu=1. Distinct device UUIDs verified from each sampler:
+  GPU-0653b6dd-37a2-7ba9-9264-e4c1846feace and
+  GPU-c53d2c6c-5e28-831b-45a1-df64c1e14044. CUDA ordinal 0 is process-local.
+- Co-location comparison saved in
+  [colocation_comparison.json](artifacts/cluster_pilot/colocation_comparison.json).
+  Serialized active/N512 rates: 3349, 3364, 3374 transitions/s. Genuine simultaneous
+  rates: **3447 and 3329/s**, +2.9% and −0.6% against the first reference; combined
+  6776/s. No clear contention penalty in this short check, not a long-run scaling
+  guarantee. Both co-location jobs completed successfully; paired step overlap and
+  different GPU UUIDs are verified. Other users' background workloads uncontrolled.
+- Learning-curve interpretation: native RSL `Episode_Metrics/success_rate` averages
+  reset batches, not all completed episodes weighted equally. It can spike when
+  only a few successful episodes finish in an iteration, and the compact exporter
+  carries the last logged value between resets. Label it a training metric, not
+  held-out overall success. Final evaluation counts each of 512 episodes once.
+
+## 2026-10-07 — pilot evaluations and video-replay diagnosis
+
+All scientific pilots completed 100 iterations / 1,228,800 transitions. Checkpoints
+`model_99.pt` and complete monotonic histories verified; matched configuration and
+actor observation groups audited in `matched_protocol_audit.json`. Application
+wall times (before W&B finish) are wrist 333.5s, wrist_static 424.5s, initial 457.4s,
+active 457.1s. No resumed or repeated training iterations.
+
+The original matched 512-episode validation scores are wrist **3**, wrist_static
+**7**, initial **3**, active **2** successes. All reports have 128 episodes per
+variant. These sparse seed-0 outcomes do not rank sensing methods reliably.
+
+Wrist evaluation/video job 51123810 succeeded. Jobs **51123808, 51123809,
+51123811** completed numerical evaluation and uploaded its metrics, then failed
+in separate video replay with `AssertionError: Validation replay differs`.
+Preserve original JSON scores and W&B runs; evaluation itself did not fail.
+Replay assertions failed for active at batch 1, initial at batch 2, wrist_static
+at batch 0. The precise source of trajectory divergence is not yet isolated;
+do not claim bitwise reproducibility from seeds alone or label divergent replay
+videos as successful. Partial videos remain in original ignored directories.
+
+Added optional in-evaluation representative capture: buffer one batch's actual
+RGB inputs/actions/physics state, retain first observed success/failure per
+variant, then render saved trajectories without a second physics rollout.
+This changes diagnostics only, not trained policies or environment behavior.
+Plan a **distinct recorded diagnostic repeat** of all four original 512-episode
+validations, with identical seeds/batch size. Original scores will not be replaced
+or cherry-picked. New reports/W&B identities identify this repeat and link the
+original reports. Saved trace NPZs and videos stay out of Git. The repeat also
+captures initial-policy camera targets to verify their post-inspection freeze.

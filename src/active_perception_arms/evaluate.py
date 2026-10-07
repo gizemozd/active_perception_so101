@@ -72,6 +72,12 @@ def evaluate(args):
             raise ValueError("Replay must use identical episode count, num-envs, and horizon")
     traces = []
     outcomes, times, distances, variants = [], [], [], []
+    capture = None
+    capture_path = None
+    if getattr(args, "capture_representatives", None):
+        from .capture_evaluation import RepresentativeCapture
+
+        capture = RepresentativeCapture(args.capture_representatives, cfg)
     env = make_env(cfg, args.device)
     try:
         obs, _ = env.reset(seed=args.seed)
@@ -108,7 +114,11 @@ def evaluate(args):
                         if args.camera_trace_out:
                             recorded.append(action[:, cfg.manip_dim :].cpu().numpy())
                     before = env.scene["camera_arm"].data.joint_pos.clone()
-                    obs, _, terminated, truncated, _ = env.step(action)
+                    if capture:
+                        capture.step(env, obs, action)
+                    obs, reward, terminated, truncated, _ = env.step(action)
+                    if capture:
+                        capture.reward(reward)
                     done = terminated | truncated
                     first = done & ~finished
                     # Termination manager retains this step's flags through automatic reset.
@@ -131,6 +141,8 @@ def evaluate(args):
                 distances.extend(motion[:count].cpu().tolist())
                 if recorded:
                     traces.append(np.stack(recorded))
+                if capture:
+                    capture_path = capture.finish_batch(batch, won, elapsed, count)
     finally:
         env.close()
     if args.camera_trace_out:
@@ -183,6 +195,10 @@ def evaluate(args):
             "camera_trace_in": str(args.camera_trace_in) if args.camera_trace_in else None,
         },
         "training_started": False,
+        "representative_capture": capture_path,
+        "reference_report": str(args.reference_report)
+        if getattr(args, "reference_report", None)
+        else None,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2))
@@ -208,6 +224,8 @@ def main(argv=None):
     p.add_argument("--camera-trace-in", type=Path)
     p.add_argument("--camera-trace-out", type=Path)
     p.add_argument("--wandb", action="store_true")
+    p.add_argument("--capture-representatives", type=Path)
+    p.add_argument("--reference-report", type=Path)
     p.add_argument("--output", type=Path, default=Path("artifacts/evaluation.json"))
     args = p.parse_args(argv)
     args.seed = (
@@ -223,8 +241,9 @@ def main(argv=None):
             project=parent["project"],
             entity=parent["entity"],
             group="plug-pilot-20261007",
-            job_type="validation",
-            name=args.checkpoint.parent.name + "_validation",
+            job_type="validation-recorded-repeat" if args.capture_representatives else "validation",
+            name=args.checkpoint.parent.name
+            + ("_recorded_repeat" if args.capture_representatives else "_validation"),
             tags=["pilot", "validation", report["experiment"]["condition"]],
             config={
                 "evaluation": report,
