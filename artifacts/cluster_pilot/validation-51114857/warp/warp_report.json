@@ -1,0 +1,326 @@
+{
+  "backend": "MjLab / MuJoCo Warp",
+  "device": "cuda:0",
+  "task_revision": "hidden_prongs_v1",
+  "variants": [
+    "xm",
+    "xp",
+    "ym",
+    "yp"
+  ],
+  "scripted_success": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "final_success": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "final_position_error_m": [
+    0.0002582334855105728,
+    0.00022104605159256607,
+    0.00023917463840916753,
+    0.0002400670200586319
+  ],
+  "reset_pairwise_differing_rgb_pixels": {
+    "wrist": {
+      "xm:xp": 9,
+      "xm:ym": 0,
+      "xm:yp": 0,
+      "xp:ym": 9,
+      "xp:yp": 9,
+      "ym:yp": 0
+    },
+    "external": {
+      "xm:xp": 0,
+      "xm:ym": 0,
+      "xm:yp": 24,
+      "xp:ym": 0,
+      "xp:yp": 24,
+      "ym:yp": 24
+    }
+  },
+  "controller": "Privileged scripted manipulation; blind scheduled camera motion",
+  "resolution": [
+    128,
+    96
+  ],
+  "training_started": false,
+  "detail_renderer": "1920x1080 native OpenGL of actual per-variant Warp state",
+  "frames": [
+    {
+      "time": 0.04,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 0.16,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 0.28,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 0.4,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 0.52,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 0.64,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 0.76,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 0.88,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.0,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.12,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.24,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.36,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.48,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.6,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.72,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.84,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 1.96,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 2.08,
+      "success": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 2.2,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 2.32,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 2.44,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 2.56,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 2.68,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 2.8000000000000003,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 2.92,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 3.04,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 3.16,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 3.2800000000000002,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 3.4,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "time": 3.52,
+      "success": [
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ]
+}

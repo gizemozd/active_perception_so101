@@ -347,3 +347,80 @@
   The initial CPU test phase is active; no training has started.
 - Local CLI regression checks: **29 passed** in 44.07 s; warnings are upstream
   Torch JIT deprecations. Final benchmark/pilot decisions remain pending CUDA gates.
+- Replacement validation **51114857 completed successfully** in 5m44s:
+  **54 regression tests passed**; actual 128×96 actor-camera checks passed for all
+  four conditions; initial-only camera targets freeze after one second and actor
+  groups exclude critic/privileged state. All four CUDA scripted variants reach
+  and retain success, with final errors 0.22–0.26 mm. This is mechanical/pipeline
+  feasibility, not learned-policy evidence. Reports: `artifacts/cluster_pilot/gpu_pipeline.json`
+  and `artifacts/cluster_pilot/validation-51114857/warp/warp_report.json`.
+- Compute-node W&B metric upload independently read back through the API:
+  https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/z8hsr5ol
+  The 32-world smoke measured **493.09 transitions/s for inference only**,
+  800 timed transitions / 1.622 s, plus 39.97 s warmup; it is not PPO throughput.
+- Submitted first disposable benchmark **51116045**, array cell 0 (wrist, N=64):
+  `sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0 scripts/slurm/benchmark.sbatch`.
+  It runs inference and then 12 PPO iterations (first 3 excluded as warmup).
+  Remaining benchmark cells and all pilots wait on successful PPO logging checks.
+
+## 2026-10-07 13:40 EDT — resumed from first cluster stage
+
+Direct cluster inspection on `holy8a24101` confirms the first project submission
+was **51111068**, hardware inventory only. No project training/benchmark is now
+running or pending. Unrelated interactive allocations were left untouched.
+The accounting reconstruction is saved in
+[accounting_reconstruction.json](artifacts/cluster_pilot/accounting_reconstruction.json).
+`scontrol show job` no longer retains the four completed jobs; `sacct`, stdout,
+metadata, artifacts and W&B API provide their retained evidence. Accounting was
+queried from September 30 in two-day windows (site rejects a week-wide query).
+
+| Job/task | Purpose and verified progress | Submitted/start (EDT) | Elapsed / exit | Node | Next action |
+|---|---|---|---|---|---|
+| 51111068 | Hardware inventory; completed, no environment or optimizer | 12:13:28 / same | 4s / 0:0 | holygpu7c1713 | Reuse hardware.json |
+| 51113803 | GPU regression validation; failed at missing Python.h, 53 pass/1 fail | 12:37:41 / 12:37:42 | 4m53s / 1:0 | holygpu7c1713 | Already superseded by header fix and validation below |
+| 51114857 | Validation completed: 54 tests, rendered actor checks for four conditions, four scripted prong successes, initial freeze and no privileged actor state | 12:46:16 / same | 5m44s / 0:0 | holygpu7c1934 | Reuse; no physics/policy changes pending |
+| 51116045_0 | Disposable wrist N=64 inference completed (6400 measured transitions / 6.856s = 933.53/s); PPO failed before first rollout/update | 12:52:56 / 12:52:57 | 2m43s / 1:0 | holygpu7c2316 | Reuse inference; repair logger and run missing 12 PPO iterations |
+
+All allocated one RTX PRO 6000 Blackwell Server Edition GPU in `kempner_rtx`,
+account `kempner_pgozdil_lab` (verified independently with `sacctmgr`). GPU has
+97,887 MiB VRAM, driver 610.57.04. Jobs used 8 CPUs; validation requested 32 GiB,
+inventory/benchmark 48 GiB. Partition advertises 24 × 8 GPUs; actual availability
+is dynamic and most devices are occupied. No eight-GPU policy scaling assumed.
+
+The working directory is `/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101`.
+The supplied Mac path is not mounted and this account has no `~/.ssh/config`;
+its current revision/uncommitted changes cannot be inspected from this session.
+The adjacent **legacy** cluster checkout `../active_perception_arms` is a different
+repository at `b6cd299`, with untracked historical Slurm logs, left unchanged.
+Current restored checkout was at `9d323df` (remote HEAD `3ab35f7`). Preserved the
+previous agent's uncommitted telemetry compatibility fix, test, curve exporter,
+validation reports, inference report and progress notes.
+
+Revisions by submission/reflog: inventory `bc17e5c` plus then-uncommitted setup;
+failed validation `2a9bb7e`; successful validation `3ab35f7`; benchmark runtime
+explicitly records `9d323df`. Historical dirty snapshots beyond retained runtime
+metadata are unknown. Validation entry point is `scripts/slurm/validate.sbatch`;
+benchmark entry point is `scripts/slurm/benchmark.sbatch` array 0, invoking
+`active_perception_arms.benchmark --task plug --condition wrist --fixed-view 0
+--num-envs 64 --actor --wandb`, then `active_perception_arms.train` with GRU,
+clean, seed 0, 12 iterations × 24 × 64 = **18,432 total PPO transitions**.
+Task revision `hidden_prongs_v1`, images 128×96, shared 1s pause. No PPO checkpoint,
+iteration records or PPO W&B identity exists for that failed attempt; verified
+progress is zero PPO transitions. Original runtime/experiment/runner files remain
+under `logs/benchmarks/plug_wrist_clean_gru_v0_s0_n64_20261007T165523Z`.
+Slurm outputs remain in `logs/slurm/{inventory,vision-validate,plug-benchmark}-JOB.out`
+(with `_0` for benchmark); no separate stderr file for these merged-output scripts.
+
+Environment: `.venv`, managed Python 3.12.13 (failed validation used system
+3.12.14 without headers); Torch 2.10.0+cu128, CUDA 12.8, MjLab 1.4.0,
+MuJoCo 3.9.0, MuJoCo Warp 3.8.1, Warp 1.13.0, RSL-RL 5.2.0, W&B 0.30.0.
+The specific PPO failure is RSL's removed `wandb.Settings(start_method="thread")`.
+The inherited compatibility adapter removes that setting while retaining native
+RSL metrics. Its regression and CLI tests pass: **31 passed**.
+
+W&B API confirms only three finished runs so far, no pilot or PPO training run:
+[login preflight](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/v7c2xe0f),
+[validation inference](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/z8hsr5ol),
+[wrist N64 inference](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/my5q07yk).
+All metrics reached W&B; no offline/unsynchronized runs found. Added an explicit
+`SKIP_INFERENCE=1` switch to reuse successful inference when repairing only PPO.

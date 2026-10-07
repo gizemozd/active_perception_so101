@@ -70,13 +70,35 @@ class GpuSampler:
         self.thread.join(timeout=25)
 
 
+def compatible_wandb_writer(log_dir, cfg):
+    """RSL 5.2's writer with the removed W&B `start_method` setting omitted."""
+    import os
+
+    import wandb
+    from rsl_rl.utils.wandb_utils import WandbSummaryWriter
+    from torch.utils.tensorboard import SummaryWriter
+
+    class Writer(WandbSummaryWriter):
+        def __init__(self):
+            SummaryWriter.__init__(self, str(log_dir), flush_secs=10)
+            wandb.init(
+                project=cfg["wandb_project"],
+                entity=os.environ.get("WANDB_USERNAME") or os.environ.get("WANDB_ENTITY"),
+                name=Path(log_dir).name,
+                config={"log_dir": str(log_dir)},
+                settings=wandb.Settings(),
+            )
+            self.logged_videos = set()
+
+    return Writer()
+
+
 def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler, process_start):
     """Retain native RSL logger; attach synchronized phase timings and local records."""
     import wandb
 
     rows = []
     state = {"scalars": {}, "mark": None, "collect": None, "learn_start": None}
-    original_init = runner.logger.init_logging_writer
     original_log = runner.logger.log
     original_returns = runner.alg.compute_returns
     original_update = runner.alg.update
@@ -85,7 +107,15 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
     step_size = cfg.num_envs * runner.cfg["num_steps_per_env"]
 
     def init():
-        original_init()
+        # Retain RSL's logger, scalar writer methods and config/code uploads.
+        # Its pinned constructor alone is incompatible with W&B >=0.30.
+        logger = runner.logger
+        assert logger.cfg["logger"] == "wandb" and not logger.disable_logs
+        logger.logger_type = "wandb"
+        logger.writer = compatible_wandb_writer(log_dir, logger.cfg)
+        logger.writer.store_config(logger.env_cfg, logger.cfg)
+        for path in logger._store_code_state():
+            logger.writer.save_file(path)
         run = wandb.run
         run.config.update(
             {

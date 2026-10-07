@@ -18,8 +18,10 @@ count="${counts[$((index % 4))]}"
 view=0
 if [[ "$condition" == wrist_static ]]; then view=7; fi
 output="artifacts/cluster_pilot/bench-${SLURM_JOB_ID:-local}-${condition}-${count}"
-run_python -m active_perception_arms.benchmark --task plug --condition "$condition" \
-  --fixed-view "$view" --num-envs "$count" --actor --wandb --output "${output}-inference.json"
+if [[ "${SKIP_INFERENCE:-0}" != 1 ]]; then
+  run_python -m active_perception_arms.benchmark --task plug --condition "$condition" \
+    --fixed-view "$view" --num-envs "$count" --actor --wandb --output "${output}-inference.json"
+fi
 run_python -m active_perception_arms.train --task plug --condition "$condition" \
   --fixed-view "$view" --num-envs "$count" --memory gru --occlusion clean --seed 0 \
   --iterations "${BENCH_ITERATIONS:-12}" --warmup-iterations 3 --job-type benchmark \

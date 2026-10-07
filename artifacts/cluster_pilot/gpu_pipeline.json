@@ -1,0 +1,62 @@
+[
+  {
+    "condition": "wrist",
+    "passed": true,
+    "variants": [
+      "xm",
+      "xp",
+      "ym",
+      "yp"
+    ],
+    "resolution": [
+      128,
+      96
+    ],
+    "actor_privileged_state": false
+  },
+  {
+    "condition": "wrist_static",
+    "passed": true,
+    "variants": [
+      "xm",
+      "xp",
+      "ym",
+      "yp"
+    ],
+    "resolution": [
+      128,
+      96
+    ],
+    "actor_privileged_state": false
+  },
+  {
+    "condition": "initial",
+    "passed": true,
+    "variants": [
+      "xm",
+      "xp",
+      "ym",
+      "yp"
+    ],
+    "resolution": [
+      128,
+      96
+    ],
+    "actor_privileged_state": false
+  },
+  {
+    "condition": "active",
+    "passed": true,
+    "variants": [
+      "xm",
+      "xp",
+      "ym",
+      "yp"
+    ],
+    "resolution": [
+      128,
+      96
+    ],
+    "actor_privileged_state": false
+  }
+]
