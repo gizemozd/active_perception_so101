@@ -240,11 +240,15 @@ def main(argv=None):
         run = wandb.init(
             project=parent["project"],
             entity=parent["entity"],
-            group="plug-pilot-20261007",
+            group=os.getenv("WANDB_RUN_GROUP", "plug-pilot-20261007"),
             job_type="validation-recorded-repeat" if args.reference_report else "validation",
             name=args.checkpoint.parent.name
             + ("_recorded_repeat" if args.reference_report else "_validation"),
-            tags=["pilot", "validation", report["experiment"]["condition"]],
+            tags=[
+                os.getenv("EVALUATION_STAGE", "pilot"),
+                "validation",
+                report["experiment"]["condition"],
+            ],
             config={
                 "evaluation": report,
                 "training_run": parent,
