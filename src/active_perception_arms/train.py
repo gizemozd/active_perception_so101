@@ -2,8 +2,10 @@
 
 import argparse
 import json
+import math
 import os
 import platform
+import re
 import shutil
 import signal
 import subprocess
@@ -39,7 +41,11 @@ def parser():
     p.add_argument("--resume", type=Path)
     p.add_argument("--perturb-push", action="store_true")
     p.add_argument("--memory", choices=("gru", "none"), default="gru")
-    p.add_argument("--job-type", choices=("benchmark", "pilot", "study"), default="pilot")
+    p.add_argument("--job-type", choices=("benchmark", "pilot", "study", "search"), default="pilot")
+    p.add_argument("--learning-rate", type=float)
+    p.add_argument("--lr-schedule", choices=("adaptive", "fixed"))
+    p.add_argument("--entropy-coef", type=float)
+    p.add_argument("--run-label", default="")
     p.add_argument("--warmup-iterations", type=int, default=3)
     p.add_argument("--result", type=Path)
     p.add_argument("--dry-run", action="store_true")
@@ -74,6 +80,30 @@ def experiment_from_args(args):
     )
 
 
+def optimization_from_args(args):
+    """Resolve explicit settings, inheriting saved settings for an exact resume."""
+    settings = {"learning_rate": 3e-4, "schedule": "adaptive", "entropy_coef": 0.003}
+    if args.resume:
+        saved = json.loads(args.resume.with_name("runner.json").read_text())["algorithm"]
+        settings.update({key: saved[key] for key in settings})
+    for key, value in (
+        ("learning_rate", args.learning_rate),
+        ("schedule", args.lr_schedule),
+        ("entropy_coef", args.entropy_coef),
+    ):
+        if value is not None:
+            if args.resume and value != settings[key]:
+                raise ValueError(f"Resume optimization differs in {key}; use a distinct run")
+            settings[key] = value
+    for key in ("learning_rate", "entropy_coef"):
+        value = settings[key]
+        if not math.isfinite(value) or value < 0 or (key == "learning_rate" and value == 0):
+            raise ValueError(f"Invalid {key}: {value}")
+    if args.run_label and not re.fullmatch(r"[a-zA-Z0-9_-]+", args.run_label):
+        raise ValueError("run-label must contain only letters, digits, underscores or hyphens")
+    return settings
+
+
 def restore_training_state(runner, checkpoint, num_envs):
     """Continue after the saved update, retaining the adaptive optimizer LR."""
     runner.load(str(checkpoint))
@@ -99,12 +129,14 @@ def main(argv=None):
         for key, value in cfg.to_dict().items():
             if json.dumps(value) != json.dumps(original[key]):
                 raise ValueError(f"Resume configuration differs in {key}")
+    optimization = optimization_from_args(args)
     if args.dry_run:
         print(
             json.dumps(
                 {
                     "experiment": cfg.to_dict(),
                     "iterations": args.iterations,
+                    "optimization": optimization,
                     "training_started": False,
                 },
                 indent=2,
@@ -125,6 +157,8 @@ def main(argv=None):
     torch.manual_seed(cfg.seed)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     name = f"{cfg.task}_{cfg.condition}_{cfg.occlusion}_{cfg.memory}_v{args.fixed_view}_s{cfg.seed}_n{cfg.num_envs}_{stamp}"
+    if args.run_label:
+        name = name.replace(f"_{stamp}", f"_{args.run_label}_{stamp}")
     log_dir = args.resume.parent if args.resume else args.log_root / name
     os.environ.setdefault("WANDB_PROJECT", "active-perception-so101")
     os.environ.setdefault("WANDB_RUN_GROUP", f"plug-{args.job_type}-20261007")
@@ -155,6 +189,8 @@ def main(argv=None):
     log_dir.mkdir(parents=True, exist_ok=bool(args.resume))
     (log_dir / "experiment.json").write_text(json.dumps(cfg.to_dict(), indent=2))
     runner_options = runner_cfg(cfg, args.iterations)
+    for key, value in optimization.items():
+        setattr(runner_options.algorithm, key, value)
     runner_options.logger = "wandb"
     runner_options.wandb_project = os.environ["WANDB_PROJECT"]
     runner_options.save_interval = max(1, args.iterations // 2)

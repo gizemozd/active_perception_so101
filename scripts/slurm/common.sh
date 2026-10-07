@@ -44,6 +44,10 @@ run_training() {
     --log-root "${LOG_ROOT:-logs}" --job-type "${JOB_TYPE:-pilot}")
   if [[ -n "${RESULT_ROOT:-}" ]]; then args+=(--result "${RESULT_ROOT}/${task}-${condition}-s${seed}.json"); fi
   if [[ "${PERTURB_PUSH:-0}" == 1 ]]; then args+=(--perturb-push); fi
+  if [[ -n "${LEARNING_RATE:-}" ]]; then args+=(--learning-rate "$LEARNING_RATE"); fi
+  if [[ -n "${LR_SCHEDULE:-}" ]]; then args+=(--lr-schedule "$LR_SCHEDULE"); fi
+  if [[ -n "${ENTROPY_COEF:-}" ]]; then args+=(--entropy-coef "$ENTROPY_COEF"); fi
+  if [[ -n "${RUN_LABEL:-}" ]]; then args+=(--run-label "$RUN_LABEL"); fi
   if [[ -n "${RESUME:-}" ]]; then args+=(--resume "$RESUME"); fi
   if [[ "${DRY_RUN:-0}" == 1 ]]; then args+=(--dry-run); fi
   printf 'task=%s condition=%s seed=%s envs=%s budget=%s fixed_view=%s\n' "$task" "$condition" "$seed" "$nenv" "$budget" "$view"

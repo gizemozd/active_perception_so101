@@ -103,8 +103,57 @@ def test_resume_rejects_changed_environment_count(tmp_path, capsys):
     # cumulative transition axis and remaining scientific interaction budget.
     cfg = Experiment(num_envs=256)
     (tmp_path / "experiment.json").write_text(json.dumps(cfg.to_dict()))
+    (tmp_path / "runner.json").write_text(
+        json.dumps(
+            {
+                "algorithm": {
+                    "learning_rate": 3e-4,
+                    "schedule": "adaptive",
+                    "entropy_coef": 0.003,
+                }
+            }
+        )
+    )
     checkpoint = tmp_path / "model_9.pt"
     with pytest.raises(ValueError, match="num_envs"):
         main(["--task", "plug", "--num-envs", "128", "--resume", str(checkpoint), "--dry-run"])
     main(["--task", "plug", "--num-envs", "256", "--resume", str(checkpoint), "--dry-run"])
     assert not json.loads(capsys.readouterr().out)["training_started"]
+
+
+def test_search_optimization_dispatch_and_resume_guard(tmp_path):
+    from active_perception_arms.train import optimization_from_args, parser
+
+    args = parser().parse_args(
+        [
+            "--task",
+            "plug",
+            "--job-type",
+            "search",
+            "--learning-rate",
+            "0.0001",
+            "--lr-schedule",
+            "fixed",
+            "--entropy-coef",
+            "0.01",
+            "--run-label",
+            "lr-entropy",
+        ]
+    )
+    settings = optimization_from_args(args)
+    assert settings == {"learning_rate": 0.0001, "schedule": "fixed", "entropy_coef": 0.01}
+    (tmp_path / "runner.json").write_text(json.dumps({"algorithm": settings}))
+    args.resume = tmp_path / "model_99.pt"
+    args.learning_rate = args.lr_schedule = args.entropy_coef = None
+    assert optimization_from_args(args) == settings
+    args.entropy_coef = 0.003
+    with pytest.raises(ValueError, match="Resume optimization differs"):
+        optimization_from_args(args)
+
+
+@pytest.mark.parametrize("flag,value", [("--learning-rate", "0"), ("--entropy-coef", "nan")])
+def test_invalid_optimizer_settings(flag, value):
+    from active_perception_arms.train import optimization_from_args, parser
+
+    with pytest.raises(ValueError, match="Invalid"):
+        optimization_from_args(parser().parse_args(["--task", "plug", flag, value]))
