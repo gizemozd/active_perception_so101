@@ -23,6 +23,6 @@ if (( index < 0 || index > 77 || nenv % 8 != 0 || budget % (nenv * 24) != 0 )); 
 args=(-m active_perception_arms.train --task "$TASK" --condition "$condition"
   --seed "$((index % 3))" --fixed-view "$((index / 3))" --num-envs "$nenv"
   --iterations "$((budget / (nenv * 24)))" --occlusion "${OCCLUSION:-$default_occlusion}"
-  --memory "${MEMORY:-gru}" --log-root "${LOG_ROOT:-logs/static-search}")
+  --memory "${MEMORY:-gru}" --log-root "${LOG_ROOT:-logs/static-search}" --job-type "${JOB_TYPE:-study}")
 if [[ "${DRY_RUN:-0}" == 1 ]]; then args+=(--dry-run); fi
 run_python "${args[@]}"

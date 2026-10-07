@@ -96,3 +96,15 @@ def test_static_search_dispatch_and_equal_transition_budget():
     assert report["experiment"]["seed"] == 2
     assert report["iterations"] * 24 * 512 == 18432000
     assert not report["training_started"]
+
+
+def test_resume_rejects_changed_environment_count(tmp_path, capsys):
+    # Changing N while retaining the checkpoint iteration silently changes the
+    # cumulative transition axis and remaining scientific interaction budget.
+    cfg = Experiment(num_envs=256)
+    (tmp_path / "experiment.json").write_text(json.dumps(cfg.to_dict()))
+    checkpoint = tmp_path / "model_9.pt"
+    with pytest.raises(ValueError, match="num_envs"):
+        main(["--task", "plug", "--num-envs", "128", "--resume", str(checkpoint), "--dry-run"])
+    main(["--task", "plug", "--num-envs", "256", "--resume", str(checkpoint), "--dry-run"])
+    assert not json.loads(capsys.readouterr().out)["training_started"]

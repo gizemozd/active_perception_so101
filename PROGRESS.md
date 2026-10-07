@@ -336,3 +336,14 @@
   `SLURM_STEPMGR`, so it could not attach; SSH to the compute node also lacks a
   trusted host-key entry. Neither was needed to retrieve the complete failure from
   shared Slurm output. No SSH trust checks were disabled.
+- Fixed the missing-header failure without reinstalling the large dependency set:
+  `uv python install 3.12` selected managed Python **3.12.13**;
+  `uv venv --allow-existing --managed-python --python 3.12 .venv && uv sync --locked`
+  preserved all 142 packages. Verified `Python.h` and Torch imports. Cluster setup
+  now checks headers before selecting an interpreter. Fix committed as `3ab35f7`.
+- Submitted replacement validation job **51114857**, running on `holygpu7c1934`.
+  Read-only attachment works with `env -u SLURM_STEPMGR srun --jobid=51114857
+  --overlap --ntasks=1 --cpus-per-task=1 --nodelist=holygpu7c1934 ...`.
+  The initial CPU test phase is active; no training has started.
+- Local CLI regression checks: **29 passed** in 44.07 s; warnings are upstream
+  Torch JIT deprecations. Final benchmark/pilot decisions remain pending CUDA gates.

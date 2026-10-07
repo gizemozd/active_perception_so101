@@ -83,7 +83,7 @@ def main(argv=None):
         ).to_dict()
         # A resume restores the same experiment; interventions belong in evaluation.
         for key, value in cfg.to_dict().items():
-            if key != "num_envs" and json.dumps(value) != json.dumps(original[key]):
+            if json.dumps(value) != json.dumps(original[key]):
                 raise ValueError(f"Resume configuration differs in {key}")
     if args.dry_run:
         print(
@@ -154,6 +154,7 @@ def main(argv=None):
         "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
     }
     (log_dir / "runtime.json").write_text(json.dumps(metadata, indent=2))
+    (log_dir / f"runtime_{stamp}.json").write_text(json.dumps(metadata, indent=2))
     from .telemetry import GpuSampler, install_logging
 
     sampler = GpuSampler(log_dir / "gpu.csv").start()
@@ -167,6 +168,7 @@ def main(argv=None):
         if args.resume:
             runner.load(str(args.resume))
             runner.current_learning_iteration += 1
+            runner.logger.tot_timesteps = runner.current_learning_iteration * cfg.num_envs * 24
         remaining = args.iterations - (runner.current_learning_iteration if args.resume else 0)
         install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler, process_start)
         interrupted = []

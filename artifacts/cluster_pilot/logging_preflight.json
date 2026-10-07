@@ -3,5 +3,10 @@
   "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/v7c2xe0f",
   "entity": "pgozdil-harvard-university",
   "project": "active-perception-so101",
-  "verified_remote_value": 1
+  "verified_remote_value": 1,
+  "compute_node_verification": {
+    "run_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/z8hsr5ol",
+    "inference_transitions_per_second": 493.08567284835834,
+    "training_started": false
+  }
 }

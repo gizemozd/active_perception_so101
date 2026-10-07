@@ -95,7 +95,8 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
                 "fixed_view": args.fixed_view,
                 "job_type": args.job_type,
                 "environment_initialization_seconds": init_seconds,
-            }
+            },
+            allow_val_change=bool(args.resume),
         )
         run.define_metric("train/transitions")
         run.define_metric("train/*", step_metric="train/transitions")
@@ -230,7 +231,7 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
         ):
             wandb.save(str(log_dir / name), base_path=str(log_dir))
         # Native save interval is bounded to <=3 checkpoints for this run.
-        if args.job_type == "pilot":
+        if args.job_type in ("pilot", "study"):
             artifact = wandb.Artifact(f"{wandb.run.id}-checkpoints", type="model")
             for path in log_dir.glob("*.pt"):
                 artifact.add_file(str(path))
