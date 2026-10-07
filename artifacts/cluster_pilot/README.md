@@ -1,5 +1,9 @@
 # Restored-plug pilot handoff — 2026-10-07
 
+Latest stage: [longer matched continuations](../cluster_continuation/README.md) were
+submitted on 2026-10-07 and verified running. The results below remain the original
+100-update pilot snapshot.
+
 **All four seed-0 pilots and captured diagnostic evaluations are finished. No project
 jobs remain running/pending. Do not submit these pilots again.** Historical failures
 and their replacements remain explicitly recorded in the inventory.

@@ -1,0 +1,54 @@
+[
+  {
+    "condition": "active",
+    "id": "u1evdury",
+    "state": "running",
+    "transition_budget": 18432000,
+    "wandb_iteration": 102,
+    "wandb_transitions": 1253376,
+    "local_iteration": 104,
+    "local_transitions": 1277952,
+    "resume_lr": 7.593750000000004e-05,
+    "archive": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/resume_history/20261007T195606Z",
+    "checked_at": "2026-10-07T19:57:25.013870+00:00"
+  },
+  {
+    "condition": "initial",
+    "id": "i116qwyn",
+    "state": "running",
+    "transition_budget": 18432000,
+    "wandb_iteration": 108,
+    "wandb_transitions": 1327104,
+    "local_iteration": 109,
+    "local_transitions": 1339392,
+    "resume_lr": 0.00017085937500000009,
+    "archive": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/resume_history/20261007T195607Z",
+    "checked_at": "2026-10-07T19:57:25.223391+00:00"
+  },
+  {
+    "condition": "wrist",
+    "id": "a7ex2ycm",
+    "state": "running",
+    "transition_budget": 18432000,
+    "wandb_iteration": 136,
+    "wandb_transitions": 1671168,
+    "local_iteration": 138,
+    "local_transitions": 1695744,
+    "resume_lr": 0.0008649755859375004,
+    "archive": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/resume_history/20261007T195407Z",
+    "checked_at": "2026-10-07T19:57:25.446019+00:00"
+  },
+  {
+    "condition": "wrist_static",
+    "id": "zj5uevwm",
+    "state": "running",
+    "transition_budget": 18432000,
+    "wandb_iteration": 110,
+    "wandb_transitions": 1351680,
+    "local_iteration": 112,
+    "local_transitions": 1376256,
+    "resume_lr": 0.0008779149519890256,
+    "archive": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/resume_history/20261007T195607Z",
+    "checked_at": "2026-10-07T19:57:25.692299+00:00"
+  }
+]

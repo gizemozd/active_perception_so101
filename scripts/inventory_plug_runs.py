@@ -8,11 +8,20 @@ from pathlib import Path
 
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument("--start", default="2026-10-07")
+p.add_argument("--jobs", help="Comma-separated job IDs; includes dependency-pending jobs")
 p.add_argument("--output", type=Path, default=Path("artifacts/cluster_pilot/run_inventory.json"))
 a = p.parse_args()
 fields = "JobID,JobIDRaw,JobName,State,Submit,Start,End,Elapsed,ExitCode,NodeList,Account,Partition,ReqTRES,AllocTRES,WorkDir,SubmitLine"
 result = subprocess.run(
-    ["sacct", "-u", "pgozdil", "-S", a.start, "-X", "-P", "--format=" + fields],
+    [
+        "sacct",
+        "-u",
+        "pgozdil",
+        *(["-j", a.jobs] if a.jobs else ["-S", a.start]),
+        "-X",
+        "-P",
+        "--format=" + fields,
+    ],
     check=True,
     capture_output=True,
     text=True,
@@ -129,6 +138,26 @@ if manifest.exists():
                     media=str(path.with_name(path.stem + "-videos")),
                     diagnostic_repeat=prefix == "recorded_repeat",
                 )
+continuation = a.output.parent / "manifest.json"
+if continuation.exists():
+    for run in json.loads(continuation.read_text()):
+        for job in jobs:
+            if job["JobID"] != run.get("evaluation_job_id"):
+                continue
+            path = Path(run["evaluation_output"])
+            report = json.loads(path.read_text()) if path.exists() else {}
+            job["evaluation"] = dict(
+                report=str(path),
+                checkpoint=run["expected_final_checkpoint"],
+                condition=run["condition"],
+                configured_episodes=512,
+                num_envs=128,
+                reset_seeds=[10000, 10001, 10002, 10003],
+                completed_episodes=report.get("episodes", 0),
+                successes=report.get("successes"),
+                wandb_url=report.get("wandb_url"),
+                dependency=run["training_job_id"],
+            )
 for path in Path("artifacts/cluster_pilot").glob("*.json"):
     report = json.loads(path.read_text())
     if not isinstance(report, dict) or not report.get("slurm_job_id"):

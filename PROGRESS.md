@@ -811,3 +811,34 @@ No fixed-camera search, extra seeds, transfer/push or larger matrix authorized h
   experiment configs and total budgets. Estimated remaining training: wrist 67.6m,
   wrist_static 75.4m, initial 88.6m, active 88.4m (~5.33 GPU-h total), excluding
   startup/queues/evaluation and possible throughput changes as policies learn.
+
+
+### Longer jobs running — startup verified 2026-10-07 19:57 UTC
+
+| Condition | Training array task | Node | Evaluation (Dependency) | W&B |
+|---|---|---|---|---|
+| wrist | 51152806_0 | holygpu7c1710 | 51153083 | [a7ex2ycm](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/a7ex2ycm) |
+| wrist_static | 51153491_6 | holygpu7c1731 | 51153495 | [zj5uevwm](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/zj5uevwm) |
+| initial | 51153482_9 | holygpu7c1731 | 51153487 | [i116qwyn](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/i116qwyn) |
+| active | 51153446_15 | holygpu7c1713 | 51153468 | [u1evdury](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/u1evdury) |
+
+- All four RUNNING; actual one-GPU Blackwell allocations verified. Wrist was
+  submitted first; W&B received resumed iteration 105 / 1,290,240 transitions
+  before the remaining three submissions. All four original IDs now report
+  RUNNING, budget 18,432,000 and fresh post-100 metrics. Checkpoint SHA256 hashes
+  unchanged; restored adaptive learning rates match saved Adam state; local
+  histories are contiguous, first resumed update 101 / 1,241,088 transitions.
+- Four dependency evaluations submitted with the existing evaluate.sbatch:
+  512 episodes each, N128, validation seeds 10000–10003, actual-trajectory capture
+  and outside/policy videos. New result paths preserve old pilot evaluations.
+  Evaluation IDs are pending for Dependency, not observed running.
+- [Continuation handoff](artifacts/cluster_continuation/README.md),
+  [manifest/commands](artifacts/cluster_continuation/manifest.json),
+  [startup readback](artifacts/cluster_continuation/startup_verified.json),
+  [inventory](artifacts/cluster_continuation/run_inventory.json).
+- Added explicit --jobs to inventory: date-window sacct omitted dependency-pending
+  evaluations; direct job accounting correctly includes all eight submissions.
+- No longer-run results are claimed yet. Continue monitoring these jobs, never
+  submit duplicates. Verify final checkpoint index 1499 and total 18,432,000
+  transitions before treating a training job as complete. Core source revision
+  04de34f; remaining changes are inventory/handoff only.
