@@ -15,6 +15,8 @@ Use independent one-GPU jobs. No distributed-policy scaling is assumed.
 
 W&B entity: `pgozdil-harvard-university`, project: `active-perception-so101`.
 Use existing login credentials; never place keys in commands or Git.
+Cluster setup checks Python development headers required by Triton. The site system
+Python lacked them; the project environment uses uv-managed Python 3.12.13.
 [Dashboard](https://wandb.ai/pgozdil-harvard-university/active-perception-so101).
 Groups/job types separate inference, disposable PPO benchmarks, pilots and validation.
 The native RSL-RL W&B logger retains reward, episode and PPO metrics; the adapter
@@ -40,7 +42,7 @@ Short benchmark extrapolations exclude queue and evaluation time and are uncerta
 From the repository root:
 
 ```bash
-uv sync --locked
+bash scripts/setup_cluster.sh
 mkdir -p logs/slurm artifacts/cluster_pilot
 sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx scripts/slurm/validate.sbatch
 # After validation and W&B metric receipt:

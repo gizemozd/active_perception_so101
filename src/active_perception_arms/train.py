@@ -135,6 +135,8 @@ def main(argv=None):
     metadata = {
         "command": sys.argv,
         "platform": platform.platform(),
+        "python": platform.python_version(),
+        "cudnn": torch.backends.cudnn.version(),
         "gpu": torch.cuda.get_device_name(args.device),
         "torch_cuda": torch.version.cuda,
         "git_revision": revision.stdout.strip() if revision.returncode == 0 else None,

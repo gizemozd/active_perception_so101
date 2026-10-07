@@ -109,6 +109,8 @@ def main(argv=None):
             "kind": "simulation_and_actor_inference_only",
             "wandb_url": run.url if run else None,
             "hostname": platform.node(),
+            "python": platform.python_version(),
+            "torch_cuda": torch.version.cuda,
             "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
             "packages": {
                 name: version(name)

@@ -314,3 +314,25 @@
 - Installing pinned dependencies required roughly 11 minutes of CUDA downloads,
   followed by copying from the home cache to the project filesystem (hardlinks
   cannot cross these filesystems). This is setup cost, not training throughput.
+- `uv sync --locked` completed (Torch 2.10.0+cu128, MjLab 1.4.0,
+  MuJoCo 3.9.0, MuJoCo Warp 3.8.1/pinned Git revision, Warp 1.13.0,
+  RSL-RL 5.2.0, W&B 0.30.0).
+- W&B upload/readback verification **passed**: preflight metric value 1 was
+  retrieved using `wandb.Api()` after finishing the run. This run performed no
+  training: https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/v7c2xe0f
+  Receipt: `artifacts/cluster_pilot/logging_preflight.json`.
+- Submitted GPU validation job **51113803** with
+  `sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx scripts/slurm/validate.sbatch`.
+  Running on `holygpu7c1713`; includes supplied CUDA/CPU regression tests,
+  full-resolution rendered actor inference, four-variant physical rollouts and
+  explicit actor-state/initial-freeze GPU checks. Training remains gated on this job.
+- Validation job `51113803` stopped at the regression-test gate: **53 passed,
+  1 failed** (268.42 s). The plug CUDA path's Triton extension could not compile:
+  `/usr/include/python3.12/Python.h` is absent from the system interpreter selected
+  by uv. Transfer/push CUDA smoke tests passed; no training or inference benchmark
+  started. Remedy in progress: provision a Python 3.12 runtime with development
+  headers and rebase the project environment while preserving installed packages.
+- An overlapping diagnostic `srun --jobid` inherited this interactive allocation's
+  `SLURM_STEPMGR`, so it could not attach; SSH to the compute node also lacks a
+  trusted host-key entry. Neither was needed to retrieve the complete failure from
+  shared Slurm output. No SSH trust checks were disabled.
