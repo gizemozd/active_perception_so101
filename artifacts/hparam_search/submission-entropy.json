@@ -1,0 +1,88 @@
+{
+  "case": "entropy",
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-hparam-20261007",
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-hparam-20261007",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-hparam-20261007/src",
+    "NUM_ENVS": "512",
+    "TOTAL_STEPS": "1228800",
+    "FIXED_VIEW": "7",
+    "MEMORY": "gru",
+    "OCCLUSION": "clean",
+    "JOB_TYPE": "search",
+    "RUN_LABEL": "entropy",
+    "LOG_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/entropy",
+    "RESULT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/hparam_search/entropy",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_PROJECT": "active-perception-so101",
+    "WANDB_RUN_GROUP": "plug-hparam-20261007",
+    "WANDB_JOB_TYPE": "search",
+    "WANDB_TAGS": "restored-plug,search,wrist_static,view7,gru,seed0,entropy",
+    "WANDB_MODE": "online",
+    "WANDB_RUN_ID": "9d338c65",
+    "LEARNING_RATE": "0.0003",
+    "LR_SCHEDULE": "adaptive",
+    "ENTROPY_COEF": "0.01"
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--array=6",
+    "--time=01:00:00",
+    "--job-name=plug-hp-entropy",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%A_%a.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%A_%a.err",
+    "scripts/slurm/train_plug.sbatch"
+  ],
+  "dry_run": {
+    "experiment": {
+      "task": "plug",
+      "condition": "wrist_static",
+      "occlusion": "clean",
+      "seed": 0,
+      "num_envs": 512,
+      "width": 128,
+      "height": 96,
+      "timestep": 0.002,
+      "decimation": 20,
+      "episode_seconds": 3.5,
+      "initial_seconds": 1.0,
+      "joint_step": 0.035,
+      "randomize": true,
+      "perturb_push": false,
+      "fixed_position": [
+        1.1021821192326179e-17,
+        0.205,
+        0.08
+      ],
+      "fixed_lookat": [
+        0.022,
+        0.045,
+        0.047
+      ],
+      "clearance": 0.002,
+      "render_sensors": true,
+      "memory": "gru",
+      "plug_variant": null,
+      "task_revision": "hidden_prongs_v1"
+    },
+    "iterations": 100,
+    "optimization": {
+      "learning_rate": 0.0003,
+      "schedule": "adaptive",
+      "entropy_coef": 0.01
+    },
+    "training_started": false
+  },
+  "revision": "25a005ea389edbff7b07b6a449ab6a41c5ccaa4b",
+  "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/9d338c65",
+  "submitted_at": "2026-10-07T21:14:29.103517+00:00",
+  "status": "submitted",
+  "stdout": "51165286",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51165286_6"
+}

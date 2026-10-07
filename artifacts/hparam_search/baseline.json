@@ -1,0 +1,149 @@
+{
+  "source_run": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z",
+  "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/zj5uevwm",
+  "checkpoint": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_99.pt",
+  "transition_budget": 1228800,
+  "ppo_updates": 100,
+  "experiment": {
+    "task": "plug",
+    "condition": "wrist_static",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 512,
+    "width": 128,
+    "height": 96,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 3.5,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_position": [
+      1.1021821192326179e-17,
+      0.205,
+      0.08
+    ],
+    "fixed_lookat": [
+      0.022,
+      0.045,
+      0.047
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "plug_variant": null,
+    "task_revision": "hidden_prongs_v1"
+  },
+  "runner": {
+    "seed": 0,
+    "num_steps_per_env": 24,
+    "max_iterations": 100,
+    "obs_groups": {
+      "actor": [
+        "proprio",
+        "wrist",
+        "external"
+      ],
+      "critic": [
+        "critic"
+      ]
+    },
+    "save_interval": 50,
+    "experiment_name": "plug_wrist_static",
+    "run_name": "",
+    "logger": "wandb",
+    "wandb_project": "active-perception-so101",
+    "wandb_tags": [],
+    "resume": false,
+    "load_run": ".*",
+    "load_checkpoint": "model_.*.pt",
+    "clip_actions": null,
+    "upload_model": false,
+    "class_name": "OnPolicyRunner",
+    "actor": {
+      "hidden_dims": [
+        128,
+        128
+      ],
+      "activation": "elu",
+      "obs_normalization": true,
+      "cnn_cfg": {
+        "output_channels": [
+          16,
+          32
+        ],
+        "kernel_size": [
+          5,
+          3
+        ],
+        "stride": [
+          2,
+          2
+        ],
+        "padding": "zeros",
+        "activation": "elu",
+        "max_pool": false,
+        "global_pool": "none",
+        "spatial_softmax": true
+      },
+      "distribution_cfg": {
+        "class_name": "GaussianDistribution",
+        "init_std": 0.4,
+        "std_type": "scalar"
+      },
+      "rnn_type": "gru",
+      "rnn_hidden_dim": 128,
+      "rnn_num_layers": 1,
+      "class_name": "active_perception_arms.policy:VisualMemoryModel"
+    },
+    "critic": {
+      "hidden_dims": [
+        128,
+        128
+      ],
+      "activation": "elu",
+      "obs_normalization": true,
+      "cnn_cfg": null,
+      "distribution_cfg": null,
+      "rnn_type": "gru",
+      "rnn_hidden_dim": 128,
+      "rnn_num_layers": 1,
+      "class_name": "RNNModel"
+    },
+    "algorithm": {
+      "num_learning_epochs": 4,
+      "num_mini_batches": 8,
+      "learning_rate": 0.0003,
+      "schedule": "adaptive",
+      "gamma": 0.99,
+      "lam": 0.95,
+      "entropy_coef": 0.003,
+      "desired_kl": 0.01,
+      "max_grad_norm": 1.0,
+      "value_loss_coef": 1.0,
+      "use_clipped_value_loss": true,
+      "clip_param": 0.2,
+      "normalize_advantage_per_mini_batch": false,
+      "optimizer": "adam",
+      "share_cnn_encoders": false,
+      "class_name": "active_perception_arms.policy:CompactPPO"
+    }
+  },
+  "note": "Reuse the already completed first 100 updates/model_99, not the later continuation. Do not resubmit a baseline. Search-only diagnostics add metrics and passed exact parameter-update preservation tests; task/model/reward unchanged.",
+  "existing_evaluations": [
+    {
+      "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0.json",
+      "successes": 4,
+      "success_rate": 0.0078125,
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/s79bb2ko"
+    },
+    {
+      "path": "artifacts/cluster_pilot/evaluation-wrist_static-s0.json",
+      "successes": 7,
+      "success_rate": 0.013671875,
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/exx2hu2j"
+    }
+  ],
+  "runner_source": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/resume_history/20261007T195607Z/runner.json"
+}

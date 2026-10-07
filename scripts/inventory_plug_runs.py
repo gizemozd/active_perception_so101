@@ -30,14 +30,19 @@ lines = result.stdout.splitlines()
 jobs = []
 for line in lines[1:]:
     row = dict(zip(lines[0].split("|"), line.split("|"), strict=True))
-    if row["JobName"] not in (
-        "plug-inventory",
-        "plug-colocation",
-        "vision-validate",
-        "plug-benchmark",
-        "plug-profile",
-        "vision-plug",
-        "vision-evaluate",
+    if (
+        not a.jobs
+        and not row["JobName"].startswith("plug-hp-")
+        and row["JobName"]
+        not in (
+            "plug-inventory",
+            "plug-colocation",
+            "vision-validate",
+            "plug-benchmark",
+            "plug-profile",
+            "vision-plug",
+            "vision-evaluate",
+        )
     ):
         continue
     row["scontrol"] = "Terminal state from sacct; controller not queried by this snapshot"
@@ -158,6 +163,27 @@ if continuation.exists():
                 wandb_url=report.get("wandb_url"),
                 dependency=run["training_job_id"],
             )
+for manifest in a.output.parent.glob("evaluation-submission-*.json"):
+    submission = json.loads(manifest.read_text())
+    settings = submission["environment"]
+    for job in jobs:
+        if job["JobID"] != submission.get("job_id"):
+            continue
+        path = Path(settings["OUTPUT"])
+        report = json.loads(path.read_text()) if path.exists() else {}
+        job["evaluation"] = dict(
+            report=str(path),
+            checkpoint=settings["CHECKPOINT"],
+            source_revision=submission["source_revision"],
+            condition="wrist_static",
+            configured_episodes=int(settings["EPISODES"]),
+            num_envs=int(settings["NUM_ENVS"]),
+            reset_seeds=[10000, 10001, 10002, 10003],
+            completed_episodes=report.get("episodes", 0),
+            successes=report.get("successes"),
+            wandb_url=report.get("wandb_url"),
+            dependency=submission["training_job_id"],
+        )
 for path in Path("artifacts/cluster_pilot").glob("*.json"):
     report = json.loads(path.read_text())
     if not isinstance(report, dict) or not report.get("slurm_job_id"):

@@ -863,3 +863,39 @@ run/configuration remains unidentified. Adjacent legacy defaults are reference o
   it as interchangeable with validation success. All four long training jobs
   remain RUNNING and their four final evaluations PENDING (Dependency).
 - No training config changed; no HP-search or extra-seed training launched.
+
+
+### 2026-10-07 — authorized hyperparameter search launched
+
+User requested the hyperparameter search. [Protocol and live run links](artifacts/hparam_search/README.md).
+Reuse original wrist_static/view7 seed0 model_99 as baseline; no duplicate control.
+Three fresh matched N512/GRU/clean runs, each100 updates /1,228,800 transitions:
+
+| Case | LR / schedule | Entropy | Training | Dependent evaluation |
+|---|---|---:|---|---|
+| fixed_lr | 1e-4 fixed | .003 | 51164843_6 | 51165404 |
+| entropy | 3e-4 adaptive | .01 | 51165286_6 | 51165405 |
+| both | 1e-4 fixed | .01 | 51165289_6 | 51165406 |
+
+- All three RUNNING; W&B API verified fresh metrics and diagnostics under separate
+  IDs/group plug-hparam-20261007. First run's metrics verified before other submissions.
+- Training source25a005e frozen in sibling worktree plug-hparam-20261007; shared
+  pinned .venv, explicit PYTHONPATH. Runtime configurations exactly match baseline
+  except declared optimization settings; no geometry/model/reward changes.
+- One Blackwell GPU/job,8CPUs,48GiB, kempner_rtx/account kempner_pgozdil_lab.
+- Added validated CLI overrides, exact-resume optimization inheritance/guards,
+  KL/clip fraction/per-axis std/action saturation and episode-weighted diagnostics.
+ 38 CLI/telemetry tests +2 real PPO update-preservation tests passed.
+- Three afterok evaluations PENDING (Dependency):512 episodes,N128,seeds10000–10003,
+  balanced variants,captured policy/outside videos. W&B evaluation source14d091d
+  changes only group/tag selection; existing pilot evaluation defaults preserved.
+- Existing four long pilots and their four final evaluations unchanged: training
+  51152806_0,51153491_6,51153482_9,51153446_15 RUNNING; evaluations
+  51153083,51153495,51153487,51153468 PENDING (Dependency).
+- Search manifests are exclusive submission reservations; inspect them/accounting
+  before any retry. Inventory now includes explicit requested IDs regardless of
+  job name and associates search evaluation manifests. No extra seeds launched.
+- Next: verify model_99,100 contiguous updates,total1,228,800 and validation results.
+  Early screening may be inconclusive; do not infer a winner from reward alone.
+  Promising cases can continue to matched9,228,288 total transitions, preserving
+  their IDs and counting already completed work. No such extensions submitted yet.
