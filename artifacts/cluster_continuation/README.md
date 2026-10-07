@@ -85,3 +85,9 @@ do not add another full budget or change W&B IDs. A signal checkpoint can exit
 zero before the final model exists, in which case the dependent evaluation may fail
 and must wait for the successfully completed resumed training. Do not infer
 completion from exit code alone. No training or evaluation result is yet claimed.
+
+## Intermediate optimization check
+
+See [2026-10-07 diagnosis](OPTIMIZATION.md) for the newer status, two completed
+model_750 evaluations, W&B videos, and the proposed controlled optimization search.
+The earlier table on this page is the startup snapshot, not current progress.

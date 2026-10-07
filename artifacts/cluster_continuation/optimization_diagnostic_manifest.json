@@ -1,0 +1,66 @@
+[
+  {
+    "condition": "wrist",
+    "checkpoint": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_750.pt",
+    "checkpoint_iteration_index": 750,
+    "cumulative_transitions": 9228288,
+    "output": "artifacts/cluster_continuation/interim-evaluation-wrist-s0-i750.json",
+    "job_id": "51162174",
+    "submission": [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--export=ALL",
+      "scripts/slurm/evaluate.sbatch"
+    ],
+    "environment": {
+      "CHECKPOINT": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_750.pt",
+      "OUTPUT": "artifacts/cluster_continuation/interim-evaluation-wrist-s0-i750.json",
+      "NUM_ENVS": "128",
+      "EPISODES": "512",
+      "SPLIT": "validation",
+      "RECORD_CAPTURE": "1",
+      "RECORD_VIDEO": "1",
+      "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101"
+    },
+    "submitted_at": "2026-10-07T20:57:23.369280+00:00",
+    "purpose": "Intermediate validation of low-learning-rate/low-exploration policies; no extra training",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "wandb_id": "1q7q9tso",
+    "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/1q7q9tso"
+  },
+  {
+    "condition": "wrist_static",
+    "checkpoint": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_750.pt",
+    "checkpoint_iteration_index": 750,
+    "cumulative_transitions": 9228288,
+    "output": "artifacts/cluster_continuation/interim-evaluation-wrist_static-s0-i750.json",
+    "job_id": "51162175",
+    "submission": [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--export=ALL",
+      "scripts/slurm/evaluate.sbatch"
+    ],
+    "environment": {
+      "CHECKPOINT": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_750.pt",
+      "OUTPUT": "artifacts/cluster_continuation/interim-evaluation-wrist_static-s0-i750.json",
+      "NUM_ENVS": "128",
+      "EPISODES": "512",
+      "SPLIT": "validation",
+      "RECORD_CAPTURE": "1",
+      "RECORD_VIDEO": "1",
+      "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101"
+    },
+    "submitted_at": "2026-10-07T20:57:23.993802+00:00",
+    "purpose": "Intermediate validation of low-learning-rate/low-exploration policies; no extra training",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "wandb_id": "qendmi3r",
+    "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/qendmi3r"
+  }
+]

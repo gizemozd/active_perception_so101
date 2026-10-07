@@ -1,0 +1,251 @@
+{
+  "checked_at": "2026-10-07T20:59:27.671527+00:00",
+  "source_revision": "1896e870e700710d70cc506a16e09f159867cec6",
+  "runs": [
+    {
+      "condition": "wrist",
+      "latest_iteration": 845,
+      "latest_transitions": 10383360,
+      "recent_window": [
+        746,
+        845
+      ],
+      "last_metrics": {
+        "train/Loss/learning_rate": 1e-05,
+        "train/Policy/mean_std": 0.04226167872548103,
+        "train/Train/mean_reward": 1.7582176210731268,
+        "train/Train/mean_episode_length": 87.64,
+        "train/Episode_Metrics/success_rate": 0.0521739162504673,
+        "train/Loss/value": 0.46197605854831636
+      },
+      "recent_means": {
+        "train/Loss/learning_rate": 1e-05,
+        "train/Policy/mean_std": 0.042101319096982476,
+        "train/Train/mean_reward": 2.1120214476433348,
+        "train/Train/mean_episode_length": 86.9547,
+        "train/Episode_Metrics/success_rate": 0.06438367563299835,
+        "train/Loss/value": 0.4461724180658348
+      },
+      "lr_floor_count_last_100": 100,
+      "checkpoint_750_action_std": {
+        "distribution.std_param": [
+          0.07362052798271179,
+          0.0017380474600940943,
+          0.05039503797888756
+        ]
+      }
+    },
+    {
+      "condition": "wrist_static",
+      "latest_iteration": 787,
+      "latest_transitions": 9670656,
+      "recent_window": [
+        688,
+        787
+      ],
+      "last_metrics": {
+        "train/Loss/learning_rate": 1e-05,
+        "train/Policy/mean_std": 0.030465032905340195,
+        "train/Train/mean_reward": 4.202411978719756,
+        "train/Train/mean_episode_length": 83.94,
+        "train/Episode_Metrics/success_rate": 0.2048611044883728,
+        "train/Loss/value": 0.858373424038291
+      },
+      "recent_means": {
+        "train/Loss/learning_rate": 1e-05,
+        "train/Policy/mean_std": 0.02992283394560218,
+        "train/Train/mean_reward": 3.8745676233634354,
+        "train/Train/mean_episode_length": 84.0716,
+        "train/Episode_Metrics/success_rate": 0.23798889935016632,
+        "train/Loss/value": 0.7354030666919426
+      },
+      "lr_floor_count_last_100": 100,
+      "checkpoint_750_action_std": {
+        "distribution.std_param": [
+          0.0015662356745451689,
+          0.001653048093430698,
+          0.08654751628637314
+        ]
+      }
+    },
+    {
+      "condition": "initial",
+      "latest_iteration": 688,
+      "latest_transitions": 8454144,
+      "recent_window": [
+        589,
+        688
+      ],
+      "last_metrics": {
+        "train/Loss/learning_rate": 7.593750000000004e-05,
+        "train/Policy/mean_std": 0.2690645456314087,
+        "train/Train/mean_reward": 5.8228423682786525,
+        "train/Train/mean_episode_length": 79.42,
+        "train/Episode_Metrics/success_rate": 0.3554563522338867,
+        "train/Loss/value": 1.8563221395015717
+      },
+      "recent_means": {
+        "train/Loss/learning_rate": 4.8726562500000016e-05,
+        "train/Policy/mean_std": 0.2683839753270149,
+        "train/Train/mean_reward": 5.7005436143742525,
+        "train/Train/mean_episode_length": 80.1494,
+        "train/Episode_Metrics/success_rate": 0.36077006995677946,
+        "train/Loss/value": 1.769482362214476
+      },
+      "lr_floor_count_last_100": 3
+    },
+    {
+      "condition": "active",
+      "latest_iteration": 697,
+      "latest_transitions": 8564736,
+      "recent_window": [
+        598,
+        697
+      ],
+      "last_metrics": {
+        "train/Loss/learning_rate": 5.0625000000000024e-05,
+        "train/Policy/mean_std": 0.25274384021759033,
+        "train/Train/mean_reward": 6.608619168866426,
+        "train/Train/mean_episode_length": 79.3,
+        "train/Episode_Metrics/success_rate": 0.3286744952201843,
+        "train/Loss/value": 2.1627101935446262
+      },
+      "recent_means": {
+        "train/Loss/learning_rate": 3.861250000000002e-05,
+        "train/Policy/mean_std": 0.2526857179403305,
+        "train/Train/mean_reward": 5.591637966870284,
+        "train/Train/mean_episode_length": 80.5614,
+        "train/Episode_Metrics/success_rate": 0.34993912041187286,
+        "train/Loss/value": 1.7498781932052225
+      },
+      "lr_floor_count_last_100": 4
+    }
+  ],
+  "success_metric_note": "Native metric averages reset batches, not episodes; use separately executed balanced 512-episode validation. Recent means can include forward-filled metrics.",
+  "recommendation": "Controlled optimization diagnosis before a large search; preserve current runs. Prioritize learning-rate schedule and exploration; log KL/clip fraction/per-action std and validate at matched transition budgets. The exact historical successful configuration remains unidentified.",
+  "historical_run_status": "User clarified prior successful runs are outside this repo; exact run/configuration not identified. Adjacent legacy checkout is reference code only, not verified historical-run evidence.",
+  "reference_checkout_comparison": {
+    "initial_lr": [
+      0.001,
+      0.0003
+    ],
+    "initial_action_std": [
+      1.0,
+      0.4
+    ],
+    "entropy_coefficient": [
+      0.005,
+      0.003
+    ],
+    "ppo_epochs": [
+      5,
+      4
+    ],
+    "ppo_minibatches": [
+      4,
+      8
+    ],
+    "mlp_widths": [
+      [
+        256,
+        256,
+        128
+      ],
+      [
+        128,
+        128
+      ]
+    ],
+    "critic": [
+      "feedforward",
+      "GRU128"
+    ],
+    "reward": [
+      "negative log distance with 1000 terminal reward",
+      "3 * potential change + 10 success - time/action costs"
+    ],
+    "success": [
+      "distance <2mm instantly",
+      "distance <2mm for 3 control steps"
+    ],
+    "policy_rgb": [
+      "96x96 in legacy pl4 script",
+      "128x96"
+    ],
+    "warning": "These are local legacy defaults/probe script settings, not verified as the user exact historical successful run. Existing legacy notes also distinguish pre/post inertial-leak-fix runs."
+  },
+  "reference_checkout_revision": "b6cd299d7754a03879bfd4b77f46729f1b340d47",
+  "action_std_note": "GaussianDistribution default std_range=(1e-6,1e6), no override in policy.py; all saved std values shown are above the clamp minimum. These are normalized action-space standard deviations, not Cartesian distances. Low variance alone does not prove premature convergence. Camera actions make cross-condition mean std comparisons misleading.",
+  "intermediate_evaluations": [
+    {
+      "condition": "wrist",
+      "job_id": "51162174",
+      "cumulative_transitions": 9228288,
+      "output": "artifacts/cluster_continuation/interim-evaluation-wrist-s0-i750.json",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/1q7q9tso",
+      "episodes": 512,
+      "successes": 14,
+      "success_rate": 0.02734375,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 12,
+          "success_rate": 0.09375
+        }
+      },
+      "mean_success_completion_seconds": 2.954285740852356
+    },
+    {
+      "condition": "wrist_static",
+      "job_id": "51162175",
+      "cumulative_transitions": 9228288,
+      "output": "artifacts/cluster_continuation/interim-evaluation-wrist_static-s0-i750.json",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/qendmi3r",
+      "episodes": 512,
+      "successes": 44,
+      "success_rate": 0.0859375,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 43,
+          "success_rate": 0.3359375
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        }
+      },
+      "mean_success_completion_seconds": 2.523636370897293
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+[
+  {
+    "id": "1q7q9tso",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/1q7q9tso",
+    "summary": {
+      "_runtime": 0,
+      "_step": 6,
+      "_timestamp": 1791406766.5209544,
+      "_wandb.runtime": 0,
+      "train/transitions": 9228288,
+      "validation/completion_seconds": 2.954285740852356,
+      "validation/mean_camera_joint_travel_rad": 0.001298722403589636,
+      "validation/mean_episode_seconds": 3.504531232174486,
+      "validation/success": 0.02734375,
+      "validation/success_xm": 0,
+      "validation/success_xp": 0,
+      "validation/success_ym": 0.015625,
+      "validation/success_yp": 0.09375,
+      "validation/videos/xm_failure_outside": {
+        "path": "media/videos/validation/videos/xm_failure_outside_1_ae4cec43b00f9ed26c1f.mp4",
+        "size": 709024,
+        "_type": "video-file",
+        "sha256": "ae4cec43b00f9ed26c1f0b3a8b337df5cb8f44a9da93e7048046462e11678feb"
+      },
+      "validation/videos/xm_failure_policy": {
+        "path": "media/videos/validation/videos/xm_failure_policy_1_3f019a7b68ce28be7658.mp4",
+        "size": 52438,
+        "_type": "video-file",
+        "sha256": "3f019a7b68ce28be76587d30d46ee127dc7c80ed1cd50573f530d29a27b88c9e"
+      },
+      "validation/videos/xp_failure_outside": {
+        "path": "media/videos/validation/videos/xp_failure_outside_2_b4fd9c2cf1b428da9b94.mp4",
+        "size": 593919,
+        "_type": "video-file",
+        "sha256": "b4fd9c2cf1b428da9b9461a381ad79e11643974a208f995ce96a2f76df71837b"
+      },
+      "validation/videos/xp_failure_policy": {
+        "path": "media/videos/validation/videos/xp_failure_policy_2_58ba42a85d49642d8431.mp4",
+        "size": 45633,
+        "_type": "video-file",
+        "sha256": "58ba42a85d49642d8431612727b2627de3ca71e4df476d96ca9bae3dd8203556"
+      },
+      "validation/videos/ym_failure_outside": {
+        "path": "media/videos/validation/videos/ym_failure_outside_3_1d1661f672a3865bb659.mp4",
+        "size": 658262,
+        "_type": "video-file",
+        "sha256": "1d1661f672a3865bb659477c3cd55537978f8b599c6818dd0ce828244d72f47d"
+      },
+      "validation/videos/ym_failure_policy": {
+        "path": "media/videos/validation/videos/ym_failure_policy_3_2458fa96779fff7127b2.mp4",
+        "size": 56325,
+        "_type": "video-file",
+        "sha256": "2458fa96779fff7127b2a697786d03d9c6d250c48c85bec28c50953f8cb26030"
+      },
+      "validation/videos/ym_success_outside": {
+        "path": "media/videos/validation/videos/ym_success_outside_6_05741ad8d967bef1663b.mp4",
+        "size": 574045,
+        "_type": "video-file",
+        "sha256": "05741ad8d967bef1663bad8fd1818ba73959f1a90f87305438bf6786880b891e"
+      },
+      "validation/videos/ym_success_policy": {
+        "path": "media/videos/validation/videos/ym_success_policy_6_09ff32365eb7085a9c26.mp4",
+        "size": 43477,
+        "_type": "video-file",
+        "sha256": "09ff32365eb7085a9c26cde7de711fd828f4f47bc258dd07c4853dd212ae4a9e"
+      },
+      "validation/videos/yp_failure_outside": {
+        "path": "media/videos/validation/videos/yp_failure_outside_4_7ae1eeac8518852d289c.mp4",
+        "size": 718178,
+        "_type": "video-file",
+        "sha256": "7ae1eeac8518852d289c499a0e5f3726308cf8f99b60d8094f329e30a64bcbcb"
+      },
+      "validation/videos/yp_failure_policy": {
+        "path": "media/videos/validation/videos/yp_failure_policy_4_d7ab05464555122912d6.mp4",
+        "size": 54427,
+        "_type": "video-file",
+        "sha256": "d7ab05464555122912d6a1fa9adc1aa554db131c2f6dc11002869dffb74ca71f"
+      },
+      "validation/videos/yp_success_outside": {
+        "path": "media/videos/validation/videos/yp_success_outside_5_6afca871a6b4a1211471.mp4",
+        "size": 565478,
+        "_type": "video-file",
+        "sha256": "6afca871a6b4a12114713e4ea8856996badccd15dcd95fcd07bea164ba11d1f3"
+      },
+      "validation/videos/yp_success_policy": {
+        "path": "media/videos/validation/videos/yp_success_policy_5_8b468b8589475a1d634b.mp4",
+        "size": 42186,
+        "_type": "video-file",
+        "sha256": "8b468b8589475a1d634b946b17912f67eb5207ba9b1f9fc8e9c1138adbac8c5d"
+      }
+    },
+    "media_files": 12
+  },
+  {
+    "id": "qendmi3r",
+    "state": "finished",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/qendmi3r",
+    "summary": {
+      "_runtime": 0,
+      "_step": 6,
+      "_timestamp": 1791406768.3810122,
+      "_wandb.runtime": 0,
+      "train/transitions": 9228288,
+      "validation/completion_seconds": 2.523636370897293,
+      "validation/mean_camera_joint_travel_rad": 0.0012987220979994163,
+      "validation/mean_episode_seconds": 3.4343749831896275,
+      "validation/success": 0.0859375,
+      "validation/success_xm": 0,
+      "validation/success_xp": 0.3359375,
+      "validation/success_ym": 0,
+      "validation/success_yp": 0.0078125,
+      "validation/videos/xm_failure_outside": {
+        "path": "media/videos/validation/videos/xm_failure_outside_1_3e76c435fedc5872004e.mp4",
+        "size": 693360,
+        "_type": "video-file",
+        "sha256": "3e76c435fedc5872004e2c303c4b7310a4679f0c414ab55dd0f509c2ef0b671a"
+      },
+      "validation/videos/xm_failure_policy": {
+        "path": "media/videos/validation/videos/xm_failure_policy_1_190147850de256d32c53.mp4",
+        "size": 94080,
+        "_type": "video-file",
+        "sha256": "190147850de256d32c5356d20ba11ea6ccd85e36a6cfa0b2820262a70c78aaaf"
+      },
+      "validation/videos/xp_failure_outside": {
+        "path": "media/videos/validation/videos/xp_failure_outside_2_66d6bdbf4e9329071faa.mp4",
+        "size": 661715,
+        "_type": "video-file",
+        "sha256": "66d6bdbf4e9329071faa6c0302375fd8a01211a79d3fa454e488137713c9acb3"
+      },
+      "validation/videos/xp_failure_policy": {
+        "path": "media/videos/validation/videos/xp_failure_policy_2_90726d78ebbe94d1cf78.mp4",
+        "size": 77742,
+        "_type": "video-file",
+        "sha256": "90726d78ebbe94d1cf78ceea9027b86c0411e64f1436b03e2241703f757c1f64"
+      },
+      "validation/videos/xp_success_outside": {
+        "path": "media/videos/validation/videos/xp_success_outside_5_01333f454577ba216554.mp4",
+        "size": 675315,
+        "_type": "video-file",
+        "sha256": "01333f454577ba216554a224d6cf104efa1ef0cb6df01396f2f70369b2106148"
+      },
+      "validation/videos/xp_success_policy": {
+        "path": "media/videos/validation/videos/xp_success_policy_5_586a97e883cc8d6c2ebf.mp4",
+        "size": 88465,
+        "_type": "video-file",
+        "sha256": "586a97e883cc8d6c2ebfc8615f36dd2c92b6b896dcc8378d7b7cbf1b010722ad"
+      },
+      "validation/videos/ym_failure_outside": {
+        "path": "media/videos/validation/videos/ym_failure_outside_3_7d9d143045dc0aaded4e.mp4",
+        "size": 683764,
+        "_type": "video-file",
+        "sha256": "7d9d143045dc0aaded4ec95b51e4823b1e13ecc9565909f16c22bd8a9aea715e"
+      },
+      "validation/videos/ym_failure_policy": {
+        "path": "media/videos/validation/videos/ym_failure_policy_3_dff15f9e32cb0dfd7e5d.mp4",
+        "size": 84830,
+        "_type": "video-file",
+        "sha256": "dff15f9e32cb0dfd7e5d9f0d90960e36dc644c15101abfe604c64fec645e180b"
+      },
+      "validation/videos/yp_failure_outside": {
+        "path": "media/videos/validation/videos/yp_failure_outside_4_086cd2387d545a93011c.mp4",
+        "size": 676409,
+        "_type": "video-file",
+        "sha256": "086cd2387d545a93011c894a031e6275619d0cdb3b001dfa042f97da4d56b7a6"
+      },
+      "validation/videos/yp_failure_policy": {
+        "path": "media/videos/validation/videos/yp_failure_policy_4_84008ab86dd49517f5ba.mp4",
+        "size": 87582,
+        "_type": "video-file",
+        "sha256": "84008ab86dd49517f5ba46596b834bec685c9a95e2a1749edc284168e9ebfec5"
+      },
+      "validation/videos/yp_success_outside": {
+        "path": "media/videos/validation/videos/yp_success_outside_6_f012eeb61f81d59b8d2c.mp4",
+        "size": 608713,
+        "_type": "video-file",
+        "sha256": "f012eeb61f81d59b8d2cbcb6b23d333be661f9c1c13dda9037bd7a4b7691bc0d"
+      },
+      "validation/videos/yp_success_policy": {
+        "path": "media/videos/validation/videos/yp_success_policy_6_820e427766fa853cba97.mp4",
+        "size": 79598,
+        "_type": "video-file",
+        "sha256": "820e427766fa853cba97ff8be92b6912c832967f79c9956667bb8b35512f4f55"
+      }
+    },
+    "media_files": 12
+  }
+]

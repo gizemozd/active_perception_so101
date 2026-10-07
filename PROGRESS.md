@@ -842,3 +842,24 @@ No fixed-camera search, extra seeds, transfer/push or larger matrix authorized h
   submit duplicates. Verify final checkpoint index 1499 and total 18,432,000
   transitions before treating a training job as complete. Core source revision
   04de34f; remaining changes are inventory/handoff only.
+
+
+### 2026-10-07 — optimization diagnosis and intermediate validation
+
+User clarified earlier successful runs are outside this repository; exact historical
+run/configuration remains unidentified. Adjacent legacy defaults are reference only.
+[Diagnosis, candidate controlled search, validation and video links](artifacts/cluster_continuation/OPTIMIZATION.md).
+
+- Current wrist/static adaptive LR is at 1e-5 for the latest 100 sampled updates;
+  some action-axis std values have fallen from 0.4 to ~0.0016. This is evidence
+  for investigating LR/exploration, not proof of a hyperparameter cause.
+- Intermediate validation jobs 51162174 (wrist) and 51162175 (static/view7)
+  COMPLETED 0:0, 126/129 seconds allocation elapsed. Each evaluated model_750
+  at 9,228,288 transitions on the same balanced 512 episodes, N128. Success:
+  14/512 and 44/512, respectively; concentrated in yp and xp variants.
+- W&B API verified finished runs 1q7q9tso/qendmi3r, exact metrics and 12 videos
+  each. Compact reports/manifests and captured video metadata retained.
+- Training success is reset-batch averaged, not episode-weighted; do not treat
+  it as interchangeable with validation success. All four long training jobs
+  remain RUNNING and their four final evaluations PENDING (Dependency).
+- No training config changed; no HP-search or extra-seed training launched.
