@@ -23,6 +23,7 @@ for line in lines[1:]:
     row = dict(zip(lines[0].split("|"), line.split("|"), strict=True))
     if row["JobName"] not in (
         "plug-inventory",
+        "plug-colocation",
         "vision-validate",
         "plug-benchmark",
         "vision-plug",
@@ -42,7 +43,7 @@ for path in Path("logs").glob("**/runtime_*.json"):
     directory = path.parent
     for job in jobs:
         # SLURM_JOB_ID can be the array task's underlying numeric allocation ID.
-        ids = {job["JobID"].split("_")[0], job["JobIDRaw"]}
+        ids = {job["JobIDRaw"]}
         control = job["scontrol"].split()
         ids.update(s.split("=")[1] for s in control if s.startswith("JobId="))
         if runtime.get("slurm_job_id") not in ids:

@@ -497,3 +497,18 @@ single-GPU processes on that same two-GPU allocation. It also verifies corrected
 success logging on the cluster before pilot submission. Tags distinguish reference
 and paired runs, checkpoints stay under logs/benchmarks/colocation. No distributed
 learner is involved. Prepared full-study budget in study_budget.json, **unsubmitted**.
+- Submitted **51122956**, `scripts/slurm/benchmark_colocation.sbatch`, with
+  `env -u SLURM_STEPMGR NUM_ENVS=512 sbatch --parsable
+  --account=kempner_pgozdil_lab --partition=kempner_rtx --export=ALL ...`.
+  This reserves two GPUs on one node; each training process still uses one GPU.
+  Code `815974e`, corrected episode telemetry enabled. Pilots wait for its
+  reference run's episode-success metric to reach W&B.
+- Corrected episode success/termination metrics are now verified through W&B API:
+  [g7dnp174](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/g7dnp174).
+  The 12-iteration reference completed; paired processes continue. Receipt:
+  `artifacts/cluster_pilot/episode_logging_verified.json`. Training-success value
+  is measured zero in this short disposable run, not missing. Pilot gate is open.
+- Fixed the inventory reporter's array association: match `JobIDRaw`, not a shared
+  array-parent ID (Slurm assigns that ID to the last task). The underlying run
+  metadata was correct; only the initial generated report associated the last
+  task with too many rows. Regenerated the report without this ambiguity.

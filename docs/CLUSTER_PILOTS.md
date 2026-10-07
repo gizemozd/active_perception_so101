@@ -55,10 +55,11 @@ The default concurrency is one for initial uncontended comparisons. Queue/node
 co-residency must be reported; partition jobs can share a node with other users.
 Choose a common environment count only after every condition fits and completes.
 
-Pilot command once that count has been selected (256 below is a placeholder):
+Selected common count: 512. The command below is the pilot protocol; consult
+PROGRESS.md for existing submissions before invoking it:
 
 ```bash
-env -u SLURM_STEPMGR NUM_ENVS=256 TOTAL_STEPS=1228800 FIXED_VIEW=7 \
+env -u SLURM_STEPMGR NUM_ENVS=512 TOTAL_STEPS=1228800 FIXED_VIEW=7 \
   OCCLUSION=clean MEMORY=gru JOB_TYPE=pilot LOG_ROOT=logs/pilots \
   RESULT_ROOT=artifacts/cluster_pilot \
   sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx \
@@ -104,3 +105,46 @@ retrieve the login environment; this failed before Python in job 51121081.
 Clear inherited `SLURM_STEPMGR` when submitting from an interactive allocation.
 Use `scripts/inventory_plug_runs.py` for a fresh read-only accounting/artifact
 snapshot; consult PROGRESS.md before any submission to avoid duplicates.
+
+## Prepared larger-study commands (NOT submitted)
+
+The measured N512 comparison and extrapolation are linked in
+[the benchmark table](../artifacts/cluster_pilot/BENCHMARKS.md) and
+[study_budget.json](../artifacts/cluster_pilot/study_budget.json).
+The following commands are a reviewable plan only. Pilots must first establish
+whether to keep this task/reward/optimization setup. At N512 the full budget is
+1,500 iterations per policy; the exploratory pilot is 100 iterations.
+
+```bash
+# 26 views × three seeds; choose by mean validation success, never test success.
+env -u SLURM_STEPMGR TASK=plug CONDITION=wrist_static NUM_ENVS=512 \
+  TOTAL_STEPS=18432000 MEMORY=gru OCCLUSION=clean JOB_TYPE=study \
+  sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx \
+  --array=0-77%4 --export=ALL scripts/slurm/static_search.sbatch
+
+# Matched wrist, initial-only and active, seeds 0/1/2 (nine policies).
+# The selected wrist+static policies already exist in the search above.
+env -u SLURM_STEPMGR NUM_ENVS=512 TOTAL_STEPS=18432000 MEMORY=gru \
+  OCCLUSION=clean JOB_TYPE=study LOG_ROOT=logs/study \
+  sbatch --account=kempner_pgozdil_lab --partition=kempner_rtx \
+  --array=0-2,9-11,15-17%4 --export=ALL scripts/slurm/train_plug.sbatch
+
+# Conditional additions, only if pilot/study evidence justifies them:
+# Scheduled camera motion: train_plug array 12-14, otherwise identical settings.
+# Initial/active feedforward: array 9-11,15-17 with MEMORY=none.
+# Test-time freeze: evaluate --freeze-camera-after 1.0
+# Freeze and stale external frame: additionally --hold-external-after 1.0
+# These interventions do not substitute for a separately trained snapshot policy.
+```
+
+Core training is 87 policies, 1,603,584,000 transitions, approximately 116.7 GPU-h
+from the short benchmark. Four-GPU ideal packing is at least 29.2 hours;
+conservative sequential scheduling of the search and three condition batches
+is about 30.9 hours, plus setup, evaluation, queue delays and contention.
+Eight-GPU ideal packing is about 14.6 hours, **conditional on actual allocation**;
+eight devices per node is not evidence that eight devices will be available.
+Optional scheduled, feedforward and snapshot training add 12 policies and
+221,184,000 transitions, about 18.0 GPU-h using proxy rates. The trained snapshot
+intervention is deliberately unimplemented/unsubmitted until evidence justifies
+its explicit protocol. Frozen-camera/stale-image checkpoint evaluations add no
+training transitions and retain their distribution-shift caveat.

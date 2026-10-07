@@ -1,0 +1,40 @@
+{
+  "wandb": {
+    "id": "g7dnp174",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/g7dnp174",
+    "entity": "pgozdil-harvard-university",
+    "project": "active-perception-so101",
+    "mode": "online"
+  },
+  "metrics": {
+    "train/Episode_Metrics/success_rate": 0,
+    "train/Episode_Reward/task": -0.0559694804251194,
+    "train/Episode_Termination/failure": 0,
+    "train/Episode_Termination/success": 0,
+    "train/Episode_Termination/timeout": 512,
+    "train/Loss/entropy": 3.911538109183311,
+    "train/Loss/learning_rate": 1.5000000000000004e-05,
+    "train/Loss/surrogate": -0.006957840776522062,
+    "train/Loss/value": 0.1883538467809558,
+    "train/Perf/collection_time": 2.681135132908821,
+    "train/Perf/learning_time": 0.7580005750060081,
+    "train/Perf/total_fps": 3572,
+    "train/Policy/mean_std": 0.3947387635707855,
+    "train/Train/mean_episode_length": 88,
+    "train/Train/mean_reward": -0.15572020292282104,
+    "train/gpu_mean_utilization_pct": 29.07920792079208,
+    "train/gpu_memory_mib": 11061,
+    "train/gpu_peak_memory_mib": 11061,
+    "train/gpu_utilization_pct": 84,
+    "train/iteration": 8,
+    "train/iteration_seconds": 3.4621203569695354,
+    "train/iteration_transitions": 12288,
+    "train/ppo_seconds": 0.7580005750060081,
+    "train/rollout_seconds": 2.681135132908821,
+    "train/torch_peak_bytes": 5702881280,
+    "train/transitions": 98304,
+    "train/transitions_per_second": 3549.270023285943,
+    "train/wall_seconds": 138.11338495416567,
+    "train/warmup": false
+  }
+}
