@@ -1,5 +1,7 @@
 # Implementation progress
 
+Latest resume guide: [Agent handoff — 2026-10-07](docs/HANDOFF_2026-10-07.md).
+
 ## 2026-09-30 — scope and inspection
 
 - Starting from an empty repository on macOS/Apple Silicon.
@@ -899,3 +901,34 @@ Three fresh matched N512/GRU/clean runs, each100 updates /1,228,800 transitions:
   Early screening may be inconclusive; do not infer a winner from reward alone.
   Promising cases can continue to matched9,228,288 total transitions, preserving
   their IDs and counting already completed work. No such extensions submitted yet.
+
+
+### 2026-10-07 21:36 UTC — committed handoff and completed search screen
+
+[Next-agent handoff](docs/HANDOFF_2026-10-07.md) records access, frozen code, all active
+and completed job IDs, budgets, checkpoints, W&B links, resume commands, failure
+recovery and ordered next steps. Model clarification recorded: CNN/proprioception
+→GRU128→MLP(128,128)→actions; no architecture change was made.
+
+- Search training51164843_6,51165286_6,51165289_6 all COMPLETED0:0; verified
+  model_99 iter99,100 contiguous updates,1,228,800 transitions and finished W&B runs.
+- Evaluation51165404 failed before environment initialization with GPU uncorrectable
+  ECC on holygpu7c2313. Preserved failure; retried only evaluation as51168824, same
+  checkpoint/settings/reserved W&B ID, excluding that node. Retry COMPLETED0:0
+  on holygpu7c1716. No training rerun, no GPU reset or changes to other users' jobs.
+- Final512-episode validation: fixed_lr1/512, entropy7/512, both5/512; baseline7/512
+  (capture repeat4/512). No demonstrated improvement or reliable winner at this
+  short single-seed budget. W&B metrics and videos for all three verified synced.
+- [Results and links](artifacts/hparam_search/README.md),
+  [comparison CSV](artifacts/hparam_search/comparison.csv),
+  [learning curves](artifacts/hparam_search/learning_curves.csv),
+  [completion verification](artifacts/hparam_search/completion_verified.json).
+- Refreshed both inventories. Four long pilots still RUNNING; four final evaluations
+  still PENDING (Dependency). No additional training, seeds or matrix submitted.
+- Inventory read encountered a partially appended JSONL line; fixed it to read only
+  complete newline-terminated records, retaining errors for malformed interior data.
+  Ruff and live inventory checks pass. No training source or configuration changed.
+- Next agent: collect already-queued final pilot evaluations; inspect search failures
+  and diagnostics; decide whether to continue search cases to9,228,288 TOTAL
+  transitions (651 additional updates from model_99), preserving their IDs/configs.
+  Plan seed replication/full study afterward; do not submit the full matrix.

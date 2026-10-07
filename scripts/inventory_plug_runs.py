@@ -77,11 +77,11 @@ for path in Path("logs").glob("**/runtime_*.json"):
             else runner["max_iterations"]
         )
         history_path = directory / "iterations.jsonl"
-        history = (
-            [json.loads(line) for line in history_path.read_text().splitlines()]
-            if history_path.exists()
-            else []
-        )
+        # A live writer can expose an incomplete final JSONL record on shared FS.
+        # Read only newline-terminated records; never hide malformed interior data.
+        history_text = history_path.read_text() if history_path.exists() else ""
+        complete_history = history_text[: history_text.rfind("\n") + 1]
+        history = [json.loads(line) for line in complete_history.splitlines() if line.strip()]
         # A resumed experiment shares its directory and appended history. Keep
         # the original job's budget/progress instead of assigning the new tail.
         history = [

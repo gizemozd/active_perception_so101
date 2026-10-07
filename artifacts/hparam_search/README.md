@@ -98,3 +98,31 @@ frozen source revision were verified from each runtime/runner file.
 [Startup readback](startup_verified.json), [Slurm/artifact inventory](run_inventory.json).
 Training source25a005e; evaluation source14d091d adds W&B group/tag selection only.
 No final search results or preferred setting are claimed at this snapshot.
+
+## First screening stage complete — 2026-10-07 21:36 UTC
+
+All three training jobs completed exit0:0, with model_99 and exactly100 contiguous
+updates /1,228,800 transitions verified. W&B API confirms finished training and
+validation runs, matching metrics and uploaded videos.
+
+| Case | Success /512 | Validation metrics and videos |
+|---|---:|---|
+| Baseline (reused) | 7 (capture repeat4) | [Original](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/exx2hu2j) |
+| fixed_lr | 1 | [W&B](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/c381e37a) |
+| entropy | 7 | [W&B](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/51f3ca69) |
+| both | 5 | [W&B](https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/b49c52de) |
+
+No setting has demonstrated an improvement over baseline in this short seed0 screen.
+Do not interpret these small counts as a reliable ranking or discard slower learning
+solely from100 updates. Inspect captured failures and diagnostics before deciding
+which cases merit continuation at the matched9,228,288-transition checkpoint.
+
+The fixed_lr evaluation51165404 failed during CUDA initialization with uncorrectable
+ECC on holygpu7c2313. Retry51168824 excluded that node and COMPLETED0:0 in2m22s
+on holygpu7c1716. It used the same checkpoint/settings/reserved W&B ID; no training
+was repeated. Original failure and retry manifests remain preserved.
+
+Measured Python training wall time sums to0.3755 GPU-hours across the three cases;
+Slurm allocation time is0.3831 GPU-hours, excluding evaluations.
+[Completion verification](completion_verified.json), [learning curves CSV](learning_curves.csv),
+[latest agent handoff](../../docs/HANDOFF_2026-10-07.md).

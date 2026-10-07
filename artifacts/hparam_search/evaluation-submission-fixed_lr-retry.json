@@ -1,0 +1,40 @@
+{
+  "case": "fixed_lr",
+  "training_job_id": "51164843_6",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--job-name=plug-hp-eval-fixed_lr-retry",
+    "scripts/slurm/evaluate.sbatch"
+  ],
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src",
+    "CHECKPOINT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/fixed_lr/plug_wrist_static_clean_gru_v7_s0_n512_fixed_lr_20261007T211226Z/model_99.pt",
+    "NUM_ENVS": "128",
+    "EPISODES": "512",
+    "SPLIT": "validation",
+    "RECORD_CAPTURE": "1",
+    "RECORD_VIDEO": "1",
+    "OUTPUT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/hparam_search/fixed_lr/evaluation.json",
+    "WANDB_RUN_GROUP": "plug-hparam-20261007",
+    "EVALUATION_STAGE": "search",
+    "WANDB_MODE": "online",
+    "WANDB_RUN_ID": "c381e37a"
+  },
+  "working_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+  "source_revision": "8410878103327847e2997d0a22237eb4fa98a4ae",
+  "submitted_at": "2026-10-07T21:32:55.108504+00:00",
+  "status": "submitted",
+  "retry_of": "51165404",
+  "reason": "Original evaluation failed before environment initialization: uncorrectable GPU ECC error on holygpu7c2313. No evaluation/W&B result was created. Same checkpoint, settings and reserved W&B ID; exclude affected node.",
+  "failure_log": "logs/slurm/plug-hp-eval-fixed_lr-51165404.out",
+  "stdout": "51168824",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51168824"
+}

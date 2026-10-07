@@ -1,0 +1,5 @@
+case,training_transitions,successes,episodes,success_rate,training_gpu_hours,validation_wandb
+baseline,1228800,7,512,0.013671875,,https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/exx2hu2j
+fixed_lr,1228800,1,512,0.001953125,0.1268960796657484,https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/c381e37a
+entropy,1228800,7,512,0.013671875,0.1192249344335869,https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/51f3ca69
+both,1228800,5,512,0.009765625,0.12938371215882297,https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/b49c52de
