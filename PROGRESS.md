@@ -775,3 +775,39 @@ scientific pilots and their configurations remain unchanged; no extra pilot work
   exit codes, all 12 PPO budgets (12 iterations each), and 16 W&B final states.
 - Final artifact check normalized four GPU CSVs to LF and made the sampler
   emit LF for future runs; all final whitespace checks pass.
+
+
+## 2026-10-07 — authorized longer matched continuation
+
+User requested longer training jobs. Continue only the same four seed-0 restored
+plug pilots, using the previously planned **18,432,000 total transitions/policy**
+(1,500 total PPO iterations at N512). Each already completed 1,228,800 transitions /
+100 updates; **remaining: 17,203,200 transitions / 1,400 updates each**. Keep N512,
+GRU, clean occlusion, fixed view 7 for wrist_static, 128×96, 25 Hz, 3.5s episodes
+and shared one-second pause. Do not use the performance sweep to change this batch.
+No fixed-camera search, extra seeds, transfer/push or larger matrix authorized here.
+
+- Before submission: squeue empty, accounting has no later matching submissions;
+  all four model_99.pt files verified with iteration 99, optimizer state and 100
+  contiguous logged iterations. Same W&B IDs verified finished at 1,228,800.
+  [Preflight/checkpoint hashes/configs](artifacts/cluster_continuation/preflight.json).
+- Resume fixes: native RSL restores Adam LR but leaves PPO.learning_rate at its
+  constructor value. Restore that scalar from optimizer state; resume at index 100
+  (next logged iteration 101). W&B train_cfg now permits an explicitly resumed
+  budget/save-interval update. New LR and budget regression tests pass.
+- Preserve original per-run metadata, GPU samples and history under
+  logs/pilots/RUN/resume_history/TIMESTAMP before reusing a log directory. Append
+  iteration history; include segment job ID, segment wall time and cumulative wall
+  time. Original compact pilot results/checkpoints stay intact; continuation results
+  go to artifacts/cluster_continuation. Same W&B identities and names.
+- Native checkpoint semantics: model/Adam/iteration/common_step_counter restored;
+  simulator episode state, RNG and GRU hidden state are reinitialized. This is a
+  checkpoint continuation, not bitwise continuation of interrupted trajectories.
+- Inventory now separates per-job histories/budgets in a shared resumed directory;
+  archived summaries remain associated with their original job. Evaluation captures
+  are labeled repeats only when a reference report is supplied.
+- Verification: telemetry/CLI 35 passed, evaluator roundtrip 1 passed; Ruff/format
+  and whitespace checks pass. Dry-run dispatch confirms all four exact saved
+  experiment configs and total budgets. Estimated remaining training: wrist 67.6m,
+  wrist_static 75.4m, initial 88.6m, active 88.4m (~5.33 GPU-h total), excluding
+  startup/queues/evaluation and possible throughput changes as policies learn.

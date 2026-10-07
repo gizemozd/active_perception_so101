@@ -6,6 +6,7 @@ import statistics
 import subprocess
 import threading
 import time
+from dataclasses import asdict
 from pathlib import Path
 
 import torch
@@ -90,6 +91,14 @@ def compatible_wandb_writer(log_dir, cfg):
             )
             self.logged_videos = set()
 
+        def store_config(self, env_cfg, train_cfg):
+            # A continuation can extend max_iterations/save_interval. W&B keeps
+            # configuration history; the launcher also archives local metadata.
+            options = {"allow_val_change": os.environ.get("WANDB_RESUME") == "must"}
+            wandb.config.update({"train_cfg": train_cfg}, **options)
+            environment = env_cfg.to_dict() if hasattr(env_cfg, "to_dict") else asdict(env_cfg)
+            wandb.config.update({"env_cfg": environment}, **options)
+
     return Writer()
 
 
@@ -109,6 +118,14 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
     original_act = runner.alg.act
     original_stop = runner.logger.stop_logging_writer
     step_size = cfg.num_envs * runner.cfg["num_steps_per_env"]
+    previous_wall_seconds = 0.0
+    summary_path = log_dir / "summary.json"
+    if args.resume and summary_path.exists():
+        previous = json.loads(summary_path.read_text())
+        previous_wall_seconds = previous.get(
+            "cumulative_wall_seconds_including_wandb_finish",
+            previous.get("wall_seconds_including_wandb_finish", previous["total_wall_seconds"]),
+        )
 
     def init():
         # Retain RSL's logger, scalar writer methods and config/code uploads.
@@ -190,11 +207,16 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
             "ppo_seconds": state["update_seconds"],
             "iteration_seconds": elapsed,
             "transitions_per_second": step_size / elapsed,
-            "wall_seconds": now - process_start,
+            "wall_seconds": previous_wall_seconds + now - process_start,
+            "segment_wall_seconds": now - process_start,
+            "slurm_job_id": metadata.get("slurm_job_id"),
             "torch_peak_bytes": torch.cuda.max_memory_allocated(),
             **sampler.metrics(),
         }
-        wandb.log({"train/" + key: value for key, value in row.items()}, step=iteration)
+        wandb.log(
+            {"train/" + key: value for key, value in row.items() if key != "slurm_job_id"},
+            step=iteration,
+        )
         kwargs["collect_time"] = row["rollout_seconds"]
         kwargs["learn_time"] = row["ppo_seconds"]
         original_log(**kwargs)
@@ -234,6 +256,7 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
             "mean_iteration_seconds": measured / len(steady) if steady else None,
             "final_cumulative_transitions": rows[-1]["transitions"] if rows else 0,
             "total_wall_seconds": total,
+            "previous_segments_wall_seconds": previous_wall_seconds,
             "gpu_hours": total / 3600,
             "steady_iteration_std_seconds": statistics.stdev(
                 [r["iteration_seconds"] for r in steady]
@@ -274,6 +297,12 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
         report["wall_seconds_including_wandb_finish"] = time.perf_counter() - process_start
         report["gpu_hours_including_wandb_finish"] = (
             report["wall_seconds_including_wandb_finish"] / 3600
+        )
+        report["cumulative_wall_seconds_including_wandb_finish"] = (
+            previous_wall_seconds + report["wall_seconds_including_wandb_finish"]
+        )
+        report["cumulative_gpu_hours_including_wandb_finish"] = (
+            report["cumulative_wall_seconds_including_wandb_finish"] / 3600
         )
         (log_dir / "summary.json").write_text(json.dumps(report, indent=2))
         if args.result:

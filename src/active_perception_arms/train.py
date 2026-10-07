@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import platform
+import shutil
 import signal
 import subprocess
 import sys
@@ -73,6 +74,19 @@ def experiment_from_args(args):
     )
 
 
+def restore_training_state(runner, checkpoint, num_envs):
+    """Continue after the saved update, retaining the adaptive optimizer LR."""
+    runner.load(str(checkpoint))
+    # RSL loads Adam state but leaves PPO.learning_rate at its constructor value.
+    # The adaptive-KL schedule reads that scalar and would overwrite restored LR.
+    rates = {group["lr"] for group in runner.alg.optimizer.param_groups}
+    if len(rates) != 1:
+        raise ValueError(f"Expected one shared PPO learning rate, found {rates}")
+    runner.alg.learning_rate = rates.pop()
+    runner.current_learning_iteration += 1
+    runner.logger.tot_timesteps = runner.current_learning_iteration * num_envs * 24
+
+
 def main(argv=None):
     process_start = time.perf_counter()
     args = parser().parse_args(argv)
@@ -119,6 +133,20 @@ def main(argv=None):
         "WANDB_TAGS", f"restored-plug,{args.job_type},{cfg.condition},{cfg.memory}"
     )
     if args.resume:
+        archive = log_dir / "resume_history" / stamp
+        archive.mkdir(parents=True, exist_ok=False)
+        for filename in (
+            "experiment.json",
+            "runner.json",
+            "runtime.json",
+            "summary.json",
+            "wandb_run.json",
+            "iterations.jsonl",
+            "gpu.csv",
+        ):
+            source = log_dir / filename
+            if source.exists():
+                shutil.copy2(source, archive / filename)
         run_info = json.loads((log_dir / "wandb_run.json").read_text())
         os.environ["WANDB_RUN_ID"] = run_info["id"]
         os.environ["WANDB_RESUME"] = "must"
@@ -166,9 +194,17 @@ def main(argv=None):
         wrapped = RslRlVecEnvWrapper(env)
         runner = MjlabOnPolicyRunner(wrapped, asdict(runner_options), str(log_dir), args.device)
         if args.resume:
-            runner.load(str(args.resume))
-            runner.current_learning_iteration += 1
-            runner.logger.tot_timesteps = runner.current_learning_iteration * cfg.num_envs * 24
+            restore_training_state(runner, args.resume, cfg.num_envs)
+            metadata["resume_next_iteration_index"] = runner.current_learning_iteration
+            metadata["resume_cumulative_transitions"] = runner.logger.tot_timesteps
+            metadata["resume_learning_rate"] = runner.alg.learning_rate
+            metadata["resume_state_note"] = (
+                "Model/Adam/iteration/common_step_counter restored; simulator episode "
+                "states, RNG and GRU hidden state are reset, not saved by native checkpoints."
+            )
+            for name in ("runtime.json", f"runtime_{stamp}.json"):
+                (log_dir / name).write_text(json.dumps(metadata, indent=2))
+            print(json.dumps({"resume": metadata}), flush=True)
         remaining = args.iterations - (runner.current_learning_iteration if args.resume else 0)
         install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler, process_start)
         interrupted = []

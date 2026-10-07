@@ -56,27 +56,54 @@ for path in Path("logs").glob("**/runtime_*.json"):
             continue
         experiment = json.loads((directory / "experiment.json").read_text())
         runner = json.loads((directory / "runner.json").read_text())
+        command = runtime.get("command", [])
+        configured_iterations = (
+            int(command[command.index("--iterations") + 1])
+            if "--iterations" in command
+            else runner["max_iterations"]
+        )
         history_path = directory / "iterations.jsonl"
         history = (
             [json.loads(line) for line in history_path.read_text().splitlines()]
             if history_path.exists()
             else []
         )
+        # A resumed experiment shares its directory and appended history. Keep
+        # the original job's budget/progress instead of assigning the new tail.
+        history = [
+            row
+            for row in history
+            if runtime.get("resume_next_iteration_index", 0)
+            < row["iteration"]
+            <= configured_iterations
+            and row.get("slurm_job_id", runtime["slurm_job_id"]) == runtime["slurm_job_id"]
+        ]
         wandb_path = directory / "wandb_run.json"
         summary_path = directory / "summary.json"
+        summaries = [summary_path, *directory.glob("resume_history/*/summary.json")]
+        summary_path = next(
+            (
+                p
+                for p in summaries
+                if p.exists()
+                and json.loads(p.read_text()).get("runtime", {}).get("slurm_job_id")
+                == runtime["slurm_job_id"]
+            ),
+            None,
+        )
         job["runs"].append(
             dict(
                 directory=str(directory),
                 runtime=runtime,
                 experiment=experiment,
-                configured_iterations=runner["max_iterations"],
-                configured_transitions=runner["max_iterations"]
+                configured_iterations=configured_iterations,
+                configured_transitions=configured_iterations
                 * runner["num_steps_per_env"]
                 * experiment["num_envs"],
                 latest_progress=history[-1] if history else None,
                 checkpoint_paths=[str(x) for x in sorted(directory.glob("*.pt"))],
                 wandb=json.loads(wandb_path.read_text()) if wandb_path.exists() else None,
-                summary=str(summary_path) if summary_path.exists() else None,
+                summary=str(summary_path) if summary_path else None,
             )
         )
 manifest = a.output.parent / "pilot_manifest.json"

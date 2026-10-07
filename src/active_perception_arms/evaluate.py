@@ -241,9 +241,9 @@ def main(argv=None):
             project=parent["project"],
             entity=parent["entity"],
             group="plug-pilot-20261007",
-            job_type="validation-recorded-repeat" if args.capture_representatives else "validation",
+            job_type="validation-recorded-repeat" if args.reference_report else "validation",
             name=args.checkpoint.parent.name
-            + ("_recorded_repeat" if args.capture_representatives else "_validation"),
+            + ("_recorded_repeat" if args.reference_report else "_validation"),
             tags=["pilot", "validation", report["experiment"]["condition"]],
             config={
                 "evaluation": report,

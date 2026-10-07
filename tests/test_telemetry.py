@@ -19,6 +19,58 @@ def test_native_wandb_writer_works_with_current_settings(tmp_path, monkeypatch):
         writer.stop()
 
 
+def test_resume_can_extend_wandb_budget(tmp_path, monkeypatch):
+    from dataclasses import dataclass
+
+    @dataclass
+    class Environment:
+        num_envs: int = 512
+
+    monkeypatch.setenv("WANDB_MODE", "disabled")
+    monkeypatch.setenv("WANDB_RESUME", "must")
+    writer = compatible_wandb_writer(tmp_path, {"wandb_project": "unit-test-no-upload"})
+    try:
+        writer.store_config(Environment(), {"max_iterations": 100})
+        writer.store_config(Environment(), {"max_iterations": 1500})
+        assert wandb.config["train_cfg"]["max_iterations"] == 1500
+        assert wandb.config["env_cfg"]["num_envs"] == 512
+    finally:
+        writer.close()
+        writer.stop()
+
+
+def test_resume_restores_adaptive_lr_and_next_iteration(tmp_path):
+    from types import SimpleNamespace
+
+    import torch
+    from rsl_rl.algorithms import PPO
+
+    from active_perception_arms.train import restore_training_state
+
+    parameter = torch.nn.Parameter(torch.ones(1))
+    saved_optimizer = torch.optim.Adam([parameter], lr=7.59375e-5)
+    (parameter**2).sum().backward()
+    saved_optimizer.step()
+    checkpoint = tmp_path / "model_99.pt"
+    torch.save({"optimizer_state_dict": saved_optimizer.state_dict(), "iter": 99}, checkpoint)
+    algorithm = SimpleNamespace(
+        optimizer=torch.optim.Adam([parameter], lr=3e-4), learning_rate=3e-4, rnd=None
+    )
+    runner = SimpleNamespace(alg=algorithm, logger=SimpleNamespace(tot_timesteps=0))
+
+    def load(path):
+        data = torch.load(path, weights_only=True)
+        PPO.load(algorithm, data, {"optimizer": True, "iteration": True}, strict=True)
+        runner.current_learning_iteration = data["iter"]
+
+    runner.load = load
+    restore_training_state(runner, checkpoint, 512)
+    assert runner.current_learning_iteration == 100
+    assert runner.logger.tot_timesteps == 1_228_800
+    assert algorithm.learning_rate == 7.59375e-5
+    assert algorithm.optimizer.state[parameter]["step"].item() == 1
+
+
 def test_episode_metrics_survive_rollout_starting_without_reset(tmp_path):
     import torch
     from rsl_rl.utils.logger import Logger
