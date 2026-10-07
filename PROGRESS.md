@@ -512,3 +512,35 @@ learner is involved. Prepared full-study budget in study_budget.json, **unsubmit
   array-parent ID (Slurm assigns that ID to the last task). The underlying run
   metadata was correct; only the initial generated report associated the last
   task with too many rows. Regenerated the report without this ambiguity.
+
+## 2026-10-07 14:00 EDT — four authorized scientific pilots submitted
+
+Array **51123326**, indices **0,6,9,15%4**, code **77a9b9a**. Exact command:
+
+```bash
+env -u SLURM_STEPMGR NUM_ENVS=512 TOTAL_STEPS=1228800 FIXED_VIEW=7 \
+  OCCLUSION=clean MEMORY=gru JOB_TYPE=pilot LOG_ROOT=logs/pilots \
+  RESULT_ROOT=artifacts/cluster_pilot \
+  sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx \
+  --array=0,6,9,15%4 --export=ALL scripts/slurm/train_plug.sbatch
+```
+
+Mapping verified from `common.sh`: 0=wrist, 6=wrist_static/view7, 9=initial,
+15=active; all seed 0. These are the first scientific pilots, each total 100 PPO
+iterations / 1,228,800 transitions, no resume or prior pilot work. Each gets one
+GPU, 8 CPUs, 48 GiB RAM; no distributed learning. Same hidden_prongs_v1 task,
+balanced variants, 128×96/FOV, GRU, clean occlusion, reward/control/horizon and
+one-second manipulation pause. Final checkpoint is `model_99.pt`. Leave healthy
+jobs running; do not resubmit these cells. Evaluate each once with existing
+`evaluate.sbatch`, 512 validation episodes, N128, seeds 10000–10003, videos enabled.
+- All four pilots began at **14:00:03 EDT**: wrist on holygpu7c1931,
+  wrist_static on holygpu7c2110, initial and active on separate GPUs of
+  holygpu7c2316. No pilot restart or configuration change.
+- Co-location audit caught a Slurm resource mistake: although shell processes
+  were launched concurrently, each step inherited all 96 GiB host memory.
+  `sacct` proves steps .0 and .1 ran sequentially (13:56:37–13:59:20,
+  13:59:20–14:00:55); .2 started afterward. The filenames `paired_a`/`paired_b`
+  do **not** establish concurrency. Preserve all three as serialized reference
+  measurements, not paired evidence. Added explicit `srun --mem=48G` and a
+  paired-only phase to fill this specific missing check without repeating the
+  reference. Existing running job 51122956 continues unchanged.

@@ -15,7 +15,7 @@ count="${NUM_ENVS:-512}"
 export WANDB_RUN_GROUP=plug-colocation-20261007
 run_cell() {
   local cell="$1"
-  srun --exclusive --ntasks=1 --cpus-per-task=8 --gres=gpu:1 \
+  srun --exclusive --ntasks=1 --cpus-per-task=8 --mem=48G --gres=gpu:1 \
     env XDG_CACHE_HOME="$XDG_CACHE_HOME/$cell" \
     WANDB_TAGS="restored-plug,benchmark,colocation,$cell,active,gru" \
     .venv/bin/python -m active_perception_arms.train --task plug --condition active \
@@ -24,7 +24,7 @@ run_cell() {
     --log-root "logs/benchmarks/colocation/$SLURM_JOB_ID/$cell" \
     --result "artifacts/cluster_pilot/colocation-${SLURM_JOB_ID}-${cell}.json"
 }
-run_cell reference
+if [[ "${COLOCATION_PHASE:-all}" != paired ]]; then run_cell reference; fi
 run_cell paired_a &
 first_pid=$!
 run_cell paired_b &
