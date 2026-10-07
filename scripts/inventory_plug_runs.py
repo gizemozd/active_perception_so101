@@ -26,6 +26,7 @@ for line in lines[1:]:
         "plug-colocation",
         "vision-validate",
         "plug-benchmark",
+        "plug-profile",
         "vision-plug",
         "vision-evaluate",
     ):
@@ -101,6 +102,19 @@ if manifest.exists():
                     media=str(path.with_name(path.stem + "-videos")),
                     diagnostic_repeat=prefix == "recorded_repeat",
                 )
+for path in Path("artifacts/cluster_pilot").glob("*.json"):
+    report = json.loads(path.read_text())
+    if not isinstance(report, dict) or not report.get("slurm_job_id"):
+        continue
+    for job in jobs:
+        if job["JobIDRaw"] == report["slurm_job_id"]:
+            job.setdefault("benchmark_reports", []).append(
+                {
+                    "path": str(path),
+                    "kind": report.get("kind"),
+                    "wandb_url": report.get("wandb_url"),
+                }
+            )
 a.output.write_text(
     json.dumps(
         dict(

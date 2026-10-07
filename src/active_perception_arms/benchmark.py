@@ -35,6 +35,13 @@ def main(argv=None):
     args = p.parse_args(argv)
     if args.steps < 1 or args.warmup < 0 or (args.actor and args.no_render):
         p.error("Use positive steps, nonnegative warmup, and rendered images for actor inference")
+    kind = (
+        "simulation_and_actor_inference_only"
+        if args.actor
+        else "simulation_only"
+        if args.no_render
+        else "simulation_and_rendering_only"
+    )
     cfg = Experiment(
         task=args.task,
         condition=args.condition,
@@ -53,12 +60,13 @@ def main(argv=None):
 
         run = wandb.init(
             project=os.environ.get("WANDB_PROJECT", "active-perception-so101"),
-            group="plug-inference-benchmark-20261007",
-            job_type="benchmark-inference",
-            tags=["disposable", "inference-only", cfg.condition],
-            name=f"{cfg.task}_{cfg.condition}_v{args.fixed_view}_{cfg.memory}_s0_n{cfg.num_envs}",
+            group=os.getenv("WANDB_RUN_GROUP", "plug-inference-benchmark-20261007"),
+            job_type="benchmark-inference" if args.actor else "benchmark-simulation",
+            tags=["disposable", kind, cfg.condition],
+            name=f"{cfg.task}_{cfg.condition}_v{args.fixed_view}_{cfg.memory}_s0_n{cfg.num_envs}_{kind}",
             config={
                 "experiment": cfg.to_dict(),
+                "kind": kind,
                 "slurm_job_id": os.getenv("SLURM_JOB_ID"),
                 "git_revision": subprocess.check_output(
                     ["git", "rev-parse", "HEAD"], text=True
@@ -106,7 +114,7 @@ def main(argv=None):
             raise RuntimeError("Non-finite rewards during benchmark")
         report = {
             "experiment": cfg.to_dict(),
-            "kind": "simulation_and_actor_inference_only",
+            "kind": kind,
             "wandb_url": run.url if run else None,
             "hostname": platform.node(),
             "python": platform.python_version(),
@@ -140,9 +148,7 @@ def main(argv=None):
             run.log(
                 {
                     "benchmark/transitions": cfg.num_envs * args.steps,
-                    "benchmark/inference_transitions_per_second": report[
-                        "environment_steps_per_second"
-                    ],
+                    "benchmark/transitions_per_second": report["environment_steps_per_second"],
                     "benchmark/measured_seconds": elapsed,
                     **(sampler.metrics() if sampler else {}),
                 }
