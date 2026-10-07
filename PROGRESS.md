@@ -605,3 +605,79 @@ validations, with identical seeds/batch size. Original scores will not be replac
 or cherry-picked. New reports/W&B identities identify this repeat and link the
 original reports. Saved trace NPZs and videos stay out of Git. The repeat also
 captures initial-policy camera targets to verify their post-inspection freeze.
+- Captured diagnostic repeats submitted after the evaluation regression passed:
+  **51125573 active**, **51125575 initial**, **51125576 wrist**, **51125577
+  wrist_static**. Code `0c94372`; existing `evaluate.sbatch`, `RECORD_CAPTURE=1`,
+  `RECORD_VIDEO=1`, same final checkpoints, 512 episodes, N128, validation seeds
+  10000–10003. New `capture-evaluation-CONDITION-s0.json` reports link original
+  evaluations. These perform no optimizer updates and consume no pilot training
+  budget. Record jobs in pilot_manifest.json; do not rerun the pilot learners.
+
+## 2026-10-07 — final handoff for this authorized stage
+
+[Start here: results and resume index](artifacts/cluster_pilot/README.md).
+[Every relevant job's final status](artifacts/cluster_pilot/RUNS.md),
+[full inventory](artifacts/cluster_pilot/run_inventory.json),
+[benchmark table](artifacts/cluster_pilot/BENCHMARKS.md),
+[pilot table and all W&B links](artifacts/cluster_pilot/PILOTS.md).
+
+- **No project jobs remain pending/running.** All four pilots completed, four
+  captured diagnostic evaluation/video jobs completed, all benchmarks completed.
+  Historical failures retain their real Slurm states. Interactive allocations
+  and the legacy checkout were left untouched. The Mac path was not available.
+- Pilots each have exactly 100 completed iterations, 1,228,800 transitions, seed 0,
+  N512, GRU, clean occlusion, balanced hidden_prongs_v1, shared one-second pause.
+  Final model_99.pt and checkpoints at iterations 0 and 50 are retained locally
+  and in W&B artifacts. No pilot was resumed, duplicated, or given extra budget.
+- Original validation scores (512 each): wrist 3, wrist_static/view7 7, initial 3,
+  active 2. Per-variant results, completion time, and camera travel are in PILOTS.md.
+  Application GPU-hours including W&B finish: **0.4699 total**; Slurm allocation:
+  **0.4803 total**. Scientific pilot batch ran roughly eight minutes, then evaluation.
+- Recorded diagnostic repeats: wrist 3, wrist_static 4, initial 0, active 3.
+  Changed episode outcomes: 2, 7, 3, 5, respectively. The source of individual
+  repeat divergence remains unresolved; no claims of exact seeded reproducibility,
+  condition ranking, convergence, or active perception being useless are warranted.
+  Original scores and W&B identities remain preserved; repeats are distinct runs.
+- **40 captured videos / 20 trajectories** verified by decoding first/middle/last
+  frames, frame counts and 25 fps; all outside videos 1920×1080. Actual policy RGB
+  is captured directly. Reviewed the outside/policy gallery visually. Initial-only
+  camera targets change by exactly **0** after the one-second inspection in every
+  captured initial trajectory. Existing CUDA checks independently verify actor
+  state excludes privileged offsets/timers and all four variant mechanics succeed.
+- Original initial-only episode 213's successful replay completed its batch-1
+  assertions before the batch-2 failure. Recovered that verified clip and uploaded
+  it to the original validation run **il8drljq**, preserving its identity and score.
+  Its recorded diagnostic repeat had no successes; this is explicitly stated.
+- Diagnostic evidence: all PPO losses finite; actor image-encoder weights changed;
+  mean reward in final 25 iterations is about 1.02–1.19 versus −0.05–0.03 in the
+  first 25. Selected failures often remain 10–30 mm from the goal; raw manipulation
+  command clipping is rare. Learning has not demonstrated a plateau. Native RSL
+  success metrics average reset batches and are not episode-weighted success.
+- Some successful clips have sampled pre-action errors above 2 mm. The installed
+  MjLab termination path documents one-physics-substep lag in derived state, whereas
+  saved frame errors are post-forward samples. Exact termination-time error/hold
+  deserves a targeted audit; the observed score flags are retained without relabeling.
+- **Next experiment recommendation:** isolate reset/replay and termination-time
+  sensitivity with saved initial states/actions and success-time errors, then
+  consider a larger matched continuation of these four checkpoints. Do not spend
+  the full search budget before this measurement issue and learning progress are
+  understood. No additional learning or full matrix was submitted.
+- Larger-study scripts are ready in docs/CLUSTER_PILOTS.md and existing Slurm files.
+  Pilot-throughput estimate: 87-policy core = **1,603,584,000 transitions**, **118.2
+  GPU-hours**; ideal four-GPU elapsed 29.5h, staged batches ≈31.3h, plus startup,
+  evaluation and queues. Optional 12-policy ablations ≈19.0 GPU-h, using proxy
+  rates. Eight-GPU ideal ≈14.8h is conditional on allocation, not an availability
+  claim. Full budget includes 26 fixed views × three seeds, selected on validation.
+- W&B API readback verified every scientific training run finished at iteration
+  100 / 1,228,800 transitions, and both original/repeat validation metrics arrived.
+  No offline/unsynchronized run remains. Dashboard:
+  https://wandb.ai/pgozdil-harvard-university/active-perception-so101
+- Verification: inherited logger/CLI checks 31 passed; episode telemetry regression
+  2 passed; evaluator regression 1 passed; actual GPU benchmark/pilot/recorded-video
+  execution verified above. Final lint/format/shell checks are recorded below.
+  Checkpoints, raw Slurm/W&B logs, MP4s and trajectory NPZs remain outside Git;
+  compact JSON/CSV, plots, source, and handoff documentation are versioned.
+- Final checks: Ruff passes; all 46 Python files formatted; every Slurm script and
+  common.sh passes bash syntax; git diff whitespace check passes after standardizing
+  generated comparison CSV line endings to LF. Recorded-media validation verified
+  40 videos and 20 captured trajectories. No project jobs remain in squeue.

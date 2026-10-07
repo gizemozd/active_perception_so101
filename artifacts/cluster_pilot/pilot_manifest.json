@@ -25,7 +25,11 @@
       "--dependency=afterok:51123326",
       "--export=ALL",
       "scripts/slurm/evaluate.sbatch"
-    ]
+    ],
+    "recorded_repeat_job_id": "51125573",
+    "recorded_repeat_output": "artifacts/cluster_pilot/capture-evaluation-active-s0.json",
+    "evaluation_source_revision": "77a9b9a (evaluator unchanged through da5dc65)",
+    "recorded_repeat_source_revision": "0c94372"
   },
   {
     "condition": "initial",
@@ -53,7 +57,11 @@
       "--dependency=afterok:51123329",
       "--export=ALL",
       "scripts/slurm/evaluate.sbatch"
-    ]
+    ],
+    "recorded_repeat_job_id": "51125575",
+    "recorded_repeat_output": "artifacts/cluster_pilot/capture-evaluation-initial-s0.json",
+    "evaluation_source_revision": "77a9b9a (evaluator unchanged through da5dc65)",
+    "recorded_repeat_source_revision": "0c94372"
   },
   {
     "condition": "wrist",
@@ -81,7 +89,11 @@
       "--dependency=afterok:51123327",
       "--export=ALL",
       "scripts/slurm/evaluate.sbatch"
-    ]
+    ],
+    "recorded_repeat_job_id": "51125576",
+    "recorded_repeat_output": "artifacts/cluster_pilot/capture-evaluation-wrist-s0.json",
+    "evaluation_source_revision": "77a9b9a (evaluator unchanged through da5dc65)",
+    "recorded_repeat_source_revision": "0c94372"
   },
   {
     "condition": "wrist_static",
@@ -109,6 +121,10 @@
       "--dependency=afterok:51123328",
       "--export=ALL",
       "scripts/slurm/evaluate.sbatch"
-    ]
+    ],
+    "recorded_repeat_job_id": "51125577",
+    "recorded_repeat_output": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0.json",
+    "evaluation_source_revision": "77a9b9a (evaluator unchanged through da5dc65)",
+    "recorded_repeat_source_revision": "0c94372"
   }
 ]

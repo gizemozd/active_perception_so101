@@ -1,0 +1,402 @@
+[
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/xm_failure_episode0_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/xm_failure_episode0_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/xp_failure_episode1_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/xp_failure_episode1_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/ym_failure_episode2_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/ym_failure_episode2_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/yp_failure_episode3_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/yp_failure_episode3_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/xm_success_episode200_outside.mp4",
+    "frames": 72,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/xm_success_episode200_policy.mp4",
+    "frames": 72,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/xm_failure_episode0_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/xm_failure_episode0_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/xp_failure_episode1_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/xp_failure_episode1_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/ym_failure_episode2_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/ym_failure_episode2_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/yp_failure_episode3_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/yp_failure_episode3_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/xm_failure_episode0_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/xm_failure_episode0_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      384,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/xp_failure_episode1_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/xp_failure_episode1_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      384,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/ym_failure_episode2_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/ym_failure_episode2_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      384,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/yp_failure_episode3_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/yp_failure_episode3_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      384,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/yp_success_episode43_outside.mp4",
+    "frames": 38,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/yp_success_episode43_policy.mp4",
+    "frames": 38,
+    "fps": 25.0,
+    "size": [
+      384,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/xm_failure_episode0_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/xm_failure_episode0_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/xp_failure_episode1_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/xp_failure_episode1_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/ym_failure_episode2_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/ym_failure_episode2_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/yp_failure_episode3_outside.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/yp_failure_episode3_policy.mp4",
+    "frames": 88,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/xp_success_episode49_outside.mp4",
+    "frames": 68,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/xp_success_episode49_policy.mp4",
+    "frames": 68,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/yp_success_episode355_outside.mp4",
+    "frames": 85,
+    "fps": 25.0,
+    "size": [
+      1920,
+      1080
+    ],
+    "decoded_first_middle_last": true
+  },
+  {
+    "path": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/yp_success_episode355_policy.mp4",
+    "frames": 85,
+    "fps": 25.0,
+    "size": [
+      768,
+      330
+    ],
+    "decoded_first_middle_last": true
+  }
+]

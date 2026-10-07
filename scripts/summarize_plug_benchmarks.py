@@ -38,7 +38,7 @@ assert rows, "No measured PPO summaries"
 order = {condition: i for i, condition in enumerate(("wrist", "wrist_static", "initial", "active"))}
 rows.sort(key=lambda r: (order[r["condition"]], r["num_envs"]))
 with (a.root / "benchmark_comparison.csv").open("w") as f:
-    w = csv.DictWriter(f, fieldnames=list(rows[0]))
+    w = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
     w.writeheader()
     w.writerows(rows)
 lines = [

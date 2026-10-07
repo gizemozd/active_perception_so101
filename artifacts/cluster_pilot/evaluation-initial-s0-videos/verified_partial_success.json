@@ -1,0 +1,13 @@
+{
+  "evidence": "Batch 1 completed its outcome assertions before batch 2 began (Setting seed: 10002 in Slurm log). The overall job failed later; this clip passed the original replay check.",
+  "records": [
+    {
+      "episode": 213,
+      "variant": "xp",
+      "expected_success": true,
+      "reproduced_success": true,
+      "outside_video": "artifacts/cluster_pilot/evaluation-initial-s0-videos/xp_success_episode213_outside.mp4",
+      "policy_video": "artifacts/cluster_pilot/evaluation-initial-s0-videos/xp_success_episode213_policy.mp4"
+    }
+  ]
+}

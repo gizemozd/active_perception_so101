@@ -30,12 +30,17 @@ for line in lines[1:]:
         "vision-evaluate",
     ):
         continue
-    row["scontrol"] = (
-        subprocess.run(
-            ["scontrol", "show", "job", row["JobID"]], capture_output=True, text=True
-        ).stdout
-        or "Expired from controller; accounting retained"
-    )
+    row["scontrol"] = "Terminal state from sacct; controller not queried by this snapshot"
+    if row["State"] in ("RUNNING", "PENDING", "COMPLETING"):
+        row["scontrol"] = (
+            subprocess.run(
+                ["scontrol", "show", "job", row["JobID"]],
+                capture_output=True,
+                text=True,
+                timeout=20,
+            ).stdout
+            or "No controller output; accounting retained"
+        )
     row["runs"] = []
     jobs.append(row)
 for path in Path("logs").glob("**/runtime_*.json"):
@@ -73,6 +78,29 @@ for path in Path("logs").glob("**/runtime_*.json"):
                 summary=str(summary_path) if summary_path.exists() else None,
             )
         )
+manifest = a.output.parent / "pilot_manifest.json"
+if manifest.exists():
+    for pilot in json.loads(manifest.read_text()):
+        for prefix in ("evaluation", "recorded_repeat"):
+            for job in jobs:
+                if job["JobIDRaw"] != pilot.get(prefix + "_job_id"):
+                    continue
+                path = Path(pilot[prefix + "_output"])
+                report = json.loads(path.read_text()) if path.exists() else {}
+                job["evaluation"] = dict(
+                    report=str(path),
+                    checkpoint=pilot["final_checkpoint"],
+                    source_revision=pilot.get(prefix + "_source_revision"),
+                    condition=pilot["condition"],
+                    configured_episodes=512,
+                    num_envs=128,
+                    reset_seeds=[10000, 10001, 10002, 10003],
+                    completed_episodes=report.get("episodes", 0),
+                    successes=report.get("successes"),
+                    wandb_url=report.get("wandb_url"),
+                    media=str(path.with_name(path.stem + "-videos")),
+                    diagnostic_repeat=prefix == "recorded_repeat",
+                )
 a.output.write_text(
     json.dumps(
         dict(

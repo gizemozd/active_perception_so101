@@ -1,6 +1,6 @@
 # Restored-plug cluster pilots
 
-Status: resumed from verified cluster inventory; benchmarks in progress. See `PROGRESS.md`
+Status: benchmarks, four seed-0 pilots, and recorded evaluations completed. See `PROGRESS.md`
 for executed jobs and `artifacts/cluster_pilot` for compact measurements.
 
 ## Verified allocation
@@ -137,14 +137,19 @@ env -u SLURM_STEPMGR NUM_ENVS=512 TOTAL_STEPS=18432000 MEMORY=gru \
 # These interventions do not substitute for a separately trained snapshot policy.
 ```
 
-Core training is 87 policies, 1,603,584,000 transitions, approximately 116.7 GPU-h
-from the short benchmark. Four-GPU ideal packing is at least 29.2 hours;
+Core training is 87 policies, 1,603,584,000 transitions, approximately 118.2 GPU-h
+from the measured pilot throughput. Four-GPU ideal packing is at least 29.5 hours;
 conservative sequential scheduling of the search and three condition batches
-is about 30.9 hours, plus setup, evaluation, queue delays and contention.
-Eight-GPU ideal packing is about 14.6 hours, **conditional on actual allocation**;
+is about 31.3 hours, plus setup, evaluation, queue delays and contention.
+Eight-GPU ideal packing is about 14.8 hours, **conditional on actual allocation**;
 eight devices per node is not evidence that eight devices will be available.
 Optional scheduled, feedforward and snapshot training add 12 policies and
-221,184,000 transitions, about 18.0 GPU-h using proxy rates. The trained snapshot
+221,184,000 transitions, about 19.0 GPU-h using proxy rates. The trained snapshot
 intervention is deliberately unimplemented/unsubmitted until evidence justifies
 its explicit protocol. Frozen-camera/stale-image checkpoint evaluations add no
 training transitions and retain their distribution-shift caveat.
+
+Final pilot results and repeatability limitations: [handoff index](../artifacts/cluster_pilot/README.md).
+Use captured evaluation trajectories for representative videos; separate physics
+replays did not consistently reproduce rare successes. The original 512-episode
+scores remain preserved alongside the separately labeled recorded repeats.

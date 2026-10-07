@@ -1,0 +1,68 @@
+[
+  {
+    "condition": "active",
+    "original_successes": 2,
+    "recorded_repeat_successes": 3,
+    "episodes": 512,
+    "changed_episode_indices": [
+      132,
+      200,
+      244,
+      336,
+      440
+    ],
+    "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/5l27k1n4",
+    "media": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/representatives.json",
+    "freeze_changes": []
+  },
+  {
+    "condition": "initial",
+    "original_successes": 3,
+    "recorded_repeat_successes": 0,
+    "episodes": 512,
+    "changed_episode_indices": [
+      213,
+      261,
+      376
+    ],
+    "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/86jeiyec",
+    "media": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/representatives.json",
+    "freeze_changes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "condition": "wrist",
+    "original_successes": 3,
+    "recorded_repeat_successes": 3,
+    "episodes": 512,
+    "changed_episode_indices": [
+      75,
+      119
+    ],
+    "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/fe0cjkje",
+    "media": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/representatives.json",
+    "freeze_changes": []
+  },
+  {
+    "condition": "wrist_static",
+    "original_successes": 7,
+    "recorded_repeat_successes": 4,
+    "episodes": 512,
+    "changed_episode_indices": [
+      129,
+      153,
+      169,
+      173,
+      201,
+      333,
+      389
+    ],
+    "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/s79bb2ko",
+    "media": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/representatives.json",
+    "freeze_changes": []
+  }
+]

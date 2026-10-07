@@ -10,7 +10,8 @@
     "transitions": 0,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "z8hsr5ol",
@@ -19,11 +20,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51114857",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "my5q07yk",
@@ -32,11 +34,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51116045",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "spmopn8m",
@@ -49,7 +52,8 @@
     "transitions": 18432,
     "iteration": 12,
     "reward": -0.11000268664211035,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "13bxaqgw",
@@ -58,11 +62,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121586",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "fttn6sel",
@@ -71,11 +76,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121585",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "y3w7y1jg",
@@ -84,11 +90,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121587",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "synkjswy",
@@ -97,11 +104,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121659",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "6bo0c0a2",
@@ -114,7 +122,8 @@
     "transitions": 36864,
     "iteration": 12,
     "reward": -0.3854932021349669,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "rgdh8mg7",
@@ -127,7 +136,8 @@
     "transitions": 73728,
     "iteration": 12,
     "reward": -0.005365173332393169,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "e2xeo53y",
@@ -140,7 +150,8 @@
     "transitions": 147456,
     "iteration": 12,
     "reward": -0.13868899021297693,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "634nnjva",
@@ -153,7 +164,8 @@
     "transitions": 18432,
     "iteration": 12,
     "reward": -0.21034845504909755,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "v5tlqn0n",
@@ -162,11 +174,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121860",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "7vq3ocs4",
@@ -175,11 +188,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121872",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "xao4mbh8",
@@ -188,11 +202,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121854",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "ovbb28ja",
@@ -201,11 +216,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121886",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "9m498lgq",
@@ -218,7 +234,8 @@
     "transitions": 73728,
     "iteration": 12,
     "reward": 0.03055323764681816,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "y94itt1f",
@@ -231,7 +248,8 @@
     "transitions": 147456,
     "iteration": 12,
     "reward": 0.07868783555924892,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "ete9l8z4",
@@ -244,7 +262,8 @@
     "transitions": 36864,
     "iteration": 12,
     "reward": -0.34440983082167803,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "zlih9m8l",
@@ -257,7 +276,8 @@
     "transitions": 18432,
     "iteration": 12,
     "reward": -0.2598216100223362,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "blj3yhdh",
@@ -266,11 +286,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51122108",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "0bzxuy9e",
@@ -279,11 +300,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51122135",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "sozvftrl",
@@ -292,11 +314,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51122152",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "53qhd02q",
@@ -305,11 +328,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51122158",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "dfnr123w",
@@ -322,7 +346,8 @@
     "transitions": 73728,
     "iteration": 12,
     "reward": -0.0691633996926248,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "b8qq0rhd",
@@ -335,7 +360,8 @@
     "transitions": 18432,
     "iteration": 12,
     "reward": -0.21951255979016424,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "8ca7v5ii",
@@ -348,7 +374,8 @@
     "transitions": 147456,
     "iteration": 12,
     "reward": 0.027291812300682068,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "aheinxrd",
@@ -361,7 +388,8 @@
     "transitions": 36864,
     "iteration": 12,
     "reward": -0.2686886900663376,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "e70sok1p",
@@ -370,11 +398,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51122342",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "2g4ylgx3",
@@ -383,11 +412,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51122340",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "pzqmn4yw",
@@ -396,11 +426,12 @@
     "state": "finished",
     "job_type": "benchmark-inference",
     "group": "plug-inference-benchmark-20261007",
-    "slurm_job_id": null,
+    "slurm_job_id": "51121584",
     "transitions": null,
     "iteration": null,
     "reward": null,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "v75xn29s",
@@ -413,20 +444,22 @@
     "transitions": 73728,
     "iteration": 12,
     "reward": 0.06563972994685173,
-    "success": null
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "e78d0g86",
     "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/e78d0g86",
     "name": "plug_active_clean_gru_v0_s0_n512_20261007T175301Z",
-    "state": "running",
+    "state": "finished",
     "job_type": "benchmark",
     "group": "plug-benchmark-20261007",
     "slurm_job_id": "51121584",
-    "transitions": 110592,
-    "iteration": 9,
-    "reward": -0.2098794685676694,
-    "success": null
+    "transitions": 147456,
+    "iteration": 12,
+    "reward": 0.010357303991913796,
+    "success": null,
+    "validation_success": null
   },
   {
     "id": "mlot871c",
@@ -439,6 +472,245 @@
     "transitions": 36864,
     "iteration": 12,
     "reward": -0.2245884258300066,
-    "success": null
+    "success": null,
+    "validation_success": null
+  },
+  {
+    "id": "g7dnp174",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/g7dnp174",
+    "name": "plug_active_clean_gru_v0_s0_n512_20261007T175706Z",
+    "state": "finished",
+    "job_type": "benchmark",
+    "group": "plug-colocation-20261007",
+    "slurm_job_id": "51122956",
+    "transitions": 147456,
+    "iteration": 12,
+    "reward": 0.018627156764268876,
+    "success": 0,
+    "validation_success": null
+  },
+  {
+    "id": "tzpoi8mm",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/tzpoi8mm",
+    "name": "plug_active_clean_gru_v0_s0_n512_20261007T175930Z",
+    "state": "finished",
+    "job_type": "benchmark",
+    "group": "plug-colocation-20261007",
+    "slurm_job_id": "51122956",
+    "transitions": 147456,
+    "iteration": 12,
+    "reward": 0.007101944983005524,
+    "success": 0,
+    "validation_success": null
+  },
+  {
+    "id": "a7ex2ycm",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/a7ex2ycm",
+    "name": "plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z",
+    "state": "finished",
+    "job_type": "pilot",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51123327",
+    "transitions": 1228800,
+    "iteration": 100,
+    "reward": 1.390273730903864,
+    "success": 1,
+    "validation_success": null
+  },
+  {
+    "id": "i116qwyn",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/i116qwyn",
+    "name": "plug_initial_clean_gru_v0_s0_n512_20261007T180020Z",
+    "state": "finished",
+    "job_type": "pilot",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51123329",
+    "transitions": 1228800,
+    "iteration": 100,
+    "reward": 1.2284666528739034,
+    "success": 0.40000003576278687,
+    "validation_success": null
+  },
+  {
+    "id": "u1evdury",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/u1evdury",
+    "name": "plug_active_clean_gru_v0_s0_n512_20261007T180020Z",
+    "state": "finished",
+    "job_type": "pilot",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51123326",
+    "transitions": 1228800,
+    "iteration": 100,
+    "reward": 1.2713047094270586,
+    "success": 0,
+    "validation_success": null
+  },
+  {
+    "id": "zj5uevwm",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/zj5uevwm",
+    "name": "plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z",
+    "state": "finished",
+    "job_type": "pilot",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51123328",
+    "transitions": 1228800,
+    "iteration": 100,
+    "reward": 1.108102556541562,
+    "success": 0.20000000298023224,
+    "validation_success": null
+  },
+  {
+    "id": "0dj76i1b",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/0dj76i1b",
+    "name": "plug_active_clean_gru_v0_s0_n512_20261007T180104Z",
+    "state": "finished",
+    "job_type": "benchmark",
+    "group": "plug-colocation-20261007",
+    "slurm_job_id": "51122956",
+    "transitions": 147456,
+    "iteration": 12,
+    "reward": 0.06245084010064602,
+    "success": 0,
+    "validation_success": null
+  },
+  {
+    "id": "w6upe62l",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/w6upe62l",
+    "name": "plug_active_clean_gru_v0_s0_n512_20261007T180301Z",
+    "state": "finished",
+    "job_type": "benchmark",
+    "group": "plug-colocation-20261007",
+    "slurm_job_id": "51123535",
+    "transitions": 147456,
+    "iteration": 12,
+    "reward": 0.04103024199604988,
+    "success": 0,
+    "validation_success": null
+  },
+  {
+    "id": "bua77j0s",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/bua77j0s",
+    "name": "plug_active_clean_gru_v0_s0_n512_20261007T180301Z",
+    "state": "finished",
+    "job_type": "benchmark",
+    "group": "plug-colocation-20261007",
+    "slurm_job_id": "51123535",
+    "transitions": 147456,
+    "iteration": 12,
+    "reward": 0.06314537853002548,
+    "success": 0,
+    "validation_success": null
+  },
+  {
+    "id": "o23icgdv",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/o23icgdv",
+    "name": "plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z_validation",
+    "state": "finished",
+    "job_type": "validation",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51123810",
+    "transitions": 1228800,
+    "iteration": null,
+    "reward": null,
+    "success": null,
+    "validation_success": 0.005859375
+  },
+  {
+    "id": "exx2hu2j",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/exx2hu2j",
+    "name": "plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z_validation",
+    "state": "finished",
+    "job_type": "validation",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51123811",
+    "transitions": 1228800,
+    "iteration": null,
+    "reward": null,
+    "success": null,
+    "validation_success": 0.013671875
+  },
+  {
+    "id": "7z9jr312",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/7z9jr312",
+    "name": "plug_active_clean_gru_v0_s0_n512_20261007T180020Z_validation",
+    "state": "finished",
+    "job_type": "validation",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51123808",
+    "transitions": 1228800,
+    "iteration": null,
+    "reward": null,
+    "success": null,
+    "validation_success": 0.00390625
+  },
+  {
+    "id": "il8drljq",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/il8drljq",
+    "name": "plug_initial_clean_gru_v0_s0_n512_20261007T180020Z_validation",
+    "state": "finished",
+    "job_type": "validation",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51123809",
+    "transitions": 1228800,
+    "iteration": null,
+    "reward": null,
+    "success": null,
+    "validation_success": 0.005859375
+  },
+  {
+    "id": "fe0cjkje",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/fe0cjkje",
+    "name": "plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z_recorded_repeat",
+    "state": "finished",
+    "job_type": "validation-recorded-repeat",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51125576",
+    "transitions": 1228800,
+    "iteration": null,
+    "reward": null,
+    "success": null,
+    "validation_success": 0.005859375
+  },
+  {
+    "id": "86jeiyec",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/86jeiyec",
+    "name": "plug_initial_clean_gru_v0_s0_n512_20261007T180020Z_recorded_repeat",
+    "state": "finished",
+    "job_type": "validation-recorded-repeat",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51125575",
+    "transitions": 1228800,
+    "iteration": null,
+    "reward": null,
+    "success": null,
+    "validation_success": 0
+  },
+  {
+    "id": "5l27k1n4",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/5l27k1n4",
+    "name": "plug_active_clean_gru_v0_s0_n512_20261007T180020Z_recorded_repeat",
+    "state": "finished",
+    "job_type": "validation-recorded-repeat",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51125573",
+    "transitions": 1228800,
+    "iteration": null,
+    "reward": null,
+    "success": null,
+    "validation_success": 0.005859375
+  },
+  {
+    "id": "s79bb2ko",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/s79bb2ko",
+    "name": "plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z_recorded_repeat",
+    "state": "finished",
+    "job_type": "validation-recorded-repeat",
+    "group": "plug-pilot-20261007",
+    "slurm_job_id": "51125577",
+    "transitions": 1228800,
+    "iteration": null,
+    "reward": null,
+    "success": null,
+    "validation_success": 0.0078125
   }
 ]

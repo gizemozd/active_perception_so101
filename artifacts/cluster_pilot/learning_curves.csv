@@ -1,4 +1,4 @@
-condition,seed,transitions,iteration,reward,success_rate,episode_length_steps,rollout_seconds,ppo_seconds,iteration_seconds
+condition,seed,transitions,iteration,reward,native_reset_batch_success_metric,episode_length_steps,rollout_seconds,ppo_seconds,iteration_seconds
 active,0,12288,1,,,,34.159595272969455,1.410967105999589,35.570619442965835
 active,0,24576,2,,,,3.0715797669254243,0.720664719119668,3.8227371140383184
 active,0,36864,3,,,,3.1862824000418186,0.7229322728235275,3.9174237188417464

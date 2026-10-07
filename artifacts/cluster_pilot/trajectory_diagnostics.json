@@ -1,0 +1,202 @@
+[
+  {
+    "condition": "active",
+    "variant": "xm",
+    "episode": 0,
+    "success": false,
+    "minimum_error_mm": 11.197550222277641,
+    "last_preterminal_error_mm": 14.362521469593048,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "active",
+    "variant": "xp",
+    "episode": 1,
+    "success": false,
+    "minimum_error_mm": 16.86251349747181,
+    "last_preterminal_error_mm": 24.252312257885933,
+    "fraction_manip_commands_clipped": 0.011363636363636364,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "active",
+    "variant": "ym",
+    "episode": 2,
+    "success": false,
+    "minimum_error_mm": 12.171382084488869,
+    "last_preterminal_error_mm": 21.701553836464882,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "active",
+    "variant": "yp",
+    "episode": 3,
+    "success": false,
+    "minimum_error_mm": 16.58058911561966,
+    "last_preterminal_error_mm": 25.310222059488297,
+    "fraction_manip_commands_clipped": 0.007575757575757576,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "active",
+    "variant": "xm",
+    "episode": 200,
+    "success": true,
+    "minimum_error_mm": 2.0652508828788996,
+    "last_preterminal_error_mm": 2.4412008933722973,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "initial",
+    "variant": "xm",
+    "episode": 0,
+    "success": false,
+    "minimum_error_mm": 19.180532544851303,
+    "last_preterminal_error_mm": 21.976694464683533,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": 0.0
+  },
+  {
+    "condition": "initial",
+    "variant": "xp",
+    "episode": 1,
+    "success": false,
+    "minimum_error_mm": 14.531482011079788,
+    "last_preterminal_error_mm": 15.558120794594288,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": 0.0
+  },
+  {
+    "condition": "initial",
+    "variant": "ym",
+    "episode": 2,
+    "success": false,
+    "minimum_error_mm": 15.745904296636581,
+    "last_preterminal_error_mm": 22.74313196539879,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": 0.0
+  },
+  {
+    "condition": "initial",
+    "variant": "yp",
+    "episode": 3,
+    "success": false,
+    "minimum_error_mm": 13.413841836154461,
+    "last_preterminal_error_mm": 17.350247129797935,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": 0.0
+  },
+  {
+    "condition": "wrist",
+    "variant": "xm",
+    "episode": 0,
+    "success": false,
+    "minimum_error_mm": 18.829436972737312,
+    "last_preterminal_error_mm": 20.661301910877228,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist",
+    "variant": "xp",
+    "episode": 1,
+    "success": false,
+    "minimum_error_mm": 13.970744796097279,
+    "last_preterminal_error_mm": 20.479237660765648,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist",
+    "variant": "ym",
+    "episode": 2,
+    "success": false,
+    "minimum_error_mm": 9.370707906782627,
+    "last_preterminal_error_mm": 9.905890561640263,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist",
+    "variant": "yp",
+    "episode": 3,
+    "success": false,
+    "minimum_error_mm": 12.021448463201523,
+    "last_preterminal_error_mm": 28.83998118340969,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist",
+    "variant": "yp",
+    "episode": 43,
+    "success": true,
+    "minimum_error_mm": 1.2762178666889668,
+    "last_preterminal_error_mm": 1.9220332615077496,
+    "fraction_manip_commands_clipped": 0.017543859649122806,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist_static",
+    "variant": "xm",
+    "episode": 0,
+    "success": false,
+    "minimum_error_mm": 17.44222827255726,
+    "last_preterminal_error_mm": 19.102344289422035,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist_static",
+    "variant": "xp",
+    "episode": 1,
+    "success": false,
+    "minimum_error_mm": 12.118873186409473,
+    "last_preterminal_error_mm": 31.394489109516144,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist_static",
+    "variant": "ym",
+    "episode": 2,
+    "success": false,
+    "minimum_error_mm": 12.31507956981659,
+    "last_preterminal_error_mm": 16.325922682881355,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist_static",
+    "variant": "yp",
+    "episode": 3,
+    "success": false,
+    "minimum_error_mm": 2.1722440142184496,
+    "last_preterminal_error_mm": 2.4365216959267855,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist_static",
+    "variant": "xp",
+    "episode": 49,
+    "success": true,
+    "minimum_error_mm": 2.031421521678567,
+    "last_preterminal_error_mm": 2.4518342688679695,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  },
+  {
+    "condition": "wrist_static",
+    "variant": "yp",
+    "episode": 355,
+    "success": true,
+    "minimum_error_mm": 1.6789472429081798,
+    "last_preterminal_error_mm": 1.8661731155589223,
+    "fraction_manip_commands_clipped": 0.0,
+    "camera_target_max_change_after_inspection": null
+  }
+]

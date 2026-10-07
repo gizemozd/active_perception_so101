@@ -37,7 +37,7 @@ for directory in sorted(a.logs.iterdir()):
                 "transitions": r["transitions"],
                 "iteration": r["iteration"],
                 "reward": r.get("train/Train/mean_reward"),
-                "success_rate": r.get(success_key),
+                "native_reset_batch_success_metric": r.get(success_key),
                 "episode_length_steps": r.get("train/Train/mean_episode_length"),
                 "rollout_seconds": r["rollout_seconds"],
                 "ppo_seconds": r["ppo_seconds"],
@@ -50,7 +50,7 @@ for directory in sorted(a.logs.iterdir()):
             [r["transitions"] for r in subset], [r[key] for r in subset], label=cfg["condition"]
         )
 axes[0].set_ylabel("Training episode reward")
-axes[1].set_ylabel("Training success metric")
+axes[1].set_ylabel("Native success metric\n(mean over reset batches)")
 axes[1].set_xlabel("Cumulative environment transitions")
 axes[1].set_ylim(-0.02, 1.02)
 for ax in axes:
@@ -61,7 +61,7 @@ fig.tight_layout()
 fig.savefig(a.output / "learning_curves.png", dpi=180)
 fig.savefig(a.output / "learning_curves.pdf")
 with (a.output / "learning_curves.csv").open("w") as f:
-    writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+    writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
 print(f"Exported {len(rows)} iteration records")

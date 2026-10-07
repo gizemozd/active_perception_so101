@@ -1,0 +1,56 @@
+[
+  {
+    "condition": "active",
+    "first25_reward_mean": -0.05107150583104654,
+    "last25_reward_mean": 1.143917555668205,
+    "final_policy_std": 0.3533271253108978,
+    "final_value_loss": 0.007423685950925574,
+    "final_surrogate_loss": -0.008521507872501388,
+    "cnn_weight_changes_after_first_update": {
+      "cnns.wrist.cnn.0.weight": 1.920293927192688,
+      "cnns.wrist.cnn.2.weight": 3.623842477798462,
+      "cnns.external.cnn.0.weight": 0.7964183688163757,
+      "cnns.external.cnn.2.weight": 2.0437161922454834
+    }
+  },
+  {
+    "condition": "initial",
+    "first25_reward_mean": 0.011579806338995696,
+    "last25_reward_mean": 1.1914654909137636,
+    "final_policy_std": 0.336174339056015,
+    "final_value_loss": 0.014538327406626195,
+    "final_surrogate_loss": -0.00783909789856807,
+    "cnn_weight_changes_after_first_update": {
+      "cnns.wrist.cnn.0.weight": 2.097621440887451,
+      "cnns.wrist.cnn.2.weight": 3.0255885124206543,
+      "cnns.external.cnn.0.weight": 1.1984471082687378,
+      "cnns.external.cnn.2.weight": 2.2904422283172607
+    }
+  },
+  {
+    "condition": "wrist",
+    "first25_reward_mean": 0.028534632447091014,
+    "last25_reward_mean": 1.1897862121846527,
+    "final_policy_std": 0.1530688852071762,
+    "final_value_loss": 0.0763579401318566,
+    "final_surrogate_loss": -0.00460881363687804,
+    "cnn_weight_changes_after_first_update": {
+      "cnns.wrist.cnn.0.weight": 1.8641575574874878,
+      "cnns.wrist.cnn.2.weight": 4.095258712768555
+    }
+  },
+  {
+    "condition": "wrist_static",
+    "first25_reward_mean": -0.034688144275410615,
+    "last25_reward_mean": 1.0205785943344234,
+    "final_policy_std": 0.15322528779506683,
+    "final_value_loss": 0.0037848609281354584,
+    "final_surrogate_loss": -0.0018196499295299873,
+    "cnn_weight_changes_after_first_update": {
+      "cnns.wrist.cnn.0.weight": 1.7118394374847412,
+      "cnns.wrist.cnn.2.weight": 4.404991149902344,
+      "cnns.external.cnn.0.weight": 3.0082571506500244,
+      "cnns.external.cnn.2.weight": 5.3297014236450195
+    }
+  }
+]

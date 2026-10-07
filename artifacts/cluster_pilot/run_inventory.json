@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-07T14:18:39.689895-04:00",
+  "checked_at": "2026-10-07T14:30:02.343427-04:00",
   "jobs": [
     {
       "JobID": "51111068",
@@ -18,7 +18,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --nodes=1 --ntasks=1 --gres=gpu:1 --cpus-per-task=8 --mem=48G --time=00:05:00 --job-name=plug-inventory --output=logs/slurm/inventory-%j.out --wrap=hostname; nvidia-smi; nvidia-smi --query-gpu=name,uuid,memory.total,driver_version --format=csv; scontrol show job \"$SLURM_JOB_ID\"",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": []
     },
     {
@@ -38,7 +38,7 @@
       "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx scripts/slurm/validate.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": []
     },
     {
@@ -58,7 +58,7 @@
       "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx scripts/slurm/validate.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": []
     },
     {
@@ -78,7 +78,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0 scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n64_20261007T165523Z",
@@ -190,7 +190,7 @@
       "AllocTRES": "",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0 --export=ALL,SKIP_INFERENCE=1 scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": []
     },
     {
@@ -210,7 +210,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n64_20261007T174021Z",
@@ -357,7 +357,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n128_20261007T174513Z",
@@ -504,7 +504,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n256_20261007T174513Z",
@@ -651,7 +651,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_clean_gru_v0_s0_n512_20261007T174551Z",
@@ -798,7 +798,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n64_20261007T174557Z",
@@ -945,7 +945,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n128_20261007T174828Z",
@@ -1092,7 +1092,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n256_20261007T174724Z",
@@ -1239,7 +1239,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_wrist_static_clean_gru_v7_s0_n512_20261007T174809Z",
@@ -1386,7 +1386,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n64_20261007T174832Z",
@@ -1533,7 +1533,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n128_20261007T175059Z",
@@ -1680,7 +1680,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n256_20261007T175015Z",
@@ -1827,7 +1827,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_initial_clean_gru_v0_s0_n512_20261007T175046Z",
@@ -1974,7 +1974,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_active_clean_gru_v0_s0_n64_20261007T175026Z",
@@ -2121,7 +2121,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_active_clean_gru_v0_s0_n128_20261007T175300Z",
@@ -2268,7 +2268,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_active_clean_gru_v0_s0_n256_20261007T175207Z",
@@ -2415,7 +2415,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=1-15%4 --export=ALL scripts/slurm/benchmark.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/plug_active_clean_gru_v0_s0_n512_20261007T175301Z",
@@ -2562,7 +2562,7 @@
       "AllocTRES": "billing=1383,cpu=16,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=2,gres/gpu=2,mem=96G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --export=ALL scripts/slurm/benchmark_colocation.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/colocation/51122956/paired_a/plug_active_clean_gru_v0_s0_n512_20261007T175930Z",
@@ -2970,7 +2970,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0,6,9,15%4 --export=ALL scripts/slurm/train_plug.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z",
@@ -3120,7 +3120,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0,6,9,15%4 --export=ALL scripts/slurm/train_plug.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z",
@@ -3270,7 +3270,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0,6,9,15%4 --export=ALL scripts/slurm/train_plug.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z",
@@ -3420,7 +3420,7 @@
       "AllocTRES": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --array=0,6,9,15%4 --export=ALL scripts/slurm/train_plug.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z",
@@ -3570,7 +3570,7 @@
       "AllocTRES": "billing=1383,cpu=16,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=2,gres/gpu=2,mem=96G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --nodelist=holygpu7c1916 --dependency=afterok:51122956 --export=ALL scripts/slurm/benchmark_colocation.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
       "runs": [
         {
           "directory": "logs/benchmarks/colocation/51123535/paired_a/plug_active_clean_gru_v0_s0_n512_20261007T180301Z",
@@ -3849,8 +3849,27 @@
       "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --dependency=afterok:51123326 --export=ALL scripts/slurm/evaluate.sbatch",
-      "scontrol": "JobId=51123808 JobName=vision-evaluate\n   UserId=pgozdil(68400) GroupId=pgozdil_lab(10002) MCS_label=N/A\n   Priority=9913482 Nice=0 Account=kempner_pgozdil_lab QOS=normal\n   JobState=FAILED Reason=NonZeroExitCode Dependency=(null)\n   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=1:0\n   RunTime=00:02:36 TimeLimit=02:00:00 TimeMin=N/A\n   SubmitTime=2026-10-07T14:04:50 EligibleTime=2026-10-07T14:08:03\n   AccrueTime=2026-10-07T14:08:03\n   StartTime=2026-10-07T14:08:03 EndTime=2026-10-07T14:10:39 Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-07T14:08:03 Scheduler=Main\n   Partition=kempner_rtx AllocNode:Sid=holy8a24101:626222\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList=holygpu7c2316\n   BatchHost=holygpu7c2316\n   StepMgrEnabled=Yes\n   NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=8 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=8,mem=32G,node=1,billing=690,gres/gpu=1\n   AllocTRES=cpu=8,mem=32G,node=1,billing=690,gres/gpu=1,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=8 MinMemoryNode=32G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)\n   Command=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/evaluate.sbatch\n   SubmitLine=sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --dependency=afterok:51123326 --export=ALL scripts/slurm/evaluate.sbatch\n   WorkDir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101\n   StdErr=\n   StdIn=/dev/null\n   StdOut=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/vision-evaluate-51123808.out\n   TresPerNode=gres/gpu:1\n   TresPerTask=cpu=8\n\n",
-      "runs": []
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "evaluation": {
+        "report": "artifacts/cluster_pilot/evaluation-active-s0.json",
+        "checkpoint": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_99.pt",
+        "source_revision": "77a9b9a (evaluator unchanged through da5dc65)",
+        "condition": "active",
+        "configured_episodes": 512,
+        "num_envs": 128,
+        "reset_seeds": [
+          10000,
+          10001,
+          10002,
+          10003
+        ],
+        "completed_episodes": 512,
+        "successes": 2,
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/7z9jr312",
+        "media": "artifacts/cluster_pilot/evaluation-active-s0-videos",
+        "diagnostic_repeat": false
+      }
     },
     {
       "JobID": "51123809",
@@ -3869,8 +3888,27 @@
       "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --dependency=afterok:51123329 --export=ALL scripts/slurm/evaluate.sbatch",
-      "scontrol": "JobId=51123809 JobName=vision-evaluate\n   UserId=pgozdil(68400) GroupId=pgozdil_lab(10002) MCS_label=N/A\n   Priority=9913482 Nice=0 Account=kempner_pgozdil_lab QOS=normal\n   JobState=FAILED Reason=NonZeroExitCode Dependency=(null)\n   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=1:0\n   RunTime=00:02:48 TimeLimit=02:00:00 TimeMin=N/A\n   SubmitTime=2026-10-07T14:04:50 EligibleTime=2026-10-07T14:08:03\n   AccrueTime=2026-10-07T14:08:03\n   StartTime=2026-10-07T14:08:03 EndTime=2026-10-07T14:10:51 Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-07T14:08:03 Scheduler=Main\n   Partition=kempner_rtx AllocNode:Sid=holy8a24101:626222\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList=holygpu7c2316\n   BatchHost=holygpu7c2316\n   StepMgrEnabled=Yes\n   NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=8 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=8,mem=32G,node=1,billing=690,gres/gpu=1\n   AllocTRES=cpu=8,mem=32G,node=1,billing=690,gres/gpu=1,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=8 MinMemoryNode=32G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)\n   Command=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/evaluate.sbatch\n   SubmitLine=sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --dependency=afterok:51123329 --export=ALL scripts/slurm/evaluate.sbatch\n   WorkDir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101\n   StdErr=\n   StdIn=/dev/null\n   StdOut=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/vision-evaluate-51123809.out\n   TresPerNode=gres/gpu:1\n   TresPerTask=cpu=8\n\n",
-      "runs": []
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "evaluation": {
+        "report": "artifacts/cluster_pilot/evaluation-initial-s0.json",
+        "checkpoint": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_99.pt",
+        "source_revision": "77a9b9a (evaluator unchanged through da5dc65)",
+        "condition": "initial",
+        "configured_episodes": 512,
+        "num_envs": 128,
+        "reset_seeds": [
+          10000,
+          10001,
+          10002,
+          10003
+        ],
+        "completed_episodes": 512,
+        "successes": 3,
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/il8drljq",
+        "media": "artifacts/cluster_pilot/evaluation-initial-s0-videos",
+        "diagnostic_repeat": false
+      }
     },
     {
       "JobID": "51123810",
@@ -3889,8 +3927,27 @@
       "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --dependency=afterok:51123327 --export=ALL scripts/slurm/evaluate.sbatch",
-      "scontrol": "Expired from controller; accounting retained",
-      "runs": []
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "evaluation": {
+        "report": "artifacts/cluster_pilot/evaluation-wrist-s0.json",
+        "checkpoint": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_99.pt",
+        "source_revision": "77a9b9a (evaluator unchanged through da5dc65)",
+        "condition": "wrist",
+        "configured_episodes": 512,
+        "num_envs": 128,
+        "reset_seeds": [
+          10000,
+          10001,
+          10002,
+          10003
+        ],
+        "completed_episodes": 512,
+        "successes": 3,
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/o23icgdv",
+        "media": "artifacts/cluster_pilot/evaluation-wrist-s0-videos",
+        "diagnostic_repeat": false
+      }
     },
     {
       "JobID": "51123811",
@@ -3909,8 +3966,183 @@
       "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
       "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
       "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --dependency=afterok:51123328 --export=ALL scripts/slurm/evaluate.sbatch",
-      "scontrol": "JobId=51123811 JobName=vision-evaluate\n   UserId=pgozdil(68400) GroupId=pgozdil_lab(10002) MCS_label=N/A\n   Priority=9914395 Nice=0 Account=kempner_pgozdil_lab QOS=normal\n   JobState=FAILED Reason=NonZeroExitCode Dependency=(null)\n   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=1:0\n   RunTime=00:02:29 TimeLimit=02:00:00 TimeMin=N/A\n   SubmitTime=2026-10-07T14:04:50 EligibleTime=2026-10-07T14:07:35\n   AccrueTime=2026-10-07T14:07:35\n   StartTime=2026-10-07T14:07:35 EndTime=2026-10-07T14:10:04 Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-07T14:07:35 Scheduler=Main\n   Partition=kempner_rtx AllocNode:Sid=holy8a24101:626222\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList=holygpu7c2110\n   BatchHost=holygpu7c2110\n   StepMgrEnabled=Yes\n   NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=8 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=8,mem=32G,node=1,billing=690,gres/gpu=1\n   AllocTRES=cpu=8,mem=32G,node=1,billing=690,gres/gpu=1,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=8 MinMemoryNode=32G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)\n   Command=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/evaluate.sbatch\n   SubmitLine=sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --dependency=afterok:51123328 --export=ALL scripts/slurm/evaluate.sbatch\n   WorkDir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101\n   StdErr=\n   StdIn=/dev/null\n   StdOut=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/vision-evaluate-51123811.out\n   TresPerNode=gres/gpu:1\n   TresPerTask=cpu=8\n\n",
-      "runs": []
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "evaluation": {
+        "report": "artifacts/cluster_pilot/evaluation-wrist_static-s0.json",
+        "checkpoint": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_99.pt",
+        "source_revision": "77a9b9a (evaluator unchanged through da5dc65)",
+        "condition": "wrist_static",
+        "configured_episodes": 512,
+        "num_envs": 128,
+        "reset_seeds": [
+          10000,
+          10001,
+          10002,
+          10003
+        ],
+        "completed_episodes": 512,
+        "successes": 7,
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/exx2hu2j",
+        "media": "artifacts/cluster_pilot/evaluation-wrist_static-s0-videos",
+        "diagnostic_repeat": false
+      }
+    },
+    {
+      "JobID": "51125573",
+      "JobIDRaw": "51125573",
+      "JobName": "vision-evaluate",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T14:19:14",
+      "Start": "2026-10-07T14:19:14",
+      "End": "2026-10-07T14:22:03",
+      "Elapsed": "00:02:49",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c2116",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=690,cpu=8,gres/gpu=1,mem=32G,node=1",
+      "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --export=ALL scripts/slurm/evaluate.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "evaluation": {
+        "report": "artifacts/cluster_pilot/capture-evaluation-active-s0.json",
+        "checkpoint": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_99.pt",
+        "source_revision": "0c94372",
+        "condition": "active",
+        "configured_episodes": 512,
+        "num_envs": 128,
+        "reset_seeds": [
+          10000,
+          10001,
+          10002,
+          10003
+        ],
+        "completed_episodes": 512,
+        "successes": 3,
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/5l27k1n4",
+        "media": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos",
+        "diagnostic_repeat": true
+      }
+    },
+    {
+      "JobID": "51125575",
+      "JobIDRaw": "51125575",
+      "JobName": "vision-evaluate",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T14:19:15",
+      "Start": "2026-10-07T14:19:20",
+      "End": "2026-10-07T14:21:43",
+      "Elapsed": "00:02:23",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1916",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=690,cpu=8,gres/gpu=1,mem=32G,node=1",
+      "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --export=ALL scripts/slurm/evaluate.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "evaluation": {
+        "report": "artifacts/cluster_pilot/capture-evaluation-initial-s0.json",
+        "checkpoint": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_99.pt",
+        "source_revision": "0c94372",
+        "condition": "initial",
+        "configured_episodes": 512,
+        "num_envs": 128,
+        "reset_seeds": [
+          10000,
+          10001,
+          10002,
+          10003
+        ],
+        "completed_episodes": 512,
+        "successes": 0,
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/86jeiyec",
+        "media": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos",
+        "diagnostic_repeat": true
+      }
+    },
+    {
+      "JobID": "51125576",
+      "JobIDRaw": "51125576",
+      "JobName": "vision-evaluate",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T14:19:15",
+      "Start": "2026-10-07T14:19:24",
+      "End": "2026-10-07T14:21:31",
+      "Elapsed": "00:02:07",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1713",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=690,cpu=8,gres/gpu=1,mem=32G,node=1",
+      "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --export=ALL scripts/slurm/evaluate.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "evaluation": {
+        "report": "artifacts/cluster_pilot/capture-evaluation-wrist-s0.json",
+        "checkpoint": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_99.pt",
+        "source_revision": "0c94372",
+        "condition": "wrist",
+        "configured_episodes": 512,
+        "num_envs": 128,
+        "reset_seeds": [
+          10000,
+          10001,
+          10002,
+          10003
+        ],
+        "completed_episodes": 512,
+        "successes": 3,
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/fe0cjkje",
+        "media": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos",
+        "diagnostic_repeat": true
+      }
+    },
+    {
+      "JobID": "51125577",
+      "JobIDRaw": "51125577",
+      "JobName": "vision-evaluate",
+      "State": "COMPLETED",
+      "Submit": "2026-10-07T14:19:15",
+      "Start": "2026-10-07T14:19:26",
+      "End": "2026-10-07T14:22:09",
+      "Elapsed": "00:02:43",
+      "ExitCode": "0:0",
+      "NodeList": "holygpu7c1710",
+      "Account": "kempner_pgozdil_lab",
+      "Partition": "kempner_rtx",
+      "ReqTRES": "billing=690,cpu=8,gres/gpu=1,mem=32G,node=1",
+      "AllocTRES": "billing=690,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=32G,node=1",
+      "WorkDir": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+      "SubmitLine": "sbatch --parsable --account=kempner_pgozdil_lab --partition=kempner_rtx --export=ALL scripts/slurm/evaluate.sbatch",
+      "scontrol": "Terminal state from sacct; controller not queried by this snapshot",
+      "runs": [],
+      "evaluation": {
+        "report": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0.json",
+        "checkpoint": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_99.pt",
+        "source_revision": "0c94372",
+        "condition": "wrist_static",
+        "configured_episodes": 512,
+        "num_envs": 128,
+        "reset_seeds": [
+          10000,
+          10001,
+          10002,
+          10003
+        ],
+        "completed_episodes": 512,
+        "successes": 4,
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/s79bb2ko",
+        "media": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos",
+        "diagnostic_repeat": true
+      }
     }
   ],
   "queue": []

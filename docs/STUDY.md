@@ -16,7 +16,9 @@ as a primary candidate. The earlier centered-pin/marker prototypes did not test
 the legacy task's unknown prong offset, and their retreat result cannot be used
 to dismiss its reported active-camera benefit. Best-static and initial-inspection
 comparisons for the original task remain open. The [faithful task port](PLUG_RESTORATION.md)
-is now implemented and mechanically checked; no comparative policies are trained.
+is now implemented and mechanically checked. The [seed-0 cluster pilots](../artifacts/cluster_pilot/README.md)
+are completed exploratory runs; sparse success and evaluation-repeat divergence
+preclude a statistically supported sensing comparison.
 
 The [literature review](LITERATURE_POSITIONING.md) audits the four supplied papers
 and related active-VLA/memory work. It narrows the prospective contribution to the

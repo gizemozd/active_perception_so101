@@ -43,8 +43,10 @@ for path in sorted(a.root.glob("evaluation-*.json")):
         )
     )
 assert rows, "No completed pilot evaluations"
+order = {c: i for i, c in enumerate(("wrist", "wrist_static", "initial", "active"))}
+rows.sort(key=lambda r: order[r["condition"]])
 with (a.root / "pilot_comparison.csv").open("w") as f:
-    writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+    writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
 lines = [
@@ -76,7 +78,35 @@ lines += [
 ]
 for r in rows:
     lines.append(
-        f"- {r['condition']}: [training]({r['training_wandb']}), [validation/videos]({r['validation_wandb']}), [JSON]({Path(r['source']).name})."
+        f"- {r['condition']}: [training]({r['training_wandb']}), [original validation]({r['validation_wandb']}), [JSON]({Path(r['source']).name})."
     )
+lines += [
+    "",
+    "## Recorded diagnostic repeats and media",
+    "",
+    "Separate replay did not reproduce every rare success. Original scores above are preserved.",
+    "A separately labeled repeat used identical seeds/batch size and captured actual state/RGB during evaluation; videos render these saved trajectories without resimulation.",
+    "",
+    "| Condition | Original successes | Recorded-repeat successes | Changed episode outcomes | Videos |",
+    "|---|---:|---:|---:|---|",
+]
+for r in rows:
+    repeat_path = a.root / f"capture-evaluation-{r['condition']}-s0.json"
+    if not repeat_path.exists():
+        continue
+    repeat = json.loads(repeat_path.read_text())
+    original = json.loads(Path(r["source"]).read_text())
+    changed = sum(x != y for x, y in zip(repeat["outcomes"], original["outcomes"], strict=True))
+    lines.append(
+        f"| {r['condition']} | {r['successes']} | {repeat['successes']} | {changed} | [recorded videos]({repeat['wandb_url']}) |"
+    )
+lines += [
+    "",
+    "Repeatability of individual outcomes is unresolved; do not use these small score differences to rank sensing conditions.",
+    "Initial-only has no successes in its recorded repeat. Its verified original episode-213 success clip is retained in the original validation W&B run; batch 1 passed replay assertions before the later batch-2 failure.",
+    "",
+    "[Learning curves](learning_curves.png) / [CSV](learning_curves.csv), [representative frames](recorded_representative_frames.png), [media checks](media_validation.json), [trajectory diagnostics](trajectory_diagnostics.json).",
+    "Native training success curves average reset batches and carry the last value between resets; they are not overall episode-weighted success rates.",
+]
 (a.root / "PILOTS.md").write_text("\n".join(lines) + "\n")
 print("\n".join(lines))
