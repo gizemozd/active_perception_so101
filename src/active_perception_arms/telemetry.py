@@ -189,6 +189,15 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
             "measured_steady_transitions": transitions,
             "measured_steady_seconds": measured,
             "steady_transitions_per_second": rate,
+            "measured_steady_iterations": len(steady),
+            "mean_rollout_seconds": statistics.mean(r["rollout_seconds"] for r in steady)
+            if steady
+            else None,
+            "mean_ppo_seconds": statistics.mean(r["ppo_seconds"] for r in steady)
+            if steady
+            else None,
+            "mean_iteration_seconds": measured / len(steady) if steady else None,
+            "final_cumulative_transitions": rows[-1]["transitions"] if rows else 0,
             "total_wall_seconds": total,
             "gpu_hours": total / 3600,
             "steady_iteration_std_seconds": statistics.stdev(
@@ -227,6 +236,13 @@ def install_logging(runner, cfg, args, log_dir, metadata, init_seconds, sampler,
                 artifact.add_file(str(path))
             wandb.log_artifact(artifact)
         original_stop()
+        report["wall_seconds_including_wandb_finish"] = time.perf_counter() - process_start
+        report["gpu_hours_including_wandb_finish"] = (
+            report["wall_seconds_including_wandb_finish"] / 3600
+        )
+        (log_dir / "summary.json").write_text(json.dumps(report, indent=2))
+        if args.result:
+            args.result.write_text(json.dumps(report, indent=2))
 
     runner.logger.init_logging_writer = init
     runner.logger.log = log

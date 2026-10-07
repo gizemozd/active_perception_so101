@@ -305,3 +305,12 @@
   resume identity. Additional GPU gates cover all four conditions at 128×96,
   balanced offsets, initial-only freeze, and actor/critic observation separation.
   These additions are not yet execution-validated and no optimizer has run.
+- Preparation commit `79a47ec` pushed to `origin/main`. Lint, Python compilation
+  and Slurm shell syntax checks pass; execution checks await dependency setup.
+- Latest availability snapshot is saved in
+  `artifacts/cluster_pilot/resource_snapshot.json`. Most usable nodes have all
+  eight GPUs allocated; free GPUs observed on different nodes. Same-node
+  co-residency testing depends on later availability, not nominal node size.
+- Installing pinned dependencies required roughly 11 minutes of CUDA downloads,
+  followed by copying from the home cache to the project filesystem (hardlinks
+  cannot cross these filesystems). This is setup cost, not training throughput.

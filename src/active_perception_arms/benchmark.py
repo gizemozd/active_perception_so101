@@ -45,6 +45,7 @@ def main(argv=None):
     cuda = args.device.startswith("cuda")
     torch.set_num_threads(4 if cuda else 1)
     torch.set_float32_matmul_precision("high")
+    torch.manual_seed(cfg.seed)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     run = None
     if args.wandb:
@@ -106,6 +107,7 @@ def main(argv=None):
         report = {
             "experiment": cfg.to_dict(),
             "kind": "simulation_and_actor_inference_only",
+            "wandb_url": run.url if run else None,
             "hostname": platform.node(),
             "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
             "packages": {
@@ -140,7 +142,7 @@ def main(argv=None):
                         "environment_steps_per_second"
                     ],
                     "benchmark/measured_seconds": elapsed,
-                    **sampler.metrics(),
+                    **(sampler.metrics() if sampler else {}),
                 }
             )
             run.finish()

@@ -1,0 +1,149 @@
+{
+  "utc": "2026-10-07T16:30:51.356989+00:00",
+  "nodes": [
+    {
+      "node": "holygpu7c1710",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c1713",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c1716",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 7
+    },
+    {
+      "node": "holygpu7c1728",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c1731",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 6
+    },
+    {
+      "node": "holygpu7c1734",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c1910",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c1913",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c1916",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c1928",
+      "state": "drain*",
+      "gpus": 8,
+      "allocated_gpus": 0
+    },
+    {
+      "node": "holygpu7c1931",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c1934",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2110",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2113",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2116",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2128",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2131",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2134",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2310",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2313",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2316",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2328",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2331",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    },
+    {
+      "node": "holygpu7c2334",
+      "state": "mix",
+      "gpus": 8,
+      "allocated_gpus": 8
+    }
+  ]
+}
