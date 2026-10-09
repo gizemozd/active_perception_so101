@@ -416,14 +416,21 @@ def potential(env):
 
 def task_reward(env):
     s = state(env)
+    action = env.action_manager.action
+    # Preserve the same time/action costs across reward profiles and conditions.
+    motion_cost = 0.0005 * action.square().sum(-1) / s.cfg.manip_dim
+    if s.cfg.reward_profile == "legacy_log_hold":
+        _, _, _, goal = positions(env)
+        address = s.object_qpos_address
+        obj = env.sim.data.qpos[:, address : address + 3]
+        distance = torch.linalg.vector_norm(obj - goal, dim=-1)
+        shaping = -torch.log1p(100 * distance)
+        return shaping + 1000 * success(env).float() - 0.005 - motion_cost
     phi = potential(env)
     # Delta shaping avoids rewarding indefinite hovering near the goal.
     progress = torch.where(s.potential_valid, phi - s.previous_potential, 0.0)
     s.previous_potential.copy_(phi)
     s.potential_valid[:] = True
-    action = env.action_manager.action
-    # Keep the manipulation penalty identical when camera action dimensions exist.
-    motion_cost = 0.0005 * action.square().sum(-1) / s.cfg.manip_dim
     return progress * 3 + success(env).float() * 10 - 0.005 - motion_cost
 
 

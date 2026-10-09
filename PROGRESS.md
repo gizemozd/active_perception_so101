@@ -1021,3 +1021,28 @@ handoff instruction alone.
   all 4 checkpoint evaluation; collect already queued tuning results and compare
   at 9,228,288 (baseline 44/512), then make evidence-based next training repair.
   Do not launch transfer/push or a large sensing study while plug gates fail.
+
+### Physical criterion, CUDA gate and prepared objective repair
+
+- The current-qpos criterion is implemented and pushed at `5badc6e`. New runs use
+  current physical positions at three consecutive control samples; saved old
+  experiments inherit `derived_substep`, and resuming cannot silently switch
+  criteria. The full CPU suite passed: 123 tests, six GPU tests deselected.
+- Corrected evaluation job `51501382` uses frozen `5badc6e` in
+  `../plug-corrected-20261009`. Its six CUDA checks passed, including actual RGB,
+  moving-panel trajectory parity and partial resets. The same job evaluates all
+  four original final checkpoints with the corrected criterion and records their
+  actual evaluated trajectories. Outputs are separately named `corrected-*-s0`.
+- Dynamic diagnostics contain nine native scripted successes across three seeds
+  and tasks with byte-identical clean/dynamic physical trajectories. Plug prongs
+  are measurably obstructed; transfer/push wrist visibility remains useful. These
+  diagnostics establish feasible optical obstruction, not an active-policy gain.
+- Prepared `reward_rescue_plan.json` adds a bounded fresh progress-versus-log
+  reward screen only if the running optimization trials remain unreliable.
+  `legacy_log_hold` uses current physical distance, a 1,000 bonus after three valid
+  samples, and the shared action/time penalties. It changes both shaping and
+  bonus strength and is not an exact historical reproduction. Both proposed runs
+  have identical seed, view, optimizer, initial std 0.4 and 100-update budget;
+  neither has been submitted. CLI reward/std choices inherit saved settings on
+  resume and reject explicit changes. All 52 targeted reward/criterion/CLI checks
+  pass; lint and formatting pass.

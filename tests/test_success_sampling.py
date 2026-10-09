@@ -70,7 +70,10 @@ def test_training_resume_inherits_old_sampling_and_rejects_override(tmp_path, ca
     (tmp_path / "experiment.json").write_text(json.dumps(old))
     (tmp_path / "runner.json").write_text(
         json.dumps(
-            {"algorithm": {"learning_rate": 3e-4, "schedule": "adaptive", "entropy_coef": 0.003}}
+            {
+                "algorithm": {"learning_rate": 3e-4, "schedule": "adaptive", "entropy_coef": 0.003},
+                "actor": {"distribution_cfg": {"init_std": 0.4}},
+            }
         )
     )
     args = ["--task", "plug", "--resume", str(tmp_path / "model_99.pt"), "--dry-run"]

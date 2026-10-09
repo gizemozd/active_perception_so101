@@ -47,6 +47,9 @@ run_training() {
   if [[ -n "${LEARNING_RATE:-}" ]]; then args+=(--learning-rate "$LEARNING_RATE"); fi
   if [[ -n "${LR_SCHEDULE:-}" ]]; then args+=(--lr-schedule "$LR_SCHEDULE"); fi
   if [[ -n "${ENTROPY_COEF:-}" ]]; then args+=(--entropy-coef "$ENTROPY_COEF"); fi
+  if [[ -n "${REWARD_PROFILE:-}" ]]; then args+=(--reward-profile "$REWARD_PROFILE"); fi
+  if [[ -n "${INITIAL_STD:-}" ]]; then args+=(--initial-std "$INITIAL_STD"); fi
+  if [[ -n "${SUCCESS_STATE_SAMPLE:-}" ]]; then args+=(--success-state-sample "$SUCCESS_STATE_SAMPLE"); fi
   if [[ -n "${RUN_LABEL:-}" ]]; then args+=(--run-label "$RUN_LABEL"); fi
   if [[ -n "${RESUME:-}" ]]; then args+=(--resume "$RESUME"); fi
   if [[ "${DRY_RUN:-0}" == 1 ]]; then args+=(--dry-run); fi

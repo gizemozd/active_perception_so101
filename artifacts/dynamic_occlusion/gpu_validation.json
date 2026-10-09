@@ -1,0 +1,10 @@
+{
+  "job_id": "51501382",
+  "source_revision": "5badc6e",
+  "pytest_passed": true,
+  "modules": [
+    "test_dynamic_occlusion.py",
+    "test_mjlab.py"
+  ],
+  "checks": "CUDA RGB, midpoint moving panel parity, partial resets, original pipeline regressions"
+}

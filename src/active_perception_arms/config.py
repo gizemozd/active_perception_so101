@@ -11,6 +11,7 @@ TASKS = ("plug", "transfer", "push")
 CONDITIONS = ("wrist", "static", "wrist_static", "initial", "scheduled", "active")
 OCCLUSIONS = ("clean", "static", "phase", "random", "dynamic")
 SUCCESS_STATE_SAMPLES = ("derived_substep", "current_qpos")
+REWARD_PROFILES = ("progress", "legacy_log_hold")
 ARM_JOINTS = ("shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll")
 JOINTS = ARM_JOINTS + ("gripper",)
 MANIP_BASE = (-0.19, 0.025, 0.05)
@@ -50,6 +51,7 @@ class Experiment:
     # Derived positions lag integration by one physics substep in MjLab1.4.
     # Existing saved runs retain their original sampling in saved_experiment().
     success_state_sample: Literal["derived_substep", "current_qpos"] = "current_qpos"
+    reward_profile: Literal["progress", "legacy_log_hold"] = "progress"
     # Opt-in optical sweep. None for every legacy condition/checkpoint; its
     # existing scene, random draws, timer and observation dimensions stay intact.
     occlusion_revision: str | None = None
@@ -87,6 +89,7 @@ class Experiment:
             (self.condition, CONDITIONS, "condition"),
             (self.occlusion, OCCLUSIONS, "occlusion"),
             (self.success_state_sample, SUCCESS_STATE_SAMPLES, "success_state_sample"),
+            (self.reward_profile, REWARD_PROFILES, "reward_profile"),
         ):
             if value not in choices:
                 raise ValueError(f"Unknown {name}: {value}")
@@ -106,6 +109,10 @@ class Experiment:
             self.task != "plug" or self.plug_variant not in plug.VARIANTS
         ):
             raise ValueError("plug_variant requires plug and one of xm/xp/ym/yp")
+        if self.reward_profile == "legacy_log_hold" and (
+            self.task != "plug" or self.success_state_sample != "current_qpos"
+        ):
+            raise ValueError("legacy_log_hold requires plug and current_qpos success sampling")
         self._validate_dynamic_occlusion()
 
     def _validate_dynamic_occlusion(self):
@@ -234,4 +241,6 @@ def saved_experiment(data):
     """Reject old plug checkpoints instead of silently changing their task."""
     if data.get("task", "plug") == "plug" and data.get("task_revision") != "hidden_prongs_v1":
         raise ValueError("Legacy centered-pin experiment; restore its code revision to evaluate it")
-    return Experiment(**{"success_state_sample": "derived_substep", **data})
+    return Experiment(
+        **{"success_state_sample": "derived_substep", "reward_profile": "progress", **data}
+    )

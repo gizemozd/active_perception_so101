@@ -1,0 +1,30 @@
+{
+  "status": "submitted",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/corrected_plug.sbatch"
+  ],
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-corrected-20261009",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-corrected-20261009/src",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "WANDB_RUN_GROUP": "plug-repair-20261009",
+    "EVALUATION_STAGE": "repair",
+    "WANDB_MODE": "online",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_PROJECT": "active-perception-so101"
+  },
+  "source_revision": "5badc6e0b8d8d71e2e72e1d042b937d54fcae86e",
+  "purpose": "Six CUDA regression tests then four corrected physical-state evaluations with actual videos,512episodes each,no optimizer update",
+  "submitted_at": "2026-10-09T04:59:49.875487+00:00",
+  "stdout": "51501382",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51501382"
+}

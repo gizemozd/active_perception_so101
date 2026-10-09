@@ -19,6 +19,7 @@ from pathlib import Path
 from .config import (
     CONDITIONS,
     OCCLUSIONS,
+    REWARD_PROFILES,
     SUCCESS_STATE_SAMPLES,
     TASKS,
     Experiment,
@@ -55,6 +56,16 @@ def parser():
     p.add_argument("--log-root", type=Path, default=Path("logs"))
     p.add_argument("--resume", type=Path)
     p.add_argument(
+        "--reward-profile",
+        choices=REWARD_PROFILES,
+        help="Fresh default: progress; resume inherits the saved objective",
+    )
+    p.add_argument(
+        "--initial-std",
+        type=float,
+        help="Positive Gaussian initial std; fresh default 0.4, resume inherits saved actor settings",
+    )
+    p.add_argument(
         "--success-state-sample",
         choices=SUCCESS_STATE_SAMPLES,
         help="Fresh default: current_qpos; resume inherits saved sampling",
@@ -85,13 +96,18 @@ def experiment_from_args(args):
     if args.fixed_view and args.condition not in ("static", "wrist_static"):
         raise ValueError("fixed-view only applies to static camera conditions")
     success_sample = args.success_state_sample
+    reward_profile = args.reward_profile
     if args.resume:
-        saved_sample = saved_experiment(
+        saved_cfg = saved_experiment(
             json.loads(args.resume.with_name("experiment.json").read_text())
-        ).success_state_sample
+        )
+        saved_sample = saved_cfg.success_state_sample
         if success_sample is not None and success_sample != saved_sample:
             raise ValueError("Resume success_state_sample differs; use a distinct run")
         success_sample = saved_sample
+        if reward_profile is not None and reward_profile != saved_cfg.reward_profile:
+            raise ValueError("Resume reward_profile differs; use a distinct run")
+        reward_profile = saved_cfg.reward_profile
     return Experiment(
         task=args.task,
         condition=args.condition,
@@ -106,6 +122,7 @@ def experiment_from_args(args):
         perturb_push=args.perturb_push,
         memory=args.memory,
         success_state_sample=success_sample or "current_qpos",
+        reward_profile=reward_profile or "progress",
         dynamic_onset_range=args.dynamic_onset_range,
         dynamic_duration_range=args.dynamic_duration_range,
         dynamic_center=args.dynamic_center,
@@ -140,6 +157,20 @@ def optimization_from_args(args):
     return settings
 
 
+def initial_std_from_args(args):
+    initial_std = 0.4
+    if args.resume:
+        runner = json.loads(args.resume.with_name("runner.json").read_text())
+        initial_std = float(runner["actor"]["distribution_cfg"]["init_std"])
+    if args.initial_std is not None:
+        if args.resume and args.initial_std != initial_std:
+            raise ValueError("Resume initial_std differs; use a distinct run")
+        initial_std = args.initial_std
+    if not math.isfinite(initial_std) or initial_std <= 0:
+        raise ValueError("initial_std must be positive and finite")
+    return initial_std
+
+
 def restore_training_state(runner, checkpoint, num_envs):
     """Continue after the saved update, retaining the adaptive optimizer LR."""
     runner.load(str(checkpoint))
@@ -166,6 +197,7 @@ def main(argv=None):
             if json.dumps(value) != json.dumps(original[key]):
                 raise ValueError(f"Resume configuration differs in {key}")
     optimization = optimization_from_args(args)
+    initial_std = initial_std_from_args(args)
     if args.dry_run:
         print(
             json.dumps(
@@ -173,6 +205,7 @@ def main(argv=None):
                     "experiment": cfg.to_dict(),
                     "iterations": args.iterations,
                     "optimization": optimization,
+                    "initial_std": initial_std,
                     "training_started": False,
                 },
                 indent=2,
@@ -225,6 +258,7 @@ def main(argv=None):
     log_dir.mkdir(parents=True, exist_ok=bool(args.resume))
     (log_dir / "experiment.json").write_text(json.dumps(cfg.to_dict(), indent=2))
     runner_options = runner_cfg(cfg, args.iterations)
+    runner_options.actor.distribution_cfg["init_std"] = initial_std
     for key, value in optimization.items():
         setattr(runner_options.algorithm, key, value)
     runner_options.logger = "wandb"

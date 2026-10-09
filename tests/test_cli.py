@@ -110,7 +110,8 @@ def test_resume_rejects_changed_environment_count(tmp_path, capsys):
                     "learning_rate": 3e-4,
                     "schedule": "adaptive",
                     "entropy_coef": 0.003,
-                }
+                },
+                "actor": {"distribution_cfg": {"init_std": 0.4}},
             }
         )
     )

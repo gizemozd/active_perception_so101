@@ -130,6 +130,16 @@ explicit diagnostic view, not selected on these episodes. Other scripted camera
 paths may use privileged object/goal state. Run the dynamic CUDA tests before
 starting GPU training; a native demonstration does not validate the GPU renderer.
 
+The initial diagnostic uses fixed manipulation resets and three occluder seeds
+per task. All nine privileged scripted rollouts held success for three control
+steps; clean/dynamic qpos matched exactly at every step. During panel-present
+render samples, push wrist visibility was 100% and transfer wrist visibility
+93.5%, unchanged by hiding the panel. Plug fixed view 7's prong visibility fell
+from 100% to 50%; the blind moving-camera script fell from 61.1% to 16.7%.
+Thus this geometry produces real optical obstruction while retaining strong
+wrist controls for transfer/push. These image fractions and repeated scripted
+successes are not learned-policy performance or evidence that active motion helps.
+
 Clean episodes are essential controls. The random occluder can disappear
 before the 12-second deadline, so waiting is a valid strategy; do not remove that
 possibility to force a positive result. Compare completion time and camera travel
