@@ -1092,3 +1092,27 @@ handoff instruction alone.
   comparison is only a conditional regimen diagnostic, explicitly
   PREPARED_NOT_EXECUTABLE until configurable rollout budgets, resume accounting,
   evaluation metadata and GPU-memory checks are implemented. No such job ran.
+
+### Completed repair screens and matched continuation decision
+
+- Fresh 100-update current-qpos training completed for both profiles at
+  1,228,800 transitions each. Each observed one success in 13,824 training
+  episodes; repeated balanced validation was progress 0/512 and 1/512,
+  log-distance 0/512 twice. Losses are finite and exploration has not collapsed.
+  Mean physical terminal error is about 20 mm versus 30 mm respectively; this
+  early screen selects no winner and does not establish repaired learning.
+- The new critic-bookkeeping source `11a591f` passed two actual CUDA PPO updates
+  in job `51510145`, 1,536 transitions. This is a device integration smoke check,
+  not a trained-policy result.
+- All three historical-criterion optimization continuations reached 751 total
+  updates. Balanced validation: fixed LR 120/512, entropy 169/512, both 76/512;
+  matched old baseline 44/512. All retain xm 0/128. Their scores are explicitly
+  `derived_substep` and cannot be combined with corrected physical scores.
+- `reward_repair/continuation_decision.json` records extending both fresh
+  profiles to the same 751-total-update / 9,228,288-transition budget, preserving
+  checkpoints, optimizer/LR, profile/std and W&B identity. Each adds 651 updates
+  / 7,999,488 transitions. Both receive the same critic fix after their first
+  100 updates; this is a disclosed mixed-source continuation, not a clean causal
+  test of that fix. Maximum two extension GPUs. Repeated corrected validations
+  and actual evaluated videos follow automatically. Larger grids and transfer/
+  pushing remain conditional on the learning results.

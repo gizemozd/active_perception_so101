@@ -501,6 +501,74 @@ def capture_plots(rows, traces, assets):
     save_figure(fig, assets, "camera_trajectories")
 
 
+def collect_reward_repairs(root, output):
+    """Keep the fresh screen and resumed stage distinct, with manifest-derived budgets."""
+    rows = []
+    repair_root = output / "reward_repair"
+    for stage, base in (("screen", repair_root), ("continuation", repair_root / "continuation")):
+        for case in ("progress", "legacy_log_hold"):
+            directory = base / case
+            training_path = directory / "training.json"
+            manifest_path = directory / "run_manifest.json"
+            training = read(training_path) if training_path.exists() else {}
+            manifest = read(manifest_path) if manifest_path.exists() else {}
+            initial_path = repair_root / case / "run_manifest.json"
+            initial = read(initial_path) if initial_path.exists() else {}
+            updates = manifest.get("training_updates", manifest.get("total_updates"))
+            transitions = training.get(
+                "final_cumulative_transitions",
+                manifest.get("training_transitions", manifest.get("total_transitions")),
+            )
+            for repeat in (1, 2):
+                path = directory / f"evaluation-repeat{repeat}.json"
+                if not path.exists():
+                    continue
+                value = read(path)
+                audit = value.get("termination_audit", {})
+                comparison = value.get("repeat_comparison") or {}
+                low, high = wilson(value["successes"], value["episodes"])
+                row = {
+                    "stage": stage,
+                    "profile": case,
+                    "repeat": repeat,
+                    "training_seed": value.get("training_seed", 0),
+                    "training_updates": updates,
+                    "training_transitions": transitions,
+                    "additional_training_transitions": training.get("actual_transitions"),
+                    "additional_training_updates": manifest.get("additional_updates"),
+                    "training_source_revision": manifest.get("source_revision"),
+                    "initial_training_source_revision": manifest.get(
+                        "initial_source_revision", initial.get("source_revision")
+                    ),
+                    "source_change": manifest.get("source_change"),
+                    "source_history": json.dumps(manifest.get("source_history", [])),
+                    "training_manifest": str(manifest_path.relative_to(root))
+                    if manifest_path.exists()
+                    else None,
+                    "success_state_sample": value["experiment"].get("success_state_sample"),
+                    "reward_profile": value["experiment"].get("reward_profile"),
+                    "episodes": value["episodes"],
+                    "successes": value["successes"],
+                    "success_rate": value["success_rate"],
+                    "wilson95_low": low,
+                    "wilson95_high": high,
+                    "changed_episode_count": comparison.get("changed_episode_count"),
+                    "initial_hash_mismatches": comparison.get("initial_hash_mismatches"),
+                    "success_hold_violations": audit.get("success_hold_violations"),
+                    "success_distance_violations": audit.get("success_distance_violations"),
+                    "success_three_sample_violations": audit.get("success_three_sample_violations"),
+                    "success_qpos_above_distance_threshold": audit.get(
+                        "success_qpos_above_distance_threshold"
+                    ),
+                    "report": str(path.relative_to(root)),
+                    "wandb_url": value.get("wandb_url"),
+                }
+                for variant in plug.VARIANTS:
+                    row[variant + "_success_rate"] = value["per_variant"][variant]["success_rate"]
+                rows.append(row)
+    return rows
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
@@ -671,46 +739,11 @@ def main():
                     "wandb_url": value.get("wandb_url"),
                 }
             )
-    reward_repair = []
-    repair_root = output / "reward_repair"
-    for case in ("progress", "legacy_log_hold"):
-        training_path = repair_root / case / "training.json"
-        training = read(training_path) if training_path.exists() else {}
-        for repeat in (1, 2):
-            path = repair_root / case / f"evaluation-repeat{repeat}.json"
-            if not path.exists():
-                continue
-            value = read(path)
-            audit = value.get("termination_audit", {})
-            comparison = value.get("repeat_comparison") or {}
-            low, high = wilson(value["successes"], value["episodes"])
-            row = {
-                "profile": case,
-                "repeat": repeat,
-                "training_seed": value.get("training_seed", 0),
-                "training_updates": 100,
-                "training_transitions": training.get(
-                    "final_cumulative_transitions", training.get("actual_transitions", 1228800)
-                ),
-                "success_state_sample": value["experiment"].get("success_state_sample"),
-                "reward_profile": value["experiment"].get("reward_profile"),
-                "episodes": value["episodes"],
-                "successes": value["successes"],
-                "success_rate": value["success_rate"],
-                "wilson95_low": low,
-                "wilson95_high": high,
-                "changed_episode_count": comparison.get("changed_episode_count"),
-                "initial_hash_mismatches": comparison.get("initial_hash_mismatches"),
-                "success_hold_violations": audit.get("success_hold_violations"),
-                "success_distance_violations": audit.get("success_distance_violations"),
-                "success_three_sample_violations": audit.get("success_three_sample_violations"),
-                "report": str(path.relative_to(root)),
-                "wandb_url": value.get("wandb_url"),
-            }
-            for variant in plug.VARIANTS:
-                row[variant + "_success_rate"] = value["per_variant"][variant]["success_rate"]
-            reward_repair.append(row)
+    repair_rows = collect_reward_repairs(root, output)
+    reward_repair = [row for row in repair_rows if row["stage"] == "screen"]
+    reward_continuation = [row for row in repair_rows if row["stage"] == "continuation"]
     write_csv(output / "reward_repair_metrics.csv", reward_repair)
+    write_csv(output / "reward_repair_continuation_metrics.csv", reward_continuation)
     termination_audits = []
     audit_paths = sorted(
         set(
@@ -824,6 +857,7 @@ def main():
         "representative_count": len(capture_rows),
         "tuning_continuation_results": tuning,
         "reward_repair_results": reward_repair,
+        "reward_repair_continuation_results": reward_continuation,
         "headline_success_state_sample": "current_qpos"
         if len(corrected_metrics) == 4
         else "derived_substep",
@@ -1394,6 +1428,8 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
             table(
                 [
                     "Fresh reward profile",
+                    "Total updates",
+                    "Total transitions",
                     "Repeat",
                     "Success / N",
                     "Success % [95% CI]",
@@ -1407,6 +1443,12 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
                 [
                     [
                         link(r["report"], r["profile"]),
+                        str(r["training_updates"])
+                        if r["training_updates"] is not None
+                        else "Unverified",
+                        f"{r['training_transitions']:,}"
+                        if r["training_transitions"] is not None
+                        else "Unverified",
                         str(r["repeat"]),
                         f"{r['successes']}/{r['episodes']}",
                         f"{100 * r['success_rate']:.2f} [{100 * r['wilson95_low']:.2f}, {100 * r['wilson95_high']:.2f}]",
@@ -1471,6 +1513,102 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
         sections.append(
             "<p>" + link(rescue_plan, "Reward-repair protocol and bounded budget") + "</p>"
         )
+    sections += [
+        "<h3>Matched reward-profile continuation · separate stage and source history</h3>",
+        "<p>The prospective target is 751 total updates / 9,228,288 transitions per profile, "
+        "retaining the first 100 updates and adding 651. The first stage remains at source "
+        "<code>434c37a</code>; a continuation uses a separately frozen source with the same "
+        "critic-bootstrap memory correction in both profiles. This is a resumed experiment with "
+        "mixed source history. Simulator state, RNG and recurrent episode state are restarted on "
+        "resume. More training and the source change occur together, so any improvement cannot be "
+        "attributed to the critic correction alone. The table reports actual manifest-derived total "
+        "budgets and keeps this stage separate from the fresh screen and the original condition "
+        "comparison.</p>",
+    ]
+    continuations = analysis["reward_repair_continuation_results"]
+    if continuations:
+        sections.append(
+            table(
+                [
+                    "Resumed reward profile",
+                    "Total updates",
+                    "Total transitions",
+                    "Repeat",
+                    "Success / N",
+                    "Success % [95% CI]",
+                    "xm %",
+                    "xp %",
+                    "ym %",
+                    "yp %",
+                    "Added-stage source",
+                    "Changed episodes",
+                ],
+                [
+                    [
+                        link(r["report"], r["profile"]),
+                        str(r["training_updates"])
+                        if r["training_updates"] is not None
+                        else "Unverified",
+                        f"{r['training_transitions']:,}"
+                        if r["training_transitions"] is not None
+                        else "Unverified",
+                        str(r["repeat"]),
+                        f"{r['successes']}/{r['episodes']}",
+                        f"{100 * r['success_rate']:.2f} [{100 * r['wilson95_low']:.2f}, {100 * r['wilson95_high']:.2f}]",
+                        *[f"{100 * r[v + '_success_rate']:.2f}" for v in plug.VARIANTS],
+                        esc((r["training_source_revision"] or "Unverified")[:12]),
+                        str(r["changed_episode_count"])
+                        if r["changed_episode_count"] is not None
+                        else "Reference repeat",
+                    ]
+                    for r in continuations
+                ],
+            )
+        )
+        sections.append(
+            "<p>"
+            + link(
+                output / "reward_repair_continuation_metrics.csv",
+                "Separate reward-continuation CSV",
+            )
+            + "</p>"
+        )
+        for case in ("progress", "legacy_log_hold"):
+            directory = output / "reward_repair/continuation" / case
+            for filename, label in (
+                ("run_manifest.json", "source history and resume manifest"),
+                ("training.json", "training summary"),
+            ):
+                path = directory / filename
+                if path.exists():
+                    sections.append("<p>" + link(path, case + " " + label) + "</p>")
+    else:
+        sections.append(
+            '<p class="small">No completed continuation evaluation was found at report generation. '
+            "A prepared plan does not establish submission, completion or improvement.</p>"
+        )
+    credit_path = output / "recurrent_credit_audit.json"
+    if credit_path.exists():
+        credit = read(credit_path)
+        verified = credit["distinct_critic_bootstrap_correction"]["verification"]["passed"]
+        sections += [
+            "<h3>Recurrent-state diagnosis · confirmed bookkeeping issue and untested credit hypothesis</h3>",
+            "<p>A pinned upstream bootstrap call advances the persistent recurrent critic state; "
+            "the next collector action consumes the same observation again. The actor is unaffected "
+            "by that bootstrap call. The separate correction snapshots and restores critic memory "
+            "after computing returns, including on exceptions. Bootstrap values, returns and "
+            f"advantages are unchanged for that call; {verified} focused tests passed. This correction "
+            "is absent from the original runs and the fresh reward screen. Its effect on learning "
+            "has not been measured independently.</p>",
+            "<p>The current recurrent gradient window is 24 control steps (0.96 s), shorter than "
+            "the 1 s inspection period. That is a plausible credit-assignment limitation, not an "
+            "established cause of poor training. Inference memory persists across collector windows, "
+            "GAE bootstraps through critic values, and external images continue updating after "
+            "inspection. A 24-versus-48-step experiment is prepared conceptually, but remains "
+            "<code>PREPARED_NOT_EXECUTABLE</code> pending rollout configuration and transition/resume "
+            "accounting changes. No longer-rollout result is claimed.</p>",
+            "<p>" + link(credit_path, "Recurrent-credit and critic-bootstrap evidence") + "</p>",
+        ]
     for path, label in (
         ("artifacts/hparam_search/next_stage_plan.json", "Prepared tuning protocol"),
         ("artifacts/hparam_search/continuation/manifest.json", "Continuation submissions"),

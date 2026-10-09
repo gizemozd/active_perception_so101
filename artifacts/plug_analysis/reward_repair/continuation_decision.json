@@ -1,0 +1,253 @@
+{
+  "decided_at": "2026-10-09T05:51:28.070111+00:00",
+  "decision": "Extend both profiles to751 TOTAL updates under the same critic-bootstrap correction; no winner selected; transfer/push training remains gated",
+  "status": "APPROVED_FOR_SUBMISSION",
+  "screen": [
+    {
+      "profile": "progress",
+      "updates": 100,
+      "transitions": 1228800,
+      "all_metrics_finite": true,
+      "training_successes": 1.0,
+      "training_completed_episodes": 13824.0,
+      "last_action_std": [
+        0.16012300550937653,
+        0.1567506045103073,
+        0.2323513925075531
+      ],
+      "evaluations": [
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/progress/evaluation-repeat1.json",
+          "successes": 0,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "terminal_mean_error_mm": 20.02393593670604
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/progress/evaluation-repeat2.json",
+          "successes": 1,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 1,
+              "success_rate": 0.0078125
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "terminal_mean_error_mm": 19.916503423019094
+        }
+      ]
+    },
+    {
+      "profile": "legacy_log_hold",
+      "updates": 100,
+      "transitions": 1228800,
+      "all_metrics_finite": true,
+      "training_successes": 1.0,
+      "training_completed_episodes": 13824.0,
+      "last_action_std": [
+        0.12043418735265732,
+        0.13408052921295166,
+        0.14932367205619812
+      ],
+      "evaluations": [
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/legacy_log_hold/evaluation-repeat1.json",
+          "successes": 0,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "terminal_mean_error_mm": 29.963212085931445
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/legacy_log_hold/evaluation-repeat2.json",
+          "successes": 0,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "terminal_mean_error_mm": 29.771980604891723
+        }
+      ]
+    }
+  ],
+  "legacy_hparam_results": [
+    {
+      "case": "fixed_lr",
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/hparam_search/continuation/fixed_lr/evaluation.json",
+      "successes": 120,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 75,
+          "success_rate": 0.5859375
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 45,
+          "success_rate": 0.3515625
+        }
+      },
+      "criterion": "derived_substep",
+      "transitions": 9228288
+    },
+    {
+      "case": "entropy",
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/hparam_search/continuation/entropy/evaluation.json",
+      "successes": 169,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 80,
+          "success_rate": 0.625
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 34,
+          "success_rate": 0.265625
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 55,
+          "success_rate": 0.4296875
+        }
+      },
+      "criterion": "derived_substep",
+      "transitions": 9228288
+    },
+    {
+      "case": "both",
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/hparam_search/continuation/both/evaluation.json",
+      "successes": 76,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 4,
+          "success_rate": 0.03125
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 37,
+          "success_rate": 0.2890625
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 35,
+          "success_rate": 0.2734375
+        }
+      },
+      "criterion": "derived_substep",
+      "transitions": 9228288
+    }
+  ],
+  "matched_legacy_baseline": {
+    "successes": 44,
+    "episodes": 512,
+    "transitions": 9228288,
+    "criterion": "derived_substep"
+  },
+  "rationale": "All original and HP models remain variant-biased; screen is sparse and cannot compare converged policies. Both objectives improve their own reward with finite losses and noncollapsed exploration. A matched continuation tests longer learning under the corrected physical criterion; absolute reward magnitudes are not comparable.",
+  "future_source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "source_change": "Both profiles retain100 original434c37a updates then receive651updates with corrected recurrent critic memory; simulator/RNG/episode memory reset at resume. Improvement cannot be attributed to the bootstrap correction alone.",
+  "total_updates_per_profile": 751,
+  "total_transitions_per_profile": 9228288,
+  "additional_transitions_per_profile": 7999488,
+  "total_additional_transitions": 15998976,
+  "max_parallel_training_gpus": 2,
+  "further_expansion": "Do not automatically launch longer-window grids or additional seeds; inspect balanced repeated physical success and optimization first."
+}
