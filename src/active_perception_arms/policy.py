@@ -87,7 +87,23 @@ class VisualFeedForwardModel(SpatialSoftmaxCNNModel):
 
 
 class CompactPPO(PPO):
-    """Unchanged PPO updates; only model/storage construction is specialized."""
+    """Compact image storage and bootstrap evaluation without consuming RNN state."""
+
+    def compute_returns(self, obs):
+        # Upstream evaluates the next observation to bootstrap GAE. The runner
+        # feeds that same observation to act() at the start of its next rollout;
+        # retaining the bootstrap's RNN state would consume it twice in the critic.
+        if not self.critic.is_recurrent:
+            return super().compute_returns(obs)
+        hidden = self.critic.get_hidden_state()
+        if isinstance(hidden, tuple):
+            hidden = tuple(state.clone() for state in hidden)
+        elif hidden is not None:
+            hidden = hidden.clone()
+        try:
+            return super().compute_returns(obs)
+        finally:
+            self.critic.reset(hidden_state=hidden)
 
     @staticmethod
     def construct_algorithm(obs, env, cfg, device):

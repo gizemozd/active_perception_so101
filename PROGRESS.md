@@ -1071,3 +1071,24 @@ handoff instruction alone.
   checkpoints or raw NPZ captures. Firefox renders the corrected headline and
   confidence intervals correctly. Report source can ingest the fresh screen
   and completed continuation results without replacing historical measurements.
+
+### Recurrent training correction and delayed-credit diagnostic
+
+- The complete CPU suite passes with headless EGL: 137 tests, six CUDA tests
+  deselected. The separate completed CUDA gate passed all six checks.
+- A read-only RSL 5.2 probe confirms recurrent value bootstrapping consumes the
+  next observation, then the next rollout processes that observation again.
+  `CompactPPO.compute_returns` now preserves/restores critic memory around the
+  upstream bootstrap. GRU/LSTM/uninitialized/feedforward cases, bit-identical
+  returns/advantages, next-step behavior and exception restoration pass eight
+  focused tests. This corrects future training bookkeeping; it is not evidence
+  that this issue explains the learned-policy failures.
+- All already running worktrees remain unchanged, including both fresh
+  100-update reward screens at `434c37a`. Any extension must disclose its source
+  revision and apply the same correction to both matched profiles.
+- `recurrent_credit_audit.json` documents the 24-step (0.96 s) gradient window
+  versus the 25-step (1 s) inspection period. Inference memory persists and GAE
+  bootstraps, so delayed camera credit is not discarded. A longer-window
+  comparison is only a conditional regimen diagnostic, explicitly
+  PREPARED_NOT_EXECUTABLE until configurable rollout budgets, resume accounting,
+  evaluation metadata and GPU-memory checks are implemented. No such job ran.

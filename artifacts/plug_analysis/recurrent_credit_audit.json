@@ -1,0 +1,204 @@
+{
+  "status": "READ_ONLY_DIAGNOSTIC_WITH_SEPARATE_FUTURE_ALGORITHM_FIX",
+  "created_at": "2026-10-09T05:30:13.816245+00:00",
+  "source_head": "f64e04cebacb617fbab3b130d42842288fb02005",
+  "dependencies": {
+    "rsl-rl-lib": "5.2.0"
+  },
+  "source_evidence": {
+    "src/active_perception_arms/config.py": {
+      "sha256": "ba639782cd2443275b13e839543508144aec1607cfc80d9ffa1e26879d952faf",
+      "ranges": [
+        "35-42: timing defaults",
+        "72-76: plug horizon"
+      ]
+    },
+    "src/active_perception_arms/mdp.py": {
+      "sha256": "0fad9d65cf4ece859245b31edb3df5374122b8a54475c6e3b23d246ecef6e6da",
+      "ranges": [
+        "248-283: manipulation and initial camera gates"
+      ]
+    },
+    "src/active_perception_arms/environment.py": {
+      "sha256": "2a4fe89c92cd9b558b0c25aea0f54f14325ae692c256566a8554b3ba4f42618d",
+      "ranges": [
+        "88-125: RGB observations remain enabled"
+      ]
+    },
+    "src/active_perception_arms/policy.py": {
+      "sha256": "bd8bc5f6ddc885588ef2968ab8578dd5e5d0f7ff58a99bc0661c0c2187577b81",
+      "ranges": [
+        "12-53: recurrent actor",
+        "89-110: corrected bootstrap",
+        "159-179: optimizer and rollout settings"
+      ]
+    },
+    ".venv/lib/python3.12/site-packages/rsl_rl/runners/on_policy_runner.py": {
+      "sha256": "39358a0a60219fdb360df7acddf80f6a382837aa58e2ec0ccf875df4afee4825",
+      "ranges": [
+        "79-108: inference rollout, bootstrap then update"
+      ]
+    },
+    ".venv/lib/python3.12/site-packages/rsl_rl/algorithms/ppo.py": {
+      "sha256": "237f11ab8b42a2b8f9f0e1157927c565bee22454768c1c2e78b701a7d145bf1d",
+      "ranges": [
+        "115-161: saved hidden state, done-only resets",
+        "163-185: bootstrap and GAE"
+      ]
+    },
+    ".venv/lib/python3.12/site-packages/rsl_rl/storage/rollout_storage.py": {
+      "sha256": "ececf28e7412d24867066829cc443acae811f034f8e63975b90343947779918d",
+      "ranges": [
+        "258-324: recurrent mini-batches",
+        "328-354: stored boundary hidden states"
+      ]
+    },
+    ".venv/lib/python3.12/site-packages/rsl_rl/utils/utils.py": {
+      "sha256": "cb3d09d2331477da3fa413ddc2266eb521e260f24da007c894174125e54cab9b",
+      "ranges": [
+        "321-375: split and pad including collector boundary"
+      ]
+    },
+    ".venv/lib/python3.12/site-packages/rsl_rl/modules/rnn.py": {
+      "sha256": "07f0eec06c7f2638edbdbc3ba25f56122a7941cb0543138f4a6b04675b2a97e6",
+      "ranges": [
+        "44-68: inference carries state, update consumes saved state"
+      ]
+    },
+    "src/active_perception_arms/train.py": {
+      "sha256": "028c6df1d5505a3029e3687d3c569ad7abc85fb739ea80bf6524e2a1ca6ac16d",
+      "ranges": [
+        "174-185: resume budget assumes 24",
+        "261-265: configured runner construction"
+      ]
+    },
+    "src/active_perception_arms/telemetry.py": {
+      "sha256": "b4ab0f0c7d5893e31dcb7f2b96a90dd8e8f63ad0ad17316e016b77d946f043f5",
+      "ranges": [
+        "124: actual iteration transitions uses runner rollout length",
+        "276: timing prose assumes 24"
+      ]
+    },
+    "src/active_perception_arms/evaluate.py": {
+      "sha256": "99c2f5432d4138a3fcf4d7da1ae77a13d326e36cd55ae325f58dd23ff97a81fc",
+      "ranges": [
+        "377: validation transition metadata assumes 24"
+      ]
+    }
+  },
+  "timing": {
+    "physics_timestep_s": 0.002,
+    "decimation": 20,
+    "control_step_s": 0.04,
+    "rollout_steps": 24,
+    "rollout_duration_s": 0.96,
+    "inspection_s": 1.0,
+    "inspection_actions": 25,
+    "first_manipulation_action_index_zero_based": 25,
+    "plug_horizon_s": 3.5,
+    "fresh_synchronized_episode": "First collector window contains observation/action indices 0..23. The next contains 24..47: the last inspection action at t=0.96 and the first manipulation action at t=1.00 are together in this window.",
+    "post_reset_phase": "Episode starts occur at varying collector offsets. A 25-action inspection cannot fit in one 24-step window; no measured fraction of useful camera actions crossing a reward boundary is inferred."
+  },
+  "recurrent_semantics": {
+    "inference_memory": "Actor and critic state persists across collector windows; process_env_step resets only done environments. A 24-step window does not imply the actor forgets after 0.96 seconds.",
+    "gradient_window": "Recurrent minibatches force a split at the collector end and initialize from copied stored hidden states. Backpropagation reaches at most 24 collected steps, and cannot traverse into an earlier rollout.",
+    "camera_credit": "An insertion policy loss cannot directly backpropagate through a camera image encoder or GRU operation in an earlier collector window. Camera actions can nevertheless receive policy gradients from their own GAE advantages and can affect later state/value.",
+    "bootstrap": "Upstream GAE includes gamma times the critic value of the next observation. Delayed credit is bootstrapped rather than discarded at collector boundaries; whether the critic learns it sufficiently is empirical.",
+    "gae_gamma": 0.99,
+    "gae_lambda": 0.95,
+    "gamma_lambda": 0.9405,
+    "within_window_advantage_trace_weights": {
+      "1": 0.9405,
+      "24": 0.22940939377860076,
+      "25": 0.21575953484877403,
+      "35": 0.11683097364381086,
+      "50": 0.04655217687815933,
+      "60": 0.025207396529318006
+    },
+    "trace_weight_caution": "These powers are mathematical within-window trace attenuation, not a measured cross-window credit-loss rate; earlier windows use learned bootstrap values.",
+    "initial_condition_nuance": "Initial restricts camera movement after inspection, not image delivery. The external RGB stream continues from the final camera pose during manipulation, so useful visual cues can be re-encoded with later manipulation losses."
+  },
+  "interpretation": {
+    "classification": "PLAUSIBLE_CREDIT_ASSIGNMENT_LIMITATION_NOT_ESTABLISHED_CAUSE",
+    "evidence": "Inspection and early-to-late manipulation exceed the recurrent gradient window. The full inspection history cannot be jointly differentiated with the first manipulation step in a 24-step collector.",
+    "limits": "Persistent inference memory, GAE bootstrapping, continuing RGB, and overlap of the final inspection step with initial manipulation all weaken a claim that window length alone explains poor learning. No longer-rollout training has been run and no causal performance conclusion follows."
+  },
+  "distinct_critic_bootstrap_correction": {
+    "confirmed_behavior": "Pinned upstream compute_returns calls recurrent critic(obs), advancing its persistent hidden state. The runner next calls act with the same obs, advancing the critic on it again. Actor is not advanced by this bootstrap call.",
+    "cpu_probe": {
+      "bootstrap_hidden_change_norm": 0.24814285337924957,
+      "second_same_observation_hidden_change_norm": 0.14339549839496613,
+      "no_episode_done_max_recurrent_sequence_steps": 24
+    },
+    "probe_limits": "Small real RSL GRU CPU probe verifies state mutation; the numerical norms are model-specific diagnostics, not training performance evidence.",
+    "fix": "CompactPPO.compute_returns snapshots recurrent critic memory and restores it in finally after the upstream return computation. The bootstrap value and all upstream returns/advantages remain unchanged for that call.",
+    "verification": {
+      "command": ".venv/bin/python -m pytest -q tests/test_critic_bootstrap.py tests/test_policy.py",
+      "passed": 8,
+      "cases": "GRU/LSTM with populated or None state, feedforward delegation, exception restoration, existing real recurrent padded backward"
+    },
+    "scope": "Future source only. Frozen running sources, rollout settings, trained checkpoints and already recorded results were untouched. Its effect on learning has not been measured; do not combine its attribution with a rollout-length comparison."
+  },
+  "bounded_next_plan": {
+    "status": "PREPARED_NOT_EXECUTABLE",
+    "entry_condition": "Finish and review the current corrected reward screen and three HP continuations. Use their optimization evidence to select one fixed reward/optimizer setting. Consider this pair if camera conditions still underperform despite healthy exploration and usable visual cues. Apply the critic-bootstrap correction identically in both fresh cases.",
+    "question": "At an equal transition budget, does a 48-step collector improve initial-camera variant-balanced heldout success relative to 24 steps?",
+    "fixed": {
+      "task": "plug",
+      "condition": "initial",
+      "occlusion": "clean",
+      "seed": 0,
+      "num_envs": 512,
+      "memory": "gru",
+      "success_state_sample": "current_qpos",
+      "control_step_s": 0.04,
+      "inspection_s": 1.0,
+      "episode_seconds": 3.5,
+      "reward_profile": "one preselected profile",
+      "optimizer": "same preselected learning rate, schedule, entropy and initial std",
+      "learning_epochs": 4,
+      "mini_batches": 8
+    },
+    "screen_cases": [
+      {
+        "rollout_steps": 24,
+        "updates": 100,
+        "total_transitions": 1228800,
+        "final_checkpoint_index": 99
+      },
+      {
+        "rollout_steps": 48,
+        "updates": 50,
+        "total_transitions": 1228800,
+        "final_checkpoint_index": 49
+      }
+    ],
+    "total_new_screen_transitions": 2457600,
+    "why_48": "One 1.92-second window can include all 1.0-second inspection plus early manipulation when aligned at episode start. It does not span the full 3.5-second task and still depends on bootstrapping for later insertion rewards.",
+    "comparison_limits": "With eight minibatches and four epochs fixed, 48 steps doubles tokens per minibatch and halves collector updates and optimizer steps at equal transitions. This is a collector-regimen comparison, not a pure BPTT ablation; policy update cadence and GAE target horizon also change. Both cases must use the same bootstrap correction to prevent a second algorithm change confounding the pair.",
+    "validation": "Use the same balanced 512-episode validation seeds and corrected three-current-physical-sample success audit; record per-variant outcomes, manipulation/camera std, KL, clipping, saturation, memory use and wall time. Repeat evaluation if numerical repeat variability obscures a close outcome. No paper claim follows from a single training seed.",
+    "extension_gate": "Do not extend for reward rise alone. Extend only after healthy optimization and improved variant-balanced heldout competence justify the additional budget; keep other task and utility claims gated.",
+    "conditional_equal_transition_extension": [
+      {
+        "rollout_steps": 24,
+        "total_updates": 750,
+        "total_transitions": 9216000,
+        "final_checkpoint_index": 749
+      },
+      {
+        "rollout_steps": 48,
+        "total_updates": 375,
+        "total_transitions": 9216000,
+        "final_checkpoint_index": 374
+      }
+    ],
+    "preparation_required": [
+      "Current code has no rollout-length CLI option; runner_cfg hardcodes num_steps_per_env=24. Add validated optional configuration only if this conditional experiment is selected, with saved-run inheritance and explicit rejection of a changed rollout length on resume.",
+      "Refactor resume cumulative-transition accounting in train.py to use the saved runner rollout length, not its hardcoded 24. Include a regression for both lengths and checkpoint iteration semantics.",
+      "Refactor evaluate.py validation transition metadata to read the saved runner rollout length rather than multiplying by 24. Update telemetry timing prose; its per-iteration transition size already uses the configured runner length.",
+      "Make screen/extension job budgets explicitly transition-based or specify the matched update counts below. A 100-update 48-step run would use twice the intended transitions; it is not the proposed comparison.",
+      "Freeze a distinct source revision with the bootstrap correction in both cases, validate configuration/accounting, and confirm 48-step uint8 image storage fits GPU memory before any submission. Running sources, rollout settings and checkpoints remain untouched."
+    ],
+    "budget_units": "At N=512, each 24-step update contains 12,288 transitions; each 48-step update contains 24,576. Equal transitions require half as many updates for 48, and do not imply equal optimizer steps, wall time or memory."
+  }
+}
