@@ -75,10 +75,16 @@ Outputs:
 - `repair_learning_curves.csv` / `repair_learning_summary.json`: actual corrected
   reward-screen and completed continuation telemetry, with each reward scale and
   source stage retained. Unfinished continuations are not shown as final results.
+- `physical_terminal_errors.csv` / `.json`: all evaluated terminal errors by
+  variant, with single-sample near-goal fractions kept separate from held success.
+- `randomized_feasibility_native.json`: 64 privileged-controller native rollouts
+  at the training horizon, including the failed approach case and full traces.
+  This is a physical diagnostic, not GPU or learned visual-policy performance.
 
 For a standalone copy with videos, generate and independently verify the bundle:
 
 ```bash
+.venv/bin/python scripts/analyze_plug_terminal_errors.py
 .venv/bin/python scripts/build_plug_report.py --validate-media --bundle
 .venv/bin/python scripts/validate_report_bundle.py --decode-media
 ```

@@ -506,7 +506,11 @@ def collect_reward_repairs(root, output):
     """Keep the fresh screen and resumed stage distinct, with manifest-derived budgets."""
     rows = []
     repair_root = output / "reward_repair"
-    for stage, base in (("screen", repair_root), ("continuation", repair_root / "continuation")):
+    for stage, base in (
+        ("screen", repair_root),
+        ("continuation", repair_root / "continuation"),
+        ("exploration", output / "exploration_repair"),
+    ):
         for case in ("progress", "legacy_log_hold"):
             directory = base / case
             training_path = directory / "training.json"
@@ -514,7 +518,11 @@ def collect_reward_repairs(root, output):
             training = read(training_path) if training_path.exists() else {}
             manifest = read(manifest_path) if manifest_path.exists() else {}
             initial_path = repair_root / case / "run_manifest.json"
-            initial = read(initial_path) if initial_path.exists() else {}
+            initial = (
+                read(initial_path)
+                if stage == "continuation" and initial_path.exists()
+                else manifest
+            )
             updates = manifest.get("training_updates", manifest.get("total_updates"))
             transitions = training.get(
                 "final_cumulative_transitions",
@@ -538,6 +546,10 @@ def collect_reward_repairs(root, output):
                     "additional_training_transitions": training.get("actual_transitions"),
                     "additional_training_updates": manifest.get("additional_updates"),
                     "training_source_revision": manifest.get("source_revision"),
+                    "initial_std": manifest.get("initial_std"),
+                    "learning_rate": (manifest.get("optimization") or {}).get("learning_rate"),
+                    "lr_schedule": (manifest.get("optimization") or {}).get("schedule"),
+                    "entropy_coef": (manifest.get("optimization") or {}).get("entropy_coef"),
                     "initial_training_source_revision": manifest.get(
                         "initial_source_revision", initial.get("source_revision")
                     ),
@@ -554,7 +566,17 @@ def collect_reward_repairs(root, output):
                     "wilson95_low": low,
                     "wilson95_high": high,
                     "changed_episode_count": comparison.get("changed_episode_count"),
+                    "initial_hash_comparable": comparison.get("initial_hash_comparable"),
                     "initial_hash_mismatches": comparison.get("initial_hash_mismatches"),
+                    "initial_physics_state_mismatches": comparison.get(
+                        "initial_physics_state_mismatches"
+                    ),
+                    "initial_wrist_image_mismatches": comparison.get(
+                        "initial_sensor_image_mismatches", {}
+                    ).get("wrist"),
+                    "initial_external_image_mismatches": comparison.get(
+                        "initial_sensor_image_mismatches", {}
+                    ).get("external"),
                     "success_hold_violations": audit.get("success_hold_violations"),
                     "success_distance_violations": audit.get("success_distance_violations"),
                     "success_three_sample_violations": audit.get("success_three_sample_violations"),
@@ -565,7 +587,17 @@ def collect_reward_repairs(root, output):
                     "wandb_url": value.get("wandb_url"),
                 }
                 for variant in plug.VARIANTS:
-                    row[variant + "_success_rate"] = value["per_variant"][variant]["success_rate"]
+                    detail = value["per_variant"][variant]
+                    low, high = wilson(detail["successes"], detail["episodes"])
+                    row.update(
+                        {
+                            variant + "_episodes": detail["episodes"],
+                            variant + "_successes": detail["successes"],
+                            variant + "_success_rate": detail["success_rate"],
+                            variant + "_wilson95_low": low,
+                            variant + "_wilson95_high": high,
+                        }
+                    )
                 rows.append(row)
     return rows
 
@@ -671,23 +703,32 @@ def collect_corrected_hparams(root):
     return rows
 
 
-def write_corrected_hparam_tables(output, rows):
+def write_corrected_hparam_tables(
+    output,
+    rows,
+    stem="corrected_hparam_metrics",
+    scope=None,
+    label_key="case",
+    label_title="Optimizer",
+):
     """Export physical scores without pooling numerical repeats as independent episodes."""
     if not rows:
         return
-    write_csv(output / "corrected_hparam_metrics.csv", rows)
+    write_csv(output / (stem + ".csv"), rows)
     latex = [
-        "% Corrected current_qpos evaluations of OLD-TRAINED model_750 checkpoints; no retraining or optimizer updates in this audit.",
+        scope
+        or "% Corrected current_qpos evaluations of OLD-TRAINED model_750 checkpoints; no retraining or optimizer updates in this audit.",
         "% Three discrete consecutive physical-state samples at 25 Hz, not continuous dwell. Each checkpoint: 751 updates / 9,228,288 training transitions; seed 0 only.",
         "% Each row is a separate 512-episode balanced validation execution. Do not pool repeats as 1,024 independent samples or training seeds. Wilson intervals describe episode uncertainty only.",
         r"\begin{tabular}{lrrrrrrrr}",
         r"\hline",
-        r"Optimizer & Repeat & Success / $N$ & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ \\",
+        label_title
+        + r" & Repeat & Success / $N$ & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ \\",
         r"\hline",
     ]
     for row in rows:
         latex.append(
-            row["case"].replace("_", r"\_")
+            row[label_key].replace("_", r"\_")
             + f" & {row['repeat']} & {row['successes']}/{row['episodes']} & "
             + f"{100 * row['success_rate']:.2f} & [{100 * row['wilson95_low']:.2f}, {100 * row['wilson95_high']:.2f}] & "
             + " & ".join(f"{100 * row[v + '_success_rate']:.2f}" for v in plug.VARIANTS)
@@ -696,24 +737,26 @@ def write_corrected_hparam_tables(output, rows):
     latex += [
         r"\hline",
         r"\end{tabular}",
-        "% Variant columns are percentages; per-variant Wilson intervals and termination/repeat audits are in corrected_hparam_metrics.csv.",
+        f"% Variant columns are percentages; per-variant Wilson intervals and termination/repeat audits are in {stem}.csv.",
     ]
-    (output / "corrected_hparam_metrics.tex").write_text("\n".join(latex) + "\n")
+    (output / (stem + ".tex")).write_text("\n".join(latex) + "\n")
 
 
-def collect_repair_learning(root, output):
+def collect_repair_learning(root, output, family="reward_repair", fresh=False):
     """Use frozen screen budgets; expose all completed continuation updates when available."""
     rows, summaries, histories = [], [], {}
     for case in ("progress", "legacy_log_hold"):
-        screen_path = output / "reward_repair" / case / "run_manifest.json"
+        screen_path = output / family / case / "run_manifest.json"
         if not screen_path.exists():
             continue
         screen = read(screen_path)
         screen_updates = screen["training_updates"]
-        continuation_path = output / "reward_repair/continuation" / case / "run_manifest.json"
-        continuation = read(continuation_path) if continuation_path.exists() else {}
-        training_path = continuation_path.parent / "training.json"
+        continuation_path = output / family / "continuation" / case / "run_manifest.json"
+        continuation = read(continuation_path) if not fresh and continuation_path.exists() else {}
+        training_path = (screen_path if fresh else continuation_path).parent / "training.json"
         training = read(training_path) if training_path.exists() else {}
+        if not screen.get("run_directory"):
+            continue
         history_path = Path(screen["run_directory"]) / "iterations.jsonl"
         if not history_path.exists():
             continue
@@ -723,10 +766,12 @@ def collect_repair_learning(root, output):
             "training_transitions", screen["training_transitions"]
         )
         completed = (
-            bool(continuation)
+            (fresh or bool(continuation))
             and training.get("final_cumulative_transitions") == expected_transitions
             and len(lines) >= expected_updates
         )
+        if fresh and not completed:
+            continue
         selected_updates = expected_updates if completed else screen_updates
         # The mutable runner file is never consulted. Initial rows retain their original budget/source.
         history = [json.loads(line) for line in lines[:selected_updates]]
@@ -734,7 +779,7 @@ def collect_repair_learning(root, output):
         assert history[-1]["transitions"] == (
             expected_transitions if completed else screen["training_transitions"]
         )
-        stage = "continuation" if completed else "screen"
+        stage = "exploration" if fresh else "continuation" if completed else "screen"
         histories[case] = history
         for row in history:
             rows.append(
@@ -761,6 +806,7 @@ def collect_repair_learning(root, output):
             "plotted_transitions": history[-1]["transitions"],
             "expected_total_transitions": expected_transitions,
             "continuation_training_complete": completed,
+            "training_complete": completed,
             "reward_comparison_window_updates": comparison_window,
             "first_window_reward_mean": float(first.mean()) if first.size else None,
             "last_window_reward_mean": float(last.mean()) if last.size else None,
@@ -771,7 +817,9 @@ def collect_repair_learning(root, output):
             "final_150_vs_previous_150_reward_change": None,
             "descriptive_plateau_tolerance": None,
             "descriptive_reward_plateau": None,
-            "manifest": str((continuation_path if completed else screen_path).relative_to(root)),
+            "manifest": str(
+                (continuation_path if completed and not fresh else screen_path).relative_to(root)
+            ),
             "history": str(history_path.relative_to(root)),
         }
         if len(rewards) >= 300:
@@ -806,7 +854,13 @@ def collect_repair_learning(root, output):
     return rows, summaries, histories
 
 
-def repair_learning_plots(histories, assets, screen_budgets):
+def repair_learning_plots(
+    histories,
+    assets,
+    screen_budgets,
+    asset_prefix="repair_learning_",
+    title="Corrected-training reward profile",
+):
     """Keep the two objective scales on distinct figures; success smoothing weights episodes."""
     for case, history in histories.items():
         fig, axes = plt.subplots(3, 2, figsize=(12, 9), sharex=True)
@@ -872,11 +926,9 @@ def repair_learning_plots(histories, assets, screen_budgets):
                 )
         for ax in axes[-1]:
             ax.set_xlabel("Cumulative environment transitions (millions)")
-        fig.suptitle(
-            f"Corrected-training reward profile: {case} · seed 0 · {len(history)} recorded updates"
-        )
+        fig.suptitle(f"{title}: {case} · seed 0 · {len(history)} recorded updates")
         fig.tight_layout()
-        save_figure(fig, assets, "repair_learning_" + case)
+        save_figure(fig, assets, asset_prefix + case)
 
 
 def reward_video_cards(root, output, directory, case, stage_label):
@@ -1096,8 +1148,29 @@ def main():
     )
     reward_repair = [row for row in repair_rows if row["stage"] == "screen"]
     reward_continuation = [row for row in repair_rows if row["stage"] == "continuation"]
+    exploration_repair = [row for row in repair_rows if row["stage"] == "exploration"]
     write_csv(output / "reward_repair_metrics.csv", reward_repair)
     write_csv(output / "reward_repair_continuation_metrics.csv", reward_continuation)
+    write_corrected_hparam_tables(
+        output,
+        exploration_repair,
+        stem="exploration_repair_metrics",
+        scope="% Fresh exploration-configuration training with current_qpos criterion and critic-bootstrap correction from update 1. Initial std and entropy change jointly; not an isolated std ablation or an exact historical reproduction. Separate from reward screen and resumed continuations.",
+        label_key="profile",
+        label_title="Reward profile",
+    )
+    exploration_learning_rows, exploration_learning, exploration_histories = (
+        collect_repair_learning(root, output, family="exploration_repair", fresh=True)
+    )
+    write_csv(output / "exploration_learning_curves.csv", exploration_learning_rows)
+    write_json(output / "exploration_learning_summary.json", exploration_learning)
+    repair_learning_plots(
+        exploration_histories,
+        assets,
+        {r["profile"]: r["screen_updates"] for r in exploration_learning},
+        asset_prefix="exploration_learning_",
+        title="Fresh joint exploration configuration",
+    )
     termination_audits = []
     audit_paths = sorted(
         set(
@@ -1214,6 +1287,8 @@ def main():
         "reward_repair_learning": repair_learning_summaries,
         "reward_repair_results": reward_repair,
         "reward_repair_continuation_results": reward_continuation,
+        "exploration_repair_results": exploration_repair,
+        "exploration_repair_learning": exploration_learning,
         "headline_success_state_sample": "current_qpos"
         if len(corrected_metrics) == 4
         else "derived_substep",
@@ -1601,6 +1676,102 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
         "camera joint travel. Additional camera access is promising relative to these baselines, but view 7 "
         "has not completed a validation-success-based fixed-view search. Independently trained policies "
         "also differ in optimization outcomes, so these numbers are not a causal test of camera movement.</p>",
+    ]
+    terminal_path = output / "physical_terminal_errors.json"
+    native_path = output / "randomized_feasibility_native.json"
+    if terminal_path.exists() or native_path.exists():
+        sections.append('<h2 id="failure">Failure analysis and sampled native feasibility</h2>')
+    if terminal_path.exists():
+        terminal = read(terminal_path)
+        xm = {
+            r["case"]: r
+            for r in terminal["rows"]
+            if r["stage"] == "original_checkpoints" and r["variant"] == "xm"
+        }
+        sections += [
+            "<h3>XM physical terminal error · corrected original checkpoints</h3>",
+            "<p>These population diagnostics use the first terminal raw-qpos object-origin error "
+            "from all 128 XM episodes per corrected-condition evaluation. A single terminal "
+            "sample below 5 mm is a near-goal diagnostic; success still requires three consecutive "
+            "samples below 2 mm. Approaching the goal without meeting that hold remains failure.</p>",
+            table(
+                [
+                    "Condition",
+                    "XM held-success / N",
+                    "Median terminal error mm",
+                    "Single terminal error <5 mm %",
+                ],
+                [
+                    [
+                        link(xm[c]["source_report"], LABELS[c]),
+                        f"{xm[c]['successes']}/{xm[c]['episodes']}",
+                        f"{xm[c]['median_terminal_error_mm']:.2f}",
+                        f"{100 * xm[c]['terminal_below_5mm_fraction']:.1f}",
+                    ]
+                    for c in CONDITIONS
+                    if c in xm
+                ],
+            ),
+            '<p class="small">Error norms alone do not identify perception, IK, actuator tracking '
+            "or contact as the cause. They measure neither actual prong seating depth nor trajectory "
+            "minimum error, and do not establish continuous dwell. Other variants and separate "
+            "optimizer/reward executions remain in the full exports.</p>",
+            "<p>"
+            + link(output / "physical_terminal_errors.csv", "Physical terminal-error CSV")
+            + " · "
+            + link(terminal_path, "Terminal-error definitions and provenance JSON")
+            + "</p>",
+        ]
+    if native_path.exists():
+        native = read(native_path)
+        sections += [
+            "<h3>Sampled native feasibility · unchanged privileged controller</h3>",
+            f"<p>The existing scripted controller succeeds in {native['successes']}/{native['episodes']} "
+            f"randomized native episodes: {len(native['seeds'])} seeds paired across four variants. "
+            "Scoring uses three current raw-qpos samples below 2 mm, with the same nominal 3.5 s "
+            "horizon (88 control steps, quantized timeout 3.52 s). The controller and action bounds "
+            "were not changed for this audit.</p>",
+            table(
+                [
+                    "Variant",
+                    "Native success / N",
+                    "Success %",
+                    "Held-success time range s",
+                    "Failed seeds",
+                ],
+                [
+                    [
+                        esc(v),
+                        f"{r['successes']}/{r['episodes']}",
+                        f"{100 * r['success_rate']:.1f}",
+                        f"{r['held_success_time_min_s']:.2f}–{r['held_success_time_max_s']:.2f}"
+                        if r["successes"]
+                        else "No success",
+                        ", ".join(map(str, r["failed_seeds"])) or "None",
+                    ]
+                    for v, r in native["per_variant"].items()
+                ],
+            ),
+            '<p class="small">Native float64 IK/physics and privileged object, goal and variant '
+            "access are different from the learned Warp visual policy. Identical numeric seed "
+            "labels do not pair native initial states with GPU initial states. This supports "
+            "feasibility for these sampled native worlds, not all-world solvability, visual "
+            "learnability, active-perception utility or a purely optimization-based explanation "
+            "of learned failures.</p>",
+            "<p>"
+            + link(native_path, "Native feasibility source, sampled states and full traces JSON")
+            + "</p>",
+        ]
+        for failed in (r for r in native["rollouts"] if not r["success"]):
+            sections.append(
+                f'<p class="small">Native failure {esc(failed["variant"])} seed {failed["seed"]}: '
+                f"controller remained at approach stage {failed['terminal_controller_stage']}; "
+                f"terminal TCP tracking residual {failed['terminal_tcp_tracking_error_mm']:.2f} mm "
+                f"and object-origin goal error {failed['terminal_error_mm']:.2f} mm. "
+                "All action components stayed within bounds. This sampled failure prevents treating "
+                "scripted native success as universal feasibility.</p>"
+            )
+    sections += [
         '<h2 id="camera">What did the camera do?</h2>',
         "<p>The plots below use the first observed success and first observed failure for each variant where "
         "available. This selection is reproducible and displays failures as well as successes, but it is outcome-selected "
@@ -2069,6 +2240,120 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
                 plot(
                     "repair_learning_" + row["profile"],
                     f"{row['profile']}: {row['plotted_updates']} actual recorded updates; reward scale is profile-specific. Raw traces and 30-update means; success smoothing is weighted by completed episodes. Per-action std, KL, learning rate and clipping expose optimization behavior.",
+                )
+            )
+    sections += [
+        "<h3>Optional fresh joint exploration repair · separate experiment</h3>",
+        "<p>This conditional next step uses one explicitly selected reward profile and starts "
+        "fresh with the critic-bootstrap correction from its first update, with no mid-run source "
+        "change. Its target is 751 updates / 9,228,288 transitions, plug, fixed view 7, GRU, "
+        "<code>current_qpos</code>, N512 and training seed 0. Initial action std 1 and entropy "
+        "coefficient 0.01 change together, with adaptive LR 0.0003. This tests a joint exploration "
+        "configuration, not an isolated standard-deviation ablation or an exact historical "
+        "reproduction. It stays separate from the original reward screen and both resumed reward "
+        "profiles. Preparation alone does not establish a submitted run or improved competence.</p>",
+    ]
+    exploration = analysis["exploration_repair_results"]
+    exploration_learning = analysis["exploration_repair_learning"]
+    if exploration:
+        sections.append(
+            table(
+                [
+                    "Fresh profile / repeat",
+                    "Total updates",
+                    "Total transitions",
+                    "Success / N",
+                    "Success % [95% CI]",
+                    "xm %",
+                    "xp %",
+                    "ym %",
+                    "yp %",
+                    "Changed episodes",
+                    "Initial hash mismatches",
+                    "Physical audit violations",
+                ],
+                [
+                    [
+                        link(r["report"], f"{r['profile']} / {r['repeat']}"),
+                        str(r["training_updates"]),
+                        f"{r['training_transitions']:,}"
+                        if r["training_transitions"] is not None
+                        else "Unverified",
+                        f"{r['successes']}/{r['episodes']}",
+                        f"{100 * r['success_rate']:.2f} [{100 * r['wilson95_low']:.2f}, {100 * r['wilson95_high']:.2f}]",
+                        *[f"{100 * r[v + '_success_rate']:.2f}" for v in plug.VARIANTS],
+                        str(r["changed_episode_count"])
+                        if r["changed_episode_count"] is not None
+                        else "Reference repeat",
+                        str(r["initial_hash_mismatches"])
+                        if r["initial_hash_comparable"]
+                        else "Reference / not comparable",
+                        "/".join(
+                            str(r[k]) if r[k] is not None else "NA"
+                            for k in (
+                                "success_hold_violations",
+                                "success_distance_violations",
+                                "success_three_sample_violations",
+                                "success_qpos_above_distance_threshold",
+                            )
+                        ),
+                    ]
+                    for r in exploration
+                ],
+            )
+        )
+        sections += [
+            "<p>"
+            + link(output / "exploration_repair_metrics.csv", "Separate exploration CSV")
+            + " · "
+            + link(output / "exploration_repair_metrics.tex", "Exploration paper LaTeX")
+            + "</p>",
+            '<p class="small">Each repeat has 512 balanced validation episodes and physical-state '
+            "audit counts in hold / distance / three-sample / raw-qpos order. CSV includes per-variant "
+            "Wilson intervals, separate physics/image hashes and configuration provenance. Repeats "
+            "remain separate numerical executions of one trained seed; they are not pooled. "
+            "These fixed-camera results cannot establish the value of active camera movement.</p>",
+        ]
+        for case in sorted({r["profile"] for r in exploration}):
+            directory = output / "exploration_repair" / case
+            for filename in ("run_manifest.json", "training.json"):
+                path = directory / filename
+                if path.exists():
+                    sections.append("<p>" + link(path, case + " fresh " + filename) + "</p>")
+            sections += reward_video_cards(
+                root, output, directory, case, "Fresh joint exploration repair · 751 updates"
+            )
+    else:
+        sections.append(
+            '<p class="small">Conditional preparation: no completed exploration-repair validation was found at report generation. No submission or performance result is inferred from the plan.</p>'
+        )
+    if exploration_learning:
+        sections += [
+            "<p>"
+            + link(
+                output / "exploration_learning_curves.csv",
+                "All recorded fresh exploration learning rows",
+            )
+            + " · "
+            + link(
+                output / "exploration_learning_summary.json",
+                "Fresh exploration plateau diagnostics",
+            )
+            + "</p>",
+            '<p class="small">These curves appear only after the full manifest budget is completed '
+            "and history is contiguous. Reward scales remain profile-specific. Tail-300 plateau "
+            "diagnostics use the descriptive heuristic above and are not evidence of competence.</p>",
+        ]
+        for row in exploration_learning:
+            plateau = (
+                str(row["descriptive_reward_plateau"])
+                if row["tail_300_available"]
+                else "Unavailable"
+            )
+            sections.append(
+                plot(
+                    "exploration_learning_" + row["profile"],
+                    f"Fresh {row['profile']}: {row['plotted_updates']} actual updates; reward gain {row['reward_gain']:.3f} (first/last {row['reward_comparison_window_updates']} updates); descriptive tail-300 plateau {plateau}. Raw reward, completed-episode-weighted success, KL, per-action std, LR and clipping; no resumed stage is mixed into these curves.",
                 )
             )
     credit_path = output / "recurrent_credit_audit.json"

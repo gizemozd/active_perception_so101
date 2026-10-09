@@ -1154,3 +1154,34 @@ handoff instruction alone.
   includes eight separate physical optimizer rows and immutable 100-update repair
   curves while continuations run. The bundle omits its own external checksum
   audit to avoid including a stale previous-ZIP checksum.
+
+### Randomized physical feasibility and conditional exploration repair
+
+- The unchanged privileged native controller passes 63/64 randomized rollouts
+  at the training horizon: 16 matched native reset seeds times all four variants,
+  current raw qpos within 2 mm for three samples. xm is 15/16; the other variants
+  are 16/16. All successes occur at 2.12 s, before the nominal 3.5 s timeout.
+  The failed xm seed 10011 stalls during approach with 53 mm TCP tracking error
+  in a high-x/low-y socket corner. This does not establish an IK impossibility or
+  identify contact/actuator/IK causality. Full traces and source hashes are in
+  `randomized_feasibility_native.json`. Native float64 results are not paired to
+  Warp by seed and do not establish learned visual competence.
+- `analyze_plug_terminal_errors.py` summarizes first-terminal-step physical
+  errors for all scored episodes, keeping stages/repeats separate. Original xm
+  median error is 3.12/3.28 mm for active/initial versus 14.39 mm at fixed view 7.
+  About 65–67% of active/initial xm terminals are within 5 mm, yet none passes the
+  held-2-mm criterion. Near-goal fractions are single samples, not insertion
+  success or trajectory minima, and do not identify the failure cause.
+- One fresh exploration configuration is prepared, explicitly NOT SUBMITTED:
+  the selected objective must be provided after both current final validations
+  finish. It retains plug/fixed-view7/GRU/N512/seed0/current-qpos and caps at
+  751 updates / 9,228,288 transitions; initial std 1 and entropy .01 change
+  together with adaptive LR .0003. Frozen source `11a591f` applies the critic
+  correction from the first update. One global reservation prevents a new grid.
+  Read-only diagnostics at 100/376 updates do not alter settings or select an
+  early checkpoint. Two physical balanced repeats follow, with actual videos.
+- The operational competence gate for proceeding is at least 103/128 physical
+  successes for EACH variant in EACH repeat, zero physical audit violations.
+  This single-seed gate is not paper-level replication. If this bounded fresh
+  repair fails, investigate learnability/control/representation rather than
+  automatically extending budgets or opening another optimization grid.
