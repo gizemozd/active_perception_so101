@@ -1,0 +1,20 @@
+% Diagnostic interventions on two OLD-TRAINED checkpoints, not new training or independent causal/training-seed replicates. Frozen target embodiment/contact and whole-policy GRU effects limit attribution.
+% Three discrete consecutive physical-state samples at 25 Hz, not continuous dwell. Original model_1499: 1,500 updates / 18,432,000 training transitions; seed 0 only.
+% Each row is a separate 512-episode balanced validation execution. Do not pool repeats as 1,024 independent samples or training seeds. Wilson intervals describe episode uncertainty only.
+\begin{tabular}{lrrrrrrrrr}
+\hline
+Camera control & Repeat & Success / $N$ & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ & Camera travel (rad) \\
+\hline
+Active: nominal & 1 & 96/512 & 18.75 & [15.61, 22.36] & 0.00 & 21.88 & 35.16 & 17.97 & 8.629 \\
+Active: nominal & 2 & 102/512 & 19.92 & [16.69, 23.60] & 0.00 & 22.66 & 42.19 & 14.84 & 8.622 \\
+Active: freeze targets at 1 s & 1 & 17/512 & 3.32 & [2.08, 5.25] & 0.00 & 0.00 & 12.50 & 0.78 & 2.919 \\
+Active: freeze targets at 1 s & 2 & 18/512 & 3.52 & [2.24, 5.49] & 0.00 & 0.00 & 11.72 & 2.34 & 2.919 \\
+Initial: nominal & 1 & 152/512 & 29.69 & [25.89, 33.78] & 0.00 & 29.69 & 39.84 & 49.22 & 2.108 \\
+Initial: nominal & 2 & 149/512 & 29.10 & [25.33, 33.18] & 0.00 & 27.34 & 42.19 & 46.88 & 2.109 \\
+Initial: stale external after 1 s & 1 & 152/512 & 29.69 & [25.89, 33.78] & 0.00 & 27.34 & 41.41 & 50.00 & 2.108 \\
+Initial: stale external after 1 s & 2 & 148/512 & 28.91 & [25.15, 32.98] & 0.00 & 24.22 & 43.75 & 47.66 & 2.109 \\
+Initial: reset whole GRU every step & 1 & 6/512 & 1.17 & [0.54, 2.53] & 0.00 & 1.56 & 0.78 & 2.34 & 1.813 \\
+Initial: reset whole GRU every step & 2 & 10/512 & 1.95 & [1.06, 3.56] & 0.00 & 0.78 & 0.78 & 6.25 & 1.813 \\
+\hline
+\end{tabular}
+% Variant columns are percentages; per-variant Wilson intervals and termination/repeat audits are in camera_control_metrics.csv.

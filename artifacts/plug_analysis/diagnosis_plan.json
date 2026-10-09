@@ -1,0 +1,211 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "created_at": "2026-10-09T07:16:35.298722+00:00",
+  "scope": "Read-only source/evidence diagnosis after the paired physical oracle. No new controller, learner, training, evaluation job, checkpoint mutation, or task-goal change was executed. Conditional next diagnostic only; finish the already-running fixed751 exploration repair first.",
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "source_evidence": {
+    "src/active_perception_arms/mdp.py": {
+      "sha256": "0fad9d65cf4ece859245b31edb3df5374122b8a54475c6e3b23d246ecef6e6da",
+      "current_matches_frozen": true
+    },
+    "src/active_perception_arms/policy.py": {
+      "sha256": "bd8bc5f6ddc885588ef2968ab8578dd5e5d0f7ff58a99bc0661c0c2187577b81",
+      "current_matches_frozen": true
+    },
+    "src/active_perception_arms/plug.py": {
+      "sha256": "390881b5a8b5a40527fa3f8ea93534edfbce62ec04132b87b74ae9c21e3c6baf",
+      "current_matches_frozen": true
+    },
+    "src/active_perception_arms/robots/plug_control.py": {
+      "sha256": "95d7d2f8a35cc18b0d16fb0ad15b7df8da22746ed2994a927bf163b67de28873",
+      "current_matches_frozen": true
+    }
+  },
+  "existing_evidence": {
+    "gpu_physical_oracle": {
+      "artifact": "artifacts/plug_analysis/randomized_feasibility_gpu_verified.json",
+      "successes": 503,
+      "episodes": 512,
+      "xm_successes": 119,
+      "xm_episodes": 128,
+      "other_variant_successes_each": 128,
+      "physical_hold_violations": 0,
+      "all_initial_physics_and_sensor_hashes_match_fixed_view_evaluation": true,
+      "limit": "Privileged geometric control supports sampled reachability, not visual learnability. Nine xm approach timeouts remain unresolved."
+    },
+    "final_corrected_reward_continuations": {
+      "artifact": "artifacts/plug_analysis/reward_repair/continuation/completion_verified.json",
+      "progress_successes_by_repeat": [
+        21,
+        18
+      ],
+      "log_hold_successes_by_repeat": [
+        11,
+        18
+      ],
+      "episodes_per_repeat": 512,
+      "progress_variants_with_zero_success_in_both_repeats": [
+        "xm",
+        "ym"
+      ],
+      "limit": "One training seed, mixed100-update old/651-update bootstrap-corrected sources, same-seed numerical repeats are not independent experiments."
+    },
+    "visibility": {
+      "artifact": "artifacts/plug_analysis/randomized_fixed_view_visibility.json",
+      "native_matched_pose_times": 32,
+      "all_four_external_distinguishable": 32,
+      "limit": "Pixel differences in a Native renderer diagnostic establish available cues in those sampled images, not correct GPU classification or sub2mm localization by the learned actor."
+    },
+    "actor_critic_information": {
+      "actor": "Both arms measured joints and velocities, own actuator/TCP/gimbal targets, fixed calibration, elapsed time, uint8 wrist/external RGB. No object pose, socket goal or variant label.",
+      "critic": "Actor proprio plus object/TCP/tip pose, corrected body goal, object velocity and occlusion state. Privileged critic goal contains the hidden offset; critic competence does not establish actor perception.",
+      "encoder": "Separate32-channel spatial-softmax CNNs output64 coordinates/view, followed by shared GRU128 and MLP128128. Coordinates do not explicitly retain feature confidence; learnability limitations are unproven. Historical successful actors also used spatial-softmax."
+    },
+    "action_goal_convention": {
+      "body_goal": "socket_goal - variant_offset_xy",
+      "tcp_goal": "body_goal + (0,-0.0015,0.045)m",
+      "absolute_tcp_box_low_m": [
+        -0.07,
+        -0.045,
+        0.055
+      ],
+      "absolute_tcp_box_high_m": [
+        0.07,
+        0.076,
+        0.09
+      ],
+      "componentwise_max_target_delta_m_per_control_step": 0.03,
+      "all_nominal_randomized_required_tcp_goals_within_box": true,
+      "opposite_variant_required_target_separation_m": 0.03,
+      "normalized_separation_x": 0.4285714285714285,
+      "normalized_separation_y": 0.49586776859504134,
+      "success": "Body rawfreejoint qpos error strictly<2mm for3consecutive25Hz samples, not TCP error.",
+      "assessment": "Source goal sign/grip convention is consistent with the unchanged controller that achieves503/512. No universal action-box or goal-sign bug was found. Correct mapping does not establish learned-policy tracking precision."
+    },
+    "exploration_precision": {
+      "completed_progress_final_normalized_std": [
+        0.03139161691069603,
+        0.001065882621333003,
+        0.09367862343788147
+      ],
+      "corresponding_unclipped_requested_tcp_std_mm": [
+        2.197413183748722,
+        0.06448589859064668,
+        1.639375910162926
+      ],
+      "limit": "Requested target variability is not actual body error: clipping, rate limits, IK, contacts and deterministic mean-action evaluation intervene. Std contraction is descriptive, not proof of why variant learning fails."
+    },
+    "reward": {
+      "progress": "3*(phi_next-phi_old)+10*held3-.005-.0005*sum(action^2)/3; phi=exp(-xy/.035)+exp(-xy/.008)*exp(-abs(z)/.025). Progress shaping uses derived positions; physical success uses current qpos.",
+      "legacy_log_hold": "-log1p(100*current_body_error)+1000*held3 with the same time/action costs.",
+      "cautions": [
+        "Neither completed profile solves all variants; their scales are incomparable.",
+        "Progress delta is phi_next-phi_old, while PPO gamma=.99. This is not the gamma-consistent potential-based-shaping formula; whether the distinction impedes learning is unmeasured.",
+        "Action cost penalizes absolute normalized target requests, not actual physical displacement; any workspace-center preference must be measured before calling it a cause."
+      ]
+    },
+    "recurrent_credit": {
+      "artifact": "artifacts/plug_analysis/recurrent_credit_audit.json",
+      "collector_steps": 24,
+      "collector_s": 0.96,
+      "inspection_s": 1.0,
+      "inference_memory_persists": true,
+      "gae_bootstrap_present": true,
+      "rgb_continues_after_inspection": true,
+      "limit": "BPTT cannot cross collector boundaries, but this does not establish lost information or discarded delayed reward. Fixed-view failure makes camera credit alone an incomplete account."
+    },
+    "historical_comparison": {
+      "artifact": "artifacts/plug_analysis/legacy_run_inventory.json",
+      "saved_training_success_only": true,
+      "matched_heldout_evidence_available": false,
+      "per_rank_envs": 1024,
+      "steps": 24,
+      "updates": 2000,
+      "saved_world_size": 4,
+      "configured_per_rank_transitions": 49152000,
+      "configured_global_transitions": 196608000,
+      "fresh751_transitions": 9228288,
+      "configured_global_budget_ratio": 21.30492676431425,
+      "rank_completion_independently_verified": false,
+      "other_changes": "Historical5s horizon/.022s step, instantaneous success/log reward, feedforward256256128,96x96 images, actor6-channel fused camera input in dual-view cases, differentIK damping/maxdq and prong-derived inertia versus current equalized inertia. Stored training success cannot identify which change matters."
+    }
+  },
+  "confirmed_bugs_already_repaired": [
+    {
+      "issue": "One-substep derived-body sampling could flag success while current physical body was outside2mm.",
+      "repair": "Fresh criteria use current qpos held3; old saved runs retain explicit legacy semantics; corrected audits report zero physical violations."
+    },
+    {
+      "issue": "Upstream recurrent critic bootstrap consumed the same boundary observation twice in persistent state.",
+      "repair": "CompactPPO restores critic hidden state after bootstrap; numeric bootstrap returns are preserved. No causal learning gain has been isolated."
+    }
+  ],
+  "prioritized_hypotheses": [
+    {
+      "priority": 1,
+      "hypothesis": "Actor visual state estimation or use fails to recover socket location and the15mm variant correction reliably.",
+      "support": "Large oracle-versus-learned gap on paired physical/sensor starts; actor must infer both from RGB, and learned successes concentrate on xp. Pixel-cue existence is weaker than useful learned features.",
+      "next_measurement": "On one frozen final checkpoint, record the actual actor inputs, CNN features and recurrent output already consumed during a single balanced512-episode firstdone evaluation. Compare decoded absolute TCP requests and processed target XY with the known socket/variant-corrected target by phase; report pervariant signed residuals and nearest-variant-target confusion. Retain prespecified image/feature snapshots rather than selected success/failure examples only.",
+      "falsification": "Variant-dependent commands and socket-dependent target localization are accurate in failures; then perception alone cannot explain them. A constant or wrong target mapping does not by itself prove the CNN lacks recoverable information."
+    },
+    {
+      "priority": 2,
+      "hypothesis": "Even correctly estimated goals are converted into an imprecise or poorly ordered approach/descend policy.",
+      "support": "Sub2mm held3 success, absolute action box/rate limits, contracted or large target-noise scales, asymmetric xm approach hard region.",
+      "next_measurement": "Use the same512 captures to separate raw actor request, processed TCP target, derived actual TCP tracking, current body XY/Z error and hold history. Compare late approach/descent windows, command saturation, wrong z timing and terminal bias; list the oracle nine hard worlds separately.",
+      "falsification": "Policy requests and tracking achieve the intended XY/Z trajectory with currentqpos body error strictly below2mm for three consecutive audited samples, yet termination is false; that would require a new success audit rather than a policy repair."
+    },
+    {
+      "priority": 3,
+      "hypothesis": "Recurrent credit, reward incentives or insufficient optimization exposure contribute after state-estimation/control diagnostics are understood.",
+      "support": "24step BPTT shorter than inspection and insertion; delta shaping conventions differ; historical configured global exposure is about21.3times current751.",
+      "next_measurement": "Inspect phase-specific reward components and command errors first. A longer-rollout comparison remains PREPARED_NOT_EXECUTABLE until rollout settings and cumulative transition/resume/telemetry accounting are refactored. Historical exposure is a limitation, not authorization for a21times extension.",
+      "falsification": "A direct source/evidence localization/control failure would take precedence over more rollout or budget trials."
+    }
+  ],
+  "one_bounded_next_diagnostic": {
+    "entry_condition": "After the running fixed751 exploration repair finishes and passes completion/physical audit, only if the prespecified allvariant competence gate remains unmet.",
+    "status": "PREPARED_NOT_EXECUTED",
+    "question": "Where does the paired physical-oracle gap arise: available RGB cues, policy target mapping, or approach/precision?",
+    "budget": "One existing frozen learned checkpoint, one balanced512firstepisode evaluation onN128/seeds10000..10003 with currentqposheld3; no learner updates/controller changes. At most88steps/episode, identical clean fixedview7 starts and hash comparison. No additional training grid.",
+    "capture": "Allstep deterministic actor mean request, actual clamped action, processed TCPtarget, current rawbody qpos/goal, derivedTCPtracking, hold/firstterminal flags. ActualRGB/rawproprio snapshot at.96s BEFORE the real actor forward, with normalizedproprio/CNN/GRU outputs passively hooked from that ONE call. Raw numeric arrays/RGB stay in gitignoredNPZ; JSON/CSV contain compact phase/variant summaries and metadata. No other recurrent forward is called.",
+    "analysis": "Pervariant socket/offset-conditioned command residuals and confusion, XY/Z timing and actual tracking, image crop/cue inspection. Use existing representative videos only qualitatively; their firstsuccess/firstfailure selection cannot estimate prevalence or decoder accuracy.",
+    "scientific_limits": "Passive paired capture diagnoses association and frozen policy use, not architectural necessity or causal RL repair. Any later heldout supervised decoder/counterfactual probe would be a separately declared diagnostic, not already executed.",
+    "decision": "Choose one narrow repair only after this decomposition. Keep transfer/push and active-perception benefit claims gated on physical allvariant competence; fixed-view diagnosis precedes utility comparisons.",
+    "prepared_helper": {
+      "status": "PREPARED_NOT_SUBMITTED",
+      "helper": "scripts/audit_plug_actor_targets.py",
+      "helper_sha256": "6856d61ddaa24d29362ed42b0e2523c12757ec5c13f1d022b51487a6ab7dbc34",
+      "launcher": "scripts/slurm/audit_plug_actor_targets.sbatch",
+      "launcher_sha256": "3d49d3958e1b072904e477ea9e5a4d33700f3f6410001fad2bbbcd855452659f",
+      "tests": "tests/test_actor_target_audit.py",
+      "cpu_tests_passed": 5,
+      "lint_format_shell_checks": "PASS",
+      "metadata_dry_run": "PASS using an existing completed final751 checkpoint/reference solely to validate CLI/source/metadata; no GPU rollout or real benchmark feature probe executed.",
+      "entry": "Explicit final fresh751 checkpoint and samecheckpoint balanced512currentqpos physical evaluation reference, after root audits completed training and failed competence gate. Live execution requires frozen checkpointSHA; source must remain clean11a; every initial state/sensor hash is required to match reference.",
+      "slurm_gpu_count": 1,
+      "slurm_time_cap_minutes": 15,
+      "estimated_runtime_minutes": [
+        2,
+        5
+      ],
+      "optional_probe": "TARGET_PROBE=1; fixed ridge alpha1e-3, train3resetseeds/test1 with4prespecified folds for each of CNN-only/proprio-only/CNN+proprio/GRU-only to socketXY+variantonehot (16 fits); train-only feature normalization, no holdout tuning, no actor updates. GRU-only uses outputs already captured from the single real actor forward.",
+      "launcher_environment": [
+        "PROJECT_ROOT",
+        "DATA_ROOT",
+        "TARGET_CHECKPOINT",
+        "TARGET_REFERENCE_REPORT",
+        "TARGET_CHECKPOINT_SHA256",
+        "TARGET_HELPER_SHA256",
+        "TARGET_OUTPUT(optional)",
+        "TARGET_PROBE(optional)"
+      ],
+      "predeclared_probe_groups": [
+        "cnn_only",
+        "proprio_only",
+        "cnn_plus_proprio",
+        "gru_only"
+      ]
+    }
+  }
+}

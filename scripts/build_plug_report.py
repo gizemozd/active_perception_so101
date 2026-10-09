@@ -711,6 +711,8 @@ def write_corrected_hparam_tables(
     scope=None,
     label_key="case",
     label_title="Optimizer",
+    budget_note="% Each checkpoint: 751 updates / 9,228,288 training transitions; seed 0 only.",
+    include_camera_travel=False,
 ):
     """Export physical scores without pooling numerical repeats as independent episodes."""
     if not rows:
@@ -719,12 +721,15 @@ def write_corrected_hparam_tables(
     latex = [
         scope
         or "% Corrected current_qpos evaluations of OLD-TRAINED model_750 checkpoints; no retraining or optimizer updates in this audit.",
-        "% Three discrete consecutive physical-state samples at 25 Hz, not continuous dwell. Each checkpoint: 751 updates / 9,228,288 training transitions; seed 0 only.",
+        "% Three discrete consecutive physical-state samples at 25 Hz, not continuous dwell. "
+        + budget_note.removeprefix("% "),
         "% Each row is a separate 512-episode balanced validation execution. Do not pool repeats as 1,024 independent samples or training seeds. Wilson intervals describe episode uncertainty only.",
-        r"\begin{tabular}{lrrrrrrrr}",
+        r"\begin{tabular}{lrrrrrrrrr}" if include_camera_travel else r"\begin{tabular}{lrrrrrrrr}",
         r"\hline",
         label_title
-        + r" & Repeat & Success / $N$ & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ \\",
+        + r" & Repeat & Success / $N$ & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$"
+        + (r" & Camera travel (rad)" if include_camera_travel else "")
+        + r" \\",
         r"\hline",
     ]
     for row in rows:
@@ -733,6 +738,7 @@ def write_corrected_hparam_tables(
             + f" & {row['repeat']} & {row['successes']}/{row['episodes']} & "
             + f"{100 * row['success_rate']:.2f} & [{100 * row['wilson95_low']:.2f}, {100 * row['wilson95_high']:.2f}] & "
             + " & ".join(f"{100 * row[v + '_success_rate']:.2f}" for v in plug.VARIANTS)
+            + (f" & {row['mean_camera_joint_travel_rad']:.3f}" if include_camera_travel else "")
             + r" \\"
         )
     latex += [
@@ -938,6 +944,56 @@ def repair_learning_plots(
         save_figure(fig, assets, asset_prefix + case)
 
 
+def evaluation_episode_rows(report, condition, source_report, training_source_revision):
+    """Keep scoring/source identity beside each actual episode and optional pre-reset audit."""
+    audit = report.get("termination_audit") or {}
+    records = {r["episode"]: r for r in audit.get("records", [])}
+    rows = []
+    for i, (won, seconds, travel, variant) in enumerate(
+        zip(
+            report["outcomes"],
+            report["episode_seconds"],
+            report["camera_joint_travel_rad"],
+            report["variants"],
+            strict=True,
+        )
+    ):
+        record = records.get(i, {})
+        rows.append(
+            {
+                "condition": condition,
+                "training_seed": report.get("training_seed", 0),
+                "episode": i,
+                "reset_seed": report["seed"] + i // report["experiment"]["num_envs"],
+                "variant": variant,
+                "success": won,
+                "episode_seconds": seconds,
+                "camera_joint_travel_rad": travel,
+                "success_state_sample": report["experiment"].get(
+                    "success_state_sample", "derived_substep"
+                ),
+                "training_source_revision": training_source_revision,
+                "source_report": str(source_report),
+                "checkpoint": report["checkpoint"],
+                "evaluation_wandb_url": report.get("wandb_url"),
+                "terminal_qpos_position_error_m": record.get("qpos_position_error_m"),
+                "terminal_manager_position_error_m": record.get("manager_position_error_m"),
+                "terminal_derived_position_error_m": record.get("derived_position_error_m"),
+                "terminal_success_hold_steps": record.get("success_hold_steps"),
+                "terminal_last_three_manager_errors_m": json.dumps(
+                    record["last_three_manager_errors_m"]
+                )
+                if "last_three_manager_errors_m" in record
+                else None,
+                "terminal_success_flag": record.get("success"),
+                "terminal_failure_flag": record.get("failure"),
+                "terminal_timeout_flag": record.get("timeout"),
+                "terminal_sampling": audit.get("sampling"),
+            }
+        )
+    return rows
+
+
 def reward_video_cards(root, output, directory, case, stage_label):
     """Show one captured example per available outcome, without implying variant coverage."""
     metadata = directory / "evaluation-repeat1-videos/representatives.json"
@@ -997,6 +1053,155 @@ def collect_exploration_status(root, output):
             }
         )
     return rows
+
+
+CAMERA_CONTROL_LABELS = {
+    "nominal-active": "Active: nominal",
+    "freeze1-active": "Active: freeze targets at 1 s",
+    "nominal-initial": "Initial: nominal",
+    "hold1-initial": "Initial: stale external after 1 s",
+    "resetmemory-initial": "Initial: reset whole GRU every step",
+}
+
+
+def collect_camera_controls(root, output):
+    path = output / "camera_controls/summary.json"
+    if not path.exists():
+        return []
+    summary = read(path)
+    if summary.get("status") != "complete":
+        return []
+    assert not summary["training_started"] and set(summary["cases"]) == set(CAMERA_CONTROL_LABELS)
+    rows = []
+    for name, label in CAMERA_CONTROL_LABELS.items():
+        case = summary["cases"][name]
+        checkpoint = summary["checkpoints"][case["condition"]]
+        within = case["within_case_repeat_variability"]
+        assert len(case["repeats"]) == 2
+        for entry in case["repeats"]:
+            report_path = Path(entry["report"])
+            if not report_path.is_absolute():
+                report_path = root / report_path
+            with report_path.open("rb") as stream:
+                assert hashlib.file_digest(stream, "sha256").hexdigest() == entry["report_sha256"]
+            reference = entry.get("paired_with_reference") or {}
+            low, high = wilson(entry["successes"], entry["episodes"])
+            row = {
+                "case": name,
+                "case_label": label,
+                "condition": case["condition"],
+                "repeat": entry["repeat"],
+                "training_seed": 0,
+                "training_updates": checkpoint["trained_updates"],
+                "training_transitions": checkpoint["trained_transitions"],
+                "training_success_state_sample": checkpoint["training_success_state_sample"],
+                "success_state_sample": summary["protocol"]["success_state_sample"],
+                "evaluation_source_revision": summary["source_revision"],
+                "checkpoint": case["checkpoint"],
+                "report": str(report_path.relative_to(root)),
+                "report_sha256": entry["report_sha256"],
+                "episodes": entry["episodes"],
+                "successes": entry["successes"],
+                "success_rate": entry["success_rate"],
+                "wilson95_low": low,
+                "wilson95_high": high,
+                "mean_camera_joint_travel_rad": entry["mean_camera_joint_travel_rad"],
+                "mean_episode_seconds": entry["mean_episode_seconds"],
+                "mean_success_completion_seconds": entry["mean_success_completion_seconds"],
+                "mean_terminal_position_error_m": entry["mean_terminal_position_error_m"],
+                "reference_case": f"nominal-{case['condition']}" if reference else None,
+                "reference_repeat": (1 if name.startswith("nominal-") else entry["repeat"])
+                if reference
+                else None,
+                "reference_initial_state_mismatches": reference.get("initial_state_mismatches"),
+                "reference_initial_physics_mismatches": reference.get("initial_physics_mismatches"),
+                "reference_wrist_image_mismatches": reference.get(
+                    "initial_sensor_mismatches", {}
+                ).get("wrist"),
+                "reference_external_image_mismatches": reference.get(
+                    "initial_sensor_mismatches", {}
+                ).get("external"),
+                "reference_changed_episode_count": reference.get("changed_episode_count"),
+                "reference_lost_successes": reference.get("lost_successes"),
+                "reference_gained_successes": reference.get("gained_successes"),
+                "reference_success_count_change": reference.get("success_count_change"),
+                "within_case_repeat_changed_episodes": within["changed_episode_count"],
+                "within_case_repeat_initial_state_mismatches": within["initial_state_mismatches"],
+                **entry["physical_violation_counts"],
+            }
+            for variant in plug.VARIANTS:
+                detail = entry["per_variant"][variant]
+                lo, hi = wilson(detail["successes"], detail["episodes"])
+                row.update(
+                    {
+                        variant + "_episodes": detail["episodes"],
+                        variant + "_successes": detail["successes"],
+                        variant + "_success_rate": detail["success_rate"],
+                        variant + "_wilson95_low": lo,
+                        variant + "_wilson95_high": hi,
+                    }
+                )
+                for metric in ("mean_terminal_error_xyz_m", "mean_absolute_terminal_error_xyz_m"):
+                    for axis, value in zip("xyz", detail[metric], strict=True):
+                        row[variant + "_" + metric.replace("xyz", axis)] = value
+            rows.append(row)
+    assert len(rows) == 10
+    return rows
+
+
+def camera_control_plot(rows, assets):
+    if not rows:
+        return
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4.7))
+    cases = list(CAMERA_CONTROL_LABELS)
+    for repeat, color, marker, offset in ((1, "#2563eb", "o", -0.12), (2, "#d97706", "s", 0.12)):
+        selected = [
+            next(r for r in rows if r["case"] == case and r["repeat"] == repeat) for case in cases
+        ]
+        x = np.arange(len(cases)) + offset
+        rate = np.array([100 * r["success_rate"] for r in selected])
+        errors = np.array(
+            [
+                [100 * r["wilson95_low"] for r in selected],
+                [100 * r["wilson95_high"] for r in selected],
+            ]
+        )
+        axes[0].errorbar(
+            x,
+            rate,
+            yerr=np.vstack((rate - errors[0], errors[1] - rate)),
+            fmt=marker,
+            color=color,
+            capsize=3,
+            label=f"Execution repeat {repeat}",
+        )
+        axes[1].scatter(
+            x,
+            [r["mean_camera_joint_travel_rad"] for r in selected],
+            color=color,
+            marker=marker,
+            label=f"Execution repeat {repeat}",
+        )
+    for ax in axes:
+        ax.set_xticks(
+            np.arange(len(cases)),
+            [
+                "Active\nnominal",
+                "Active\nfreeze 1s",
+                "Initial\nnominal",
+                "Initial\nstale RGB 1s",
+                "Initial\nwhole GRU reset",
+            ],
+        )
+        ax.grid(axis="y", alpha=0.2)
+        ax.legend(fontsize=8)
+    axes[0].set_ylabel("Physical held-three success (%) · Wilson episode intervals")
+    axes[1].set_ylabel("Mean physical camera joint travel (rad)")
+    fig.suptitle(
+        "Original trained checkpoints · diagnostic controls · two separate numerical executions"
+    )
+    fig.tight_layout()
+    save_figure(fig, assets, "camera_control_comparison")
 
 
 def main():
@@ -1085,27 +1290,9 @@ def main():
                 }
             )
         metrics.append(row)
-        for i, (won, time, travel, variant) in enumerate(
-            zip(
-                report["outcomes"],
-                report["episode_seconds"],
-                report["camera_joint_travel_rad"],
-                report["variants"],
-                strict=True,
-            )
-        ):
-            episodes.append(
-                {
-                    "condition": condition,
-                    "training_seed": 0,
-                    "episode": i,
-                    "reset_seed": report["seed"] + i // 128,
-                    "variant": variant,
-                    "success": won,
-                    "episode_seconds": time,
-                    "camera_joint_travel_rad": travel,
-                }
-            )
+        episodes += evaluation_episode_rows(
+            report, condition, report_path.relative_to(root), manifest["source_revision"]
+        )
         for r in history:
             learning_rows.append(
                 {
@@ -1172,6 +1359,18 @@ def main():
     repair_rows = collect_reward_repairs(root, output)
     corrected_hparams = collect_corrected_hparams(root)
     write_corrected_hparam_tables(output, corrected_hparams)
+    camera_controls = collect_camera_controls(root, output)
+    write_corrected_hparam_tables(
+        output,
+        camera_controls,
+        stem="camera_control_metrics",
+        scope="% Diagnostic interventions on two OLD-TRAINED checkpoints, not new training or independent causal/training-seed replicates. Frozen target embodiment/contact and whole-policy GRU effects limit attribution.",
+        label_key="case_label",
+        label_title="Camera control",
+        budget_note="% Original model_1499: 1,500 updates / 18,432,000 training transitions; seed 0 only.",
+        include_camera_travel=True,
+    )
+    camera_control_plot(camera_controls, assets)
     repair_learning_rows, repair_learning_summaries, repair_histories = collect_repair_learning(
         root, output
     )
@@ -1238,7 +1437,7 @@ def main():
         )
     legacy_path = output / "legacy_run_inventory.json"
     legacy = read(legacy_path) if legacy_path.exists() else None
-    corrected_metrics, corrected_captures, corrected_reports = [], [], {}
+    corrected_metrics, corrected_captures, corrected_reports, corrected_episodes = [], [], {}, []
     for path in sorted(output.glob("corrected-*-s0.json")):
         report = read(path)
         condition = report["experiment"]["condition"]
@@ -1283,6 +1482,9 @@ def main():
                 }
             )
         corrected_metrics.append(row)
+        corrected_episodes += evaluation_episode_rows(
+            report, condition, path.relative_to(root), row["source_revision"]
+        )
         if report.get("representative_capture"):
             capture_path = root / report["representative_capture"]
             video_meta = (
@@ -1303,6 +1505,7 @@ def main():
             row["poster_prefix"] = "corrected-"
         write_csv(output / "corrected_representative_trajectories.csv", corrected_captures)
     write_csv(output / "corrected_performance_metrics.csv", corrected_metrics)
+    write_csv(output / "corrected_evaluation_episodes.csv", corrected_episodes)
     analysis = {
         "generated_at": datetime.now(UTC).isoformat(),
         "training_gate": "NOT_RELIABLE_ACROSS_VARIANTS",
@@ -1321,6 +1524,7 @@ def main():
         "representative_count": len(capture_rows),
         "tuning_continuation_results": tuning,
         "corrected_hparam_results": corrected_hparams,
+        "camera_control_results": camera_controls,
         "reward_repair_learning": repair_learning_summaries,
         "reward_repair_results": reward_repair,
         "reward_repair_continuation_results": reward_continuation,
@@ -1464,9 +1668,11 @@ def build_html(output, root, analysis, captures, tuning, legacy, corrected_captu
     def plot(name, caption):
         return figure(name, caption) + f'<a href="assets/{name}.pdf">PDF</a></figcaption></figure>'
 
-    def table(headers, rows):
+    def table(headers, rows, css_class=""):
         return (
-            '<div class="table-wrap"><table><thead><tr>'
+            '<div class="table-wrap"><table'
+            + (f' class="{esc(css_class)}"' if css_class else "")
+            + "><thead><tr>"
             + "".join(f"<th>{esc(h)}</th>" for h in headers)
             + "</tr></thead><tbody>"
             + "".join("<tr>" + "".join(f"<td>{c}</td>" for c in row) + "</tr>" for row in rows)
@@ -1501,6 +1707,7 @@ figure { margin:24px 0; padding:14px; } figure img { width:100%; height:auto; } 
 .table-wrap { overflow-x:auto; margin:20px 0; } table { border-collapse:collapse; width:100%; background:white; }
 th,td { padding:11px 13px; border-bottom:1px solid #e2e7ed; text-align:left; white-space:nowrap; }
 th { font-size:.83rem; color:#526173; background:#edf1f5; } tbody tr:hover { background:#f8fafc; }
+.evidence-table td { white-space:normal; min-width:160px; vertical-align:top; }
 nav { display:flex; gap:18px; flex-wrap:wrap; margin:26px 0; } .downloads { display:flex; gap:20px; flex-wrap:wrap; }
 details { margin:14px 0; } summary { cursor:pointer; font-weight:600; padding:8px 0; }
 .videos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
@@ -1563,12 +1770,92 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
                     else "performance_metrics.tex",
                     "LaTeX table",
                 ),
-                ("evaluation_episodes.csv", "Episode data"),
+                ("corrected_evaluation_episodes.csv", "Corrected episode data")
+                if corrected_complete
+                else ("evaluation_episodes.csv", "Historical episode data"),
+                ("evaluation_episodes.csv", "Historical episode data")
+                if corrected_complete
+                else ("performance_metrics.csv", "Historical metrics"),
                 ("analysis.json", "Analysis JSON"),
                 ("representative_trajectories.csv", "Trajectory diagnostics"),
             )
         )
         + "</div>",
+    ]
+    controls = analysis.get("camera_control_results", [])
+    evidence = []
+    if corrected_complete:
+        evidence.append(
+            [
+                "Plug · clean",
+                link(
+                    output / "corrected_performance_metrics.csv",
+                    f"Corrected learned-policy validation: initial {100 * headline['initial']['success_rate']:.2f}% vs active {100 * headline['active']['success_rate']:.2f}%",
+                ),
+                "One training seed; every tested XM episode fails. Independently trained weak policies confound camera comparisons.",
+                "No demonstrated advantage for continual camera motion. Initial positioning with fresh images is promising, pending controlled tests.",
+            ]
+        )
+    if controls:
+        evidence.append(
+            [
+                "Plug · clean sensing/memory controls",
+                '<a href="#camera-controls">Completed same-checkpoint freeze, stale-image and whole-GRU diagnostics</a>',
+                "Continued camera commands matter for this active policy; initial-only has no aggregate penalty from stale external images after 1 s. Every XM episode still fails.",
+                "Checkpoint dependence only. Contact/embodiment and whole-policy memory effects prevent a pure sensing attribution; no reliable continual-active advantage over initial positioning is established.",
+            ]
+        )
+    dynamic_evidence_path = root / "artifacts/dynamic_occlusion/summary.json"
+    if dynamic_evidence_path.exists():
+        native_dynamic = read(dynamic_evidence_path)
+        visibility = {
+            (r["task"], r["camera"]): r
+            for r in native_dynamic["rendered_visibility_summary"]
+            if r["snapshot_set"] == "rollout_samples"
+        }
+        fixed = visibility.get(("plug", "fixed"))
+        if fixed:
+            evidence.append(
+                [
+                    "Plug · moving panel",
+                    link(
+                        dynamic_evidence_path,
+                        f"Native fixed-view useful prong visibility: {100 * fixed['useful_visible_fraction_panel_hidden']:.1f}% panel hidden → {100 * fixed['useful_visible_fraction_panel']:.1f}% panel present",
+                    ),
+                    f"{fixed['rendered_samples']} sampled states from three privileged scripted episodes; visibility, not learned success.",
+                    "Optical-blockage hypothesis only. The tested scripted camera motion does not establish adaptive recovery or necessity.",
+                ]
+            )
+        for task in ("transfer", "push"):
+            wrist = visibility.get((task, "wrist"))
+            if wrist:
+                evidence.append(
+                    [
+                        task.capitalize() + " · moving panel",
+                        link(
+                            dynamic_evidence_path,
+                            f"Native useful wrist visibility: {100 * wrist['useful_visible_fraction_panel']:.1f}% with panel, {100 * wrist['useful_visible_fraction_panel_hidden']:.1f}% with panel hidden",
+                        ),
+                        f"{wrist['rendered_samples']} sampled states from three privileged scripted episodes; no learned policy evaluated.",
+                        "Candidate negative control: wrist sensing remains useful. External camera motion has no demonstrated task benefit.",
+                    ]
+                )
+    if evidence:
+        sections += [
+            '<h2 id="scenarios">Where could active perception help?</h2>',
+            table(
+                ["Task / scenario", "Observed evidence", "Scope", "Interpretation"],
+                evidence,
+                "evidence-table",
+            ),
+            '<p class="small">Visibility percentages are diagnostic sample fractions, not success '
+            "rates. A moving panel with a static goal and immutable hidden geometry still permits "
+            "waiting for the panel to clear or remembering an earlier view. Improved fixed views "
+            "and wrist sensing are also valid controls. Dynamic occlusion alone does not establish "
+            "a need for active camera motion; learned task outcomes and controlled interventions "
+            "must establish its benefit.</p>",
+        ]
+    sections += [
         '<h2 id="training">Training completed; reward alone does not pass the quality gate</h2>',
         "<p>Each condition completed 1,500 contiguous logged updates and 18,432,000 environment transitions "
         "at N512 × 24 rollout steps. The runs resumed their original 100-update pilots, "
@@ -1901,10 +2188,149 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
                 if (selected := [r for r in captures if r["condition"] == c])
             ],
         ),
-        "<p>To determine whether continuing to look helps rather than merely selecting an informative view, "
-        "the next comparisons should freeze camera targets, hold images stale, replay camera commands from other "
-        "episodes and compare a separately trained scheduled-camera policy. Those interventions and ≥3 training seeds "
-        "are necessary before claiming a benefit from feedback-dependent camera motion.</p>",
+    ]
+    if controls:
+        control_rows = {(r["case"], r["repeat"]): r for r in controls}
+
+        def control_counts(name):
+            return "/".join(str(control_rows[(name, repeat)]["successes"]) for repeat in (1, 2))
+
+        def control_deltas(name):
+            return "/".join(
+                f"{100 * control_rows[(name, repeat)]['reference_success_count_change'] / control_rows[(name, repeat)]['episodes']:+.2f}"
+                for repeat in (1, 2)
+            )
+
+        sections += [
+            '<h3 id="camera-controls">Camera feedback and memory diagnostics · original checkpoints</h3>',
+            "<p>These ten completed evaluations apply diagnostic interventions to the original active and "
+            "initial-only model 1499 checkpoints (1,500 updates / 18,432,000 training transitions, training seed 0). "
+            "They do not retrain the policies. Evaluation uses the corrected <code>current_qpos</code> "
+            "three-sample criterion and source <code>"
+            + esc(controls[0]["evaluation_source_revision"][:12])
+            + "</code>; the actors were trained under the earlier derived-substep criterion without the "
+            "critic-bootstrap bookkeeping repair. Each row is a separate balanced 512-episode execution.</p>",
+            f"<p><strong>Observed dependence differs between these checkpoints.</strong> Active nominal "
+            f"scores are {control_counts('nominal-active')} successes per 512 episodes across repeats; "
+            f"freezing targets at 1 s reduces them to {control_counts('freeze1-active')} "
+            f"({control_deltas('freeze1-active')} percentage points). This active checkpoint depends on "
+            "continued camera commands under this intervention. Initial-only nominal scores are "
+            f"{control_counts('nominal-initial')}; holding external images stale gives "
+            f"{control_counts('hold1-initial')} ({control_deltas('hold1-initial')} percentage points), "
+            "with no aggregate penalty after 1 s. Resetting the whole GRU gives only "
+            f"{control_counts('resetmemory-initial')} successes, showing strong whole-policy memory "
+            "dependence rather than camera-specific memory dependence. Every XM case still has zero "
+            "successes. These weak, numerically sensitive policies from one training seed do not establish "
+            "a reliable continual-active advantage over initial positioning or a generally optimal sensing strategy.</p>",
+            table(
+                [
+                    "Control / execution repeat",
+                    "Success / N",
+                    "Success % [95% CI]",
+                    "xm %",
+                    "xp %",
+                    "ym %",
+                    "yp %",
+                    "Mean camera travel rad",
+                    "Nominal reference Δ successes / changed episodes",
+                    "Within-case repeat changed episodes",
+                    "Initial hash mismatches: reference / within case",
+                    "Physical violations",
+                ],
+                [
+                    [
+                        link(r["report"], r["case_label"] + f" · repeat {r['repeat']}"),
+                        f"{r['successes']}/{r['episodes']}",
+                        f"{100 * r['success_rate']:.2f} [{100 * r['wilson95_low']:.2f}, {100 * r['wilson95_high']:.2f}]",
+                        *[f"{100 * r[v + '_success_rate']:.2f}" for v in plug.VARIANTS],
+                        f"{r['mean_camera_joint_travel_rad']:.3f}",
+                        "—"
+                        if r["reference_case"] is None
+                        else f"{r['reference_success_count_change']:+d} / {r['reference_changed_episode_count']}",
+                        str(r["within_case_repeat_changed_episodes"]),
+                        (
+                            "—"
+                            if r["reference_initial_state_mismatches"] is None
+                            else str(r["reference_initial_state_mismatches"])
+                        )
+                        + f" / {r['within_case_repeat_initial_state_mismatches']}",
+                        str(
+                            sum(
+                                r[k]
+                                for k in (
+                                    "success_hold_violations",
+                                    "success_distance_violations",
+                                    "success_three_sample_violations",
+                                    "success_qpos_above_distance_threshold",
+                                )
+                            )
+                        ),
+                    ]
+                    for r in controls
+                ],
+            ),
+            plot(
+                "camera_control_comparison",
+                "Two separate numerical execution repeats of each diagnostic control. Wilson intervals describe episode counts conditional on these checkpoints, not causal effects or independent training seeds.",
+            ),
+            "<p>Freezing active camera targets at 1 s leaves both RGB streams live; physical joints may "
+            "still settle. It also changes camera embodiment and possible contacts, so a score change cannot "
+            "be attributed only to visual information. Initial-only already freezes its camera targets at 1 s. "
+            "Holding its external RGB stale after 1 s retains live wrist RGB, proprioception and recurrent "
+            "state, testing continued external feedback at its trained viewpoint. Resetting the whole actor "
+            "GRU every step also changes inspection and initial view selection; it is not a camera-specific "
+            "memory ablation or a separately trained feedforward policy.</p>",
+            '<p class="small">Reference comparisons use the same-number nominal execution for interventions; '
+            "nominal repeat 2 instead references nominal repeat 1. Within-case flips compare repeats 1 and 2 "
+            "and are shown in both rows for context. Matching initial physics and both image hashes does not "
+            "guarantee identical later GPU contact trajectories. Lost/gained successes and outcome flips are "
+            "descriptive diagnostics, not episode-IID causal evidence. The two executions are not new training "
+            "seeds, and weak manipulation/all-variant failures limit general sensing claims. Repeated independent "
+            "training and a separately trained scheduled-camera control remain necessary.</p>",
+            "<p>"
+            + link(output / "camera_control_metrics.csv", "Diagnostic metrics CSV")
+            + " · "
+            + link(output / "camera_control_metrics.tex", "LaTeX table")
+            + " · "
+            + link(output / "camera_controls/summary.json", "Completed intervention summary")
+            + " · "
+            + link(
+                output / "camera_controls/runtime_manifest.json",
+                "Frozen source and runtime provenance",
+            )
+            + "</p>",
+        ]
+        verified_controls_path = output / "camera_controls/completion_verified.json"
+        if verified_controls_path.exists():
+            verified_controls = read(verified_controls_path)
+            sections.append(
+                "<p>"
+                + link(
+                    verified_controls_path, "Independent completion and physical-state verification"
+                )
+                + " · recorded status <code>"
+                + esc(verified_controls.get("status"))
+                + "</code>.</p>"
+            )
+    else:
+        sections.append(
+            "<p>Camera-target freeze, stale external-image and whole-GRU reset controls are prepared or "
+            "running; results will be included only when all ten evaluations complete. Independent training "
+            "seeds and a separately trained scheduled-camera policy remain necessary before claiming a "
+            "general benefit from feedback-dependent camera motion.</p>"
+        )
+    diagnosis_path = output / "diagnosis_plan.json"
+    if diagnosis_path.exists():
+        diagnosis = read(diagnosis_path)
+        sections.append(
+            "<p>Further target/feature diagnostics: "
+            + link(diagnosis_path, "Conditional diagnosis plan")
+            + " · recorded status <code>"
+            + esc(diagnosis.get("status"))
+            + "</code>. This plan prepares conditional checks; it records no executed diagnostic or new job. "
+            "Complete the already-running exploration repair before selecting another intervention.</p>"
+        )
+    sections += [
         '<h2 id="videos">Representative evaluated trajectories</h2>',
         "<p>Each pair shows a full-scene overview and the exact actor camera inputs, captured during the scored "
         "evaluation. The overview is rendered from stored physical states without stepping the simulator. "
@@ -2561,7 +2987,7 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
         "The captured images/errors are post-forward, pre-action samples. A success clip ending above "
         "2 mm does not alone disprove the recorded success flag. Instrumented repeats inspect the exact "
         "manager samples and three-step hold without changing physics or random draws. Original scored "
-        "results remain in the primary table.</p>",
+        "results remain in the separate historical table.</p>",
     ]
     if analysis["termination_audits"]:
         sections.append(

@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-10-09T07:05:17.412116+00:00",
+  "created_at": "2026-10-09T07:36:50.826873+00:00",
   "archive": "artifacts/plug_analysis/plug-report.zip",
   "entrypoint": "index.html",
   "report": "artifacts/plug_analysis/index.html",
@@ -45,8 +45,8 @@
   "files": [
     {
       "path": "PROGRESS.md",
-      "bytes": 88358,
-      "sha256": "ff0021b9b9f2b6ade47fda9b1bef00a974aa447089109db7b6a0fd7f433687c3"
+      "bytes": 90377,
+      "sha256": "12ffcf32d0ad9298a5f7bb9b504aafa507d57e5e7e6df84a0d7a08bb3b2c7c78"
     },
     {
       "path": "artifacts/cluster_continuation/evaluation-active-s0-traces/capture.json",
@@ -475,8 +475,8 @@
     },
     {
       "path": "artifacts/plug_analysis/analysis.json",
-      "bytes": 85269,
-      "sha256": "ecef6c5924f91909e91d80d25e7dc3c0d5d9d4478096b50e1aeb884fe32933e2"
+      "bytes": 126187,
+      "sha256": "5c2209a468268693bc6808585d1b25669285d1ee695b2a2a348b9a45480dbe6c"
     },
     {
       "path": "artifacts/plug_analysis/assets/active_0_outside_video.jpg",
@@ -547,6 +547,16 @@
       "path": "artifacts/plug_analysis/assets/active_6_policy_video.jpg",
       "bytes": 35016,
       "sha256": "39dc24d4a87181b10b0d815390c85c32b7db1548e9a8ff75b6cecfc36ec1b03c"
+    },
+    {
+      "path": "artifacts/plug_analysis/assets/camera_control_comparison.pdf",
+      "bytes": 21803,
+      "sha256": "1cdb7a2bed3c65f43722ee1265e738e3899385b42171535888813eb200c82eec"
+    },
+    {
+      "path": "artifacts/plug_analysis/assets/camera_control_comparison.svg",
+      "bytes": 34952,
+      "sha256": "65af090914403a135764928adb96c0bcadaeb5fe8323ad11e6816d5cb867da66"
     },
     {
       "path": "artifacts/plug_analysis/assets/camera_trajectories.pdf",
@@ -1069,6 +1079,81 @@
       "sha256": "5cff5220c4823628cb69b3d0f6df398ae4f9a7b1f1b7312fbd850dbe185b82f0"
     },
     {
+      "path": "artifacts/plug_analysis/camera_control_metrics.csv",
+      "bytes": 15107,
+      "sha256": "53aaefa8a0cb2b50c042b05c1276b2a35cd9eb1809e0cd4853edbf0d09f10e95"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_control_metrics.tex",
+      "bytes": 1918,
+      "sha256": "0835f1d23c5684ec3379eb682778c9a21fc7411557673c8fb416287e2ccb75af"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/completion_verified.json",
+      "bytes": 56665,
+      "sha256": "fa912fc06a7e0ce93ba1a9a335cfe03b7963ad4b0e55a2a6f6783ff67bb597da"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/freeze1-active/evaluation-repeat1.json",
+      "bytes": 678975,
+      "sha256": "dfc84547304291efeb127535da1d956d36580f373fdfeed4a0d98f0fa1d71561"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/freeze1-active/evaluation-repeat2.json",
+      "bytes": 678796,
+      "sha256": "7acac6c7814f6b2d75f123084b2f807c7d5d899d763d5b6d821e5c37fa4d1a60"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/hold1-initial/evaluation-repeat1.json",
+      "bytes": 681705,
+      "sha256": "3bdc1bc5950811a1ab1adcb139ebd94d66b90d507de7b159e65d8e1c559fb120"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/hold1-initial/evaluation-repeat2.json",
+      "bytes": 681811,
+      "sha256": "31482928c44435f772f648ac61a68e4b861a3414e14a2a2596897b98772f113e"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/nominal-active/evaluation-repeat1.json",
+      "bytes": 678980,
+      "sha256": "fdd8023beedae60599dfd568f17f4bfae19c8bb56b035e9744b43383cebf2a5d"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/nominal-active/evaluation-repeat2.json",
+      "bytes": 680376,
+      "sha256": "9eb72b74cbbed02798d7080ea92b0509d83f95685f3fabe7269a555742afde0e"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/nominal-initial/evaluation-repeat1.json",
+      "bytes": 680045,
+      "sha256": "5ea19d61a8832459fbce29f79f2e23802ea6f0228bc99f8ebeb357a4b114493a"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/nominal-initial/evaluation-repeat2.json",
+      "bytes": 681620,
+      "sha256": "a0f4e365a15c1d8538e5433a1dfdc494c7fc7bf76744011bfa46f0be1fe9076f"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/resetmemory-initial/evaluation-repeat1.json",
+      "bytes": 680043,
+      "sha256": "d0e6da62047eddbde8a6aaf2f38814da41522dfc704ffc8c73594e643b3c45d2"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/resetmemory-initial/evaluation-repeat2.json",
+      "bytes": 679986,
+      "sha256": "c4a2688404a4069cc49dd22c5d140504041202d3b5c8e3907ffcebc0d1cb415d"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/runtime_manifest.json",
+      "bytes": 19552,
+      "sha256": "c9ae2f6026c765458b12747c5dcc89b97583c57c2be28fdf3d4776f5a95b3fe6"
+    },
+    {
+      "path": "artifacts/plug_analysis/camera_controls/summary.json",
+      "bytes": 70554,
+      "sha256": "d79d06a180a9a5a2d167a9de6f4086db8d01af55a74f8b56c0a81985b15bb4ca"
+    },
+    {
       "path": "artifacts/plug_analysis/checkpoint_metrics.csv",
       "bytes": 1000,
       "sha256": "8b2181a27e2221e67f75db6c77be187147498d079d7095aed972252a705111e5"
@@ -1384,6 +1469,11 @@
       "sha256": "e32d2a3dddd18eaabe62abd6d9784e7c7ee386fb79007d7f3ffa1dea97f22598"
     },
     {
+      "path": "artifacts/plug_analysis/corrected_evaluation_episodes.csv",
+      "bytes": 1346911,
+      "sha256": "2b85030feec812a5b79de15093ba914150f0ec60fd7e3a02adcc84adf928d5ac"
+    },
+    {
       "path": "artifacts/plug_analysis/corrected_hparam_metrics.csv",
       "bytes": 6682,
       "sha256": "465447a11d66ea58d298e6f1a8620b1da6c1d3bfc6887a8b9ed913a244f8574f"
@@ -1414,9 +1504,14 @@
       "sha256": "6d70c3783de67008eb4d73933621d86bd6993c48b31b6eba3f5d68a57e165d08"
     },
     {
+      "path": "artifacts/plug_analysis/diagnosis_plan.json",
+      "bytes": 14351,
+      "sha256": "3b6f83c52c304bf72c5f764983ce78129a9ce0cf4c41885c00ecad31572aa4b6"
+    },
+    {
       "path": "artifacts/plug_analysis/evaluation_episodes.csv",
-      "bytes": 139426,
-      "sha256": "e427e09d8619b0015eab435abdb4931a5e9ccd5d07e2799945a58cd53e9d605d"
+      "bytes": 721398,
+      "sha256": "22033775e14587b595701186c0757b3a2085c20da6f61e5bfb007d19068e44a2"
     },
     {
       "path": "artifacts/plug_analysis/exploration_learning_summary.json",
@@ -1444,6 +1539,11 @@
       "sha256": "2f9cbe37b1ab1a513db0f86eb29c810fa6b814a711474aec43d0bcf7c75fed29"
     },
     {
+      "path": "artifacts/plug_analysis/paper_tables_validation.json",
+      "bytes": 299,
+      "sha256": "6350c3392b34b7d74a79a0e5aa955eece740f4019e8ba138dcd6a0e3f6ba6a9c"
+    },
+    {
       "path": "artifacts/plug_analysis/performance_metrics.csv",
       "bytes": 3836,
       "sha256": "53831441df3fc80c477d0312b31630281d23d6a88db40288897f0809fbc617ef"
@@ -1455,13 +1555,13 @@
     },
     {
       "path": "artifacts/plug_analysis/physical_terminal_errors.csv",
-      "bytes": 42401,
-      "sha256": "26a0b552a03a87bb1c6f93338c3d2196630a6f3c135dfd44ab398083363b8fce"
+      "bytes": 62978,
+      "sha256": "649bd9794116018976280ef2f50c6db177c486282e3bb33983b86fab8832fbb4"
     },
     {
       "path": "artifacts/plug_analysis/physical_terminal_errors.json",
-      "bytes": 95964,
-      "sha256": "7873dcf9146c73d7f9a9252651fea728200ba7d177ff619adb89dd30633aad66"
+      "bytes": 143261,
+      "sha256": "33c485b84fc4ac1a55ef1140ee4bce4e5cb16f29c428a1a664c0c298079943c8"
     },
     {
       "path": "artifacts/plug_analysis/randomized_feasibility_gpu.json",
@@ -1505,8 +1605,8 @@
     },
     {
       "path": "artifacts/plug_analysis/report_validation.json",
-      "bytes": 34918,
-      "sha256": "da2e27f8e7a96aba0f3b330c6c4a4f8c8f9f3584ff4c7b671908c0ddfc37376c"
+      "bytes": 34915,
+      "sha256": "76a6fca3667e212db12fb967d17cb138197379db32e1f76f93cd624c8f027f27"
     },
     {
       "path": "artifacts/plug_analysis/representative_trajectories.csv",
@@ -1735,9 +1835,9 @@
     },
     {
       "path": "docs/HANDOFF_2026-10-07.md",
-      "bytes": 27302,
-      "sha256": "da3cfc8a31048d7d23fe140eb688bace2e676c9f5f5625c623408816bf43f063"
+      "bytes": 27938,
+      "sha256": "00dce96e71bd2fd95279e0a3bcd60a6ceecdf88c2269c8277e1b2a470a7cd46c"
     }
   ],
-  "archive_bytes": 62192304
+  "archive_bytes": 64109760
 }

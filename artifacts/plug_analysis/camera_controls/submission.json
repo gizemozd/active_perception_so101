@@ -1,0 +1,147 @@
+{
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "data_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+  "output_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/camera_controls",
+  "source_files_sha256": {
+    "src/active_perception_arms/config.py": "ba639782cd2443275b13e839543508144aec1607cfc80d9ffa1e26879d952faf",
+    "src/active_perception_arms/policy.py": "bd8bc5f6ddc885588ef2968ab8578dd5e5d0f7ff58a99bc0661c0c2187577b81",
+    "src/active_perception_arms/train.py": "028c6df1d5505a3029e3687d3c569ad7abc85fb739ea80bf6524e2a1ca6ac16d",
+    "src/active_perception_arms/mdp.py": "0fad9d65cf4ece859245b31edb3df5374122b8a54475c6e3b23d246ecef6e6da",
+    "src/active_perception_arms/environment.py": "2a4fe89c92cd9b558b0c25aea0f54f14325ae692c256566a8554b3ba4f42618d",
+    "src/active_perception_arms/telemetry.py": "b4ab0f0c7d5893e31dcb7f2b96a90dd8e8f63ad0ad17316e016b77d946f043f5",
+    "src/active_perception_arms/evaluate.py": "99c2f5432d4138a3fcf4d7da1ae77a13d326e36cd55ae325f58dd23ff97a81fc",
+    "src/active_perception_arms/capture_evaluation.py": "3b0707cf054c270d064b0b4f2018fbe62def20f860149a41fc75779e4c50f1a7",
+    "src/active_perception_arms/record_evaluation.py": "5e00031fe087d83f8495f8485b5292e77091d92f417fbc401e502ed59ed4bb02",
+    "scripts/slurm/common.sh": "68238f0124b55efd1f271b82166526d49966d32005b5ad49b2bd7d4af5558ce8",
+    "src/active_perception_arms/evaluation_audit.py": "b657260ca39c088c5a5a3c2a299f6019ac3b8d930c3d245eac0cec10fa187587",
+    "src/active_perception_arms/occlusion.py": "aa9f4cec079c358bc85565c3aaea31bbcc1fc03d4c24f5048d9812c5af5b4dc0",
+    "src/active_perception_arms/scenes.py": "14adf157a7506ffc764b183749307723cf2d7e946f0b26a5c09751abdcddb605",
+    "src/active_perception_arms/plug.py": "390881b5a8b5a40527fa3f8ea93534edfbce62ec04132b87b74ae9c21e3c6baf",
+    "src/active_perception_arms/robots/plug_control.py": "95d7d2f8a35cc18b0d16fb0ad15b7df8da22746ed2994a927bf163b67de28873"
+  },
+  "launcher_files_sha256": {
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_camera_controls.py": "71fb2699df5e4106bc847cd26c05ee7334900bacc2a0e213aa75129f1382b38a",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_reward_continuation.py": "17fc359f05d03877720fa25c401c0929150a3b074998118d92d5be988495d36a",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_tuning_continuation.py": "4f5912dedd057c7ffa268e05c5a53f03e5379e87567d219df87324f1bf376f2b"
+  },
+  "script_sha256": "c97d6b46e96433598ef3bfbc68621c4771e455d2540d1e3a7a037c1692b6370a",
+  "checkpoints": {
+    "active": {
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt",
+      "files_sha256": {
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt": "335f1548aab57f3977c6cc986dbf156c8c889698882fa271863532a9ac1ec55f",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/experiment.json": "9e8105ec68ec50d581887fa5737f943b4be88cf0d0f3c3b4d2b8a641f004c0d6",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/runner.json": "e535d101a68e5bf764d77c64b8c05421b65da072e038cd4febcc5b2e78fe08c3"
+      },
+      "trained_updates": 1500,
+      "trained_transitions": 18432000,
+      "training_success_state_sample": "derived_substep",
+      "existing_current_qpos_successes": 102
+    },
+    "initial": {
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt",
+      "files_sha256": {
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt": "bd9e1dafe80c700de6132c105a365b56286429e8bd1a3b8144ccb2e3bb3f749f",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/experiment.json": "5f3435649da6215fd1bb0e45a38f8748cabc70da9c72f9014bd772c639a875b3",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/runner.json": "59117db875d6641c57bb7e9519ddb02e552b7422330725f8a159b546b8bfcead"
+      },
+      "trained_updates": 1500,
+      "trained_transitions": 18432000,
+      "training_success_state_sample": "derived_substep",
+      "existing_current_qpos_successes": 147
+    }
+  },
+  "cases": [
+    {
+      "name": "nominal-active",
+      "condition": "active",
+      "flags": []
+    },
+    {
+      "name": "freeze1-active",
+      "condition": "active",
+      "flags": [
+        "--freeze-camera-after",
+        "1.0"
+      ]
+    },
+    {
+      "name": "nominal-initial",
+      "condition": "initial",
+      "flags": []
+    },
+    {
+      "name": "hold1-initial",
+      "condition": "initial",
+      "flags": [
+        "--hold-external-after",
+        "1.0"
+      ]
+    },
+    {
+      "name": "resetmemory-initial",
+      "condition": "initial",
+      "flags": [
+        "--reset-memory"
+      ]
+    }
+  ],
+  "protocol": {
+    "episodes_per_case_repeat": 512,
+    "episodes_per_variant": 128,
+    "num_envs": 128,
+    "seed": 10000,
+    "split": "validation",
+    "success_state_sample": "current_qpos",
+    "audit_termination": true,
+    "reset_seeds": [
+      10000,
+      10001,
+      10002,
+      10003
+    ],
+    "terminal_position_snapshot": "Raw object freejoint XYZ and offset-corrected goal XYZ in world meters, before automatic reset; read-only extension of the unchanged termination observer.",
+    "repeats": 2,
+    "evaluations": 10,
+    "total_evaluated_episodes": 5120,
+    "gpus": 1,
+    "slurm_time_minutes": 20,
+    "wandb": false,
+    "videos": false
+  },
+  "limitations": [
+    "Within-checkpoint interventions diagnose dependence of these trained policies; they do not establish a generally optimal sensing strategy.",
+    "Camera freeze holds joint/gimbal command targets from 1s; actual joints can settle. RGB stays live. The intervention also changes camera embodiment and possible contacts.",
+    "Initial-only already fixes camera targets after 1s. Holding external RGB after 1s retains wrist RGB, proprioception and GRU state; it tests continued external feedback at that trained viewpoint.",
+    "resetmemory-initial resets the entire actor GRU every step, including inspection. It can change initial view selection and manipulation; it is not a camera-specific memory ablation or a retrained feedforward baseline.",
+    "Matching initial physics and sensor hashes does not guarantee identical GPU contact trajectories. Outcome flips are descriptive; episodes are not IID causal intervention replicates.",
+    "Two GPU execution repeats of training seed 0 quantify numerical sensitivity, not variation across independently trained policies. Wilson intervals are episode-count summaries, not causal-effect or training-seed uncertainty.",
+    "Original actors were trained with derived_substep success and without the critic-bootstrap fix. Evaluation overrides current_qpos; no parameters are retrained. xm failure and unstable manipulation remain unresolved."
+  ],
+  "prepared_at": "2026-10-09T07:15:00.587913+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.err",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/camera_controls.sbatch"
+  ],
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/src",
+    "CAMERA_CONTROLS_MANIFEST": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/camera_controls/submission.json",
+    "CAMERA_CONTROLS_HELPER": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_camera_controls.py"
+  },
+  "training_started": false,
+  "status": "submitted",
+  "reserved_at": "2026-10-09T07:15:00.589659+00:00",
+  "stdout": "51535182",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51535182"
+}

@@ -2,10 +2,11 @@
   "status": "PASSED",
   "compiler": "pdflatex",
   "tables": [
+    "camera_control_metrics.tex",
     "corrected_hparam_metrics.tex",
     "corrected_performance_metrics.tex",
     "performance_metrics.tex"
   ],
-  "count": 3,
-  "note": "Standalone article compilation of actual exported LaTeX fragments; no numerical re-evaluation."
+  "count": 4,
+  "note": "Actual LaTeX fragments compile in a standalone article; no numerical re-evaluation."
 }

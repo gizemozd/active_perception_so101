@@ -1236,3 +1236,31 @@ handoff instruction alone.
   [0.739, 0.536, 0.799], with 4/13,824 completed training episodes successful.
   Settings are unchanged and the full capped run continues; no early competence
   claim or checkpoint selection is made.
+
+### Completed within-checkpoint camera and memory diagnostics
+
+- Job `51535182` completed 0:0 in 10m36 on one GPU: five original-model_1499
+  cases, two physical 512-episode repeats each (5,120 total), no learner updates.
+  Exact source/checkpoint/helper hashes and independent checks are in
+  `camera_controls/completion_verified.json`. All physical scoring violations
+  are zero; raw terminal XYZ norms agree with scalar errors within 4.13e-9 m.
+- Active nominal succeeds 96/102 times; freeze camera targets after 1 s succeeds
+  17/18 times, a drop of 15.43/16.41 percentage points. RGB remains live, actual
+  joints may settle, and camera embodiment/contact changes too. This active
+  checkpoint depends on continued camera commands; it is not a pure visual
+  causal effect or proof that continuous control is preferable to initial-only.
+- Initial nominal succeeds 152/149 times; holding external RGB after 1 s succeeds
+  152/148 times (0/-0.20 percentage points). Wrist RGB/proprio/GRU remain live.
+  This shows no aggregate late-external-feedback advantage in these executions,
+  not universal equivalence. Resetting the entire GRU every step yields 6/10
+  successes, a drop of 28.52/27.15 points, but also alters inspection and view
+  selection: it does not isolate camera-specific memory or a retrained FF baseline.
+- Initial physics and both RGB hashes match exactly within each checkpoint and
+  intervention/repeat. Nominal outcomes nevertheless flip 86 active / 73 initial
+  episodes. Diagnostic flips and Wilson episode intervals are not causal-effect
+  or training-seed uncertainty. Every case remains xm 0/128; no reliable
+  all-variant or generally optimal active-perception claim follows.
+- The next diagnosis is prepared, not executed: separate visual target/variant
+  accessibility from phase-conditioned command and tracking precision using one
+  passively instrumented, fixed-checkpoint capture. See `diagnosis_plan.json`;
+  no further PPO grid or automatic budget extension follows from this plan.

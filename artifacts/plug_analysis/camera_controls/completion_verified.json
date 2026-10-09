@@ -1,0 +1,2313 @@
+{
+  "status": "VERIFIED_COMPLETE",
+  "verified_at": "2026-10-09T07:26:18.387430+00:00",
+  "job_id": "51535182",
+  "scheduler": {
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:10:36",
+    "allocated_resources": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1"
+  },
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "helper_revision": "5927a7c6a98de668a911141f012fc69e1945d223",
+  "checkpoint_files_sha256": {
+    "active": {
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt": "335f1548aab57f3977c6cc986dbf156c8c889698882fa271863532a9ac1ec55f",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/experiment.json": "9e8105ec68ec50d581887fa5737f943b4be88cf0d0f3c3b4d2b8a641f004c0d6",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/runner.json": "e535d101a68e5bf764d77c64b8c05421b65da072e038cd4febcc5b2e78fe08c3"
+    },
+    "initial": {
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt": "bd9e1dafe80c700de6132c105a365b56286429e8bd1a3b8144ccb2e3bb3f749f",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/experiment.json": "5f3435649da6215fd1bb0e45a38f8748cabc70da9c72f9014bd772c639a875b3",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/runner.json": "59117db875d6641c57bb7e9519ddb02e552b7422330725f8a159b546b8bfcead"
+    }
+  },
+  "submission_sha256": "d6d32d69c361480ccfc927f7888a9fd0082b1c84c73ac7d7db2b5aae70389365",
+  "runtime_manifest_sha256": "c9ae2f6026c765458b12747c5dcc89b97583c57c2be28fdf3d4776f5a95b3fe6",
+  "summary_sha256": "d79d06a180a9a5a2d167a9de6f4086db8d01af55a74f8b56c0a81985b15bb4ca",
+  "protocol": {
+    "episodes_per_case_repeat": 512,
+    "episodes_per_variant": 128,
+    "num_envs": 128,
+    "seed": 10000,
+    "split": "validation",
+    "success_state_sample": "current_qpos",
+    "audit_termination": true,
+    "reset_seeds": [
+      10000,
+      10001,
+      10002,
+      10003
+    ],
+    "terminal_position_snapshot": "Raw object freejoint XYZ and offset-corrected goal XYZ in world meters, before automatic reset; read-only extension of the unchanged termination observer.",
+    "repeats": 2,
+    "evaluations": 10,
+    "total_evaluated_episodes": 5120,
+    "gpus": 1,
+    "slurm_time_minutes": 20,
+    "wandb": false,
+    "videos": false
+  },
+  "checks": {
+    "all_ten_stages_succeeded": true,
+    "exact_case_interventions": true,
+    "exact_source_checkpoint_and_helper_hashes": true,
+    "all_within_checkpoint_initial_physics_and_images_match": true,
+    "four_variants_each_128_per_repeat": true,
+    "all_5120_outcomes_match_pre_reset_physical_flags": true,
+    "all_successes_below_2mm_for_three_discrete_samples": true,
+    "all_physical_violation_counts_zero": true,
+    "all_terminal_qpos_minus_goal_vectors_verified": true,
+    "maximum_xyz_norm_minus_scalar_difference_m": 4.124027737362201e-09,
+    "maximum_body_minus_goal_minus_vector_difference_m": 1.862645149230957e-09,
+    "training_started": false
+  },
+  "results": [
+    {
+      "case": "nominal-active",
+      "repeat": 1,
+      "successes": 96,
+      "episodes": 512,
+      "success_rate": 0.1875,
+      "wilson_95": [
+        0.15606453821977445,
+        0.223589821607027
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.004006010276498273,
+            0.001576329786075803,
+            0.002342212916119024
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.006159405049402267,
+            0.0030570863264074433,
+            0.0033266799291595817
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 28,
+          "success_rate": 0.21875,
+          "wilson_95": [
+            0.15590524094938457,
+            0.2979842969544631
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.0008876833934436945,
+            -0.00015847849044803297,
+            0.00025553816522005945
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.001958372314334156,
+            0.0017342305718557327,
+            0.0018379242828814313
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 45,
+          "success_rate": 0.3515625,
+          "wilson_95": [
+            0.2742728728140744,
+            0.43750216107962303
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.005533026610464731,
+            -0.006855201681901235,
+            0.004913493095955346
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.00685737966614397,
+            0.007221954270789865,
+            0.005689319244993385
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 23,
+          "success_rate": 0.1796875,
+          "wilson_95": [
+            0.1228245997451618,
+            0.25521626286755356
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.003567683664641663,
+            0.01123622453178541,
+            0.006973437797569204
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0062133116457516735,
+            0.011239458229283628,
+            0.0071090588680817746
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 8.628799919039011,
+      "mean_terminal_position_error_m": 0.010155165133937771,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "fdd8023beedae60599dfd568f17f4bfae19c8bb56b035e9744b43383cebf2a5d"
+    },
+    {
+      "case": "nominal-active",
+      "repeat": 2,
+      "successes": 102,
+      "episodes": 512,
+      "success_rate": 0.19921875,
+      "wilson_95": [
+        0.1669182784986355,
+        0.2359990428346609
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.003914010711014271,
+            0.0021885542719246587,
+            0.00235413385235006
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.00586780603043735,
+            0.0026394632859592093,
+            0.003311832835606765
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 29,
+          "success_rate": 0.2265625,
+          "wilson_95": [
+            0.16263248458646878,
+            0.30642678837560533
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.0014534483361785533,
+            -0.00046412308802246116,
+            0.0009501221284153871
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.002384938632530975,
+            0.002040007631876506,
+            0.0023632503653061576
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 54,
+          "success_rate": 0.421875,
+          "wilson_95": [
+            0.33982112338883874,
+            0.5084815260288968
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.005190670220144966,
+            -0.007774140030960552,
+            0.004282702306227293
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.006628295260270534,
+            0.008005722411326133,
+            0.005112355203891639
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 19,
+          "success_rate": 0.1484375,
+          "wilson_95": [
+            0.09713463115350121,
+            0.22022729122630832
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.004419113498443039,
+            0.01207997617439105,
+            0.007396000211883802
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.006345042211250984,
+            0.01207997617439105,
+            0.007539988167991396
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 8.621601349674165,
+      "mean_terminal_position_error_m": 0.010446739473763955,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "9eb72b74cbbed02798d7080ea92b0509d83f95685f3fabe7269a555742afde0e"
+    },
+    {
+      "case": "freeze1-active",
+      "repeat": 1,
+      "successes": 17,
+      "episodes": 512,
+      "success_rate": 0.033203125,
+      "wilson_95": [
+        0.02083204403601061,
+        0.052526655955274074
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.0008733458162168972,
+            0.0035900389739254024,
+            0.0026038302676170133
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.005043006276537199,
+            0.004169441654084949,
+            0.0032200553760048933
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.020598505449015647,
+            0.004626756289326295,
+            0.008339024789165705
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.020611003186786547,
+            0.006102589045440254,
+            0.00841853825841099
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 16,
+          "success_rate": 0.125,
+          "wilson_95": [
+            0.07842644638761767,
+            0.19342627081751254
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.009724543520860607,
+            -0.004717935196822509,
+            0.0037306148587958887
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.010295459203916835,
+            0.006263603281695396,
+            0.005327538543497212
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125,
+          "wilson_95": [
+            0.0013804318928742967,
+            0.04292625943885903
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.013038467852311442,
+            0.025560316778864944,
+            0.00803583848028211
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.013580208677012706,
+            0.025560316778864944,
+            0.008183499427104834
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 2.9193596807308495,
+      "mean_terminal_position_error_m": 0.01956207545254074,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "dfc84547304291efeb127535da1d956d36580f373fdfeed4a0d98f0fa1d71561"
+    },
+    {
+      "case": "freeze1-active",
+      "repeat": 2,
+      "successes": 18,
+      "episodes": 512,
+      "success_rate": 0.03515625,
+      "wilson_95": [
+        0.022351806085306174,
+        0.054884054157061
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.0006261925518629141,
+            0.004065845656441525,
+            0.002863191970391199
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.004719831464171875,
+            0.00432244103285484,
+            0.0034392976376693696
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.020526697662717197,
+            0.0042204252913506934,
+            0.007844018044124823
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.020544292237900663,
+            0.006127620423285407,
+            0.007955529268656392
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 15,
+          "success_rate": 0.1171875,
+          "wilson_95": [
+            0.07231682349355831,
+            0.1843661586533454
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.010722833569161594,
+            -0.004445739352377132,
+            0.004904904191789683
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.011257995865889825,
+            0.007184889604104683,
+            0.006174266316520516
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 3,
+          "success_rate": 0.0234375,
+          "wilson_95": [
+            0.008002416396755693,
+            0.06664374505143053
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.013392927347013028,
+            0.024620523039629916,
+            0.008385773151530884
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.014040494850632967,
+            0.024736822644626955,
+            0.008520917166606523
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 2.9193558790721,
+      "mean_terminal_position_error_m": 0.01990161363437437,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "7acac6c7814f6b2d75f123084b2f807c7d5d899d763d5b6d821e5c37fa4d1a60"
+    },
+    {
+      "case": "nominal-initial",
+      "repeat": 1,
+      "successes": 152,
+      "episodes": 512,
+      "success_rate": 0.296875,
+      "wilson_95": [
+        0.2589317216494714,
+        0.33784361223794956
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.0034650055167730898,
+            -0.0001853051180660259,
+            0.0025992421578848734
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.005017950927140191,
+            0.0028367449558572844,
+            0.0032900757651077583
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 38,
+          "success_rate": 0.296875,
+          "wilson_95": [
+            0.2245816608356685,
+            0.3810052276504437
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.00010738748187577585,
+            -2.728952676989138e-05,
+            -0.0004133274414925836
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0010905355175054865,
+            0.0018123106201528572,
+            0.0011057160954806022
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 51,
+          "success_rate": 0.3984375,
+          "wilson_95": [
+            0.3177758511189873,
+            0.4850175931240689
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.003483626266643114,
+            -0.007836793403839692,
+            0.003893096320098266
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.005515904772437352,
+            0.00860718431067653,
+            0.004669109854148701
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 63,
+          "success_rate": 0.4921875,
+          "wilson_95": [
+            0.4070774941965607,
+            0.5777527707452128
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.0007329127483899356,
+            0.003970945581841079,
+            0.002747247061051894
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0029012465302002965,
+            0.0041875732790686016,
+            0.003358840760483872
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 2.1077579939737916,
+      "mean_terminal_position_error_m": 0.0073767343208146485,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "5ea19d61a8832459fbce29f79f2e23802ea6f0228bc99f8ebeb357a4b114493a"
+    },
+    {
+      "case": "nominal-initial",
+      "repeat": 2,
+      "successes": 149,
+      "episodes": 512,
+      "success_rate": 0.291015625,
+      "wilson_95": [
+        0.25334281371732736,
+        0.33180103941684613
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.0051898550082114525,
+            -0.000402861509428476,
+            0.0026102444098796695
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.005943984280747827,
+            0.0023901451804704266,
+            0.0032877254707273096
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 35,
+          "success_rate": 0.2734375,
+          "wilson_95": [
+            0.2036699978045819,
+            0.3564076855068509
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.00010771015877253376,
+            -5.747590330429375e-05,
+            -0.000446697544248309
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0013998344911669847,
+            0.0018667791846382897,
+            0.0011275987126282416
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 54,
+          "success_rate": 0.421875,
+          "wilson_95": [
+            0.33982112338883874,
+            0.5084815260288968
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.004807629203241959,
+            -0.008757834664720576,
+            0.00407679191994248
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.005788740226307709,
+            0.008919091364077758,
+            0.004803282245120499
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 60,
+          "success_rate": 0.46875,
+          "wilson_95": [
+            0.38447476772704176,
+            0.5548462920400525
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.0002027761720455601,
+            0.004173625356997945,
+            0.002951360736915376
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0024385336719205952,
+            0.004498541327848216,
+            0.003506178043608088
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 2.1090761395171285,
+      "mean_terminal_position_error_m": 0.007673215862894267,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "a0f4e365a15c1d8538e5433a1dfdc494c7fc7bf76744011bfa46f0be1fe9076f"
+    },
+    {
+      "case": "hold1-initial",
+      "repeat": 1,
+      "successes": 152,
+      "episodes": 512,
+      "success_rate": 0.296875,
+      "wilson_95": [
+        0.2589317216494714,
+        0.33784361223794956
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.0040700653262319975,
+            -0.00020864897487626877,
+            0.002820871253788937
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0051983747180202045,
+            0.0028193479538458632,
+            0.003590863685531076
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 35,
+          "success_rate": 0.2734375,
+          "wilson_95": [
+            0.2036699978045819,
+            0.3564076855068509
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.0001537770549475681,
+            -0.00043004242252209224,
+            -0.00029922608518972993
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0012403081518641557,
+            0.0018124876369256526,
+            0.0013421655166894197
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 53,
+          "success_rate": 0.4140625,
+          "wilson_95": [
+            0.33245150577514626,
+            0.5006814085843628
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.002688866982680338,
+            -0.0089441721647745,
+            0.0039019687101244926
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.004454753189747862,
+            0.009498804996837862,
+            0.0046594663872383535
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 64,
+          "success_rate": 0.5,
+          "wilson_95": [
+            0.4146522462605095,
+            0.5853477537394906
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.0006479872054114821,
+            0.003190732957136788,
+            0.0025822201787377708
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0023314062045756145,
+            0.0033830771531029313,
+            0.003221193626814056
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 2.108050265815109,
+      "mean_terminal_position_error_m": 0.007251300188727328,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "3bdc1bc5950811a1ab1adcb139ebd94d66b90d507de7b159e65d8e1c559fb120"
+    },
+    {
+      "case": "hold1-initial",
+      "repeat": 2,
+      "successes": 148,
+      "episodes": 512,
+      "success_rate": 0.2890625,
+      "wilson_95": [
+        0.25148157677528393,
+        0.32978511610780703
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.004145266459090635,
+            -0.0006325677095446736,
+            0.002549833538068924
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0049787856405600905,
+            0.0029167909669922665,
+            0.0033779565346776508
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 31,
+          "success_rate": 0.2421875,
+          "wilson_95": [
+            0.17618737999242307,
+            0.323211363086104
+          ],
+          "mean_terminal_error_xyz_m": [
+            -8.076164772319316e-05,
+            -0.00015609470028721262,
+            -0.00012033385428367183
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.00134036011399985,
+            0.0018062469371216139,
+            0.0014331346828839742
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 56,
+          "success_rate": 0.4375,
+          "wilson_95": [
+            0.3546231312705327,
+            0.5240189882636558
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.002929869402123586,
+            -0.009890434012049809,
+            0.0037879996161791496
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.004817694498797209,
+            0.01021978707285598,
+            0.004535584223049227
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 61,
+          "success_rate": 0.4765625,
+          "wilson_95": [
+            0.39198872606581675,
+            0.562502068759504
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.0002433308754916652,
+            0.003222265696422255,
+            0.0025170466396957636
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0028013843248118064,
+            0.0033911578002516762,
+            0.0030926158651709557
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 2.108560689492151,
+      "mean_terminal_position_error_m": 0.007488298170642338,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "31482928c44435f772f648ac61a68e4b861a3414e14a2a2596897b98772f113e"
+    },
+    {
+      "case": "resetmemory-initial",
+      "repeat": 1,
+      "successes": 6,
+      "episodes": 512,
+      "success_rate": 0.01171875,
+      "wilson_95": [
+        0.005381571696839919,
+        0.02532836553253736
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.013272391297505237,
+            -0.0013179037714508013,
+            0.006984134568483569
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.013522803026717156,
+            0.005822004376568657,
+            0.006991368005401455
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625,
+          "wilson_95": [
+            0.004295449710144214,
+            0.055180976679815565
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.009496258733634022,
+            0.0004388828128867317,
+            0.004924010194372386
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.0102315860985982,
+            0.003574057041987544,
+            0.00556175407837145
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125,
+          "wilson_95": [
+            0.0013804318928742967,
+            0.04292625943885903
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.0008756696370255668,
+            -0.0125495999091072,
+            0.006496648267784622
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.00680994664071477,
+            0.012725977678201161,
+            0.007148369601054583
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 3,
+          "success_rate": 0.0234375,
+          "wilson_95": [
+            0.008002416396755693,
+            0.06664374505143053
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.000561480623218813,
+            0.014035722833796171,
+            0.007206644855614286
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.006897697205204167,
+            0.01405702232659678,
+            0.007498531347664539
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 1.8130026326980442,
+      "mean_terminal_position_error_m": 0.016790208833526776,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "d0e6da62047eddbde8a6aaf2f38814da41522dfc704ffc8c73594e643b3c45d2"
+    },
+    {
+      "case": "resetmemory-initial",
+      "repeat": 2,
+      "successes": 10,
+      "episodes": 512,
+      "success_rate": 0.01953125,
+      "wilson_95": [
+        0.010642921854633454,
+        0.03557565637907378
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.02913695627350686
+          ],
+          "mean_terminal_error_xyz_m": [
+            -0.012009646532533225,
+            -0.0024197507082135417,
+            0.007178757899964694
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.012363847701635677,
+            0.005833187526150141,
+            0.0071904903670656495
+          ]
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125,
+          "wilson_95": [
+            0.0013804318928742967,
+            0.04292625943885903
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.010143779430109134,
+            0.0005454395986816962,
+            0.005180544074391946
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.010834151685230609,
+            0.003918913950656133,
+            0.005838603334268555
+          ]
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125,
+          "wilson_95": [
+            0.0013804318928742967,
+            0.04292625943885903
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.0005182981267353171,
+            -0.012459036115615163,
+            0.006163554040540475
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.006331898738608288,
+            0.01267358614859404,
+            0.00670118960988475
+          ]
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 8,
+          "success_rate": 0.0625,
+          "wilson_95": [
+            0.03200692569506177,
+            0.11848791104425674
+          ],
+          "mean_terminal_error_xyz_m": [
+            0.00012875094216724392,
+            0.013629514149215538,
+            0.00695241767243715
+          ],
+          "mean_absolute_terminal_error_xyz_m": [
+            0.007295148976481869,
+            0.013688650833501015,
+            0.007298271455510985
+          ]
+        }
+      },
+      "mean_camera_joint_travel_rad": 1.8128105320502073,
+      "mean_terminal_position_error_m": 0.016733397646248704,
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "report_sha256": "c4a2688404a4069cc49dd22c5d140504041202d3b5c8e3907ffcebc0d1cb415d"
+    }
+  ],
+  "within_case_repeat_variability": {
+    "nominal-active": {
+      "initial_state_mismatches": 0,
+      "initial_physics_mismatches": 0,
+      "initial_sensor_mismatches": {
+        "wrist": 0,
+        "external": 0
+      },
+      "changed_episode_count": 86,
+      "changed_episode_fraction": 0.16796875,
+      "lost_successes": 40,
+      "gained_successes": 46,
+      "lost_episode_indices": [
+        11,
+        66,
+        77,
+        79,
+        98,
+        101,
+        113,
+        115,
+        118,
+        119,
+        130,
+        159,
+        173,
+        195,
+        202,
+        203,
+        227,
+        233,
+        243,
+        290,
+        299,
+        302,
+        313,
+        327,
+        330,
+        337,
+        347,
+        366,
+        394,
+        411,
+        430,
+        438,
+        442,
+        445,
+        454,
+        455,
+        461,
+        470,
+        474,
+        491
+      ],
+      "gained_episode_indices": [
+        19,
+        27,
+        30,
+        31,
+        42,
+        54,
+        59,
+        69,
+        78,
+        94,
+        102,
+        121,
+        154,
+        162,
+        185,
+        186,
+        194,
+        197,
+        218,
+        225,
+        226,
+        230,
+        251,
+        263,
+        269,
+        274,
+        291,
+        303,
+        314,
+        315,
+        321,
+        326,
+        338,
+        354,
+        362,
+        378,
+        381,
+        390,
+        397,
+        414,
+        418,
+        451,
+        473,
+        482,
+        495,
+        506
+      ],
+      "success_count_change": 6,
+      "descriptive_only": true,
+      "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+    },
+    "freeze1-active": {
+      "initial_state_mismatches": 0,
+      "initial_physics_mismatches": 0,
+      "initial_sensor_mismatches": {
+        "wrist": 0,
+        "external": 0
+      },
+      "changed_episode_count": 15,
+      "changed_episode_fraction": 0.029296875,
+      "lost_successes": 7,
+      "gained_successes": 8,
+      "lost_episode_indices": [
+        30,
+        74,
+        186,
+        190,
+        206,
+        370,
+        482
+      ],
+      "gained_episode_indices": [
+        130,
+        162,
+        354,
+        367,
+        454,
+        459,
+        502,
+        506
+      ],
+      "success_count_change": 1,
+      "descriptive_only": true,
+      "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+    },
+    "nominal-initial": {
+      "initial_state_mismatches": 0,
+      "initial_physics_mismatches": 0,
+      "initial_sensor_mismatches": {
+        "wrist": 0,
+        "external": 0
+      },
+      "changed_episode_count": 73,
+      "changed_episode_fraction": 0.142578125,
+      "lost_successes": 38,
+      "gained_successes": 35,
+      "lost_episode_indices": [
+        27,
+        50,
+        59,
+        71,
+        86,
+        101,
+        105,
+        130,
+        141,
+        150,
+        177,
+        183,
+        186,
+        206,
+        215,
+        222,
+        245,
+        251,
+        266,
+        279,
+        299,
+        303,
+        306,
+        322,
+        330,
+        354,
+        355,
+        362,
+        363,
+        367,
+        382,
+        410,
+        473,
+        486,
+        487,
+        507,
+        509,
+        510
+      ],
+      "gained_episode_indices": [
+        42,
+        43,
+        82,
+        98,
+        122,
+        131,
+        147,
+        154,
+        162,
+        165,
+        173,
+        175,
+        179,
+        190,
+        210,
+        263,
+        274,
+        282,
+        310,
+        326,
+        359,
+        370,
+        378,
+        386,
+        387,
+        390,
+        417,
+        451,
+        459,
+        461,
+        466,
+        474,
+        475,
+        482,
+        502
+      ],
+      "success_count_change": -3,
+      "descriptive_only": true,
+      "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+    },
+    "hold1-initial": {
+      "initial_state_mismatches": 0,
+      "initial_physics_mismatches": 0,
+      "initial_sensor_mismatches": {
+        "wrist": 0,
+        "external": 0
+      },
+      "changed_episode_count": 92,
+      "changed_episode_fraction": 0.1796875,
+      "lost_successes": 48,
+      "gained_successes": 44,
+      "lost_episode_indices": [
+        3,
+        6,
+        9,
+        25,
+        31,
+        50,
+        58,
+        71,
+        98,
+        105,
+        107,
+        113,
+        121,
+        147,
+        175,
+        181,
+        185,
+        194,
+        206,
+        218,
+        226,
+        238,
+        242,
+        250,
+        255,
+        271,
+        290,
+        299,
+        314,
+        326,
+        342,
+        359,
+        370,
+        374,
+        387,
+        391,
+        395,
+        410,
+        414,
+        417,
+        423,
+        446,
+        473,
+        481,
+        485,
+        509,
+        510,
+        511
+      ],
+      "gained_episode_indices": [
+        2,
+        26,
+        27,
+        35,
+        38,
+        42,
+        43,
+        46,
+        69,
+        74,
+        78,
+        79,
+        90,
+        103,
+        115,
+        118,
+        119,
+        165,
+        167,
+        170,
+        177,
+        183,
+        186,
+        222,
+        230,
+        245,
+        257,
+        258,
+        262,
+        265,
+        266,
+        289,
+        294,
+        318,
+        322,
+        386,
+        393,
+        394,
+        398,
+        402,
+        411,
+        430,
+        479,
+        499
+      ],
+      "success_count_change": -4,
+      "descriptive_only": true,
+      "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+    },
+    "resetmemory-initial": {
+      "initial_state_mismatches": 0,
+      "initial_physics_mismatches": 0,
+      "initial_sensor_mismatches": {
+        "wrist": 0,
+        "external": 0
+      },
+      "changed_episode_count": 12,
+      "changed_episode_fraction": 0.0234375,
+      "lost_successes": 4,
+      "gained_successes": 8,
+      "lost_episode_indices": [
+        31,
+        121,
+        165,
+        411
+      ],
+      "gained_episode_indices": [
+        25,
+        27,
+        219,
+        243,
+        271,
+        299,
+        459,
+        475
+      ],
+      "success_count_change": 4,
+      "descriptive_only": true,
+      "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+    }
+  },
+  "intervention_comparisons": {
+    "freeze1-active": [
+      {
+        "repeat": 1,
+        "nominal_case": "nominal-active",
+        "nominal_successes": 96,
+        "intervention_successes": 17,
+        "success_rate_change_percentage_points": -15.4296875,
+        "per_variant_success_count_changes": {
+          "xm": 0,
+          "xp": -28,
+          "ym": -29,
+          "yp": -22
+        },
+        "mean_camera_travel_change_rad": -5.7094402383081615,
+        "initial_state_mismatches": 0,
+        "initial_physics_mismatches": 0,
+        "initial_sensor_mismatches": {
+          "wrist": 0,
+          "external": 0
+        },
+        "changed_episode_count": 95,
+        "changed_episode_fraction": 0.185546875,
+        "lost_successes": 87,
+        "gained_successes": 8,
+        "lost_episode_indices": [
+          10,
+          11,
+          25,
+          26,
+          33,
+          46,
+          50,
+          62,
+          66,
+          73,
+          75,
+          77,
+          79,
+          90,
+          95,
+          97,
+          98,
+          101,
+          105,
+          110,
+          113,
+          115,
+          118,
+          119,
+          125,
+          130,
+          142,
+          146,
+          158,
+          159,
+          173,
+          174,
+          178,
+          179,
+          195,
+          199,
+          202,
+          203,
+          205,
+          227,
+          233,
+          234,
+          241,
+          243,
+          245,
+          257,
+          258,
+          289,
+          290,
+          297,
+          299,
+          302,
+          306,
+          313,
+          322,
+          327,
+          330,
+          334,
+          337,
+          347,
+          366,
+          385,
+          391,
+          393,
+          394,
+          407,
+          410,
+          422,
+          425,
+          427,
+          429,
+          430,
+          438,
+          441,
+          442,
+          445,
+          449,
+          450,
+          454,
+          455,
+          461,
+          470,
+          474,
+          479,
+          486,
+          491,
+          501
+        ],
+        "gained_episode_indices": [
+          18,
+          30,
+          186,
+          190,
+          318,
+          350,
+          370,
+          482
+        ],
+        "success_count_change": -79,
+        "descriptive_only": true,
+        "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+      },
+      {
+        "repeat": 2,
+        "nominal_case": "nominal-active",
+        "nominal_successes": 102,
+        "intervention_successes": 18,
+        "success_rate_change_percentage_points": -16.40625,
+        "per_variant_success_count_changes": {
+          "xm": 0,
+          "xp": -29,
+          "ym": -39,
+          "yp": -16
+        },
+        "mean_camera_travel_change_rad": -5.702245470602065,
+        "initial_state_mismatches": 0,
+        "initial_physics_mismatches": 0,
+        "initial_sensor_mismatches": {
+          "wrist": 0,
+          "external": 0
+        },
+        "changed_episode_count": 102,
+        "changed_episode_fraction": 0.19921875,
+        "lost_successes": 93,
+        "gained_successes": 9,
+        "lost_episode_indices": [
+          10,
+          19,
+          25,
+          26,
+          27,
+          30,
+          31,
+          33,
+          42,
+          46,
+          50,
+          54,
+          59,
+          62,
+          69,
+          73,
+          74,
+          75,
+          78,
+          90,
+          94,
+          95,
+          97,
+          102,
+          105,
+          110,
+          121,
+          125,
+          142,
+          146,
+          154,
+          158,
+          174,
+          178,
+          179,
+          185,
+          186,
+          194,
+          197,
+          199,
+          205,
+          206,
+          218,
+          225,
+          226,
+          230,
+          234,
+          241,
+          245,
+          251,
+          257,
+          258,
+          263,
+          269,
+          274,
+          289,
+          291,
+          297,
+          303,
+          306,
+          314,
+          315,
+          321,
+          322,
+          326,
+          334,
+          338,
+          362,
+          378,
+          381,
+          385,
+          390,
+          391,
+          393,
+          397,
+          407,
+          410,
+          414,
+          418,
+          422,
+          425,
+          427,
+          429,
+          441,
+          449,
+          450,
+          451,
+          473,
+          479,
+          482,
+          486,
+          495,
+          501
+        ],
+        "gained_episode_indices": [
+          18,
+          130,
+          318,
+          350,
+          367,
+          411,
+          454,
+          459,
+          502
+        ],
+        "success_count_change": -84,
+        "descriptive_only": true,
+        "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+      }
+    ],
+    "hold1-initial": [
+      {
+        "repeat": 1,
+        "nominal_case": "nominal-initial",
+        "nominal_successes": 152,
+        "intervention_successes": 152,
+        "success_rate_change_percentage_points": 0.0,
+        "per_variant_success_count_changes": {
+          "xm": 0,
+          "xp": -3,
+          "ym": 2,
+          "yp": 1
+        },
+        "mean_camera_travel_change_rad": 0.00029227184131741524,
+        "initial_state_mismatches": 0,
+        "initial_physics_mismatches": 0,
+        "initial_sensor_mismatches": {
+          "wrist": 0,
+          "external": 0
+        },
+        "changed_episode_count": 88,
+        "changed_episode_fraction": 0.171875,
+        "lost_successes": 44,
+        "gained_successes": 44,
+        "lost_episode_indices": [
+          2,
+          27,
+          38,
+          59,
+          66,
+          69,
+          74,
+          79,
+          86,
+          90,
+          95,
+          103,
+          115,
+          118,
+          119,
+          141,
+          150,
+          177,
+          182,
+          183,
+          186,
+          215,
+          222,
+          245,
+          246,
+          257,
+          266,
+          294,
+          297,
+          298,
+          302,
+          322,
+          334,
+          354,
+          363,
+          382,
+          393,
+          419,
+          426,
+          430,
+          479,
+          486,
+          499,
+          507
+        ],
+        "gained_episode_indices": [
+          10,
+          30,
+          31,
+          58,
+          62,
+          94,
+          98,
+          122,
+          142,
+          147,
+          162,
+          175,
+          190,
+          194,
+          210,
+          226,
+          233,
+          234,
+          242,
+          250,
+          255,
+          271,
+          314,
+          319,
+          326,
+          327,
+          331,
+          359,
+          370,
+          374,
+          387,
+          390,
+          395,
+          399,
+          414,
+          417,
+          451,
+          459,
+          461,
+          475,
+          482,
+          485,
+          490,
+          506
+        ],
+        "success_count_change": 0,
+        "descriptive_only": true,
+        "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+      },
+      {
+        "repeat": 2,
+        "nominal_case": "nominal-initial",
+        "nominal_successes": 149,
+        "intervention_successes": 148,
+        "success_rate_change_percentage_points": -0.1953125,
+        "per_variant_success_count_changes": {
+          "xm": 0,
+          "xp": -4,
+          "ym": 2,
+          "yp": 1
+        },
+        "mean_camera_travel_change_rad": -0.0005154500249773264,
+        "initial_state_mismatches": 0,
+        "initial_physics_mismatches": 0,
+        "initial_sensor_mismatches": {
+          "wrist": 0,
+          "external": 0
+        },
+        "changed_episode_count": 97,
+        "changed_episode_fraction": 0.189453125,
+        "lost_successes": 49,
+        "gained_successes": 48,
+        "lost_episode_indices": [
+          3,
+          6,
+          9,
+          25,
+          66,
+          82,
+          95,
+          98,
+          107,
+          113,
+          121,
+          131,
+          147,
+          154,
+          173,
+          175,
+          179,
+          181,
+          182,
+          185,
+          218,
+          238,
+          246,
+          263,
+          274,
+          282,
+          290,
+          297,
+          298,
+          302,
+          310,
+          326,
+          334,
+          342,
+          359,
+          370,
+          378,
+          387,
+          391,
+          417,
+          419,
+          423,
+          426,
+          446,
+          466,
+          474,
+          481,
+          502,
+          511
+        ],
+        "gained_episode_indices": [
+          10,
+          26,
+          27,
+          30,
+          35,
+          46,
+          62,
+          78,
+          94,
+          101,
+          130,
+          142,
+          167,
+          170,
+          177,
+          183,
+          186,
+          222,
+          230,
+          233,
+          234,
+          245,
+          251,
+          258,
+          262,
+          265,
+          266,
+          279,
+          289,
+          303,
+          306,
+          318,
+          319,
+          322,
+          327,
+          330,
+          331,
+          355,
+          362,
+          367,
+          394,
+          398,
+          399,
+          402,
+          411,
+          487,
+          490,
+          506
+        ],
+        "success_count_change": -1,
+        "descriptive_only": true,
+        "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+      }
+    ],
+    "resetmemory-initial": [
+      {
+        "repeat": 1,
+        "nominal_case": "nominal-initial",
+        "nominal_successes": 152,
+        "intervention_successes": 6,
+        "success_rate_change_percentage_points": -28.515625,
+        "per_variant_success_count_changes": {
+          "xm": 0,
+          "xp": -36,
+          "ym": -50,
+          "yp": -60
+        },
+        "mean_camera_travel_change_rad": -0.2947553612757474,
+        "initial_state_mismatches": 0,
+        "initial_physics_mismatches": 0,
+        "initial_sensor_mismatches": {
+          "wrist": 0,
+          "external": 0
+        },
+        "changed_episode_count": 152,
+        "changed_episode_fraction": 0.296875,
+        "lost_successes": 149,
+        "gained_successes": 3,
+        "lost_episode_indices": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          9,
+          19,
+          25,
+          27,
+          33,
+          38,
+          50,
+          59,
+          63,
+          66,
+          67,
+          69,
+          70,
+          71,
+          73,
+          74,
+          75,
+          79,
+          86,
+          90,
+          95,
+          97,
+          101,
+          103,
+          105,
+          106,
+          107,
+          111,
+          113,
+          114,
+          115,
+          118,
+          119,
+          125,
+          130,
+          138,
+          141,
+          146,
+          150,
+          159,
+          177,
+          178,
+          181,
+          182,
+          183,
+          185,
+          186,
+          191,
+          195,
+          199,
+          202,
+          203,
+          205,
+          206,
+          214,
+          215,
+          218,
+          219,
+          222,
+          227,
+          238,
+          239,
+          243,
+          245,
+          246,
+          247,
+          257,
+          259,
+          266,
+          267,
+          278,
+          279,
+          283,
+          290,
+          294,
+          295,
+          297,
+          298,
+          299,
+          302,
+          303,
+          306,
+          311,
+          313,
+          315,
+          321,
+          322,
+          330,
+          334,
+          337,
+          342,
+          347,
+          354,
+          355,
+          358,
+          362,
+          363,
+          367,
+          377,
+          381,
+          382,
+          383,
+          385,
+          391,
+          393,
+          397,
+          407,
+          410,
+          415,
+          419,
+          423,
+          425,
+          426,
+          427,
+          429,
+          430,
+          431,
+          438,
+          439,
+          441,
+          442,
+          445,
+          446,
+          447,
+          449,
+          455,
+          462,
+          463,
+          471,
+          473,
+          477,
+          479,
+          481,
+          483,
+          486,
+          487,
+          491,
+          495,
+          499,
+          501,
+          507,
+          509,
+          510,
+          511
+        ],
+        "gained_episode_indices": [
+          31,
+          165,
+          411
+        ],
+        "success_count_change": -146,
+        "descriptive_only": true,
+        "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+      },
+      {
+        "repeat": 2,
+        "nominal_case": "nominal-initial",
+        "nominal_successes": 149,
+        "intervention_successes": 10,
+        "success_rate_change_percentage_points": -27.1484375,
+        "per_variant_success_count_changes": {
+          "xm": 0,
+          "xp": -34,
+          "ym": -53,
+          "yp": -52
+        },
+        "mean_camera_travel_change_rad": -0.2962656074669212,
+        "initial_state_mismatches": 0,
+        "initial_physics_mismatches": 0,
+        "initial_sensor_mismatches": {
+          "wrist": 0,
+          "external": 0
+        },
+        "changed_episode_count": 147,
+        "changed_episode_fraction": 0.287109375,
+        "lost_successes": 143,
+        "gained_successes": 4,
+        "lost_episode_indices": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          9,
+          19,
+          33,
+          38,
+          42,
+          43,
+          63,
+          66,
+          67,
+          69,
+          70,
+          73,
+          74,
+          75,
+          79,
+          82,
+          90,
+          95,
+          97,
+          98,
+          103,
+          106,
+          107,
+          111,
+          113,
+          114,
+          115,
+          118,
+          119,
+          121,
+          122,
+          125,
+          131,
+          138,
+          146,
+          147,
+          154,
+          159,
+          162,
+          165,
+          173,
+          175,
+          178,
+          179,
+          181,
+          182,
+          185,
+          190,
+          191,
+          195,
+          199,
+          202,
+          203,
+          205,
+          210,
+          214,
+          218,
+          227,
+          238,
+          239,
+          246,
+          247,
+          257,
+          259,
+          263,
+          267,
+          274,
+          278,
+          282,
+          283,
+          290,
+          294,
+          295,
+          297,
+          298,
+          302,
+          310,
+          311,
+          313,
+          315,
+          321,
+          326,
+          334,
+          337,
+          342,
+          347,
+          358,
+          359,
+          370,
+          377,
+          378,
+          381,
+          383,
+          385,
+          386,
+          387,
+          390,
+          391,
+          393,
+          397,
+          407,
+          415,
+          417,
+          419,
+          423,
+          425,
+          426,
+          427,
+          429,
+          430,
+          431,
+          438,
+          439,
+          441,
+          442,
+          445,
+          446,
+          447,
+          449,
+          451,
+          455,
+          461,
+          462,
+          463,
+          466,
+          471,
+          474,
+          477,
+          479,
+          481,
+          482,
+          483,
+          491,
+          495,
+          499,
+          501,
+          502,
+          511
+        ],
+        "gained_episode_indices": [
+          27,
+          251,
+          271,
+          299
+        ],
+        "success_count_change": -139,
+        "descriptive_only": true,
+        "note": "Numerical-repeat/intervention flips, not episode-IID causal evidence."
+      }
+    ]
+  },
+  "limitations": [
+    "Within-checkpoint interventions diagnose dependence of these trained policies; they do not establish a generally optimal sensing strategy.",
+    "Camera freeze holds joint/gimbal command targets from 1s; actual joints can settle. RGB stays live. The intervention also changes camera embodiment and possible contacts.",
+    "Initial-only already fixes camera targets after 1s. Holding external RGB after 1s retains wrist RGB, proprioception and GRU state; it tests continued external feedback at that trained viewpoint.",
+    "resetmemory-initial resets the entire actor GRU every step, including inspection. It can change initial view selection and manipulation; it is not a camera-specific memory ablation or a retrained feedforward baseline.",
+    "Matching initial physics and sensor hashes does not guarantee identical GPU contact trajectories. Outcome flips are descriptive; episodes are not IID causal intervention replicates.",
+    "Two GPU execution repeats of training seed 0 quantify numerical sensitivity, not variation across independently trained policies. Wilson intervals are episode-count summaries, not causal-effect or training-seed uncertainty.",
+    "Original actors were trained with derived_substep success and without the critic-bootstrap fix. Evaluation overrides current_qpos; no parameters are retrained. xm failure and unstable manipulation remain unresolved."
+  ],
+  "interpretation": [
+    "Freeze compares continued camera commands while RGB stays live; any effect also includes changed camera embodiment and possible contacts.",
+    "Holding external RGB for the initial-only policy tests fresh external feedback while wrist RGB and proprioception remain available.",
+    "Resetting memory resets the entire actor GRU, affecting initial camera choice and subsequent manipulation; it does not isolate camera-specific memory.",
+    "Compare intervention changes with nominal-repeat outcome flips. Initial hash equality establishes pairing only; GPU contact divergence prevents episode-IID causal claims.",
+    "These are two execution repeats of each single original training-seed checkpoint, scored with corrected physical state. They are not independent policy-training replicates or proof of general active-perception utility."
+  ]
+}

@@ -26,6 +26,10 @@ def collect(root):
             (analysis / "reward_repair/continuation").glob("*/evaluation-repeat*.json"),
         ),
         ("fresh_exploration", (analysis / "exploration_repair").glob("*/evaluation-repeat*.json")),
+        (
+            "camera_control_diagnostics",
+            (analysis / "camera_controls").glob("*/evaluation-repeat*.json"),
+        ),
     )
     for stage, paths in groups:
         for path in sorted(paths):

@@ -1,0 +1,7 @@
+{
+  "status": "PASSED",
+  "mp4_files": 115,
+  "comparison": "Every current archive MP4 SHA256 equals the same file in commit77e2f0b bundle manifest; that archive passed first/middle/last decoding of all115 MP4s. Current rebuilt archive separately passes CRC, included-file hashes and extraction links.",
+  "prior_commit": "77e2f0b",
+  "current_zip_sha256": "51894b7de55a8f848a8ea7e9b7b34f792727a0b45a950889f8f081d71f2f6b20"
+}
