@@ -1,0 +1,116 @@
+{
+  "verified_at": "2026-10-09T06:05:54.988199+00:00",
+  "status": "VERIFIED_COMPLETED",
+  "scope": "historical-criterion tuning continuations; corrected evaluations separately preserved",
+  "runs": [
+    {
+      "case": "fixed_lr",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/fixed_lr/plug_wrist_static_clean_gru_v7_s0_n512_fixed_lr_20261007T211226Z/model_750.pt",
+      "checkpoint_sha256": "48f199f8fe20aa73efc0b5e8f7d1af7b4887eb8790b215b74fe30926049910a3",
+      "checkpoint_iteration": 750,
+      "contiguous_updates": 751,
+      "cumulative_transitions": 9228288,
+      "additional_transitions": 7999488,
+      "training_source_revision": "25a005ea389edbff7b07b6a449ab6a41c5ccaa4b",
+      "wandb_id": "c59f06be",
+      "wandb_state": "finished",
+      "historical_validation_successes": 120,
+      "episodes": 512,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 75,
+          "success_rate": 0.5859375
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 45,
+          "success_rate": 0.3515625
+        }
+      }
+    },
+    {
+      "case": "entropy",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/entropy/plug_wrist_static_clean_gru_v7_s0_n512_entropy_20261007T211458Z/model_750.pt",
+      "checkpoint_sha256": "1383f0eea6a7911dce3210498f52607406189e6671fa4cb00211117504634f6f",
+      "checkpoint_iteration": 750,
+      "contiguous_updates": 751,
+      "cumulative_transitions": 9228288,
+      "additional_transitions": 7999488,
+      "training_source_revision": "25a005ea389edbff7b07b6a449ab6a41c5ccaa4b",
+      "wandb_id": "9d338c65",
+      "wandb_state": "finished",
+      "historical_validation_successes": 169,
+      "episodes": 512,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 80,
+          "success_rate": 0.625
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 34,
+          "success_rate": 0.265625
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 55,
+          "success_rate": 0.4296875
+        }
+      }
+    },
+    {
+      "case": "both",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/both/plug_wrist_static_clean_gru_v7_s0_n512_both_20261007T211458Z/model_750.pt",
+      "checkpoint_sha256": "829294de9797ee372f5f93302dcbc55a5e56cc339799d66969cec2a5707725fb",
+      "checkpoint_iteration": 750,
+      "contiguous_updates": 751,
+      "cumulative_transitions": 9228288,
+      "additional_transitions": 7999488,
+      "training_source_revision": "25a005ea389edbff7b07b6a449ab6a41c5ccaa4b",
+      "wandb_id": "fda983c1",
+      "wandb_state": "finished",
+      "historical_validation_successes": 76,
+      "episodes": 512,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 4,
+          "success_rate": 0.03125
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 37,
+          "success_rate": 0.2890625
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 35,
+          "success_rate": 0.2734375
+        }
+      }
+    }
+  ],
+  "total_additional_transitions": 23998464
+}

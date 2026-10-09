@@ -1,0 +1,591 @@
+{
+  "status": "STARTUP_PASS_OPTIMIZATION_FINITE_EXPLORATION_CONTRACTING",
+  "audited_at": "2026-10-09T06:08:32.253032+00:00",
+  "scope": "Read-only startup and optimization audit; running sources, configurations, checkpoints, jobs, original screen artifacts and logs were not modified. Only this audit JSON is written.",
+  "interpretation": "Startup integrity and finite optimization do not establish reliable learning. Both are mixed-source continuations after the same 100-update screen; no effect is attributed to the bootstrap correction alone.",
+  "profiles": {
+    "progress": {
+      "startup_status": "PASS",
+      "checks": {
+        "source_head": true,
+        "frozen_tracked_source_clean": true,
+        "source_hashes": true,
+        "resume_checkpoint_preserved": true,
+        "original_screen_manifest_preserved": true,
+        "archived_resume_metadata_hashes": true,
+        "original_100_history_rows_preserved": true,
+        "manifest_source_consistency": true,
+        "runtime_source_job_checkpoint_identity": true,
+        "next_update_and_transitions": true,
+        "restored_optimizer_lr": true,
+        "settings_match_screen": true,
+        "profile_and_physical_criterion": true,
+        "matched_core_settings": true,
+        "inherited_actor_initial_std": true,
+        "inherited_optimizer_configuration": true,
+        "contiguous_all_history": true,
+        "continuation_starts_after_100": true,
+        "continuation_job_identity": true,
+        "history_budget_accounting": true,
+        "wandb_local_id": true,
+        "finite_continuation_metrics": true,
+        "finite_checkpoint_actor_critic": true,
+        "finite_saved_adam_moments": true,
+        "wandb_api_identity": true,
+        "wandb_api_experiment": true,
+        "no_fatal_stderr": true
+      },
+      "identity": {
+        "job": {
+          "job_id": "51514952",
+          "name": "plug-reward751-progress",
+          "state": "RUNNING",
+          "exit_code": "0:0",
+          "elapsed": "00:14:29",
+          "start_local": "2026-10-09T01:52:13",
+          "node": "holygpu7c1913",
+          "alloc_tres": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1"
+        },
+        "runtime": {
+          "git_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+          "slurm_job_id": "51514952",
+          "hostname": "holygpu7c1913.rc.fas.harvard.edu",
+          "resume": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_progress_qpos_20261009T051733Z/model_99.pt",
+          "resume_next_iteration_index": 100,
+          "resume_cumulative_transitions": 1228800,
+          "resume_learning_rate": 0.0005766503906250003
+        },
+        "wandb": {
+          "id": "df07b9a84879",
+          "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/df07b9a84879",
+          "state": "running",
+          "name": "plug_wrist_static_clean_gru_v7_s0_n512_progress_qpos_20261009T051733Z",
+          "summary": {
+            "train/iteration": 295,
+            "train/transitions": 3624960,
+            "train/Loss/value": 0.22852854803204536,
+            "train/Loss/diagnostic_kl": 0.011846962384879587,
+            "train/Loss/learning_rate": 5.062500000000002e-05
+          },
+          "verified_at": "2026-10-09T06:08:31.985078+00:00",
+          "config_serialization_note": "W&B rounds fixed_position x from 1.1021821192326179e-17 to 1.102182119232618e-17; experiment comparison uses relative tolerance1e-12/absolute1e-15 for serialized numeric values. All other fields match."
+        }
+      },
+      "settings": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "clean",
+          "seed": 0,
+          "num_envs": 512,
+          "width": 128,
+          "height": 96,
+          "memory": "gru",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "progress",
+          "initial_seconds": 1.0,
+          "episode_seconds": 3.5
+        },
+        "runner": {
+          "rollout_steps": 24,
+          "total_planned_updates": 751,
+          "algorithm": {
+            "num_learning_epochs": 4,
+            "num_mini_batches": 8,
+            "learning_rate": 0.0003,
+            "schedule": "adaptive",
+            "gamma": 0.99,
+            "lam": 0.95,
+            "entropy_coef": 0.003,
+            "desired_kl": 0.01,
+            "max_grad_norm": 1.0,
+            "value_loss_coef": 1.0,
+            "use_clipped_value_loss": true,
+            "clip_param": 0.2,
+            "normalize_advantage_per_mini_batch": false,
+            "optimizer": "adam",
+            "share_cnn_encoders": false,
+            "class_name": "active_perception_arms.policy:CompactPPO"
+          },
+          "configured_initial_std": 0.4
+        }
+      },
+      "checkpoint_optimizer_evidence": {
+        "iteration_index": 99,
+        "sha256": "e060707a5ede0e156b75b724c470ca1a0505b6a06d3b84747218d679e566be73",
+        "lr": 0.0005766503906250003,
+        "adam_parameter_states": 29,
+        "saved_adam_step_range": [
+          3200.0,
+          3200.0
+        ],
+        "saved_actor_std": [
+          0.16012300550937653,
+          0.1567506045103073,
+          0.2323513925075531
+        ],
+        "restore_evidence": "Pinned PPO.load restores Adam by default, train.restore_training_state then copies optimizer param-group LR into PPO.learning_rate; post-load runtime records that scalar. Live Adam moments are not independently accessible until the next checkpoint."
+      },
+      "snapshot": {
+        "history_path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_progress_qpos_20261009T051733Z/iterations.jsonl",
+        "snapshot_complete_bytes_sha256": "111cffdf2bfa28a4b8c34175e406f15adaa1a05bc49f3b87fa2213aca7a21e22",
+        "total_updates_recorded": 298,
+        "total_transitions_recorded": 3661824,
+        "continuation_updates_recorded": 198,
+        "continuation_transitions_recorded": 2433024,
+        "original_screen_updates": 100,
+        "archived_original_history_sha256": "c37c97b005dce125499eb9a9205b6c654bf72c71563cf09b290ff13f55a03e84",
+        "archived_screen_path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_progress_qpos_20261009T051733Z/resume_history/20261009T055241Z",
+        "recent_window_updates": 100,
+        "recent_first_iteration": 199,
+        "recent_last_iteration": 298
+      },
+      "optimization": {
+        "recent_metrics": {
+          "value": {
+            "samples": 100,
+            "mean": 0.2910635072385776,
+            "min": 0.02841185184661299,
+            "max": 0.5900188339874148,
+            "last": 0.34830779395997524
+          },
+          "surrogate": {
+            "samples": 100,
+            "mean": -0.009253909664771527,
+            "min": -0.01675416557918652,
+            "max": -0.0005033310808357783,
+            "last": -0.010387380549218506
+          },
+          "entropy": {
+            "samples": 100,
+            "mean": -4.219447135031223,
+            "min": -5.180317834019661,
+            "max": -3.312552958726883,
+            "last": -5.180317834019661
+          },
+          "diagnostic_kl": {
+            "samples": 100,
+            "mean": 0.013134328555315733,
+            "min": 0.008082608692348003,
+            "max": 0.02301041968166828,
+            "last": 0.010813357308506966
+          },
+          "diagnostic_clip_fraction": {
+            "samples": 100,
+            "mean": 0.1523478242009878,
+            "min": 0.1046346127986908,
+            "max": 0.2216593623161316,
+            "last": 0.131103515625
+          },
+          "diagnostic_action_saturation": {
+            "samples": 100,
+            "mean": 0.00469807973044226,
+            "min": 0.00032552084303461015,
+            "max": 0.0100368931889534,
+            "last": 0.00813802145421505
+          },
+          "learning_rate": {
+            "samples": 100,
+            "mean": 6.866484375000004e-05,
+            "min": 1e-05,
+            "max": 0.0002562890625000001,
+            "last": 7.593750000000004e-05
+          }
+        },
+        "first_continuation_std": [
+          0.15946854650974274,
+          0.15576642751693726,
+          0.22978775203227997
+        ],
+        "last_continuation_std": [
+          0.03906865417957306,
+          0.02141556702554226,
+          0.09350045770406723
+        ],
+        "minimum_continuation_std_per_axis": [
+          0.03906865417957306,
+          0.02141556702554226,
+          0.09350045770406723
+        ],
+        "std_ratio_last_over_checkpoint": [
+          0.24399151174616984,
+          0.13662191027871956,
+          0.40240971528082314
+        ],
+        "continuation_training_successes": 454.0,
+        "continuation_training_completed_episodes": 27685.0,
+        "continuation_count_weighted_training_success": 0.016398771898139788,
+        "recent_training_successes": 378.0,
+        "recent_training_completed_episodes": 14345.0,
+        "recent_count_weighted_training_success": 0.02635064482398048,
+        "recent_own_reward": {
+          "samples": 100,
+          "mean": 2.115946219905466,
+          "min": 0.9947016490250826,
+          "max": 4.351633417308331,
+          "last": 1.014825220555067
+        },
+        "recent_episode_task_reward": {
+          "samples": 100,
+          "mean": 1.0526332280039787,
+          "min": 0.4689162075519562,
+          "max": 2.6401326656341553,
+          "last": 0.7334578633308411
+        },
+        "per_variant_training_evidence": "Not recorded; only balanced heldout evaluation can establish all-variant learning.",
+        "reward_scale_note": "Absolute reward/value-loss magnitudes cannot be compared across the two objective profiles.",
+        "weighted_success_windows": {
+          "original_first_100": {
+            "updates": 100,
+            "first_iteration": 1,
+            "last_iteration": 100,
+            "successes": 1.0,
+            "completed_episodes": 13824.0,
+            "success_rate": 7.233796296296296e-05
+          },
+          "continuation_first_100": {
+            "updates": 100,
+            "first_iteration": 101,
+            "last_iteration": 200,
+            "successes": 80.0,
+            "completed_episodes": 13826.0,
+            "success_rate": 0.005786199913207001
+          },
+          "latest_100": {
+            "updates": 100,
+            "first_iteration": 199,
+            "last_iteration": 298,
+            "successes": 378.0,
+            "completed_episodes": 14345.0,
+            "success_rate": 0.02635064482398048
+          }
+        },
+        "adaptive_lr_floor_watch": {
+          "pinned_floor": 1e-05,
+          "recent_updates_at_floor": 9,
+          "recent_updates_at_or_below_1_5_times_floor": 14,
+          "recent_updates": 100,
+          "last": 7.593750000000004e-05,
+          "note": "The adaptive rate may rebound within or between updates. Low LR is a monitored condition, not evidence of a failed resume or proof of task-learning failure."
+        }
+      },
+      "slurm_log_audit": {
+        "stdout_path": "logs/slurm/plug-reward751-progress-51514952.out",
+        "stderr_path": "logs/slurm/plug-reward751-progress-51514952.err",
+        "first_printed_learning_iteration_index": 100,
+        "fatal_errors": [],
+        "nonfatal_warning_types": [
+          "W&B symlink sync reminder",
+          "PyTorch API deprecation"
+        ]
+      },
+      "assessment": [
+        "Startup integrity passes: checkpoint LR, source/job/W&B identity, physical criterion, objective and inherited optimizer settings match. First100 screen data is intact. Post-resume simulator/RNG/GRU episode state reset is documented.",
+        "Finite losses and moderate aggregate KL establish numerically stable optimization only. Manipulation-axis std has decreased rapidly from its already-reduced checkpoint values; effective task exploration is a concern even while all observed axes remain above0.01. Monitor contraction and the adaptive LR floor; neither is a proved causal failure.",
+        "Latest100 training successes are episode-weighted counts, not per-variant or heldout performance. Original first100 and first100 continuation counts are provided for comparison; the reset and source change prevent causal attribution to bootstrapping."
+      ]
+    },
+    "legacy_log_hold": {
+      "startup_status": "PASS",
+      "checks": {
+        "source_head": true,
+        "frozen_tracked_source_clean": true,
+        "source_hashes": true,
+        "resume_checkpoint_preserved": true,
+        "original_screen_manifest_preserved": true,
+        "archived_resume_metadata_hashes": true,
+        "original_100_history_rows_preserved": true,
+        "manifest_source_consistency": true,
+        "runtime_source_job_checkpoint_identity": true,
+        "next_update_and_transitions": true,
+        "restored_optimizer_lr": true,
+        "settings_match_screen": true,
+        "profile_and_physical_criterion": true,
+        "matched_core_settings": true,
+        "inherited_actor_initial_std": true,
+        "inherited_optimizer_configuration": true,
+        "contiguous_all_history": true,
+        "continuation_starts_after_100": true,
+        "continuation_job_identity": true,
+        "history_budget_accounting": true,
+        "wandb_local_id": true,
+        "finite_continuation_metrics": true,
+        "finite_checkpoint_actor_critic": true,
+        "finite_saved_adam_moments": true,
+        "wandb_api_identity": true,
+        "wandb_api_experiment": true,
+        "no_fatal_stderr": true
+      },
+      "identity": {
+        "job": {
+          "job_id": "51515059",
+          "name": "plug-reward751-legacy_log_hold",
+          "state": "RUNNING",
+          "exit_code": "0:0",
+          "elapsed": "00:13:59",
+          "start_local": "2026-10-09T01:52:43",
+          "node": "holygpu7c1916",
+          "alloc_tres": "billing=691,cpu=8,gres/gpu:nvidia_rtx_pro_6000_blackwell_server_edition=1,gres/gpu=1,mem=48G,node=1"
+        },
+        "runtime": {
+          "git_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+          "slurm_job_id": "51515059",
+          "hostname": "holygpu7c1916.rc.fas.harvard.edu",
+          "resume": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_legacy_log_hold_qpos_20261009T052702Z/model_99.pt",
+          "resume_next_iteration_index": 100,
+          "resume_cumulative_transitions": 1228800,
+          "resume_learning_rate": 0.00038443359375000017
+        },
+        "wandb": {
+          "id": "9f54fbad6d30",
+          "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/9f54fbad6d30",
+          "state": "running",
+          "name": "plug_wrist_static_clean_gru_v7_s0_n512_legacy_log_hold_qpos_20261009T052702Z",
+          "summary": {
+            "train/iteration": 323,
+            "train/transitions": 3969024,
+            "train/Loss/value": 6.1992214769124985,
+            "train/Loss/diagnostic_kl": 0.010802209377288818,
+            "train/Loss/learning_rate": 0.00011390625000000003
+          },
+          "verified_at": "2026-10-09T06:08:32.218997+00:00",
+          "config_serialization_note": "W&B rounds fixed_position x from 1.1021821192326179e-17 to 1.102182119232618e-17; experiment comparison uses relative tolerance1e-12/absolute1e-15 for serialized numeric values. All other fields match."
+        }
+      },
+      "settings": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "clean",
+          "seed": 0,
+          "num_envs": 512,
+          "width": 128,
+          "height": 96,
+          "memory": "gru",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "legacy_log_hold",
+          "initial_seconds": 1.0,
+          "episode_seconds": 3.5
+        },
+        "runner": {
+          "rollout_steps": 24,
+          "total_planned_updates": 751,
+          "algorithm": {
+            "num_learning_epochs": 4,
+            "num_mini_batches": 8,
+            "learning_rate": 0.0003,
+            "schedule": "adaptive",
+            "gamma": 0.99,
+            "lam": 0.95,
+            "entropy_coef": 0.003,
+            "desired_kl": 0.01,
+            "max_grad_norm": 1.0,
+            "value_loss_coef": 1.0,
+            "use_clipped_value_loss": true,
+            "clip_param": 0.2,
+            "normalize_advantage_per_mini_batch": false,
+            "optimizer": "adam",
+            "share_cnn_encoders": false,
+            "class_name": "active_perception_arms.policy:CompactPPO"
+          },
+          "configured_initial_std": 0.4
+        }
+      },
+      "checkpoint_optimizer_evidence": {
+        "iteration_index": 99,
+        "sha256": "a7c80eb8a5b574ba2474c3c98042a37def7ab26801bf373c02ed219826cf7fa4",
+        "lr": 0.00038443359375000017,
+        "adam_parameter_states": 29,
+        "saved_adam_step_range": [
+          3200.0,
+          3200.0
+        ],
+        "saved_actor_std": [
+          0.12043418735265732,
+          0.13408052921295166,
+          0.14932367205619812
+        ],
+        "restore_evidence": "Pinned PPO.load restores Adam by default, train.restore_training_state then copies optimizer param-group LR into PPO.learning_rate; post-load runtime records that scalar. Live Adam moments are not independently accessible until the next checkpoint."
+      },
+      "snapshot": {
+        "history_path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_legacy_log_hold_qpos_20261009T052702Z/iterations.jsonl",
+        "snapshot_complete_bytes_sha256": "9a4bd544ce70a647b1374673f6d9bc57ca626075d2b5f876bb8bbf477cbb7a7f",
+        "total_updates_recorded": 327,
+        "total_transitions_recorded": 4018176,
+        "continuation_updates_recorded": 227,
+        "continuation_transitions_recorded": 2789376,
+        "original_screen_updates": 100,
+        "archived_original_history_sha256": "7a9ec1d181fdc10bad23f5d13376f2a63f61c91f1f83882386dc39a9512b86fe",
+        "archived_screen_path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_legacy_log_hold_qpos_20261009T052702Z/resume_history/20261009T055253Z",
+        "recent_window_updates": 100,
+        "recent_first_iteration": 228,
+        "recent_last_iteration": 327
+      },
+      "optimization": {
+        "recent_metrics": {
+          "value": {
+            "samples": 100,
+            "mean": 142.3024662540853,
+            "min": 1.701946496963501,
+            "max": 1273.030549556017,
+            "last": 3.755870081484318
+          },
+          "surrogate": {
+            "samples": 100,
+            "mean": -0.008337239098544842,
+            "min": -0.018220688740257174,
+            "max": 0.00146200368180871,
+            "last": -0.00834552210289985
+          },
+          "entropy": {
+            "samples": 100,
+            "mean": -3.7382436027377843,
+            "min": -4.014038026332855,
+            "max": -3.4386839270591736,
+            "last": -3.9203701242804527
+          },
+          "diagnostic_kl": {
+            "samples": 100,
+            "mean": 0.01268537029158324,
+            "min": 0.007389940787106752,
+            "max": 0.018673008307814598,
+            "last": 0.015148022212088108
+          },
+          "diagnostic_clip_fraction": {
+            "samples": 100,
+            "mean": 0.15385844342410565,
+            "min": 0.0863037109375,
+            "max": 0.2039387971162796,
+            "last": 0.1883748471736908
+          },
+          "diagnostic_action_saturation": {
+            "samples": 100,
+            "mean": 0.008464084801962599,
+            "min": 0.00013563368702307343,
+            "max": 0.0238986574113369,
+            "last": 0.0111219622194767
+          },
+          "learning_rate": {
+            "samples": 100,
+            "mean": 0.00010271953125000004,
+            "min": 1e-05,
+            "max": 0.0002562890625000001,
+            "last": 5.0625000000000024e-05
+          }
+        },
+        "first_continuation_std": [
+          0.12165920436382294,
+          0.13435326516628265,
+          0.14682747423648834
+        ],
+        "last_continuation_std": [
+          0.055127959698438644,
+          0.07950862497091293,
+          0.06348922848701477
+        ],
+        "minimum_continuation_std_per_axis": [
+          0.04973967373371124,
+          0.0770263597369194,
+          0.06348922848701477
+        ],
+        "std_ratio_last_over_checkpoint": [
+          0.45774344403563805,
+          0.592991580788247,
+          0.4251785909947388
+        ],
+        "continuation_training_successes": 42.0,
+        "continuation_training_completed_episodes": 31263.0,
+        "continuation_count_weighted_training_success": 0.001343441128490548,
+        "recent_training_successes": 27.0,
+        "recent_training_completed_episodes": 13849.0,
+        "recent_count_weighted_training_success": 0.0019495992490432522,
+        "recent_own_reward": {
+          "samples": 100,
+          "mean": -108.08570365486145,
+          "min": -113.95939514160156,
+          "max": -78.53538715362549,
+          "last": -108.41339485168457
+        },
+        "recent_episode_task_reward": {
+          "samples": 100,
+          "mean": -17.251094748973845,
+          "min": -36.21415328979492,
+          "max": 269.7806396484375,
+          "last": -31.6501407623291
+        },
+        "per_variant_training_evidence": "Not recorded; only balanced heldout evaluation can establish all-variant learning.",
+        "reward_scale_note": "Absolute reward/value-loss magnitudes cannot be compared across the two objective profiles.",
+        "weighted_success_windows": {
+          "original_first_100": {
+            "updates": 100,
+            "first_iteration": 1,
+            "last_iteration": 100,
+            "successes": 1.0,
+            "completed_episodes": 13824.0,
+            "success_rate": 7.233796296296296e-05
+          },
+          "continuation_first_100": {
+            "updates": 100,
+            "first_iteration": 101,
+            "last_iteration": 200,
+            "successes": 5.0,
+            "completed_episodes": 13824.0,
+            "success_rate": 0.0003616898148148148
+          },
+          "latest_100": {
+            "updates": 100,
+            "first_iteration": 228,
+            "last_iteration": 327,
+            "successes": 27.0,
+            "completed_episodes": 13849.0,
+            "success_rate": 0.0019495992490432522
+          }
+        },
+        "adaptive_lr_floor_watch": {
+          "pinned_floor": 1e-05,
+          "recent_updates_at_floor": 3,
+          "recent_updates_at_or_below_1_5_times_floor": 7,
+          "recent_updates": 100,
+          "last": 5.0625000000000024e-05,
+          "note": "The adaptive rate may rebound within or between updates. Low LR is a monitored condition, not evidence of a failed resume or proof of task-learning failure."
+        }
+      },
+      "slurm_log_audit": {
+        "stdout_path": "logs/slurm/plug-reward751-legacy_log_hold-51515059.out",
+        "stderr_path": "logs/slurm/plug-reward751-legacy_log_hold-51515059.err",
+        "first_printed_learning_iteration_index": 100,
+        "fatal_errors": [],
+        "nonfatal_warning_types": [
+          "W&B symlink sync reminder",
+          "PyTorch API deprecation"
+        ]
+      },
+      "assessment": [
+        "Startup integrity passes: checkpoint LR, source/job/W&B identity, physical criterion, objective and inherited optimizer settings match. First100 screen data is intact. Post-resume simulator/RNG/GRU episode state reset is documented.",
+        "Finite losses and moderate aggregate KL establish numerically stable optimization only. Manipulation-axis std has decreased rapidly from its already-reduced checkpoint values; effective task exploration is a concern even while all observed axes remain above0.01. Monitor contraction and the adaptive LR floor; neither is a proved causal failure.",
+        "Latest100 training successes are episode-weighted counts, not per-variant or heldout performance. Original first100 and first100 continuation counts are provided for comparison; the reset and source change prevent causal attribution to bootstrapping."
+      ]
+    }
+  },
+  "original_screen_artifact_integrity": {
+    "json_artifacts_checked": 12,
+    "unchanged_during_audit": true,
+    "changed_paths": [],
+    "sha256": {
+      "artifacts/plug_analysis/reward_repair/progress/evaluation-repeat1.json": "4aeb86317900e204d6d8f8a1f64090e3a83e8404b870e277465d916596861a6d",
+      "artifacts/plug_analysis/reward_repair/progress/evaluation-repeat2.json": "26a3f16171f47cfe1439406021e6aeac6d67ef73b875fc260751f06f2a4d37b9",
+      "artifacts/plug_analysis/reward_repair/progress/run_manifest.json": "c5c379fe2aca0d2def14da98864dc358309ee837c23c945fe11ae24aa63bd8d0",
+      "artifacts/plug_analysis/reward_repair/progress/training.json": "86ff6b19391765773221f2fc459cb74168a0de2ca3a0b03780fdc1232ad035e0",
+      "artifacts/plug_analysis/reward_repair/progress/evaluation-repeat1-traces/capture.json": "5a7ec3dc5fae14181b244ecfa7a06946ee479a22a9d777c43036e016a45ce129",
+      "artifacts/plug_analysis/reward_repair/progress/evaluation-repeat1-videos/representatives.json": "0665a2613b0ddc95ce11db03ae99595555ab3f702f91f3911fc2a713f7aa48eb",
+      "artifacts/plug_analysis/reward_repair/legacy_log_hold/evaluation-repeat1.json": "ae582519597981742a10b3f5bf1ceb9708b8d0f4c7de8ce2b4b18fc901dc523b",
+      "artifacts/plug_analysis/reward_repair/legacy_log_hold/evaluation-repeat2.json": "963f03c1a08cf3fcb509725fd826e894edb3201f636d0962e3e5dde9c293109e",
+      "artifacts/plug_analysis/reward_repair/legacy_log_hold/run_manifest.json": "e3f26e34ad6863b385fad231ca9c215ab8b815d921ec4e7b7fed2ce17b855dd5",
+      "artifacts/plug_analysis/reward_repair/legacy_log_hold/training.json": "202c9bb6d7fdad6f4ce18f1cbb7bd5507521f99743f02c6693defb99ab977416",
+      "artifacts/plug_analysis/reward_repair/legacy_log_hold/evaluation-repeat1-traces/capture.json": "83d2a5f632db893bb997b8b4b5d5844fed32e870e253b90e7135067ba927cf63",
+      "artifacts/plug_analysis/reward_repair/legacy_log_hold/evaluation-repeat1-videos/representatives.json": "e601074806ec0767d2ae500b2c91e014ddb7f02ac27d8458dc80a655eabef1c1"
+    }
+  },
+  "recommendation": "Continue the already bounded751-total-update pair without altering running configurations. Finite/no-crash is not effective task exploration: rapidly decreasing action std and episodic low adaptive LR need monitoring. Use balanced repeated physical validation before selecting a winner, expanding budgets or claiming perception utility. Source history remains100 old-bootstrap plus651 corrected-bootstrap updates.",
+  "weighted_window_note": "Each success rate uses summed diagnostic successes divided by summed completed episodes, not a mean of reset-batch rates. First100 continuation and latest100 can overlap at this startup snapshot; none of these windows is heldout or an independent training seed."
+}

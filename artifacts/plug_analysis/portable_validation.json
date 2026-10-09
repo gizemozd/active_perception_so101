@@ -1,22 +1,521 @@
 {
-  "checked_at": "2026-10-09T05:21:17.410962+00:00",
-  "bundle": "artifacts/plug_analysis/plug-report.zip",
-  "bundle_sha256": "fa1eee0f381f7558cb43066f086216bb954502e20ea2720411633efa8ab3911d",
-  "bundle_bytes": 54081141,
-  "bundle_files": 278,
+  "checked_at": "2026-10-09T06:14:00.692571+00:00",
+  "bundle": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/plug-report.zip",
+  "bundle_sha256": "bff111317cdb6c461bdcecf2ec0c01951f2eed410df60f183d9c56621647f545",
+  "bundle_bytes": 57267372,
+  "bundle_files": 312,
   "entrypoint": "index.html",
   "report_path": "artifacts/plug_analysis/index.html",
-  "local_links_checked_after_extraction": 253,
+  "local_links_checked_after_extraction": 285,
   "missing_links": [],
-  "mp4_files_in_archive": 103,
-  "evaluated_trajectory_mp4_files": 100,
-  "dynamic_diagnostic_mp4_files": 3,
+  "mp4_files_in_archive": 107,
+  "media_decoded": 107,
   "archive_crc_verified": true,
-  "bundle_manifest_file_hashes_verified": 275,
+  "bundle_manifest_file_hashes_verified": 309,
   "archive_paths_safe": true,
   "excluded_checkpoints_npz_dotenv_files": true,
-  "validation_scope": "Independent extraction/link/CRC/per-file SHA256 check of the complete four-condition corrected bundle; no report rebuild.",
-  "dynamic_diagnostic_media": [
+  "validation_scope": "Independent extraction, HTML links, CRC and per-file SHA256; optional first/middle/last video decoding. No simulator rollout.",
+  "videos": [
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xp_success_episode5_outside.mp4",
+      "frames": 85,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xp_success_episode5_policy.mp4",
+      "frames": 85,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/ym_failure_episode6_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/ym_failure_episode6_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/ym_success_episode2_outside.mp4",
+      "frames": 84,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/ym_success_episode2_policy.mp4",
+      "frames": 84,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/yp_success_episode27_outside.mp4",
+      "frames": 69,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/yp_success_episode27_policy.mp4",
+      "frames": 69,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xp_success_episode5_outside.mp4",
+      "frames": 63,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xp_success_episode5_policy.mp4",
+      "frames": 63,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/ym_failure_episode6_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/ym_failure_episode6_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/ym_success_episode2_outside.mp4",
+      "frames": 81,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/ym_success_episode2_policy.mp4",
+      "frames": 81,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/yp_failure_episode7_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/yp_failure_episode7_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/yp_success_episode3_outside.mp4",
+      "frames": 51,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/yp_success_episode3_policy.mp4",
+      "frames": 51,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/yp_success_episode247_outside.mp4",
+      "frames": 73,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/yp_success_episode247_policy.mp4",
+      "frames": 73,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xp_failure_episode5_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xp_failure_episode5_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xp_success_episode1_outside.mp4",
+      "frames": 58,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xp_success_episode1_policy.mp4",
+      "frames": 58,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/yp_success_episode111_outside.mp4",
+      "frames": 67,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/yp_success_episode111_policy.mp4",
+      "frames": 67,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
     {
       "path": "artifacts/dynamic_occlusion/plug_seed20000.mp4",
       "frames": 30,
@@ -24,6 +523,16 @@
       "size": [
         768,
         900
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/dynamic_occlusion/push_seed20000.mp4",
+      "frames": 100,
+      "fps": 8.33,
+      "size": [
+        576,
+        696
       ],
       "decoded_first_middle_last": true
     },
@@ -38,12 +547,542 @@
       "decoded_first_middle_last": true
     },
     {
-      "path": "artifacts/dynamic_occlusion/push_seed20000.mp4",
-      "frames": 100,
-      "fps": 8.33,
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
       "size": [
-        576,
-        696
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/xp_success_episode5_outside.mp4",
+      "frames": 78,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/xp_success_episode5_policy.mp4",
+      "frames": 78,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/ym_success_episode14_outside.mp4",
+      "frames": 80,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/ym_success_episode14_policy.mp4",
+      "frames": 80,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/yp_failure_episode7_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/yp_failure_episode7_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/yp_success_episode3_outside.mp4",
+      "frames": 49,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-active-s0-videos/yp_success_episode3_policy.mp4",
+      "frames": 49,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/xp_success_episode5_outside.mp4",
+      "frames": 66,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/xp_success_episode5_policy.mp4",
+      "frames": 66,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/ym_failure_episode10_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/ym_failure_episode10_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/ym_success_episode2_outside.mp4",
+      "frames": 81,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/ym_success_episode2_policy.mp4",
+      "frames": 81,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/yp_failure_episode7_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/yp_failure_episode7_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/yp_success_episode3_outside.mp4",
+      "frames": 50,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-initial-s0-videos/yp_success_episode3_policy.mp4",
+      "frames": 50,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/yp_success_episode31_outside.mp4",
+      "frames": 86,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist-s0-videos/yp_success_episode31_policy.mp4",
+      "frames": 86,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/xp_success_episode25_outside.mp4",
+      "frames": 68,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/xp_success_episode25_policy.mp4",
+      "frames": 68,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_success_episode111_outside.mp4",
+      "frames": 77,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_success_episode111_policy.mp4",
+      "frames": 77,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/legacy_log_hold/evaluation-repeat1-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/legacy_log_hold/evaluation-repeat1-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/progress/evaluation-repeat1-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/progress/evaluation-repeat1-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
       ],
       "decoded_first_middle_last": true
     }

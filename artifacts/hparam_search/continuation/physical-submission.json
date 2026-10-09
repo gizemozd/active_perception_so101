@@ -1,0 +1,34 @@
+{
+  "purpose": "Repeated corrected scoring of all four matched9,228,288-transition checkpoints; diagnostic criterion intervention, not retraining",
+  "source_revision": "11a591f",
+  "script_sha256": "8793389492304267de13c79b845ab0f499b2145db3f966eb734cbf14301ed613",
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/src",
+    "WANDB_MODE": "online",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_PROJECT": "active-perception-so101",
+    "WANDB_RUN_GROUP": "plug-hparam-physical-20261009",
+    "EVALUATION_STAGE": "current-qpos-hparam-audit"
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/audit_hparams.sbatch"
+  ],
+  "episodes_per_checkpoint": 1024,
+  "total_episodes": 4096,
+  "training_started": false,
+  "status": "submitted",
+  "reserved_at": "2026-10-09T05:59:55.033766+00:00",
+  "stdout": "51517158",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51517158"
+}

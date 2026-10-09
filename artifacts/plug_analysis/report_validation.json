@@ -1,7 +1,8 @@
 {
-  "local_links_checked": 290,
+  "local_links_checked": 321,
   "missing_links": [],
   "media_validated": 100,
+  "media_validation_scope": "Original and corrected four-condition representative videos only; linked reward-repair and dynamic videos are covered by the independent portable-bundle validation.",
   "media_decoded_this_build": 100,
   "media_validation_reused_unchanged_files": false,
   "videos": [

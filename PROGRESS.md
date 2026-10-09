@@ -1116,3 +1116,41 @@ handoff instruction alone.
   test of that fix. Maximum two extension GPUs. Repeated corrected validations
   and actual evaluated videos follow automatically. Larger grids and transfer/
   pushing remain conditional on the learning results.
+
+### Matched physical tuning audit and live corrected continuations
+
+- Both corrected reward continuations are running from frozen source `11a591f`:
+  progress training `51514952` / dependent validation `51514953`, log-distance
+  training `51515059` / validation `51515060`. Each validation runs two balanced
+  512-episode repeats after final checkpoint verification. No winner is selected.
+- Historical tuning completion is independently verified in
+  `artifacts/hparam_search/continuation/completion_verified.json`: all three
+  checkpoints have iteration 750, 751 contiguous updates, 9,228,288 cumulative
+  transitions and finished W&B runs. The original criterion evaluations stay
+  preserved. Baseline comparison uses model_750 at that same budget.
+- Physical audit `51517158` evaluates baseline/fixed-LR/entropy/both twice under
+  `current_qpos`, 4,096 episodes total, with no optimizer updates. This is a
+  criterion intervention on historically trained checkpoints. Its submission
+  records the source and script hash; all outputs use new filenames.
+- That audit completed 0:0 in 8m42s. Successes per 512 episodes in repeats 1/2:
+  baseline 20/26, fixed LR 129/109, entropy 120/132, both 66/67. Every case still
+  has xm 0/128. All physical criterion violation counts are zero. Outcomes flip
+  in 22/68/108/61 episodes respectively despite identical initial physics/image
+  hashes; repeats are numerical diagnostics, not new training replicates. Exact
+  report/checkpoint hashes and checks are in `physical_completion_verified.json`.
+- Corrected continuation startup checks pass; original model_99 and screen
+  artifacts are intact. At updates 298/327, latest-100 count-weighted training
+  success is 2.64%/0.195% for progress/log. Losses are finite, but per-action std
+  is contracting rapidly and adaptive LR sometimes reaches its floor. This is
+  not established heldout competence; see `continuation/startup_audit.json`.
+- Transfer/push readiness is prepared and CLI-validated in
+  `artifacts/dynamic_occlusion/follow_on_readiness.json`, explicitly not submitted.
+  The physical-qpos sampling correction and log-distance profile are plug-only.
+  Current sweeps leave transfer/push wrist sensing useful; retain them as negative
+  controls unless a measured scenario establishes an information disadvantage.
+- The refreshed portable report passes independent extraction validation:
+  312 archive files, 285 local links, 107 referenced videos decoded at first,
+  middle and last frames, CRC and all included-file hashes verified. The report
+  includes eight separate physical optimizer rows and immutable 100-update repair
+  curves while continuations run. The bundle omits its own external checksum
+  audit to avoid including a stale previous-ZIP checksum.

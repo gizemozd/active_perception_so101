@@ -1,0 +1,18 @@
+% Corrected current_qpos evaluations of OLD-TRAINED model_750 checkpoints; no retraining or optimizer updates in this audit.
+% Three discrete consecutive physical-state samples at 25 Hz, not continuous dwell. Each checkpoint: 751 updates / 9,228,288 training transitions; seed 0 only.
+% Each row is a separate 512-episode balanced validation execution. Do not pool repeats as 1,024 independent samples or training seeds. Wilson intervals describe episode uncertainty only.
+\begin{tabular}{lrrrrrrrr}
+\hline
+Optimizer & Repeat & Success / $N$ & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ \\
+\hline
+baseline & 1 & 20/512 & 3.91 & [2.54, 5.96] & 0.00 & 15.62 & 0.00 & 0.00 \\
+baseline & 2 & 26/512 & 5.08 & [3.49, 7.34] & 0.00 & 18.75 & 0.00 & 1.56 \\
+fixed\_lr & 1 & 129/512 & 25.20 & [21.63, 29.13] & 0.00 & 0.00 & 60.94 & 39.84 \\
+fixed\_lr & 2 & 109/512 & 21.29 & [17.96, 25.04] & 0.00 & 0.00 & 52.34 & 32.81 \\
+entropy & 1 & 120/512 & 23.44 & [19.97, 27.30] & 0.00 & 29.69 & 25.78 & 38.28 \\
+entropy & 2 & 132/512 & 25.78 & [22.18, 29.74] & 0.00 & 32.81 & 27.34 & 42.97 \\
+both & 1 & 66/512 & 12.89 & [10.26, 16.07] & 0.00 & 0.00 & 27.34 & 24.22 \\
+both & 2 & 67/512 & 13.09 & [10.44, 16.28] & 0.00 & 0.00 & 28.12 & 24.22 \\
+\hline
+\end{tabular}
+% Variant columns are percentages; per-variant Wilson intervals and termination/repeat audits are in corrected_hparam_metrics.csv.

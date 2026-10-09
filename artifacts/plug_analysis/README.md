@@ -69,6 +69,23 @@ Outputs:
 - `analysis.json`: compact derived results, convergence heuristics and limitations.
 - `assets/`: standalone SVG/PDF scientific figures and video-preview JPEGs.
 - `report_validation.json`: local-link checks and decoded video/frame-rate checks.
+- `corrected_hparam_metrics.csv` / `.tex`: two separately reported physical-state
+  evaluations of each matched-budget optimizer checkpoint; numerical repeats
+  are not pooled as independent episodes or training seeds.
+- `repair_learning_curves.csv` / `repair_learning_summary.json`: actual corrected
+  reward-screen and completed continuation telemetry, with each reward scale and
+  source stage retained. Unfinished continuations are not shown as final results.
+
+For a standalone copy with videos, generate and independently verify the bundle:
+
+```bash
+.venv/bin/python scripts/build_plug_report.py --validate-media --bundle
+.venv/bin/python scripts/validate_report_bundle.py --decode-media
+```
+
+Open `index.html` after extracting `plug-report.zip`. The ZIP excludes checkpoints
+and raw NPZ captures; its manifest records included-file hashes. The separate
+`portable_validation.json` verifies extracted links, hashes, CRC and video frames.
 
 Videos are the first observed success/failure per variant in the scored evaluation,
 not a second physics rollout. Overview videos are rendered from captured states;

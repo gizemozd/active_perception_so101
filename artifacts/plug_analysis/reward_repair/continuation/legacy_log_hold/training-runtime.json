@@ -1,0 +1,15 @@
+{
+  "slurm_job_id": "51515059",
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "source_change": "critic_bootstrap_memory_restore_v1",
+  "started_at": "2026-10-09T05:52:44.462763+00:00",
+  "resume_checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_legacy_log_hold_qpos_20261009T052702Z/model_99.pt",
+  "resume_checkpoint_sha256": "a7c80eb8a5b574ba2474c3c98042a37def7ab26801bf373c02ed219826cf7fa4",
+  "allocation": {
+    "SLURM_JOB_ACCOUNT": "kempner_pgozdil_lab",
+    "SLURM_JOB_PARTITION": "kempner_rtx",
+    "SLURM_CPUS_PER_TASK": "8",
+    "SLURM_MEM_PER_NODE": "49152",
+    "CUDA_VISIBLE_DEVICES": "0"
+  }
+}

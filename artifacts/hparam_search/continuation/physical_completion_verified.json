@@ -1,0 +1,350 @@
+{
+  "verified_at": "2026-10-09T06:10:51.610101+00:00",
+  "job_id": "51517158",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed": "00:08:42",
+  "source_revision": "11a591f",
+  "script_sha256": "8793389492304267de13c79b845ab0f499b2145db3f966eb734cbf14301ed613",
+  "status": "VERIFIED_COMPLETED",
+  "total_episodes": 4096,
+  "interpretation": "Matched-budget criterion intervention on old-trained checkpoints; repeated outcomes are numerically variable and are not independent training replicates. All variants remain required for reliable learning.",
+  "rows": [
+    {
+      "case": "baseline",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_750.pt",
+      "training_transitions": 9228288,
+      "training_sampling": "derived_substep",
+      "evaluation_sampling": "current_qpos",
+      "repeats": [
+        {
+          "repeat": 1,
+          "report": "artifacts/hparam_search/continuation/baseline/corrected-evaluation-repeat1.json",
+          "report_sha256": "3a2d8b2e0670cc6edbb8eb9fc12a9aa26c7107f2d7c41c2902fdae78db97cec8",
+          "checkpoint_sha256": "f0d1129584ea284407b5fe9bdf707118681e1a240bf1070f91774196243517c0",
+          "successes": 20,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 20,
+              "success_rate": 0.15625
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "physical_criterion_violations": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          }
+        },
+        {
+          "repeat": 2,
+          "report": "artifacts/hparam_search/continuation/baseline/corrected-evaluation-repeat2.json",
+          "report_sha256": "465b5b5f59f0d1d5b020798405f02677a1be8a5a5429b3848783d4d6eca81b22",
+          "checkpoint_sha256": "f0d1129584ea284407b5fe9bdf707118681e1a240bf1070f91774196243517c0",
+          "successes": 26,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 24,
+              "success_rate": 0.1875
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 2,
+              "success_rate": 0.015625
+            }
+          },
+          "physical_criterion_violations": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          },
+          "changed_outcomes": 22,
+          "initial_physics_mismatches": 0,
+          "initial_combined_state_image_mismatches": 0
+        }
+      ]
+    },
+    {
+      "case": "fixed_lr",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/fixed_lr/plug_wrist_static_clean_gru_v7_s0_n512_fixed_lr_20261007T211226Z/model_750.pt",
+      "training_transitions": 9228288,
+      "training_sampling": "derived_substep",
+      "evaluation_sampling": "current_qpos",
+      "repeats": [
+        {
+          "repeat": 1,
+          "report": "artifacts/hparam_search/continuation/fixed_lr/corrected-evaluation-repeat1.json",
+          "report_sha256": "1c25e3ea5d4a9132b90f0ca3ad9616a65e95ed3956415a03772275f70f70a649",
+          "checkpoint_sha256": "48f199f8fe20aa73efc0b5e8f7d1af7b4887eb8790b215b74fe30926049910a3",
+          "successes": 129,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 78,
+              "success_rate": 0.609375
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 51,
+              "success_rate": 0.3984375
+            }
+          },
+          "physical_criterion_violations": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          }
+        },
+        {
+          "repeat": 2,
+          "report": "artifacts/hparam_search/continuation/fixed_lr/corrected-evaluation-repeat2.json",
+          "report_sha256": "f315018ca2607a11fcde7467ef62724eba92ba0cb04638ad97952e274c991633",
+          "checkpoint_sha256": "48f199f8fe20aa73efc0b5e8f7d1af7b4887eb8790b215b74fe30926049910a3",
+          "successes": 109,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 67,
+              "success_rate": 0.5234375
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 42,
+              "success_rate": 0.328125
+            }
+          },
+          "physical_criterion_violations": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          },
+          "changed_outcomes": 68,
+          "initial_physics_mismatches": 0,
+          "initial_combined_state_image_mismatches": 0
+        }
+      ]
+    },
+    {
+      "case": "entropy",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/entropy/plug_wrist_static_clean_gru_v7_s0_n512_entropy_20261007T211458Z/model_750.pt",
+      "training_transitions": 9228288,
+      "training_sampling": "derived_substep",
+      "evaluation_sampling": "current_qpos",
+      "repeats": [
+        {
+          "repeat": 1,
+          "report": "artifacts/hparam_search/continuation/entropy/corrected-evaluation-repeat1.json",
+          "report_sha256": "2b7e98e48bbf121d832f202b119efc6893ad6c3ec8fb4e6d3fbe47f0cbd68b10",
+          "checkpoint_sha256": "1383f0eea6a7911dce3210498f52607406189e6671fa4cb00211117504634f6f",
+          "successes": 120,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 38,
+              "success_rate": 0.296875
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 33,
+              "success_rate": 0.2578125
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 49,
+              "success_rate": 0.3828125
+            }
+          },
+          "physical_criterion_violations": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          }
+        },
+        {
+          "repeat": 2,
+          "report": "artifacts/hparam_search/continuation/entropy/corrected-evaluation-repeat2.json",
+          "report_sha256": "feab505df565f63515b04fb8c0f6fd1cd767e88b0223a6b82ae25bbc8b82ee5d",
+          "checkpoint_sha256": "1383f0eea6a7911dce3210498f52607406189e6671fa4cb00211117504634f6f",
+          "successes": 132,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 42,
+              "success_rate": 0.328125
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 35,
+              "success_rate": 0.2734375
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 55,
+              "success_rate": 0.4296875
+            }
+          },
+          "physical_criterion_violations": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          },
+          "changed_outcomes": 108,
+          "initial_physics_mismatches": 0,
+          "initial_combined_state_image_mismatches": 0
+        }
+      ]
+    },
+    {
+      "case": "both",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/both/plug_wrist_static_clean_gru_v7_s0_n512_both_20261007T211458Z/model_750.pt",
+      "training_transitions": 9228288,
+      "training_sampling": "derived_substep",
+      "evaluation_sampling": "current_qpos",
+      "repeats": [
+        {
+          "repeat": 1,
+          "report": "artifacts/hparam_search/continuation/both/corrected-evaluation-repeat1.json",
+          "report_sha256": "8afdaf3af63b691701b7ee731b730193b46c3374d1120abdc32e49a12b23a5f3",
+          "checkpoint_sha256": "829294de9797ee372f5f93302dcbc55a5e56cc339799d66969cec2a5707725fb",
+          "successes": 66,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 35,
+              "success_rate": 0.2734375
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 31,
+              "success_rate": 0.2421875
+            }
+          },
+          "physical_criterion_violations": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          }
+        },
+        {
+          "repeat": 2,
+          "report": "artifacts/hparam_search/continuation/both/corrected-evaluation-repeat2.json",
+          "report_sha256": "f75401c856bd71de5b5e42625b95ef55480a0eb8763abf91155f65cbdd9586f2",
+          "checkpoint_sha256": "829294de9797ee372f5f93302dcbc55a5e56cc339799d66969cec2a5707725fb",
+          "successes": 67,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 36,
+              "success_rate": 0.28125
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 31,
+              "success_rate": 0.2421875
+            }
+          },
+          "physical_criterion_violations": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          },
+          "changed_outcomes": 61,
+          "initial_physics_mismatches": 0,
+          "initial_combined_state_image_mismatches": 0
+        }
+      ]
+    }
+  ]
+}

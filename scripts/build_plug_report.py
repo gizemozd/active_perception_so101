@@ -139,14 +139,15 @@ def configure_plots():
             "axes.spines.top": False,
             "axes.spines.right": False,
             "svg.fonttype": "none",
+            "svg.hashsalt": "active_perception_so101",
             "savefig.bbox": "tight",
         }
     )
 
 
 def save_figure(fig, assets, name):
-    fig.savefig(assets / (name + ".svg"))
-    fig.savefig(assets / (name + ".pdf"))
+    fig.savefig(assets / (name + ".svg"), metadata={"Date": None})
+    fig.savefig(assets / (name + ".pdf"), metadata={"CreationDate": None, "ModDate": None})
     plt.close(fig)
 
 
@@ -569,6 +570,347 @@ def collect_reward_repairs(root, output):
     return rows
 
 
+def collect_corrected_hparams(root):
+    """Read matched old-checkpoint evaluations under the repaired physical criterion."""
+    base = root / "artifacts/hparam_search/continuation"
+    paths = list(base.glob("*/corrected-evaluation-repeat*.json"))
+    if not paths:
+        return []
+    plan_path = root / "artifacts/hparam_search/next_stage_plan.json"
+    plan = read(plan_path)
+    cases = {row["case"]: row for row in plan["cases"]}
+    audit_manifest = base / "physical-submission.json"
+    evaluation_source = (
+        read(audit_manifest).get("source_revision") if audit_manifest.exists() else None
+    )
+    rows = []
+    for case in ("baseline", "fixed_lr", "entropy", "both"):
+        training_path = base / case / "plug-wrist_static-s0.json"
+        training = read(training_path) if training_path.exists() else {}
+        transitions = training.get("final_cumulative_transitions", plan["total_budget_per_case"])
+        assert transitions == plan["total_budget_per_case"], (
+            "Optimizer table requires matched budgets"
+        )
+        expected = (
+            root / plan["baseline_checkpoint"]
+            if case == "baseline"
+            else Path(cases[case]["expected_final_checkpoint"])
+        )
+        for repeat in (1, 2):
+            path = base / case / f"corrected-evaluation-repeat{repeat}.json"
+            if not path.exists():
+                continue
+            value = read(path)
+            checkpoint = Path(value["checkpoint"])
+            assert checkpoint.resolve() == expected.resolve()
+            match = re.fullmatch(r"model_(\d+)\.pt", checkpoint.name)
+            assert match is not None
+            updates = int(match[1]) + 1
+            assert updates == 751 and value["episodes"] == 512
+            assert value["successes"] == sum(value["outcomes"])
+            assert value["experiment"]["success_state_sample"] == "current_qpos"
+            audit = value.get("termination_audit") or {}
+            comparison = value.get("repeat_comparison") or {}
+            low, high = wilson(value["successes"], value["episodes"])
+            row = {
+                "case": case,
+                "repeat": repeat,
+                "training_seed": value.get("training_seed"),
+                "condition": value["experiment"]["condition"],
+                "training_updates": updates,
+                "training_transitions": transitions,
+                "training_budget_source": str(
+                    (training_path if training_path.exists() else plan_path).relative_to(root)
+                ),
+                "evaluation_source_revision": evaluation_source,
+                "success_state_sample": value["experiment"]["success_state_sample"],
+                "split": value["split"],
+                "evaluation_seed_start": value["seed"],
+                "evaluation_num_envs": value["experiment"]["num_envs"],
+                "episodes": value["episodes"],
+                "successes": value["successes"],
+                "success_rate": value["success_rate"],
+                "wilson95_low": low,
+                "wilson95_high": high,
+                "changed_episode_count": comparison.get("changed_episode_count"),
+                "initial_hash_comparable": comparison.get("initial_hash_comparable"),
+                "initial_hash_mismatches": comparison.get("initial_hash_mismatches"),
+                "initial_physics_state_mismatches": comparison.get(
+                    "initial_physics_state_mismatches"
+                ),
+                "initial_wrist_image_mismatches": comparison.get(
+                    "initial_sensor_image_mismatches", {}
+                ).get("wrist"),
+                "initial_external_image_mismatches": comparison.get(
+                    "initial_sensor_image_mismatches", {}
+                ).get("external"),
+                "success_hold_violations": audit.get("success_hold_violations"),
+                "success_distance_violations": audit.get("success_distance_violations"),
+                "success_three_sample_violations": audit.get("success_three_sample_violations"),
+                "success_qpos_above_distance_threshold": audit.get(
+                    "success_qpos_above_distance_threshold"
+                ),
+                "report": str(path.relative_to(root)),
+                "checkpoint": str(checkpoint),
+                "wandb_url": value.get("wandb_url"),
+            }
+            for variant in plug.VARIANTS:
+                detail = value["per_variant"][variant]
+                assert detail["episodes"] == 128
+                low, high = wilson(detail["successes"], detail["episodes"])
+                row.update(
+                    {
+                        variant + "_episodes": detail["episodes"],
+                        variant + "_successes": detail["successes"],
+                        variant + "_success_rate": detail["success_rate"],
+                        variant + "_wilson95_low": low,
+                        variant + "_wilson95_high": high,
+                    }
+                )
+            rows.append(row)
+    return rows
+
+
+def write_corrected_hparam_tables(output, rows):
+    """Export physical scores without pooling numerical repeats as independent episodes."""
+    if not rows:
+        return
+    write_csv(output / "corrected_hparam_metrics.csv", rows)
+    latex = [
+        "% Corrected current_qpos evaluations of OLD-TRAINED model_750 checkpoints; no retraining or optimizer updates in this audit.",
+        "% Three discrete consecutive physical-state samples at 25 Hz, not continuous dwell. Each checkpoint: 751 updates / 9,228,288 training transitions; seed 0 only.",
+        "% Each row is a separate 512-episode balanced validation execution. Do not pool repeats as 1,024 independent samples or training seeds. Wilson intervals describe episode uncertainty only.",
+        r"\begin{tabular}{lrrrrrrrr}",
+        r"\hline",
+        r"Optimizer & Repeat & Success / $N$ & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ \\",
+        r"\hline",
+    ]
+    for row in rows:
+        latex.append(
+            row["case"].replace("_", r"\_")
+            + f" & {row['repeat']} & {row['successes']}/{row['episodes']} & "
+            + f"{100 * row['success_rate']:.2f} & [{100 * row['wilson95_low']:.2f}, {100 * row['wilson95_high']:.2f}] & "
+            + " & ".join(f"{100 * row[v + '_success_rate']:.2f}" for v in plug.VARIANTS)
+            + r" \\"
+        )
+    latex += [
+        r"\hline",
+        r"\end{tabular}",
+        "% Variant columns are percentages; per-variant Wilson intervals and termination/repeat audits are in corrected_hparam_metrics.csv.",
+    ]
+    (output / "corrected_hparam_metrics.tex").write_text("\n".join(latex) + "\n")
+
+
+def collect_repair_learning(root, output):
+    """Use frozen screen budgets; expose all completed continuation updates when available."""
+    rows, summaries, histories = [], [], {}
+    for case in ("progress", "legacy_log_hold"):
+        screen_path = output / "reward_repair" / case / "run_manifest.json"
+        if not screen_path.exists():
+            continue
+        screen = read(screen_path)
+        screen_updates = screen["training_updates"]
+        continuation_path = output / "reward_repair/continuation" / case / "run_manifest.json"
+        continuation = read(continuation_path) if continuation_path.exists() else {}
+        training_path = continuation_path.parent / "training.json"
+        training = read(training_path) if training_path.exists() else {}
+        history_path = Path(screen["run_directory"]) / "iterations.jsonl"
+        if not history_path.exists():
+            continue
+        lines = history_path.read_text().splitlines()
+        expected_updates = continuation.get("training_updates", screen_updates)
+        expected_transitions = continuation.get(
+            "training_transitions", screen["training_transitions"]
+        )
+        completed = (
+            bool(continuation)
+            and training.get("final_cumulative_transitions") == expected_transitions
+            and len(lines) >= expected_updates
+        )
+        selected_updates = expected_updates if completed else screen_updates
+        # The mutable runner file is never consulted. Initial rows retain their original budget/source.
+        history = [json.loads(line) for line in lines[:selected_updates]]
+        assert [r["iteration"] for r in history] == list(range(1, selected_updates + 1))
+        assert history[-1]["transitions"] == (
+            expected_transitions if completed else screen["training_transitions"]
+        )
+        stage = "continuation" if completed else "screen"
+        histories[case] = history
+        for row in history:
+            rows.append(
+                {
+                    "profile": case,
+                    "plotted_stage": stage,
+                    "training_source_revision": screen["source_revision"]
+                    if row["iteration"] <= screen_updates
+                    else continuation["source_revision"],
+                    **row,
+                }
+            )
+        rewards = [r for r in history if METRICS["reward"] in r]
+        comparison_window = min(100, len(rewards) // 2)
+        first = np.array([r[METRICS["reward"]] for r in rewards[:comparison_window]])
+        last = np.array([r[METRICS["reward"]] for r in rewards[-comparison_window:]])
+        summary = {
+            "profile": case,
+            "plotted_stage": stage,
+            "screen_updates": screen_updates,
+            "plotted_updates": len(history),
+            "available_history_lines": len(lines),
+            "expected_total_updates": expected_updates,
+            "plotted_transitions": history[-1]["transitions"],
+            "expected_total_transitions": expected_transitions,
+            "continuation_training_complete": completed,
+            "reward_comparison_window_updates": comparison_window,
+            "first_window_reward_mean": float(first.mean()) if first.size else None,
+            "last_window_reward_mean": float(last.mean()) if last.size else None,
+            "reward_gain": float(last.mean() - first.mean()) if first.size and last.size else None,
+            "tail_300_available": len(rewards) >= 300,
+            "last_300_reward_slope_per_million_transitions": None,
+            "last_300_reward_fitted_change": None,
+            "final_150_vs_previous_150_reward_change": None,
+            "descriptive_plateau_tolerance": None,
+            "descriptive_reward_plateau": None,
+            "manifest": str((continuation_path if completed else screen_path).relative_to(root)),
+            "history": str(history_path.relative_to(root)),
+        }
+        if len(rewards) >= 300:
+            tail = rewards[-300:]
+            x = np.array([r["transitions"] / 1e6 for r in tail])
+            y = np.array([r[METRICS["reward"]] for r in tail])
+            slope = float(np.polyfit(x, y, 1)[0])
+            fitted_change = slope * float(x[-1] - x[0])
+            window_change = float(y[-150:].mean() - y[:150].mean())
+            tolerance = 0.1 * max(0.1, abs(float(y.mean())))
+            summary.update(
+                {
+                    "last_300_reward_slope_per_million_transitions": slope,
+                    "last_300_reward_fitted_change": fitted_change,
+                    "final_150_vs_previous_150_reward_change": window_change,
+                    "descriptive_plateau_tolerance": tolerance,
+                    "descriptive_reward_plateau": max(abs(fitted_change), abs(window_change))
+                    <= tolerance,
+                }
+            )
+        tail = history[-min(300, len(history)) :]
+        episodes = sum(r.get("train/Loss/diagnostic_completed_episodes", 0) for r in tail)
+        successes = sum(r.get("train/Loss/diagnostic_successes", 0) for r in tail)
+        summary["tail_completed_episodes"] = episodes
+        summary["tail_episode_weighted_training_success"] = (
+            successes / episodes if episodes else None
+        )
+        kls = [r["train/Loss/diagnostic_kl"] for r in tail if "train/Loss/diagnostic_kl" in r]
+        summary["tail_mean_diagnostic_kl"] = float(np.mean(kls)) if kls else None
+        summary["last_mean_action_std"] = history[-1].get(METRICS["mean_std"])
+        summaries.append(summary)
+    return rows, summaries, histories
+
+
+def repair_learning_plots(histories, assets, screen_budgets):
+    """Keep the two objective scales on distinct figures; success smoothing weights episodes."""
+    for case, history in histories.items():
+        fig, axes = plt.subplots(3, 2, figsize=(12, 9), sharex=True)
+        panels = (
+            (METRICS["reward"], "Training episode reward · this profile's scale"),
+            ("train/Loss/diagnostic_episode_weighted_success", "Episode-weighted training success"),
+            ("train/Loss/diagnostic_kl", "PPO diagnostic KL"),
+            (METRICS["mean_std"], "Action standard deviation"),
+            (METRICS["learning_rate"], "PPO learning rate"),
+            ("train/Loss/diagnostic_clip_fraction", "PPO clipped fraction"),
+        )
+        for ax, (key, label) in zip(axes.flat, panels, strict=True):
+            points = metric_rows(history, key)
+            if points:
+                x, y = np.asarray(points).T
+                ax.plot(x, y, alpha=0.2, linewidth=0.7, color="#2563eb")
+                if key == "train/Loss/diagnostic_episode_weighted_success":
+                    available = [r for r in history if key in r]
+                    width = min(30, len(available))
+                    completed = np.array(
+                        [r["train/Loss/diagnostic_completed_episodes"] for r in available]
+                    )
+                    successful = np.array([r["train/Loss/diagnostic_successes"] for r in available])
+                    denominator = np.convolve(completed, np.ones(width), mode="valid")
+                    numerator = np.convolve(successful, np.ones(width), mode="valid")
+                    weighted = np.divide(
+                        numerator,
+                        denominator,
+                        out=np.full_like(numerator, np.nan),
+                        where=denominator > 0,
+                    )
+                    ax.plot(x[width - 1 :], weighted, color="#2563eb", linewidth=1.6)
+                    ax.set_ylim(0, 1)
+                elif key == METRICS["mean_std"]:
+                    std_keys = sorted(
+                        {
+                            k
+                            for r in history
+                            for k in r
+                            if re.fullmatch(r"train/Loss/diagnostic_action_std_\d+", k)
+                        }
+                    )
+                    for std_key in std_keys:
+                        std_points = metric_rows(history, std_key)
+                        sx, sy = np.asarray(std_points).T
+                        ax.plot(sx, sy, linewidth=1.2, label="action " + std_key.rsplit("_", 1)[-1])
+                    ax.legend(fontsize=8)
+                else:
+                    sx, sy = smoothed(x, y)
+                    ax.plot(sx, sy, color="#2563eb", linewidth=1.6)
+                if key == METRICS["learning_rate"]:
+                    ax.set_yscale("log")
+            ax.set_ylabel(label)
+            ax.grid(alpha=0.2)
+            # This marks the immutable screen budget, not the mutable runner max_iterations.
+            screen_updates = screen_budgets[case]
+            if len(history) > screen_updates:
+                ax.axvline(
+                    history[screen_updates - 1]["transitions"] / 1e6,
+                    color="#777",
+                    linestyle="--",
+                    linewidth=1,
+                )
+        for ax in axes[-1]:
+            ax.set_xlabel("Cumulative environment transitions (millions)")
+        fig.suptitle(
+            f"Corrected-training reward profile: {case} · seed 0 · {len(history)} recorded updates"
+        )
+        fig.tight_layout()
+        save_figure(fig, assets, "repair_learning_" + case)
+
+
+def reward_video_cards(root, output, directory, case, stage_label):
+    """Show one captured example per available outcome, without implying variant coverage."""
+    metadata = directory / "evaluation-repeat1-videos/representatives.json"
+    if not metadata.exists():
+        return []
+    records = read(metadata)["records"]
+    selected = [
+        next((r for r in records if bool(r["expected_success"]) == success), None)
+        for success in (True, False)
+    ]
+    cards = []
+    for record in selected:
+        if not record or not all(
+            (root / record[key]).exists() for key in ("outside_video", "policy_video")
+        ):
+            continue
+        cards.append(
+            f'<article class="video-card"><h3>{html.escape(case)} · {html.escape(stage_label)} · '
+            f"{html.escape(record['variant'])} · {'success' if record['expected_success'] else 'failure'} · "
+            f'episode {record["episode"]}</h3><p class="small">First captured example of this outcome '
+            "in repeat 1, when present; actual scored trajectory and actor inputs. "
+            'These selected examples do not represent every variant.</p><div class="video-pair">'
+        )
+        for key in ("outside_video", "policy_video"):
+            src = html.escape(os.path.relpath(root / record[key], output))
+            cards.append(f'<video controls preload="none" playsinline src="{src}"></video>')
+        cards.append(
+            '</div><button type="button" onclick="playPair(this)">Play pair</button></article>'
+        )
+    return cards
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
@@ -740,6 +1082,18 @@ def main():
                 }
             )
     repair_rows = collect_reward_repairs(root, output)
+    corrected_hparams = collect_corrected_hparams(root)
+    write_corrected_hparam_tables(output, corrected_hparams)
+    repair_learning_rows, repair_learning_summaries, repair_histories = collect_repair_learning(
+        root, output
+    )
+    write_csv(output / "repair_learning_curves.csv", repair_learning_rows)
+    write_json(output / "repair_learning_summary.json", repair_learning_summaries)
+    repair_learning_plots(
+        repair_histories,
+        assets,
+        {r["profile"]: r["screen_updates"] for r in repair_learning_summaries},
+    )
     reward_repair = [row for row in repair_rows if row["stage"] == "screen"]
     reward_continuation = [row for row in repair_rows if row["stage"] == "continuation"]
     write_csv(output / "reward_repair_metrics.csv", reward_repair)
@@ -856,6 +1210,8 @@ def main():
         "comparisons": comparisons,
         "representative_count": len(capture_rows),
         "tuning_continuation_results": tuning,
+        "corrected_hparam_results": corrected_hparams,
+        "reward_repair_learning": repair_learning_summaries,
         "reward_repair_results": reward_repair,
         "reward_repair_continuation_results": reward_continuation,
         "headline_success_state_sample": "current_qpos"
@@ -1391,10 +1747,86 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
         "(44/512). Architecture, geometry and reward remain fixed. The continuation spends 651 additional "
         "updates per candidate, not a new 751-update budget.</p>",
     ]
+    physical_tuning = analysis["corrected_hparam_results"]
+    sections += [
+        "<h3>Matched optimizer checkpoints · corrected physical-state scoring</h3>",
+        "<p>Baseline, fixed LR, increased entropy and both changes are compared at model 750 "
+        "(751 updates / 9,228,288 training transitions). These are corrected-criterion evaluations "
+        "of checkpoints trained under the earlier criterion, with no new optimizer updates. Each "
+        "execution has 512 balanced validation episodes (128 per variant), starting at the same "
+        "reset seeds. Success requires three consecutive <code>current_qpos</code> samples at 25 Hz. "
+        "The bootstrap correction in evaluation source does not retrain these policies.</p>",
+    ]
+    if physical_tuning:
+        sections.append(
+            table(
+                [
+                    "Optimizer / repeat",
+                    "Success / N",
+                    "Success % [95% CI]",
+                    "xm % [95% CI]",
+                    "xp % [95% CI]",
+                    "ym % [95% CI]",
+                    "yp % [95% CI]",
+                    "Changed episodes",
+                    "Initial hash mismatches",
+                    "Physical audit violations",
+                ],
+                [
+                    [
+                        link(r["report"], f"{r['case']} / {r['repeat']}"),
+                        f"{r['successes']}/{r['episodes']}",
+                        f"{100 * r['success_rate']:.2f} [{100 * r['wilson95_low']:.2f}, {100 * r['wilson95_high']:.2f}]",
+                        *[
+                            f"{100 * r[v + '_success_rate']:.2f} [{100 * r[v + '_wilson95_low']:.2f}, {100 * r[v + '_wilson95_high']:.2f}]"
+                            for v in plug.VARIANTS
+                        ],
+                        str(r["changed_episode_count"])
+                        if r["changed_episode_count"] is not None
+                        else "Reference repeat",
+                        str(r["initial_hash_mismatches"])
+                        if r["initial_hash_comparable"]
+                        else "Reference / not comparable",
+                        "/".join(
+                            str(r[k]) if r[k] is not None else "NA"
+                            for k in (
+                                "success_hold_violations",
+                                "success_distance_violations",
+                                "success_three_sample_violations",
+                                "success_qpos_above_distance_threshold",
+                            )
+                        ),
+                    ]
+                    for r in physical_tuning
+                ],
+            )
+        )
+        sections += [
+            "<p>"
+            + link(output / "corrected_hparam_metrics.csv", "Corrected optimizer CSV")
+            + " · "
+            + link(output / "corrected_hparam_metrics.tex", "Paper LaTeX table")
+            + "</p>",
+            '<p class="small">Audit columns show hold / distance / three-sample / terminal raw-qpos '
+            "violations. CSV includes combined, physics and image hash mismatches. Wilson intervals "
+            "describe episode uncertainty for one checkpoint, not training-seed variation. Repeat "
+            "executions are numerical diagnostics; they are not pooled into 1,024 independent "
+            "episodes or treated as new training seeds. Same initial hashes do not imply matching "
+            "trajectories. Partial results remain partial until both repeats of all four cases finish.</p>",
+        ]
+    else:
+        sections.append(
+            '<p class="small">No completed matched corrected-criterion optimizer evaluation was found at report generation.</p>'
+        )
+    sections += [
+        "<h3>Historical optimizer scores · lagged derived-state criterion</h3>",
+        "<p>The following preserved scores use <code>derived_substep</code> geometry. They are "
+        "historical manager flags and must be kept separate from current physical-state success.</p>",
+    ]
     if tuning:
         sections.append(
             table(
-                ["Completed continuation", "Success / N", "Success %", "Provenance"],
+                ["Completed continuation", "Legacy score / N", "Legacy score %", "Provenance"],
                 [
                     [
                         esc(r["case"]),
@@ -1476,33 +1908,7 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
             training_path = directory / "training.json"
             if training_path.exists():
                 sections.append("<p>" + link(training_path, case + " training summary") + "</p>")
-            metadata = directory / "evaluation-repeat1-videos/representatives.json"
-            if not metadata.exists():
-                continue
-            records = read(metadata)["records"]
-            selected = [
-                next((r for r in records if bool(r["expected_success"]) == success), None)
-                for success in (True, False)
-            ]
-            for record in selected:
-                if not record or not all(
-                    (root / record[k]).exists() for k in ("outside_video", "policy_video")
-                ):
-                    continue
-                sections.append(
-                    f'<article class="video-card"><h3>{esc(case)} · '
-                    f"{esc(record['variant'])} · {'success' if record['expected_success'] else 'failure'} · "
-                    f'episode {record["episode"]}</h3><p class="small">First captured success/failure '
-                    'in repeat 1, when present; actual trajectory and actor inputs.</p><div class="video-pair">'
-                )
-                for key in ("outside_video", "policy_video"):
-                    src = esc(os.path.relpath(root / record[key], output))
-                    sections.append(
-                        f'<video controls preload="none" playsinline src="{src}"></video>'
-                    )
-                sections.append(
-                    '</div><button type="button" onclick="playPair(this)">Play pair</button></article>'
-                )
+            sections += reward_video_cards(root, output, directory, case, "Fresh 100-update screen")
     else:
         sections.append(
             '<p class="small">No completed corrected-training reward-repair evaluation was found '
@@ -1582,11 +1988,89 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
                 path = directory / filename
                 if path.exists():
                     sections.append("<p>" + link(path, case + " " + label) + "</p>")
+            completed_case = next((row for row in continuations if row["profile"] == case), None)
+            if completed_case:
+                updates = completed_case["training_updates"]
+                stage_label = (
+                    f"Resumed continuation · {updates} total updates"
+                    if updates is not None
+                    else "Resumed continuation · budget unverified"
+                )
+                sections += reward_video_cards(root, output, directory, case, stage_label)
     else:
         sections.append(
             '<p class="small">No completed continuation evaluation was found at report generation. '
             "A prepared plan does not establish submission, completion or improvement.</p>"
         )
+    repair_learning = analysis["reward_repair_learning"]
+    if repair_learning:
+
+        def repair_number(row, key):
+            return f"{row[key]:.3f}" if row[key] is not None else "Pending"
+
+        sections += [
+            "<h3>Reward-repair learning trajectories and descriptive plateau checks</h3>",
+            "<p>Each reward objective has its own figure and numerical scale. A reward increase "
+            "across profiles is not a comparable performance measure. Completed continuations "
+            "display all recorded updates from 1 through 751, retaining the original first stage; "
+            "while training is incomplete, only the immutable screen budget is plotted. Budgets "
+            "come from stage manifests and cumulative telemetry, not the resumed runner config.</p>",
+            table(
+                [
+                    "Reward profile",
+                    "Recorded / target updates",
+                    "Reward window",
+                    "First mean",
+                    "Last mean",
+                    "Reward gain",
+                    "Tail-300 slope / M",
+                    "Fitted tail change",
+                    "Last150 - prior150",
+                    "Plateau tolerance",
+                    "Descriptive plateau",
+                    "Tail episode-weighted training success",
+                ],
+                [
+                    [
+                        esc(r["profile"]),
+                        f"{r['plotted_updates']}/{r['expected_total_updates']} · {esc(r['plotted_stage'])}",
+                        f"{r['reward_comparison_window_updates']} updates",
+                        repair_number(r, "first_window_reward_mean"),
+                        repair_number(r, "last_window_reward_mean"),
+                        repair_number(r, "reward_gain"),
+                        repair_number(r, "last_300_reward_slope_per_million_transitions"),
+                        repair_number(r, "last_300_reward_fitted_change"),
+                        repair_number(r, "final_150_vs_previous_150_reward_change"),
+                        repair_number(r, "descriptive_plateau_tolerance"),
+                        str(r["descriptive_reward_plateau"])
+                        if r["tail_300_available"]
+                        else "Fewer than 300 completed updates",
+                        f"{100 * r['tail_episode_weighted_training_success']:.2f}%"
+                        if r["tail_episode_weighted_training_success"] is not None
+                        else "Not recorded",
+                    ]
+                    for r in repair_learning
+                ],
+            ),
+            '<p class="small">The descriptive plateau requires both the fitted tail-300 reward '
+            "change and the last150-minus-prior150 mean change to stay within 10% of "
+            "max(0.1, absolute tail mean). This heuristic is not a statistical convergence test or "
+            "a competence gate. Episode-weighted success sums completed successes and episodes "
+            "over the displayed tail; it remains a training statistic. Reward growth and a plateau "
+            "must be interpreted alongside corrected heldout per-variant scores.</p>",
+            "<p>"
+            + link(output / "repair_learning_curves.csv", "Raw reward-repair learning CSV")
+            + " · "
+            + link(output / "repair_learning_summary.json", "Budget and plateau diagnostics JSON")
+            + "</p>",
+        ]
+        for row in repair_learning:
+            sections.append(
+                plot(
+                    "repair_learning_" + row["profile"],
+                    f"{row['profile']}: {row['plotted_updates']} actual recorded updates; reward scale is profile-specific. Raw traces and 30-update means; success smoothing is weighted by completed episodes. Per-action std, KL, learning rate and clipping expose optimization behavior.",
+                )
+            )
     credit_path = output / "recurrent_credit_audit.json"
     if credit_path.exists():
         credit = read(credit_path)
@@ -1887,6 +2371,7 @@ def validate_report(output, root, rows, decode):
         "local_links_checked": len(local),
         "missing_links": missing,
         "media_validated": len(media),
+        "media_validation_scope": "Original and corrected four-condition representative videos only; linked reward-repair and dynamic videos are covered by the independent portable-bundle validation.",
         "media_decoded_this_build": 0 if reused else len(media),
         "media_validation_reused_unchanged_files": reused,
         "videos": media,
@@ -1923,7 +2408,9 @@ def bundle_report(root, output):
     # Compact local measurements are useful independently of the rendered page.
     for pattern in ("*.csv", "*.tex", "*.json", "README.md"):
         sources.update(
-            p.resolve() for p in output.glob(pattern) if p.name != "bundle_manifest.json"
+            p.resolve()
+            for p in output.glob(pattern)
+            if p.name not in {"bundle_manifest.json", "portable_validation.json"}
         )
     for target in omitted:
         escaped = html.escape(target)

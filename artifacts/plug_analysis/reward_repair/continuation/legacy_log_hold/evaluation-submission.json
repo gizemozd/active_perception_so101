@@ -1,0 +1,64 @@
+{
+  "profile": "legacy_log_hold",
+  "training_job_id": "51515059",
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "source_files_sha256": {
+    "src/active_perception_arms/config.py": "ba639782cd2443275b13e839543508144aec1607cfc80d9ffa1e26879d952faf",
+    "src/active_perception_arms/policy.py": "bd8bc5f6ddc885588ef2968ab8578dd5e5d0f7ff58a99bc0661c0c2187577b81",
+    "src/active_perception_arms/train.py": "028c6df1d5505a3029e3687d3c569ad7abc85fb739ea80bf6524e2a1ca6ac16d",
+    "src/active_perception_arms/mdp.py": "0fad9d65cf4ece859245b31edb3df5374122b8a54475c6e3b23d246ecef6e6da",
+    "src/active_perception_arms/environment.py": "2a4fe89c92cd9b558b0c25aea0f54f14325ae692c256566a8554b3ba4f42618d",
+    "src/active_perception_arms/telemetry.py": "b4ab0f0c7d5893e31dcb7f2b96a90dd8e8f63ad0ad17316e016b77d946f043f5",
+    "src/active_perception_arms/evaluate.py": "99c2f5432d4138a3fcf4d7da1ae77a13d326e36cd55ae325f58dd23ff97a81fc",
+    "src/active_perception_arms/capture_evaluation.py": "3b0707cf054c270d064b0b4f2018fbe62def20f860149a41fc75779e4c50f1a7",
+    "src/active_perception_arms/record_evaluation.py": "5e00031fe087d83f8495f8485b5292e77091d92f417fbc401e502ed59ed4bb02",
+    "scripts/slurm/common.sh": "68238f0124b55efd1f271b82166526d49966d32005b5ad49b2bd7d4af5558ce8"
+  },
+  "source_history": [
+    {
+      "revision": "434c37af8a3e1fc82611d6bb13d3fb55f28a2987",
+      "updates": 100,
+      "transitions": 1228800
+    },
+    {
+      "revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+      "updates": 651,
+      "transitions": 7999488
+    }
+  ],
+  "source_change": "critic_bootstrap_memory_restore_v1",
+  "script_sha256": "c7411fddbaeb1c486c96ce136d3817632e0c1750ecea2fb099d213275717bd3c",
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/src",
+    "CONTINUATION_MANIFEST": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/submission.json",
+    "WANDB_MODE": "online",
+    "WANDB_RUN_GROUP": "plug-reward-bootstrap-continuation",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_PROJECT": "active-perception-so101",
+    "EVALUATION_STAGE": "critic_bootstrap_memory_restore_v1",
+    "EVALUATION_WANDB_ID_1": "e88e28c158b5",
+    "EVALUATION_WANDB_ID_2": "29998c2f5323"
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--dependency=afterok:51515059",
+    "--job-name=plug-reward751-eval-legacy_log_hold",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.err",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/reward_continuation_eval.sbatch"
+  ],
+  "status": "submitted",
+  "reserved_at": "2026-10-09T05:52:42.457289+00:00",
+  "stdout": "51515060",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51515060"
+}

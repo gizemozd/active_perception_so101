@@ -1,0 +1,497 @@
+{
+  "status": "CONDITIONAL_PREPARED_NOT_SUBMITTED",
+  "created_at": "2026-10-09T06:08:22.437923+00:00",
+  "training_launched": false,
+  "jobs_submitted": false,
+  "entry_decision_made": false,
+  "entry_condition": "Start transfer/push only if the plug repair produces trustworthy physically audited learning and the parent reviews completed reward screens and HP results. This manifest does not make that decision.",
+  "scope": "Read-only readiness audit plus this saved manifest. No new grid, long-rollout implementation or GPU job.",
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "source_files_sha256": {
+    "src/active_perception_arms/config.py": "ba639782cd2443275b13e839543508144aec1607cfc80d9ffa1e26879d952faf",
+    "src/active_perception_arms/policy.py": "bd8bc5f6ddc885588ef2968ab8578dd5e5d0f7ff58a99bc0661c0c2187577b81",
+    "src/active_perception_arms/mdp.py": "0fad9d65cf4ece859245b31edb3df5374122b8a54475c6e3b23d246ecef6e6da",
+    "src/active_perception_arms/train.py": "028c6df1d5505a3029e3687d3c569ad7abc85fb739ea80bf6524e2a1ca6ac16d",
+    "scripts/slurm/common.sh": "68238f0124b55efd1f271b82166526d49966d32005b5ad49b2bd7d4af5558ce8",
+    "scripts/slurm/train_transfer.sbatch": "8f99a2c42d891212c064d5671f122b9bcf4e70d48dcf03cda62f162c751085c8",
+    "scripts/slurm/train_push.sbatch": "336421bba57eed036e2ed21e898bad6885ce595fd61c2992002242756fd80db5"
+  },
+  "critic_fix": {
+    "revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+    "label": "critic_bootstrap_memory_restore_v1",
+    "applicability": "Both tasks use the same recurrent critic and CompactPPO. The value bootstrap restores critic memory; actor inputs, physics, objective and success definitions are unchanged.",
+    "fresh_runs_required_for_clear_source_label": true
+  },
+  "existing_launchers": {
+    "transfer": "scripts/slurm/train_transfer.sbatch",
+    "push": "scripts/slurm/train_push.sbatch",
+    "common": "scripts/slurm/common.sh",
+    "resources_per_array_task": {
+      "gpu": 1,
+      "cpus": 8,
+      "memory_GiB": 48,
+      "time_hours": 24
+    },
+    "defaults": {
+      "conditions": [
+        "wrist",
+        "static",
+        "wrist_static",
+        "initial",
+        "scheduled",
+        "active"
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "array": "0-17%6",
+      "num_envs": 256,
+      "transitions_per_case": 18432000,
+      "updates_per_case": 3000,
+      "total_cases_per_task": 18,
+      "occlusion": "random"
+    },
+    "array_index_rule": "3*condition_index+seed; seed0 indices: wrist0, static3, wrist_static6, initial9, scheduled12, active15.",
+    "bound": "Override the array to a single selected index (for example --array=6%1). Default concurrency6 exceeds the current four-GPU study limit; never launch the default full array for this readiness check."
+  },
+  "task_defaults": {
+    "transfer": {
+      "task_revision": "v1",
+      "manipulation_actions": 6,
+      "active_actions": 11,
+      "object": "24mm cube from tray into tall open cubby",
+      "success": {
+        "xy_error_strictly_below_m": 0.018,
+        "height_error_strictly_below_m": 0.006,
+        "tcp_withdrawal_strictly_above_m": 0.045,
+        "speed_strictly_below_m_per_s": 0.035,
+        "consecutive_samples": 3
+      }
+    },
+    "push": {
+      "task_revision": "v1",
+      "manipulation_actions": 5,
+      "active_actions": 10,
+      "object": "30x24x18mm block pushed with fixed closed gripper and 8 mm radius tip",
+      "success": {
+        "xy_error_strictly_below_m": 0.015,
+        "height_error_strictly_below_m": 0.004,
+        "tcp_withdrawal_strictly_above_m": 0.025,
+        "speed_strictly_below_m_per_s": 0.035,
+        "consecutive_samples": 3
+      }
+    },
+    "shared": {
+      "image_width": 96,
+      "image_height": 72,
+      "episode_seconds": 12.0,
+      "initial_inspection_seconds": 1.0,
+      "manipulation_seconds": 11.0,
+      "physics_timestep_seconds": 0.002,
+      "decimation": 20,
+      "control_dt_seconds": 0.04,
+      "memory": "gru128",
+      "fixed_view0_position_m": [
+        -0.119,
+        -0.187,
+        0.274
+      ],
+      "fixed_lookat_m": [
+        0.0,
+        0.025,
+        0.045
+      ],
+      "fresh_initial_std": 0.4,
+      "optimization": {
+        "learning_rate": 0.0003,
+        "schedule": "adaptive",
+        "entropy_coef": 0.003
+      }
+    }
+  },
+  "objective_and_success_applicability": {
+    "reward_profile": "progress",
+    "reward_equation": "3*(potential_t-potential_tminus1)+10*held_success-0.005-0.0005*sum(action_squared)/manip_dim; first-step potential difference is zero.",
+    "transfer_potential": "0.3*exp(-tcp_object_distance/0.05)+0.3*clipped_lift+1.4*exp(-object_goal_distance/0.045)",
+    "push_potential": "0.3*exp(-tcp_object_distance/0.05)+1.7*exp(-object_goal_distance/0.045)",
+    "legacy_log_hold": "Rejected for transfer/push; this corrected-distance1000-bonus profile is plug-only.",
+    "current_qpos_scope": "Fresh configs carry current_qpos, but the qpos success branch is implemented only for plug. Transfer/push retain derived object/TCP positions and derived object velocity; the 2 ms sampling lag needs task-specific physical auditing before paper-level success claims.",
+    "audit_scope": "Generic termination audit records hold and derived-to-qpos displacement. Plug-specific distance/last-three/qpos-threshold violation counters are null for these tasks; they do not validate the non-plug withdrawal/speed/XY/height conjunction.",
+    "hold_interpretation": "Three 25 Hz discrete samples span 0.08 s between endpoints; this is not proof of continuous 0.12 s dwell."
+  },
+  "recommended_first_matched_comparison": {
+    "core_conditions": [
+      "wrist_static",
+      "initial",
+      "active"
+    ],
+    "reason": "Same live wrist+external image streams and GRU. Fixed home view versus one-second camera positioning versus continued feedback-driven camera motion.",
+    "controls": "Retain wrist as the strong conventional negative control. Home view0 is an unsearched baseline, not best-static; an eventual fixed-view selection must use validation and account for search cost. Scheduled is a later open-loop motion control, not needed for the first small readiness pilot.",
+    "initial_condition_semantics": "Camera moves only during the first second; afterward camera joint targets remain fixed and both RGB streams remain live. All conditions share the first-second manipulation pause.",
+    "matching": "Within each task match source, seed, transition budget,N,image/FOV,GRU,objective,initialstd,physics/timing and occluder distribution. Report 5 extra camera actions and their common action cost for initial/active.",
+    "stage_order": "After the plug gate, establish learnability on explicitly clean episodes first. Only then compare the same camera conditions under separately labeled dynamic training. Keep failures and null gaps.",
+    "bounded_screen_budget_proposed_not_approved": {
+      "num_envs": 512,
+      "updates": 100,
+      "transitions_per_case": 1228800,
+      "interpretation": "A learning-health screen; sparse success at 100 updates cannot establish that active perception is useless. No long extension is authorized here."
+    }
+  },
+  "dynamic_world_sweep_v1": {
+    "cli_toggle": [
+      "--occlusion",
+      "dynamic"
+    ],
+    "slurm_environment_toggle": {
+      "OCCLUSION": "dynamic"
+    },
+    "defaults_transfer_push": {
+      "onset_uniform_seconds": [
+        2.0,
+        5.0
+      ],
+      "duration_uniform_seconds": [
+        1.0,
+        3.5
+      ],
+      "center_world_m": [
+        -0.045,
+        -0.105,
+        0.155
+      ],
+      "center_jitter_uniform_plus_minus_m": [
+        0.015,
+        0.01,
+        0.01
+      ],
+      "end_to_end_travel_uniform_m": [
+        0.1,
+        0.14
+      ],
+      "panel_half_size_m": [
+        0.04,
+        0.004,
+        0.07
+      ],
+      "yaw_rad": 0.0,
+      "directions": "equal probability+X/-X",
+      "latest_default_clearance_seconds": 8.5
+    },
+    "distribution": "World-space optical sweep independent of camera policy, object, goal or hidden state. No panel collision. Same distribution across camera conditions; do not claim episode-perfect causal pairing from seed alone.",
+    "observations": "Actor gets no timers/panel parameters. Critic retains onset/duration/direction and adds centerXYZ+travel (four privileged values).",
+    "custom_cli_flags": [
+      "--dynamic-onset-range",
+      "--dynamic-duration-range",
+      "--dynamic-center",
+      "--dynamic-center-jitter",
+      "--dynamic-travel-range",
+      "--dynamic-panel-half-size",
+      "--dynamic-panel-yaw"
+    ],
+    "launcher_limit": "common.sh forwards OCCLUSION but not custom dynamic parameter environment variables. Defaults work through the launcher; use direct train CLI for explicit custom distributions.",
+    "compatibility": "Legacy clean/static/phase/random retain old behavior/dimensions. Dynamic changes critic dimension: train fresh, do not resume a legacy-mode checkpoint as dynamic. Actor-only evaluate --occlusion dynamic is supported via with_occlusion and should be labeled a distribution-shift test.",
+    "alternative_horizon": "Default dynamic onset/duration scale with episode_seconds; explicit ranges must clear before timeout.",
+    "legitimate_controls": "Panel clears; waiting, memory and favorable static views remain valid. Do not shorten deadlines or change geometry to force a positive active-policy gap."
+  },
+  "existing_evidence": {
+    "native_summary": "artifacts/dynamic_occlusion/summary.json",
+    "native_scope": "Three occluder seeds per task with fixed manipulation resets; privileged scripts. All three task episodes held success for 3 steps and clean/dynamic qpos matched exactly. This is mechanical/optical feasibility, not learned-policy performance.",
+    "rollout_visibility": [
+      {
+        "task": "push",
+        "camera": "wrist",
+        "rendered_samples": 46,
+        "useful_visible_fraction_panel": 1.0,
+        "useful_visible_fraction_panel_hidden": 1.0
+      },
+      {
+        "task": "push",
+        "camera": "fixed",
+        "rendered_samples": 46,
+        "useful_visible_fraction_panel": 0.5217391304347826,
+        "useful_visible_fraction_panel_hidden": 0.9565217391304348
+      },
+      {
+        "task": "push",
+        "camera": "scripted moving external",
+        "rendered_samples": 46,
+        "useful_visible_fraction_panel": 0.6739130434782609,
+        "useful_visible_fraction_panel_hidden": 1.0
+      },
+      {
+        "task": "transfer",
+        "camera": "wrist",
+        "rendered_samples": 46,
+        "useful_visible_fraction_panel": 0.9347826086956522,
+        "useful_visible_fraction_panel_hidden": 0.9347826086956522
+      },
+      {
+        "task": "transfer",
+        "camera": "fixed",
+        "rendered_samples": 46,
+        "useful_visible_fraction_panel": 0.41304347826086957,
+        "useful_visible_fraction_panel_hidden": 0.9782608695652174
+      },
+      {
+        "task": "transfer",
+        "camera": "scripted moving external",
+        "rendered_samples": 46,
+        "useful_visible_fraction_panel": 0.4782608695652174,
+        "useful_visible_fraction_panel_hidden": 1.0
+      }
+    ],
+    "interpretation": "Strong unaffected wrist visibility makes current transfer/push useful negative controls. Moving the panel reduces external visibility but has not demonstrated that continual active camera motion improves learned success.",
+    "gpu_gate": {
+      "job_id": "51501382",
+      "source_revision": "5badc6e",
+      "pytest_passed": true,
+      "modules": [
+        "test_dynamic_occlusion.py",
+        "test_mjlab.py"
+      ],
+      "checks": "CUDA RGB, midpoint moving panel parity, partial resets, original pipeline regressions"
+    },
+    "gpu_scope": "All-task optical rendering/pose/reset parity was tested at 5badc6e. This is not a full learned-policy transfer/push success evaluation or a PPO learning test under 11a591f.",
+    "push_optional_stale_state_scenario": {
+      "cli": [
+        "--perturb-push"
+      ],
+      "env": {
+        "PERTURB_PUSH": "1"
+      },
+      "force_N": 0.025,
+      "onset_seconds": 4.0,
+      "duration_seconds": 0.12,
+      "interpretation": "Separate matched disturbance scenario. Measure actual displacement and camera visibility before interpreting stale-state dependence; fixed small force does not guarantee a useful active-perception problem."
+    }
+  },
+  "prepared_cli_examples": {
+    "transfer": [
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/.venv/bin/python",
+      "-m",
+      "active_perception_arms.train",
+      "--task",
+      "transfer",
+      "--condition",
+      "wrist_static",
+      "--occlusion",
+      "clean",
+      "--seed",
+      "0",
+      "--num-envs",
+      "512",
+      "--iterations",
+      "100",
+      "--fixed-view",
+      "0",
+      "--memory",
+      "gru",
+      "--reward-profile",
+      "progress",
+      "--initial-std",
+      "0.4",
+      "--learning-rate",
+      "0.0003",
+      "--lr-schedule",
+      "adaptive",
+      "--entropy-coef",
+      "0.003",
+      "--job-type",
+      "pilot",
+      "--log-root",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/follow_on",
+      "--result",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/follow_on/clean/transfer-wrist_static-s0.json"
+    ],
+    "push": [
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/.venv/bin/python",
+      "-m",
+      "active_perception_arms.train",
+      "--task",
+      "push",
+      "--condition",
+      "wrist_static",
+      "--occlusion",
+      "clean",
+      "--seed",
+      "0",
+      "--num-envs",
+      "512",
+      "--iterations",
+      "100",
+      "--fixed-view",
+      "0",
+      "--memory",
+      "gru",
+      "--reward-profile",
+      "progress",
+      "--initial-std",
+      "0.4",
+      "--learning-rate",
+      "0.0003",
+      "--lr-schedule",
+      "adaptive",
+      "--entropy-coef",
+      "0.003",
+      "--job-type",
+      "pilot",
+      "--log-root",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/follow_on",
+      "--result",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/follow_on/clean/push-wrist_static-s0.json"
+    ]
+  },
+  "prepared_launcher_environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/src",
+    "NUM_ENVS": "512",
+    "TOTAL_STEPS": "1228800",
+    "OCCLUSION": "clean",
+    "MEMORY": "gru",
+    "FIXED_VIEW": "0",
+    "REWARD_PROFILE": "progress",
+    "INITIAL_STD": "0.4",
+    "SUCCESS_STATE_SAMPLE": "current_qpos",
+    "LEARNING_RATE": "0.0003",
+    "LR_SCHEDULE": "adaptive",
+    "ENTROPY_COEF": "0.003",
+    "JOB_TYPE": "pilot",
+    "LOG_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/follow_on",
+    "RESULT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/follow_on/clean",
+    "WANDB_PROJECT": "active-perception-so101",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_MODE": "online",
+    "WANDB_RUN_GROUP": "follow-on-bootstrap-stage1",
+    "WANDB_JOB_TYPE": "pilot",
+    "MUJOCO_GL": "egl",
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "PYTHONUNBUFFERED": "1",
+    "WANDB_TAGS": "follow-on,critic_bootstrap_memory_restore_v1,pilot",
+    "RUN_LABEL": "bootstrap_stage1"
+  },
+  "prepared_launcher_command_example": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--array=6%1",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%A_%a.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%A_%a.err",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/scripts/slurm/train_transfer.sbatch"
+  ],
+  "launcher_adjustment_rule": "Use train_push.sbatch for push. Selected seed0 indices6/9/15 dispatch wrist_static/initial/active. Change OCCLUSION from clean to dynamic only as a separately labeled experiment; no case matrix or jobs are generated. Set a separate RESULT_ROOT for each occlusion mode (artifacts/follow_on/clean versus artifacts/follow_on/dynamic) to prevent overwriting telemetry filenames; assign fresh run IDs/tags.",
+  "environment_hygiene": "For any later fresh submission clear inherited RESUME,WANDB_RUN_ID,WANDB_RESUME,WANDB_USERNAME,DRY_RUN,SBATCH array defaults and stale task/run-label/perturbation overrides. Set fresh unique W&B IDs/tags per selected run and label source/condition/occlusion explicitly.",
+  "evaluation_requirements": "Use held-out validation seed10000,N128 and512 episodes with the same batch size across comparisons; these tasks have no four-way plug variants. Capture actual evaluated trajectories, repeat validation, and record success, completion time, terminal physical criteria, camera joint travel and source/checkpoint hashes. GPU repeats need not be episode-identical; no test-set selection.",
+  "validation": {
+    "source_clean": true,
+    "train_cli_dry_run_cases": [
+      {
+        "task": "transfer",
+        "condition": "wrist_static",
+        "occlusion": "clean",
+        "training_started": false
+      },
+      {
+        "task": "transfer",
+        "condition": "wrist_static",
+        "occlusion": "dynamic",
+        "training_started": false
+      },
+      {
+        "task": "transfer",
+        "condition": "initial",
+        "occlusion": "clean",
+        "training_started": false
+      },
+      {
+        "task": "transfer",
+        "condition": "initial",
+        "occlusion": "dynamic",
+        "training_started": false
+      },
+      {
+        "task": "transfer",
+        "condition": "active",
+        "occlusion": "clean",
+        "training_started": false
+      },
+      {
+        "task": "transfer",
+        "condition": "active",
+        "occlusion": "dynamic",
+        "training_started": false
+      },
+      {
+        "task": "push",
+        "condition": "wrist_static",
+        "occlusion": "clean",
+        "training_started": false
+      },
+      {
+        "task": "push",
+        "condition": "wrist_static",
+        "occlusion": "dynamic",
+        "training_started": false
+      },
+      {
+        "task": "push",
+        "condition": "initial",
+        "occlusion": "clean",
+        "training_started": false
+      },
+      {
+        "task": "push",
+        "condition": "initial",
+        "occlusion": "dynamic",
+        "training_started": false
+      },
+      {
+        "task": "push",
+        "condition": "active",
+        "occlusion": "clean",
+        "training_started": false
+      },
+      {
+        "task": "push",
+        "condition": "active",
+        "occlusion": "dynamic",
+        "training_started": false
+      }
+    ],
+    "launcher_dispatch_dry_runs": [
+      {
+        "task": "transfer",
+        "array_index": 6,
+        "condition": "wrist_static",
+        "seed": 0,
+        "updates": 100,
+        "training_started": false
+      },
+      {
+        "task": "push",
+        "array_index": 6,
+        "condition": "wrist_static",
+        "seed": 0,
+        "updates": 100,
+        "training_started": false
+      }
+    ],
+    "gpu_used": false,
+    "training_started": false,
+    "artifacts_written": [
+      "artifacts/dynamic_occlusion/follow_on_readiness.json"
+    ]
+  },
+  "remaining_gates": [
+    "Parent entry decision after trustworthy plug repair and completed HP review.",
+    "Task-specific GPU physical success auditing including XY/height/withdrawal/speed; current_qpos label alone is insufficient.",
+    "One bounded source11a-compatible GPU learning/sensor smoke before expanding training budgets.",
+    "Validation-selected fixed view and independently repeated/training-seed results before an active-perception performance claim."
+  ]
+}
