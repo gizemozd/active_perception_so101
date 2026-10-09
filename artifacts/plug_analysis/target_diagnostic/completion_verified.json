@@ -1,0 +1,157 @@
+{
+  "status": "VERIFIED",
+  "verified_at": "2026-10-09T08:21:33.988562+00:00",
+  "scope": "Independent read-only Slurm/source/checkpoint/reference/NPZ/CSV integrity and all physical firstepisode trace/target/hold calculations plus all16fixed-ridge folds. Existing audited helper single-call/unchanged-actor assertions checked against its exact source and prior deterministic CPU regressions; no actor or GRU forward, GPU rerun, learner update or checkpoint mutation during verification.",
+  "report_sha256": "ff62a95765d03d1e012bc9de45250ef23d3123980d277dfe3001ab3802998169",
+  "submission_sha256": "2f7a206252a20d30c4b237049f4563327330777b3ce4c6769b615d7461495ecf",
+  "checks": {
+    "slurm_completed_zero": true,
+    "report_completed_job_identity": true,
+    "clean_frozen_source_identity": true,
+    "frozen_source_hashes": true,
+    "helper_launcher_hashes": true,
+    "checkpoint_reference_hashes": true,
+    "saved_actor_metadata_hashes": true,
+    "entry_verification_preserved": true,
+    "physical_protocol": true,
+    "512_balanced_firstterminal_identity": true,
+    "all_recorded_initial_hashes_exact": true,
+    "strict_pairing_metadata_agrees": true,
+    "single_forward_counts_and_unchanged_actor": true,
+    "csv_hash_preserved": true,
+    "no_fatal_stderr": true,
+    "trace_npz_hash_metadata_finite": true,
+    "trace_raw_npz_ignored": true,
+    "inspection_npz_hash_metadata_finite": true,
+    "inspection_raw_npz_ignored": true,
+    "all_trace_firstepisode_assignments": true,
+    "trace_control_clock": true,
+    "mean_to_absolute_and_clipped_request": true,
+    "body_goal_to_tcp_convention": true,
+    "current_body_signed_and_norm_error": true,
+    "all_trace_rows_end_at_firstterminal": true,
+    "held3_recomputed_from_current_body_samples": true,
+    "processed_target_inspection_gate_and_rate_limit": true,
+    "physical_summary_and_variant_counts": true,
+    "inspection512_order_time_and_feature_shapes": true,
+    "inspection_actual_rgb_shapes_dtype": true,
+    "inspection_socket_label_offset_mapping": true,
+    "inspection_actor_output_same_real_step": true,
+    "phase_summary_vectors_counts_and_candidate_counts": true,
+    "16_predeclared_folds_alpha_protocol": true,
+    "all16_probe_metrics_recomputed_trainonly_scaling": true
+  },
+  "passed_checks": 35,
+  "total_checks": 35,
+  "job": {
+    "id": "51542399",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "start_local": "2026-10-09T04:11:00",
+    "end_local": "2026-10-09T04:12:28",
+    "elapsed": "00:01:28",
+    "node": "holygpu7c1710"
+  },
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "checkpoint_sha256": "15acdb9446fcd718119eed26a23d7bc9b8b6091288d7f3a706538b08180e3dd4",
+  "raw_artifacts": {
+    "trace": {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/target_diagnostic/report.trace.npz",
+      "sha256": "6d8dd200eb7bd03b218e14a37a1ae7de6cde43be776729072d1c87d277db33b2",
+      "bytes": 2846809
+    },
+    "inspection": {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/target_diagnostic/report.inspection.npz",
+      "sha256": "c0cf8c54ff51d424c7ba8d471fd0ca9613775ab3cde0e854c39686279f959b87",
+      "bytes": 3654151
+    }
+  },
+  "episodes": 512,
+  "successes": 179,
+  "per_variant": {
+    "xm": {
+      "episodes": 128,
+      "successes": 0
+    },
+    "xp": {
+      "episodes": 128,
+      "successes": 38
+    },
+    "ym": {
+      "episodes": 128,
+      "successes": 75
+    },
+    "yp": {
+      "episodes": 128,
+      "successes": 66
+    }
+  },
+  "physical_violation_counts": {
+    "success_hold_violations": 0,
+    "success_distance_violations": 0,
+    "success_three_sample_violations": 0,
+    "success_qpos_above_distance_threshold": 0
+  },
+  "overlapping_success_timeout_first_terminals": 3,
+  "minimum_body_error_below2mm_episode_counts": {
+    "xm": 7,
+    "xp": 77,
+    "ym": 98,
+    "yp": 79
+  },
+  "per_variant_body_precision": {
+    "xm": {
+      "median_minimum_body_error_mm": 2.247813274152577,
+      "mean_signed_terminal_body_error_mm": [
+        -2.4818345409585163,
+        2.46242246885231,
+        3.193323551386129
+      ]
+    },
+    "xp": {
+      "median_minimum_body_error_mm": 1.8086419440805912,
+      "mean_signed_terminal_body_error_mm": [
+        2.1539171211770736,
+        0.2908373353420757,
+        2.1422427089419216
+      ]
+    },
+    "ym": {
+      "median_minimum_body_error_mm": 1.461245701648295,
+      "mean_signed_terminal_body_error_mm": [
+        0.6736883597113774,
+        -0.9463021851843223,
+        0.9054627662408166
+      ]
+    },
+    "yp": {
+      "median_minimum_body_error_mm": 1.6002117772586644,
+      "mean_signed_terminal_body_error_mm": [
+        -0.5563134855037788,
+        1.9229452109357226,
+        2.0484335836954415
+      ]
+    }
+  },
+  "probe_instability": {
+    "heldout_reset_seed": 10003,
+    "episode": 500,
+    "raw_proprio_feature_index": 21,
+    "feature_source": "camera_arm wrist_flex measured joint velocity multiplied by0.1 (source mdp.proprio order)",
+    "training_feature_std": 8.565864655352077e-12,
+    "training_feature_mean": 4.536459887738431e-07,
+    "heldout_raw_feature": 3.4399658943584654e-07,
+    "heldout_absolute_standardized_feature": 12800.739183928854,
+    "proprio_only_socket_xy_rmse_mm": 1332.3832776322497,
+    "cnn_plus_proprio_socket_xy_rmse_mm": 532.1725223843281,
+    "assessment": "Nearconstant training feature std8.57e-12 exceeds the fixed1e-12 cutoff and yields a heldout standardized outlier of12800.7. Original fit metrics are preserved; this fold is unstable and not evidence of informative proprioception. No normalization retune or fold exclusion was performed."
+  },
+  "interpretation": [
+    "Physical success179/512 andxm0 are consistent with weak allvariant competence; this additional execution is not a new trained-model seed or independently pooled validation trial.",
+    "Late processed-target residuals and derivedTCPtracking errors are much larger than actualbody errors; intermediate/compensatory/contact/constrained requests may explain them. Target confusion is command geometry, not a perception classifier or direct causal diagnosis.",
+    "Frozen CNN andGRU features have partial linear accessibility for variant/socket labels at.96s, with socket median6\u20138mm versus2mm XY diagnostic tolerance. Later images continue and nonlinear information/policy use remain unmeasured.",
+    "Proprio-containing fold10003 has extreme RMSE caused by an observed nearconstant-feature scaling outlier; preserve original fixedprotocol metrics and report this limitation.",
+    "Forxm,7/128 episodes briefly enter the2mm region but none maintain3samples. Median minimum2.248mm supports a precision/holding bottleneck in many sampled episodes, while larger-error outliers still exist. This does not establish a single perception/control cause.",
+    "Three episodes satisfy success and timeout together at the existing quantized88step boundary; flags are not mutually exclusive. Currentrawbodyheld3 scoring is retained."
+  ]
+}

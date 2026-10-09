@@ -1264,3 +1264,54 @@ handoff instruction alone.
   accessibility from phase-conditioned command and tracking precision using one
   passively instrumented, fixed-checkpoint capture. See `diagnosis_plan.json`;
   no further PPO grid or automatic budget extension follows from this plan.
+
+### Final bounded exploration repair and frozen-policy diagnosis — October 9
+
+- Fresh training `51531364` and evaluation `51531365` completed 0:0. All 31
+  independent integrity checks pass, all three W&B runs are API-verified finished,
+  history contains 751 contiguous updates / 9,228,288 transitions, model_750 and
+  optimizer state are finite, and frozen source11a applies both confirmed repairs
+  from the first update. This run jointly changes initial std to1 and entropy to.01;
+  it does not isolate either setting's causal contribution.
+- Reward rises from0.3167 to6.4986 (actual first/last100-update windows), but the
+  descriptive tail300 plateau fails: fitted change1.0245 exceeds tolerance0.6174.
+  Latest100 completed training episodes succeed4,900/15,362 (31.90%); this is
+  training-only, episode-weighted telemetry, not balanced physical validation.
+- Balanced physical repeats score167/512 (32.62%) and157/512 (30.66%): xm0/0,
+  xp31/29, ym72/74, yp64/54. Physical hold/distance violations are all zero. Initial
+  state and both camera streams match exactly across repeats and earlier fixed-view
+  validation, but128/512 outcomes change. Repeats remain numerical executions of
+  one trained seed. The >=103/128-each-variant-in-each-repeat competence gate fails.
+  See `exploration_repair/completion_verified.json` and separate fresh paper table.
+- Conditional target diagnostic `51542399` completed0:0 in1m28s on one GPU, with
+  no learner updates. The final frozen actor scores179/512 in this further execution
+  (xm0,xp38,ym75,yp66); 512 initial physics/RGB hashes match the reference. Passive
+  hooks observe exactly352 real forwards and unchanged actor/normalization buffers.
+  All40,159 live first-episode samples and512 inspection snapshots are retained in
+  ignored NPZs; tracked JSON/CSV retain provenance and compact calculations.
+- Target-diagnostic independent verification passes35/35 checks, including physical
+  holds, command processing, all phase summaries and all16 fixed-ridge recalculations.
+  Seven xm episodes briefly sample body error below2mm, but none sustain3 samples;
+  median closest sampled xm body error is2.248mm. This distinguishes near-goal
+  approach from successful holding without establishing a single failure cause.
+- Sixteen predeclared fixed-ridge accessibility fits use train-only normalization
+  and train3resetseeds/test1, without holdout tuning. CNN variant accuracy64.84–72.66%
+  exceeds proprio25.00–30.47%; median socket-XY error6.26–6.56mm is not physical
+  body-goal error. GRU accuracy57.81–62.50%, median6.68–7.56mm. Proprio and combined
+  seed10003 RMSE reach1,332.38 and532.17mm despite ordinary medians; retain all folds
+  and report instability. This does not establish absent information, policy use,
+  architectural necessity or a causal explanation for insertion failures.
+- Late live-first-episode processed-target and derived-tracking residuals are much
+  larger than body errors, but final TCP requests can compensate controller/contact
+  effects and legitimately differ by phase. These are command measurements, not a
+  direct visual-goal estimate. No universal action-box/goal-sign bug was identified.
+- Dynamic occlusions remain implemented and physically/sensor validated. Transfer
+  and push pilots remain prepared and unsubmitted because plug competence is unmet.
+  No additional PPO grid or budget extension was started. The report separates
+  original18.432M camera comparisons, physical rescoring, matched9.228M repairs and
+  passive diagnostics; these stages are not interchangeable paper comparisons.
+- All five actual paper-table LaTeX fragments compile in standalone articles;
+  `paper_tables_validation.json` records their exact hashes. The HTML includes
+  separate fresh-repair metrics, physical closest-approach counts, phase residuals
+  and all16 probe folds. `follow_on_decision.json` records the conditional deferral
+  of transfer/push without duplicate submissions.

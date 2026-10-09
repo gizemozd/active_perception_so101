@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "profile": "progress",
+    "plotted_stage": "exploration",
+    "screen_updates": 751,
+    "plotted_updates": 751,
+    "available_history_lines": 751,
+    "expected_total_updates": 751,
+    "plotted_transitions": 9228288,
+    "expected_total_transitions": 9228288,
+    "continuation_training_complete": true,
+    "training_complete": true,
+    "reward_comparison_window_updates": 100,
+    "first_window_reward_samples": 97,
+    "last_window_reward_samples": 100,
+    "first_window_reward_mean": 0.3167066176251038,
+    "last_window_reward_mean": 6.498558341427473,
+    "reward_gain": 6.181851723802369,
+    "tail_300_available": true,
+    "last_300_reward_slope_per_million_transitions": 0.27883378504955386,
+    "last_300_reward_fitted_change": 1.0244665556559862,
+    "final_150_vs_previous_150_reward_change": 0.4871228202383646,
+    "descriptive_plateau_tolerance": 0.6174258657789898,
+    "descriptive_reward_plateau": false,
+    "manifest": "artifacts/plug_analysis/exploration_repair/progress/run_manifest.json",
+    "history": "logs/exploration_repair/progress/plug_wrist_static_clean_gru_v7_s0_n512_explore_progress_4d4de324264d_20261009T065536Z/iterations.jsonl",
+    "tail_completed_episodes": 45722.0,
+    "tail_episode_weighted_training_success": 0.29950570841170554,
+    "tail_mean_diagnostic_kl": 0.013274439498782159,
+    "last_mean_action_std": 0.24859853088855743
+  }
+]

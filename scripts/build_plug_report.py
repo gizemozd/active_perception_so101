@@ -542,6 +542,7 @@ def collect_reward_repairs(root, output):
                     "profile": case,
                     "repeat": repeat,
                     "training_seed": value.get("training_seed", 0),
+                    "condition": value["experiment"]["condition"],
                     "training_updates": updates,
                     "training_transitions": transitions,
                     "additional_training_transitions": training.get("actual_transitions"),
@@ -551,6 +552,10 @@ def collect_reward_repairs(root, output):
                     "learning_rate": (manifest.get("optimization") or {}).get("learning_rate"),
                     "lr_schedule": (manifest.get("optimization") or {}).get("schedule"),
                     "entropy_coef": (manifest.get("optimization") or {}).get("entropy_coef"),
+                    "competence_passed": manifest.get("competence_passed"),
+                    "competence_required_successes_each_variant_each_repeat": (
+                        manifest.get("competence_gate") or {}
+                    ).get("required_successes_each_variant_each_repeat"),
                     "initial_training_source_revision": manifest.get(
                         "initial_source_revision", initial.get("source_revision")
                     ),
@@ -1204,6 +1209,277 @@ def camera_control_plot(rows, assets):
     save_figure(fig, assets, "camera_control_comparison")
 
 
+def collect_target_diagnostic(root, output):
+    """Keep conditional diagnostics suppressed until independently verified complete."""
+    path = output / "target_diagnostic/report.json"
+    verification_path = path.with_name("completion_verified.json")
+    if not path.exists() or not verification_path.exists():
+        return {}
+    report, verification = read(path), read(verification_path)
+    if report.get("status") != "COMPLETED" or verification.get("status") != "VERIFIED":
+        return {}
+    with path.open("rb") as stream:
+        assert hashlib.file_digest(stream, "sha256").hexdigest() == verification["report_sha256"]
+    assert report["episodes"] == 512
+    assert report["experiment"]["success_state_sample"] == "current_qpos"
+    assert report["single_forward_invariant"]["learner_updates"] == 0
+    assert report["single_forward_invariant"]["parameters_and_normalization_buffers_unchanged"]
+    assert report["strict_initial_pairing"]["passed"]
+    phase_csv = Path(report["csv"])
+    if not phase_csv.is_absolute():
+        phase_csv = root / phase_csv
+    with phase_csv.open("rb") as stream:
+        assert hashlib.file_digest(stream, "sha256").hexdigest() == report["csv_sha256"]
+    performance = []
+    for variant, detail in [("all", report), *report["per_variant"].items()]:
+        low, high = wilson(detail["successes"], detail["episodes"])
+        records = [
+            row
+            for row in report["first_terminal_records"]
+            if variant == "all" or row["variant"] == variant
+        ]
+        assert len(records) == detail["episodes"]
+        closest_errors = [row["minimum_current_body_error_m"] for row in records]
+        performance.append(
+            {
+                "variant": variant,
+                "episodes": detail["episodes"],
+                "successes": detail["successes"],
+                "success_rate": detail["successes"] / detail["episodes"],
+                "episodes_sampled_body_error_below2mm": sum(
+                    error < 0.002 for error in closest_errors
+                ),
+                "median_minimum_sampled_body_error_mm": float(np.median(closest_errors) * 1000),
+                "wilson95_low": low,
+                "wilson95_high": high,
+                "success_state_sample": report["experiment"]["success_state_sample"],
+                "source_revision": report["source_revision"],
+                "checkpoint_sha256": report["checkpoint_sha256"],
+                "report": str(path.relative_to(root)),
+            }
+        )
+    probe = report["accessibility_probe"]
+    probe_rows = []
+    if probe.get("status") == "OFFLINE_ACCESSIBILITY_PROBE_COMPLETED":
+        assert probe["alpha"] == 1e-3 and len(probe["folds"]) == 16
+        for fold in probe["folds"]:
+            probe_rows.append(
+                {
+                    "features": fold["features"],
+                    "heldout_reset_seed": fold["heldout_reset_seed"],
+                    "training_episodes": fold["training_episodes"],
+                    "feature_dimensions": fold["feature_dimensions"],
+                    "inspection_time_s": report["inspection_snapshot"]["time_s"],
+                    "ridge_alpha": probe["alpha"],
+                    "source_revision": report["source_revision"],
+                    **{
+                        key: value
+                        for key, value in fold["metrics"].items()
+                        if not isinstance(value, list)
+                    },
+                    **{
+                        "training_mean_baseline_" + key: value
+                        for key, value in fold["training_mean_baseline"].items()
+                        if not isinstance(value, list)
+                    },
+                }
+            )
+    return {
+        "report": str(path.relative_to(root)),
+        "verification": str(verification_path.relative_to(root)),
+        "phase_csv": str(phase_csv.relative_to(root)),
+        "source_revision": report["source_revision"],
+        "helper_sha256": report["helper_sha256"],
+        "checkpoint_sha256": report["checkpoint_sha256"],
+        "performance": performance,
+        "time_bins": report["per_variant_time_bin_summaries"],
+        "termination_audit": report["termination_audit"],
+        "strict_initial_pairing": report["strict_initial_pairing"],
+        "single_forward_invariant": report["single_forward_invariant"],
+        "inspection_snapshot": report["inspection_snapshot"],
+        "probe_rows": probe_rows,
+        # Metadata is retained for provenance; ignored NPZs are never linked or bundled.
+        "raw_artifact_metadata": report["raw_artifacts"],
+    }
+
+
+def target_diagnostic_sections(diagnostic, output, link, table):
+    if not diagnostic:
+        return []
+
+    def esc(value):
+        return html.escape(str(value))
+
+    total = diagnostic["performance"][0]
+    sections = [
+        '<h3 id="targets">Frozen actor targets and feature accessibility · verified diagnostic</h3>',
+        "<p>This read-only evaluation observes the actual single actor forward and pre-reset "
+        "physical state of the final fixed-view checkpoint. Actor parameters and normalization "
+        "buffers remain unchanged; no learner updates occur. The 512 initial physics/image hashes "
+        "match the reference evaluation. Subsequent GPU trajectories may still differ. Scores use "
+        "three discrete consecutive current-qpos samples at 25 Hz and describe this checkpoint, "
+        "not an active-perception comparison.</p>",
+        f"<p>The further instrumented execution scored {total['successes']}/{total['episodes']} "
+        f"({100 * total['success_rate']:.2f}%). It remains separate from the two uninstrumented "
+        "fresh-training evaluations and does not replace their scores or add an independent training seed.</p>",
+        table(
+            [
+                "Variant",
+                "Success / N",
+                "Physical success % [95% CI]",
+                "Ever sampled below 2 mm / N",
+                "Median closest sampled body error mm",
+            ],
+            [
+                [
+                    esc(r["variant"]),
+                    f"{r['successes']}/{r['episodes']}",
+                    f"{100 * r['success_rate']:.2f} [{100 * r['wilson95_low']:.2f}, {100 * r['wilson95_high']:.2f}]",
+                    f"{r['episodes_sampled_body_error_below2mm']}/{r['episodes']}",
+                    f"{r['median_minimum_sampled_body_error_mm']:.3f}",
+                ]
+                for r in diagnostic["performance"]
+            ],
+        ),
+        "<p>Briefly sampling a body-goal error below 2 mm does not establish the three-sample "
+        "hold or continuous dwell. Closest errors summarize the live first-episode control samples, "
+        "not continuous-time trajectory minima. They distinguish approach precision from sustained "
+        "success without establishing why a hold fails.</p>",
+        "<h4>Phase-conditioned command and tracking residuals</h4>",
+        "<p>Each cell reports median / 90th-percentile 3D norm in mm. Raw actor requests, "
+        "box-clipped requests and processed targets are compared with the <em>final</em> required TCP "
+        "goal. Approach and descent legitimately use intermediate targets, so these residuals are "
+        "not visual-localization or variant-classification errors. Derived TCP tracking compares "
+        "the derived physical TCP with the processed target; raw body error compares freejoint qpos "
+        "with the corrected body goal. Derived TCP can lag by one physics substep. Action time bins "
+        "precede the post-step body sample by 0.04 s. These episode-correlated samples and "
+        "outcome-dependent trajectory lengths do not provide independent perception measurements.</p>",
+        table(
+            [
+                "Variant / action time s",
+                "Episodes / step samples",
+                "Raw request mm",
+                "Clipped request mm",
+                "Processed target mm",
+                "Derived TCP tracking mm",
+                "Raw body-goal mm",
+                "Body below 30 mm %",
+            ],
+            [
+                [
+                    f"{esc(r['variant'])} / {r['action_time_bin_s'][0]:.2f}–{r['action_time_bin_s'][1]:.2f}",
+                    f"{r['episodes']} / {r['step_samples']}",
+                    *[
+                        f"{r[metric]['median_norm_mm']:.2f} / {r[metric]['p90_norm_mm']:.2f}"
+                        for metric in (
+                            "raw_mean_request_vs_final_tcp",
+                            "clipped_request_vs_final_tcp",
+                            "processed_target_vs_final_tcp",
+                            "derived_tcp_tracking",
+                            "current_body_vs_final_body",
+                        )
+                    ],
+                    f"{100 * r['body_below30mm_fraction']:.1f}",
+                ]
+                for r in diagnostic["time_bins"]
+            ],
+        ),
+        '<p class="small">Body height below 30 mm is a phase proxy, not prong depth or insertion '
+        "success. The linked phase CSV retains signed XYZ means/std in mm, separate residuals, "
+        "within-2-mm XY fractions and descended command counts. Nearest final-variant target counts "
+        "describe commands, not the actor’s perceived variant.</p>",
+        "<p>"
+        + link(diagnostic["report"], "Scored target/feature report and raw-array metadata")
+        + " · "
+        + link(diagnostic["verification"], "Independent completion/source verification")
+        + " · "
+        + link(diagnostic["phase_csv"], "Phase residual CSV (mm)")
+        + " · "
+        + link(output / "target_diagnostic_performance_metrics.csv", "Physical score CSV")
+        + "</p>",
+        '<p class="small">Evaluation source <code>'
+        + esc(diagnostic["source_revision"])
+        + "</code>; frozen helper SHA-256 <code>"
+        + esc(diagnostic["helper_sha256"])
+        + "</code>. Ignored raw trace/inspection NPZ arrays remain in the research workspace; "
+        "only their metadata is included here.</p>",
+    ]
+    if diagnostic["probe_rows"]:
+
+        def fold_range(group, key, percentage=False):
+            values = [r[key] for r in diagnostic["probe_rows"] if r["features"] == group]
+            multiplier = 100 if percentage else 1
+            return f"{multiplier * min(values):.2f}–{multiplier * max(values):.2f}"
+
+        def fold_max(group, key):
+            return max(r[key] for r in diagnostic["probe_rows"] if r["features"] == group)
+
+        sections += [
+            "<h4>Offline feature accessibility · four prespecified reset-seed folds</h4>",
+            f"<p>At {diagnostic['inspection_snapshot']['time_s']:.2f} s, fixed ridge decoders "
+            "(α = 0.001) fit three reset-seed groups and test the fourth, with train-only feature "
+            "centering/scaling and target intercept. The four feature groups use consumed CNN outputs, "
+            "normalized proprioception, their concatenation, or the GRU state from that one real actor "
+            "forward. Targets are socket XY and variant labels; those privileged labels never enter "
+            "the actor. No holdout tuning or policy training occurs.</p>",
+            "<p>Across the four fixed folds, CNN variant accuracy is "
+            + fold_range("cnn_only", "variant_accuracy", True)
+            + "% versus "
+            + fold_range("proprio_only", "variant_accuracy", True)
+            + "% for proprioception. CNN median socket-XY decoding error is "
+            + fold_range("cnn_only", "socket_xy_median_error_mm")
+            + " mm. GRU variant accuracy is "
+            + fold_range("gru_only", "variant_accuracy", True)
+            + "% and median XY error "
+            + fold_range("gru_only", "socket_xy_median_error_mm")
+            + " mm. CNN and GRU XY RMSE ranges are "
+            + fold_range("cnn_only", "socket_xy_rmse_euclidean_mm")
+            + " and "
+            + fold_range("gru_only", "socket_xy_rmse_euclidean_mm")
+            + " mm. This is descriptive linear accessibility, not evidence of precise policy localization. "
+            "Socket-XY decoder error differs from raw body-to-corrected-goal XYZ error used by the "
+            "2 mm insertion criterion; these metrics cannot be substituted for one another.</p>",
+            '<p class="notice"><strong>Fixed linear-probe instability:</strong> the prespecified '
+            f"proprio-only and CNN-plus-proprio folds reach XY RMSE {fold_max('proprio_only', 'socket_xy_rmse_euclidean_mm'):.2f} "
+            f"and {fold_max('cnn_plus_proprio', 'socket_xy_rmse_euclidean_mm'):.2f} mm, respectively, "
+            "despite much smaller median errors. All sixteen folds, including these outliers, are retained "
+            "in the table and CSV without retuning or exclusion. Median-only summaries would conceal "
+            "this instability; it does not show that visual information is absent.</p>",
+            table(
+                [
+                    "Features / heldout seed",
+                    "Train / test N",
+                    "Variant accuracy %",
+                    "Socket XY RMSE / median / p90 mm",
+                    "Socket XY <2 mm %",
+                    "Correct variant and XY <2 mm %",
+                    "Train-mean baseline accuracy / XY RMSE mm",
+                ],
+                [
+                    [
+                        f"{esc(r['features'])} / {r['heldout_reset_seed']}",
+                        f"{r['training_episodes']} / {r['episodes']}",
+                        f"{100 * r['variant_accuracy']:.2f}",
+                        f"{r['socket_xy_rmse_euclidean_mm']:.2f} / {r['socket_xy_median_error_mm']:.2f} / {r['socket_xy_p90_error_mm']:.2f}",
+                        f"{100 * r['socket_xy_within2mm_fraction']:.2f}",
+                        f"{100 * r['joint_variant_correct_and_socket_within2mm_fraction']:.2f}",
+                        f"{100 * r['training_mean_baseline_variant_accuracy']:.2f}% / {r['training_mean_baseline_socket_xy_rmse_euclidean_mm']:.2f}",
+                    ]
+                    for r in diagnostic["probe_rows"]
+                ],
+            ),
+            "<p>Linear decoding describes accessibility in these frozen representations; it does "
+            "not show actor use, representation sufficiency, perception causality or equivalence of "
+            "CNN and recurrent information. Failure to decode linearly does not prove information "
+            "is absent. These folds cover reset seeds within this protocol, not new independently "
+            "trained policies or guaranteed generalization to new worlds.</p>",
+            "<p>"
+            + link(output / "target_feature_probe_metrics.csv", "Prespecified fold metrics CSV")
+            + "</p>",
+        ]
+    return sections
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
@@ -1371,6 +1647,12 @@ def main():
         include_camera_travel=True,
     )
     camera_control_plot(camera_controls, assets)
+    target_diagnostic = collect_target_diagnostic(root, output)
+    write_csv(
+        output / "target_diagnostic_performance_metrics.csv",
+        target_diagnostic.get("performance", []),
+    )
+    write_csv(output / "target_feature_probe_metrics.csv", target_diagnostic.get("probe_rows", []))
     repair_learning_rows, repair_learning_summaries, repair_histories = collect_repair_learning(
         root, output
     )
@@ -1525,6 +1807,7 @@ def main():
         "tuning_continuation_results": tuning,
         "corrected_hparam_results": corrected_hparams,
         "camera_control_results": camera_controls,
+        "target_diagnostic": target_diagnostic,
         "reward_repair_learning": repair_learning_summaries,
         "reward_repair_results": reward_repair,
         "reward_repair_continuation_results": reward_continuation,
@@ -1735,8 +2018,8 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
         "physical criterion; they are not results of corrected retraining. Both sets are shown separately below.</div>",
         '<div class="notice"><strong>Training completed, but the task is not reliably solved.</strong> '
         "All four policies fail every tested <code>xm</code> episode. Reward improvement and a flat tail "
-        "can coexist with a poor or variant-specific policy. Controlled optimizer tuning must be checked "
-        "before replication and claims about active perception.</div>",
+        "can coexist with a poor or variant-specific policy. The completed training repairs below "
+        "also fail all-variant competence; further diagnosis is needed before robust claims about active perception.</div>",
         '<nav><a href="#training">Training quality</a><a href="#performance">Performance</a>'
         '<a href="#camera">Camera behavior</a><a href="#videos">Videos</a>'
         '<a href="#tuning">Training fixes</a><a href="#limits">Methods & limitations</a></nav>',
@@ -2761,9 +3044,14 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
                     f"{row['profile']}: {row['plotted_updates']} actual recorded updates; reward scale is profile-specific. Raw traces and 30-update means; success smoothing is weighted by completed episodes. Per-action std, KL, learning rate and clipping expose optimization behavior.",
                 )
             )
+    exploration = analysis["exploration_repair_results"]
+    exploration_learning = analysis["exploration_repair_learning"]
+    exploration_status = analysis["exploration_repair_status"]
     sections += [
-        "<h3>Optional fresh joint exploration repair · separate experiment</h3>",
-        "<p>This conditional next step uses one explicitly selected reward profile and starts "
+        "<h3>Fresh joint exploration repair · separate completed validation</h3>"
+        if exploration
+        else "<h3>Optional fresh joint exploration repair · separate experiment</h3>",
+        "<p>This separate experiment uses one explicitly selected reward profile and starts "
         "fresh with the critic-bootstrap correction from its first update, with no mid-run source "
         "change. Its target is 751 updates / 9,228,288 transitions, plug, fixed view 7, GRU, "
         "<code>current_qpos</code>, N512 and training seed 0. Initial action std 1 and entropy "
@@ -2772,9 +3060,6 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
         "reproduction. It stays separate from the original reward screen and both resumed reward "
         "profiles. Preparation alone does not establish a submitted run or improved competence.</p>",
     ]
-    exploration = analysis["exploration_repair_results"]
-    exploration_learning = analysis["exploration_repair_learning"]
-    exploration_status = analysis["exploration_repair_status"]
     if exploration_status:
         sections += [
             table(
@@ -2809,6 +3094,37 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
             "when their actual output artifacts are available.</p>",
         ]
     if exploration:
+        sections.append(
+            "<p>These fixed-camera checkpoints use 9,228,288 training transitions. The original "
+            "camera-condition headline table uses 18,432,000 transitions with different training "
+            "settings and success sampling. The datasets stay separate; their scores do not provide "
+            "a matched comparison of sensing strategies or an isolated exploration effect.</p>"
+        )
+        for profile in sorted({r["profile"] for r in exploration}):
+            profile_rows = [r for r in exploration if r["profile"] == profile]
+            scores = " and ".join(f"{100 * r['success_rate']:.2f}%" for r in profile_rows)
+            threshold = profile_rows[0]["competence_required_successes_each_variant_each_repeat"]
+            gate = profile_rows[0]["competence_passed"]
+            failures = [
+                v for v in plug.VARIANTS if all(r[v + "_successes"] == 0 for r in profile_rows)
+            ]
+            sections.append(
+                f"<p><strong>Fresh {esc(profile)} physical scores: {scores}.</strong> These are "
+                "separate execution repeats of one trained seed. "
+                + (
+                    "Zero-success variants in both repeats: " + esc(", ".join(failures)) + ". "
+                    if failures
+                    else ""
+                )
+                + (
+                    f"The recorded competence gate {'passed' if gate else 'failed'}: it requires "
+                    f"at least {threshold}/128 successes in every variant in each repeat, with zero "
+                    "physical-criterion violations. "
+                    if threshold is not None and gate is not None
+                    else ""
+                )
+                + "Aggregate reward or success improvement does not establish all-variant competence.</p>"
+            )
         sections.append(
             table(
                 [
@@ -2876,6 +3192,15 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
             sections += reward_video_cards(
                 root, output, directory, case, "Fresh joint exploration repair · 751 updates"
             )
+        exploration_verified_path = output / "exploration_repair/completion_verified.json"
+        if exploration_verified_path.exists():
+            sections.append(
+                "<p>"
+                + link(
+                    exploration_verified_path, "Independent fresh completion and competence audit"
+                )
+                + "</p>"
+            )
     else:
         sections.append(
             '<p class="small">Completed exploration-repair validation is pending; no performance result is inferred from the recorded reservation.</p>'
@@ -2884,6 +3209,33 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
         )
     if exploration_learning:
         sections += [
+            table(
+                [
+                    "Fresh profile",
+                    "Actual updates / transitions",
+                    "First / last reward means",
+                    "Reward window updates",
+                    "Tail-300 fitted change / tolerance",
+                    "Descriptive plateau",
+                    "Tail-300 episode-weighted training success %",
+                ],
+                [
+                    [
+                        esc(r["profile"]),
+                        f"{r['plotted_updates']} / {r['plotted_transitions']:,}",
+                        f"{r['first_window_reward_mean']:.3f} / {r['last_window_reward_mean']:.3f}",
+                        str(r["reward_comparison_window_updates"]),
+                        f"{r['last_300_reward_fitted_change']:.3f} / {r['descriptive_plateau_tolerance']:.3f}"
+                        if r["tail_300_available"]
+                        else "Unavailable",
+                        str(r["descriptive_reward_plateau"]),
+                        f"{100 * r['tail_episode_weighted_training_success']:.2f}"
+                        if r["tail_episode_weighted_training_success"] is not None
+                        else "Not recorded",
+                    ]
+                    for r in exploration_learning
+                ],
+            ),
             "<p>"
             + link(
                 output / "exploration_learning_curves.csv",
@@ -2911,6 +3263,9 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
                     f"Fresh {row['profile']}: {row['plotted_updates']} actual updates; reward gain {row['reward_gain']:.3f} (first/last {row['reward_comparison_window_updates']} updates); descriptive tail-300 plateau {plateau}. Raw reward, completed-episode-weighted success, KL, per-action std, LR and clipping; no resumed stage is mixed into these curves.",
                 )
             )
+    sections += target_diagnostic_sections(
+        analysis.get("target_diagnostic", {}), output, link, table
+    )
     credit_path = output / "recurrent_credit_audit.json"
     if credit_path.exists():
         credit = read(credit_path)
@@ -2938,6 +3293,11 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
         ("artifacts/hparam_search/continuation/manifest.json", "Continuation submissions"),
         ("artifacts/hparam_search/continuation/launch_manifest.json", "Continuation launch record"),
         ("artifacts/dynamic_occlusion/validation.json", "Dynamic-occlusion validation"),
+        ("artifacts/dynamic_occlusion/follow_on_readiness.json", "Prepared transfer/push pilots"),
+        (
+            "artifacts/dynamic_occlusion/follow_on_decision.json",
+            "Transfer/push competence-gate decision",
+        ),
     ):
         if (root / path).exists():
             sections.append("<p>" + link(path, label) + "</p>")

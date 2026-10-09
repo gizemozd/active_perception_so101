@@ -1,0 +1,12 @@
+% Fresh exploration-configuration training with current_qpos criterion and critic-bootstrap correction from update 1. Initial std and entropy change jointly; not an isolated std ablation or an exact historical reproduction. Separate from reward screen and resumed continuations.
+% Three discrete consecutive physical-state samples at 25 Hz, not continuous dwell. Each checkpoint: 751 updates / 9,228,288 training transitions; seed 0 only.
+% Each row is a separate 512-episode balanced validation execution. Do not pool repeats as 1,024 independent samples or training seeds. Wilson intervals describe episode uncertainty only.
+\begin{tabular}{lrrrrrrrr}
+\hline
+Reward profile & Repeat & Success / $N$ & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ \\
+\hline
+progress & 1 & 167/512 & 32.62 & [28.70, 36.79] & 0.00 & 24.22 & 56.25 & 50.00 \\
+progress & 2 & 157/512 & 30.66 & [26.83, 34.79] & 0.00 & 22.66 & 57.81 & 42.19 \\
+\hline
+\end{tabular}
+% Variant columns are percentages; per-variant Wilson intervals and termination/repeat audits are in exploration_repair_metrics.csv.

@@ -1,5 +1,5 @@
 {
-  "status": "running",
+  "status": "complete",
   "started_at": "2026-10-09T06:55:28.515575+00:00",
   "job_id": "51531364",
   "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
@@ -43,5 +43,6 @@
     "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/exploration_repair/progress",
     "--result",
     "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/progress/training.json"
-  ]
+  ],
+  "finished_at": "2026-10-09T08:05:20.737341+00:00"
 }

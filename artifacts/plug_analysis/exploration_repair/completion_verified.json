@@ -1,0 +1,275 @@
+{
+  "status": "COMPLETION_INTEGRITY_PASS_ALL_VARIANT_COMPETENCE_GATE_FAIL",
+  "audited_at": "2026-10-09T08:10:13.787446+00:00",
+  "scope": "Independent read-only local history/checkpoint/source/Slurm/W&B API and both512firstepisode currentphysicalhold3 audits. No training/evaluation jobs run and no pinned source/launcher edits.",
+  "checks": {
+    "slurm_training_completed_zero": true,
+    "slurm_evaluation_completed_zero": true,
+    "manifest_and_runtime_complete": true,
+    "fresh_single_source_full_budget": true,
+    "751_contiguous_update_rows": true,
+    "all_transition_accounting": true,
+    "history_and_training_job_identity": true,
+    "source_revision_identity": true,
+    "frozen_source_clean": true,
+    "frozen_source_hashes": true,
+    "pinned_launcher_hashes": true,
+    "final_checkpoint_identity": true,
+    "finite_history_and_training_result": true,
+    "finite_actor_critic_optimizer": true,
+    "saved_experiment_matches_manifest_training": true,
+    "physical_task_profile_and_seed": true,
+    "saved_runner_and_exploration_settings": true,
+    "local_wandb_training_identity": true,
+    "checkpoint_optimizer_lr_matches_final_telemetry": true,
+    "checkpoint_std_matches_final_telemetry": true,
+    "evaluation_repeat1_identity_balance": true,
+    "evaluation_repeat1_physical_audit": true,
+    "evaluation_repeat1_512_initial_hashes": true,
+    "evaluation_repeat1_media_manifest": true,
+    "evaluation_repeat2_identity_balance": true,
+    "evaluation_repeat2_physical_audit": true,
+    "evaluation_repeat2_512_initial_hashes": true,
+    "repeat_initial_hashes_exact": true,
+    "repeat_comparison_counts_verified": true,
+    "wandb_all_three_runs_finished": true,
+    "manifest_gate_agrees": true
+  },
+  "passed_checks": 31,
+  "total_checks": 31,
+  "manifest": "artifacts/plug_analysis/exploration_repair/progress/run_manifest.json",
+  "manifest_sha256": "3fa36084ef57b84e10b3003f66ac2c7bd908e9b001b5a75408c7f3e1f9e22545",
+  "training_result_sha256": "b08b83fe28e4d98ce36507fb55de7640e38ac204087493e2019aa3eb719a8842",
+  "history": "logs/exploration_repair/progress/plug_wrist_static_clean_gru_v7_s0_n512_explore_progress_4d4de324264d_20261009T065536Z/iterations.jsonl",
+  "history_sha256": "02ada55b0f4db9dc5d8ae84af3f868124a40f206d3a2cfa89ceed3b517af119b",
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/exploration_repair/progress/plug_wrist_static_clean_gru_v7_s0_n512_explore_progress_4d4de324264d_20261009T065536Z/model_750.pt",
+  "checkpoint_sha256": "15acdb9446fcd718119eed26a23d7bc9b8b6091288d7f3a706538b08180e3dd4",
+  "checkpoint_iteration": 750,
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "jobs": {
+    "51531364": {
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "start_local": "2026-10-09T02:55:27",
+      "end_local": "2026-10-09T04:05:23",
+      "elapsed": "01:09:56",
+      "node": "holygpu7c1713"
+    },
+    "51531365": {
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "start_local": "2026-10-09T04:05:45",
+      "end_local": "2026-10-09T04:08:45",
+      "elapsed": "00:03:00",
+      "node": "holygpu7c1713"
+    }
+  },
+  "learning": {
+    "updates": 751,
+    "transitions": 9228288,
+    "first100_reward_samples": 97,
+    "first100_reward_mean": 0.3167066176251038,
+    "last100_reward_mean": 6.498558341427473,
+    "reward_gain": 6.181851723802369,
+    "last_300_reward_slope_per_million_transitions": 0.27883378504955386,
+    "last_300_reward_fitted_change": 1.0244665556559862,
+    "final_150_vs_previous_150_reward_change": 0.4871228202383646,
+    "descriptive_plateau_tolerance": 0.6174258657789898,
+    "descriptive_reward_plateau": false,
+    "plateau_definition": "Same report heuristic: max(abs(last300fittedchange),abs(final150minusprevious150mean)) <=0.1*max(0.1,abs(last300mean)); descriptive, not a statistical convergence claim.",
+    "first100_episode_weighted": {
+      "completed_episodes": 13824.0,
+      "successes": 4.0,
+      "episode_weighted_success": 0.00028935185185185184
+    },
+    "last100_episode_weighted": {
+      "completed_episodes": 15362.0,
+      "successes": 4900.0,
+      "episode_weighted_success": 0.318968884259862
+    },
+    "last300_episode_weighted": {
+      "completed_episodes": 45722.0,
+      "successes": 13694.0,
+      "episode_weighted_success": 0.29950570841170554
+    },
+    "first_std": [
+      0.9753970503807068,
+      0.992415726184845,
+      0.9903103709220886
+    ],
+    "final_std": [
+      0.2443164885044098,
+      0.22301369905471802,
+      0.2784276306629181
+    ],
+    "std_minima": [
+      0.2443164885044098,
+      0.21863572299480438,
+      0.27807918190956116
+    ],
+    "last300_kl": {
+      "samples": 300,
+      "mean": 0.013274439498782159,
+      "minimum": 0.006997496355324984,
+      "maximum": 0.023038797080516815
+    },
+    "last100_clip_fraction": {
+      "samples": 100,
+      "mean": 0.16072184778749943,
+      "minimum": 0.0864054337143898,
+      "maximum": 0.223388671875
+    },
+    "last100_action_saturation": {
+      "samples": 100,
+      "mean": 0.6057940411567688,
+      "minimum": 0.5743815302848816,
+      "maximum": 0.6248644590377808
+    },
+    "last100_lr": {
+      "samples": 100,
+      "mean": 8.088281250000002e-05,
+      "minimum": 1e-05,
+      "maximum": 0.00017085937500000009
+    },
+    "last100_lr_floor_fraction": 0.03
+  },
+  "evaluation_repeats": [
+    {
+      "repeat": 1,
+      "report": "artifacts/plug_analysis/exploration_repair/progress/evaluation-repeat1.json",
+      "report_sha256": "5237d852824142e4adf7e1a68c391c04f5a96323663a2f5c19ba88502c08c495",
+      "episodes": 512,
+      "successes": 167,
+      "success_rate": 0.326171875,
+      "wilson95": [
+        0.28698921217957324,
+        0.3679435254740851
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 31
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 72
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 64
+        }
+      },
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "competence_gate_passed": false,
+      "wandb_id": "856b60243fc5",
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/856b60243fc5"
+    },
+    {
+      "repeat": 2,
+      "report": "artifacts/plug_analysis/exploration_repair/progress/evaluation-repeat2.json",
+      "report_sha256": "ab05d44284733670109a8e88701f172488f2a289ba64d8c636bd180dcaba4e5f",
+      "episodes": 512,
+      "successes": 157,
+      "success_rate": 0.306640625,
+      "wilson95": [
+        0.2682635992076081,
+        0.3478975359352253
+      ],
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 29
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 74
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 54
+        }
+      },
+      "physical_violation_counts": {
+        "success_hold_violations": 0,
+        "success_distance_violations": 0,
+        "success_three_sample_violations": 0,
+        "success_qpos_above_distance_threshold": 0
+      },
+      "competence_gate_passed": false,
+      "wandb_id": "cc4b4b6f13e2",
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/cc4b4b6f13e2"
+    }
+  ],
+  "repeat_outcome_changes": 128,
+  "repeat_outcome_change_fraction": 0.25,
+  "repeat_initial_hash_mismatches": {
+    "combined": 0,
+    "physics": 0,
+    "sensors": {
+      "wrist": 0,
+      "external": 0
+    }
+  },
+  "prior_fixedview_initial_hash_mismatches": {
+    "combined": 0,
+    "physics": 0,
+    "sensors": {
+      "wrist": 0,
+      "external": 0
+    }
+  },
+  "wandb_api": [
+    {
+      "id": "4d4de324264d",
+      "state": "finished",
+      "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/4d4de324264d",
+      "summary": {
+        "_step": 750,
+        "train/Policy/mean_std": 0.24859853088855743,
+        "train/Train/mean_reward": 6.4613043640274554
+      }
+    },
+    {
+      "id": "856b60243fc5",
+      "state": "finished",
+      "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/856b60243fc5",
+      "summary": {
+        "_step": 7
+      }
+    },
+    {
+      "id": "cc4b4b6f13e2",
+      "state": "finished",
+      "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/cc4b4b6f13e2",
+      "summary": {
+        "_step": 0
+      }
+    }
+  ],
+  "competence_gate": {
+    "required_successes_each_variant_each_repeat": 103,
+    "episodes_each_variant": 128,
+    "repeats": 2,
+    "zero_physical_violations_required": true,
+    "passed": false
+  },
+  "interpretation": [
+    "Reward increase/plateau is descriptive training behavior, not reliable allvariant learning or activeperception benefit.",
+    "Initialstd1 andentropy0.01 were changed together in a fresh751 correctedsource run; no isolated causality or statistical seed replication follows.",
+    "Repeated numerical evaluations share the initial states and one learned model; they are not independent training seeds or pooled independent trials.",
+    "If the gate fails, the already-prepared passive target/feature diagnostic remains the next bounded diagnosis; no additional learner job is submitted by this audit."
+  ]
+}

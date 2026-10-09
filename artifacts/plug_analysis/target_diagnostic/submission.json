@@ -1,0 +1,54 @@
+{
+  "prepared_at": "2026-10-09T08:10:59.826533+00:00",
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/exploration_repair/progress/plug_wrist_static_clean_gru_v7_s0_n512_explore_progress_4d4de324264d_20261009T065536Z/model_750.pt",
+  "checkpoint_sha256": "15acdb9446fcd718119eed26a23d7bc9b8b6091288d7f3a706538b08180e3dd4",
+  "reference_report": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/progress/evaluation-repeat1.json",
+  "reference_report_sha256": "5237d852824142e4adf7e1a68c391c04f5a96323663a2f5c19ba88502c08c495",
+  "helper_sha256": "6856d61ddaa24d29362ed42b0e2523c12757ec5c13f1d022b51487a6ab7dbc34",
+  "launcher_sha256": "3d49d3958e1b072904e477ea9e5a4d33700f3f6410001fad2bbbcd855452659f",
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/src",
+    "TARGET_CHECKPOINT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/exploration_repair/progress/plug_wrist_static_clean_gru_v7_s0_n512_explore_progress_4d4de324264d_20261009T065536Z/model_750.pt",
+    "TARGET_REFERENCE_REPORT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/progress/evaluation-repeat1.json",
+    "TARGET_CHECKPOINT_SHA256": "15acdb9446fcd718119eed26a23d7bc9b8b6091288d7f3a706538b08180e3dd4",
+    "TARGET_HELPER_SHA256": "6856d61ddaa24d29362ed42b0e2523c12757ec5c13f1d022b51487a6ab7dbc34",
+    "TARGET_OUTPUT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/target_diagnostic/report.json",
+    "TARGET_PROBE": "1",
+    "WANDB_MODE": "disabled"
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.err",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/audit_plug_actor_targets.sbatch"
+  ],
+  "entry_evidence": {
+    "manifest": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/progress/run_manifest.json",
+    "manifest_sha256": "3fa36084ef57b84e10b3003f66ac2c7bd908e9b001b5a75408c7f3e1f9e22545",
+    "completion_verified_sha256": "aedd94673aa538fd0818527e26846d4c2324f356b3d9f451d11119b7f5384b8e",
+    "all_variant_competence_passed": false
+  },
+  "budget": {
+    "gpus": 1,
+    "time_cap_minutes": 15,
+    "first_episodes": 512,
+    "learner_updates": 0,
+    "fixed_ridge_probe_fits": 16
+  },
+  "interpretation": "One frozen learned actor; passive action/features and train-only-normalized fixed ridge accessibility probes. No learner updates or automatic PPO extension.",
+  "status": "submitted",
+  "reserved_at": "2026-10-09T08:10:59.835021+00:00",
+  "stdout": "51542399",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51542399"
+}

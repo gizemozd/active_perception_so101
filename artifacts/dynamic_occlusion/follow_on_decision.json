@@ -1,0 +1,23 @@
+{
+  "status": "DEFERRED_UNMET_PLUG_COMPETENCE",
+  "decided_at": "2026-10-09T08:22:46.038177+00:00",
+  "tasks": [
+    "transfer",
+    "push"
+  ],
+  "training_jobs_submitted": [],
+  "evidence": "artifacts/plug_analysis/exploration_repair/completion_verified.json",
+  "successes_by_repeat": [
+    167,
+    157
+  ],
+  "episodes_per_repeat": 512,
+  "xm_successes_by_repeat": [
+    0,
+    0
+  ],
+  "required_successes_each_variant_each_repeat": 103,
+  "episodes_per_variant": 128,
+  "reason": "The approved follow-on training is conditional on reliable plug learning; both final physical repeats fail the prespecified all-variant gate. Dynamic occlusions are implemented and validated; clean pilots remain prepared.",
+  "readiness": "artifacts/dynamic_occlusion/follow_on_readiness.json"
+}

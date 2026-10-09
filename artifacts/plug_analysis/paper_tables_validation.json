@@ -1,12 +1,40 @@
 {
   "status": "PASSED",
-  "compiler": "pdflatex",
+  "compiler": "/usr/bin/pdflatex",
   "tables": [
     "camera_control_metrics.tex",
     "corrected_hparam_metrics.tex",
     "corrected_performance_metrics.tex",
+    "exploration_repair_metrics.tex",
     "performance_metrics.tex"
   ],
-  "count": 4,
-  "note": "Actual LaTeX fragments compile in a standalone article; no numerical re-evaluation."
+  "count": 5,
+  "checks": [
+    {
+      "table": "camera_control_metrics.tex",
+      "sha256": "0835f1d23c5684ec3379eb682778c9a21fc7411557673c8fb416287e2ccb75af",
+      "standalone_compilation": "PASS"
+    },
+    {
+      "table": "corrected_hparam_metrics.tex",
+      "sha256": "5d214752fb1e8b4fc228c5be9a0004c888d83c847704676a81593d8e7ca3c543",
+      "standalone_compilation": "PASS"
+    },
+    {
+      "table": "corrected_performance_metrics.tex",
+      "sha256": "d05acc5f8b74b4a6778e51fa9e207f4fb824ddaced7ffb27117cdad86219b807",
+      "standalone_compilation": "PASS"
+    },
+    {
+      "table": "exploration_repair_metrics.tex",
+      "sha256": "55052356622666a26b96465efc1e0d1a368a90e62c89e79cf8cadd83caf017df",
+      "standalone_compilation": "PASS"
+    },
+    {
+      "table": "performance_metrics.tex",
+      "sha256": "0acd7423f8a1b9e337deee16832c5a5c72ad14267ea442091034d850b7fdb37e",
+      "standalone_compilation": "PASS"
+    }
+  ],
+  "note": "Actual LaTeX fragments compile in separate standalone landscape articles; no numerical re-evaluation."
 }

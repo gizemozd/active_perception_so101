@@ -165,15 +165,15 @@
   ],
   "one_bounded_next_diagnostic": {
     "entry_condition": "After the running fixed751 exploration repair finishes and passes completion/physical audit, only if the prespecified allvariant competence gate remains unmet.",
-    "status": "PREPARED_NOT_EXECUTED",
+    "status": "COMPLETED_VERIFIED",
     "question": "Where does the paired physical-oracle gap arise: available RGB cues, policy target mapping, or approach/precision?",
     "budget": "One existing frozen learned checkpoint, one balanced512firstepisode evaluation onN128/seeds10000..10003 with currentqposheld3; no learner updates/controller changes. At most88steps/episode, identical clean fixedview7 starts and hash comparison. No additional training grid.",
     "capture": "Allstep deterministic actor mean request, actual clamped action, processed TCPtarget, current rawbody qpos/goal, derivedTCPtracking, hold/firstterminal flags. ActualRGB/rawproprio snapshot at.96s BEFORE the real actor forward, with normalizedproprio/CNN/GRU outputs passively hooked from that ONE call. Raw numeric arrays/RGB stay in gitignoredNPZ; JSON/CSV contain compact phase/variant summaries and metadata. No other recurrent forward is called.",
     "analysis": "Pervariant socket/offset-conditioned command residuals and confusion, XY/Z timing and actual tracking, image crop/cue inspection. Use existing representative videos only qualitatively; their firstsuccess/firstfailure selection cannot estimate prevalence or decoder accuracy.",
-    "scientific_limits": "Passive paired capture diagnoses association and frozen policy use, not architectural necessity or causal RL repair. Any later heldout supervised decoder/counterfactual probe would be a separately declared diagnostic, not already executed.",
+    "scientific_limits": "Passive paired capture and fixed ridge accessibility probes diagnose association in a frozen policy. They do not establish architectural necessity, causal perception use or a successful RL repair; seed folds are not independent training seeds.",
     "decision": "Choose one narrow repair only after this decomposition. Keep transfer/push and active-perception benefit claims gated on physical allvariant competence; fixed-view diagnosis precedes utility comparisons.",
     "prepared_helper": {
-      "status": "PREPARED_NOT_SUBMITTED",
+      "status": "COMPLETED_VERIFIED",
       "helper": "scripts/audit_plug_actor_targets.py",
       "helper_sha256": "6856d61ddaa24d29362ed42b0e2523c12757ec5c13f1d022b51487a6ab7dbc34",
       "launcher": "scripts/slurm/audit_plug_actor_targets.sbatch",
@@ -205,7 +205,40 @@
         "proprio_only",
         "cnn_plus_proprio",
         "gru_only"
-      ]
+      ],
+      "job_id": "51542399"
+    },
+    "job_id": "51542399",
+    "submission": "artifacts/plug_analysis/target_diagnostic/submission.json",
+    "completed_job_id": "51542399",
+    "report": "artifacts/plug_analysis/target_diagnostic/report.json",
+    "verification": "artifacts/plug_analysis/target_diagnostic/completion_verified.json",
+    "report_sha256": "ff62a95765d03d1e012bc9de45250ef23d3123980d277dfe3001ab3802998169",
+    "results": {
+      "episodes": 512,
+      "successes": 179,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 38
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 75
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 66
+        }
+      },
+      "learner_updates": 0,
+      "fixed_ridge_probe_fits": 16,
+      "verification_checks_passed": 35,
+      "scientific_limit": "Partial linear accessibility, phase-conditioned commands and near-goal misses do not establish one causal explanation or successful policy repair."
     }
   }
 }
