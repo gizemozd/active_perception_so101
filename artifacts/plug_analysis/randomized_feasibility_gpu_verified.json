@@ -1,0 +1,373 @@
+{
+  "status": "VERIFIED",
+  "checked_at": "2026-10-09T07:02:32.002250+00:00",
+  "job": {
+    "id": "51531753",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:01:46",
+    "start_local": "2026-10-09T02:56:53",
+    "end_local": "2026-10-09T02:58:39",
+    "node": "holygpu7c1916"
+  },
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "helper_commit": "e38cc2c0b41b1cd073ba749083d31a9a5cb9355b",
+  "artifact": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/randomized_feasibility_gpu.json",
+  "artifact_sha256": "deff66351198c39c773a99820fd204a02f7e35f78820820f40e700c71cecb90a",
+  "submission_sha256": "97fd6502737442d0e3821ca6084c37735fc4a513e8a6ac9e661289ce8dfc5bb9",
+  "helper_sha256": "f4b90d917027a0bab8f2a46ae8cc36f4d9aa80e797ec0e4c3157ff3f5bff328e",
+  "launcher_sha256": "00248f3649490ef5228494fcbc5701db3a675a72155152f49bfba3df9559e77f",
+  "checks": {
+    "slurm_completed_zero_exit": true,
+    "source_revision_matches_submission": true,
+    "frozen_head_matches": true,
+    "frozen_tracked_source_clean": true,
+    "source_hashes_match": true,
+    "helper_hash_matches_submission_and_execution": true,
+    "launcher_hash_matches_submission": true,
+    "runtime_job_and_device_match": true,
+    "512_terminal_and_initial_records": true,
+    "unique_ordered_first_episode_records": true,
+    "seed_world_variant_assignments": true,
+    "balanced_128_per_variant": true,
+    "physical_criterion_and_randomized_config": true,
+    "step_clock_and_horizon": true,
+    "terminal_flags_present": true,
+    "all_recorded_numbers_finite": true,
+    "all_preterminal_qpos_finite": true,
+    "all_success_hold_counts_at_least_three": true,
+    "all_success_three_errors_strictly_below_2mm": true,
+    "all_success_current_qpos_errors_below_2mm": true,
+    "manager_error_is_current_qpos": true,
+    "current_terminal_distance_recomputed": true,
+    "world_to_local_consistency": true,
+    "minimum_error_no_larger_than_terminal": true,
+    "terminal_action_finite_and_valid_shape": true,
+    "component_samples_match_episode_steps": true,
+    "reference_file_preserved": true,
+    "combined_initial_hashes_match": true,
+    "physics_initial_hashes_match": true,
+    "sensor_initial_hashes_match": true,
+    "reference_comparison_agrees": true,
+    "per_variant_totals_recomputed": true,
+    "terminal_flag_totals_recomputed": true,
+    "reported_physical_violations_zero": true,
+    "failures_only_nine_xm_timeouts": true,
+    "all_successes_before_nominal_horizon": true,
+    "no_clipped_action_components": true,
+    "proxy_model_hashes_match_native_audit_models": true,
+    "no_fatal_stderr": true
+  },
+  "passed_checks": 39,
+  "total_checks": 39,
+  "episodes": 512,
+  "successes": 503,
+  "success_rate": 0.982421875,
+  "per_variant": {
+    "xm": {
+      "episodes": 128,
+      "successes": 119,
+      "success_rate": 0.9296875
+    },
+    "xp": {
+      "episodes": 128,
+      "successes": 128,
+      "success_rate": 1.0
+    },
+    "ym": {
+      "episodes": 128,
+      "successes": 128,
+      "success_rate": 1.0
+    },
+    "yp": {
+      "episodes": 128,
+      "successes": 128,
+      "success_rate": 1.0
+    }
+  },
+  "terminal_flags": {
+    "success": 503,
+    "failure": 0,
+    "timeout": 9
+  },
+  "physical_hold_violations": 0,
+  "success_elapsed_range_s": [
+    2.12,
+    2.12
+  ],
+  "maximum_success_qpos_error_mm": 0.4527547280304134,
+  "clipped_action_components": 0,
+  "all_qpos_finite": true,
+  "initial_pairing": {
+    "reference_report": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0.json",
+    "combined_mismatches": 0,
+    "physics_mismatches": 0,
+    "sensor_mismatches": {
+      "wrist": 0,
+      "external": 0
+    }
+  },
+  "failure_cases": [
+    {
+      "episode": 80,
+      "reset_seed": 10000,
+      "world": 80,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        -0.026810957118868828,
+        0.048508286476135254,
+        0.034999992698431015
+      ],
+      "socket_goal_local_m": [
+        0.0477006658911705,
+        0.01133489515632391,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.06270066648721695,
+        0.01133489515632391,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 63.034169375896454,
+      "terminal_qpos_error_mm": 63.97152692079544,
+      "tcp_derived_tracking_error_mm": 55.13401744955553
+    },
+    {
+      "episode": 88,
+      "reset_seed": 10000,
+      "world": 88,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        -0.02436843141913414,
+        -0.018414173275232315,
+        0.0350000225007534
+      ],
+      "socket_goal_local_m": [
+        0.048976827412843704,
+        0.016987621784210205,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.06397682428359985,
+        0.016987621784210205,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 62.96853721141815,
+      "terminal_qpos_error_mm": 63.843727111816406,
+      "tcp_derived_tracking_error_mm": 54.775073928433294
+    },
+    {
+      "episode": 140,
+      "reset_seed": 10001,
+      "world": 12,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        -0.013392183929681778,
+        0.021520812064409256,
+        0.0350000225007534
+      ],
+      "socket_goal_local_m": [
+        0.040867846459150314,
+        0.04727041348814964,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.05586784705519676,
+        0.04727041348814964,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 63.429608941078186,
+      "terminal_qpos_error_mm": 63.99001181125641,
+      "tcp_derived_tracking_error_mm": 54.00695652094966
+    },
+    {
+      "episode": 176,
+      "reset_seed": 10001,
+      "world": 48,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        0.006124956998974085,
+        -0.0034517929889261723,
+        0.034999992698431015
+      ],
+      "socket_goal_local_m": [
+        0.04837982356548309,
+        0.04961850121617317,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.06337982416152954,
+        0.04961850121617317,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 63.13594430685043,
+      "terminal_qpos_error_mm": 63.43667209148407,
+      "tcp_derived_tracking_error_mm": 52.79050228931643
+    },
+    {
+      "episode": 184,
+      "reset_seed": 10001,
+      "world": 56,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        -0.039037156850099564,
+        0.0403311662375927,
+        0.034999992698431015
+      ],
+      "socket_goal_local_m": [
+        0.04632774367928505,
+        0.034381549805402756,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.0613277442753315,
+        0.034381549805402756,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 62.905579805374146,
+      "terminal_qpos_error_mm": 63.24746459722519,
+      "tcp_derived_tracking_error_mm": 53.17491930950044
+    },
+    {
+      "episode": 224,
+      "reset_seed": 10001,
+      "world": 96,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        -0.0228292066603899,
+        -0.01189926452934742,
+        0.03499998897314072
+      ],
+      "socket_goal_local_m": [
+        0.0445438027381897,
+        0.022928347811102867,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.059543803334236145,
+        0.022928347811102867,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 62.81004846096039,
+      "terminal_qpos_error_mm": 63.623882830142975,
+      "tcp_derived_tracking_error_mm": 54.395864945289475
+    },
+    {
+      "episode": 304,
+      "reset_seed": 10002,
+      "world": 48,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        -0.03664020076394081,
+        0.053958117961883545,
+        0.034999992698431015
+      ],
+      "socket_goal_local_m": [
+        0.04953417927026749,
+        0.002545881550759077,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.06453417986631393,
+        0.002545881550759077,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 62.7484917640686,
+      "terminal_qpos_error_mm": 62.9534125328064,
+      "tcp_derived_tracking_error_mm": 53.01834285511055
+    },
+    {
+      "episode": 456,
+      "reset_seed": 10003,
+      "world": 72,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        -0.01754230447113514,
+        0.04971989989280701,
+        0.03500000387430191
+      ],
+      "socket_goal_local_m": [
+        0.048008766025304794,
+        0.00779845891520381,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.06300876289606094,
+        0.00779845891520381,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 62.57805973291397,
+      "terminal_qpos_error_mm": 63.02932649850845,
+      "tcp_derived_tracking_error_mm": 53.22892639036539
+    },
+    {
+      "episode": 472,
+      "reset_seed": 10003,
+      "world": 88,
+      "variant": "xm",
+      "elapsed_s": 3.52,
+      "timeout": true,
+      "failure": false,
+      "spawn_body_local_m": [
+        -0.015563111752271652,
+        0.00012676173355430365,
+        0.03500000387430191
+      ],
+      "socket_goal_local_m": [
+        0.04445868358016014,
+        0.038820523768663406,
+        0.016
+      ],
+      "body_goal_local_m": [
+        0.05945868417620659,
+        0.038820523768663406,
+        0.01600000075995922
+      ],
+      "controller_stage_at_terminal_action": 0,
+      "minimum_qpos_error_mm": 62.92807310819626,
+      "terminal_qpos_error_mm": 63.16027045249939,
+      "tcp_derived_tracking_error_mm": 52.86186077096893
+    }
+  ],
+  "audit_wall_seconds": 94.16046077338979,
+  "assessment": "The unchanged privileged controller achieves held-three physical success in98.24% of these Warp worlds, including92.97% ofxm worlds that trained policies leave largely unsolved. This supports sampled control feasibility and a learning/perception gap; it does not prove all-world physical solvability or visual learnability. Nine xm timeouts occupy an approach/control hard region and remain unresolved.",
+  "limits": [
+    "Privileged object/goal/variant access is unavailable to the actor; these results are not a learned-policy baseline or active-perception benefit.",
+    "Initial physics and sensor hashes match the earlier512-episode fixed-view evaluation exactly; this establishes paired initial conditions, not source/trajectory equivalence.",
+    "Native proxies only forward copied Warp state; actual control IK and dynamics are Warp. Native float64 FK may affect controller stage decisions.",
+    "Failure does not establish physical impossibility. Derived TCP tracking in failure summaries may lag by one physics substep; body success/error uses current raw qpos.",
+    "All successes occur before nominal3.5s; nine failures reach the real88-step/3.52s quantized timeout."
+  ]
+}

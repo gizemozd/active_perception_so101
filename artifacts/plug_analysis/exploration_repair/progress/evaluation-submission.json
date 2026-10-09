@@ -1,0 +1,41 @@
+{
+  "profile": "progress",
+  "training_job_id": "51531364",
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/src",
+    "WANDB_MODE": "online",
+    "WANDB_PROJECT": "active-perception-so101",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_RUN_GROUP": "plug-exploration-repair-4d4de324264d",
+    "WANDB_JOB_TYPE": "search",
+    "WANDB_TAGS": "exploration-repair,fresh,initial-std1,entropy0.01,progress",
+    "EVALUATION_STAGE": "fresh-exploration-repair",
+    "EXPLORATION_MANIFEST": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/submission.json",
+    "EXPLORATION_HELPER": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_exploration_repair.py",
+    "EVALUATION_WANDB_ID_1": "856b60243fc5",
+    "EVALUATION_WANDB_ID_2": "cc4b4b6f13e2"
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--dependency=afterok:51531364",
+    "--job-name=plug-explore-eval-progress",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.err",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/exploration_repair_eval.sbatch"
+  ],
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "script_sha256": "8ddf036be30ba91352d935fbfe7914a2c0cc9a80d07ba3ae6ab0839ff9ec5748",
+  "status": "submitted",
+  "reserved_at": "2026-10-09T06:55:25.357787+00:00",
+  "stdout": "51531365",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51531365"
+}

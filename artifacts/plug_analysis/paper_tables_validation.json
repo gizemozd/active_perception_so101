@@ -1,0 +1,11 @@
+{
+  "status": "PASSED",
+  "compiler": "pdflatex",
+  "tables": [
+    "corrected_hparam_metrics.tex",
+    "corrected_performance_metrics.tex",
+    "performance_metrics.tex"
+  ],
+  "count": 3,
+  "note": "Standalone article compilation of actual exported LaTeX fragments; no numerical re-evaluation."
+}

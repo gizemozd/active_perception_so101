@@ -1,17 +1,17 @@
 {
-  "checked_at": "2026-10-09T06:14:00.692571+00:00",
+  "checked_at": "2026-10-09T07:05:59.470614+00:00",
   "bundle": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/plug-report.zip",
-  "bundle_sha256": "bff111317cdb6c461bdcecf2ec0c01951f2eed410df60f183d9c56621647f545",
-  "bundle_bytes": 57267372,
-  "bundle_files": 312,
+  "bundle_sha256": "e3776e25fffcce801cc27ab3d3ab97ea1aebfcc635a5b2862437aeea98245f36",
+  "bundle_bytes": 62192304,
+  "bundle_files": 342,
   "entrypoint": "index.html",
   "report_path": "artifacts/plug_analysis/index.html",
-  "local_links_checked_after_extraction": 285,
+  "local_links_checked_after_extraction": 314,
   "missing_links": [],
-  "mp4_files_in_archive": 107,
-  "media_decoded": 107,
+  "mp4_files_in_archive": 115,
+  "media_decoded": 115,
   "archive_crc_verified": true,
-  "bundle_manifest_file_hashes_verified": 309,
+  "bundle_manifest_file_hashes_verified": 339,
   "archive_paths_safe": true,
   "excluded_checkpoints_npz_dotenv_files": true,
   "validation_scope": "Independent extraction, HTML links, CRC and per-file SHA256; optional first/middle/last video decoding. No simulator rollout.",
@@ -1039,6 +1039,86 @@
     {
       "path": "artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_success_episode111_policy.mp4",
       "frames": 77,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1-videos/xp_success_episode25_outside.mp4",
+      "frames": 54,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1-videos/xp_success_episode25_policy.mp4",
+      "frames": 54,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/continuation/progress/evaluation-repeat1-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/continuation/progress/evaluation-repeat1-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/continuation/progress/evaluation-repeat1-videos/xp_success_episode5_outside.mp4",
+      "frames": 85,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/plug_analysis/reward_repair/continuation/progress/evaluation-repeat1-videos/xp_success_episode5_policy.mp4",
+      "frames": 85,
       "fps": 25.0,
       "size": [
         768,

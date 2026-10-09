@@ -1,0 +1,284 @@
+{
+  "profile": "progress",
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "data_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+  "source_history": [
+    {
+      "revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+      "updates": 751,
+      "transitions": 9228288
+    }
+  ],
+  "source_files_sha256": {
+    "src/active_perception_arms/config.py": "ba639782cd2443275b13e839543508144aec1607cfc80d9ffa1e26879d952faf",
+    "src/active_perception_arms/policy.py": "bd8bc5f6ddc885588ef2968ab8578dd5e5d0f7ff58a99bc0661c0c2187577b81",
+    "src/active_perception_arms/train.py": "028c6df1d5505a3029e3687d3c569ad7abc85fb739ea80bf6524e2a1ca6ac16d",
+    "src/active_perception_arms/mdp.py": "0fad9d65cf4ece859245b31edb3df5374122b8a54475c6e3b23d246ecef6e6da",
+    "src/active_perception_arms/environment.py": "2a4fe89c92cd9b558b0c25aea0f54f14325ae692c256566a8554b3ba4f42618d",
+    "src/active_perception_arms/telemetry.py": "b4ab0f0c7d5893e31dcb7f2b96a90dd8e8f63ad0ad17316e016b77d946f043f5",
+    "src/active_perception_arms/evaluate.py": "99c2f5432d4138a3fcf4d7da1ae77a13d326e36cd55ae325f58dd23ff97a81fc",
+    "src/active_perception_arms/capture_evaluation.py": "3b0707cf054c270d064b0b4f2018fbe62def20f860149a41fc75779e4c50f1a7",
+    "src/active_perception_arms/record_evaluation.py": "5e00031fe087d83f8495f8485b5292e77091d92f417fbc401e502ed59ed4bb02",
+    "scripts/slurm/common.sh": "68238f0124b55efd1f271b82166526d49966d32005b5ad49b2bd7d4af5558ce8"
+  },
+  "launcher_files_sha256": {
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_exploration_repair.py": "08b092e8f2dc41b5fd1b8bd7adf82870de2c9e0e88a092d198d2d9a8bda7f101",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_reward_continuation.py": "17fc359f05d03877720fa25c401c0929150a3b074998118d92d5be988495d36a",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_tuning_continuation.py": "4f5912dedd057c7ffa268e05c5a53f03e5379e87567d219df87324f1bf376f2b"
+  },
+  "global_manifest": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/submission.json",
+  "output_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/progress",
+  "log_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/exploration_repair/progress",
+  "run_label": "explore_progress_4d4de324264d",
+  "training_command": [
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/.venv/bin/python",
+    "-m",
+    "active_perception_arms.train",
+    "--task",
+    "plug",
+    "--condition",
+    "wrist_static",
+    "--fixed-view",
+    "7",
+    "--num-envs",
+    "512",
+    "--seed",
+    "0",
+    "--occlusion",
+    "clean",
+    "--memory",
+    "gru",
+    "--success-state-sample",
+    "current_qpos",
+    "--reward-profile",
+    "progress",
+    "--iterations",
+    "751",
+    "--initial-std",
+    "1.0",
+    "--entropy-coef",
+    "0.01",
+    "--learning-rate",
+    "0.0003",
+    "--lr-schedule",
+    "adaptive",
+    "--job-type",
+    "search",
+    "--run-label",
+    "explore_progress_4d4de324264d",
+    "--log-root",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/exploration_repair/progress",
+    "--result",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/progress/training.json"
+  ],
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/src",
+    "WANDB_RUN_ID": "4d4de324264d",
+    "WANDB_RESUME": "never",
+    "WANDB_MODE": "online",
+    "WANDB_PROJECT": "active-perception-so101",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_RUN_GROUP": "plug-exploration-repair-4d4de324264d",
+    "WANDB_JOB_TYPE": "search",
+    "WANDB_TAGS": "exploration-repair,fresh,initial-std1,entropy0.01,progress",
+    "EVALUATION_STAGE": "fresh-exploration-repair"
+  },
+  "training_wandb_id": "4d4de324264d",
+  "training_updates": 751,
+  "training_transitions": 9228288,
+  "initial_std": 1.0,
+  "optimization": {
+    "learning_rate": 0.0003,
+    "schedule": "adaptive",
+    "entropy_coef": 0.01
+  },
+  "dry_run": {
+    "experiment": {
+      "task": "plug",
+      "condition": "wrist_static",
+      "occlusion": "clean",
+      "seed": 0,
+      "num_envs": 512,
+      "width": 128,
+      "height": 96,
+      "timestep": 0.002,
+      "decimation": 20,
+      "episode_seconds": 3.5,
+      "initial_seconds": 1.0,
+      "joint_step": 0.035,
+      "randomize": true,
+      "perturb_push": false,
+      "fixed_position": [
+        1.1021821192326179e-17,
+        0.205,
+        0.08
+      ],
+      "fixed_lookat": [
+        0.022,
+        0.045,
+        0.047
+      ],
+      "clearance": 0.002,
+      "render_sensors": true,
+      "memory": "gru",
+      "plug_variant": null,
+      "task_revision": "hidden_prongs_v1",
+      "success_state_sample": "current_qpos",
+      "reward_profile": "progress",
+      "occlusion_revision": null,
+      "dynamic_onset_range": null,
+      "dynamic_duration_range": null,
+      "dynamic_center": null,
+      "dynamic_center_jitter": null,
+      "dynamic_travel_range": null,
+      "dynamic_panel_half_size": null,
+      "dynamic_panel_yaw": null
+    },
+    "iterations": 751,
+    "optimization": {
+      "learning_rate": 0.0003,
+      "schedule": "adaptive",
+      "entropy_coef": 0.01
+    },
+    "initial_std": 1.0,
+    "training_started": false
+  },
+  "fresh": true,
+  "resume": null,
+  "auto_extensions": false,
+  "max_parallel_training_gpus": 1,
+  "prepared_at": "2026-10-09T06:55:25.151775+00:00",
+  "entry_condition": "Only if both final751 corrected profiles fail robust all-variant learning; caller selects objective after reviewing repeats.",
+  "interpretation": "Fresh source11a751 updates with std1.0 and entropy0.01 changed together. One training seed is a competence screen, not paper-level proof.",
+  "competence_gate": {
+    "minimum_successes_each_variant_each_repeat": 103,
+    "episodes_per_variant": 128,
+    "repeats": 2,
+    "zero_physical_violations_required": true
+  },
+  "diagnostics": {
+    "read_only_updates": [
+      100,
+      376
+    ],
+    "no_hyperparameter_changes": true
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--nodes=1",
+    "--ntasks=1",
+    "--gres=gpu:1",
+    "--cpus-per-task=8",
+    "--mem=48G",
+    "--time=03:00:00",
+    "--signal=USR1@180",
+    "--job-name=plug-explore-progress",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.err",
+    "--wrap",
+    "exec bash -c 'set -euo pipefail\nsource /n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/scripts/slurm/common.sh\n/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/.venv/bin/python -c '\"'\"'\nimport hashlib, json, sys\nfrom pathlib import Path\nrecord = json.loads(Path(sys.argv[1]).read_text())\nfor path, expected in record['\"'\"'\"'\"'\"'\"'\"'\"'launcher_files_sha256'\"'\"'\"'\"'\"'\"'\"'\"'].items():\n    with Path(path).open('\"'\"'\"'\"'\"'\"'\"'\"'rb'\"'\"'\"'\"'\"'\"'\"'\"') as stream:\n        assert hashlib.file_digest(stream, '\"'\"'\"'\"'\"'\"'\"'\"'sha256'\"'\"'\"'\"'\"'\"'\"'\"').hexdigest() == expected, path\n'\"'\"' /n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/submission.json\nexec /n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/.venv/bin/python /n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/submit_exploration_repair.py --runtime-training /n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/exploration_repair/submission.json'"
+  ],
+  "entry_evidence": {
+    "progress": {
+      "manifest": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/progress/run_manifest.json",
+      "manifest_sha256": "1adff5dc9f2a930a07e3ea590163b3e3385f263c9950406f6b253c1430e14348",
+      "repeat_gates": [
+        {
+          "minimum_successes_per_variant": 103,
+          "episodes_per_variant": 128,
+          "per_variant_successes": {
+            "xm": 0,
+            "xp": 17,
+            "ym": 0,
+            "yp": 4
+          },
+          "zero_physical_violations": true,
+          "physical_violation_counts": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          },
+          "passed": false
+        },
+        {
+          "minimum_successes_per_variant": 103,
+          "episodes_per_variant": 128,
+          "per_variant_successes": {
+            "xm": 0,
+            "xp": 16,
+            "ym": 0,
+            "yp": 2
+          },
+          "zero_physical_violations": true,
+          "physical_violation_counts": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          },
+          "passed": false
+        }
+      ],
+      "competent_each_repeat": false
+    },
+    "legacy_log_hold": {
+      "manifest": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/run_manifest.json",
+      "manifest_sha256": "9abf5a72317326b234a9b441589348757974d515df7a16ba58aec2ccf619674d",
+      "repeat_gates": [
+        {
+          "minimum_successes_per_variant": 103,
+          "episodes_per_variant": 128,
+          "per_variant_successes": {
+            "xm": 0,
+            "xp": 11,
+            "ym": 0,
+            "yp": 0
+          },
+          "zero_physical_violations": true,
+          "physical_violation_counts": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          },
+          "passed": false
+        },
+        {
+          "minimum_successes_per_variant": 103,
+          "episodes_per_variant": 128,
+          "per_variant_successes": {
+            "xm": 0,
+            "xp": 18,
+            "ym": 0,
+            "yp": 0
+          },
+          "zero_physical_violations": true,
+          "physical_violation_counts": {
+            "success_hold_violations": 0,
+            "success_distance_violations": 0,
+            "success_three_sample_violations": 0,
+            "success_qpos_above_distance_threshold": 0
+          },
+          "passed": false
+        }
+      ],
+      "competent_each_repeat": false
+    }
+  },
+  "status": "submitted",
+  "reserved_at": "2026-10-09T06:55:25.212044+00:00",
+  "stdout": "51531364",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51531364",
+  "evaluation_job_id": "51531365"
+}

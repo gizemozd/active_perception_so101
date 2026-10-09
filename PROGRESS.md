@@ -1185,3 +1185,54 @@ handoff instruction alone.
   This single-seed gate is not paper-level replication. If this bounded fresh
   repair fails, investigate learnability/control/representation rather than
   automatically extending budgets or opening another optimization grid.
+
+### Completed corrected continuations and one fresh exploration repair
+
+- Both 751-update corrected continuations and paired physical evaluations completed
+  0:0. Each has 9,228,288 cumulative transitions; the continuation adds 7,999,488
+  transitions to its immutable 100-update screen. Progress successes are 21/512
+  and 18/512 (xm 0/0, xp 17/16, ym 0/0, yp 4/2); log-distance successes are 11/512
+  and 18/512 (only xp 11/18). All physical audit violations are zero. Outcome flips
+  are 27/15 despite equal initial physics/images. These repeats measure numerical
+  variation, not independent trained-policy replicates.
+- Progress reward rises and meets the descriptive tail-300 plateau heuristic;
+  log-distance still rises and does not meet it. Reward convergence has not yielded
+  insertion competence. Neither passes the all-variant physical gate.
+- Submitted exactly one fresh progress exploration repair: training `51531364`,
+  dependent validation `51531365`, W&B `4d4de324264d`. Initial std 1 and entropy .01
+  change together, adaptive LR .0003, N512/seed0/GRU/fixed7/current-qpos/clean, capped
+  at 751 updates / 9,228,288 new transitions. Frozen `11a591f` applies the critic fix
+  from the first update. No resume, midrun settings changes or automatic extension.
+  The choice retains the default objective; 39/1024 vs 29/1024 earlier successes
+  does not establish a statistically superior reward. Exact decision, source and
+  launcher hashes are in `exploration_repair/`.
+- Submitted a separate 10-minute, one-GPU privileged control feasibility audit,
+  `51531753`: N128 × four reset seeds = 512 balanced first episodes, normal Warp RGB,
+  actual Warp IK/physics and enabled physical terminations. Native proxies perform
+  only copied-state FK for the unchanged scripted controller. No native stepping,
+  learner or visual policy. Initial state/sensor hashes compare against the fixed-view
+  physical validation. Results are pending and cannot yet establish feasibility.
+- Transfer/push training remains conditional on at least 103/128 successes for
+  every variant in both physical repeats, with zero physical criterion violations.
+  If the bounded fresh repair fails, no further optimization grid is automatic.
+
+### Actual randomized Warp physical-feasibility result
+
+- GPU audit `51531753` completed 0:0 in 1m46s; 39 independent checks pass in
+  `randomized_feasibility_gpu_verified.json`. The unchanged privileged controller
+  succeeds in 503/512 first episodes (98.24%): xm 119/128, xp/ym/yp 128/128 each.
+  Every success is at 2.12 s; all current-qpos three-sample holds are valid, all
+  qpos remain finite, and no normalized controller action clips.
+- All 512 initial combined/physics/wrist/external hashes exactly match the corrected
+  fixed-view policy validation. Native FK proxies never step physics; actual Warp
+  IK/physics and normal RGB/terminations execute. This establishes sampled control
+  feasibility, including most xm worlds, not learned visual competence or universal
+  solvability. All nine failures are xm stage-0 approaches at high goal-x, with
+  roughly 63 mm body error and 53–55 mm derived TCP tracking error. The cause is
+  not identified; derived TCP can lag one physics substep.
+- Both corrected continuation W&B runs independently report `finished` via API;
+  model/history/source/budget/media checks are in `continuation/completion_verified.json`.
+- Fresh exploration read-only update-100 diagnostics show finite metrics and std
+  [0.739, 0.536, 0.799], with 4/13,824 completed training episodes successful.
+  Settings are unchanged and the full capped run continues; no early competence
+  claim or checkpoint selection is made.

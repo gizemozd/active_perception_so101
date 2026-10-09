@@ -1,0 +1,96 @@
+{
+  "decided_at": "2026-10-09T06:55:24.536746+00:00",
+  "selected_profile": "progress",
+  "status": "APPROVED_SCOPE_READY_FOR_SUBMISSION",
+  "evidence": {
+    "progress": {
+      "repeats": [
+        {
+          "successes": 21,
+          "episodes": 512,
+          "per_variant": {
+            "xm": 0,
+            "xp": 17,
+            "ym": 0,
+            "yp": 4
+          },
+          "report_sha256": "198058bc573ef48d7a7811ea296dff8e420b96b8a49533e58baab06af9658be0"
+        },
+        {
+          "successes": 18,
+          "episodes": 512,
+          "per_variant": {
+            "xm": 0,
+            "xp": 16,
+            "ym": 0,
+            "yp": 2
+          },
+          "report_sha256": "4abc904e4b0e097985f3b6bcfd92992e262b3af1cb52d4b37c86ef732ae8dd0a"
+        }
+      ],
+      "checkpoint_sha256": "47a8bee38bafdd5f986a9d8aa6de50f7127533f362059782a8ac6430a295cfd9",
+      "source_history": [
+        {
+          "revision": "434c37af8a3e1fc82611d6bb13d3fb55f28a2987",
+          "updates": 100,
+          "transitions": 1228800
+        },
+        {
+          "revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+          "updates": 651,
+          "transitions": 7999488
+        }
+      ]
+    },
+    "legacy_log_hold": {
+      "repeats": [
+        {
+          "successes": 11,
+          "episodes": 512,
+          "per_variant": {
+            "xm": 0,
+            "xp": 11,
+            "ym": 0,
+            "yp": 0
+          },
+          "report_sha256": "92637e0d0b7a58e7675638165fbd48e59022d4f50f6ea2ba70cf4ebd5604e2f4"
+        },
+        {
+          "successes": 18,
+          "episodes": 512,
+          "per_variant": {
+            "xm": 0,
+            "xp": 18,
+            "ym": 0,
+            "yp": 0
+          },
+          "report_sha256": "7078e45f325e20b96985bbd270d95713d7b19fc938c91df9a229aaa98d7b5c48"
+        }
+      ],
+      "checkpoint_sha256": "20e5859d30ac4de1ebdef3da5333967c984582ff750d871dbbf5f062ff23aa99",
+      "source_history": [
+        {
+          "revision": "434c37af8a3e1fc82611d6bb13d3fb55f28a2987",
+          "updates": 100,
+          "transitions": 1228800
+        },
+        {
+          "revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+          "updates": 651,
+          "transitions": 7999488
+        }
+      ]
+    }
+  },
+  "rationale": "Neither completed corrected profile supports reliable insertion. Retain the default progress objective, avoiding another objective change. Progress has39/1024 successes versus29/1024 forlog-distance over the two repeats, but these small overlapping scores do not establish a statistically superior objective. Jointly raise initial action std0.4\u21921.0 and entropy0.003\u21920.01 in one fresh run with critic-bootstrap correction present from its first update.",
+  "training_seed": 0,
+  "updates": 751,
+  "new_transitions": 9228288,
+  "num_envs": 512,
+  "rollout_steps": 24,
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "fresh": true,
+  "no_auto_extensions": true,
+  "interpretation": "One bounded joint exploration repair, not an isolated ablation, reproduction of historical runs, or additional statistical replication.",
+  "gate": "At least103/128 successes for each of4 variants ineach of2physical repeats, withzero physicalcriterion violations; only then launch follow-on learning."
+}

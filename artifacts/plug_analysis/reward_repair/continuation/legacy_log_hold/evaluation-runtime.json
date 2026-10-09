@@ -1,0 +1,92 @@
+{
+  "status": "complete",
+  "slurm_job_id": "51515060",
+  "started_at": "2026-10-09T06:45:58.354297+00:00",
+  "training_job_id": "51515059",
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "source_change": "critic_bootstrap_memory_restore_v1",
+  "hostname": "holygpu7c1713.rc.fas.harvard.edu",
+  "stages": [
+    {
+      "stage": "validation",
+      "repeat": 1,
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/.venv/bin/python",
+        "-m",
+        "active_perception_arms.evaluate",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_legacy_log_hold_qpos_20261009T052702Z/model_750.pt",
+        "--episodes",
+        "512",
+        "--num-envs",
+        "128",
+        "--seed",
+        "10000",
+        "--split",
+        "validation",
+        "--success-state-sample",
+        "current_qpos",
+        "--audit-termination",
+        "--output",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1.json",
+        "--wandb",
+        "--capture-representatives",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1-traces"
+      ],
+      "cwd": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+      "wandb_id": "e88e28c158b5",
+      "started_at": "2026-10-09T06:45:58.495267+00:00",
+      "returncode": 0,
+      "finished_at": "2026-10-09T06:47:17.225375+00:00"
+    },
+    {
+      "stage": "captured-videos",
+      "repeat": 1,
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/.venv/bin/python",
+        "-m",
+        "active_perception_arms.record_evaluation",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1.json",
+        "--output",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1-videos",
+        "--wandb"
+      ],
+      "cwd": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+      "wandb_id": "e88e28c158b5",
+      "started_at": "2026-10-09T06:47:17.919137+00:00",
+      "returncode": 0,
+      "finished_at": "2026-10-09T06:47:40.100244+00:00"
+    },
+    {
+      "stage": "validation",
+      "repeat": 2,
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009/.venv/bin/python",
+        "-m",
+        "active_perception_arms.evaluate",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_legacy_log_hold_qpos_20261009T052702Z/model_750.pt",
+        "--episodes",
+        "512",
+        "--num-envs",
+        "128",
+        "--seed",
+        "10000",
+        "--split",
+        "validation",
+        "--success-state-sample",
+        "current_qpos",
+        "--audit-termination",
+        "--output",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat2.json",
+        "--wandb",
+        "--reference-report",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1.json"
+      ],
+      "cwd": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+      "wandb_id": "29998c2f5323",
+      "started_at": "2026-10-09T06:47:40.399657+00:00",
+      "returncode": 0,
+      "finished_at": "2026-10-09T06:48:31.470253+00:00"
+    }
+  ],
+  "finished_at": "2026-10-09T06:48:31.793708+00:00"
+}

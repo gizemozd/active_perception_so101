@@ -1,0 +1,36 @@
+{
+  "source_revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+  "prepared_at": "2026-10-09T06:56:42.017385+00:00",
+  "script_sha256": "f4b90d917027a0bab8f2a46ae8cc36f4d9aa80e797ec0e4c3157ff3f5bff328e",
+  "launcher_sha256": "00248f3649490ef5228494fcbc5701db3a675a72155152f49bfba3df9559e77f",
+  "episodes": 512,
+  "device": "cuda:0",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.err",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/audit_plug_feasibility.sbatch"
+  ],
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-bootstrap-20261009",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "AUDIT_SCRIPT_SHA256": "f4b90d917027a0bab8f2a46ae8cc36f4d9aa80e797ec0e4c3157ff3f5bff328e"
+  },
+  "output": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/randomized_feasibility_gpu.json",
+  "max_gpu": 1,
+  "timeout_minutes": 10,
+  "native_physics_steps": 0,
+  "learner_updates": 0,
+  "status": "submitted",
+  "reserved_at": "2026-10-09T06:56:42.018182+00:00",
+  "stdout": "51531753",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51531753"
+}

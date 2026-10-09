@@ -6,6 +6,7 @@ No training, evaluation, network access, or physics rollout is performed here.
 
 import argparse
 import csv
+import hashlib
 import html
 import json
 import math
@@ -793,9 +794,13 @@ def collect_repair_learning(root, output, family="reward_repair", fresh=False):
                 }
             )
         rewards = [r for r in history if METRICS["reward"] in r]
-        comparison_window = min(100, len(rewards) // 2)
-        first = np.array([r[METRICS["reward"]] for r in rewards[:comparison_window]])
-        last = np.array([r[METRICS["reward"]] for r in rewards[-comparison_window:]])
+        comparison_window = min(100, len(history) // 2)
+        first = np.array(
+            [r[METRICS["reward"]] for r in history[:comparison_window] if METRICS["reward"] in r]
+        )
+        last = np.array(
+            [r[METRICS["reward"]] for r in history[-comparison_window:] if METRICS["reward"] in r]
+        )
         summary = {
             "profile": case,
             "plotted_stage": stage,
@@ -808,6 +813,8 @@ def collect_repair_learning(root, output, family="reward_repair", fresh=False):
             "continuation_training_complete": completed,
             "training_complete": completed,
             "reward_comparison_window_updates": comparison_window,
+            "first_window_reward_samples": len(first),
+            "last_window_reward_samples": len(last),
             "first_window_reward_mean": float(first.mean()) if first.size else None,
             "last_window_reward_mean": float(last.mean()) if last.size else None,
             "reward_gain": float(last.mean() - first.mean()) if first.size and last.size else None,
@@ -961,6 +968,35 @@ def reward_video_cards(root, output, directory, case, stage_label):
             '</div><button type="button" onclick="playPair(this)">Play pair</button></article>'
         )
     return cards
+
+
+def collect_exploration_status(root, output):
+    """Report recorded reservations/runtime without inferring live Slurm state or results."""
+    rows = []
+    for case in ("progress", "legacy_log_hold"):
+        directory = output / "exploration_repair" / case
+        path = directory / "run_manifest.json"
+        if not path.exists():
+            continue
+        manifest = read(path)
+        runtime_path = directory / "training-runtime.json"
+        runtime = read(runtime_path) if runtime_path.exists() else {}
+        evaluation_path = directory / "evaluation-submission.json"
+        evaluation = read(evaluation_path) if evaluation_path.exists() else {}
+        rows.append(
+            {
+                "profile": case,
+                "recorded_manifest_status": manifest.get("status"),
+                "recorded_training_runtime_status": runtime.get("status"),
+                "training_job_id": manifest.get("training_job_id", manifest.get("job_id")),
+                "evaluation_job_id": manifest.get("evaluation_job_id", evaluation.get("job_id")),
+                "target_updates": manifest.get("training_updates"),
+                "target_transitions": manifest.get("training_transitions"),
+                "source_revision": manifest.get("source_revision"),
+                "manifest": str(path.relative_to(root)),
+            }
+        )
+    return rows
 
 
 def main():
@@ -1149,6 +1185,7 @@ def main():
     reward_repair = [row for row in repair_rows if row["stage"] == "screen"]
     reward_continuation = [row for row in repair_rows if row["stage"] == "continuation"]
     exploration_repair = [row for row in repair_rows if row["stage"] == "exploration"]
+    exploration_status = collect_exploration_status(root, output)
     write_csv(output / "reward_repair_metrics.csv", reward_repair)
     write_csv(output / "reward_repair_continuation_metrics.csv", reward_continuation)
     write_corrected_hparam_tables(
@@ -1289,6 +1326,7 @@ def main():
         "reward_repair_continuation_results": reward_continuation,
         "exploration_repair_results": exploration_repair,
         "exploration_repair_learning": exploration_learning,
+        "exploration_repair_status": exploration_status,
         "headline_success_state_sample": "current_qpos"
         if len(corrected_metrics) == 4
         else "derived_substep",
@@ -1672,7 +1710,7 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
             "checkpoint_success",
             "Available early/intermediate/final validation scores; missing intermediate initial/active evaluations are not interpolated measurements.",
         ),
-        "<p>The initial-only policy exceeds active by 8.59 percentage points while using about 4.06× less "
+        "<p>In the historical derived-state results, initial-only exceeds active by 8.59 percentage points while using about 4.06× less "
         "camera joint travel. Additional camera access is promising relative to these baselines, but view 7 "
         "has not completed a validation-success-based fixed-view search. Independently trained policies "
         "also differ in optimization outcomes, so these numbers are not a causal test of camera movement.</p>",
@@ -1771,6 +1809,54 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
                 "All action components stayed within bounds. This sampled failure prevents treating "
                 "scripted native success as universal feasibility.</p>"
             )
+    gpu_path = output / "randomized_feasibility_gpu.json"
+    gpu_verified_path = output / "randomized_feasibility_gpu_verified.json"
+    if gpu_path.exists() and gpu_verified_path.exists():
+        gpu_verified = read(gpu_verified_path)
+        if gpu_verified["status"] == "VERIFIED":
+            with gpu_path.open("rb") as source_file:
+                assert (
+                    hashlib.file_digest(source_file, "sha256").hexdigest()
+                    == gpu_verified["artifact_sha256"]
+                )
+            pairing = gpu_verified["initial_pairing"]
+            sections += [
+                "<h3>GPU control feasibility · privileged controller, paired initial worlds</h3>",
+                f"<p>The unchanged privileged controller achieves {gpu_verified['successes']}/{gpu_verified['episodes']} "
+                f"physical held-three successes ({100 * gpu_verified['success_rate']:.2f}%) with actual "
+                "Warp control IK and physics. All successes occur at 2.12 s, before the nominal 3.5 s "
+                "horizon; nine XM worlds time out at the quantized 3.52 s limit. Current-qpos "
+                f"hold violations are {gpu_verified['physical_hold_violations']}; "
+                f"{gpu_verified['passed_checks']}/{gpu_verified['total_checks']} independent provenance, "
+                "state and scoring checks passed.</p>",
+                table(
+                    ["Variant", "Privileged GPU success / N", "Success %"],
+                    [
+                        [
+                            esc(v),
+                            f"{r['successes']}/{r['episodes']}",
+                            f"{100 * r['success_rate']:.2f}",
+                        ]
+                        for v, r in gpu_verified["per_variant"].items()
+                    ],
+                ),
+                f'<p class="small">The initial conditions match the corrected fixed-view evaluation: '
+                f"{pairing['combined_mismatches']} combined-state/image hash mismatches and "
+                f"{pairing['physics_mismatches']} physics mismatches, with both sensor streams matched. "
+                "This establishes initial pairing, not identical trajectories. Native proxies "
+                "forward copied Warp states for privileged float64 FK; they do not step native "
+                "physics. Object, goal and variant access are unavailable to the visual actor, so "
+                "this is sampled control-feasibility evidence rather than a learned visual baseline, "
+                "all-world solvability proof or active-perception benefit. The nine approach-stage "
+                "timeouts remain unresolved; controller failure does not prove physical impossibility.</p>",
+                "<p>"
+                + link(gpu_path, "GPU initial states and terminal physical records")
+                + " · "
+                + link(gpu_verified_path, "Independent GPU feasibility verification")
+                + " · "
+                + link(pairing["reference_report"], "Paired fixed-view evaluation")
+                + "</p>",
+            ]
     sections += [
         '<h2 id="camera">What did the camera do?</h2>',
         "<p>The plots below use the first observed success and first observed failure for each variant where "
@@ -2173,6 +2259,13 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
             '<p class="small">No completed continuation evaluation was found at report generation. '
             "A prepared plan does not establish submission, completion or improvement.</p>"
         )
+    completion_path = output / "reward_repair/continuation/completion_verified.json"
+    if completion_path.exists():
+        sections.append(
+            "<p>"
+            + link(completion_path, "Independent completion, physical-score and optimization audit")
+            + "</p>"
+        )
     repair_learning = analysis["reward_repair_learning"]
     if repair_learning:
 
@@ -2255,6 +2348,40 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
     ]
     exploration = analysis["exploration_repair_results"]
     exploration_learning = analysis["exploration_repair_learning"]
+    exploration_status = analysis["exploration_repair_status"]
+    if exploration_status:
+        sections += [
+            table(
+                [
+                    "Selected fresh profile",
+                    "Recorded manifest",
+                    "Training runtime",
+                    "Training job",
+                    "Evaluation job",
+                    "Target updates",
+                    "Target transitions",
+                    "Source",
+                ],
+                [
+                    [
+                        link(r["manifest"], r["profile"]),
+                        esc(r["recorded_manifest_status"] or "Unknown"),
+                        esc(r["recorded_training_runtime_status"] or "Not recorded"),
+                        esc(str(r["training_job_id"] or "Not recorded")),
+                        esc(str(r["evaluation_job_id"] or "Not recorded")),
+                        str(r["target_updates"]),
+                        f"{r['target_transitions']:,}"
+                        if r["target_transitions"] is not None
+                        else "Unverified",
+                        esc((r["source_revision"] or "Unverified")[:12]),
+                    ]
+                    for r in exploration_status
+                ],
+            ),
+            '<p class="small">This is the recorded reservation/runtime status at report generation, '
+            "not a new live cluster query. Completed training curves and heldout scores appear only "
+            "when their actual output artifacts are available.</p>",
+        ]
     if exploration:
         sections.append(
             table(
@@ -2325,7 +2452,9 @@ pre { white-space:pre-wrap; font-size:.85rem; padding:18px; background:#e9edf2; 
             )
     else:
         sections.append(
-            '<p class="small">Conditional preparation: no completed exploration-repair validation was found at report generation. No submission or performance result is inferred from the plan.</p>'
+            '<p class="small">Completed exploration-repair validation is pending; no performance result is inferred from the recorded reservation.</p>'
+            if exploration_status
+            else '<p class="small">Conditional preparation: no completed exploration-repair validation was found at report generation. No submission or performance result is inferred from the plan.</p>'
         )
     if exploration_learning:
         sections += [

@@ -1,0 +1,431 @@
+{
+  "status": "COMPLETION_INTEGRITY_PASS_BOTH_ALL_VARIANT_COMPETENCE_GATES_FAIL",
+  "audited_at": "2026-10-09T06:58:48.510393+00:00",
+  "scope": "Independent read-only local checkpoint, archived screen bytes, frozen source, Slurm, optimizer/experiment identity and repeated physical-state outcome audit. No evaluations or optimizer updates run. Final W&B API not queried in this audit.",
+  "profiles": {
+    "progress": {
+      "status": "INTEGRITY_PASS_COMPETENCE_FAIL",
+      "checks": {
+        "slurm_training_completed_zero": true,
+        "slurm_evaluation_completed_zero": true,
+        "manifest_complete": true,
+        "full_history_751_contiguous": true,
+        "full_transition_accounting": true,
+        "continuation_job_identity": true,
+        "cumulative_added_budget": true,
+        "frozen_source_identity": true,
+        "frozen_source_hashes": true,
+        "checkpoint_750_identity": true,
+        "resume_checkpoint_preserved": true,
+        "original_screen_manifest_preserved": true,
+        "original_100_history_bytes_preserved": true,
+        "archived_resume_metadata_hashes": true,
+        "optimizer_lr_restored": true,
+        "inherited_configuration": true,
+        "saved_experiment_matches_manifest": true,
+        "local_wandb_id_preserved": true,
+        "finite_history_metrics": true,
+        "finite_actor_critic_optimizer": true,
+        "std_checkpoint_matches_final_telemetry": true,
+        "evaluation_repeat1_identity_balance_current_physical_hold": true,
+        "evaluation_repeat1_media_manifest_hash": true,
+        "evaluation_repeat2_identity_balance_current_physical_hold": true,
+        "evaluation_repeat2_media_manifest_hash": true,
+        "repeat_outcome_and_hash_counts_verified": true
+      },
+      "manifest": "artifacts/plug_analysis/reward_repair/continuation/progress/run_manifest.json",
+      "manifest_sha256": "1adff5dc9f2a930a07e3ea590163b3e3385f263c9950406f6b253c1430e14348",
+      "history_sha256": "b6e12f9e38d65d7f25bb4fc02488939cbd1f2e26e8999bc5718e9d6dbc49abb4",
+      "checkpoint_sha256": "47a8bee38bafdd5f986a9d8aa6de50f7127533f362059782a8ac6430a295cfd9",
+      "source_history": [
+        {
+          "revision": "434c37af8a3e1fc82611d6bb13d3fb55f28a2987",
+          "updates": 100,
+          "transitions": 1228800
+        },
+        {
+          "revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+          "updates": 651,
+          "transitions": 7999488
+        }
+      ],
+      "jobs": {
+        "51514952": {
+          "state": "COMPLETED",
+          "exit_code": "0:0"
+        },
+        "51514953": {
+          "state": "COMPLETED",
+          "exit_code": "0:0"
+        }
+      },
+      "learning": {
+        "profile": "progress",
+        "plotted_stage": "continuation",
+        "screen_updates": 100,
+        "plotted_updates": 751,
+        "available_history_lines": 751,
+        "expected_total_updates": 751,
+        "plotted_transitions": 9228288,
+        "expected_total_transitions": 9228288,
+        "continuation_training_complete": true,
+        "training_complete": true,
+        "reward_comparison_window_updates": 100,
+        "first_window_reward_samples": 97,
+        "last_window_reward_samples": 100,
+        "first_window_reward_mean": 0.2715622190061534,
+        "last_window_reward_mean": 2.483196489440883,
+        "reward_gain": 2.2116342704347294,
+        "tail_300_available": true,
+        "last_300_reward_slope_per_million_transitions": -0.028791251230616353,
+        "last_300_reward_fitted_change": -0.10578228164142228,
+        "final_150_vs_previous_150_reward_change": -0.027746211573233648,
+        "descriptive_plateau_tolerance": 0.24868119621135915,
+        "descriptive_reward_plateau": true,
+        "manifest": "artifacts/plug_analysis/reward_repair/continuation/progress/run_manifest.json",
+        "history": "logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_progress_qpos_20261009T051733Z/iterations.jsonl",
+        "tail_completed_episodes": 42290.0,
+        "tail_episode_weighted_training_success": 0.040576968550484746,
+        "tail_mean_diagnostic_kl": 0.038454351195444665,
+        "last_mean_action_std": 0.04204776510596275
+      },
+      "per_action_std": {
+        "0": {
+          "first_update_std": 0.39541003108024597,
+          "update100_std": 0.16012300550937653,
+          "final_std": 0.03139161691069603,
+          "minimum_all_updates_std": 0.02670334465801716,
+          "final_to_update100_ratio": 0.19604688789617924
+        },
+        "1": {
+          "first_update_std": 0.40295326709747314,
+          "update100_std": 0.1567506045103073,
+          "final_std": 0.001065882621333003,
+          "minimum_all_updates_std": 0.0009457822307012975,
+          "final_to_update100_ratio": 0.0067998629074691366
+        },
+        "2": {
+          "first_update_std": 0.40522199869155884,
+          "update100_std": 0.2323513925075531,
+          "final_std": 0.09367862343788147,
+          "minimum_all_updates_std": 0.08816981315612793,
+          "final_to_update100_ratio": 0.40317650962576534
+        }
+      },
+      "last100_lr_floor_fraction": 1.0,
+      "evaluation_repeats": [
+        {
+          "repeat": 1,
+          "report": "artifacts/plug_analysis/reward_repair/continuation/progress/evaluation-repeat1.json",
+          "sha256": "198058bc573ef48d7a7811ea296dff8e420b96b8a49533e58baab06af9658be0",
+          "episodes": 512,
+          "successes": 21,
+          "success_rate": 0.041015625,
+          "wilson95": [
+            0.02698094895608158,
+            0.061886392039533444
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 17,
+              "success_rate": 0.1328125
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 4,
+              "success_rate": 0.03125
+            }
+          },
+          "physical_audit_all_zero": true,
+          "competence_gate_passed": false,
+          "wandb_id": "761c7932b164",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/761c7932b164"
+        },
+        {
+          "repeat": 2,
+          "report": "artifacts/plug_analysis/reward_repair/continuation/progress/evaluation-repeat2.json",
+          "sha256": "4abc904e4b0e097985f3b6bcfd92992e262b3af1cb52d4b37c86ef732ae8dd0a",
+          "episodes": 512,
+          "successes": 18,
+          "success_rate": 0.03515625,
+          "wilson95": [
+            0.022351806085305896,
+            0.05488405415706165
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 16,
+              "success_rate": 0.125
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 2,
+              "success_rate": 0.015625
+            }
+          },
+          "physical_audit_all_zero": true,
+          "competence_gate_passed": false,
+          "wandb_id": "ad24e9634ecf",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/ad24e9634ecf"
+        }
+      ],
+      "repeat_outcome_changes": 27,
+      "repeat_outcome_change_fraction": 0.052734375,
+      "initial_combined_hash_mismatches": 0,
+      "initial_physics_hash_mismatches": 0,
+      "initial_sensor_hash_mismatches": {
+        "wrist": 0,
+        "external": 0
+      },
+      "wandb_local_id": "df07b9a84879",
+      "wandb_api_final_queried": true,
+      "wandb_api_final": {
+        "id": "df07b9a84879",
+        "state": "finished",
+        "queried_at": "2026-10-09T07:00:43.043721+00:00",
+        "summary_runtime_seconds": -2917389882.620765
+      }
+    },
+    "legacy_log_hold": {
+      "status": "INTEGRITY_PASS_COMPETENCE_FAIL",
+      "checks": {
+        "slurm_training_completed_zero": true,
+        "slurm_evaluation_completed_zero": true,
+        "manifest_complete": true,
+        "full_history_751_contiguous": true,
+        "full_transition_accounting": true,
+        "continuation_job_identity": true,
+        "cumulative_added_budget": true,
+        "frozen_source_identity": true,
+        "frozen_source_hashes": true,
+        "checkpoint_750_identity": true,
+        "resume_checkpoint_preserved": true,
+        "original_screen_manifest_preserved": true,
+        "original_100_history_bytes_preserved": true,
+        "archived_resume_metadata_hashes": true,
+        "optimizer_lr_restored": true,
+        "inherited_configuration": true,
+        "saved_experiment_matches_manifest": true,
+        "local_wandb_id_preserved": true,
+        "finite_history_metrics": true,
+        "finite_actor_critic_optimizer": true,
+        "std_checkpoint_matches_final_telemetry": true,
+        "evaluation_repeat1_identity_balance_current_physical_hold": true,
+        "evaluation_repeat1_media_manifest_hash": true,
+        "evaluation_repeat2_identity_balance_current_physical_hold": true,
+        "evaluation_repeat2_media_manifest_hash": true,
+        "repeat_outcome_and_hash_counts_verified": true
+      },
+      "manifest": "artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/run_manifest.json",
+      "manifest_sha256": "9abf5a72317326b234a9b441589348757974d515df7a16ba58aec2ccf619674d",
+      "history_sha256": "98e55b3f4066cc2fa249b91d254f9ac7db9842e061b730f3e559d51721763939",
+      "checkpoint_sha256": "20e5859d30ac4de1ebdef3da5333967c984582ff750d871dbbf5f062ff23aa99",
+      "source_history": [
+        {
+          "revision": "434c37af8a3e1fc82611d6bb13d3fb55f28a2987",
+          "updates": 100,
+          "transitions": 1228800
+        },
+        {
+          "revision": "11a591f7a2129484d555caf115fcdbf1a709a0c9",
+          "updates": 651,
+          "transitions": 7999488
+        }
+      ],
+      "jobs": {
+        "51515059": {
+          "state": "COMPLETED",
+          "exit_code": "0:0"
+        },
+        "51515060": {
+          "state": "COMPLETED",
+          "exit_code": "0:0"
+        }
+      },
+      "learning": {
+        "profile": "legacy_log_hold",
+        "plotted_stage": "continuation",
+        "screen_updates": 100,
+        "plotted_updates": 751,
+        "available_history_lines": 751,
+        "expected_total_updates": 751,
+        "plotted_transitions": 9228288,
+        "expected_total_transitions": 9228288,
+        "continuation_training_complete": true,
+        "training_complete": true,
+        "reward_comparison_window_updates": 100,
+        "first_window_reward_samples": 97,
+        "last_window_reward_samples": 100,
+        "first_window_reward_mean": -131.14066390833904,
+        "last_window_reward_mean": -63.393926972579955,
+        "reward_gain": 67.74673693575909,
+        "tail_300_available": true,
+        "last_300_reward_slope_per_million_transitions": 8.727970979522219,
+        "last_300_reward_fitted_change": 32.06754291151433,
+        "final_150_vs_previous_150_reward_change": 13.969009133656812,
+        "descriptive_plateau_tolerance": 7.57881785071055,
+        "descriptive_reward_plateau": false,
+        "manifest": "artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/run_manifest.json",
+        "history": "logs/reward_repair/plug_wrist_static_clean_gru_v7_s0_n512_legacy_log_hold_qpos_20261009T052702Z/iterations.jsonl",
+        "tail_completed_episodes": 42089.0,
+        "tail_episode_weighted_training_success": 0.014588134667015135,
+        "tail_mean_diagnostic_kl": 0.013124814266338944,
+        "last_mean_action_std": 0.10763157904148102
+      },
+      "per_action_std": {
+        "0": {
+          "first_update_std": 0.39562171697616577,
+          "update100_std": 0.12043418735265732,
+          "final_std": 0.08164399117231369,
+          "minimum_all_updates_std": 0.04973967373371124,
+          "final_to_update100_ratio": 0.6779137466444013
+        },
+        "1": {
+          "first_update_std": 0.39938753843307495,
+          "update100_std": 0.13408052921295166,
+          "final_std": 0.13358648121356964,
+          "minimum_all_updates_std": 0.0770263597369194,
+          "final_to_update100_ratio": 0.9963152890111483
+        },
+        "2": {
+          "first_update_std": 0.4008789360523224,
+          "update100_std": 0.14932367205619812,
+          "final_std": 0.10759501904249191,
+          "minimum_all_updates_std": 0.06266359984874725,
+          "final_to_update100_ratio": 0.7205489763337618
+        }
+      },
+      "last100_lr_floor_fraction": 0.2,
+      "evaluation_repeats": [
+        {
+          "repeat": 1,
+          "report": "artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat1.json",
+          "sha256": "92637e0d0b7a58e7675638165fbd48e59022d4f50f6ea2ba70cf4ebd5604e2f4",
+          "episodes": 512,
+          "successes": 11,
+          "success_rate": 0.021484375,
+          "wilson95": [
+            0.012038074956831065,
+            0.03805766352795906
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 11,
+              "success_rate": 0.0859375
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "physical_audit_all_zero": true,
+          "competence_gate_passed": false,
+          "wandb_id": "e88e28c158b5",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/e88e28c158b5"
+        },
+        {
+          "repeat": 2,
+          "report": "artifacts/plug_analysis/reward_repair/continuation/legacy_log_hold/evaluation-repeat2.json",
+          "sha256": "7078e45f325e20b96985bbd270d95713d7b19fc938c91df9a229aaa98d7b5c48",
+          "episodes": 512,
+          "successes": 18,
+          "success_rate": 0.03515625,
+          "wilson95": [
+            0.022351806085305896,
+            0.05488405415706165
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 18,
+              "success_rate": 0.140625
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "physical_audit_all_zero": true,
+          "competence_gate_passed": false,
+          "wandb_id": "29998c2f5323",
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/29998c2f5323"
+        }
+      ],
+      "repeat_outcome_changes": 15,
+      "repeat_outcome_change_fraction": 0.029296875,
+      "initial_combined_hash_mismatches": 0,
+      "initial_physics_hash_mismatches": 0,
+      "initial_sensor_hash_mismatches": {
+        "wrist": 0,
+        "external": 0
+      },
+      "wandb_local_id": "9f54fbad6d30",
+      "wandb_api_final_queried": true,
+      "wandb_api_final": {
+        "id": "9f54fbad6d30",
+        "state": "finished",
+        "queried_at": "2026-10-09T07:00:43.138122+00:00",
+        "summary_runtime_seconds": 287353812.33767605
+      }
+    }
+  },
+  "original_screen_json_artifacts_preserved": true,
+  "original_screen_json_artifacts_checked": 12,
+  "bounded_next_objective_recommendation": {
+    "profile": "progress",
+    "reason": "Retain the existing default dense objective while testing a fresh joint std/entropy configuration. Progress has small xp/yp success counts, versus xp only for log-hold, but repeat2 totals tie and intervals/numerical repeat variation prevent an established objective-winner claim. This is a pragmatic controlled choice, not statistical selection proof.",
+    "not_submitted_by_this_audit": true
+  },
+  "interpretation": [
+    "Both runs complete all 751 updates and physical audits pass; neither is reliable across all four variants.",
+    "Progress reward increases then meets the descriptive tail300 plateau heuristic; log-hold reward rises but fails that plateau heuristic. Reward scales are not comparable.",
+    "Finite optimization is not effective task exploration. Progress action1 std reaches0.00107; log-hold contracts early but partially recovers. These are descriptive observations, not established causal failure mechanisms.",
+    "The first100 updates at434c37a and later651 at11a591f are a mixed-source resumed experiment; reward improvement cannot be assigned to the critic fix alone.",
+    "Numerical repeats are not pooled as independent samples or training seeds. One fresh std1/entropy0.01 run changes those settings jointly and does not establish active-perception utility."
+  ]
+}
