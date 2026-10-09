@@ -31,8 +31,12 @@ they do not describe this restored task.
 | `transfer` | Grasp a cube in a shallow tray and place it inside an open cubby | Does useful viewing direction change between grasping, transport, and placement? |
 | `push` | Push a block with a rigid tip to a visible target and withdraw | Does fresh feedback help after occlusion or an optional object disturbance? |
 
-Success requires three consecutive control steps. Plug success uses the original
-2 mm body-position tolerance around the offset-corrected goal; transfer and
+Success requires three consecutive control samples. New plug runs check the
+current physical body position within 2 mm of the offset-corrected goal. Saved
+older runs retain their lagged derived-state criterion; the
+[analysis report](artifacts/plug_analysis/index.html) labels historical scores and
+[corrected physical-state scores](artifacts/plug_analysis/corrected_performance_metrics.csv)
+separately. Transfer and
 pushing require placement, low object speed, and hand withdrawal. Plug acquisition
 is excluded with a pregrasp weld; transfer uses contact grasping. No teleportation
 or attachment assists the transfer/push diagnostic controllers.

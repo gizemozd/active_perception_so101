@@ -1046,3 +1046,28 @@ handoff instruction alone.
   neither has been submitted. CLI reward/std choices inherit saved settings on
   resume and reject explicit changes. All 52 targeted reward/criterion/CLI checks
   pass; lint and formatting pass.
+
+- Corrected final validation is complete: wrist 8/512 (1.56%), fixed view 7
+  23/512 (4.49%), initial 147/512 (28.71%), active 102/512 (19.92%). Each has
+  xm 0/128; all current-qpos/three-sample/hold audits have zero violations.
+  These are separately labeled criterion interventions on the old-trained
+  checkpoints, not retraining results or exactly paired trajectories.
+- Live optimization trials have finite losses, healthy KL/exploration and rising
+  episode-weighted training success. They are not declared failed. Since they
+  retain historical training criteria, a fresh corrected-objective screen is
+  justified independently: revise the reward plan entry gate to run its two
+  100-update cases sequentially on the fourth GPU once corrected evaluation
+  finishes. Preserve all running trials, and review screen plus completed tuning
+  results before any larger extension. Stage-one cost is 2,457,600 transitions.
+- Fresh screen submitted as `51505177`, source frozen at `434c37a` in
+  `../plug-reward-20261009`. It runs both profiles sequentially on one GPU,
+  two corrected balanced validations each, plus actual first-repeat videos.
+  Submission/runtime/profile manifests record exclusive reservations, exact
+  source/script/checkpoint hashes, W&B identities and verified transition counts.
+  The existing tuning jobs continue independently; the total is four GPUs.
+- The completed corrected report has 100 evaluated-trajectory videos plus three
+  native occlusion diagnostic videos. All 290 local links and all evaluated
+  videos pass validation; the portable ZIP includes media and tables without
+  checkpoints or raw NPZ captures. Firefox renders the corrected headline and
+  confidence intervals correctly. Report source can ingest the fresh screen
+  and completed continuation results without replacing historical measurements.

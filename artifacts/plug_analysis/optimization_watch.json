@@ -1,0 +1,275 @@
+{
+  "checked_at": "2026-10-09T05:08:29.416922+00:00",
+  "queue": [
+    "51499506|plug-hp2-eval-both|PENDING|0:00|(Dependency)",
+    "51499498|plug-hp2-eval-entropy|PENDING|0:00|(Dependency)",
+    "51499310|plug-hp2-eval-fixed_lr|PENDING|0:00|(Dependency)",
+    "51499309_6|plug-hp2-fixed_lr|RUNNING|26:29|holygpu7c1716",
+    "51499505_6|plug-hp2-both|RUNNING|24:02|holygpu7c1716",
+    "51499497_6|plug-hp2-entropy|RUNNING|24:09|holygpu7c1716",
+    "51501382|plug-corrected-check|RUNNING|8:39|holygpu7c1713",
+    "51495529|interactive|RUNNING|43:00|holy8a24102"
+  ],
+  "runs": [
+    {
+      "case": "both",
+      "job_id": "51499505",
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/fda983c1",
+      "history_path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/both/plug_wrist_static_clean_gru_v7_s0_n512_both_20261007T211458Z/iterations.jsonl",
+      "latest_update": 347,
+      "latest_transitions": 4263936,
+      "total_target_updates": 751,
+      "source_revision": "25a005ea389edbff7b07b6a449ab6a41c5ccaa4b",
+      "windows": {
+        "early100": {
+          "first_update": 1,
+          "last_update": 100,
+          "diagnostic_successes": 105.0,
+          "diagnostic_completed_episodes": 13826.0,
+          "count_weighted_training_success": 0.007594387386084189,
+          "means": {
+            "train/Train/mean_reward": 0.7430875711952883,
+            "train/Train/mean_episode_length": 87.79484536082472,
+            "train/Loss/value": 0.28771227507101005,
+            "train/Loss/surrogate": -0.0023939521323598,
+            "train/Loss/diagnostic_kl": 0.003760426884982735,
+            "train/Loss/diagnostic_clip_fraction": 0.03814717756584287,
+            "train/Loss/diagnostic_action_saturation": 0.08101698628626763,
+            "train/Loss/learning_rate": 0.0001,
+            "train/Loss/diagnostic_action_std_0": 0.39398179441690445,
+            "train/Loss/diagnostic_action_std_1": 0.3806788894534111,
+            "train/Loss/diagnostic_action_std_2": 0.4054210424423218
+          },
+          "lr_floor_updates": 0
+        },
+        "previous100": {
+          "first_update": 148,
+          "last_update": 247,
+          "diagnostic_successes": 1688.0,
+          "diagnostic_completed_episodes": 14646.0,
+          "count_weighted_training_success": 0.11525331148436434,
+          "means": {
+            "train/Train/mean_reward": 3.233789123523771,
+            "train/Train/mean_episode_length": 83.6617,
+            "train/Loss/value": 1.0809876728081145,
+            "train/Loss/surrogate": -0.002541373216931788,
+            "train/Loss/diagnostic_kl": 0.004912892954889685,
+            "train/Loss/diagnostic_clip_fraction": 0.05650431578978896,
+            "train/Loss/diagnostic_action_saturation": 0.3250689232349396,
+            "train/Loss/learning_rate": 0.0001,
+            "train/Loss/diagnostic_action_std_0": 0.41787891745567324,
+            "train/Loss/diagnostic_action_std_1": 0.36683178931474686,
+            "train/Loss/diagnostic_action_std_2": 0.3945814624428749
+          },
+          "lr_floor_updates": 0
+        },
+        "latest100": {
+          "first_update": 248,
+          "last_update": 347,
+          "diagnostic_successes": 2214.0,
+          "diagnostic_completed_episodes": 14565.0,
+          "count_weighted_training_success": 0.15200823892893925,
+          "means": {
+            "train/Train/mean_reward": 3.86165950166944,
+            "train/Train/mean_episode_length": 82.19319999999999,
+            "train/Loss/value": 1.3500150938425213,
+            "train/Loss/surrogate": -0.0029078653218452643,
+            "train/Loss/diagnostic_kl": 0.005255624454002827,
+            "train/Loss/diagnostic_clip_fraction": 0.062143150307238104,
+            "train/Loss/diagnostic_action_saturation": 0.3781583857536316,
+            "train/Loss/learning_rate": 0.0001,
+            "train/Loss/diagnostic_action_std_0": 0.4160054874420166,
+            "train/Loss/diagnostic_action_std_1": 0.36140784204006193,
+            "train/Loss/diagnostic_action_std_2": 0.3949233588576317
+          },
+          "lr_floor_updates": 0
+        }
+      },
+      "nonfinite_train_values": 0,
+      "last_action_std": [
+        0.4140516221523285,
+        0.373927503824234,
+        0.39695021510124207
+      ],
+      "contiguous_updates_so_far": true
+    },
+    {
+      "case": "entropy",
+      "job_id": "51499497",
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/9d338c65",
+      "history_path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/entropy/plug_wrist_static_clean_gru_v7_s0_n512_entropy_20261007T211458Z/iterations.jsonl",
+      "latest_update": 373,
+      "latest_transitions": 4583424,
+      "total_target_updates": 751,
+      "source_revision": "25a005ea389edbff7b07b6a449ab6a41c5ccaa4b",
+      "windows": {
+        "early100": {
+          "first_update": 1,
+          "last_update": 100,
+          "diagnostic_successes": 4.0,
+          "diagnostic_completed_episodes": 13824.0,
+          "count_weighted_training_success": 0.00028935185185185184,
+          "means": {
+            "train/Train/mean_reward": 0.37266755226932313,
+            "train/Train/mean_episode_length": 87.99618556701031,
+            "train/Loss/value": 0.08274980122634588,
+            "train/Loss/surrogate": -0.014281484109411338,
+            "train/Loss/diagnostic_kl": 0.013371083661913872,
+            "train/Loss/diagnostic_clip_fraction": 0.1613826545327902,
+            "train/Loss/diagnostic_action_saturation": 0.027442764388397337,
+            "train/Loss/learning_rate": 0.000995282338420078,
+            "train/Loss/diagnostic_action_std_0": 0.31718111902475354,
+            "train/Loss/diagnostic_action_std_1": 0.31003347888588906,
+            "train/Loss/diagnostic_action_std_2": 0.3681058830022812
+          },
+          "lr_floor_updates": 5
+        },
+        "previous100": {
+          "first_update": 174,
+          "last_update": 273,
+          "diagnostic_successes": 1784.0,
+          "diagnostic_completed_episodes": 14703.0,
+          "count_weighted_training_success": 0.1213357818132354,
+          "means": {
+            "train/Train/mean_reward": 4.848389224418858,
+            "train/Train/mean_episode_length": 81.7261,
+            "train/Loss/value": 0.8363614612212404,
+            "train/Loss/surrogate": -0.011798690087304352,
+            "train/Loss/diagnostic_kl": 0.013621218502521515,
+            "train/Loss/diagnostic_clip_fraction": 0.15986247323453426,
+            "train/Loss/diagnostic_action_saturation": 0.0773011664673686,
+            "train/Loss/learning_rate": 0.00013764707031250006,
+            "train/Loss/diagnostic_action_std_0": 0.1995210687816143,
+            "train/Loss/diagnostic_action_std_1": 0.1724752502143383,
+            "train/Loss/diagnostic_action_std_2": 0.22676326021552085
+          },
+          "lr_floor_updates": 4
+        },
+        "latest100": {
+          "first_update": 274,
+          "last_update": 373,
+          "diagnostic_successes": 2346.0,
+          "diagnostic_completed_episodes": 14454.0,
+          "count_weighted_training_success": 0.16230801162308012,
+          "means": {
+            "train/Train/mean_reward": 5.302016395534947,
+            "train/Train/mean_episode_length": 81.13380000000001,
+            "train/Loss/value": 1.067627232852392,
+            "train/Loss/surrogate": -0.012789518104116127,
+            "train/Loss/diagnostic_kl": 0.013476439099758864,
+            "train/Loss/diagnostic_clip_fraction": 0.1564691215008497,
+            "train/Loss/diagnostic_action_saturation": 0.09354574173688888,
+            "train/Loss/learning_rate": 0.00010159804687500007,
+            "train/Loss/diagnostic_action_std_0": 0.15093931123614313,
+            "train/Loss/diagnostic_action_std_1": 0.14280826181173326,
+            "train/Loss/diagnostic_action_std_2": 0.19529393464326858
+          },
+          "lr_floor_updates": 3
+        }
+      },
+      "nonfinite_train_values": 0,
+      "last_action_std": [
+        0.13701823353767395,
+        0.13665571808815002,
+        0.17839325964450836
+      ],
+      "contiguous_updates_so_far": true
+    },
+    {
+      "case": "fixed_lr",
+      "job_id": "51499309",
+      "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/c59f06be",
+      "history_path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/fixed_lr/plug_wrist_static_clean_gru_v7_s0_n512_fixed_lr_20261007T211226Z/iterations.jsonl",
+      "latest_update": 371,
+      "latest_transitions": 4558848,
+      "total_target_updates": 751,
+      "source_revision": "25a005ea389edbff7b07b6a449ab6a41c5ccaa4b",
+      "windows": {
+        "early100": {
+          "first_update": 1,
+          "last_update": 100,
+          "diagnostic_successes": 28.0,
+          "diagnostic_completed_episodes": 13824.0,
+          "count_weighted_training_success": 0.002025462962962963,
+          "means": {
+            "train/Train/mean_reward": 0.6743081070139006,
+            "train/Train/mean_episode_length": 87.95907216494847,
+            "train/Loss/value": 0.23610031105493876,
+            "train/Loss/surrogate": -0.002378001259159248,
+            "train/Loss/diagnostic_kl": 0.003827231687027961,
+            "train/Loss/diagnostic_clip_fraction": 0.03877319499850273,
+            "train/Loss/diagnostic_action_saturation": 0.05852132627740502,
+            "train/Loss/learning_rate": 0.0001,
+            "train/Loss/diagnostic_action_std_0": 0.3600345632433891,
+            "train/Loss/diagnostic_action_std_1": 0.3480758649110794,
+            "train/Loss/diagnostic_action_std_2": 0.3892804881930351
+          },
+          "lr_floor_updates": 0
+        },
+        "previous100": {
+          "first_update": 172,
+          "last_update": 271,
+          "diagnostic_successes": 902.0,
+          "diagnostic_completed_episodes": 14125.0,
+          "count_weighted_training_success": 0.06385840707964602,
+          "means": {
+            "train/Train/mean_reward": 2.4099050557493236,
+            "train/Train/mean_episode_length": 85.7367,
+            "train/Loss/value": 0.6179396483639721,
+            "train/Loss/surrogate": -0.002439194937735465,
+            "train/Loss/diagnostic_kl": 0.005111759786959737,
+            "train/Loss/diagnostic_clip_fraction": 0.05918803162872791,
+            "train/Loss/diagnostic_action_saturation": 0.16255562096834184,
+            "train/Loss/learning_rate": 0.0001,
+            "train/Loss/diagnostic_action_std_0": 0.28270984053611753,
+            "train/Loss/diagnostic_action_std_1": 0.260721767693758,
+            "train/Loss/diagnostic_action_std_2": 0.3075018292665482
+          },
+          "lr_floor_updates": 0
+        },
+        "latest100": {
+          "first_update": 272,
+          "last_update": 371,
+          "diagnostic_successes": 1799.0,
+          "diagnostic_completed_episodes": 14375.0,
+          "count_weighted_training_success": 0.12514782608695652,
+          "means": {
+            "train/Train/mean_reward": 3.5690563551036645,
+            "train/Train/mean_episode_length": 83.55330000000002,
+            "train/Loss/value": 1.0847286706697197,
+            "train/Loss/surrogate": -0.0024687512020966553,
+            "train/Loss/diagnostic_kl": 0.005691945683211088,
+            "train/Loss/diagnostic_clip_fraction": 0.06887654908001423,
+            "train/Loss/diagnostic_action_saturation": 0.1763373599946499,
+            "train/Loss/learning_rate": 0.0001,
+            "train/Loss/diagnostic_action_std_0": 0.24775889843702317,
+            "train/Loss/diagnostic_action_std_1": 0.2039073786139488,
+            "train/Loss/diagnostic_action_std_2": 0.23848164290189744
+          },
+          "lr_floor_updates": 0
+        }
+      },
+      "nonfinite_train_values": 0,
+      "last_action_std": [
+        0.2305368185043335,
+        0.1809980571269989,
+        0.2071067839860916
+      ],
+      "contiguous_updates_so_far": true
+    }
+  ],
+  "optimization_assessment": "So far all candidates improve count-weighted completed-episode training success with finite losses, moderate KL/clip fractions, and action std well above collapse values. Continue the authorized matched budget; no evidence supports abandoning candidates at this stage. Higher both-condition action saturation needs monitoring; not proof of failure.",
+  "metric_limit": "Counts are stochastic training episodes under original derived-substep criterion; no per-variant training diagnostics are logged. Do not infer emerging all-variant competence or held-out success from aggregate training values, and do not average diagnostic_episode_weighted_success across zero-completion updates.",
+  "reward_pair_entry_gate": "Evaluate completed model_750 checkpoints on balanced validation, compare original criterion at matched9.228M baseline44/512, then obtain corrected current-qpos held-three evaluations and repeat controls. Trigger prepared progress/logpair only if corrected balanced insertion remains materially poor/variant-biased after controlled optimization, with optimization finite/stable.",
+  "reward_pair_defer_conditions": "Defer when corrected validation becomes reliable across all4variants or when candidates show strong continued improvement warranting a bounded matched extension/replication first. Training reward or aggregate success alone cannot rule out the pair.",
+  "reward_pair_other_failures": "If observation cues are absent for frequent poses, or qpos success measurement/IK/resets/recurrent updates are invalid, fix that mechanism first; stronger reward cannot supply missing visual information.",
+  "uncertainty": "Seed0 exploratory; validation tuning cannot establish active-perception utility. Episodes from identical starting state can diverge on GPU.",
+  "parallel_corrected_training_screen": {
+    "recommendation": "Justified as a separate question now, without declaring legacy HP failures: preserved HP runs optimize the old derived-substep criterion, whereas corrected final checkpoints remain poor (wrist8/512,fixed23/512,initial147/512 at this partial check).",
+    "schedule": "Two fresh100-update progress/logprofile cases sequentially on the fourth GPU while three existing HP runs continue; total4 concurrent training jobs maximum.",
+    "budget_total_transitions": 2457600,
+    "shared_settings": "Current-qpos held-three success, seed0,N512,view7,GRU128,clean,initialstd.4,adaptiveLR3e-4,entropy.003; separate IDs and frozen source.",
+    "scientific_limit": "Profile changes dense shaping and success bonus together. Historical inspiration is not exact reproduction. Examine value-loss/gradient health and validate both cases; stage100 sparse evidence is not final repair.",
+    "extension_gate": "Review both corrected balanced validations, repeat controls and completed legacy HP evidence before any751-update extension."
+  }
+}

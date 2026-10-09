@@ -1,0 +1,13 @@
+% Corrected current-qpos criterion: three discrete consecutive samples at 25 Hz; not continuous dwell. Exploratory seed-0 validation.
+% Wilson intervals represent episode sampling uncertainty, not training-seed variance.
+\begin{tabular}{lrrrrrr}
+\hline
+Camera condition & Success (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ \\
+\hline
+Active camera + memory & 19.92 & [16.69, 23.60] & 0.00 & 23.44 & 36.72 & 19.53 \\
+Initial camera + memory & 28.71 & [24.96, 32.78] & 0.00 & 28.12 & 41.41 & 45.31 \\
+Wrist only & 1.56 & [0.79, 3.05] & 0.00 & 0.00 & 0.00 & 6.25 \\
+Wrist + fixed view 7 & 4.49 & [3.01, 6.65] & 0.00 & 16.41 & 0.00 & 1.56 \\
+\hline
+\end{tabular}
+% Each condition: 18,432,000 transitions, one training seed, 512 balanced validation episodes.

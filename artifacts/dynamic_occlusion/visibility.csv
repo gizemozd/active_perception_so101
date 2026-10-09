@@ -1,0 +1,19 @@
+task,snapshot_set,camera,episodes,rendered_samples,mean_object_pixels_removed,maximum_object_pixels_removed,useful_visible_fraction_panel,useful_visible_fraction_panel_hidden
+plug,reset_sweep,wrist,3,27,0.0,0,0.0,0.0
+plug,reset_sweep,fixed,3,27,768.5555555555555,1258,0.5185185185185185,1.0
+plug,reset_sweep,scripted moving external,3,27,407.25925925925924,666,0.0,0.0
+plug,rollout_samples,wrist,3,18,0.0,0,0.0,0.0
+plug,rollout_samples,fixed,3,18,720.7777777777778,1276,0.5,1.0
+plug,rollout_samples,scripted moving external,3,18,671.3333333333334,1132,0.16666666666666666,0.6111111111111112
+push,reset_sweep,wrist,3,27,0.0,0,1.0,1.0
+push,reset_sweep,fixed,3,27,37.407407407407405,60,0.7407407407407407,1.0
+push,reset_sweep,scripted moving external,3,27,38.18518518518518,61,0.6666666666666666,1.0
+push,rollout_samples,wrist,3,46,0.0,0,1.0,1.0
+push,rollout_samples,fixed,3,46,10.173913043478262,23,0.5217391304347826,0.9565217391304348
+push,rollout_samples,scripted moving external,3,46,8.26086956521739,24,0.6739130434782609,1.0
+transfer,reset_sweep,wrist,3,27,0.0,0,1.0,1.0
+transfer,reset_sweep,fixed,3,27,51.925925925925924,81,0.5185185185185185,1.0
+transfer,reset_sweep,scripted moving external,3,27,53.333333333333336,83,0.5185185185185185,1.0
+transfer,rollout_samples,wrist,3,46,0.0,0,0.9347826086956522,0.9347826086956522
+transfer,rollout_samples,fixed,3,46,28.695652173913043,53,0.41304347826086957,0.9782608695652174
+transfer,rollout_samples,scripted moving external,3,46,23.847826086956523,49,0.4782608695652174,1.0

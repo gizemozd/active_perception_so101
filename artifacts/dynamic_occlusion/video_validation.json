@@ -1,0 +1,38 @@
+[
+  {
+    "video": "plug_seed20000.mp4",
+    "decoded_frames": 30,
+    "fps": 8.33,
+    "size": [
+      768,
+      900
+    ],
+    "duration_s": 3.6,
+    "first_frame_std": 56.35511553401062,
+    "last_frame_std": 57.50495369428776
+  },
+  {
+    "video": "push_seed20000.mp4",
+    "decoded_frames": 100,
+    "fps": 8.33,
+    "size": [
+      576,
+      696
+    ],
+    "duration_s": 12.0,
+    "first_frame_std": 72.58829924191986,
+    "last_frame_std": 62.74240231253846
+  },
+  {
+    "video": "transfer_seed20000.mp4",
+    "decoded_frames": 100,
+    "fps": 8.33,
+    "size": [
+      576,
+      696
+    ],
+    "duration_s": 12.0,
+    "first_frame_std": 72.915777369286,
+    "last_frame_std": 65.41811726528732
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "purpose": "Independent fresh corrected-objective screen; existing legacy HP trials remain healthy and running",
+  "source_revision": "434c37af8a3e1fc82611d6bb13d3fb55f28a2987",
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-reward-20261009",
+  "script_sha256": "de494ccd41c9fff9d217568218c96069929844677b645b5b510b677654a1dcb8",
+  "plan_sha256_at_submission": "c721d82e27fca9ef25125715ea82eca8136012a8e5dcd64ee8d443680a0d2da1",
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-reward-20261009",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-reward-20261009/src",
+    "WANDB_MODE": "online",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_PROJECT": "active-perception-so101"
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "--error=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.err",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/reward_repair.sbatch"
+  ],
+  "sequential_gpus": 1,
+  "new_transitions": 2457600,
+  "queue_checked": [
+    "plug-hp2-eval-both|PENDING|51499506",
+    "plug-hp2-eval-entropy|PENDING|51499498",
+    "plug-hp2-eval-fixed_lr|PENDING|51499310",
+    "plug-hp2-fixed_lr|RUNNING|51499309_6",
+    "plug-hp2-both|RUNNING|51499505_6",
+    "plug-hp2-entropy|RUNNING|51499497_6"
+  ],
+  "status": "submitted",
+  "reserved_at": "2026-10-09T05:17:04.916043+00:00",
+  "stdout": "51505177",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51505177"
+}

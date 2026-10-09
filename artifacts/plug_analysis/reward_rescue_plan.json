@@ -1,7 +1,7 @@
 {
-  "status": "PREPARED_NOT_SUBMITTED",
+  "status": "SUBMITTED",
   "created_at": "2026-10-09T05:02:47.896059+00:00",
-  "entry_condition": "Review completed controlled fixed_lr/entropy/both continuations first. Submit only if they fail to produce reliable balanced insertion and corrected current-qpos evaluation remains unsolved.",
+  "entry_condition": "Independent corrected-objective screen: original corrected final scores remain weak and continuing historical-criterion HP runs cannot test learning under current_qpos. Run the two bounded 100-update cases sequentially on the fourth GPU after corrected evaluation completes; preserve all HP trials. Review both screens and completed HP results before any 751-update extension.",
   "question": "Does a historical-inspired dense log-distance objective with a strong held-three success incentive improve learning under the corrected equal-inertia current-physical-state benchmark?",
   "interpretation": "The two profiles change dense shaping and success-bonus magnitude together; this is an objective-profile comparison, not a pure shaping ablation or an exact historical reproduction. It does not establish why historical runs succeeded.",
   "source_base_revision": "5badc6e0b8d8d71e2e72e1d042b937d54fcae86e",
@@ -11,7 +11,7 @@
     "src/active_perception_arms/train.py": "028c6df1d5505a3029e3687d3c569ad7abc85fb739ea80bf6524e2a1ca6ac16d",
     "scripts/slurm/common.sh": "68238f0124b55efd1f271b82166526d49966d32005b5ad49b2bd7d4af5558ce8"
   },
-  "source_requirement": "Commit and freeze the complete repair source before submission; base revision does not include these prepared uncommitted additions. Do not modify any running source checkout.",
+  "source_requirement": "Freeze committed 434c37a training source before submission; the job script is versioned and its hash is recorded separately if submitted from the results checkout. Never modify any running checkout.",
   "cases": [
     {
       "case": "progress",
@@ -224,6 +224,10 @@
     "quality_gate": "Reward alone cannot establish repair. Inspect episode-weighted training success, corrected balanced validation and each variant, terminal errors/hold, LR/KL/per-axis std/value loss, and repeat variability before considering3-seed replication."
   },
   "initial_std_followup": "The CLI also supports std1.0 as a separately labeled fresh experiment motivated by historical metadata. Keep std.4 in this first pair to avoid conflating objective and exploration.",
-  "resource_bound": "At most2 new training GPUs for this pair; total concurrent training<=4. Recheck Slurm/manifests before submission and reserve manifests atomically. Measured prior short-stage runtimes suggest minutes per100-update case, but no duration promise is made for the new reward.",
-  "training_launched": false
+  "resource_bound": "Two sequential fresh runs on one GPU, at most four total concurrent training/evaluation GPUs. Stage-one total new budget 2,457,600 transitions. Recheck Slurm and reserve submission manifest atomically.",
+  "training_launched": true,
+  "decision": "Read-only optimization audit found healthy finite losses and increasing episode-weighted success in ongoing HP trials; they have not been declared failed. Current-qpos training is a separate question requiring fresh matched runs.",
+  "job_id": "51505177",
+  "source_revision": "434c37af8a3e1fc82611d6bb13d3fb55f28a2987",
+  "submission_manifest": "artifacts/plug_analysis/reward_repair/submission.json"
 }

@@ -1,0 +1,13 @@
+% HISTORICAL derived_substep scoring: lagged manager geometry, not current physical qpos. Audit found physical threshold misses and substantial repeat disagreement; do not treat this as corrected insertion success.
+% Wilson intervals represent episode sampling uncertainty, not training-seed variance.
+\begin{tabular}{lrrrrrr}
+\hline
+Camera condition & Legacy score (\%) & 95\% CI & $x-$ & $x+$ & $y-$ & $y+$ \\
+\hline
+Wrist only & 0.59 & [0.20, 1.71] & 0.00 & 0.00 & 0.00 & 2.34 \\
+Wrist + fixed view 7 & 11.52 & [9.04, 14.58] & 0.00 & 44.53 & 0.00 & 1.56 \\
+Initial camera + memory & 36.13 & [32.09, 40.38] & 0.00 & 50.78 & 47.66 & 46.09 \\
+Active camera + memory & 27.54 & [23.85, 31.56] & 0.00 & 49.22 & 39.84 & 21.09 \\
+\hline
+\end{tabular}
+% Each condition: 18,432,000 transitions, one training seed, 512 balanced validation episodes.

@@ -1,0 +1,11 @@
+condition,transitions,successes,episodes,success_rate,report
+wrist,1228800,3,512,0.005859375,artifacts/cluster_pilot/evaluation-wrist-s0.json
+wrist,9228288,14,512,0.02734375,artifacts/cluster_continuation/interim-evaluation-wrist-s0-i750.json
+wrist,18432000,3,512,0.005859375,artifacts/cluster_continuation/evaluation-wrist-s0.json
+wrist_static,1228800,7,512,0.013671875,artifacts/cluster_pilot/evaluation-wrist_static-s0.json
+wrist_static,9228288,44,512,0.0859375,artifacts/cluster_continuation/interim-evaluation-wrist_static-s0-i750.json
+wrist_static,18432000,59,512,0.115234375,artifacts/cluster_continuation/evaluation-wrist_static-s0.json
+initial,1228800,3,512,0.005859375,artifacts/cluster_pilot/evaluation-initial-s0.json
+initial,18432000,185,512,0.361328125,artifacts/cluster_continuation/evaluation-initial-s0.json
+active,1228800,2,512,0.00390625,artifacts/cluster_pilot/evaluation-active-s0.json
+active,18432000,141,512,0.275390625,artifacts/cluster_continuation/evaluation-active-s0.json

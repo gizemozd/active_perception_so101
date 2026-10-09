@@ -1,0 +1,1210 @@
+{
+  "local_links_checked": 290,
+  "missing_links": [],
+  "media_validated": 100,
+  "media_decoded_this_build": 100,
+  "media_validation_reused_unchanged_files": false,
+  "videos": [
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 650876,
+      "mtime_ns": 1791410472749503146
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 52631,
+      "mtime_ns": 1791410472579626594
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 695536,
+      "mtime_ns": 1791410474078418839
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 52506,
+      "mtime_ns": 1791410473910951224
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 710013,
+      "mtime_ns": 1791410475460991327
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 54591,
+      "mtime_ns": 1791410475198978119
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 691216,
+      "mtime_ns": 1791410476747714536
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 55100,
+      "mtime_ns": 1791410476552570092
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/yp_success_episode247_outside.mp4",
+      "frames": 73,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 611107,
+      "mtime_ns": 1791410477937290348
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist-s0-videos/yp_success_episode247_policy.mp4",
+      "frames": 73,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 50562,
+      "mtime_ns": 1791410477700830978
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 690619,
+      "mtime_ns": 1791411038168270442
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 92529,
+      "mtime_ns": 1791411037859066487
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xp_success_episode1_outside.mp4",
+      "frames": 58,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 476188,
+      "mtime_ns": 1791411039418704945
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xp_success_episode1_policy.mp4",
+      "frames": 58,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 57496,
+      "mtime_ns": 1791411039236573303
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 698878,
+      "mtime_ns": 1791411041390610107
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 93895,
+      "mtime_ns": 1791411041127204085
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 680841,
+      "mtime_ns": 1791411043387198528
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 88673,
+      "mtime_ns": 1791411043103097616
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xp_failure_episode5_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 687651,
+      "mtime_ns": 1791411045565702711
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/xp_failure_episode5_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 87708,
+      "mtime_ns": 1791411045325105954
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/yp_success_episode111_outside.mp4",
+      "frames": 67,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 522158,
+      "mtime_ns": 1791411047031555776
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0-videos/yp_success_episode111_policy.mp4",
+      "frames": 67,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 70717,
+      "mtime_ns": 1791411046828171285
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 844710,
+      "mtime_ns": 1791412337772494338
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 226477,
+      "mtime_ns": 1791412337605958559
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 776270,
+      "mtime_ns": 1791412339831810146
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 177776,
+      "mtime_ns": 1791412339640759028
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/ym_success_episode2_outside.mp4",
+      "frames": 81,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 702931,
+      "mtime_ns": 1791412341764472688
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/ym_success_episode2_policy.mp4",
+      "frames": 81,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 196129,
+      "mtime_ns": 1791412341563891498
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/yp_success_episode3_outside.mp4",
+      "frames": 51,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 578514,
+      "mtime_ns": 1791412343081555808
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/yp_success_episode3_policy.mp4",
+      "frames": 51,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 130017,
+      "mtime_ns": 1791412342876914924
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xp_success_episode5_outside.mp4",
+      "frames": 63,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 644485,
+      "mtime_ns": 1791412344648254141
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/xp_success_episode5_policy.mp4",
+      "frames": 63,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 178417,
+      "mtime_ns": 1791412344455034495
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/ym_failure_episode6_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 765868,
+      "mtime_ns": 1791412346737543797
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/ym_failure_episode6_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 246589,
+      "mtime_ns": 1791412346522582616
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/yp_failure_episode7_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 842056,
+      "mtime_ns": 1791412348868364877
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-initial-s0-videos/yp_failure_episode7_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 241880,
+      "mtime_ns": 1791412348659092231
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1013323,
+      "mtime_ns": 1791412136552959901
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 208138,
+      "mtime_ns": 1791412136338047594
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1016587,
+      "mtime_ns": 1791412138770955971
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 255661,
+      "mtime_ns": 1791412138521657729
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/ym_success_episode2_outside.mp4",
+      "frames": 84,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1056307,
+      "mtime_ns": 1791412140777915162
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/ym_success_episode2_policy.mp4",
+      "frames": 84,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 258849,
+      "mtime_ns": 1791412140513174801
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1137034,
+      "mtime_ns": 1791412142863220170
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 267973,
+      "mtime_ns": 1791412142637885647
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xp_success_episode5_outside.mp4",
+      "frames": 85,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1036887,
+      "mtime_ns": 1791412144933856990
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/xp_success_episode5_policy.mp4",
+      "frames": 85,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 258207,
+      "mtime_ns": 1791412144713905783
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/ym_failure_episode6_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1091259,
+      "mtime_ns": 1791412146880431831
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/ym_failure_episode6_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 231575,
+      "mtime_ns": 1791412146634135902
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/yp_success_episode27_outside.mp4",
+      "frames": 69,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 881436,
+      "mtime_ns": 1791412148496305899
+    },
+    {
+      "path": "artifacts/cluster_continuation/evaluation-active-s0-videos/yp_success_episode27_policy.mp4",
+      "frames": 69,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 168498,
+      "mtime_ns": 1791412148262866647
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1005975,
+      "mtime_ns": 1791522536965757489
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 206504,
+      "mtime_ns": 1791522536768527024
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 999146,
+      "mtime_ns": 1791522538980165324
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 256737,
+      "mtime_ns": 1791522538751910953
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1105062,
+      "mtime_ns": 1791522540897493496
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 269772,
+      "mtime_ns": 1791522540672606112
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/yp_success_episode3_outside.mp4",
+      "frames": 49,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 674783,
+      "mtime_ns": 1791522541983311946
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/yp_success_episode3_policy.mp4",
+      "frames": 49,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 120407,
+      "mtime_ns": 1791522541799592309
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/xp_success_episode5_outside.mp4",
+      "frames": 78,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 958156,
+      "mtime_ns": 1791522543700616251
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/xp_success_episode5_policy.mp4",
+      "frames": 78,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 230927,
+      "mtime_ns": 1791522543509075921
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/yp_failure_episode7_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1058255,
+      "mtime_ns": 1791522545651729829
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/yp_failure_episode7_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 249428,
+      "mtime_ns": 1791522545441954313
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/ym_success_episode14_outside.mp4",
+      "frames": 80,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 1050272,
+      "mtime_ns": 1791522547337987509
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-active-s0-videos/ym_success_episode14_policy.mp4",
+      "frames": 80,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 199039,
+      "mtime_ns": 1791522547101531701
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 911686,
+      "mtime_ns": 1791522440996754312
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 254024,
+      "mtime_ns": 1791522440785700543
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 761809,
+      "mtime_ns": 1791522442898811318
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 175141,
+      "mtime_ns": 1791522442714278879
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/ym_success_episode2_outside.mp4",
+      "frames": 81,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 698224,
+      "mtime_ns": 1791522444673923176
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/ym_success_episode2_policy.mp4",
+      "frames": 81,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 194577,
+      "mtime_ns": 1791522444488394926
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/yp_success_episode3_outside.mp4",
+      "frames": 50,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 570752,
+      "mtime_ns": 1791522445824411932
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/yp_success_episode3_policy.mp4",
+      "frames": 50,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 124889,
+      "mtime_ns": 1791522445601848598
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/xp_success_episode5_outside.mp4",
+      "frames": 66,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 669927,
+      "mtime_ns": 1791522447349391431
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/xp_success_episode5_policy.mp4",
+      "frames": 66,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 189068,
+      "mtime_ns": 1791522447090327522
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/yp_failure_episode7_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 831964,
+      "mtime_ns": 1791522449368545271
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/yp_failure_episode7_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 242719,
+      "mtime_ns": 1791522449142782483
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/ym_failure_episode10_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 891132,
+      "mtime_ns": 1791522451301438954
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-initial-s0-videos/ym_failure_episode10_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 276747,
+      "mtime_ns": 1791522451095686260
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 667321,
+      "mtime_ns": 1791522258995318035
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 57049,
+      "mtime_ns": 1791522258814944026
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 690932,
+      "mtime_ns": 1791522260308991851
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 48913,
+      "mtime_ns": 1791522260095388732
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 717758,
+      "mtime_ns": 1791522261627914970
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 56095,
+      "mtime_ns": 1791522261437612133
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 713622,
+      "mtime_ns": 1791522262951652498
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 53939,
+      "mtime_ns": 1791522262742283960
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/yp_success_episode31_outside.mp4",
+      "frames": 86,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 697101,
+      "mtime_ns": 1791522264256166834
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist-s0-videos/yp_success_episode31_policy.mp4",
+      "frames": 86,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 55659,
+      "mtime_ns": 1791522264040749501
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/xm_failure_episode0_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 689034,
+      "mtime_ns": 1791522338009554219
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/xm_failure_episode0_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 89609,
+      "mtime_ns": 1791522337842839119
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/xp_failure_episode1_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 675066,
+      "mtime_ns": 1791522339617764522
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/xp_failure_episode1_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 87166,
+      "mtime_ns": 1791522339448907178
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/ym_failure_episode2_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 708052,
+      "mtime_ns": 1791522341213979555
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/ym_failure_episode2_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 90628,
+      "mtime_ns": 1791522341048886277
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_failure_episode3_outside.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 676561,
+      "mtime_ns": 1791522342850014906
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_failure_episode3_policy.mp4",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 87935,
+      "mtime_ns": 1791522342657959645
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/xp_success_episode25_outside.mp4",
+      "frames": 68,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 541886,
+      "mtime_ns": 1791522344145692424
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/xp_success_episode25_policy.mp4",
+      "frames": 68,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 67350,
+      "mtime_ns": 1791522343941743666
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_success_episode111_outside.mp4",
+      "frames": 77,
+      "fps": 25.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 570513,
+      "mtime_ns": 1791522345645089063
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/corrected-wrist_static-s0-videos/yp_success_episode111_policy.mp4",
+      "frames": 77,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded_first_middle_last": true,
+      "bytes": 80040,
+      "mtime_ns": 1791522345436464301
+    }
+  ],
+  "html_parsed": true
+}

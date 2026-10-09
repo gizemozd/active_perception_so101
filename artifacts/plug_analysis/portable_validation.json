@@ -1,0 +1,39 @@
+{
+  "bundle_files": 213,
+  "local_links_checked_after_extraction": 190,
+  "missing_links": [],
+  "mp4_files_in_archive": 75,
+  "excluded_checkpoints_npz_credentials": true,
+  "dynamic_diagnostic_media": [
+    {
+      "path": "artifacts/dynamic_occlusion/plug_seed20000.mp4",
+      "frames": 30,
+      "fps": 8.33,
+      "size": [
+        768,
+        900
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/dynamic_occlusion/transfer_seed20000.mp4",
+      "frames": 100,
+      "fps": 8.33,
+      "size": [
+        576,
+        696
+      ],
+      "decoded_first_middle_last": true
+    },
+    {
+      "path": "artifacts/dynamic_occlusion/push_seed20000.mp4",
+      "frames": 100,
+      "fps": 8.33,
+      "size": [
+        576,
+        696
+      ],
+      "decoded_first_middle_last": true
+    }
+  ]
+}
