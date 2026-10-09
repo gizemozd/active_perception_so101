@@ -1,0 +1,29 @@
+{
+  "status": "submitted",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--exclude=holygpu7c2313",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/audit_plug.sbatch"
+  ],
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-audit-20261009",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-audit-20261009/src",
+    "DATA_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101"
+  },
+  "base_revision": "12795fd",
+  "instrumentation_hashes": {
+    "evaluate.py": "306e31283410247070de93e0b152720c9b4fce938592e5cfdec8bf0280c26feb",
+    "evaluation_audit.py": "95739da3e90bc3bfa56cd35562cf988cede548e06decb918b369d29549895f43"
+  },
+  "purpose": "Read-only terminal success error/hold and same-reset repeat audit; four512episode evaluations; no optimizer updates",
+  "submitted_at": "2026-10-09T04:46:33.530483+00:00",
+  "stdout": "51499848",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51499848"
+}

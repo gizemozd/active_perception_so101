@@ -63,7 +63,7 @@ def make_env_cfg(cfg: Experiment):
             init_state=EntityCfg.InitialStateCfg(joint_pos={}),
         ),
         "occluder": EntityCfg(
-            spec_fn=scenes.occluder_spec,
+            spec_fn=partial(scenes.occluder_spec, cfg),
             init_state=EntityCfg.InitialStateCfg(pos=(0, 0, -1), joint_pos={}),
         ),
         "table": EntityCfg(

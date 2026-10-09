@@ -4,7 +4,10 @@ Three two-arm manipulation environments in **MjLab / MuJoCo Warp**, with a share
 visual actor controlling the manipulation arm and (where enabled) the camera arm.
 The SO-101 models are self-contained copies of the supplied legacy assets, with
 white arm shells. [Watch the full-HD outside-view videos](artifacts/README.md).
-**No training has been run or submitted.**
+Four matched plug-insertion pilots have completed 18,432,000 transitions each.
+Their seed-0 validation remains unreliable across variants; optimization repair is
+in progress before a larger sensing study. See [PROGRESS.md](PROGRESS.md) and the
+[continuation results](artifacts/cluster_continuation/README.md).
 
 The new [task-screening report](docs/TASK_SCREENING.md) evaluates six visibility
 prototypes against 522 fixed viewpoints, initial-only sensing, memory, scans,

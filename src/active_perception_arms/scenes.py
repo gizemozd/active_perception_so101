@@ -120,12 +120,15 @@ def fixture_spec(task, clearance=0.002):
     return spec
 
 
-def occluder_spec():
+def occluder_spec(cfg=None):
     spec = mujoco.MjSpec()
     body = spec.worldbody.add_body(name="panel", mocap=True, pos=(0, 0, -1))
     # Optical intervention: isolate missing information from contact disturbances.
     # Real fixture walls and both robots retain their mechanical collisions.
-    box(body, "panel", (0, 0, 0), (0.040, 0.004, 0.070), (0.45, 0.24, 0.50, 1), collision=False)
+    half_size = (
+        cfg.dynamic_panel_half_size if cfg and cfg.occlusion == "dynamic" else (0.040, 0.004, 0.070)
+    )
+    box(body, "panel", (0, 0, 0), half_size, (0.45, 0.24, 0.50, 1), collision=False)
     return spec
 
 
@@ -313,7 +316,7 @@ def native_spec(cfg: Experiment, *, marker_prototype=False):
         ("camera_arm", arm_spec(), cam_base, yaw_quat(cam_yaw)),
         ("object", object_spec(task, cfg.plug_variant or "xm"), (0, 0, 0), (1, 0, 0, 0)),
         ("fixture", fixture_spec(task, cfg.clearance), (0, 0, 0), (1, 0, 0, 0)),
-        ("occluder", occluder_spec(), (0, 0, 0), (1, 0, 0, 0)),
+        ("occluder", occluder_spec(cfg), (0, 0, 0), (1, 0, 0, 0)),
         ("table", table_spec(cfg.task), (0, 0, 0), (1, 0, 0, 0)),
     ):
         frame = spec.worldbody.add_frame(pos=pos, quat=quat)

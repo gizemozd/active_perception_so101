@@ -1,0 +1,9 @@
+{
+  "id": "c59f06be",
+  "state": "running",
+  "summary": {
+    "train/iteration": 102,
+    "train/transitions": 1253376,
+    "train/Loss/learning_rate": 0.0001
+  }
+}

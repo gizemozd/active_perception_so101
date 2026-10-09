@@ -8,9 +8,10 @@ from mjlab.managers.action_manager import ActionTerm, ActionTermCfg
 from . import plug
 from .config import SOURCE_XY, TARGET_XY, Experiment
 from .native import calibration
+from .occlusion import dynamic_position_torch, sample_dynamic_torch
 from .robots.kinematics import quat_wxyz_to_mat
 from .robots.plug_control import PlugIK
-from .scenes import grasp_relpose
+from .scenes import grasp_relpose, yaw_quat
 
 
 class State:
@@ -24,6 +25,8 @@ class State:
         self.onset = torch.zeros(n, device=device)
         self.duration = torch.zeros(n, device=device)
         self.side = torch.ones(n, device=device)
+        self.panel_center = torch.zeros(n, 3, device=device)
+        self.panel_travel = torch.zeros(n, device=device)
         self.hold = torch.zeros(n, dtype=torch.long, device=device)
         self.succeeded = torch.zeros(n, dtype=torch.bool, device=device)
         self.previous_potential = torch.zeros(n, device=device)
@@ -39,11 +42,15 @@ class State:
             )
         }
         self.object_id = env.sim.mj_model.body("object/object").id
+        self.object_qpos_address = int(env.sim.mj_model.joint("object/free").qposadr[0])
         self.env_ids = torch.arange(n, device=device)
         self.fixed_calibration = torch.tensor(
             (*cfg.fixed_position, *cfg.fixed_lookat), device=device
         )
         self.panel_pose = torch.zeros(n, 7, device=device)
+        self.panel_quat = torch.tensor(
+            yaw_quat(cfg.dynamic_panel_yaw or 0.0), device=device, dtype=torch.float32
+        )
         self.plug_offsets = torch.tensor(
             [plug.OFFSETS[plug.VARIANTS[i]] for i in plug.variant_assignment(n, cfg.plug_variant)],
             device=device,
@@ -146,9 +153,18 @@ def reset_task(env, env_ids, cfg):
         env.scene["fixture"].write_mocap_pose_to_sim(fixture, env_ids=ids)
     obj[:, :3] += origins
     env.scene["object"].write_root_state_to_sim(obj, env_ids=ids)
-    s.onset[ids] = 2 + torch.rand(n, device=env.device) * 3 if cfg.occlusion == "random" else 3
-    s.duration[ids] = 1 + torch.rand(n, device=env.device) * 3 if cfg.occlusion == "random" else 4
-    s.side[ids] = torch.randint(0, 2, (n,), device=env.device).float() * 2 - 1
+    if cfg.occlusion == "dynamic":
+        params = sample_dynamic_torch(n, cfg, env.device)
+        for name in ("onset", "duration", "side"):
+            getattr(s, name)[ids] = params[name]
+        s.panel_center[ids] = params["center"]
+        s.panel_travel[ids] = params["travel"]
+    else:
+        s.onset[ids] = 2 + torch.rand(n, device=env.device) * 3 if cfg.occlusion == "random" else 3
+        s.duration[ids] = (
+            1 + torch.rand(n, device=env.device) * 3 if cfg.occlusion == "random" else 4
+        )
+        s.side[ids] = torch.randint(0, 2, (n,), device=env.device).float() * 2 - 1
     s.hold[ids] = 0
     s.succeeded[ids] = False
     s.potential_valid[ids] = False
@@ -160,18 +176,33 @@ def update_panel(env, t, ids=slice(None)):
     s = state(env)
     if isinstance(ids, slice):
         ids = s.env_ids[ids]
-    visible = (t >= s.onset) & (t <= s.onset + s.duration)
-    if s.cfg.occlusion == "clean":
-        visible = torch.zeros_like(visible)
-    elif s.cfg.occlusion == "static":
-        visible = torch.ones_like(visible)
-    pose = s.panel_pose
-    pose[:, 0] = -0.045 + 0.035 * s.side
-    pose[:, 1] = -0.105
-    pose[:, 2] = torch.where(visible, 0.155, -1.0)
-    pose[:, :3] += env.scene.env_origins
-    pose[:, 3] = 1
-    env.scene["occluder"].write_mocap_pose_to_sim(pose[ids], env_ids=ids)
+    if s.cfg.occlusion == "dynamic":
+        position = dynamic_position_torch(
+            t[ids],
+            s.onset[ids],
+            s.duration[ids],
+            s.side[ids],
+            s.panel_center[ids],
+            s.panel_travel[ids],
+        )
+    else:
+        visible = (t[ids] >= s.onset[ids]) & (t[ids] <= s.onset[ids] + s.duration[ids])
+        if s.cfg.occlusion == "clean":
+            visible = torch.zeros_like(visible)
+        elif s.cfg.occlusion == "static":
+            visible = torch.ones_like(visible)
+        position = torch.stack(
+            (
+                -0.045 + 0.035 * s.side[ids],
+                torch.full_like(t[ids], -0.105),
+                torch.where(visible, 0.155, -1.0),
+            ),
+            dim=-1,
+        )
+    # Subset reset changes only selected environments, including this cached pose.
+    s.panel_pose[ids, :3] = position + env.scene.env_origins[ids]
+    s.panel_pose[ids, 3:] = s.panel_quat
+    env.scene["occluder"].write_mocap_pose_to_sim(s.panel_pose[ids], env_ids=ids)
 
 
 @dataclass(kw_only=True)
@@ -316,21 +347,23 @@ def critic_state(env):
     tcp, obj, tip, goal = positions(env)
     origins = env.scene.env_origins
     s = state(env)
-    return torch.cat(
-        [
-            proprio(env),
-            tcp - origins,
-            obj - origins,
-            tip - origins,
-            goal - origins,
-            env.scene["object"].data.root_link_quat_w,
-            env.scene["object"].data.root_link_vel_w,
-            s.onset[:, None],
-            s.duration[:, None],
-            s.side[:, None],
-        ],
-        dim=-1,
-    )
+    pieces = [
+        proprio(env),
+        tcp - origins,
+        obj - origins,
+        tip - origins,
+        goal - origins,
+        env.scene["object"].data.root_link_quat_w,
+        env.scene["object"].data.root_link_vel_w,
+        s.onset[:, None],
+        s.duration[:, None],
+        s.side[:, None],
+    ]
+    if s.cfg.occlusion == "dynamic":
+        # These are never added to proprio or camera observations. Keeping the
+        # legacy critic shape lets old checkpoints load without reinterpretation.
+        pieces += [s.panel_center, s.panel_travel[:, None]]
+    return torch.cat(pieces, dim=-1)
 
 
 def instantaneous_success(env):
@@ -338,6 +371,9 @@ def instantaneous_success(env):
     cfg = state(env).cfg
     speed = torch.linalg.vector_norm(env.scene["object"].data.root_link_lin_vel_w, dim=-1)
     if cfg.task == "plug":
+        if cfg.success_state_sample == "current_qpos":
+            address = state(env).object_qpos_address
+            obj = env.sim.data.qpos[:, address : address + 3]
         return torch.linalg.vector_norm(obj - goal, dim=-1) < plug.SUCCESS_DISTANCE
     tol, ztol, withdraw = (0.018, 0.006, 0.045) if cfg.task == "transfer" else (0.015, 0.004, 0.025)
     return (

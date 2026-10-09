@@ -77,6 +77,59 @@ For the restored plug, clean is the default: its occlusion comes from the plug
 body and hand. Its 3.5-second horizon means the old 3–7 second panel schedule is
 not the main plug experiment. Panel modes remain explicit supplementary controls.
 
+`dynamic` is a separate opt-in intervention, saved as
+`occlusion_revision=world_sweep_v1`. An optical panel sweeps laterally in world X
+with randomized onset, duration, direction, center and travel. The distribution
+depends on the task and elapsed-time budget; it never follows the policy camera,
+object, hidden plug variant, or goal. All sensing conditions receive the same
+distribution. Legacy clean/static/phase/random timing, panel geometry, random
+draws and observation dimensions are retained.
+
+| Default sweep parameter | Plug, 3.5 s horizon | Transfer/push, 12 s horizon |
+|---|---|---|
+| Onset, uniform | 0.35–1.47 s | 2–5 s |
+| Duration, uniform | 0.56–1.12 s | 1–3.5 s |
+| Nominal panel center, world meters | (0, 0.095, 0.105) | (-0.045, -0.105, 0.155) |
+| Independent center jitter, uniform | ±(15, 10, 10) mm | ±(15, 10, 10) mm |
+| End-to-end lateral travel, uniform | 100–140 mm | 100–140 mm |
+| Full panel dimensions | 80 × 8 × 140 mm | 80 × 8 × 140 mm |
+
+The panel has no collision and changes no target state. At onset it starts half
+the sampled travel from its center, crosses the center halfway through the
+event, and clears after the duration. Direction is sampled equally from ±X.
+Default timing scales with an explicitly changed episode horizon; configurations
+must guarantee clearance before timeout. Waiting, memory of unchanged plug
+geometry, wrist feedback and a favorable fixed viewpoint remain valid controls.
+Moving the panel does not by itself establish a need for fresh target observations.
+
+Use `--occlusion dynamic` for a distinct training condition. Optional
+`--dynamic-onset-range`, `--dynamic-duration-range`, `--dynamic-center`,
+`--dynamic-center-jitter`, `--dynamic-travel-range`, `--dynamic-panel-half-size`
+and `--dynamic-panel-yaw` set explicit distributions or geometry; save and report
+these settings. The actor receives no panel parameters or timer. The critic alone
+receives the existing onset/duration/direction plus the dynamic center and travel
+(four extra critic values). Native NumPy and Warp Torch RNGs share distributions,
+not the same random-number sequence; the same sampled parameters give the same
+trajectory. Subset resets update only the selected panels and parameters.
+
+The rendered native diagnostic is reproducible with:
+
+```sh
+MUJOCO_GL=egl .venv/bin/python -m active_perception_arms.dynamic_occlusion_diagnostics \
+  --seeds 20000 20001 20002 --output artifacts/dynamic_occlusion
+```
+
+Its [JSON results](../artifacts/dynamic_occlusion/diagnostics.json) and
+[visibility table](../artifacts/dynamic_occlusion/visibility.csv) include reset
+sweeps and scripted rollouts, same-state panel-hidden image/segmentation controls,
+and clean/dynamic trajectories receiving identical actions. Videos use the
+evaluated native states. Useful visibility is only a geometric diagnostic:
+at least three prong pixels for plug, or object pixels for transfer/push; it is
+not pose-estimation accuracy or learned-policy success. Plug fixed view 7 is an
+explicit diagnostic view, not selected on these episodes. Other scripted camera
+paths may use privileged object/goal state. Run the dynamic CUDA tests before
+starting GPU training; a native demonstration does not validate the GPU renderer.
+
 Clean episodes are essential controls. The random occluder can disappear
 before the 12-second deadline, so waiting is a valid strategy; do not remove that
 possibility to force a positive result. Compare completion time and camera travel
@@ -104,7 +157,8 @@ predeclared distribution rather than tuning to maximize the active-policy gap.
 - Push: a visible 8 mm radius rigid tip is mounted below the closed gripper; it
   avoids unstable side impacts from bare jaw edges. Current geometry intentionally provides a simple negative-control task
   where wrist memory/feedback may be enough. The optional disturbance is small.
-- Randomization is limited to object/fixture XY and panel timing/side. No domain
+- Randomization is limited to object/fixture XY and panel timing/side, with
+  additional panel center/travel variation only in the opt-in dynamic mode. No domain
   randomization of optics, mass, friction, or lighting has been claimed or added.
 - Active control has more action dimensions and different embodiment than a fixed
   camera. Report these differences. Static cameras are permitted anywhere in the

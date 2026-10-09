@@ -52,6 +52,12 @@ def test_untrained_checkpoint_evaluation_and_replay_roundtrip(tmp_path):
     args.camera_trace_out = None
     args.reset_memory = True
     args.hold_external_after = 0.04
+    args.audit_termination = True
     second = evaluate(args)
     assert second["episodes"] == 1
     assert second["interventions"]["camera_trace_in"]
+    assert second["termination_audit"]["episodes"] == 1
+    assert second["termination_audit"]["success_qpos_above_distance_threshold"] == 0
+    stored = json.loads(args.output.read_text())
+    assert len(stored["initial_physics_state_sha256"]) == 1
+    assert set(stored["initial_sensor_sha256"]) == {"wrist", "external"}

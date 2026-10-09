@@ -1,0 +1,3852 @@
+{
+  "checked_at": "2026-10-09T04:56:32.413401+00:00",
+  "inventory_checked_at": "2026-10-09T00:40:34.642837-04:00",
+  "runs": [
+    {
+      "condition": "wrist",
+      "training_seed": 0,
+      "directory": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z",
+      "source_revision": "04de34f24159fd1ef88904bb60afa0958edc49e2",
+      "slurm": {
+        "JobID": "51152806_0",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "Start": "2026-10-07T15:53:58",
+        "End": "2026-10-07T17:59:29",
+        "Elapsed": "02:05:31",
+        "NodeList": "holygpu7c1710"
+      },
+      "integrity_passed": true,
+      "checkpoint": {
+        "path": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_1499.pt",
+        "saved_iteration": 1499,
+        "sha256": "b8d6f7e8717e991ebe0e3fd90bfe285e70cc88ef2f9e104398e7954f83c12ad8"
+      },
+      "history_records": 1500,
+      "expected_records": 1500,
+      "contiguous_unique_updates": true,
+      "transition_accounting_correct": true,
+      "last_update": 1500,
+      "last_transitions": 18432000,
+      "nonfinite_logged_metrics": 0,
+      "metric_windows": {
+        "train/Train/mean_reward": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.6677128986068569,
+            "std": 0.45499848668510834,
+            "min": -0.23729341270402074,
+            "max": 1.7840090681705625,
+            "slope_per_100_updates": 1.5265803631258212,
+            "fitted_change_over_window": 1.4655171486007883
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 2.2520609657536963,
+            "std": 0.5057003527597455,
+            "min": 1.1921932928822934,
+            "max": 3.636157663986087,
+            "slope_per_100_updates": 0.0577406955994615,
+            "fitted_change_over_window": 0.057163288643466884
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1.5715701425719306,
+            "std": 0.2735553632695024,
+            "min": 1.087685672454536,
+            "max": 2.2892449106276036,
+            "slope_per_100_updates": 0.029485894686526914,
+            "fitted_change_over_window": 0.029191035739661645
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1.624522141816816,
+            "std": 0.2891209969420453,
+            "min": 1.0000835298374295,
+            "max": 2.492267395220697,
+            "slope_per_100_updates": -0.0403565291693801,
+            "fitted_change_over_window": -0.12066602221644651
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1.6468108941787853,
+            "std": 0.2886576809979033,
+            "min": 1.0000835298374295,
+            "max": 2.492267395220697,
+            "slope_per_100_updates": -0.08036376473839947,
+            "fitted_change_over_window": -0.11974200946021521
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1.6022333894548473,
+            "std": 0.2878629326306718,
+            "min": 1.0219590885937213,
+            "max": 2.2892449106276036,
+            "slope_per_100_updates": -0.06418128669836261,
+            "fitted_change_over_window": -0.09563011718056028
+          }
+        },
+        "train/Episode_Reward/task": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.5610804816746374,
+            "std": 0.8500914998311803,
+            "min": -0.34628045558929443,
+            "max": 4.232133865356445,
+            "slope_per_100_updates": 1.7314394502616663,
+            "fitted_change_over_window": 1.6621818722511996
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.697994383573532,
+            "std": 0.15392765225199798,
+            "min": 0.3715508282184601,
+            "max": 1.0968295335769653,
+            "slope_per_100_updates": -0.05955482201643493,
+            "fitted_change_over_window": -0.058959273796270584
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.4680840626358986,
+            "std": 0.09842287787152698,
+            "min": 0.2953929603099823,
+            "max": 0.739812433719635,
+            "slope_per_100_updates": 0.014536399133850087,
+            "fitted_change_over_window": 0.014391035142511586
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.49781932145357133,
+            "std": 0.1060313527245716,
+            "min": 0.2757965922355652,
+            "max": 0.8577963709831238,
+            "slope_per_100_updates": -0.026606346262440447,
+            "fitted_change_over_window": -0.07955297532469693
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.5188513704140981,
+            "std": 0.10816465888714089,
+            "min": 0.2757965922355652,
+            "max": 0.8577963709831238,
+            "slope_per_100_updates": -0.029406066587053165,
+            "fitted_change_over_window": -0.043815039214709216
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.47678727249304453,
+            "std": 0.0995038085807649,
+            "min": 0.2812446355819702,
+            "max": 0.8297512531280518,
+            "slope_per_100_updates": -0.015187928775050154,
+            "fitted_change_over_window": -0.02263001387482473
+          }
+        },
+        "train/Train/mean_episode_length": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 87.93494845360826,
+            "std": 0.20663291676647993,
+            "min": 86.85,
+            "max": 88.0,
+            "slope_per_100_updates": -0.31324952661473743,
+            "fitted_change_over_window": -0.30071954555014796
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 86.81099999999998,
+            "std": 0.7471766859317809,
+            "min": 84.95,
+            "max": 88.0,
+            "slope_per_100_updates": 0.03819981998194384,
+            "fitted_change_over_window": 0.0378178217821244
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 87.7101,
+            "std": 0.3180801628520704,
+            "min": 86.65,
+            "max": 88.0,
+            "slope_per_100_updates": -0.02198019801975165,
+            "fitted_change_over_window": -0.021760396039554136
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 87.63860000000001,
+            "std": 0.3507725378836452,
+            "min": 86.27,
+            "max": 88.0,
+            "slope_per_100_updates": 0.05928199202215562,
+            "fitted_change_over_window": 0.17725315614624532
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 87.58699999999999,
+            "std": 0.3727353842428524,
+            "min": 86.27,
+            "max": 88.0,
+            "slope_per_100_updates": 0.034417529667963076,
+            "fitted_change_over_window": 0.05128211920526498
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 87.69019999999999,
+            "std": 0.3191018019378765,
+            "min": 86.65,
+            "max": 88.0,
+            "slope_per_100_updates": 0.027035868260770576,
+            "fitted_change_over_window": 0.04028344370854816
+          }
+        },
+        "train/Episode_Metrics/success_rate": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.1058704625699938,
+            "std": 0.2075252466160672,
+            "min": 0.0,
+            "max": 1.0,
+            "slope_per_100_updates": 0.3602532160545013,
+            "fitted_change_over_window": 0.3458430874123212
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.07745761997066439,
+            "std": 0.03776733643478975,
+            "min": 0.0,
+            "max": 0.1717391461133957,
+            "slope_per_100_updates": -0.016775396915458318,
+            "fitted_change_over_window": -0.016607642946303732
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.017447816310450434,
+            "std": 0.016971597673712573,
+            "min": 0.0,
+            "max": 0.08472222089767456,
+            "slope_per_100_updates": 0.004668065449885156,
+            "fitted_change_over_window": 0.004621384795386305
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.023833426670704892,
+            "std": 0.021813669236941904,
+            "min": 0.0,
+            "max": 0.10540185123682022,
+            "slope_per_100_updates": -0.004867019428703796,
+            "fitted_change_over_window": -0.014552388091824348
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.027500490332022308,
+            "std": 0.023038770192080504,
+            "min": 0.0,
+            "max": 0.10540185123682022,
+            "slope_per_100_updates": -0.004596879141835485,
+            "fitted_change_over_window": -0.006849349921334873
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.020166363009387473,
+            "std": 0.019849249038732038,
+            "min": 0.0,
+            "max": 0.10289856046438217,
+            "slope_per_100_updates": -0.005002761023980448,
+            "fitted_change_over_window": -0.007454113925730868
+          }
+        },
+        "train/Loss/value": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.12259166268543822,
+            "std": 0.10883976894206172,
+            "min": 0.00026179035489803937,
+            "max": 0.4488831590861082,
+            "slope_per_100_updates": 0.06970834105820033,
+            "fitted_change_over_window": 0.06901125764761831
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.495403797038598,
+            "std": 0.12068958790710613,
+            "min": 0.23967128968797624,
+            "max": 0.8707294850610197,
+            "slope_per_100_updates": -0.029368240385339698,
+            "fitted_change_over_window": -0.029074557981486303
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.2347217673866544,
+            "std": 0.08272055121239388,
+            "min": 0.0679421735694632,
+            "max": 0.45592116098850965,
+            "slope_per_100_updates": -0.0029112901955652293,
+            "fitted_change_over_window": -0.0028821772936095773
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.2561609961449479,
+            "std": 0.09215932251854157,
+            "min": 0.05369222839362919,
+            "max": 0.5194641111884266,
+            "slope_per_100_updates": -0.016588627836630888,
+            "fitted_change_over_window": -0.04959999723152635
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.2648635579040274,
+            "std": 0.09602039246376247,
+            "min": 0.05369222839362919,
+            "max": 0.5194641111884266,
+            "slope_per_100_updates": -0.03391890509757848,
+            "fitted_change_over_window": -0.05053916859539193
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.2474584343858684,
+            "std": 0.0872656663466049,
+            "min": 0.0679421735694632,
+            "max": 0.48348053684458137,
+            "slope_per_100_updates": -0.02917095297182818,
+            "fitted_change_over_window": -0.04346471992802399
+          }
+        },
+        "train/Loss/surrogate": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": -0.009563603117778144,
+            "std": 0.0053392147372502705,
+            "min": -0.019998028488771524,
+            "max": 0.0021070834482088685,
+            "slope_per_100_updates": 0.0013187730047501624,
+            "fitted_change_over_window": 0.0013055852747026607
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.0011496995930937715,
+            "std": 0.002706325747343219,
+            "min": -0.0046144627121975645,
+            "max": 0.009060223223059438,
+            "slope_per_100_updates": 0.00018369845587575787,
+            "fitted_change_over_window": 0.00018186147131700028
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.0016719061336243613,
+            "std": 0.0038814956793324917,
+            "min": -0.007307608282644651,
+            "max": 0.015741919371066615,
+            "slope_per_100_updates": 0.0005817063750489351,
+            "fitted_change_over_window": 0.0005758893112984458
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.001639929301538814,
+            "std": 0.0038533093290448036,
+            "min": -0.007307608282644651,
+            "max": 0.015741919371066615,
+            "slope_per_100_updates": 5.094311645862963e-05,
+            "fitted_change_over_window": 0.0001523199182113026
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.001592847916313834,
+            "std": 0.003926022779146794,
+            "min": -0.005789194547105581,
+            "max": 0.013695720001123846,
+            "slope_per_100_updates": -5.3938148668391384e-05,
+            "fitted_change_over_window": -8.036784151590316e-05
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.001687010686763794,
+            "std": 0.003778610511095117,
+            "min": -0.007307608282644651,
+            "max": 0.015741919371066615,
+            "slope_per_100_updates": 8.482884318032402e-05,
+            "fitted_change_over_window": 0.00012639497633868278
+          }
+        },
+        "train/Loss/entropy": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": -0.06623032547533513,
+            "std": 0.8931672615060995,
+            "min": -1.3718777000904083,
+            "max": 1.4799060337245464,
+            "slope_per_100_updates": -3.0805560732358144,
+            "fitted_change_over_window": -3.049750512503456
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": -7.676721994280815,
+            "std": 0.03860032202465293,
+            "min": -7.758286342024803,
+            "max": -7.591511830687523,
+            "slope_per_100_updates": 0.028801421843027628,
+            "fitted_change_over_window": 0.02851340762459735
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": -7.345996753722429,
+            "std": 0.025080604647140247,
+            "min": -7.393209472298622,
+            "max": -7.2831321358680725,
+            "slope_per_100_updates": 0.06383538560004651,
+            "fitted_change_over_window": 0.06319703174404605
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": -7.438196857621272,
+            "std": 0.08547758318120015,
+            "min": -7.64070188999176,
+            "max": -7.2831321358680725,
+            "slope_per_100_updates": 0.08995446912981073,
+            "fitted_change_over_window": 0.26896386269813405
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": -7.501948575278123,
+            "std": 0.0617200935064857,
+            "min": -7.64070188999176,
+            "max": -7.375647187232971,
+            "slope_per_100_updates": 0.10726810264886555,
+            "fitted_change_over_window": 0.15982947294680966
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": -7.374445139964422,
+            "std": 0.05171944994053006,
+            "min": -7.515871927142143,
+            "max": -7.2831321358680725,
+            "slope_per_100_updates": 0.10235522977458027,
+            "fitted_change_over_window": 0.1525092923641246
+          }
+        },
+        "train/Loss/learning_rate": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.0008164742544770755,
+            "std": 0.0013281189591020071,
+            "min": 1e-05,
+            "max": 0.01,
+            "slope_per_100_updates": -0.002516570038919366,
+            "fitted_change_over_window": -0.0024914043385301722
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 1.8556708372088274e-21,
+            "fitted_change_over_window": 1.837114128836739e-21
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 1.8556708372088274e-21,
+            "fitted_change_over_window": 1.837114128836739e-21
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 3.0240174973002915e-22,
+            "fitted_change_over_window": 9.041812316927872e-22
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": -3.0750873402370864e-21,
+            "fitted_change_over_window": -4.581880136953259e-21
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": -3.0750873402370864e-21,
+            "fitted_change_over_window": -4.581880136953259e-21
+          }
+        },
+        "train/Policy/mean_std": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.24712834849953652,
+            "std": 0.07402221006318219,
+            "min": 0.1530688852071762,
+            "max": 0.39438995718955994,
+            "slope_per_100_updates": -0.25199654505233515,
+            "fitted_change_over_window": -0.2494765796018118
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.041825234331190585,
+            "std": 0.00028395785872709154,
+            "min": 0.0411129929125309,
+            "max": 0.04221094399690628,
+            "slope_per_100_updates": 0.0008473028555990855,
+            "fitted_change_over_window": 0.0008388298270430946
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.04934510357677937,
+            "std": 0.000157359642431392,
+            "min": 0.04913445934653282,
+            "max": 0.04967396706342697,
+            "slope_per_100_updates": 0.0004570933923398009,
+            "fitted_change_over_window": 0.0004525224584164029
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.04822688040633996,
+            "std": 0.0010489779585587204,
+            "min": 0.0466577522456646,
+            "max": 0.04967396706342697,
+            "slope_per_100_updates": 0.0011732612144992297,
+            "fitted_change_over_window": 0.003508051031352697
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.0472765601426363,
+            "std": 0.0005559018969620197,
+            "min": 0.0466577522456646,
+            "max": 0.04856283217668533,
+            "slope_per_100_updates": 0.0011543410258259394,
+            "fitted_change_over_window": 0.0017199681284806498
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.04917720067004363,
+            "std": 0.00029234464049553925,
+            "min": 0.04852677136659622,
+            "max": 0.04967396706342697,
+            "slope_per_100_updates": 0.0006291615574342606,
+            "fitted_change_over_window": 0.0009374507205770483
+          }
+        }
+      },
+      "reward_early_to_late_gain": 0.9038572439650737,
+      "reward_plateau": {
+        "descriptive_plateau": true,
+        "final_150_vs_previous_150_fraction": -0.027440379897859652,
+        "last_300_fitted_change_fraction": -0.07427785630640732,
+        "rule": "Both absolute fractional changes <= 0.10, denominator max(abs(last-300 mean),0.1). Descriptive threshold, not a statistical stationarity test."
+      },
+      "lr_floor_updates_last_300": 300,
+      "lr_max_all_updates": 0.01,
+      "action_std": {
+        "axis_labels": [
+          "tcp_x",
+          "tcp_y",
+          "tcp_z"
+        ],
+        "at_update_100": [
+          0.1569598764181137,
+          0.14017260074615479,
+          0.16194480657577515
+        ],
+        "at_update_1500": [
+          0.08172290027141571,
+          0.0017651127418503165,
+          0.0651426836848259
+        ],
+        "manipulation_mean_final": 0.049543565566030644,
+        "camera_mean_final": null,
+        "manipulation_axes_below_0_01_final": 1,
+        "note": "Normalized action-space standard deviations; cross-condition aggregate means obscure low manipulation exploration under high camera std. Low std is diagnostic, not proof of cause."
+      },
+      "evaluations": {
+        "update_100": {
+          "path": "artifacts/cluster_pilot/evaluation-wrist-s0.json",
+          "checkpoint": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_99.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 3,
+          "success_rate": 0.005859375,
+          "wilson_95": [
+            0.001994675792186148,
+            0.01708378068394366
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 3,
+              "success_rate": 0.0234375
+            }
+          },
+          "mean_episode_seconds": 3.511953106150031,
+          "mean_success_completion_seconds": 2.146666685740153,
+          "mean_camera_joint_travel_rad": 0.001298722403589636,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/o23icgdv"
+        },
+        "update_751": {
+          "path": "artifacts/cluster_continuation/interim-evaluation-wrist-s0-i750.json",
+          "checkpoint": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_750.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 14,
+          "success_rate": 0.02734375,
+          "wilson_95": [
+            0.016356725239303583,
+            0.04537049399873362
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 2,
+              "success_rate": 0.015625
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 12,
+              "success_rate": 0.09375
+            }
+          },
+          "mean_episode_seconds": 3.504531232174486,
+          "mean_success_completion_seconds": 2.954285740852356,
+          "mean_camera_joint_travel_rad": 0.001298722403589636,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/1q7q9tso"
+        },
+        "update_1500": {
+          "path": "artifacts/cluster_continuation/evaluation-wrist-s0.json",
+          "checkpoint": "logs/pilots/plug_wrist_clean_gru_v0_s0_n512_20261007T180013Z/model_1499.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 3,
+          "success_rate": 0.005859375,
+          "wilson_95": [
+            0.001994675792186148,
+            0.01708378068394366
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 3,
+              "success_rate": 0.0234375
+            }
+          },
+          "mean_episode_seconds": 3.5152343562804163,
+          "mean_success_completion_seconds": 2.7066667079925537,
+          "mean_camera_joint_travel_rad": 0.001298721123021096,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/79p9fk1i"
+        }
+      },
+      "selected_success_capture_timing": [
+        {
+          "episode": 247,
+          "variant": "yp",
+          "last_pre_action_error_m": 0.0014234366826713085,
+          "min_pre_action_error_m": 0.0014234366826713085,
+          "pre_action_error_above_2mm": false
+        }
+      ],
+      "wandb": {
+        "verified_online": true,
+        "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/a7ex2ycm",
+        "state": "finished",
+        "last_history_step_index": 1499,
+        "summary": {
+          "train/Episode_Metrics/success_rate": 0.025362320244312286,
+          "train/Episode_Reward/task": 0.38694217801094055,
+          "train/Episode_Termination/failure": 0,
+          "train/Episode_Termination/success": 0.08695652335882187,
+          "train/Episode_Termination/timeout": 3.3478262424468994,
+          "train/Loss/entropy": -7.2968190014362335,
+          "train/Loss/learning_rate": 1e-05,
+          "train/Loss/surrogate": -0.007307608282644651,
+          "train/Loss/value": 0.24222055915743113,
+          "train/Perf/collection_time": 5.130509760696441,
+          "train/Perf/learning_time": 0.404914646409452,
+          "train/Perf/total_fps": 2219,
+          "train/Policy/mean_std": 0.049546342343091965,
+          "train/Train/mean_episode_length": 87.6,
+          "train/Train/mean_reward": 1.3244307765737175,
+          "train/gpu_mean_utilization_pct": 73.45126251939625,
+          "train/gpu_memory_mib": 8695,
+          "train/gpu_peak_memory_mib": 8695,
+          "train/gpu_utilization_pct": 66,
+          "train/iteration": 1500,
+          "train/iteration_seconds": 5.63268241006881,
+          "train/iteration_transitions": 12288,
+          "train/ppo_seconds": 0.404914646409452,
+          "train/rollout_seconds": 5.130509760696441,
+          "train/segment_wall_seconds": 7520.952817018144,
+          "train/torch_peak_bytes": 4576526336,
+          "train/transitions": 18432000,
+          "train/transitions_per_second": 2181.5538504415495,
+          "train/wall_seconds": 7861.815673740115,
+          "train/warmup": false
+        }
+      },
+      "task_solved_reliably": false,
+      "task_quality_note": "All conditions have 0/128 xm validation successes; final overall success <0.37. Reward gains or plateaus do not establish reliable insertion."
+    },
+    {
+      "condition": "wrist_static",
+      "training_seed": 0,
+      "directory": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z",
+      "source_revision": "04de34f24159fd1ef88904bb60afa0958edc49e2",
+      "slurm": {
+        "JobID": "51153491_6",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "Start": "2026-10-07T15:56:00",
+        "End": "2026-10-07T18:08:43",
+        "Elapsed": "02:12:43",
+        "NodeList": "holygpu7c1731"
+      },
+      "integrity_passed": true,
+      "checkpoint": {
+        "path": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_1499.pt",
+        "saved_iteration": 1499,
+        "sha256": "04ea74e19f551f3bbc88ec81af9ea5004e84f45f4d69c2b04cfb8c229191a83f"
+      },
+      "history_records": 1500,
+      "expected_records": 1500,
+      "contiguous_unique_updates": true,
+      "transition_accounting_correct": true,
+      "last_update": 1500,
+      "last_transitions": 18432000,
+      "nonfinite_logged_metrics": 0,
+      "metric_windows": {
+        "train/Train/mean_reward": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.5113236687605067,
+            "std": 0.4281501384933708,
+            "min": -0.3423142222221941,
+            "max": 1.2637020202726126,
+            "slope_per_100_updates": 1.4737136158111734,
+            "fitted_change_over_window": 1.4147650711787265
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 3.873693146410304,
+            "std": 1.311154615285116,
+            "min": 1.0279399610683322,
+            "max": 6.133954882621765,
+            "slope_per_100_updates": 0.19178504478836747,
+            "fitted_change_over_window": 0.1898671943404838
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 3.643558953255136,
+            "std": 1.1928975949755456,
+            "min": 1.0937484866380691,
+            "max": 5.49228031706065,
+            "slope_per_100_updates": -0.009573998273668661,
+            "fitted_change_over_window": -0.009478258290931975
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 3.644480161486931,
+            "std": 1.190217734109814,
+            "min": 1.0834671311825514,
+            "max": 5.846157209500671,
+            "slope_per_100_updates": -0.01843611103887221,
+            "fitted_change_over_window": -0.05512397200622791
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 3.6881526982497888,
+            "std": 1.187423602530965,
+            "min": 1.0880161060020328,
+            "max": 5.846157209500671,
+            "slope_per_100_updates": 0.07656968809342145,
+            "fitted_change_over_window": 0.11408883525919795
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 3.600807624724073,
+            "std": 1.1914055213892447,
+            "min": 1.0834671311825514,
+            "max": 5.49228031706065,
+            "slope_per_100_updates": 0.12533232988690776,
+            "fitted_change_over_window": 0.1867451715314926
+          }
+        },
+        "train/Episode_Reward/task": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.2519437640943785,
+            "std": 0.5295223316902846,
+            "min": -0.11778157949447632,
+            "max": 3.9372446537017822,
+            "slope_per_100_updates": 1.0306351846494992,
+            "fitted_change_over_window": 0.9894097772635193
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 1.3483039718866348,
+            "std": 0.2343502539089334,
+            "min": 0.9128952026367188,
+            "max": 1.9093432426452637,
+            "slope_per_100_updates": 0.010851560360027343,
+            "fitted_change_over_window": 0.010743044756427069
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1.310812411904335,
+            "std": 0.1799079181229188,
+            "min": 0.9704478979110718,
+            "max": 1.7410722970962524,
+            "slope_per_100_updates": 0.02611382355247888,
+            "fitted_change_over_window": 0.02585268531695409
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1.2988490110635758,
+            "std": 0.21775656743828287,
+            "min": 0.8077576160430908,
+            "max": 1.8540191650390625,
+            "slope_per_100_updates": 0.0013208813499824999,
+            "fitted_change_over_window": 0.003949435236447675
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1.3040331522623698,
+            "std": 0.2371021344413422,
+            "min": 0.8077576160430908,
+            "max": 1.8540191650390625,
+            "slope_per_100_updates": -0.004374097551716023,
+            "fitted_change_over_window": -0.0065174053520568745
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1.2936648698647817,
+            "std": 0.19637890041557032,
+            "min": 0.8242038488388062,
+            "max": 1.758182406425476,
+            "slope_per_100_updates": 0.05641647352473514,
+            "fitted_change_over_window": 0.08406054555185537
+          }
+        },
+        "train/Train/mean_episode_length": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 87.99670103092784,
+            "std": 0.03232316361610723,
+            "min": 87.68,
+            "max": 88.0,
+            "slope_per_100_updates": -0.018093835472299508,
+            "fitted_change_over_window": -0.017370082053407527
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 84.07480000000001,
+            "std": 2.1264503191939386,
+            "min": 79.38,
+            "max": 88.0,
+            "slope_per_100_updates": -0.33461746174616613,
+            "fitted_change_over_window": -0.3312712871287045
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 84.54969999999999,
+            "std": 1.7615773925661058,
+            "min": 80.93,
+            "max": 88.0,
+            "slope_per_100_updates": -0.3248304830483037,
+            "fitted_change_over_window": -0.32158217821782065
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 84.4856,
+            "std": 1.8080980725613311,
+            "min": 80.92,
+            "max": 88.0,
+            "slope_per_100_updates": 0.05190146557184981,
+            "fitted_change_over_window": 0.15518538205983093
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 84.395,
+            "std": 1.822129431919332,
+            "min": 80.92,
+            "max": 88.0,
+            "slope_per_100_updates": -0.14898262144988106,
+            "fitted_change_over_window": -0.22198410596032275
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 84.5762,
+            "std": 1.7893755596110432,
+            "min": 80.93,
+            "max": 88.0,
+            "slope_per_100_updates": -0.16062402773460333,
+            "fitted_change_over_window": -0.23932980132455894
+          }
+        },
+        "train/Episode_Metrics/success_rate": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.029896907277942933,
+            "std": 0.13406026384144043,
+            "min": 0.0,
+            "max": 1.0,
+            "slope_per_100_updates": 0.17028718741205826,
+            "fitted_change_over_window": 0.16347569991557592
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.2346977810561657,
+            "std": 0.06479820828744043,
+            "min": 0.11250000447034836,
+            "max": 0.4005669355392456,
+            "slope_per_100_updates": 0.001779911228747029,
+            "fitted_change_over_window": 0.0017621121164595587
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.2230974604934454,
+            "std": 0.05034588247008079,
+            "min": 0.1215277835726738,
+            "max": 0.36211180686950684,
+            "slope_per_100_updates": 0.007981120230126416,
+            "fitted_change_over_window": 0.007901309027825152
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.22110731072723866,
+            "std": 0.05971257651639898,
+            "min": 0.06537698209285736,
+            "max": 0.38333332538604736,
+            "slope_per_100_updates": -0.0003083266037119463,
+            "fitted_change_over_window": -0.0009218965450987195
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.2233143134911855,
+            "std": 0.06481249104178942,
+            "min": 0.09074758738279343,
+            "max": 0.38333332538604736,
+            "slope_per_100_updates": 0.0004309853175845769,
+            "fitted_change_over_window": 0.0006421681232010196
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.2189003079632918,
+            "std": 0.05404426769798471,
+            "min": 0.06537698209285736,
+            "max": 0.36211180686950684,
+            "slope_per_100_updates": 0.014759126487183614,
+            "fitted_change_over_window": 0.021991098465903584
+          }
+        },
+        "train/Loss/value": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.08785025024417564,
+            "std": 0.0920050725097592,
+            "min": 0.00048063512645057926,
+            "max": 0.4273633500561118,
+            "slope_per_100_updates": -0.008257468906875828,
+            "fitted_change_over_window": -0.00817489421780707
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.7340958768548443,
+            "std": 0.14031177813794393,
+            "min": 0.4867363488301635,
+            "max": 1.1255082488059998,
+            "slope_per_100_updates": 0.031338333803852904,
+            "fitted_change_over_window": 0.031024950465814376
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.7108070276584476,
+            "std": 0.14772596068557084,
+            "min": 0.4273727247491479,
+            "max": 1.1652147360146046,
+            "slope_per_100_updates": 0.043573061764316065,
+            "fitted_change_over_window": 0.043137331146672904
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.7153714230827366,
+            "std": 0.14689831885451712,
+            "min": 0.38625421933829784,
+            "max": 1.1956390924751759,
+            "slope_per_100_updates": -0.006586750100160265,
+            "fitted_change_over_window": -0.019694382799479195
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.7232627615115295,
+            "std": 0.13961928183076966,
+            "min": 0.38625421933829784,
+            "max": 1.124443743377924,
+            "slope_per_100_updates": -0.012409871216605223,
+            "fitted_change_over_window": -0.018490708112741783
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.7074800846539437,
+            "std": 0.1534279696184219,
+            "min": 0.4273727247491479,
+            "max": 1.1956390924751759,
+            "slope_per_100_updates": 0.022847627234828978,
+            "fitted_change_over_window": 0.034042964579895175
+          }
+        },
+        "train/Loss/surrogate": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": -0.012958571266271974,
+            "std": 0.006713448916550448,
+            "min": -0.025027153693372384,
+            "max": 0.0035037955658481224,
+            "slope_per_100_updates": -0.004442319245371486,
+            "fitted_change_over_window": -0.004397896052917771
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": -0.0025072127118664867,
+            "std": 0.0025145771198105066,
+            "min": -0.008634422003524378,
+            "max": 0.004396024876768934,
+            "slope_per_100_updates": 0.0017802853234757038,
+            "fitted_change_over_window": 0.0017624824702409468
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": -0.0015577858434551216,
+            "std": 0.0028447042534214067,
+            "min": -0.006720009550917894,
+            "max": 0.005960578637314029,
+            "slope_per_100_updates": 0.0004762306625204655,
+            "fitted_change_over_window": 0.00047146835589526086
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": -0.0022414730079549374,
+            "std": 0.002783708892508356,
+            "min": -0.0077373044869091245,
+            "max": 0.0060025704733561724,
+            "slope_per_100_updates": 0.0003889933335715525,
+            "fitted_change_over_window": 0.0011630900673789421
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": -0.0025353303628958203,
+            "std": 0.0028002538103947486,
+            "min": -0.0077373044869091245,
+            "max": 0.0060025704733561724,
+            "slope_per_100_updates": -0.000550875749381173,
+            "fitted_change_over_window": -0.0008208048665779479
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": -0.0019476156530140543,
+            "std": 0.0027356799344448505,
+            "min": -0.0076709949207725,
+            "max": 0.005960578637314029,
+            "slope_per_100_updates": 0.0013119628273336832,
+            "fitted_change_over_window": 0.001954824612727188
+          }
+        },
+        "train/Loss/entropy": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.03855139413848519,
+            "std": 0.8793992757188889,
+            "min": -1.4077431000769138,
+            "max": 1.5005125552415848,
+            "slope_per_100_updates": -3.04214602985447,
+            "fitted_change_over_window": -3.011724569555925
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": -10.948006406128407,
+            "std": 0.0828948785685752,
+            "min": -11.089621752500534,
+            "max": -10.780156970024109,
+            "slope_per_100_updates": -0.19948166025818798,
+            "fitted_change_over_window": -0.1974868436556061
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": -10.866509556472302,
+            "std": 0.05339838076143856,
+            "min": -10.970937192440033,
+            "max": -10.768299996852875,
+            "slope_per_100_updates": -0.0169159534311561,
+            "fitted_change_over_window": -0.01674679389684454
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": -10.764280512829622,
+            "std": 0.10406942512797787,
+            "min": -10.970937192440033,
+            "max": -10.493084967136383,
+            "slope_per_100_updates": -0.05792045848835918,
+            "fitted_change_over_window": -0.17318217088019394
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": -10.701905514995257,
+            "std": 0.08660298947874423,
+            "min": -10.88975414633751,
+            "max": -10.493084967136383,
+            "slope_per_100_updates": 0.1601961972983812,
+            "fitted_change_over_window": 0.23869233397458797
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": -10.826655510663986,
+            "std": 0.07987197253483937,
+            "min": -10.970937192440033,
+            "max": -10.630041390657425,
+            "slope_per_100_updates": -0.12455314990970368,
+            "fitted_change_over_window": -0.18558419336545848
+          }
+        },
+        "train/Loss/learning_rate": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.0009408302527851075,
+            "std": 0.0017020011693783083,
+            "min": 2.2836582605211666e-05,
+            "max": 0.01,
+            "slope_per_100_updates": -0.0031302559451492945,
+            "fitted_change_over_window": -0.0030989533856978016
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 1.8556708372088274e-21,
+            "fitted_change_over_window": 1.837114128836739e-21
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 1.8556708372088274e-21,
+            "fitted_change_over_window": 1.837114128836739e-21
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 3.0240174973002915e-22,
+            "fitted_change_over_window": 9.041812316927872e-22
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": -3.0750873402370864e-21,
+            "fitted_change_over_window": -4.581880136953259e-21
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": -3.0750873402370864e-21,
+            "fitted_change_over_window": -4.581880136953259e-21
+          }
+        },
+        "train/Policy/mean_std": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.25645057648420333,
+            "std": 0.0739911815051622,
+            "min": 0.15322528779506683,
+            "max": 0.4005459249019623,
+            "slope_per_100_updates": -0.2533470806938159,
+            "fitted_change_over_window": -0.25081360988687773
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.030011767894029616,
+            "std": 0.00023655007144226368,
+            "min": 0.029658973217010498,
+            "max": 0.03049727901816368,
+            "slope_per_100_updates": 0.0007458701372110866,
+            "fitted_change_over_window": 0.0007384114358389757
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.03460714373737574,
+            "std": 0.00021203642663306977,
+            "min": 0.03430681675672531,
+            "max": 0.03499719873070717,
+            "slope_per_100_updates": 0.000668602948910548,
+            "fitted_change_over_window": 0.0006619169194214425
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.03424418495347103,
+            "std": 0.000401293760547643,
+            "min": 0.03341025859117508,
+            "max": 0.03499719873070717,
+            "slope_per_100_updates": 0.0004332352278007456,
+            "fitted_change_over_window": 0.0012953733311242292
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.03394797426958879,
+            "std": 0.00032577072729741394,
+            "min": 0.03341025859117508,
+            "max": 0.03456704691052437,
+            "slope_per_100_updates": 0.0007345001290038203,
+            "fitted_change_over_window": 0.0010944051922156925
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.03454039563735326,
+            "std": 0.00020115978537741468,
+            "min": 0.03427961841225624,
+            "max": 0.03499719873070717,
+            "slope_per_100_updates": 0.0003617064328377787,
+            "fitted_change_over_window": 0.0005389425849282902
+          }
+        }
+      },
+      "reward_early_to_late_gain": 3.1322352844946293,
+      "reward_plateau": {
+        "descriptive_plateau": true,
+        "final_150_vs_previous_150_fraction": -0.023966401147888085,
+        "last_300_fitted_change_fraction": -0.015125331889236456,
+        "rule": "Both absolute fractional changes <= 0.10, denominator max(abs(last-300 mean),0.1). Descriptive threshold, not a statistical stationarity test."
+      },
+      "lr_floor_updates_last_300": 300,
+      "lr_max_all_updates": 0.01,
+      "action_std": {
+        "axis_labels": [
+          "tcp_x",
+          "tcp_y",
+          "tcp_z"
+        ],
+        "at_update_100": [
+          0.1303689330816269,
+          0.13767032325267792,
+          0.19163621962070465
+        ],
+        "at_update_1500": [
+          0.0016865736106410623,
+          0.001705716596916318,
+          0.10127462446689606
+        ],
+        "manipulation_mean_final": 0.03488897155815115,
+        "camera_mean_final": null,
+        "manipulation_axes_below_0_01_final": 2,
+        "note": "Normalized action-space standard deviations; cross-condition aggregate means obscure low manipulation exploration under high camera std. Low std is diagnostic, not proof of cause."
+      },
+      "evaluations": {
+        "update_100": {
+          "path": "artifacts/cluster_pilot/evaluation-wrist_static-s0.json",
+          "checkpoint": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_99.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 7,
+          "success_rate": 0.013671875,
+          "wilson_95": [
+            0.00663809699225049,
+            0.027949000488209277
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 6,
+              "success_rate": 0.046875
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 1,
+              "success_rate": 0.0078125
+            }
+          },
+          "mean_episode_seconds": 3.5092968558892608,
+          "mean_success_completion_seconds": 2.7371428353445872,
+          "mean_camera_joint_travel_rad": 0.0012987207155674696,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/exx2hu2j"
+        },
+        "update_751": {
+          "path": "artifacts/cluster_continuation/interim-evaluation-wrist_static-s0-i750.json",
+          "checkpoint": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_750.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 44,
+          "success_rate": 0.0859375,
+          "wilson_95": [
+            0.06463895595699354,
+            0.11340307081351841
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 43,
+              "success_rate": 0.3359375
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 1,
+              "success_rate": 0.0078125
+            }
+          },
+          "mean_episode_seconds": 3.4343749831896275,
+          "mean_success_completion_seconds": 2.523636370897293,
+          "mean_camera_joint_travel_rad": 0.0012987220979994163,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/qendmi3r"
+        },
+        "update_1500": {
+          "path": "artifacts/cluster_continuation/evaluation-wrist_static-s0.json",
+          "checkpoint": "logs/pilots/plug_wrist_static_clean_gru_v7_s0_n512_20261007T180035Z/model_1499.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 59,
+          "success_rate": 0.115234375,
+          "wilson_95": [
+            0.090396472382833,
+            0.14580295815391628
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 57,
+              "success_rate": 0.4453125
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 2,
+              "success_rate": 0.015625
+            }
+          },
+          "mean_episode_seconds": 3.4131249831989408,
+          "mean_success_completion_seconds": 2.5925423735279147,
+          "mean_camera_joint_travel_rad": 0.0012987224181415513,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/ms2qp76p"
+        }
+      },
+      "selected_success_capture_timing": [
+        {
+          "episode": 1,
+          "variant": "xp",
+          "last_pre_action_error_m": 0.002354316646233201,
+          "min_pre_action_error_m": 0.0020182784646749496,
+          "pre_action_error_above_2mm": true
+        },
+        {
+          "episode": 111,
+          "variant": "yp",
+          "last_pre_action_error_m": 0.0017667001811787486,
+          "min_pre_action_error_m": 0.0016878516180440784,
+          "pre_action_error_above_2mm": false
+        }
+      ],
+      "wandb": {
+        "verified_online": true,
+        "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/zj5uevwm",
+        "state": "finished",
+        "last_history_step_index": 1499,
+        "summary": {
+          "train/Episode_Metrics/success_rate": 0.199447900056839,
+          "train/Episode_Reward/task": 1.2176687717437744,
+          "train/Episode_Termination/failure": 0,
+          "train/Episode_Termination/success": 0.695652186870575,
+          "train/Episode_Termination/timeout": 3.2173912525177,
+          "train/Loss/entropy": -10.794677197933195,
+          "train/Loss/learning_rate": 1e-05,
+          "train/Loss/surrogate": -0.004617844126187265,
+          "train/Loss/value": 0.5251640072092414,
+          "train/Perf/collection_time": 5.160014605149627,
+          "train/Perf/learning_time": 0.7151662786491215,
+          "train/Perf/total_fps": 2091,
+          "train/Policy/mean_std": 0.03488840535283089,
+          "train/Train/mean_episode_length": 83.3,
+          "train/Train/mean_reward": 4.103388972580433,
+          "train/gpu_mean_utilization_pct": 74.77890573500329,
+          "train/gpu_memory_mib": 10893,
+          "train/gpu_peak_memory_mib": 10893,
+          "train/gpu_utilization_pct": 79,
+          "train/iteration": 1500,
+          "train/iteration_seconds": 5.924522359389812,
+          "train/iteration_transitions": 12288,
+          "train/ppo_seconds": 0.7151662786491215,
+          "train/rollout_seconds": 5.160014605149627,
+          "train/segment_wall_seconds": 7954.966040924192,
+          "train/torch_peak_bytes": 5702050816,
+          "train/transitions": 18432000,
+          "train/transitions_per_second": 2074.091252356348,
+          "train/wall_seconds": 8383.376604667399,
+          "train/warmup": false
+        }
+      },
+      "task_solved_reliably": false,
+      "task_quality_note": "All conditions have 0/128 xm validation successes; final overall success <0.37. Reward gains or plateaus do not establish reliable insertion."
+    },
+    {
+      "condition": "initial",
+      "training_seed": 0,
+      "directory": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z",
+      "source_revision": "04de34f24159fd1ef88904bb60afa0958edc49e2",
+      "slurm": {
+        "JobID": "51153482_9",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "Start": "2026-10-07T15:55:57",
+        "End": "2026-10-07T18:30:11",
+        "Elapsed": "02:34:14",
+        "NodeList": "holygpu7c1731"
+      },
+      "integrity_passed": true,
+      "checkpoint": {
+        "path": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt",
+        "saved_iteration": 1499,
+        "sha256": "bd9e1dafe80c700de6132c105a365b56286429e8bd1a3b8144ccb2e3bb3f749f"
+      },
+      "history_records": 1500,
+      "expected_records": 1500,
+      "contiguous_unique_updates": true,
+      "transition_accounting_correct": true,
+      "last_update": 1500,
+      "last_transitions": 18432000,
+      "nonfinite_logged_metrics": 0,
+      "metric_windows": {
+        "train/Train/mean_reward": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.6596975889783737,
+            "std": 0.49915988051403487,
+            "min": -0.300212121643126,
+            "max": 1.708907081410289,
+            "slope_per_100_updates": 1.6492895345177763,
+            "fitted_change_over_window": 1.5833179531370651
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 6.078828507504147,
+            "std": 1.3926869102187551,
+            "min": 2.581884677708149,
+            "max": 8.92943975687027,
+            "slope_per_100_updates": 0.31375268208311335,
+            "fitted_change_over_window": 0.3106151552622822
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 6.502988400691609,
+            "std": 1.0936682296404219,
+            "min": 3.7188476851582526,
+            "max": 8.949894251823425,
+            "slope_per_100_updates": -0.1292366902472756,
+            "fitted_change_over_window": -0.12794432334480285
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 6.533739900036917,
+            "std": 1.159368707224848,
+            "min": 3.364555581915192,
+            "max": 9.070489694029092,
+            "slope_per_100_updates": 0.027695674584912268,
+            "fitted_change_over_window": 0.08281006700888768
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 6.495082058918724,
+            "std": 1.1770924970882022,
+            "min": 3.364555581915192,
+            "max": 9.070489694029092,
+            "slope_per_100_updates": 0.10335752265447692,
+            "fitted_change_over_window": 0.1540027087551706
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 6.572397741155109,
+            "std": 1.140059645160398,
+            "min": 3.7188476851582526,
+            "max": 8.949894251823425,
+            "slope_per_100_updates": -0.19106121470033852,
+            "fitted_change_over_window": -0.28468120990350443
+          }
+        },
+        "train/Episode_Reward/task": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.5332216789331479,
+            "std": 0.8003699892263088,
+            "min": -0.49087539315223694,
+            "max": 4.059895992279053,
+            "slope_per_100_updates": 1.4799274374047189,
+            "fitted_change_over_window": 1.42073033990853
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 1.8767487800121307,
+            "std": 0.21068710216723036,
+            "min": 1.375420093536377,
+            "max": 2.3968653678894043,
+            "slope_per_100_updates": 0.16105649602187852,
+            "fitted_change_over_window": 0.15944593106165975
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1.9968173253536223,
+            "std": 0.18172924950144392,
+            "min": 1.6002435684204102,
+            "max": 2.6568493843078613,
+            "slope_per_100_updates": -0.07646713841973661,
+            "fitted_change_over_window": -0.07570246703553923
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1.9959447264671326,
+            "std": 0.1843769889080381,
+            "min": 1.526075005531311,
+            "max": 2.6568493843078613,
+            "slope_per_100_updates": 0.0009857578451585767,
+            "fitted_change_over_window": 0.002947415957024144
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1.9911873928705852,
+            "std": 0.18559355626293478,
+            "min": 1.526075005531311,
+            "max": 2.584646701812744,
+            "slope_per_100_updates": -0.007760038587368503,
+            "fitted_change_over_window": -0.01156245749517907
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 2.0007020600636802,
+            "std": 0.18302872863397376,
+            "min": 1.5370477437973022,
+            "max": 2.6568493843078613,
+            "slope_per_100_updates": -0.022413996114874914,
+            "fitted_change_over_window": -0.03339685421116362
+          }
+        },
+        "train/Train/mean_episode_length": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 87.95690721649484,
+            "std": 0.12329965865407169,
+            "min": 87.37,
+            "max": 88.0,
+            "slope_per_100_updates": -0.1318772354302305,
+            "fitted_change_over_window": -0.12660214601302128
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 79.1837,
+            "std": 3.4895525945312813,
+            "min": 71.43,
+            "max": 87.73,
+            "slope_per_100_updates": -0.6486828682868302,
+            "fitted_change_over_window": -0.6421960396039619
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 78.1665,
+            "std": 2.883251073007691,
+            "min": 73.05,
+            "max": 85.42,
+            "slope_per_100_updates": 0.3066006600659955,
+            "fitted_change_over_window": 0.30353465346533554
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 78.06943333333334,
+            "std": 3.120009724165758,
+            "min": 72.28,
+            "max": 86.39,
+            "slope_per_100_updates": -0.060242669362969695,
+            "fitted_change_over_window": -0.1801255813952794
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 78.11886666666668,
+            "std": 3.185428184021036,
+            "min": 72.28,
+            "max": 86.39,
+            "slope_per_100_updates": -0.5228943508600232,
+            "fitted_change_over_window": -0.7791125827814346
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 78.02,
+            "std": 3.052389446537472,
+            "min": 72.31,
+            "max": 85.79,
+            "slope_per_100_updates": 0.4364211742743959,
+            "fitted_change_over_window": 0.6502675496688499
+          }
+        },
+        "train/Episode_Metrics/success_rate": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.09222095590276816,
+            "std": 0.19356406970799844,
+            "min": 0.0,
+            "max": 1.0,
+            "slope_per_100_updates": 0.27464771202014737,
+            "fitted_change_over_window": 0.2636618035393415
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.3783023835718632,
+            "std": 0.06167402104795681,
+            "min": 0.23975197970867157,
+            "max": 0.5391368865966797,
+            "slope_per_100_updates": 0.03632721800257625,
+            "fitted_change_over_window": 0.03596394582255049
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.40572753578424453,
+            "std": 0.051367541091582536,
+            "min": 0.2835482954978943,
+            "max": 0.5832837820053101,
+            "slope_per_100_updates": -0.024526374872260684,
+            "fitted_change_over_window": -0.024281111123538077
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.40721528470516205,
+            "std": 0.054384726785721475,
+            "min": 0.26448336243629456,
+            "max": 0.5841270685195923,
+            "slope_per_100_updates": -0.00022942890006843404,
+            "fitted_change_over_window": -0.0006859924112046178
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.40607839822769165,
+            "std": 0.0556373268432529,
+            "min": 0.26448336243629456,
+            "max": 0.5841270685195923,
+            "slope_per_100_updates": 0.0004986800153050354,
+            "fitted_change_over_window": 0.0007430332228045028
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.40835217118263245,
+            "std": 0.053078242766004244,
+            "min": 0.2699528932571411,
+            "max": 0.5832837820053101,
+            "slope_per_100_updates": -0.011429668463645102,
+            "fitted_change_over_window": -0.017030206010831203
+          }
+        },
+        "train/Loss/value": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.17176282104017446,
+            "std": 0.12665611942526003,
+            "min": 0.0016937158070504665,
+            "max": 0.6578080682083964,
+            "slope_per_100_updates": 0.013182831492406047,
+            "fitted_change_over_window": 0.013051003177481988
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 1.8151974176242947,
+            "std": 0.2055492815842497,
+            "min": 1.4335636105388403,
+            "max": 2.260042380541563,
+            "slope_per_100_updates": 0.1766658936767758,
+            "fitted_change_over_window": 0.17489923474000804
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1.8862929297424853,
+            "std": 0.1841195838636082,
+            "min": 1.5588423162698746,
+            "max": 2.4237493872642517,
+            "slope_per_100_updates": -0.0776444243369446,
+            "fitted_change_over_window": -0.07686798009357515
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1.8832727315463125,
+            "std": 0.19271046528375946,
+            "min": 1.366205470636487,
+            "max": 2.4237493872642517,
+            "slope_per_100_updates": 0.006654204512529756,
+            "fitted_change_over_window": 0.01989607149246397
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1.8719566483298937,
+            "std": 0.20000954310669683,
+            "min": 1.366205470636487,
+            "max": 2.391083098948002,
+            "slope_per_100_updates": 0.006126437119136205,
+            "fitted_change_over_window": 0.009128391307512945
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1.8945888147627314,
+            "std": 0.18443080558110314,
+            "min": 1.5588423162698746,
+            "max": 2.4237493872642517,
+            "slope_per_100_updates": -0.043423715891934125,
+            "fitted_change_over_window": -0.06470133667898184
+          }
+        },
+        "train/Loss/surrogate": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": -0.006473030123194121,
+            "std": 0.002667910609721954,
+            "min": -0.023971516158781014,
+            "max": 0.001653657091083005,
+            "slope_per_100_updates": 0.0003780642709990641,
+            "fitted_change_over_window": 0.0003742836282890735
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": -0.0044370333480793535,
+            "std": 0.0012231503192914888,
+            "min": -0.0074914560245815665,
+            "max": -0.0007995875348569825,
+            "slope_per_100_updates": -0.00018862911885606906,
+            "fitted_change_over_window": -0.00018674282766750836
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.000924576167280975,
+            "std": 0.0024657099781382192,
+            "min": -0.00429234016337432,
+            "max": 0.008080330990196671,
+            "slope_per_100_updates": 0.0018651153579757403,
+            "fitted_change_over_window": 0.001846464204395983
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": -0.0003469074602877716,
+            "std": 0.0024292666815298224,
+            "min": -0.004998299404178397,
+            "max": 0.008080330990196671,
+            "slope_per_100_updates": 0.0014178358218462403,
+            "fitted_change_over_window": 0.004239329107320259
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": -0.0013116613863627434,
+            "std": 0.0020797991528017953,
+            "min": -0.004998299404178397,
+            "max": 0.006745745646185242,
+            "slope_per_100_updates": 0.002191906617442743,
+            "fitted_change_over_window": 0.0032659408599896873
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.0006178464657872004,
+            "std": 0.002369727500838993,
+            "min": -0.00437098226393573,
+            "max": 0.008080330990196671,
+            "slope_per_100_updates": 0.0014327836162202957,
+            "fitted_change_over_window": 0.0021348475881682403
+          }
+        },
+        "train/Loss/entropy": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 3.2449691120535133,
+            "std": 0.4709639395236582,
+            "min": 2.5022654235363007,
+            "max": 4.026527464389801,
+            "slope_per_100_updates": -1.6247491156942258,
+            "fitted_change_over_window": -1.6085016245372834
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": -2.3986947644501924,
+            "std": 0.24503515100654677,
+            "min": -2.8535603806376457,
+            "max": -2.0172445699572563,
+            "slope_per_100_updates": -0.8403658670927353,
+            "fitted_change_over_window": -0.831962208421808
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": -6.464858166575432,
+            "std": 0.10616109376087558,
+            "min": -6.6503220945596695,
+            "max": -6.280422791838646,
+            "slope_per_100_updates": -0.34527841533156567,
+            "fitted_change_over_window": -0.34182563117825
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": -6.167505457997322,
+            "std": 0.2912526629743469,
+            "min": -6.6503220945596695,
+            "max": -5.5154594630002975,
+            "slope_per_100_updates": -0.32615908534886245,
+            "fitted_change_over_window": -0.9752156651930988
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": -5.940528123875459,
+            "std": 0.22141770420081722,
+            "min": -6.243653208017349,
+            "max": -5.5154594630002975,
+            "slope_per_100_updates": -0.4998469717015437,
+            "fitted_change_over_window": -0.7447719878353001
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": -6.394482792119185,
+            "std": 0.13263863402342743,
+            "min": -6.6503220945596695,
+            "max": -6.207194596529007,
+            "slope_per_100_updates": -0.29361331109719935,
+            "fitted_change_over_window": -0.437483833534827
+          }
+        },
+        "train/Loss/learning_rate": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.0003690260009765626,
+            "std": 0.00022574847064270532,
+            "min": 1e-05,
+            "max": 0.0012974633789062506,
+            "slope_per_100_updates": -0.00031452773841837304,
+            "fitted_change_over_window": -0.0003113824610341893
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 3.734375000000001e-05,
+            "std": 1.743584781599393e-05,
+            "min": 1e-05,
+            "max": 7.593750000000004e-05,
+            "slope_per_100_updates": -9.940369036903717e-06,
+            "fitted_change_over_window": -9.840965346534679e-06
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 1.8556708372088274e-21,
+            "fitted_change_over_window": 1.837114128836739e-21
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1.015e-05,
+            "std": 8.529361054615994e-07,
+            "min": 1e-05,
+            "max": 1.5000000000000004e-05,
+            "slope_per_100_updates": -2.3055811731241076e-07,
+            "fitted_change_over_window": -6.893687707641081e-07
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1.0300000000000001e-05,
+            "std": 1.1874342087037923e-06,
+            "min": 1e-05,
+            "max": 1.5000000000000004e-05,
+            "slope_per_100_updates": -6.444730876927875e-07,
+            "fitted_change_over_window": -9.602649006622534e-07
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": -3.0750873402370864e-21,
+            "fitted_change_over_window": -4.581880136953259e-21
+          }
+        },
+        "train/Policy/mean_std": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.3653851053118706,
+            "std": 0.020035903608146464,
+            "min": 0.33577749133110046,
+            "max": 0.4003005623817444,
+            "slope_per_100_updates": -0.06892055845317854,
+            "fitted_change_over_window": -0.06823135286864676
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.269519719183445,
+            "std": 0.0003475424300713067,
+            "min": 0.26881349086761475,
+            "max": 0.27030643820762634,
+            "slope_per_100_updates": -0.0004530075860387706,
+            "fitted_change_over_window": -0.00044847751017838285
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.2793823903799057,
+            "std": 0.0004729879079681192,
+            "min": 0.2786189019680023,
+            "max": 0.2802523076534271,
+            "slope_per_100_updates": 0.001629007960667671,
+            "fitted_change_over_window": 0.0016127178810609944
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.27795078615347546,
+            "std": 0.0011867424694882913,
+            "min": 0.27601584792137146,
+            "max": 0.2802523076534271,
+            "slope_per_100_updates": 0.00136035330357902,
+            "fitted_change_over_window": 0.004067456377701269
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.2769335323572159,
+            "std": 0.00048014389728824456,
+            "min": 0.27601584792137146,
+            "max": 0.27778416872024536,
+            "slope_per_100_updates": 0.0010896829812970478,
+            "fitted_change_over_window": 0.001623627642132601
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.278968039949735,
+            "std": 0.000718725708224083,
+            "min": 0.27773693203926086,
+            "max": 0.2802523076534271,
+            "slope_per_100_updates": 0.001655114147947946,
+            "fitted_change_over_window": 0.0024661200804424396
+          }
+        }
+      },
+      "reward_early_to_late_gain": 5.843290811713235,
+      "reward_plateau": {
+        "descriptive_plateau": true,
+        "final_150_vs_previous_150_fraction": 0.011833296614079837,
+        "last_300_fitted_change_fraction": 0.012674221544757206,
+        "rule": "Both absolute fractional changes <= 0.10, denominator max(abs(last-300 mean),0.1). Descriptive threshold, not a statistical stationarity test."
+      },
+      "lr_floor_updates_last_300": 291,
+      "lr_max_all_updates": 0.0012974633789062506,
+      "action_std": {
+        "axis_labels": [
+          "tcp_x",
+          "tcp_y",
+          "tcp_z",
+          "camera_x",
+          "camera_y",
+          "camera_z",
+          "camera_yaw",
+          "camera_pitch"
+        ],
+        "at_update_100": [
+          0.2683793008327484,
+          0.2486596554517746,
+          0.2903304994106293,
+          0.3632441461086273,
+          0.36573272943496704,
+          0.41837573051452637,
+          0.3770250082015991,
+          0.3576383888721466
+        ],
+        "at_update_1500": [
+          0.032595567405223846,
+          0.009123392403125763,
+          0.0032121040858328342,
+          0.41297999024391174,
+          0.4628773629665375,
+          0.4979243576526642,
+          0.4286465346813202,
+          0.39466720819473267
+        ],
+        "manipulation_mean_final": 0.014977021298060814,
+        "camera_mean_final": 0.43941909074783325,
+        "manipulation_axes_below_0_01_final": 2,
+        "note": "Normalized action-space standard deviations; cross-condition aggregate means obscure low manipulation exploration under high camera std. Low std is diagnostic, not proof of cause."
+      },
+      "evaluations": {
+        "update_100": {
+          "path": "artifacts/cluster_pilot/evaluation-initial-s0.json",
+          "checkpoint": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_99.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 3,
+          "success_rate": 0.005859375,
+          "wilson_95": [
+            0.001994675792186148,
+            0.01708378068394366
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 1,
+              "success_rate": 0.0078125
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 2,
+              "success_rate": 0.015625
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "mean_episode_seconds": 3.511015606112778,
+          "mean_success_completion_seconds": 1.9866666793823242,
+          "mean_camera_joint_travel_rad": 1.3234463731059805,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/il8drljq"
+        },
+        "update_751": null,
+        "update_1500": {
+          "path": "artifacts/cluster_continuation/evaluation-initial-s0.json",
+          "checkpoint": "logs/pilots/plug_initial_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 185,
+          "success_rate": 0.361328125,
+          "wilson_95": [
+            0.3208926804877287,
+            0.4038289416854145
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 65,
+              "success_rate": 0.5078125
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 61,
+              "success_rate": 0.4765625
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 59,
+              "success_rate": 0.4609375
+            }
+          },
+          "mean_episode_seconds": 3.129374985350296,
+          "mean_success_completion_seconds": 2.438918912088549,
+          "mean_camera_joint_travel_rad": 2.1081578792072833,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/chvby612"
+        }
+      },
+      "selected_success_capture_timing": [
+        {
+          "episode": 2,
+          "variant": "ym",
+          "last_pre_action_error_m": 0.001315732137300074,
+          "min_pre_action_error_m": 0.001315732137300074,
+          "pre_action_error_above_2mm": false
+        },
+        {
+          "episode": 3,
+          "variant": "yp",
+          "last_pre_action_error_m": 0.0009709349251352251,
+          "min_pre_action_error_m": 0.0008715435396879911,
+          "pre_action_error_above_2mm": false
+        },
+        {
+          "episode": 5,
+          "variant": "xp",
+          "last_pre_action_error_m": 0.0011378490598872304,
+          "min_pre_action_error_m": 0.0011378490598872304,
+          "pre_action_error_above_2mm": false
+        }
+      ],
+      "wandb": {
+        "verified_online": true,
+        "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/i116qwyn",
+        "state": "finished",
+        "last_history_step_index": 1499,
+        "summary": {
+          "train/Episode_Metrics/success_rate": 0.35654765367507935,
+          "train/Episode_Reward/task": 1.8668969869613647,
+          "train/Episode_Termination/failure": 0,
+          "train/Episode_Termination/success": 2.2916667461395264,
+          "train/Episode_Termination/timeout": 4.0416669845581055,
+          "train/Loss/entropy": -6.647085428237915,
+          "train/Loss/learning_rate": 1e-05,
+          "train/Loss/surrogate": 0.004110456278795027,
+          "train/Loss/value": 1.8236351981759071,
+          "train/Perf/collection_time": 6.040493885055184,
+          "train/Perf/learning_time": 0.7202530517242849,
+          "train/Perf/total_fps": 1817,
+          "train/Policy/mean_std": 0.2802523076534271,
+          "train/Train/mean_episode_length": 77.26,
+          "train/Train/mean_reward": 6.673741806894541,
+          "train/gpu_mean_utilization_pct": 75.60452426963738,
+          "train/gpu_memory_mib": 11325,
+          "train/gpu_peak_memory_mib": 11325,
+          "train/gpu_utilization_pct": 74,
+          "train/iteration": 1500,
+          "train/iteration_seconds": 6.8404747527092695,
+          "train/iteration_transitions": 12288,
+          "train/ppo_seconds": 0.7202530517242849,
+          "train/rollout_seconds": 6.040493885055184,
+          "train/segment_wall_seconds": 9240.188936154824,
+          "train/torch_peak_bytes": 5692681728,
+          "train/transitions": 18432000,
+          "train/transitions_per_second": 1796.3665453385613,
+          "train/wall_seconds": 9701.498729217798,
+          "train/warmup": false
+        }
+      },
+      "task_solved_reliably": false,
+      "task_quality_note": "All conditions have 0/128 xm validation successes; final overall success <0.37. Reward gains or plateaus do not establish reliable insertion."
+    },
+    {
+      "condition": "active",
+      "training_seed": 0,
+      "directory": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z",
+      "source_revision": "04de34f24159fd1ef88904bb60afa0958edc49e2",
+      "slurm": {
+        "JobID": "51153446_15",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "Start": "2026-10-07T15:55:55",
+        "End": "2026-10-07T18:26:50",
+        "Elapsed": "02:30:55",
+        "NodeList": "holygpu7c1713"
+      },
+      "integrity_passed": true,
+      "checkpoint": {
+        "path": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt",
+        "saved_iteration": 1499,
+        "sha256": "335f1548aab57f3977c6cc986dbf156c8c889698882fa271863532a9ac1ec55f"
+      },
+      "history_records": 1500,
+      "expected_records": 1500,
+      "contiguous_unique_updates": true,
+      "transition_accounting_correct": true,
+      "last_update": 1500,
+      "last_transitions": 18432000,
+      "nonfinite_logged_metrics": 0,
+      "metric_windows": {
+        "train/Train/mean_reward": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.6639776265360992,
+            "std": 0.4929510464924403,
+            "min": -0.4032557763904333,
+            "max": 1.4871653609722852,
+            "slope_per_100_updates": 1.607925558961772,
+            "fitted_change_over_window": 1.5436085366033012
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 5.573326527090696,
+            "std": 1.2607106767588911,
+            "min": 2.476903721243143,
+            "max": 7.8801478293910625,
+            "slope_per_100_updates": 0.15658985209393575,
+            "fitted_change_over_window": 0.1550239535729964
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 5.477113227582979,
+            "std": 1.0471817462689632,
+            "min": 2.7403734430670736,
+            "max": 7.898432073593139,
+            "slope_per_100_updates": -0.046838098237663627,
+            "fitted_change_over_window": -0.04636971725528699
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 5.519675036151685,
+            "std": 1.062028918212397,
+            "min": 2.7403734430670736,
+            "max": 7.898432073593139,
+            "slope_per_100_updates": -0.021411603186490102,
+            "fitted_change_over_window": -0.06402069352760541
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 5.547297234554184,
+            "std": 1.0647187559339244,
+            "min": 3.025038439258933,
+            "max": 7.59834707736969,
+            "slope_per_100_updates": 0.11836774698720066,
+            "fitted_change_over_window": 0.176367943010929
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 5.492052837749182,
+            "std": 1.058611753813517,
+            "min": 2.7403734430670736,
+            "max": 7.898432073593139,
+            "slope_per_100_updates": -0.06867887361112922,
+            "fitted_change_over_window": -0.10233152168058253
+          }
+        },
+        "train/Episode_Reward/task": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.2526489535692273,
+            "std": 0.5865283887135042,
+            "min": -0.4905796945095062,
+            "max": 4.1063432693481445,
+            "slope_per_100_updates": 0.5147946160491182,
+            "fitted_change_over_window": 0.4942028314071535
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 1.731240656375885,
+            "std": 0.1923752373995362,
+            "min": 1.3466384410858154,
+            "max": 2.2216272354125977,
+            "slope_per_100_updates": 0.10108975365538772,
+            "fitted_change_over_window": 0.10007885611883385
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1.6555118107795714,
+            "std": 0.17105016073465695,
+            "min": 1.2646163702011108,
+            "max": 2.2633566856384277,
+            "slope_per_100_updates": 0.05446672496801395,
+            "fitted_change_over_window": 0.05392205771833381
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1.6779724582036337,
+            "std": 0.1785278376460793,
+            "min": 1.1503500938415527,
+            "max": 2.2633566856384277,
+            "slope_per_100_updates": -0.010421073927222226,
+            "fitted_change_over_window": -0.031159011042394456
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1.6898302666346232,
+            "std": 0.1782454726932538,
+            "min": 1.1503500938415527,
+            "max": 2.196892499923706,
+            "slope_per_100_updates": 0.02756530716449005,
+            "fitted_change_over_window": 0.041072307675090174
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1.666114649772644,
+            "std": 0.17802166680479126,
+            "min": 1.2630915641784668,
+            "max": 2.2633566856384277,
+            "slope_per_100_updates": -0.01606999391386058,
+            "fitted_change_over_window": -0.023944290931652262
+          }
+        },
+        "train/Train/mean_episode_length": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 87.9957731958763,
+            "std": 0.029140082981661403,
+            "min": 87.79,
+            "max": 88.0,
+            "slope_per_100_updates": -0.007666210814210408,
+            "fitted_change_over_window": -0.007359562381641992
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 80.44749999999999,
+            "std": 2.9083831848640576,
+            "min": 75.45,
+            "max": 88.0,
+            "slope_per_100_updates": 0.43425742574257337,
+            "fitted_change_over_window": 0.42991485148514763
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 81.5162,
+            "std": 2.3563445333821615,
+            "min": 77.43,
+            "max": 87.62,
+            "slope_per_100_updates": 0.42427842784278663,
+            "fitted_change_over_window": 0.42003564356435874
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 81.29936666666666,
+            "std": 2.4442262440744353,
+            "min": 76.82,
+            "max": 87.63,
+            "slope_per_100_updates": 0.16950521672465568,
+            "fitted_change_over_window": 0.5068205980067205
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 81.12513333333334,
+            "std": 2.4463416868640584,
+            "min": 76.83,
+            "max": 87.19,
+            "slope_per_100_updates": -0.3218791946309046,
+            "fitted_change_over_window": -0.4796000000000478
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 81.4736,
+            "std": 2.4296464159763382,
+            "min": 76.82,
+            "max": 87.63,
+            "slope_per_100_updates": 0.284037512778331,
+            "fitted_change_over_window": 0.4232158940397132
+          }
+        },
+        "train/Episode_Metrics/success_rate": {
+          "early_100": {
+            "start_update": 4,
+            "end_update": 100,
+            "samples": 97,
+            "mean": 0.030927835051546393,
+            "std": 0.14022134545088086,
+            "min": 0.0,
+            "max": 1.0,
+            "slope_per_100_updates": 0.05259835893120135,
+            "fitted_change_over_window": 0.0504944245739533
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.3486862479150295,
+            "std": 0.05313320328867909,
+            "min": 0.23498642444610596,
+            "max": 0.47530215978622437,
+            "slope_per_100_updates": 0.03020651173992195,
+            "fitted_change_over_window": 0.02990444662252273
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.3244865210354328,
+            "std": 0.04799528914474171,
+            "min": 0.2220403552055359,
+            "max": 0.4815145432949066,
+            "slope_per_100_updates": 0.009273638488865034,
+            "fitted_change_over_window": 0.009180902103976384
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.33221260075767833,
+            "std": 0.050927781234708334,
+            "min": 0.18244048953056335,
+            "max": 0.4815145432949066,
+            "slope_per_100_updates": -0.004417851553857135,
+            "fitted_change_over_window": -0.013209376146032833
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.33677729447682697,
+            "std": 0.05073322014255339,
+            "min": 0.18244048953056335,
+            "max": 0.4789855182170868,
+            "slope_per_100_updates": 0.008481795175631052,
+            "fitted_change_over_window": 0.012637874811690267
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.3276479070385297,
+            "std": 0.05071237836513454,
+            "min": 0.21109959483146667,
+            "max": 0.4815145432949066,
+            "slope_per_100_updates": -0.007306612925061424,
+            "fitted_change_over_window": -0.01088685325834152
+          }
+        },
+        "train/Loss/value": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.15163825134161016,
+            "std": 0.09525331299898973,
+            "min": 0.0016948083612078335,
+            "max": 0.5325223980471492,
+            "slope_per_100_updates": -0.05305628836519256,
+            "fitted_change_over_window": -0.05252572548154063
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 1.7849208429455756,
+            "std": 0.2161023604262351,
+            "min": 1.2592206355184317,
+            "max": 2.4782797060906887,
+            "slope_per_100_updates": 0.20814456350535912,
+            "fitted_change_over_window": 0.20606311787030554
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1.7840334607288242,
+            "std": 0.19085640406002988,
+            "min": 1.3272399194538593,
+            "max": 2.227817751467228,
+            "slope_per_100_updates": 0.04705613533226533,
+            "fitted_change_over_window": 0.046585573978942675
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1.8006113027532895,
+            "std": 0.2081938044551223,
+            "min": 1.3272399194538593,
+            "max": 2.703312836587429,
+            "slope_per_100_updates": -0.017234373026373227,
+            "fitted_change_over_window": -0.051530775348855945
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1.8135214261213939,
+            "std": 0.2066731945780942,
+            "min": 1.357603820040822,
+            "max": 2.703312836587429,
+            "slope_per_100_updates": -0.035236074350888526,
+            "fitted_change_over_window": -0.0525017507828239
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1.7877011793851851,
+            "std": 0.20890708101718639,
+            "min": 1.3272399194538593,
+            "max": 2.358861643821001,
+            "slope_per_100_updates": 0.0006420715177647936,
+            "fitted_change_over_window": 0.0009566865614695424
+          }
+        },
+        "train/Loss/surrogate": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": -0.007437268699757169,
+            "std": 0.0027509015189618753,
+            "min": -0.023988982487935573,
+            "max": 0.0008987629707917222,
+            "slope_per_100_updates": -0.0013449533527174586,
+            "fitted_change_over_window": -0.0013315038191902841
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": -0.0037433476491156624,
+            "std": 0.0016959208372191075,
+            "min": -0.0078094062773743644,
+            "max": 0.0017425948826712556,
+            "slope_per_100_updates": 0.0016394165441687364,
+            "fitted_change_over_window": 0.001623022378727049
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.006172835038357079,
+            "std": 0.004518759219812586,
+            "min": -0.00239899598818738,
+            "max": 0.016741932922741398,
+            "slope_per_100_updates": 0.0016821778114341143,
+            "fitted_change_over_window": 0.0016653560333197732
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.006092426171967181,
+            "std": 0.0043660824735339354,
+            "min": -0.00239899598818738,
+            "max": 0.020432793186046183,
+            "slope_per_100_updates": 0.0003408386595248262,
+            "fitted_change_over_window": 0.0010191075919792304
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.005787946802615807,
+            "std": 0.003924517294153293,
+            "min": -0.0008436896496277768,
+            "max": 0.01675720802450087,
+            "slope_per_100_updates": 0.00033221858267916437,
+            "fitted_change_over_window": 0.000495005688191955
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.0063969055413185556,
+            "std": 0.004747430985972405,
+            "min": -0.00239899598818738,
+            "max": 0.020432793186046183,
+            "slope_per_100_updates": -4.136163108567487e-05,
+            "fitted_change_over_window": -6.162883031765555e-05
+          }
+        },
+        "train/Loss/entropy": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 3.3992321955412628,
+            "std": 0.3791055094720689,
+            "min": 2.8902577087283134,
+            "max": 4.031562477350235,
+            "slope_per_100_updates": -1.3032444789312705,
+            "fitted_change_over_window": -1.2902120341419578
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": -3.02002179145813,
+            "std": 0.20453619789965402,
+            "min": -3.3454456701874733,
+            "max": -2.6912511214613914,
+            "slope_per_100_updates": -0.7053974879117043,
+            "fitted_change_over_window": -0.6983435130325872
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": -4.862944873869419,
+            "std": 0.048964007967559224,
+            "min": -4.958544537425041,
+            "max": -4.735031008720398,
+            "slope_per_100_updates": 0.1357921625878973,
+            "fitted_change_over_window": 0.13443424096201834
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": -4.938421532660723,
+            "std": 0.07356584003500856,
+            "min": -5.09482841193676,
+            "max": -4.735031008720398,
+            "slope_per_100_updates": 0.06060456323116833,
+            "fitted_change_over_window": 0.1812076440611933
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": -4.981406884789467,
+            "std": 0.05193186788054913,
+            "min": -5.09482841193676,
+            "max": -4.893055468797684,
+            "slope_per_100_updates": 0.010228752475288481,
+            "fitted_change_over_window": 0.015240841188179838
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": -4.895436180531979,
+            "std": 0.06656925524058287,
+            "min": -5.041869342327118,
+            "max": -4.735031008720398,
+            "slope_per_100_updates": 0.13072581391922056,
+            "fitted_change_over_window": 0.19478146273963864
+          }
+        },
+        "train/Loss/learning_rate": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.00040957854003906264,
+            "std": 0.0003209230927480238,
+            "min": 1e-05,
+            "max": 0.0012974633789062506,
+            "slope_per_100_updates": -0.0005678736179281995,
+            "fitted_change_over_window": -0.0005621948817489175
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 2.2675000000000006e-05,
+            "std": 9.967948635501696e-06,
+            "min": 1e-05,
+            "max": 5.0625000000000024e-05,
+            "slope_per_100_updates": -9.295679567956813e-06,
+            "fitted_change_over_window": -9.202722772277246e-06
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 1.8556708372088274e-21,
+            "fitted_change_over_window": 1.837114128836739e-21
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": 3.0240174973002915e-22,
+            "fitted_change_over_window": 9.041812316927872e-22
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": -3.0750873402370864e-21,
+            "fitted_change_over_window": -4.581880136953259e-21
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 1e-05,
+            "std": 0.0,
+            "min": 1e-05,
+            "max": 1e-05,
+            "slope_per_100_updates": -3.0750873402370864e-21,
+            "fitted_change_over_window": -4.581880136953259e-21
+          }
+        },
+        "train/Policy/mean_std": {
+          "early_100": {
+            "start_update": 1,
+            "end_update": 100,
+            "samples": 100,
+            "mean": 0.37272894769907,
+            "std": 0.01582600750882732,
+            "min": 0.3516201674938202,
+            "max": 0.4008708894252777,
+            "slope_per_100_updates": -0.05418181338898256,
+            "fitted_change_over_window": -0.05363999525509273
+          },
+          "mid_100": {
+            "start_update": 701,
+            "end_update": 800,
+            "samples": 100,
+            "mean": 0.25241569489240645,
+            "std": 0.00015046376489899962,
+            "min": 0.2521613836288452,
+            "max": 0.25277459621429443,
+            "slope_per_100_updates": -4.541711194922231e-05,
+            "fitted_change_over_window": -4.496294082973009e-05
+          },
+          "late_100": {
+            "start_update": 1401,
+            "end_update": 1500,
+            "samples": 100,
+            "mean": 0.2601641523838043,
+            "std": 0.00039582141061129527,
+            "min": 0.25950008630752563,
+            "max": 0.26083192229270935,
+            "slope_per_100_updates": 0.0013631334756896397,
+            "fitted_change_over_window": 0.0013495021409327432
+          },
+          "late_300": {
+            "start_update": 1201,
+            "end_update": 1500,
+            "samples": 300,
+            "mean": 0.25894721150398253,
+            "std": 0.0010903103743669725,
+            "min": 0.25722962617874146,
+            "max": 0.26083192229270935,
+            "slope_per_100_updates": 0.0012501557761653052,
+            "fitted_change_over_window": 0.0037379657707342626
+          },
+          "penultimate_150": {
+            "start_update": 1201,
+            "end_update": 1350,
+            "samples": 150,
+            "mean": 0.25797458171844484,
+            "std": 0.0005082783307667749,
+            "min": 0.25722962617874146,
+            "max": 0.25920024514198303,
+            "slope_per_100_updates": 0.001146344037748725,
+            "fitted_change_over_window": 0.0017080526162456004
+          },
+          "final_150": {
+            "start_update": 1351,
+            "end_update": 1500,
+            "samples": 150,
+            "mean": 0.2599198412895203,
+            "std": 0.0004766436446100329,
+            "min": 0.2591724395751953,
+            "max": 0.26083192229270935,
+            "slope_per_100_updates": 0.0010738514376680594,
+            "fitted_change_over_window": 0.0016000386421254084
+          }
+        }
+      },
+      "reward_early_to_late_gain": 4.81313560104688,
+      "reward_plateau": {
+        "descriptive_plateau": true,
+        "final_150_vs_previous_150_fraction": -0.010008632110255286,
+        "last_300_fitted_change_fraction": -0.011598634540674085,
+        "rule": "Both absolute fractional changes <= 0.10, denominator max(abs(last-300 mean),0.1). Descriptive threshold, not a statistical stationarity test."
+      },
+      "lr_floor_updates_last_300": 300,
+      "lr_max_all_updates": 0.0012974633789062506,
+      "action_std": {
+        "axis_labels": [
+          "tcp_x",
+          "tcp_y",
+          "tcp_z",
+          "camera_x",
+          "camera_y",
+          "camera_z",
+          "camera_yaw",
+          "camera_pitch"
+        ],
+        "at_update_100": [
+          0.28276026248931885,
+          0.2643844485282898,
+          0.2756466567516327,
+          0.4170819818973541,
+          0.3676539957523346,
+          0.4118419885635376,
+          0.40721309185028076,
+          0.3999876081943512
+        ],
+        "at_update_1500": [
+          0.05128006264567375,
+          0.10963123291730881,
+          0.002250874415040016,
+          0.3872273564338684,
+          0.2936379611492157,
+          0.4130277931690216,
+          0.4175790846347809,
+          0.41198864579200745
+        ],
+        "manipulation_mean_final": 0.054387389992674194,
+        "camera_mean_final": 0.3846921682357788,
+        "manipulation_axes_below_0_01_final": 1,
+        "note": "Normalized action-space standard deviations; cross-condition aggregate means obscure low manipulation exploration under high camera std. Low std is diagnostic, not proof of cause."
+      },
+      "evaluations": {
+        "update_100": {
+          "path": "artifacts/cluster_pilot/evaluation-active-s0.json",
+          "checkpoint": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_99.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 2,
+          "success_rate": 0.00390625,
+          "wilson_95": [
+            0.0010718890803937042,
+            0.014129407144653612
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 2,
+              "success_rate": 0.015625
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "mean_episode_seconds": 3.5152343560475856,
+          "mean_success_completion_seconds": 2.300000011920929,
+          "mean_camera_joint_travel_rad": 4.791690762154758,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/7z9jr312"
+        },
+        "update_751": null,
+        "update_1500": {
+          "path": "artifacts/cluster_continuation/evaluation-active-s0.json",
+          "checkpoint": "logs/pilots/plug_active_clean_gru_v0_s0_n512_20261007T180020Z/model_1499.pt",
+          "split": "validation",
+          "seed": 10000,
+          "training_seed": 0,
+          "episodes": 512,
+          "successes": 141,
+          "success_rate": 0.275390625,
+          "wilson_95": [
+            0.23847771208651003,
+            0.3156488590390035
+          ],
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 63,
+              "success_rate": 0.4921875
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 51,
+              "success_rate": 0.3984375
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 27,
+              "success_rate": 0.2109375
+            }
+          },
+          "mean_episode_seconds": 3.2670312342233956,
+          "mean_success_completion_seconds": 2.6014184326144822,
+          "mean_camera_joint_travel_rad": 8.553292218595743,
+          "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/d1bwj6qr"
+        }
+      },
+      "selected_success_capture_timing": [
+        {
+          "episode": 2,
+          "variant": "ym",
+          "last_pre_action_error_m": 0.0006833637016825378,
+          "min_pre_action_error_m": 0.0005857322830706835,
+          "pre_action_error_above_2mm": false
+        },
+        {
+          "episode": 5,
+          "variant": "xp",
+          "last_pre_action_error_m": 0.0013037675525993109,
+          "min_pre_action_error_m": 0.0008839553338475525,
+          "pre_action_error_above_2mm": false
+        },
+        {
+          "episode": 27,
+          "variant": "yp",
+          "last_pre_action_error_m": 0.0014659779844805598,
+          "min_pre_action_error_m": 0.0014659779844805598,
+          "pre_action_error_above_2mm": false
+        }
+      ],
+      "wandb": {
+        "verified_online": true,
+        "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/u1evdury",
+        "state": "finished",
+        "last_history_step_index": 1499,
+        "summary": {
+          "train/Episode_Metrics/success_rate": 0.35461312532424927,
+          "train/Episode_Reward/task": 1.805607557296753,
+          "train/Episode_Termination/failure": 0,
+          "train/Episode_Termination/success": 2.125,
+          "train/Episode_Termination/timeout": 4,
+          "train/Loss/entropy": -4.747149869799614,
+          "train/Loss/learning_rate": 1e-05,
+          "train/Loss/surrogate": 0.016605314924163395,
+          "train/Loss/value": 2.030319646000862,
+          "train/Perf/collection_time": 5.798081648070365,
+          "train/Perf/learning_time": 0.7198015260510147,
+          "train/Perf/total_fps": 1885,
+          "train/Policy/mean_std": 0.26082730293273926,
+          "train/Train/mean_episode_length": 81.18,
+          "train/Train/mean_reward": 6.167849159240722,
+          "train/gpu_mean_utilization_pct": 75.82752142773278,
+          "train/gpu_memory_mib": 11125,
+          "train/gpu_peak_memory_mib": 11125,
+          "train/gpu_utilization_pct": 89,
+          "train/iteration": 1500,
+          "train/iteration_seconds": 6.572970760986209,
+          "train/iteration_transitions": 12288,
+          "train/ppo_seconds": 0.7198015260510147,
+          "train/rollout_seconds": 5.798081648070365,
+          "train/segment_wall_seconds": 9043.962663528975,
+          "train/torch_peak_bytes": 5701110272,
+          "train/transitions": 18432000,
+          "train/transitions_per_second": 1869.4743133402144,
+          "train/wall_seconds": 9504.879680096172,
+          "train/warmup": false
+        }
+      },
+      "task_solved_reliably": false,
+      "task_quality_note": "All conditions have 0/128 xm validation successes; final overall success <0.37. Reward gains or plateaus do not establish reliable insertion."
+    }
+  ],
+  "historical_saved_config_comparison": {
+    "retained_configs_found": true,
+    "saved_configs": [
+      {
+        "directory": "../active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-58-14_pl3_static_s0",
+        "agent_yaml_sha256": "168338682115b206a648be38f328ff295135579bec4c2f40f6b754abff172aa5",
+        "env_yaml_sha256": "6574efeb57dd9f1c25c6e9c622c2c45a3a818e1e5aea808a623337f58dfeb4bc",
+        "seed": 0,
+        "num_envs": 1024,
+        "max_iterations": 2000,
+        "configured_transitions": 49152000,
+        "episode_seconds": 5.0,
+        "timestep": 0.0044,
+        "decimation": 5,
+        "step_dt": 0.022000000000000002,
+        "sensor_resolution": {
+          "cam_arm_view": [
+            96,
+            96
+          ],
+          "manip_wrist_view": [
+            96,
+            96
+          ]
+        },
+        "actor_hidden_dims": [
+          256,
+          256,
+          128
+        ],
+        "actor_rnn_type": "null",
+        "critic_hidden_dims": [
+          256,
+          256,
+          128
+        ],
+        "critic_rnn_type": "null",
+        "init_std": 1.0,
+        "algorithm": {
+          "learning_rate": "0.001",
+          "schedule": "adaptive",
+          "entropy_coef": "0.005",
+          "num_learning_epochs": "5",
+          "num_mini_batches": "4",
+          "gamma": "0.99",
+          "lam": "0.95"
+        },
+        "saved_reward_callable": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+        "saved_success_callable": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success"
+      },
+      {
+        "directory": "../active_perception_arms/logs/rsl_rl/insertion_active_vision/2026-08-03_04-48-50_pl3_active_s0",
+        "agent_yaml_sha256": "33a0ddd852317548dbad92e6a90eabafcca45fefa91dd52a89e6268b5f6bcd23",
+        "env_yaml_sha256": "b1d115ff4b803449933b9a089171525c432fdd7a6ca17b8bdd708e26a8ef13d1",
+        "seed": 0,
+        "num_envs": 1024,
+        "max_iterations": 2000,
+        "configured_transitions": 49152000,
+        "episode_seconds": 5.0,
+        "timestep": 0.0044,
+        "decimation": 5,
+        "step_dt": 0.022000000000000002,
+        "sensor_resolution": {
+          "cam_arm_view": [
+            96,
+            96
+          ],
+          "manip_wrist_view": [
+            96,
+            96
+          ]
+        },
+        "actor_hidden_dims": [
+          256,
+          256,
+          128
+        ],
+        "actor_rnn_type": "null",
+        "critic_hidden_dims": [
+          256,
+          256,
+          128
+        ],
+        "critic_rnn_type": "null",
+        "init_std": 1.0,
+        "algorithm": {
+          "learning_rate": "0.001",
+          "schedule": "adaptive",
+          "entropy_coef": "0.005",
+          "num_learning_epochs": "5",
+          "num_mini_batches": "4",
+          "gamma": "0.99",
+          "lam": "0.95"
+        },
+        "saved_reward_callable": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+        "saved_success_callable": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success"
+      }
+    ],
+    "source_evidence": [
+      {
+        "revision": "c179c89",
+        "file": "src/active_perception_arms/tasks/insertion/mdp/rewards.py",
+        "sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef"
+      },
+      {
+        "revision": "c179c89",
+        "file": "src/active_perception_arms/tasks/insertion/mdp/terminations.py",
+        "sha256": "a98a8ff26bd32c4d5b57216833faa8fc29f0672daef138bb648e013e5d01d0b6"
+      }
+    ],
+    "comparison": [
+      {
+        "aspect": "actor/critic",
+        "historical": "Feedforward256,256,128",
+        "current": "GRU128 then128,128; separate recurrent critic"
+      },
+      {
+        "aspect": "Gaussian exploration std",
+        "historical": 1.0,
+        "current": 0.4
+      },
+      {
+        "aspect": "initial adaptive LR / entropy",
+        "historical": [
+          0.001,
+          0.005
+        ],
+        "current": [
+          0.0003,
+          0.003
+        ]
+      },
+      {
+        "aspect": "PPO epochs / minibatches",
+        "historical": [
+          5,
+          4
+        ],
+        "current": [
+          4,
+          8
+        ]
+      },
+      {
+        "aspect": "configured total transitions",
+        "historical": 49152000,
+        "current": 18432000
+      },
+      {
+        "aspect": "episode seconds / control dt",
+        "historical": [
+          5.0,
+          0.022
+        ],
+        "current": [
+          3.5,
+          0.04
+        ]
+      },
+      {
+        "aspect": "policy RGB width,height",
+        "historical": [
+          96,
+          96
+        ],
+        "current": [
+          128,
+          96
+        ]
+      },
+      {
+        "aspect": "reward",
+        "historical": "-log(100*distance+1), replaced by1000 on instantaneous success (sourcec179c89)",
+        "current": "3*potential change +10 on held success -time/action costs"
+      },
+      {
+        "aspect": "success",
+        "historical": "distance<2mm instantly",
+        "current": "distance<2mm for three control samples"
+      },
+      {
+        "aspect": "variant inertial properties",
+        "historical": "Sourcec179c89 derives inertia from offset prong meshes; possible variant dynamics cue",
+        "current": "Common mass/COM/inertia imposed explicitly across variants"
+      }
+    ],
+    "interpretation": "Historical retained runs are an actual training reference, correcting the earlier unidentified-config assumption. Their training success summaries are not a matched held-out evaluation, and differing inertia, sensing, timing, budget, architecture and objective preclude attributing the gap to one factor.",
+    "repair_recommendation": "Finish controlled optimization continuations first. If insufficient, separately test stronger distance shaping/success incentive while preserving corrected equal inertias and held-three success. Treat historical-style architecture/horizon/budget changes as labeled experiments, not changes to existing runs.",
+    "heldout_evidence": "Missing independently evaluated historical checkpoints under the current equal-inertia held-three benchmark; no historical training-success number should be presented as matched validation/test success."
+  },
+  "measurement_audit": {
+    "instrumented_repeats": [
+      {
+        "path": "artifacts/plug_analysis/termination-active-repeat1.json",
+        "condition": "active",
+        "success_state_sample": "derived_substep",
+        "episodes": 512,
+        "successes": 151,
+        "per_variant": {
+          "xm": {
+            "episodes": 128,
+            "successes": 0,
+            "success_rate": 0.0
+          },
+          "xp": {
+            "episodes": 128,
+            "successes": 63,
+            "success_rate": 0.4921875
+          },
+          "ym": {
+            "episodes": 128,
+            "successes": 63,
+            "success_rate": 0.4921875
+          },
+          "yp": {
+            "episodes": 128,
+            "successes": 25,
+            "success_rate": 0.1953125
+          }
+        },
+        "termination_summary": {
+          "sampling": "After termination_manager.compute(), before reward/reset/forward; no physics or random-state changes.",
+          "episodes": 512,
+          "terminal_flags": {
+            "success": 151,
+            "failure": 0,
+            "timeout": 365
+          },
+          "max_derived_to_qpos_displacement_m": 0.0015663696685805917,
+          "success_hold_violations": 0,
+          "success_distance_violations": 0,
+          "success_three_sample_violations": 0,
+          "success_qpos_above_distance_threshold": 30,
+          "mean_terminal_position_error_m": 0.010034193679246073,
+          "mean_success_terminal_position_error_m": 0.0013606891574550865
+        },
+        "repeat_comparison": {
+          "reference_successes": 141,
+          "success_count_change": 10,
+          "changed_episode_count": 110,
+          "initial_hash_comparable": false,
+          "initial_hash_mismatches": null,
+          "note": "Repeated seeded GPU execution need not reproduce every trajectory; hashes compare state plus actor images when both reports contain them."
+        }
+      },
+      {
+        "path": "artifacts/plug_analysis/termination-active-repeat2.json",
+        "condition": "active",
+        "success_state_sample": "derived_substep",
+        "episodes": 512,
+        "successes": 140,
+        "per_variant": {
+          "xm": {
+            "episodes": 128,
+            "successes": 0,
+            "success_rate": 0.0
+          },
+          "xp": {
+            "episodes": 128,
+            "successes": 68,
+            "success_rate": 0.53125
+          },
+          "ym": {
+            "episodes": 128,
+            "successes": 47,
+            "success_rate": 0.3671875
+          },
+          "yp": {
+            "episodes": 128,
+            "successes": 25,
+            "success_rate": 0.1953125
+          }
+        },
+        "termination_summary": {
+          "sampling": "After termination_manager.compute(), before reward/reset/forward; no physics or random-state changes.",
+          "episodes": 512,
+          "terminal_flags": {
+            "success": 140,
+            "failure": 0,
+            "timeout": 375
+          },
+          "max_derived_to_qpos_displacement_m": 0.0018128487281501293,
+          "success_hold_violations": 0,
+          "success_distance_violations": 0,
+          "success_three_sample_violations": 0,
+          "success_qpos_above_distance_threshold": 31,
+          "mean_terminal_position_error_m": 0.009794458427336394,
+          "mean_success_terminal_position_error_m": 0.0013138447742676363
+        },
+        "repeat_comparison": {
+          "reference_successes": 151,
+          "success_count_change": -11,
+          "changed_episode_count": 125,
+          "initial_hash_comparable": true,
+          "initial_hash_mismatches": 0,
+          "note": "Repeated seeded GPU execution need not reproduce every trajectory; hashes compare state plus actor images when both reports contain them."
+        }
+      },
+      {
+        "path": "artifacts/plug_analysis/termination-initial-repeat1.json",
+        "condition": "initial",
+        "success_state_sample": "derived_substep",
+        "episodes": 512,
+        "successes": 181,
+        "per_variant": {
+          "xm": {
+            "episodes": 128,
+            "successes": 0,
+            "success_rate": 0.0
+          },
+          "xp": {
+            "episodes": 128,
+            "successes": 68,
+            "success_rate": 0.53125
+          },
+          "ym": {
+            "episodes": 128,
+            "successes": 49,
+            "success_rate": 0.3828125
+          },
+          "yp": {
+            "episodes": 128,
+            "successes": 64,
+            "success_rate": 0.5
+          }
+        },
+        "termination_summary": {
+          "sampling": "After termination_manager.compute(), before reward/reset/forward; no physics or random-state changes.",
+          "episodes": 512,
+          "terminal_flags": {
+            "success": 181,
+            "failure": 0,
+            "timeout": 334
+          },
+          "max_derived_to_qpos_displacement_m": 0.0020452814642339945,
+          "success_hold_violations": 0,
+          "success_distance_violations": 0,
+          "success_three_sample_violations": 0,
+          "success_qpos_above_distance_threshold": 28,
+          "mean_terminal_position_error_m": 0.007259299501242822,
+          "mean_success_terminal_position_error_m": 0.001334600763212766
+        },
+        "repeat_comparison": {
+          "reference_successes": 185,
+          "success_count_change": -4,
+          "changed_episode_count": 98,
+          "initial_hash_comparable": false,
+          "initial_hash_mismatches": null,
+          "note": "Repeated seeded GPU execution need not reproduce every trajectory; hashes compare state plus actor images when both reports contain them."
+        }
+      },
+      {
+        "path": "artifacts/plug_analysis/termination-initial-repeat2.json",
+        "condition": "initial",
+        "success_state_sample": "derived_substep",
+        "episodes": 512,
+        "successes": 187,
+        "per_variant": {
+          "xm": {
+            "episodes": 128,
+            "successes": 0,
+            "success_rate": 0.0
+          },
+          "xp": {
+            "episodes": 128,
+            "successes": 69,
+            "success_rate": 0.5390625
+          },
+          "ym": {
+            "episodes": 128,
+            "successes": 51,
+            "success_rate": 0.3984375
+          },
+          "yp": {
+            "episodes": 128,
+            "successes": 67,
+            "success_rate": 0.5234375
+          }
+        },
+        "termination_summary": {
+          "sampling": "After termination_manager.compute(), before reward/reset/forward; no physics or random-state changes.",
+          "episodes": 512,
+          "terminal_flags": {
+            "success": 187,
+            "failure": 0,
+            "timeout": 327
+          },
+          "max_derived_to_qpos_displacement_m": 0.002507975324988365,
+          "success_hold_violations": 0,
+          "success_distance_violations": 0,
+          "success_three_sample_violations": 0,
+          "success_qpos_above_distance_threshold": 40,
+          "mean_terminal_position_error_m": 0.00685143488851736,
+          "mean_success_terminal_position_error_m": 0.0013742811117510505
+        },
+        "repeat_comparison": {
+          "reference_successes": 181,
+          "success_count_change": 6,
+          "changed_episode_count": 86,
+          "initial_hash_comparable": true,
+          "initial_hash_mismatches": 0,
+          "note": "Repeated seeded GPU execution need not reproduce every trajectory; hashes compare state plus actor images when both reports contain them."
+        }
+      }
+    ],
+    "success_semantics": "Plug object-origin distance to offset-corrected socket goal <2mm on three consecutive control samples; not explicit prong contact/depth evidence.",
+    "derived_state_lag": "Pinned MjLab1.4 step() computes terminations/rewards before sim.forward(); derived object/site positions lag qpos by one 2ms physics substep. Captured policy inputs/errors are post-forward pre-action samples, not exact termination samples.",
+    "timing_conclusion": "Instrumented GPU repeats verify original derived-state hold-three flags, yet28/181 and40/187 initial,30/151 and31/140 active flagged successes have current-qpos errors>=2mm. This is a material measurement mismatch; original scores remain labeled legacy sampling. Corrected evaluation must measure current physical state for three steps, not subtract those counts retroactively.",
+    "historical_repeat_audit": [
+      {
+        "condition": "active",
+        "original_successes": 2,
+        "recorded_repeat_successes": 3,
+        "episodes": 512,
+        "changed_episode_indices": [
+          132,
+          200,
+          244,
+          336,
+          440
+        ],
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/5l27k1n4",
+        "media": "artifacts/cluster_pilot/capture-evaluation-active-s0-videos/representatives.json",
+        "freeze_changes": []
+      },
+      {
+        "condition": "initial",
+        "original_successes": 3,
+        "recorded_repeat_successes": 0,
+        "episodes": 512,
+        "changed_episode_indices": [
+          213,
+          261,
+          376
+        ],
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/86jeiyec",
+        "media": "artifacts/cluster_pilot/capture-evaluation-initial-s0-videos/representatives.json",
+        "freeze_changes": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "condition": "wrist",
+        "original_successes": 3,
+        "recorded_repeat_successes": 3,
+        "episodes": 512,
+        "changed_episode_indices": [
+          75,
+          119
+        ],
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/fe0cjkje",
+        "media": "artifacts/cluster_pilot/capture-evaluation-wrist-s0-videos/representatives.json",
+        "freeze_changes": []
+      },
+      {
+        "condition": "wrist_static",
+        "original_successes": 7,
+        "recorded_repeat_successes": 4,
+        "episodes": 512,
+        "changed_episode_indices": [
+          129,
+          153,
+          169,
+          173,
+          201,
+          333,
+          389
+        ],
+        "wandb_url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/s79bb2ko",
+        "media": "artifacts/cluster_pilot/capture-evaluation-wrist_static-s0-videos/representatives.json",
+        "freeze_changes": []
+      }
+    ],
+    "reproducibility_limit": "Two current initial/active repeats start from identical combined initial-physics-and-actor-image hashes in every512 episode, yet86 initial and125 active outcomes change. Reset mismatch is not the explanation for these measured repeats; numerical/physics/render trajectory divergence remains unresolved. Use repeated evaluations and training-seed replication; do not claim bitwise GPU determinism or unqualified per-episode causal pairing.",
+    "implemented_repair": "Fresh experiments now default to current_qpos success sampling; saved old configs missing this field retain derived_substep. Resume inherits saved sampling and rejects explicit changes. Evaluator supports an explicit sampling intervention; its audit reports chosen manager samples and separate current/derived errors. Split physics-state and per-sensor image hashes are available for future localization.",
+    "uncertainty_limit": "Wilson intervals describe episode sampling conditional on one training seed; they exclude training-seed uncertainty. Available evaluations are validation, not untouched test results."
+  },
+  "decision": {
+    "training_execution_complete": true,
+    "reliable_task_learning": false,
+    "active_perception_benefit": "No demonstrated benefit of continued active movement over initial inspection with memory. Initial 185/512 vs active141/512 is exploratory single-seed evidence; searched fixed view and causal interventions are incomplete.",
+    "next_step": "Continue existing fixed_lr/entropy/both candidates to matched9,228,288 total transitions under their frozen original sampling. Evaluate all four final policies using corrected current-qpos held-three sampling, then test a separate stronger reward profile if controlled tuning remains insufficient. Gate new-task training and full condition replication on reliable task learning.",
+    "unresolved_cause": "Learning-rate floor and per-axis std collapse are consistent with optimization trouble, but xm0 may also reflect sensing/alignment bias. Scripted feasibility and action-bound algebra reject a universal geometric impossibility; sampled policy failures do not establish causation."
+  }
+}

@@ -17,9 +17,10 @@ from .config import (
     TARGET_XY,
     Experiment,
 )
+from .occlusion import dynamic_position_numpy, sample_dynamic_numpy
 from .robots.kinematics import BaseFrame, SO101Chain, grasp_site_rotation
 from .robots.plug_control import PlugIK
-from .scenes import grasp_relpose, native_spec
+from .scenes import grasp_relpose, native_spec, yaw_quat
 
 
 class Kinematics:
@@ -131,7 +132,11 @@ def schedule_fraction(time, cfg):
     )
 
 
-def occluder_position(time, onset, duration, side, cfg):
+def occluder_position(time, onset, duration, side, cfg, *, center=None, travel=None):
+    if cfg.occlusion == "dynamic":
+        if center is None or travel is None:
+            raise ValueError("Dynamic occlusion requires the sampled center and travel")
+        return dynamic_position_numpy(time, onset, duration, side, center, travel)
     if cfg.occlusion == "clean":
         return np.array([0.0, 0.0, -1.0])
     visible = cfg.occlusion == "static" or onset <= time <= onset + duration
@@ -204,11 +209,26 @@ class NativeEnv:
             socket = self.rng.uniform(0, 0.05, 2) if self.cfg.randomize else (0.025, 0.025)
             self.data.mocap_pos[self.fixture_id] = np.r_[socket, 0]
         self.data.qpos[self.object_adr : self.object_adr + 7] = pose
-        self.onset = float(self.rng.uniform(2, 5)) if self.cfg.occlusion == "random" else 3.0
-        self.duration = float(self.rng.uniform(1, 4)) if self.cfg.occlusion == "random" else 4.0
-        self.side = float(self.rng.choice([-1, 1]))
+        self.panel_center = self.panel_travel = None
+        if self.cfg.occlusion == "dynamic":
+            params = sample_dynamic_numpy(self.rng, self.cfg)
+            self.onset, self.duration, self.side = (
+                params[name] for name in ("onset", "duration", "side")
+            )
+            self.panel_center, self.panel_travel = params["center"], params["travel"]
+            self.data.mocap_quat[self.panel_id] = yaw_quat(self.cfg.dynamic_panel_yaw)
+        else:
+            self.onset = float(self.rng.uniform(2, 5)) if self.cfg.occlusion == "random" else 3.0
+            self.duration = float(self.rng.uniform(1, 4)) if self.cfg.occlusion == "random" else 4.0
+            self.side = float(self.rng.choice([-1, 1]))
         self.data.mocap_pos[self.panel_id] = occluder_position(
-            0, self.onset, self.duration, self.side, self.cfg
+            0,
+            self.onset,
+            self.duration,
+            self.side,
+            self.cfg,
+            center=self.panel_center,
+            travel=self.panel_travel,
         )
         mujoco.mj_forward(self.model, self.data)
 
@@ -287,7 +307,13 @@ class NativeEnv:
             )
             self.data.ctrl[self.ctrlids[arm]] = self.targets[arm]
         self.data.mocap_pos[self.panel_id] = occluder_position(
-            t, self.onset, self.duration, self.side, cfg
+            t,
+            self.onset,
+            self.duration,
+            self.side,
+            cfg,
+            center=self.panel_center,
+            travel=self.panel_travel,
         )
         if cfg.perturb_push and 4.0 <= t < 4.12:
             self.data.xfrc_applied[self.model.body("object/object").id, 0] = 0.025 * self.side

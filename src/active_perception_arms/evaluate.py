@@ -6,7 +6,6 @@ import json
 import math
 import os
 import time
-from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -14,8 +13,9 @@ import torch
 from rsl_rl.utils import resolve_callable
 
 from . import plug
-from .config import OCCLUSIONS, saved_experiment
+from .config import OCCLUSIONS, SUCCESS_STATE_SAMPLES, saved_experiment
 from .environment import make_env
+from .occlusion import with_occlusion
 
 
 def load_actor(checkpoint, observations, device):
@@ -50,11 +50,15 @@ def evaluate(args):
     original = saved_experiment(
         json.loads(args.checkpoint.with_name("experiment.json").read_text())
     )
-    cfg = replace(
+    overrides = {}
+    if getattr(args, "success_state_sample", None) is not None:
+        overrides["success_state_sample"] = args.success_state_sample
+    cfg = with_occlusion(
         original,
+        args.occlusion,
         num_envs=min(args.num_envs, args.episodes),
         seed=args.seed,
-        occlusion=args.occlusion or original.occlusion,
+        **overrides,
     )
     if (
         args.freeze_camera_after is not None or args.camera_trace_in or args.camera_trace_out
@@ -79,6 +83,13 @@ def evaluate(args):
 
         capture = RepresentativeCapture(args.capture_representatives, cfg)
     env = make_env(cfg, args.device)
+    audit = None
+    audit_records, initial_hashes, initial_physics_hashes = [], [], []
+    initial_sensor_hashes = {name: [] for name in cfg.sensors}
+    if getattr(args, "audit_termination", False):
+        from .evaluation_audit import TerminationAudit
+
+        audit = TerminationAudit(env)
     try:
         obs, _ = env.reset(seed=args.seed)
         actor = load_actor(args.checkpoint, obs, args.device)
@@ -86,6 +97,14 @@ def evaluate(args):
             for batch in range(batches):
                 env.action_manager.get_term("arms").camera_frozen = False
                 obs, _ = env.reset(seed=args.seed + batch)
+                batch_audit = [None] * cfg.num_envs
+                if audit:
+                    audit.reset_batch()
+                    initial_hashes.extend(audit.initial_state_hashes(obs, cfg.sensors))
+                    physics_hashes, sensor_hashes = audit.initial_hash_components(obs, cfg.sensors)
+                    initial_physics_hashes.extend(physics_hashes)
+                    for name, values in sensor_hashes.items():
+                        initial_sensor_hashes[name].extend(values)
                 actor.reset()
                 finished = torch.zeros(cfg.num_envs, device=args.device, dtype=torch.bool)
                 won = torch.zeros_like(finished)
@@ -121,6 +140,15 @@ def evaluate(args):
                         capture.reward(reward)
                     done = terminated | truncated
                     first = done & ~finished
+                    if audit:
+                        for i in first.nonzero(as_tuple=False).flatten().cpu().tolist():
+                            batch_audit[i] = {
+                                "episode": batch * cfg.num_envs + i,
+                                **{
+                                    name: value[i].cpu().tolist()
+                                    for name, value in audit.snapshot.items()
+                                },
+                            }
                     # Termination manager retains this step's flags through automatic reset.
                     won |= first & env.termination_manager.get_term("success")
                     elapsed[first] = (step + 1) * cfg.step_dt
@@ -143,7 +171,13 @@ def evaluate(args):
                     traces.append(np.stack(recorded))
                 if capture:
                     capture_path = capture.finish_batch(batch, won, elapsed, count)
+                if audit:
+                    if any(row is None for row in batch_audit[:count]):
+                        raise RuntimeError("Termination audit missed an evaluated episode")
+                    audit_records.extend(batch_audit[:count])
     finally:
+        if audit:
+            audit.close()
         env.close()
     if args.camera_trace_out:
         args.camera_trace_out.parent.mkdir(parents=True, exist_ok=True)
@@ -193,6 +227,7 @@ def evaluate(args):
             "hold_external_after": args.hold_external_after,
             "reset_memory": args.reset_memory,
             "camera_trace_in": str(args.camera_trace_in) if args.camera_trace_in else None,
+            "success_state_sample_override": getattr(args, "success_state_sample", None),
         },
         "training_started": False,
         "representative_capture": capture_path,
@@ -200,13 +235,83 @@ def evaluate(args):
         if getattr(args, "reference_report", None)
         else None,
     }
+    if audit:
+        from .evaluation_audit import summarize_termination_audit
+
+        report["termination_audit"] = summarize_termination_audit(audit_records, cfg.task)
+        report["initial_state_sha256"] = initial_hashes[: len(outcomes)]
+        report["initial_physics_state_sha256"] = initial_physics_hashes[: len(outcomes)]
+        report["initial_sensor_sha256"] = {
+            name: values[: len(outcomes)] for name, values in initial_sensor_hashes.items()
+        }
+    if getattr(args, "reference_report", None):
+        reference = json.loads(args.reference_report.read_text())
+        if len(reference["outcomes"]) != len(outcomes):
+            raise ValueError("Reference report has a different episode count")
+        changed = [
+            i
+            for i, (before, after) in enumerate(zip(reference["outcomes"], outcomes, strict=True))
+            if before != after
+        ]
+        previous_hashes = reference.get("initial_state_sha256")
+        previous_physics = reference.get("initial_physics_state_sha256")
+        previous_sensors = reference.get("initial_sensor_sha256", {})
+        report["repeat_comparison"] = {
+            "reference_successes": reference["successes"],
+            "success_count_change": successes - reference["successes"],
+            "changed_episode_count": len(changed),
+            "changed_episode_indices": changed,
+            "initial_hash_comparable": bool(previous_hashes and audit),
+            "initial_hash_mismatches": sum(
+                a != b
+                for a, b in zip(previous_hashes, initial_hashes[: len(outcomes)], strict=True)
+            )
+            if previous_hashes and audit
+            else None,
+            "initial_physics_state_mismatches": sum(
+                a != b
+                for a, b in zip(
+                    previous_physics, initial_physics_hashes[: len(outcomes)], strict=True
+                )
+            )
+            if previous_physics and audit
+            else None,
+            "initial_sensor_image_mismatches": {
+                name: sum(
+                    a != b
+                    for a, b in zip(previous_sensors[name], values[: len(outcomes)], strict=True)
+                )
+                for name, values in initial_sensor_hashes.items()
+                if name in previous_sensors
+            }
+            if audit
+            else None,
+            "same_success_state_sample": reference["experiment"].get(
+                "success_state_sample", "derived_substep"
+            )
+            == cfg.success_state_sample,
+            "note": "Repeated seeded GPU execution need not reproduce every trajectory; hashes compare state plus actor images when both reports contain them.",
+        }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2))
-    return {
+    compact = {
         k: v
         for k, v in report.items()
-        if k not in ("outcomes", "episode_seconds", "camera_joint_travel_rad")
+        if k
+        not in (
+            "outcomes",
+            "episode_seconds",
+            "camera_joint_travel_rad",
+            "initial_state_sha256",
+            "initial_physics_state_sha256",
+            "initial_sensor_sha256",
+        )
     }
+    if "termination_audit" in compact:
+        compact["termination_audit"] = {
+            k: v for k, v in compact["termination_audit"].items() if k != "records"
+        }
+    return compact
 
 
 def main(argv=None):
@@ -226,6 +331,16 @@ def main(argv=None):
     p.add_argument("--wandb", action="store_true")
     p.add_argument("--capture-representatives", type=Path)
     p.add_argument("--reference-report", type=Path)
+    p.add_argument(
+        "--success-state-sample",
+        choices=SUCCESS_STATE_SAMPLES,
+        help="Explicit criterion intervention; default retains the checkpoint's saved sampling",
+    )
+    p.add_argument(
+        "--audit-termination",
+        action="store_true",
+        help="Record success-time error/hold before automatic resets; reads only",
+    )
     p.add_argument("--output", type=Path, default=Path("artifacts/evaluation.json"))
     args = p.parse_args(argv)
     args.seed = (

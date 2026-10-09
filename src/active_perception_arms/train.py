@@ -16,7 +16,15 @@ from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
 
-from .config import CONDITIONS, OCCLUSIONS, TASKS, Experiment, saved_experiment, static_candidates
+from .config import (
+    CONDITIONS,
+    OCCLUSIONS,
+    SUCCESS_STATE_SAMPLES,
+    TASKS,
+    Experiment,
+    saved_experiment,
+    static_candidates,
+)
 
 
 def parser():
@@ -26,6 +34,13 @@ def parser():
     p.add_argument(
         "--occlusion", choices=OCCLUSIONS, help="Default: clean for plug, random otherwise"
     )
+    p.add_argument("--dynamic-onset-range", type=float, nargs=2, metavar=("MIN", "MAX"))
+    p.add_argument("--dynamic-duration-range", type=float, nargs=2, metavar=("MIN", "MAX"))
+    p.add_argument("--dynamic-center", type=float, nargs=3, metavar=("X", "Y", "Z"))
+    p.add_argument("--dynamic-center-jitter", type=float, nargs=3, metavar=("X", "Y", "Z"))
+    p.add_argument("--dynamic-travel-range", type=float, nargs=2, metavar=("MIN", "MAX"))
+    p.add_argument("--dynamic-panel-half-size", type=float, nargs=3, metavar=("X", "Y", "Z"))
+    p.add_argument("--dynamic-panel-yaw", type=float, help="World-space panel yaw in radians")
     p.add_argument("--num-envs", type=int, default=256)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--width", type=int)
@@ -39,6 +54,11 @@ def parser():
     p.add_argument("--device", default="cuda:0")
     p.add_argument("--log-root", type=Path, default=Path("logs"))
     p.add_argument("--resume", type=Path)
+    p.add_argument(
+        "--success-state-sample",
+        choices=SUCCESS_STATE_SAMPLES,
+        help="Fresh default: current_qpos; resume inherits saved sampling",
+    )
     p.add_argument("--perturb-push", action="store_true")
     p.add_argument("--memory", choices=("gru", "none"), default="gru")
     p.add_argument("--job-type", choices=("benchmark", "pilot", "study", "search"), default="pilot")
@@ -64,6 +84,14 @@ def experiment_from_args(args):
         raise ValueError("Training num-envs must be a positive multiple of 8 minibatches")
     if args.fixed_view and args.condition not in ("static", "wrist_static"):
         raise ValueError("fixed-view only applies to static camera conditions")
+    success_sample = args.success_state_sample
+    if args.resume:
+        saved_sample = saved_experiment(
+            json.loads(args.resume.with_name("experiment.json").read_text())
+        ).success_state_sample
+        if success_sample is not None and success_sample != saved_sample:
+            raise ValueError("Resume success_state_sample differs; use a distinct run")
+        success_sample = saved_sample
     return Experiment(
         task=args.task,
         condition=args.condition,
@@ -77,6 +105,14 @@ def experiment_from_args(args):
         fixed_position=candidates[args.fixed_view],
         perturb_push=args.perturb_push,
         memory=args.memory,
+        success_state_sample=success_sample or "current_qpos",
+        dynamic_onset_range=args.dynamic_onset_range,
+        dynamic_duration_range=args.dynamic_duration_range,
+        dynamic_center=args.dynamic_center,
+        dynamic_center_jitter=args.dynamic_center_jitter,
+        dynamic_travel_range=args.dynamic_travel_range,
+        dynamic_panel_half_size=args.dynamic_panel_half_size,
+        dynamic_panel_yaw=args.dynamic_panel_yaw,
     )
 
 

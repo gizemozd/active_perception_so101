@@ -13,7 +13,9 @@ wandb/
 slurm-*.out
 artifacts/**/*.mp4
 artifacts/**/*.npz
+artifacts/**/*.zip
 artifacts/**/*.log
+artifacts/plug_analysis/*.zip
 !artifacts/tests.log
 !artifacts/sanity/*.mp4
 !artifacts/warp_sanity/*.mp4

@@ -1,0 +1,41 @@
+{
+  "case": "entropy",
+  "training_job_id": "51499497",
+  "environment": {
+    "PROJECT_ROOT": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-eval-20261009",
+    "PYTHONPATH": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-eval-20261009/src",
+    "CHECKPOINT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/hparam_search/entropy/plug_wrist_static_clean_gru_v7_s0_n512_entropy_20261007T211458Z/model_750.pt",
+    "OUTPUT": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/hparam_search/continuation/entropy/evaluation.json",
+    "NUM_ENVS": "128",
+    "EPISODES": "512",
+    "SPLIT": "validation",
+    "RECORD_CAPTURE": "1",
+    "RECORD_VIDEO": "1",
+    "WANDB_MODE": "online",
+    "WANDB_RUN_GROUP": "plug-hparam-20261007",
+    "EVALUATION_STAGE": "search",
+    "WANDB_ENTITY": "pgozdil-harvard-university",
+    "WANDB_PROJECT": "active-perception-so101",
+    "WANDB_RUN_ID": "37e79f39"
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--export=ALL",
+    "--dependency=afterok:51499497",
+    "--exclude=holygpu7c2313",
+    "--job-name=plug-hp2-eval-entropy",
+    "--output=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/slurm/%x-%j.out",
+    "scripts/slurm/evaluate.sbatch"
+  ],
+  "source_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/plug-eval-20261009",
+  "source_revision": "12795fde84b74feaa78759d7538711b35cb967a4",
+  "status": "submitted",
+  "reserved_at": "2026-10-09T04:44:18.846284+00:00",
+  "stdout": "51499498",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51499498"
+}

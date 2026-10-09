@@ -1,14 +1,16 @@
 """Experiment definitions shared by native diagnostics and GPU environments."""
 
+import math
 from dataclasses import asdict, dataclass
 from typing import Literal
 
 Task = Literal["plug", "transfer", "push"]
 Condition = Literal["wrist", "static", "wrist_static", "initial", "scheduled", "active"]
-Occlusion = Literal["clean", "static", "phase", "random"]
+Occlusion = Literal["clean", "static", "phase", "random", "dynamic"]
 TASKS = ("plug", "transfer", "push")
 CONDITIONS = ("wrist", "static", "wrist_static", "initial", "scheduled", "active")
-OCCLUSIONS = ("clean", "static", "phase", "random")
+OCCLUSIONS = ("clean", "static", "phase", "random", "dynamic")
+SUCCESS_STATE_SAMPLES = ("derived_substep", "current_qpos")
 ARM_JOINTS = ("shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll")
 JOINTS = ARM_JOINTS + ("gripper",)
 MANIP_BASE = (-0.19, 0.025, 0.05)
@@ -45,6 +47,19 @@ class Experiment:
     memory: Literal["gru", "none"] = "gru"
     plug_variant: Literal["xm", "xp", "ym", "yp"] | None = None
     task_revision: str | None = None
+    # Derived positions lag integration by one physics substep in MjLab1.4.
+    # Existing saved runs retain their original sampling in saved_experiment().
+    success_state_sample: Literal["derived_substep", "current_qpos"] = "current_qpos"
+    # Opt-in optical sweep. None for every legacy condition/checkpoint; its
+    # existing scene, random draws, timer and observation dimensions stay intact.
+    occlusion_revision: str | None = None
+    dynamic_onset_range: tuple[float, float] | None = None
+    dynamic_duration_range: tuple[float, float] | None = None
+    dynamic_center: tuple[float, float, float] | None = None
+    dynamic_center_jitter: tuple[float, float, float] | None = None
+    dynamic_travel_range: tuple[float, float] | None = None
+    dynamic_panel_half_size: tuple[float, float, float] | None = None
+    dynamic_panel_yaw: float | None = None
 
     def __post_init__(self):
         from . import plug
@@ -71,6 +86,7 @@ class Experiment:
             (self.task, TASKS, "task"),
             (self.condition, CONDITIONS, "condition"),
             (self.occlusion, OCCLUSIONS, "occlusion"),
+            (self.success_state_sample, SUCCESS_STATE_SAMPLES, "success_state_sample"),
         ):
             if value not in choices:
                 raise ValueError(f"Unknown {name}: {value}")
@@ -90,6 +106,72 @@ class Experiment:
             self.task != "plug" or self.plug_variant not in plug.VARIANTS
         ):
             raise ValueError("plug_variant requires plug and one of xm/xp/ym/yp")
+        self._validate_dynamic_occlusion()
+
+    def _validate_dynamic_occlusion(self):
+        fields = (
+            "occlusion_revision",
+            "dynamic_onset_range",
+            "dynamic_duration_range",
+            "dynamic_center",
+            "dynamic_center_jitter",
+            "dynamic_travel_range",
+            "dynamic_panel_half_size",
+            "dynamic_panel_yaw",
+        )
+        if self.occlusion != "dynamic":
+            if any(getattr(self, name) is not None for name in fields):
+                raise ValueError("Dynamic occlusion parameters require occlusion=dynamic")
+            return
+        # The sweep clears before timeout. Waiting remains an available strategy,
+        # and plug timing fits its 3.5-second horizon without extending its budget.
+        horizon = self.episode_seconds
+        defaults = {
+            "occlusion_revision": "world_sweep_v1",
+            "dynamic_onset_range": tuple(
+                x * horizon for x in ((0.10, 0.42) if self.task == "plug" else (1 / 6, 5 / 12))
+            ),
+            "dynamic_duration_range": tuple(
+                x * horizon for x in ((0.16, 0.32) if self.task == "plug" else (1 / 12, 7 / 24))
+            ),
+            "dynamic_center": (0.0, 0.095, 0.105)
+            if self.task == "plug"
+            else (-0.045, -0.105, 0.155),
+            "dynamic_center_jitter": (0.015, 0.010, 0.010),
+            "dynamic_travel_range": (0.10, 0.14),
+            "dynamic_panel_half_size": (0.040, 0.004, 0.070),
+            "dynamic_panel_yaw": 0.0,
+        }
+        for name, value in defaults.items():
+            if getattr(self, name) is None:
+                object.__setattr__(self, name, value)
+        if self.occlusion_revision != "world_sweep_v1":
+            raise ValueError("Unsupported dynamic occlusion revision")
+        for name in fields[1:-1]:
+            value = tuple(getattr(self, name))
+            expected = 2 if name.endswith("range") else 3
+            if len(value) != expected or not all(math.isfinite(x) for x in value):
+                raise ValueError(f"Invalid {name}")
+            object.__setattr__(self, name, value)
+        onset, duration, travel = (
+            self.dynamic_onset_range,
+            self.dynamic_duration_range,
+            self.dynamic_travel_range,
+        )
+        if not 0 <= onset[0] <= onset[1] < horizon:
+            raise ValueError("dynamic_onset_range must fall inside the episode")
+        if not 0 < duration[0] <= duration[1]:
+            raise ValueError("dynamic_duration_range must be positive and ordered")
+        if onset[1] + duration[1] > horizon - self.step_dt:
+            raise ValueError("Dynamic panel must clear before the episode ends")
+        if not 0 < travel[0] <= travel[1]:
+            raise ValueError("dynamic_travel_range must be positive and ordered")
+        if any(x < 0 for x in self.dynamic_center_jitter):
+            raise ValueError("dynamic_center_jitter must be nonnegative")
+        if any(x <= 0 for x in self.dynamic_panel_half_size):
+            raise ValueError("dynamic_panel_half_size must be positive")
+        if not math.isfinite(self.dynamic_panel_yaw):
+            raise ValueError("dynamic_panel_yaw must be finite")
 
     @property
     def step_dt(self):
@@ -152,4 +234,4 @@ def saved_experiment(data):
     """Reject old plug checkpoints instead of silently changing their task."""
     if data.get("task", "plug") == "plug" and data.get("task_revision") != "hidden_prongs_v1":
         raise ValueError("Legacy centered-pin experiment; restore its code revision to evaluate it")
-    return Experiment(**data)
+    return Experiment(**{"success_state_sample": "derived_substep", **data})
