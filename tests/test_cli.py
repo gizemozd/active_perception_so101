@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 @pytest.mark.parametrize("task", TASKS)
 @pytest.mark.parametrize("condition", CONDITIONS)
 def test_dry_run_all_tasks_conditions(task, condition, capsys):
-    main(["--task", task, "--condition", condition, "--dry-run"])
+    main(["--task", task, "--condition", condition, "--control-revision", "legacy_v1", "--dry-run"])
     report = json.loads(capsys.readouterr().out)
     assert not report["training_started"]
     assert report["experiment"]["task"] == task

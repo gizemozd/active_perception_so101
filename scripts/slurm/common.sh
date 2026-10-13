@@ -35,12 +35,14 @@ run_training() {
     echo 'NUM_ENVS must divide 8 minibatches; TOTAL_STEPS must divide NUM_ENVS*24.' >&2; exit 2
   fi
   local view=0
+  local default_memory=gru
+  if [[ "${POLICY_PROFILE:-compact}" == legacy_ff ]]; then default_memory=none; fi
   local default_occlusion=random
   if [[ "$task" == plug ]]; then default_occlusion=clean; fi
   if [[ "$condition" == static || "$condition" == wrist_static ]]; then view="${FIXED_VIEW:-0}"; fi
-  local args=(-m active_perception_arms.train --task "$task" --condition "$condition"
+  local args=(-m active_perception_arms.train --control-revision "${CONTROL_REVISION:-legacy_v1}" --task "$task" --condition "$condition"
     --seed "$seed" --num-envs "$nenv" --iterations "$((budget / (nenv * 24)))"
-    --occlusion "${OCCLUSION:-$default_occlusion}" --memory "${MEMORY:-gru}" --fixed-view "$view"
+    --occlusion "${OCCLUSION:-$default_occlusion}" --memory "${MEMORY:-$default_memory}" --fixed-view "$view"
     --log-root "${LOG_ROOT:-logs}" --job-type "${JOB_TYPE:-pilot}")
   if [[ -n "${RESULT_ROOT:-}" ]]; then args+=(--result "${RESULT_ROOT}/${task}-${condition}-s${seed}.json"); fi
   if [[ "${PERTURB_PUSH:-0}" == 1 ]]; then args+=(--perturb-push); fi
@@ -48,6 +50,8 @@ run_training() {
   if [[ -n "${LR_SCHEDULE:-}" ]]; then args+=(--lr-schedule "$LR_SCHEDULE"); fi
   if [[ -n "${ENTROPY_COEF:-}" ]]; then args+=(--entropy-coef "$ENTROPY_COEF"); fi
   if [[ -n "${REWARD_PROFILE:-}" ]]; then args+=(--reward-profile "$REWARD_PROFILE"); fi
+  if [[ -n "${POLICY_PROFILE:-}" ]]; then args+=(--policy-profile "$POLICY_PROFILE"); fi
+  if [[ "${PLUG_WRIST_YAW:-0}" == 1 ]]; then args+=(--plug-wrist-yaw); fi
   if [[ -n "${INITIAL_STD:-}" ]]; then args+=(--initial-std "$INITIAL_STD"); fi
   if [[ -n "${SUCCESS_STATE_SAMPLE:-}" ]]; then args+=(--success-state-sample "$SUCCESS_STATE_SAMPLE"); fi
   if [[ -n "${RUN_LABEL:-}" ]]; then args+=(--run-label "$RUN_LABEL"); fi

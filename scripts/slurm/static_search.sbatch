@@ -20,7 +20,7 @@ index="${SLURM_ARRAY_TASK_ID:-0}"
 nenv="${NUM_ENVS:-256}"
 budget="${TOTAL_STEPS:-18432000}"
 if (( index < 0 || index > 77 || nenv % 8 != 0 || budget % (nenv * 24) != 0 )); then exit 2; fi
-args=(-m active_perception_arms.train --task "$TASK" --condition "$condition"
+args=(-m active_perception_arms.train --control-revision legacy_v1 --task "$TASK" --condition "$condition"
   --seed "$((index % 3))" --fixed-view "$((index / 3))" --num-envs "$nenv"
   --iterations "$((budget / (nenv * 24)))" --occlusion "${OCCLUSION:-$default_occlusion}"
   --memory "${MEMORY:-gru}" --log-root "${LOG_ROOT:-logs/static-search}" --job-type "${JOB_TYPE:-study}")

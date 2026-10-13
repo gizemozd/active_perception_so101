@@ -644,6 +644,8 @@ def main():
         str(source / ".venv/bin/python"),
         "-m",
         "active_perception_arms.train",
+        "--control-revision",
+        "legacy_v1",
         "--task",
         "plug",
         "--condition",

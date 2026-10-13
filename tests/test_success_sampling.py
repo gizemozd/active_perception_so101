@@ -54,7 +54,7 @@ def test_success_hold_uses_selected_physical_sample(monkeypatch, sample, expecte
 def test_new_default_and_old_saved_config_sampling_are_explicit():
     cfg = Experiment()
     assert cfg.success_state_sample == "current_qpos"
-    old = cfg.to_dict()
+    old = Experiment(reward_profile="progress").to_dict()
     old.pop("success_state_sample")
     assert saved_experiment(old).success_state_sample == "derived_substep"
     assert "success_state_sample" not in old  # Deserialization cannot mutate source.
@@ -64,7 +64,7 @@ def test_new_default_and_old_saved_config_sampling_are_explicit():
 
 
 def test_training_resume_inherits_old_sampling_and_rejects_override(tmp_path, capsys):
-    cfg = Experiment(num_envs=256)
+    cfg = Experiment(num_envs=256, reward_profile="progress")
     old = cfg.to_dict()
     old.pop("success_state_sample")
     (tmp_path / "experiment.json").write_text(json.dumps(old))

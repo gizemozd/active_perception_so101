@@ -6,7 +6,7 @@ import mujoco
 import numpy as np
 import torch
 
-from . import plug
+from . import manipulation, plug, pushing, transfer
 from .config import (
     ARM_JOINTS,
     CAMERA_HOME,
@@ -77,7 +77,7 @@ class Kinematics:
 
 
 @lru_cache(maxsize=12)
-def calibration(task, marker_prototype=False):
+def calibration(task, marker_prototype=False, camera_start="home"):
     """CPU home calibration, shared by native and Warp backends."""
     model = native_spec(Experiment(task=task), marker_prototype=marker_prototype).compile()
     ik = Kinematics(model)
@@ -95,6 +95,23 @@ def calibration(task, marker_prototype=False):
         ]
     else:
         cam = np.r_[ik.camera(np.array(CAMERA_HOME)), 0.6]
+    if camera_start == "inspection_v1":
+        from .robots.camera_control import CameraPoseIK
+
+        pose_ik = CameraPoseIK(
+            model,
+            Experiment(
+                task=task,
+                control_revision="pose_v1",
+                camera_workspace="inspection_v2",
+                camera_start=camera_start,
+            ),
+            dtype=torch.float64,
+        )
+        q = pose_ik.tensor(cam[:5])[None]
+        for alpha in np.linspace(0, 1, 33):
+            q = pose_ik.solve((pose_ik.home + alpha * (pose_ik.initial - pose_ik.home))[None], q)
+        cam[:5] = q[0].numpy()
     path = [cam[:5]]
     for p, target in (
         ()
@@ -150,8 +167,22 @@ class NativeEnv:
         self.model = native_spec(cfg).compile()
         self.data = mujoco.MjData(self.model)
         self.ik = Kinematics(self.model)
-        self.home = calibration(cfg.task)
+        self.home = calibration(cfg.task, camera_start=cfg.camera_start)
         self.plug_ik = PlugIK(self.model, dtype=torch.float64) if cfg.task == "plug" else None
+        from .robots.camera_control import CameraPoseIK
+
+        self.camera_pose_ik = (
+            CameraPoseIK(self.model, cfg, dtype=torch.float64)
+            if cfg.control_revision == "pose_v1"
+            else None
+        )
+        self.cartesian = (
+            manipulation.CartesianIK(
+                self.model, cfg.task, dtype=torch.float64, revision=cfg.push_control_revision
+            )
+            if cfg.manip_control == "cartesian"
+            else None
+        )
         self.variant = cfg.plug_variant or "xm"
         self.qadr = {
             arm: np.array([self.model.joint(arm + "/" + j).qposadr[0] for j in JOINTS])
@@ -175,19 +206,30 @@ class NativeEnv:
         self.rng = np.random.default_rng(seed)
         mujoco.mj_resetData(self.model, self.data)
         self.step_count = 0
+        self.transfer_lifted = False
         self.targets = {name: self.home[name].copy() for name in self.qadr}
         for name, q in self.targets.items():
             self.data.qpos[self.qadr[name]] = q
             self.data.ctrl[self.ctrlids[name]] = q
         self.tcp_target = self.home["tcp"].copy()
-        self.gimbal_target = np.array(plug.GIMBAL_HOME)
-        jitter = 0.008 if self.cfg.randomize else 0.0
+        self.gimbal_target = (
+            self.camera_pose_ik.initial.numpy().copy()
+            if self.camera_pose_ik
+            else np.array(plug.GIMBAL_HOME)
+        )
+        self.wrist_yaw_target = 0.0
+        jitter = self.cfg.reset_xy_jitter if self.cfg.randomize else 0.0
         goal_xy = np.array(TARGET_XY if self.cfg.task != "push" else (-0.025, 0.055))
         self.data.mocap_pos[self.fixture_id] = np.r_[
             goal_xy + self.rng.uniform(-jitter, jitter, 2), 0.0
         ]
         pose = np.array([*SOURCE_XY, 0.056 if self.cfg.task == "transfer" else 0.009, 1, 0, 0, 0])
         pose[:2] += self.rng.uniform(-jitter, jitter, 2)
+        if self.cfg.push_target_layout in ("arc_v1", "arc_v2"):
+            samples = self.rng.random(2) if self.cfg.randomize else np.full(2, 0.5)
+            self.data.mocap_pos[self.fixture_id, :2] = pose[:2] + pushing.arc_offset(
+                samples, self.cfg.push_target_layout
+            )
         if self.cfg.task == "plug":
             # Original distributions, independent of the hidden geometry.
             xy = np.array(plug.SPAWN_CENTER)
@@ -256,24 +298,81 @@ class NativeEnv:
         t = self.step_count * cfg.step_dt
         if t >= cfg.initial_seconds:
             if cfg.task == "plug":
-                requested = np.array(plug.ACTION_LOW) + (action[:3] + 1) * 0.5 * (
-                    np.array(plug.ACTION_HIGH) - plug.ACTION_LOW
+                if cfg.plug_control == "delta5mm":
+                    from .plug_learning import STEP_METERS
+
+                    requested = np.clip(
+                        self.tcp_target
+                        + (
+                            cfg.translation_step
+                            if cfg.control_revision == "pose_v1"
+                            else STEP_METERS
+                        )
+                        * action[:3],
+                        plug.ACTION_LOW,
+                        plug.ACTION_HIGH,
+                    )
+                else:
+                    requested = np.array(plug.ACTION_LOW) + (action[:3] + 1) * 0.5 * (
+                        np.array(plug.ACTION_HIGH) - plug.ACTION_LOW
+                    )
+                slew = (
+                    cfg.translation_step
+                    if cfg.control_revision == "pose_v1"
+                    else plug.TCP_MAX_DELTA
                 )
-                self.tcp_target += np.clip(
-                    requested - self.tcp_target, -plug.TCP_MAX_DELTA, plug.TCP_MAX_DELTA
-                )
+                self.tcp_target += np.clip(requested - self.tcp_target, -slew, slew)
+                if cfg.plug_wrist_yaw:
+                    self.wrist_yaw_target += np.clip(
+                        action[3] * plug.WRIST_YAW_LIMIT - self.wrist_yaw_target,
+                        -plug.WRIST_YAW_MAX_DELTA,
+                        plug.WRIST_YAW_MAX_DELTA,
+                    )
                 self.targets["manipulator"][:5] = self.plug_ik.manip_step(
                     self.plug_ik.tensor(self.tcp_target)[None],
                     self.plug_ik.tensor(self.targets["manipulator"][:5])[None],
+                    self.plug_ik.tensor([self.wrist_yaw_target]) if cfg.plug_wrist_yaw else None,
+                )[0].numpy()
+            elif self.cartesian is not None:
+                low, high = self.cartesian.low.numpy(), self.cartesian.high.numpy()
+                requested = (
+                    np.clip(self.tcp_target + cfg.translation_step * action[:3], low, high)
+                    if cfg.control_revision == "pose_v1" and cfg.translation_control == "delta"
+                    else low + (action[:3] + 1) * 0.5 * (high - low)
+                )
+                slew = (
+                    cfg.translation_step
+                    if cfg.control_revision == "pose_v1"
+                    else self.cartesian.delta
+                )
+                self.tcp_target += np.clip(requested - self.tcp_target, -slew, slew)
+                self.targets["manipulator"][:5] = self.cartesian.solve(
+                    torch.as_tensor(self.tcp_target)[None],
+                    torch.as_tensor(self.targets["manipulator"][:5])[None],
                 )[0].numpy()
             else:
                 self.targets["manipulator"][:5] += cfg.joint_step * action[:5]
             if cfg.task == "transfer":
-                self.targets["manipulator"][5] = (action[5] + 1) * 0.6
-        if cfg.camera_control and (cfg.condition == "active" or t < cfg.initial_seconds):
-            if cfg.task == "plug":
+                self.targets["manipulator"][5] = (action[cfg.manip_dim - 1] + 1) * 0.6
+        if (
+            cfg.camera_control
+            and (cfg.condition == "active" or t < cfg.initial_seconds)
+            and self.step_count % cfg.camera_interval == 0
+        ):
+            if self.camera_pose_ik is not None:
+                ik = self.camera_pose_ik
                 self.gimbal_target = np.clip(
-                    self.gimbal_target + action[3:] * plug.GIMBAL_DELTA,
+                    self.gimbal_target + action[cfg.manip_dim :] * ik.delta.numpy(),
+                    ik.low.numpy(),
+                    ik.high.numpy(),
+                )
+                self.targets["camera_arm"][:5] = ik.solve(
+                    ik.tensor(self.gimbal_target)[None],
+                    ik.tensor(self.targets["camera_arm"][:5])[None],
+                )[0].numpy()
+            elif cfg.task == "plug":
+                self.gimbal_target = np.clip(
+                    self.gimbal_target + action[cfg.manip_dim :] * plug.GIMBAL_DELTA,
                     self.plug_ik.gimbal_low.numpy(),
                     self.plug_ik.gimbal_high.numpy(),
                 )
@@ -325,10 +424,17 @@ class NativeEnv:
         return self.success()
 
     def success(self):
+        if transfer.is_v2(self.cfg):
+            return bool(transfer.native_features(self)["instantaneous_success"].item())
         obj, goal = self.object_pos, self.goal
         speed = np.linalg.norm(self.data.qvel[-6:-3])
         if self.cfg.task == "plug":
-            return bool(np.linalg.norm(obj - goal) < plug.SUCCESS_DISTANCE)
+            aligned = np.linalg.norm(obj - goal) < plug.SUCCESS_DISTANCE
+            if self.cfg.plug_wrist_yaw:
+                quat = self.data.qpos[self.object_adr + 3 : self.object_adr + 7]
+                angle = 2 * np.arctan2(np.linalg.norm(quat[1:]), abs(quat[0]))
+                aligned &= angle < plug.SUCCESS_ANGLE
+            return bool(aligned)
         if self.cfg.task == "transfer":
             return bool(
                 np.linalg.norm(obj[:2] - goal[:2]) < 0.018
@@ -337,10 +443,19 @@ class NativeEnv:
                 and speed < 0.035
             )
         return bool(
-            np.linalg.norm(obj[:2] - goal[:2]) < 0.015
+            np.linalg.norm(obj[:2] - goal[:2]) < self.cfg.push_success_tolerance
             and abs(obj[2] - goal[2]) < 0.004
-            and np.linalg.norm(self.tcp - obj) > 0.025
+            and np.linalg.norm(
+                (
+                    self.data.geom("pushing_tip").xpos
+                    if self.cfg.task_revision == "push_v2"
+                    else self.tcp
+                )
+                - obj
+            )
+            > 0.025
             and speed < 0.035
+            and (pushing.native_clear(self) if self.cfg.task_revision == "push_v2" else True)
         )
 
 
@@ -404,34 +519,60 @@ class ScriptedPolicy:
             # Contact with the 8 mm radius tip at the rear of the 24 mm block.
             p[:2] -= direction * (0.028 if self.stage == 0 else 0.017)
             p[2] = 0.040
-            if distance < 0.009 or self.stage >= 2:
+            if distance < min(0.009, cfg.push_success_tolerance * 0.6) or self.stage >= 2:
                 self.stage = 2
                 if self.retreat is None:
-                    self.retreat = env.tcp + np.array([0, 0, 0.065])
+                    lift = 0.035 if cfg.push_target_layout in ("arc_v1", "arc_v2") else 0.065
+                    self.retreat = env.tcp + np.array([0, 0, lift])
                 p = self.retreat
         action = np.zeros(cfg.action_dim)
         if cfg.task == "plug":
+            if cfg.plug_control == "delta5mm":
+                from .plug_learning import STEP_METERS
+
+                action[:3] = (p - env.tcp_target) / (
+                    cfg.translation_step if cfg.control_revision == "pose_v1" else STEP_METERS
+                )
+            else:
+                action[:3] = (
+                    2 * (p - plug.ACTION_LOW) / (np.array(plug.ACTION_HIGH) - plug.ACTION_LOW) - 1
+                )
+        elif cfg.manip_control == "cartesian":
+            low, high = (
+                np.array(v) for v in manipulation.bounds(cfg.task, cfg.push_control_revision)
+            )
             action[:3] = (
-                2 * (p - plug.ACTION_LOW) / (np.array(plug.ACTION_HIGH) - plug.ACTION_LOW) - 1
+                (p - env.tcp_target) / cfg.translation_step
+                if cfg.control_revision == "pose_v1" and cfg.translation_control == "delta"
+                else 2 * (p - low) / (high - low) - 1
             )
         else:
             self.qseed = env.ik.manip(p, self.qseed)
             action[:5] = np.clip(
                 (self.qseed - env.targets["manipulator"][:5]) / cfg.joint_step, -1, 1
             )
-        if cfg.task == "push":
+        if cfg.task == "push" and cfg.manip_control == "joint":
             action[:5] = np.clip(action[:5], -0.25, 0.25)
         if cfg.task == "transfer":
-            action[5] = opened
+            action[cfg.manip_dim - 1] = opened
         if cfg.camera_control:
-            if cfg.task == "plug":
+            if cfg.control_revision == "pose_v1":
+                # Blind pose-space sweep for common-control feasibility checks.
+                desired = env.camera_pose_ik.home.numpy().copy()
+                desired[0] += 0.025 * np.sin(env.data.time)
+                action[cfg.manip_dim :] = np.clip(
+                    (desired - env.gimbal_target) / env.camera_pose_ik.delta.numpy(), -1, 1
+                )
+            elif cfg.task == "plug":
                 # Same blind inspection path for every variant; not a learned policy.
                 desired = plug_scheduled_gimbal(env.data.time, cfg)
-                action[3:] = np.clip((desired - env.gimbal_target) / plug.GIMBAL_DELTA, -1, 1)
+                action[cfg.manip_dim :] = np.clip(
+                    (desired - env.gimbal_target) / plug.GIMBAL_DELTA, -1, 1
+                )
             elif self.ticks % 15 == 0:
                 camera_pos = np.array(CAMERA_HOME) + [0.035 * np.sin(env.data.time), 0, 0]
                 self.camera_q = env.ik.camera(camera_pos, (obj + goal) / 2, self.camera_q)
-            if cfg.task != "plug":
+            if cfg.task != "plug" and cfg.control_revision != "pose_v1":
                 action[cfg.manip_dim :] = np.clip(
                     (self.camera_q - env.targets["camera_arm"][:5]) / cfg.joint_step, -1, 1
                 )

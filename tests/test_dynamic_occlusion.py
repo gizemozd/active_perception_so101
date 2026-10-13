@@ -17,7 +17,11 @@ from active_perception_arms.occlusion import (
 
 @pytest.mark.parametrize("task", ("plug", "transfer", "push"))
 def test_dynamic_defaults_fit_horizon_and_old_checkpoint_defaults_are_unchanged(task):
-    legacy = Experiment(task=task, success_state_sample="derived_substep")
+    legacy = Experiment(
+        task=task,
+        task_revision="hidden_prongs_v1" if task == "plug" else "v1",
+        success_state_sample="derived_substep",
+    )
     assert legacy.occlusion == ("clean" if task == "plug" else "random")
     old = {
         k: v

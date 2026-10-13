@@ -16,7 +16,7 @@ from mjlab.scene import SceneCfg
 from mjlab.sensor import CameraSensorCfg
 from mjlab.sim import MujocoCfg, SimulationCfg
 
-from . import mdp, plug, scenes
+from . import mdp, plug, pushing, scenes, transfer
 from .config import JOINTS, MANIP_BASE, Experiment
 from .native import calibration
 
@@ -50,7 +50,7 @@ def finish_mjlab_scene(spec, cfg):
 
 
 def make_env_cfg(cfg: Experiment):
-    home = calibration(cfg.task)
+    home = calibration(cfg.task, camera_start=cfg.camera_start)
     entities = {
         "manipulator": arm_cfg(MANIP_BASE, 0, home["manipulator"]),
         "camera_arm": arm_cfg(cfg.camera_base, cfg.camera_base_yaw, home["camera_arm"]),
@@ -59,7 +59,9 @@ def make_env_cfg(cfg: Experiment):
             init_state=EntityCfg.InitialStateCfg(pos=(0, 0, 0.06), joint_pos={}),
         ),
         "fixture": EntityCfg(
-            spec_fn=partial(scenes.fixture_spec, cfg.task, cfg.clearance),
+            spec_fn=partial(
+                scenes.fixture_spec, cfg.task, cfg.clearance, cfg.push_marker_half_size
+            ),
             init_state=EntityCfg.InitialStateCfg(joint_pos={}),
         ),
         "occluder": EntityCfg(
@@ -71,13 +73,20 @@ def make_env_cfg(cfg: Experiment):
             init_state=EntityCfg.InitialStateCfg(joint_pos={}),
         ),
     }
+    if cfg.push_visibility_revision is not None:
+        entities["visibility"] = EntityCfg(
+            spec_fn=partial(scenes.push_visibility_spec, cfg),
+            init_state=EntityCfg.InitialStateCfg(joint_pos={}),
+        )
     if cfg.task == "plug":
         entities["object"] = VariantEntityCfg(
             variants={v: partial(plug.object_spec, v) for v in plug.VARIANTS},
             assignment=partial(plug.variant_assignment, variant=cfg.plug_variant),
             init_state=EntityCfg.InitialStateCfg(pos=(0, 0, plug.SPAWN_Z), joint_pos={}),
         )
-    sensors = []
+    sensors = transfer.contact_sensors() if transfer.is_v2(cfg) else []
+    if cfg.task_revision == "push_v2":
+        sensors += pushing.contact_sensors()
     obs = {
         "proprio": ObservationGroupCfg(
             {"state": ObservationTermCfg(func=mdp.proprio)}, concatenate_terms=True
@@ -86,6 +95,29 @@ def make_env_cfg(cfg: Experiment):
             {"state": ObservationTermCfg(func=mdp.critic_state)}, concatenate_terms=True
         ),
     }
+    metrics = {"success_rate": MetricsTermCfg(func=mdp.success_metric, reduce="last")}
+    if cfg.task == "plug" and cfg.reward_profile == "plug_insertion":
+        metrics["goal_distance"] = MetricsTermCfg(
+            func=mdp.diagnostic_metric, params={"name": "goal_distance"}, reduce="last"
+        )
+    if cfg.actor_observation == "privileged":
+        obs["privileged"] = ObservationGroupCfg(
+            {"state": ObservationTermCfg(func=mdp.privileged_actor_state)}, concatenate_terms=True
+        )
+        names = ["goal_distance", "hand_distance"]
+        names += {
+            "transfer": ["bilateral", "lift", "lifted", "placed", "released"],
+            "push": ["at_goal", "tool_clear"],
+            "plug": ["plug_xy_error", "plug_z_error", "plug_hold_steps"],
+        }[cfg.task]
+        metrics.update(
+            {
+                name: MetricsTermCfg(
+                    func=mdp.diagnostic_metric, params={"name": name}, reduce="last"
+                )
+                for name in names
+            }
+        )
     if cfg.render_sensors:
         for name in cfg.sensors:
             camera_name = (
@@ -94,6 +126,7 @@ def make_env_cfg(cfg: Experiment):
                 else (
                     "fixed"
                     if cfg.condition in ("static", "wrist_static")
+                    and cfg.control_revision != "pose_v1"
                     else "camera_arm/wrist_cam"
                 )
             )
@@ -141,7 +174,7 @@ def make_env_cfg(cfg: Experiment):
             "failure": TerminationTermCfg(func=mdp.failure),
             "timeout": TerminationTermCfg(func=time_out, time_out=True),
         },
-        metrics={"success_rate": MetricsTermCfg(func=mdp.success_metric, reduce="last")},
+        metrics=metrics,
         sim=SimulationCfg(
             nconmax=256,
             njmax=768,

@@ -11,7 +11,16 @@ TASKS = ("plug", "transfer", "push")
 CONDITIONS = ("wrist", "static", "wrist_static", "initial", "scheduled", "active")
 OCCLUSIONS = ("clean", "static", "phase", "random", "dynamic")
 SUCCESS_STATE_SAMPLES = ("derived_substep", "current_qpos")
-REWARD_PROFILES = ("progress", "legacy_log_hold")
+REWARD_PROFILES = (
+    "progress",
+    "plug_insertion",
+    "legacy_log_hold",
+    "plug_staged",
+    "transfer_staged",
+    "transfer_dense",
+    "transfer_transport",
+    "push_dense",
+)
 ARM_JOINTS = ("shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll")
 JOINTS = ARM_JOINTS + ("gripper",)
 MANIP_BASE = (-0.19, 0.025, 0.05)
@@ -39,22 +48,41 @@ class Experiment:
     episode_seconds: float | None = None
     initial_seconds: float = 1.0
     joint_step: float = 0.035
+    # Versioned common plug/push interface. Legacy checkpoint mappings stay intact.
+    control_revision: Literal["legacy_v1", "pose_v1"] = "legacy_v1"
+    translation_control: Literal["absolute", "delta"] = "delta"
+    translation_step: float = 0.005
+    camera_interval: int = 1
+    camera_workspace: Literal["local_v1", "inspection_v2"] = "local_v1"
+    camera_start: Literal["home", "inspection_v1"] = "home"
     randomize: bool = True
     perturb_push: bool = False
+    manip_control: Literal["joint", "cartesian"] = "joint"
+    reset_xy_jitter: float = 0.008
     fixed_position: tuple[float, float, float] | None = None
     fixed_lookat: tuple[float, float, float] | None = None
     clearance: float = 0.002
     render_sensors: bool = True
+    actor_observation: Literal["rgb", "privileged"] = "rgb"
     memory: Literal["gru", "none"] = "gru"
+    policy_profile: Literal["compact", "legacy_ff"] = "compact"
+    plug_wrist_yaw: bool = False
+    plug_control: Literal["absolute", "delta5mm"] = "absolute"
     plug_variant: Literal["xm", "xp", "ym", "yp"] | None = None
     task_revision: str | None = None
     # Derived positions lag integration by one physics substep in MjLab1.4.
     # Existing saved runs retain their original sampling in saved_experiment().
     success_state_sample: Literal["derived_substep", "current_qpos"] = "current_qpos"
-    reward_profile: Literal["progress", "legacy_log_hold"] = "progress"
+    reward_profile: str | None = None
     # Opt-in optical sweep. None for every legacy condition/checkpoint; its
     # existing scene, random draws, timer and observation dimensions stay intact.
     occlusion_revision: str | None = None
+    # Fixed, non-colliding optical barrier for the push active-view experiment.
+    push_visibility_revision: str | None = None
+    # Fresh push_v2 uses object-relative targets; saved configs retain square_v1.
+    push_target_layout: Literal["square_v1", "arc_v1", "arc_v2"] | None = None
+    push_control_revision: Literal["legacy_v1", "wide_v2"] = "legacy_v1"
+    push_workspace_revision: Literal["partition_v1", "arc_clear_v2"] = "partition_v1"
     dynamic_onset_range: tuple[float, float] | None = None
     dynamic_duration_range: tuple[float, float] | None = None
     dynamic_center: tuple[float, float, float] | None = None
@@ -66,11 +94,54 @@ class Experiment:
     def __post_init__(self):
         from . import plug
 
+        if self.control_revision not in ("legacy_v1", "pose_v1"):
+            raise ValueError("Unknown control_revision")
+        if self.translation_control not in ("absolute", "delta"):
+            raise ValueError("Unknown translation_control")
+        if not math.isfinite(self.translation_step) or not 0 < self.translation_step <= 0.03:
+            raise ValueError("translation_step must be in (0, 0.03]")
+        if not isinstance(self.camera_interval, int) or self.camera_interval < 1:
+            raise ValueError("camera_interval must be a positive integer")
+        if self.camera_workspace not in ("local_v1", "inspection_v2"):
+            raise ValueError("Unknown camera_workspace")
+        if self.camera_workspace != "local_v1" and self.control_revision != "pose_v1":
+            raise ValueError("Inspection workspace requires pose_v1 controls")
+        if self.camera_start not in ("home", "inspection_v1"):
+            raise ValueError("Unknown camera_start")
+        if self.camera_start != "home" and self.camera_workspace != "inspection_v2":
+            raise ValueError("Inspection starting pose requires inspection_v2 workspace")
+        if self.control_revision == "pose_v1":
+            if self.task not in ("plug", "push") or self.plug_wrist_yaw:
+                raise ValueError("pose_v1 is the shared three-axis plug/push interface")
+            if self.condition == "scheduled":
+                raise ValueError(
+                    "pose_v1 scheduled trajectories require an explicit pose controller"
+                )
+            if self.task == "push":
+                object.__setattr__(self, "manip_control", "cartesian")
+            else:
+                object.__setattr__(
+                    self,
+                    "plug_control",
+                    "delta5mm" if self.translation_control == "delta" else "absolute",
+                )
         defaults = {
-            "task_revision": "hidden_prongs_v1" if self.task == "plug" else "v1",
+            "push_target_layout": (
+                "arc_v2" if self.task == "push" and self.task_revision == "push_v2" else "square_v1"
+            ),
+            "task_revision": {"plug": "hidden_prongs_v1", "transfer": "pick_place_v2"}.get(
+                self.task, "v1"
+            ),
+            "reward_profile": (
+                "plug_insertion"
+                if self.task == "plug" and self.success_state_sample == "current_qpos"
+                else "transfer_staged"
+                if self.task == "transfer" and self.task_revision != "v1"
+                else "progress"
+            ),
             "occlusion": "clean" if self.task == "plug" else "random",
-            "width": 128 if self.task == "plug" else 96,
-            "height": 96 if self.task == "plug" else 72,
+            "width": 128 if self.task == "plug" or self.control_revision == "pose_v1" else 96,
+            "height": 96 if self.task == "plug" or self.control_revision == "pose_v1" else 72,
             # Same inspection pause for every sensing condition, followed by the
             # original plug task's 2.5-second manipulation budget.
             "episode_seconds": self.initial_seconds + 2.5 if self.task == "plug" else 12.0,
@@ -84,6 +155,14 @@ class Experiment:
             raise ValueError(
                 "The centered-pin plug prototype is incompatible with hidden_prongs_v1"
             )
+        if self.task == "transfer" and self.task_revision not in ("v1", "pick_place_v2"):
+            raise ValueError("Unsupported transfer task revision")
+        if (
+            self.task == "transfer"
+            and self.task_revision == "pick_place_v2"
+            and self.success_state_sample != "current_qpos"
+        ):
+            raise ValueError("pick_place_v2 requires current_qpos success sampling")
         for value, choices, name in (
             (self.task, TASKS, "task"),
             (self.condition, CONDITIONS, "condition"),
@@ -103,8 +182,62 @@ class Experiment:
             raise ValueError("clearance must be between 0.5 and 5 mm")
         if self.perturb_push and self.task != "push":
             raise ValueError("perturb_push is only defined for pushing")
+        if self.manip_control not in ("joint", "cartesian"):
+            raise ValueError("Unknown manip_control")
+        if self.manip_control == "cartesian" and self.task == "plug":
+            raise ValueError("Plug has its own versioned Cartesian controls")
+        if not 0 <= self.reset_xy_jitter <= 0.04:
+            raise ValueError("reset_xy_jitter must be between zero and 0.04 m")
+        if self.task == "push" and self.task_revision not in ("v1", "push_v2"):
+            raise ValueError("Unsupported push task revision")
+        if self.push_target_layout not in ("square_v1", "arc_v1", "arc_v2"):
+            raise ValueError("Unsupported push target layout")
+        if self.push_target_layout in ("arc_v1", "arc_v2") and (
+            self.task != "push" or self.task_revision != "push_v2"
+        ):
+            raise ValueError("Arc target layouts require task=push and push_v2")
+        if self.push_workspace_revision not in ("partition_v1", "arc_clear_v2"):
+            raise ValueError("Unknown push_workspace_revision")
+        if self.push_workspace_revision != "partition_v1" and (
+            self.task != "push" or self.task_revision != "push_v2"
+        ):
+            raise ValueError("Clear arc workspace requires push_v2")
+        if self.push_control_revision not in ("legacy_v1", "wide_v2"):
+            raise ValueError("Unknown push_control_revision")
+        if self.push_control_revision != "legacy_v1" and (
+            self.task != "push" or self.task_revision != "push_v2"
+        ):
+            raise ValueError("Wide push controls require push_v2")
+        if self.push_visibility_revision not in (None, "crossbar_v1", "crossbar_v2", "crossbar_v3"):
+            raise ValueError("Unsupported push visibility revision")
+        if self.push_visibility_revision is not None and self.task != "push":
+            raise ValueError("Push visibility revision requires task=push")
+        if self.task_revision == "push_v2" and self.success_state_sample != "current_qpos":
+            raise ValueError("push_v2 requires current_qpos scoring")
         if self.memory not in ("gru", "none"):
             raise ValueError("memory must be gru or none")
+        if self.actor_observation not in ("rgb", "privileged"):
+            raise ValueError("Unknown actor_observation")
+        if self.actor_observation == "privileged":
+            object.__setattr__(self, "render_sensors", False)
+        if self.policy_profile not in ("compact", "legacy_ff"):
+            raise ValueError("Unknown policy_profile")
+        if self.policy_profile == "legacy_ff" and self.memory != "none":
+            raise ValueError("legacy_ff requires memory=none for both actor and critic")
+        if self.plug_wrist_yaw and (
+            self.task != "plug" or self.success_state_sample != "current_qpos"
+        ):
+            raise ValueError("plug_wrist_yaw requires plug and current_qpos scoring")
+        if self.plug_control not in ("absolute", "delta5mm"):
+            raise ValueError("Unknown plug_control")
+        if self.plug_control != "absolute" and self.task != "plug":
+            raise ValueError("Incremental plug control requires the plug task")
+        if self.reward_profile == "plug_staged" and (
+            self.task != "plug"
+            or self.plug_control != "delta5mm"
+            or self.success_state_sample != "current_qpos"
+        ):
+            raise ValueError("plug_staged requires plug, delta5mm control and current_qpos scoring")
         if self.plug_variant is not None and (
             self.task != "plug" or self.plug_variant not in plug.VARIANTS
         ):
@@ -113,6 +246,18 @@ class Experiment:
             self.task != "plug" or self.success_state_sample != "current_qpos"
         ):
             raise ValueError("legacy_log_hold requires plug and current_qpos success sampling")
+        if self.reward_profile == "plug_insertion" and (
+            self.task != "plug" or self.success_state_sample != "current_qpos"
+        ):
+            raise ValueError("plug_insertion requires plug and current_qpos success sampling")
+        if self.reward_profile in ("transfer_staged", "transfer_dense", "transfer_transport") and (
+            self.task != "transfer" or self.task_revision != "pick_place_v2"
+        ):
+            raise ValueError("transfer_staged requires transfer pick_place_v2")
+        if self.reward_profile == "push_dense" and (
+            self.task != "push" or self.task_revision != "push_v2"
+        ):
+            raise ValueError("push_dense requires push_v2")
         self._validate_dynamic_occlusion()
 
     def _validate_dynamic_occlusion(self):
@@ -190,6 +335,10 @@ class Experiment:
 
     @property
     def manip_dim(self):
+        if self.manip_control == "cartesian":
+            return 4 if self.task == "transfer" else 3
+        if self.task == "plug" and self.plug_wrist_yaw:
+            return 4
         return {"plug": 3, "transfer": 6, "push": 5}[self.task]
 
     @property
@@ -209,12 +358,30 @@ class Experiment:
         return self.manip_dim + (5 if self.camera_control else 0)
 
     @property
+    def push_success_tolerance(self):
+        return 0.005 if self.push_target_layout in ("arc_v1", "arc_v2") else 0.015
+
+    @property
+    def push_marker_half_size(self):
+        return 0.010 if self.push_target_layout in ("arc_v1", "arc_v2") else 0.026
+
+    @property
     def sensors(self):
+        if self.actor_observation == "privileged":
+            return ()
         if self.condition == "wrist":
             return ("wrist",)
         if self.condition == "static":
             return ("external",)
         return ("wrist", "external")
+
+    @property
+    def variant_labels(self):
+        from . import plug
+
+        if self.task != "plug":
+            return ["nominal"] * self.num_envs
+        return [plug.VARIANTS[i] for i in plug.variant_assignment(self.num_envs, self.plug_variant)]
 
     def to_dict(self):
         return asdict(self)
@@ -242,5 +409,11 @@ def saved_experiment(data):
     if data.get("task", "plug") == "plug" and data.get("task_revision") != "hidden_prongs_v1":
         raise ValueError("Legacy centered-pin experiment; restore its code revision to evaluate it")
     return Experiment(
-        **{"success_state_sample": "derived_substep", "reward_profile": "progress", **data}
+        **{
+            "task_revision": "v1",
+            "success_state_sample": "derived_substep",
+            "reward_profile": "progress",
+            "push_target_layout": "square_v1",
+            **data,
+        }
     )

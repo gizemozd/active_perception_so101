@@ -1315,3 +1315,914 @@ handoff instruction alone.
   separate fresh-repair metrics, physical closest-approach counts, phase residuals
   and all16 probe folds. `follow_on_decision.json` records the conditional deferral
   of transfer/push without duplicate submissions.
+
+### Legacy recipe audit and optional wrist yaw — October 9, follow-up repair
+
+- Read the requested sibling `active_perception_arms` insertion reward, task
+  README, and saved pl3 configurations. Legacy reward is `-log(1+100*distance)`,
+  replaced by +1000 at instantaneous derived-position error <2 mm. The current
+  default uses potential differences and +10 after a physical three-sample hold.
+  Existing `legacy_log_hold` retains the strict hold, current-qpos sampling and
+  small action/time costs; it is not exactly the historical reward.
+- Saved pl3 used feedforward 256–256–128 actor/critic, initial std1, adaptive
+  LR0.001, entropy0.005, five epochs/four minibatches and 196.608M global
+  transitions across four GPUs. Its horizon, control rate, images, encoders,
+  physics solver and timeout bootstrap also differ. The legacy task README
+  explicitly marks its wrist94.0%/static86.2%/active100% seed-0 scores superseded
+  because variant-dependent inertials leaked identity through plug sag. These
+  historical numbers are not a matched post-fix visual baseline.
+- Reproduced a native hard XM start at seed10011: original approach jams with
+  62.96 mm final body error despite a 1.43e-17 m commanded IK position residual.
+  Prong/socket normal contact forces reach7.49 N and6.50 N. Holding XY while
+  lifting the TCP to90 mm first makes the same translation-only controller
+  succeed after57 steps/2.28 s, with0.437 mm final error. This is one privileged
+  native diagnostic, not a learned-policy or aggregate Warp result. The existing
+  production scripted controller and training resets remain unchanged.
+- Added opt-in `plug_wrist_yaw`: fourth manipulator action, ±30° absolute world-Z
+  yaw, 3°/step rate limit, inspection pause, native/Warp control, reset/proprio
+  and camera action slicing. Yaw runs require physical orientation error <2°
+  alongside <2 mm for three samples; the evaluator records/audits all three
+  orientation samples. Yaw log shaping uses a30 mm lever-arm angle cost.
+  Old saved checkpoints default to yaw disabled and preserve their schemas.
+- Added `policy_profile=legacy_ff` with both actor and critic feedforward and
+  the recovered widths/PPO settings. Its default memory is none; existing
+  compact profiles stay unchanged. Resume checks reject action/architecture/
+  objective changes. This is a legacy-style recipe, retaining current geometry,
+  image encoders, horizon and physical scoring, not an exact pl3 reproduction.
+- Validation:166 non-GPU tests passed, followed by15 targeted checks after the
+  orientation-audit addition. Native physical yaw/realignment and insertion for
+  all four variants pass; CPU Warp tests cover camera slicing and partial reset;
+  a real PPO update changes both image encoders with finite losses. The first
+  GPU harness job51621445 failed before learning because it bypassed the normal
+  RSL observation wrapper; its source/manifest/failure are preserved under
+  `artifacts/plug_repair/attempts/`. Job51622754 completed two rendered PPO
+  updates before the harness's checkpoint reload exposed nested runner-config
+  mutation. Model construction now deep-copies its options;71 targeted tests,
+  including a real CPU save/load regression, pass after that fix. Final GPU
+  job51623922 completed0:0 in2m45s: yaw-off wrist+static and yaw-on active each
+  execute two finite PPO updates, update both RGB encoders, and pass checkpoint
+  roundtrip checks; compiled yaw IK and camera-channel routing pass too. These
+  tiny smoke updates are implementation checks, not competence results.
+- Prepared a fresh, sequential one-GPU pair: fixed-view7 wrist+static, seed0,
+  `legacy_ff` + `legacy_log_hold`, yaw off/on,751 updates/9,228,288 transitions
+  each,18,456,576 total. Each final checkpoint gets two512-episode balanced
+  physical validations and representative media. Yaw changes scoring/shaping
+  as well as action dimension, so this is not a pure DOF causal ablation.
+  Gate:>=103/128 on every variant in both repeats. No automatic extension or
+  active/wrist/transfer/push sweep. The source/asset snapshot has59 hashed files
+  plus its working-tree patch; base Git revision alone does not identify it.
+- Submitted the exact bounded pair as job51624849, one GPU with a4-hour wall
+  cap. The launcher verifies every frozen file before each stage and performs
+  both repeats plus trajectory/video recording after each final checkpoint.
+  `train-submission.json` pins the plan and passing GPU validation hashes.
+- The first run entered the real learner with finite initial losses, roughly
+  3.5 s/update after warmup, W&B run `674x90se`. CPU-only report job51626017
+  depends on completion of51624849 (success or failure) and will rebuild both
+  HTML pages and independently validate the portable ZIP. Its three report
+  scripts are copied and hash-pinned separately from the training source.
+- New evidence/report: `artifacts/plug_repair/index.html`,
+  `xm-native-diagnosis.json`, and `recipe-plan.json`. The full camera comparison
+  and hyperparameter digest remains `artifacts/training_results/index.html`.
+  New learned-policy success rates are pending; the ~30% baseline is not fixed
+  merely by implementing and validating the new control/recipe options.
+
+## 2026-10-09 — Transfer reward/environment repair (one task at a time)
+
+- User requested starting the two remaining tasks sequentially. Transfer is
+  first; pushing has no reward/environment redesign or training submission.
+  Existing frozen plug jobs continue independently.
+- The old transfer task ignored `current_qpos` for object/TCP success sampling,
+  did not require pickup history or actual floor support/release, and rewarded
+  keeping the TCP near the cube even when the correct final action is withdrawal.
+  Along the canonical native rollout its old potential fell from about 1.60 to
+  1.41 during successful withdrawal.
+- Added versioned `pick_place_v2` / `transfer_staged` defaults for fresh transfer
+  runs. Old saved transfer experiments retain v1 behavior and schemas; resume
+  inherits/rejects changes to the task revision and reward. Current object
+  qpos/qvel and analytical TCP FK drive v2 scoring. Contacts are sampled from
+  the last solved physics substep; the audit records state before auto-reset.
+- Success now requires bilateral contact while lifting at least 25 mm, then
+  floor-supported placement within 18 mm XY / 6 mm Z, no arm contact, linear
+  speed <35 mm/s, angular speed <0.5 rad/s, and TCP withdrawal >45 mm for five
+  consecutive samples. The pickup history is critic/reward-only; actor inputs
+  remain RGB and measurable robot state.
+- Staged potential: reach [0,1], grasp/lift [1,2], transport [2,3],
+  release/withdraw [3,4]. Reward is `3*(0.99*next_phi-prev_phi)+25*success`,
+  minus 0.005 and 0.0005*mean squared manipulator action. Terminal potential is
+  zero at every terminal condition. Camera modes have the same manipulator
+  effort cost. Transfer already exposes five arm joints (including wrist flex
+  and roll) plus gripper control; no additional DOF was needed for the oracle.
+- Fixed evaluation/capture grouping for non-plug tasks to `nominal`; previous
+  code incorrectly assigned plug XM/XP/YM/YP labels and passed them into native
+  transfer replay. Termination audits now retain physical transfer criteria.
+- Native baseline and v2 checks each pass 17/17 (one canonical +16 randomized).
+  CPU Warp v2 passes 4/4 with normal termination/reset, zero criterion/hold
+  violations. Initial 180 non-GPU tests passed; 44 targeted tests passed after
+  the contact change below. New tests reject fake goal-only success, continuing
+  arm contact, missing support, motion, insufficient withdrawal and timeouts;
+  they cover raw-state FK, critic dtype, actor information isolation and reset.
+- First GPU job51642162 completed 121/128 physical transfers. All seven
+  timeouts were lifted/released/placed but exhibited residual rocking at the
+  floor. Its PPO smoke performed two finite updates then hit a harness-only
+  error resetting a GRU inference tensor outside inference mode. Both findings
+  and the original frozen source/results are retained.
+- Cube-floor contact previously used condim=3, so existing spinning/rolling
+  friction coefficients were inactive. V2 now uses condim=6 (v1 unchanged).
+  GPU job51643152 completed0:0 in2m00s: 126/128 scripted transfers, zero false
+  success/hold violations, both RGB encoders updated in two recurrent PPO
+  updates, and checkpoint reload matched. Two settling timeouts remain and
+  are recorded as failures. Native contact-enabled audit still passes17/17.
+- Camera screen: actual96x72 segmentation,27 states from three clean native
+  rollouts ×28 cameras (26 fixed+wrist+camera-arm home). Fixed home and camera
+  arm home see ≥3 cube pixels in27/27 states; wrist24/27, with target in frame
+  12/27. Fixed04 has strongest coverage in this small screen, but is not a
+  learned-success-selected view. This is not evidence of an active advantage.
+- `artifacts/transfer_repair/index.html` contains rewards, criteria, mechanical
+  results, failure rows, camera gallery, actual Warp videos and raw evidence.
+  No transfer competence training has been launched yet. Scripted feasibility
+  and384 PPO smoke transitions are not trained static/active/wrist results.
+- Follow-up job51644216 isolates the remaining settling failures using a
+  captured placement, zero initial velocity, and held arm targets. It compares
+  current settings,100 solver iterations,1 ms timestep, and5× rolling friction.
+  Results and source provenance: `settling-probe.json` / `settling-submission.json`.
+- Settling probe completed: all four settings satisfy linear/angular settling
+  for all final50 samples in eight cloned worlds. Current and100-iteration
+  settings give identical results. Zeroing initial velocity does not reproduce
+  the dynamic-release failures; retain both failures and existing thresholds.
+  No timestep/iteration/friction-coefficient sweep was adopted from this probe.
+- Submitted one bounded transfer learning pilot as job51644983: clean
+  wrist+static home view0, seed0,256 worlds,501 PPO updates/3,078,144 transitions,
+  compact GRU actor/critic with initial_std1.0 for gripper/joint exploration.
+  Final checkpoint gets512 clean plus512 dynamic-occlusion validation episodes
+  at seed20000, physical audits, stage failure counts and captured media. There
+  is no automatic budget extension or camera/task sweep. The source snapshot
+  matches the GPU-validated environment/reward/policy/assets exactly; only the
+  CLI help text differs. Plan and runtime live under `artifacts/transfer_repair`.
+  W&B run: `ew70u0sv`. Real training is running; learned success is pending.
+- Pilot entered the learner with finite losses, about1.4 s/update after warmup
+  (46 updates /282,624 transitions observed). CPU report job51645257 runs after
+  the pilot exits, including failure/time-limit exits, using a separately
+  hash-pinned builder. The report's20 local evidence/media links validate.
+
+## 2026-10-09 — Completed plug runs and XM failure diagnosis
+
+- The legacy-recipe pair completed: job51624849, 751 updates /9,228,288
+  transitions each. Both 512-episode repeats score XYZ77/512 (all77 YP;
+  XM/XP/YM0) and XYZ+yaw0/512. Adding yaw also enabled orientation shaping
+  and a2-degree success criterion, so this is not a pure DOF ablation.
+- XM means prongs shifted -15mm in local X relative to the common housing;
+  XP means +15mm. Correct aligned housing position is socket minus offset.
+  Equivalent definitions apply to YM/YP. No variant sign/indexing error was
+  found; mass/inertia remain equalized and housing geometry is identical.
+- Added frozen-policy diagnostic scripts `diagnose_xm_controls.py` and
+  `analyze_xm_geometry.py`, and the verified HTML report
+  `artifacts/xm_diagnosis/index.html`. No production reward/control change or
+  learner update was made during this investigation.
+- Three checkpoints each received five128-episode control interventions
+  (seed10000,32/variant). Baseline XM success was0/32 for all three: earlier
+  progress-GRU, new legacy-feedforward XYZ, and new XYZ+yaw. Their XM median
+  closest physical position errors were2.25,10.80,2.54mm respectively. Late
+  processed target jumps averaged38.9,41.9,45.7mm per40ms control step. These
+  are command displacements, not object displacements; evaluation uses the
+  deterministic actor mean and does not sample training noise.
+- A3mm target slew cap and holding measured TCP at2s generally made outcomes
+  worse. Replacing the command with the privileged true final target at2s
+  rescued18/32,3/32,25/32 XM episodes respectively. This distinguishes
+  recoverable final-command failures from approaches already stuck by2s.
+- A privileged raise-and-traverse approach solved29/32 XM and32/32 each
+  XP/YM/YP for all three cases. The three remaining XM starts require housing
+  X near+58 to+64mm and jam about63mm away. Lifting in place before horizontal
+  translation solved512/512 across seeds10000–10003, including128/128 XM,
+  with the original3XYZ actions,3.5s horizon and2mm/three-sample physical hold.
+  This is scripted feasibility with true target information, not learned success.
+- Saved GRU Gaussian std corresponds to17.10,13.49,4.87mm XYZ request noise
+  before clipping. Adding it to the successful lift-first oracle gives0/512.
+  At10% noise,447/512 succeed (XM111/128). Applying the same normalized noise
+  to5mm increments gives449/512 (XM106/128). Both retain failures. These tests
+  isolate exploration-scale sensitivity but do not measure its causal share
+  of trained-policy failure. Reducing eval std cannot fix deterministic means.
+- Feedforward XYZ std is27.58,0.19,4.58mm (strong Y exploration collapse).
+  XYZ+yaw std is7.76,12.37,1.31mm and22.59degrees before clipping/rate limits.
+  A captured yaw XM frame reaches1.54mm position error but~3.5degrees angular
+  error; later commands lose alignment. Captured XYZ/GRU failures show prong
+  edge contacts and tilt. Native reconstruction uses actual Warp poses without
+  resimulation; reconstructed contact geometry is not a GPU force measurement.
+- Jobs51654119/51655476 produced the15 control cases. The initial job failed
+  after four saved cases due to a helper-only Python-bool/torch.where error;
+  the corrected continuation verified and preserved them. Jobs51656582 and
+  51656972 completed all four512-episode approach/noise settings. Report
+  validation checks19 result files/3,968 episodes, checkpoint/source hashes,
+  matched initial state+image hashes, raw counts and physical holds: zero
+  success violations. Noise paths may diverge after different episode resets.
+- Next justified learning experiment: lift/align/insert curriculum or staged
+  reward, precision-scale control and reduced insertion exploration. Plain
+  distance reward, more DOFs or extra steps alone are not validated fixes.
+  Perception/memory limits remain unresolved. Camera rankings and80–100%
+  learned targets remain hypotheses; old high scores used an inertia shortcut.
+- Transfer pilot51644983 and its report51645257 also completed0:0. The bounded
+  3,078,144-transition pilot scores0/512 clean and0/512 dynamic. The transfer
+  report contains its measured stage failures; further transfer diagnosis is
+  deferred while addressing the user's XM request. Pushing has not been trained.
+
+## 2026-10-09 — Transfer/push billion-transition study (current authorization)
+
+- User assigned this worker transfer and push while another worker continues plug.
+  User explicitly confirmed **at least 1B environment transitions per policy run**
+  and permitted multiple seeds. This supersedes earlier transfer/push deferrals
+  and the earlier one-pilot-only scope; plug experiment ownership remains separate.
+- Rechecked completed transfer job51644983: 501 updates /3,078,144 transitions,
+  **0/512 clean and0/512 dynamic**; all1024 failed before lifting. Its source,
+  checkpoints, physical scoring and results remain preserved.
+- Added opt-in Cartesian manipulation (`manip_control=cartesian`): XYZ+gripper
+  for transfer, XYZ for push, fixed grasp orientation and bounded TCP slew.
+  Camera-arm controls retain five joint increments. Old joint-control and plug
+  configurations retain their default behavior and saved checkpoint schemas.
+- Added opt-in `transfer_dense` and `push_dense` stage shaping,0.2*density per
+  step,+100 held success,-0.005 time cost and equal manipulator-only effort cost.
+  Transfer retains physical bilateral pickup/lift, support, release, settling and
+  five-sample withdrawal criteria. Density rewards pickup/transport/release;
+  lifted history alone cannot earn transport credit for a dropped object.
+- Introduced `push_v2`: current-qpos object position/velocity and current-joint TCP
+  FK. Old push withdrawal used the TCP above the rigid tip and could complete
+  during the pushing approach. V2 requires the **actual pushing tip** to clear
+  the object by25mm, no load-bearing arm/object contact, XY<15mm,Z<4mm and
+  speed<35mm/s for three samples. Termination audit retains all criterion samples
+  before auto-reset. Physical contacts remain sampled from the solved substep.
+- Increased common study reset XY jitter from±8mm to±20mm for both object and
+  goal, with explicit saved configuration and resume checks. Wider goals make
+  fixed nominal action sequences less sufficient; this is not an active-vision
+  performance result. No actor observations contain privileged object/goal state.
+- Initial native Cartesian audit passed8/8 each under±8mm and the earlier push
+  criterion. GPU job51659449 passed125/128 transfer and128/128 push under that
+  intermediate configuration; preserve it separately. **Final GPU job51660328**
+  passed127/128 transfer and128/128 push under±20mm and actual-tip push scoring;
+  both tasks passed two finite rendered PPO updates, both RGB encoder changes,
+  and checkpoint roundtrip. These are scripted feasibility/smoke checks only.
+- Validation:186 non-GPU/non-render tests passed, plus two launcher tests. The
+  earlier full non-GPU invocation aborted in the native OpenGL renderer on this
+  CPU host; its log is preserved. GPU-rendered audits passed on allocated GPUs.
+  New tests cover camera-channel slicing, bounded Cartesian movement, partial
+  reset, actor information isolation, current-qpos/FK, physical tip withdrawal,
+  historical schemas, exact billion-step rounding and idempotent Slurm submission.
+- Immutable plan: `artifacts/transfer_push/study-plan.json`; frozen source/assets
+  `.cache/transfer-push-study-20261009T195224Z`, including per-file SHA256 and the
+  working-tree patch. All18 configuration dry runs passed. Audit source exactly
+  matches the frozen training source; base Git revision alone is insufficient.
+- Plan: two tasks × wrist/wrist_static/active × seeds0/1/2 =18 policies,
+  **20,346 updates ×2,048 worlds ×24 steps =1,000,046,592 transitions each**.
+  All use dynamic optical occlusion,96×72 RGB,12s horizon,compact GRU,initial
+  std1,adaptive LR0.0003,entropy0.01,four PPO epochs/eight minibatches. Transfer
+  static view4 comes from the earlier segmentation screen; push uses home view0.
+  These are specified static baselines, not learned-success-selected best views.
+- Submitted seed0 wrist+static runs: **transfer51661708**, **push51661732**.
+  Both have the full1B target. Intermediate validation begins near12M transitions,
+  then50M,100M and approximately100M intervals. A task scoring>=80% in both
+  clean/dynamic512-episode validation sets unlocks its other eight runs. Every
+  started policy retains the full1B target; an unsuccessful competence check
+  does not truncate its training. Final1024-episode tests use reset seed80000;
+  competence decisions use validation seed30000, never final test results.
+- The worker handles Slurm24h signals by checkpointing and dependency-linked
+  continuation (maximum eight allocations/run), preserving optimizer/W&B state.
+  Simulation/RNG/recurrent episode state resets at resume and is disclosed.
+  Final active policies also get freeze-after1s and hold-external-after1s tests.
+- Results destination: `artifacts/training_results/transfer_push.html`, linked
+  near the top of `artifacts/training_results/index.html`; machine-readable
+  status `transfer_push_summary.json`. Workers rebuild after evaluations.
+  Reports distinguish target/completed budgets, validation/test, scripted
+  feasibility and learned success. No new learned camera ranking is established.
+- Launch verification at19:56 UTC: transfer24 updates/1,179,648 transitions,
+  push11 updates/540,672 transitions; all logged PPO losses finite. W&B runs
+  `ba1poiu4` (transfer) and `g52ki3vz` (push). Early measured throughput is about
+  11.9k and10.5k transitions/s; these are startup-adjacent measurements, not
+  final runtime estimates. All145 frozen source files still match their hashes.
+- The full worker interruption/resume/final-budget path also passes a simulated
+  launcher regression: seven completed updates are preserved across a signal,
+  resume reaches exactly1,000,046,592 accounted transitions, and only validation
+  results enter competence decisions. This regression performs no actual PPO.
+  Three launcher tests and eight combined final targeted tests pass.
+- Main portable report validation passes:204 files hash-verified,70 local main
+  links,14 repair links,30 XM-diagnosis links,16 embedded images and20 decoded
+  videos. Transfer/push page links and unique IDs also pass. The ZIP is a dated
+  snapshot; live local HTML is rebuilt by study workers as evaluations finish.
+
+## 2026-10-09 — Plug precision policies: authorized 18M per camera condition
+
+- User requested starting the plug policies and explicitly selected **18 million
+  transitions per policy**, rather than the neighboring transfer/push 1B budget.
+  Three fresh seed0 RGB policies are submitted: wrist-only **51665970**,
+  static+wrist **51666125**, active+wrist **51666132**. Each receives1465 updates
+  ×512 worlds ×24 steps = **18,001,920 transitions**,54,005,760 total. All three
+  jobs were running on allocated RTX PRO6000 GPUs at20:13 UTC.
+- Added opt-in `plug_control=delta5mm` and `reward_profile=plug_staged`.
+  XYZ commands now increment the requested TCP by up to5mm/axis/40ms; zero
+  holds the target. Old absolute controls and old checkpoint schemas remain
+  the default. New resume checks reject a control-mode change.
+- New physical stage reward first credits lift above87mm, then alignment within
+  3mm while TCP stays above84mm, then insertion. Current-qpos object positions
+  and current-joint FK drive shaping; stale command targets cannot advance a
+  stage. Density[0,3], reward0.2*density+100*held_success-0.005-0.001*mean(action²)
+  over manipulator channels only. Alignment credit falls if XY error increases.
+  Stage history is critic/reward-only, not an actor observation.
+- Common actor: compact GRU with RGB+measurable robot state. Initial normalized
+  Gaussian std0.25 gives1.25mm per XYZ axis; std remains learned, not capped.
+  Adaptive initial LR0.0003, entropy0.001. Three translation controls, no yaw;
+  unchanged2mm/three-sample physical success and3.5s episode including1s pause.
+  Training scenes are clean. Static uses the previous grazing view7.
+- GPU audit **51663836** completed0:0 in3m03s. Privileged lift-first controller
+  solves512/512 new randomized episodes,128/128 each variant, under actual
+  incremental controls and normal termination/reset. All three camera modes
+  pass two real rendered PPO updates, image-encoder updates and checkpoint
+  roundtrip. These are feasibility/smoke results, not learned success rates.
+- Targeted final tests:66 passed (including control, actor isolation, old config
+  compatibility, resume and simulated interruption/budget accounting). Broader
+  shared-checkout recheck:197 passed, two contemporaneous transfer/push
+  privileged-actor tests failed with TensorDict type errors, outside plug RGB.
+  Both logs are retained in `artifacts/plug_precision`; no claim of an entirely
+  passing shared checkout. Ruff and diff whitespace checks pass.
+- Immutable `artifacts/plug_precision/plan.json` pins65 source/helper/asset files
+  in `.cache/plug-precision-train-20261009T201219Z`, derived from the GPU-tested
+  snapshot. The only production differences from that audit are explicit
+  defaulted reward-profile attribute reads for old lightweight diagnostic stubs;
+  their exact hashes and equivalence for Experiment objects are recorded.
+  This isolates these jobs from concurrent transfer/push source changes.
+- Midpoint:750 updates /9,216,000 transitions;512 clean+512 dynamic validation
+  episodes at seed30000, followed by an exact optimizer/count resume to1465.
+  Final:1024 clean+1024 dynamic test episodes at seed80000 (256 per variant),
+  physical audits, stage failure counts and captured videos. Dynamic evaluation
+  is robustness to an unseen obstruction, not in-distribution dynamic training.
+  Simulator/RNG/GRU episode state resets on midpoint/wall-time resume; weights,
+  Adam, adaptive LR, W&B identity and transition accounting are preserved.
+- Each job has a6h allocation cap with signal-triggered checkpoint/continuation,
+  up to three allocations, always retaining the same18,001,920-transition target.
+  Learned performance is pending. Live HTML: `artifacts/plug_precision/index.html`;
+  workers rebuild it after evaluations. No independent training-seed comparison
+  or general active/static/wrist performance ranking is claimed yet.
+- Launch verification: all three entered real PPO with finite logged losses.
+  Observed wrist23 updates/282,624 transitions, static+wrist15/184,320,
+  active16/196,608. W&B runs are `hstja9b1`, `odi1z7rw`, `oapzq7fk` respectively.
+  All65 frozen files still match. Exact observation time and counts are saved in
+  `artifacts/plug_precision/launch-verification.json`. Learned evaluation remains
+  pending; startup throughput is not a completion-time guarantee.
+
+
+## Transfer/push: privileged-first diagnostic (2026-10-09 20:18 UTC)
+
+- User corrected the study order: validate reward/action/task learnability with full state before RGB. Explicit diagnostic budget: **10M per task first; extend only if useful**. The eventual matched RGB runs still require **at least 1B transitions each**.
+- Added opt-in `--actor-observation privileged`: actor and critic get robot/object/goal state, velocities and physical contact/stage features, with a 256×256 MLP and no rendering. Same Cartesian controls, rewards, success tests, ±20mm resets and 12s horizon as the paused RGB study. RGB remains the default and cannot silently resume into privileged mode.
+- CPU validation: 5 privileged tests pass, including real PPO weight updates/checkpoint reload and bitwise-equal rewards/physics against fixed-action RGB-configured environments. Related regression suite: 72 passed. Launcher cancellation/suspension tests: 5 passed; null-capture/resume test: 1 passed.
+- Diagnostic plan `artifacts/transfer_push/privileged/plan.json`; frozen simulation/policy source `.cache/privileged-diagnostic-20261009T201024Z`. Checkpoints at 2,015,232, 5,013,504 and 10,027,008 transitions, each evaluated on two 512-episode validation seed sets (30000, 31000). Provisional competence requires ≥90% on both final sets, plus physical audit/trajectory inspection. No automatic RGB launch.
+- Initial jobs 51665235/51665237 reached 2,015,232 transitions; first held-out evaluations both **0/512**: transfer no lift, push outside goal. Drivers then failed because the optional capture key existed with a null value. Fixed the driver, tested resume without replaying learning, and resumed from the same checkpoints as jobs **51666937 (transfer), 51666942 (push)**. Driver repair copy/hash and resumption commands are recorded; frozen physics/reward/policy code is unchanged.
+- RGB shutdown correction: old SIGTERM handlers submitted continuations despite cancellation. Cancelled 51663565/51663566/51666215/51666235 and directly killed the final transfer driver 51666277. Queue verified clear of transfer/push RGB jobs. Total logged transitions reached **11,059,200 transfer / 9,388,032 push**; preserved checkpoints remain **5,947,392 / 4,718,592** with verified hashes. Full record `artifacts/transfer_push/suspension.json`. The new launcher checks suspension on both submission and worker startup, and SIGTERM no longer resubmits (USR1 wall-time warning only).
+- Live HTML: `artifacts/training_results/privileged.html`, linked from the main report and transfer/push appendix. Report reward, physical success, goal distance, lift stages, raw held-out outcomes and final trajectory videos. Reward increases alone do not establish learnability or active-perception advantage.
+
+
+### Privileged 10M results and reviewed 20M extensions
+
+- Both initial diagnostics completed **10,027,008 transitions**. Push: **361/512 (70.5%) / 345/512 (67.4%)** at validation seeds30000/31000, up from0/512 twice at5M. Transfer: **0/512 / 0/512**, all lacking a valid25mm lift history. Neither meets the provisional90%-on-both-sets criterion.
+- Transfer training return rose from~21 at2M to~69 at10M without any complete transfer; do not interpret reward improvement as competence. Terminal training bilateral grasps rose9.3%→84.8% between5M and10M; normalized lift0.0125→0.5214 (~13mm mean partial lift), with2.8% lifted histories under stochastic training actions. Deterministic held-out rollouts still never completed the required lift.
+- Actual10M evaluated trajectories are preserved under `artifacts/transfer_push/privileged/{task}/capture` and `videos`; full state/actions/rewards stored inNPZ, rendered observer videos linked inHTML. Two push representatives (success/failure) visually inspected; all published scores checked against raw terminal flags and physical hold criteria.
+- Reward audit job**51667536** completed. Matched initial states,64 resets/case: transfer scripted completion63/64, discounted return37.99, versus reach-only12.16/grasp-hold13.15/lift-hold23.01; push completion64/64, discounted41.79 versus behind-only11.41/controller-without-explicit-withdrawal18.65 (9/64 successes). Completion also wins undiscounted return in all tested comparisons. This checks specific obvious traps, not PPO learnability. Evidence `privileged/reward-audit.json`.
+- User authorized extensions when useful. Extend both to **20,004,864 cumulative transitions** (407updates), with unchanged frozen physics/reward/policy/optimizer settings. Push has clear held-out learning; transfer has developing grasp/lift behavior worth one bounded continuation. Extension decision, plan, copied driver hash and commands recorded. Jobs **51668904 push**, **51669740 transfer**. Initial `runtime-10M.json` and evaluations/checkpoints/videos preserved; extension videos use separate milestone directories. No RGB submission follows automatically.
+- Live HTML `artifacts/training_results/privileged.html` includes reward/success/distance/lift curves, every checkpoint evaluation, automatic latest-score interpretation, reward ranking, and trajectory videos. Main and transfer/push HTML link the diagnostic. The prior portableZIP is a dated snapshot, not the live status.
+
+- Post-report validation: all12 initial checkpoint evaluations reproduce published counts with zero physical/hold violations; three captured videos decode; main/transfer-push/privileged HTML have unique IDs and all local references resolve. Final launcher regression6passed. The original RGB campaign is retired: any future RGB launch must use a new reviewed plan and frozen snapshot with the cancellation guards.
+
+## 2026-10-09 — Fixed-FOV push visibility and RGB policy comparison
+
+- The earlier push occlusion screen did not satisfy the camera hypothesis: the wrist
+  saw both the source and goal on every sampled reset. Kept that prototype as a
+  rejected design and reran the audit with wrist and external-camera segmentation
+  measured separately.
+- Added opt-in `push_visibility_revision=crossbar_v3`. This fixed optical crossbar
+  is collisionless, spans the source/goal sightline, and leaves the cube/tool push
+  lane below it. Reset coordinates remain independent ±20 mm source/goal jitter;
+  the crossbar is present for every layout and every camera condition. Policy FOV
+  remains 48.4554906359° in all three sensors.
+- Rendered64 held-out reset seeds. Wrist alone sees both landmarks in49/64 (76.6%);
+  static home sees source64/64 and goal0/64, hence the wrist+static pair rate is
+  49/64 (76.6%). The fixed camera alone never sees both. A set of11 IK-reachable
+  active-camera endpoints with sampled collision-free joint paths covers source
+  and goal together for64/64 resets (100%). This is a geometric coverage oracle,
+  not evidence that a policy has learned to reposition the camera. Audit and gallery:
+  `artifacts/push_rgb/visibility-audit/visibility-audit.json` and
+  `visibility-gallery.png`; discarded `crossbar_v1/v2` measurements are preserved.
+- The actual Warp/MjLab scene includes the crossbar, preserves its disabled contact
+  masks, and produces uint8 wrist/external images. GPU audit51676182 completed:
+  scripted randomized push success128/128, two rendered PPO updates finite, both
+  RGB encoders updated, checkpoint roundtrip passed. The separate privileged
+  push_v2 task/reward diagnostic reached501/512 and510/512 at20,004,864 transitions
+  on two held-out sets, establishing task/reward learnability before RGB.
+- Froze145 source/helper/dependency files at
+  `.cache/push-rgb-visibility-20261009T210456Z`; plan and hashes are in
+  `artifacts/push_rgb/study-plan.json`. Three matched seed0 RGB runs each target
+  **1,000,046,592 transitions (at least1B)**: wrist51677171,
+  wrist+static51677156, wrist+active51677159. All target the same reset/task/reward
+  and crossbar. Each policy has its own 24h resumable allocation chain; only the
+  explicit wall-time signal can checkpoint and continue. No competence gate truncates
+  the budget. Early startup is in progress; learned success is pending.
+- Live result page: `artifacts/training_results/push_rgb.html`, with the 64-reset
+  visibility comparison, FOV check, Warp/scripted feasibility, privileged learnability
+  evidence, per-run status and held-out results as they arrive. Main results index
+  links the page. No active-vs-static learned advantage is claimed yet.
+
+### First push RGB checkpoint and transfer reward repair update
+
+- At12,042,240 transitions, wrist-only validation reached406/512 clean and418/512
+  dynamic successes (79.3%/81.6%). Wrist+active reached162/512 and166/512
+  (31.6%/32.4%); wrist+static reached0/512 clean at its first checkpoint.
+  These early matched outcomes do not support an active-policy advantage yet;
+  all three runs continue to the full1B target. Reward and episodic success curves
+  plus raw evaluations are in the live push RGB page.
+- The new transfer_transport privileged diagnostic completed its first2,015,232
+  transitions:0/512 success on each validation seed, with106/512 and120/512
+  reaching the lift stage (the previous dense reward had0/512 lifts at2M).
+  Placement/transport has not yet improved at this checkpoint; the planned5M and10M
+  evaluations will decide whether this reward revision is learnable.
+
+### Live follow-up (2026-10-09 21:34 UTC)
+
+- Added measured-throughput remaining-time estimates and active training curves to
+  `training_results/push_rgb.html`. Early measured rates are ~20.8k transitions/s
+  wrist, ~10.3k wrist+static, and ~13.1k active; estimated GPU time for each 1B
+  run is ~13h, ~27h, and ~21h respectively before evaluation/restarts/queueing.
+- Push workers remain active and have resumed from their 12,042,240-transition
+  checkpoints. Iteration logs show progress to 27.6M wrist, 17.4M active, and
+  13.6M wrist+static at the latest inspection. The first held-out results remain
+  406/512 and418/512 for wrist, 0/512 and0/512 for wrist+static, and162/512
+  and166/512 for active (clean/dynamic). Do not infer final ranking from this
+  early checkpoint.
+- Transfer transport-reward diagnostic reached5,013,504 transitions. Seed30000
+  has19/512 held-out successes (3.7%), compared with0/512 at2M; its training
+  episodic success metric was31.8%, so generalization remains poor. Seed31000 is
+  still evaluating. The diagnostic must complete its paired5M and10M results
+  before any RGB transfer run is planned.
+
+## 2026-10-09 — Completion check and plug precision analysis (22:46 UTC)
+
+- Checked Slurm accounting and saved checkpoints: plug jobs51665970/51666125/
+  51666132 all completed0:0, each at1,465 updates /18,001,920 transitions.
+  Their planned midpoint validation, final tests and trajectory captures finished.
+- Ran `scripts/analyze_plug_precision.py` on the saved evaluations and training
+  records. Final scores are **0/1,024 clean and0/1,024 dynamic for all three
+  camera conditions**, including0/256 in each variant. Midpoint scores were also
+  zero. All6,144 final episodes timed out; every episode reached lift history.
+- Final alignment histories (clean/dynamic): wrist222/243, static175/185,
+  active468/281 out of1,024 each. Remaining episodes lifted but never aligned.
+  Alignment is historical and does not imply maintained alignment or insertion.
+  Mean terminal physical errors: wrist34.27/34.22mm, static34.47/34.47mm,
+  active32.65/35.24mm. No final episode ended within5mm of the goal.
+- Returns plateaued without success. Final XYZ exploration request std(mm):
+  wrist[0.0670,0.0225,0.0058], static[0.0075,0.1436,0.2845],
+  active[0.0728,0.0545,0.5014], versus initial1.25mm/axis. These are Gaussian
+  request scales before clipping/control limits, not actual TCP displacement.
+  Shrinkage is descriptive, not causal proof. One training seed gives no general
+  camera ranking. A full-state learnability diagnostic for this exact plug
+  recipe is the next justified experiment; no new training was launched.
+- Analysis verifies all65 frozen source hashes, three final checkpoint hashes,
+  full1,465-update logs, and12 evaluation files /9,216 raw episode records.
+  Published counts, variant counts, evaluation seeds/splits and physical held
+  success checks agree. Zero physical success violations. All48 recorded videos
+  exist;24 representative trace files summarized. These are selected examples,
+  not population trajectory minima. Checked92 report/image/media local links.
+- Detailed report: `artifacts/plug_precision/analysis.html`, linked from the
+  refreshed plug report; machine-readable `analysis.json` and `analysis.csv`,
+  learning/failure-stage plots, and rerun output `analysis-run.log` are saved.
+- Push RGB jobs51677171/51677156/51677159 remain **RUNNING**, with observed
+  wrist112,656,384, static55,541,760, active71,319,552
+  transitions toward1,000,046,592 each. At the latest shared50,036,736 checkpoint,
+  clean/dynamic validation is wrist511/510, static507/508, active506/510 out
+  of512. Wrist's100,024,320 checkpoint is511/510. These are intermediate
+  validation results, not final tests or evidence of active-camera advantage.
+- Refreshed `artifacts/training_results/push_rgb.html`; timestamped Slurm evidence
+  and push counts saved in `artifacts/plug_precision/completion-check.json`.
+
+## 2026-10-09 23:00 UTC — Port original insertion reward
+
+- User requested the insertion reward from the neighboring
+  `/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms` repository.
+  Read `src/active_perception_arms/tasks/insertion/mdp/rewards.py::insertion_reward`
+  and its configuration (weight1, no dt scaling, rotation disabled by default).
+  Source Git HEAD: `b6cd299d7754a03879bfd4b77f46729f1b340d47`; exact reward-file
+  SHA256: `1f0274bfc74520bc134a1b29cd18da0a5d385745b58f1efbcb96f3e13ebbdc94`.
+- Added `plug_insertion`, the default for fresh current-qpos plug runs:
+  `-log(1 + 100*d)` for position error d in meters, REPLACED by exactly1000
+  when d<0.002. No lift/alignment shaping, time cost, action cost or dt scaling.
+  Optional yaw folds the source's Euclidean quaternion error against identity
+  into shaping; its reward bonus remains position-only, exactly as in source.
+- Adapter uses current physical qpos and the existing variant-corrected goal;
+  critic positions use current qpos/FK as well. Both absolute/delta5mm controls
+  work. Existing three-sample physical success termination/evaluation remains;
+  unlike source's immediate termination, the instantaneous bonus can be paid
+  before held success. This is an exact reward port, not a termination-rule port.
+- Historical profiles and frozen studies remain reproducible. Old serialized
+  configs missing reward_profile still deserialize to progress; resume inherits
+  the saved objective and rejects a requested reward change. The historical
+  precision-study driver explicitly retains plug_staged. No training submitted.
+- Validation: exact equality to the actual upstream function (extracted from its
+  source AST) on10,000 sampled states each with rotation off/on.98 targeted tests
+  passed, including real CPU Warp environment integration, reward boundary,
+  no-cost behavior, current-state/variant targeting, unchanged hold scoring,
+  control/CLI and resume compatibility. Ruff and whitespace checks passed.
+  Evidence: `artifacts/plug_precision/insertion-reward-port.json` and
+  `insertion-reward-tests.log`. GPU rollout performance is not measured by these
+  checks. README and CLI help document the new default and reward/hold distinction.
+
+
+## Push RGB study stopped by user (2026-10-09T23:06:07.983144+00:00)
+
+- User requested stopping all three push RGB runs after the latest matched 50,036,736-transition validation showed near-ceiling success without a clear active-camera advantage. This conclusion is specific to this setup and one training seed.
+- Set `artifacts/push_rgb/suspension.json` before signaling the frozen drivers; submissions, worker starts and automatic continuations are disabled. Jobs 51677171/51677156/51677159 exited normally; Slurm shows COMPLETED because shutdown was graceful, while study states correctly say stopped. The planned 1B budgets were not completed.
+- Preserved interrupted checkpoints: wrist 136,642,560; wrist+static 67,190,784; wrist+active 86,114,304 transitions. These new stopping checkpoints have not been evaluated. Prior checkpoint evaluations remain preserved. Verified checkpoint/evaluation hashes and no queued/running jobs from this push study.
+
+## 2026-10-09 23:15 UTC — Short original-insertion-reward pilot completed
+
+- User requested a short policy run to see whether the new reward rises.
+  Job51706235 completed0:0 in9m06s, including two evaluations:100 updates ×512
+  worlds ×24 steps = **1,228,800 transitions**, one fresh seed0 policy.
+- Configuration: wrist+static grazing view7, clean scenes, RGB+proprio actor and
+  privileged recurrent critic, compact GRU, original absolute XYZ control,
+  no yaw,3.5s episode, initial std1.0, entropy0.01, adaptive LR0.0003.
+  Control/optimizer choices follow the earlier successful exploration baseline;
+  objective is the new `plug_insertion` exact source reward. This short run is
+  not a matched-budget comparison against the previous18M precision policies.
+- **Reward increased:** first10 available logged updates(4–13) mean episode return
+  **-143.21**, final10(91–100) **-49.77**. Terminal-distance training metric fell
+  **55.35→26.48mm**. First logged held successes appeared at update69.
+  Native distance/success metrics average reset batches unevenly; do not report
+  their averages as an aggregate per-episode training success rate. Reward
+  includes instantaneous1000 bonuses; reward gain alone is not competence.
+- Deterministic128-episode clean validation at seed30000: checkpoint after one
+  PPO update **0/128**, mean terminal physical error**38.80mm**; final after100
+  updates **2/128 (1.56%)**, mean terminal error**23.76mm**. Final per-variant
+  counts:XM0/32,XP0/32,YM1/32,YP1/32. First checkpoint is not untrained.
+  All initial physics+image hashes match across these two evaluations. Both
+  successes meet <2mm for three samples; zero physical audit violations.
+- Frozen source `.cache/plug-reward-pilot-20261009T230424Z`; all62 files hash
+  verified. Added terminal goal-distance telemetry for plug_insertion runs.
+  Training/evaluation worker: `scripts/run_plug_reward_pilot.py`; analysis:
+  `scripts/summarize_plug_reward_pilot.py`. Evidence/curve/summary under
+  `artifacts/plug_reward_pilot/20261009T230424Z/`. W&B run`5hqef3tu`.
+- Initial allocation51705919 was cancelled during compilation before any logged
+  PPO update after finding a launcher-only evaluator CLI mismatch. Corrected
+  helper/source/plan were frozen separately before51706235; cancelled startup
+  evidence is preserved under`artifacts/plug_reward_pilot/20261009T230338Z`.
+- This pilot shows an upward learning trend and initial held insertions. It has
+  not established reliable insertion. No automatic extension or other policies
+  were submitted; the separate push workers continue their existing campaign.
+
+## Push object-relative arc and tighter targets (2026-10-09 23:19 UTC)
+
+- User requested target directions sampled around the block over −80° to +80°,
+  and a smaller green area to require precise placement. Fresh push_v2 now uses
+  versioned arc_v1: angle uniform about +Y, radius independently uniform 50–70 mm,
+  relative to the sampled object. Source jitter remains configurable (preview
+  ±20 mm); deterministic reset is 0°/60 mm.
+- Marker shrank 52×52→20×20 mm; XY center tolerance 15→5 mm. Native and Warp
+  scoring, reward withdrawal gate, at-goal metric and physical evaluation audit
+  agree. Existing three-sample, speed, Z and contact/withdrawal checks remain.
+- Serialized old configurations load square_v1; CLI resume inherits the saved
+  layout and rejects changes. Frozen stopped RGB runs are untouched. No training
+  submitted. This is a harder manipulation task, not proof of active-vision need.
+- Native nine-reset image/coordinates/scripts in artifacts/push_rgb/arc_initial_conditions.
+  The crossbar is hidden only in the clearly labelled observer illustration.
+  All 729 static IK endpoint cases pass (<2 mm, within action/joint bounds), with
+  a lower 35 mm diagnostic withdrawal replacing 65 mm for arc_v1 only. Static
+  reachability is not path/physical feasibility. Existing scripted controller
+  completes 3/9 preview episodes; wider-angle approach/control remains unvalidated
+  for a new training campaign. Raw results in scripted-rollouts.json.
+- Validation: 47 targeted tests pass, including native/Warp CPU sampling, subset resets, tighter physical scoring/audits, contact rejection, saved-config/resume compatibility and related reward/transfer regressions. Ruff and diff whitespace checks pass.
+
+### Wider arc and fixed-camera audit (2026-10-09)
+
+- User extended radius to 50–120 mm while keeping ±80° angle and 20×20 mm
+  marker/5 mm center tolerance. This is now `arc_v2`; `arc_v1` retains 50–70 mm
+  so serialized earlier experiments are not silently reinterpreted. Fresh push_v2
+  defaults to arc_v2; older square_v1 configurations remain unchanged.
+- Re-rendered nine-reset overhead preview and a separate grid of actual 96×72
+  fixed policy-camera images with the crossbar present. Over 512 native randomized
+  resets (seeds 40000–40511), fixed-camera green marker has >=3 segmentation pixels
+  in **68/512 (13.3%)**, versus 61/512 wrist and 96/512 in at least one of the
+  two. The target center is geometrically in the fixed-camera frustum in 512/512;
+  visibility is blocked by scene geometry. All 512 fixed views see the object.
+  Raw rows/config: `artifacts/push_rgb/arc_initial_conditions/fixed-camera-visibility.json`.
+- Widened arc exposes a manipulation feasibility limit. Of 729 sampled endpoint
+  poses over source jitter, angles, radii and approach/contact/withdrawal stages,
+  only 663 lie within current Cartesian action bounds and only 696 have <2 mm
+  static IK error. Some 120 mm side targets cannot be reached with this setup.
+  This is a static screen, not a path or trained-policy test; do not launch a
+  1B-transition RGB comparison on this distribution without repairing/validating
+  reachability and active-camera coverage. Existing stopped jobs remain stopped.
+- Ten targeted tests pass, including arc_v1/arc_v2 separation, native/CPU Warp
+  sampling and scoring, and resume rejection. Ruff and diff checks pass.
+## 2026-10-09 23:35 UTC — Plug insertion three-seed camera study submitted
+
+- Submitted nine independent 18,001,920-transition policies: wrist, wrist +
+  static view 7, and wrist + active view; training seeds 0, 1, and 2 for each.
+  Each Slurm job requests **one GPU** and runs 512 parallel simulation worlds;
+  all nine allocations were RUNNING at the 23:35 UTC check. Some allocations
+  share a node but each receives its own GPU. Total scheduled training budget
+  is 162,017,280 transitions.
+- Job IDs by seed and camera (wrist / wrist+static / wrist+active):
+  seed 0: 51715352 / 51715355 / 51715366;
+  seed 1: 51716169 / 51716174 / 51716189;
+  seed 2: 51716198 / 51716201 / 51716211.
+- All use the hash-frozen source from the successful 100-update pilot, the
+  `plug_insertion` reward, absolute XYZ control, no wrist yaw, compact GRU,
+  initial action std 1.0, entropy coefficient 0.01, adaptive LR 0.0003, and
+  clean training scenes. Each uses 1,465 PPO updates, with 512-episode clean
+  and dynamic validation at update 750 and 1,024-episode clean and dynamic
+  final tests at update 1,465. Per-seed plans and live reports are in
+  `artifacts/plug_insertion_study_v2/`, `artifacts/plug_insertion_study_seed1/`,
+  and `artifacts/plug_insertion_study_seed2/`; the nine-job manifest and links
+  are in `artifacts/plug_insertion_study_3seeds/`.
+- The first seed-0 submission attempt (51714960/51714972/51714997) failed on
+  a launcher filename before PPO began. Corrected seed-0 jobs above reached
+  finite PPO updates; the failed attempt remains documented under
+  `artifacts/plug_insertion_study/`. Seeds 1 and 2 passed all three dry-run
+  configuration checks and source-hash verification before submission. A
+  post-launch check found all nine jobs RUNNING with at least one logged PPO
+  update each; no startup errors were found.
+
+## Push RGB arc120 nine-run parallel campaign (2026-10-09 23:38 UTC)
+
+- User explicitly requested fresh wrist, wrist+fixed and active training with the
+  arc_v2 initialization, three training seeds per condition, submitted in parallel
+  across GPUs. New campaign is separate from the retired seed0 push study. Frozen
+  154-file source: `.cache/push-rgb-arc120-20261009T233352Z`; exact hashes:
+  `artifacts/push_rgb_arc120/source-manifest.json`. Nine independent one-GPU
+  Slurm jobs, no inter-job dependencies, each targeting 1,000,046,592 transitions
+  with 2,048 environments, 24 rollout steps, seed 0/1/2, crossbar_v3, ±20 mm
+  object jitter, arc_v2 targets 50–120 mm and ±80°, 5 mm held physical success.
+  Plan: `artifacts/push_rgb_arc120/study-plan.json`. Initial validation at 12M,
+  50M and 100M, then ~100M intervals; final clean/dynamic tests at 1B.
+- GPU audit job 51716133 completed successfully on the frozen source. Two real
+  rendered PPO updates had finite metrics, both RGB encoders updated and the
+  checkpoint round-tripped. Scripted physical controller completed only 15/64
+  widened-arc starts, with zero hold/push audit violations. This, plus prior
+  729-point static IK screen (66 outside action bounds; 33 >2 mm IK error), is a
+  material learnability/ceiling risk; the user requested training anyway. The
+  plan records this risk and sets no scripted-success competence gate.
+- Jobs: wrist s0/s1/s2 51716337/51716339/51716341; wrist+fixed s0/s1/s2
+  51716344/51716345/51716349; active s0/s1/s2 51716350/51716352/51716355.
+  At 23:38 UTC seven were RUNNING on distinct GPU allocations; active s1/s2
+  were PENDING due QOSMaxGRESPerUser, with no dependency and automatic queue
+  start when the per-user GPU cap frees. All seven running jobs had logged
+  multiple PPO updates with finite losses. Frozen hashes verified after launch.
+  Exact Slurm/status snapshot: `artifacts/push_rgb_arc120/launch-verification.json`.
+- Live status/report: `artifacts/push_rgb_arc120/index.html` and `summary.json`.
+  Original stopped push jobs remain stopped. No scientific comparison claim is
+  made until matched held-out evaluations across completed seeds.
+
+## 2026-10-11 — Completed plug/push model analysis and refreshed report
+
+- Reviewed this log and the neighboring M3L research log, then audited the saved
+  completion evidence. All nine original-reward plug policies completed 18,001,920
+  transitions each; all nine arc120 pushing policies completed 1,000,046,592 each.
+  Each task has wrist, wrist+fixed and wrist+active policies for seeds 0/1/2.
+- Final clean success, averaged across three seeds: plug **6.51% / 6.41% / 7.91%**
+  (wrist/fixed/active); push **58.43% / 64.49% / 55.47%**. Dynamic results and
+  per-seed counts are in the report. Each final setting uses 1,024 episodes per
+  seed. Plug insertion remains unreliable, especially XM; pushing favors fixed
+  sensing on average. Three seeds do not establish a general active-camera benefit.
+- Verified all 18 final checkpoint hashes, 343 frozen source-file entries, 252
+  evaluation hashes, and 147,456 raw episode outcomes/physical success records
+  (36,864 final test episodes). No physical success-audit violations. Push scoring
+  uses XY distance and separate height/speed/contact/withdrawal checks, not a 3D
+  distance threshold. No policy inference or training was rerun.
+- Rebuilt `artifacts/training_results/index.html` with white backgrounds, final
+  success and learning plots, plug variant heatmaps, per-seed terminal errors,
+  72 selected final-test success/failure examples and 144 outside/policy videos.
+  Preserved the prior index as `historical.html`. Added machine-readable
+  `latest_analysis.json`, `latest_final_results.csv`, plot SVG/PDF/PNG files and
+  a refreshed portable ZIP. Training reward and validation-to-test split changes
+  are explicitly distinguished from final held-out competence.
+- Rebuild through `scripts/build_training_results_report.py`; implementation is
+  `scripts/build_latest_training_results.py`. Independent bundle/link/hash/video
+  checks run through `scripts/validate_training_results_report.py` and are saved
+  to `artifacts/training_results/portable_validation.json`.
+
+## 2026-10-12 — User-authorized competence repair in progress
+
+- User requested continued work until plug reaches 80–90% and push improves,
+  authorizing reward/environment changes and easier plug variants. Original
+  studies/checkpoints remain preserved; new evidence is under
+  `artifacts/competence_repair/`.
+- Fixed report portability: embedded all five plots and 144 video streams.
+  Chromium could not decode the original H.264 MP4 on this host, so added
+  embedded VP9/WebM copies while preserving downloadable original MP4s.
+  An isolated HTML playback test now decodes a 960×540 video successfully.
+- Found a stale physical push partition at X=.036, Y=.003, with half-extents
+  (.004,.020,.025), intersecting the expanded arc target distribution. Among
+  1,024 saved clean test resets, 17 goal centers are inside its footprint and
+  121 within 12 mm. Original Cartesian bounds also exclude some arc endpoints.
+  New opt-in `push_workspace_revision=arc_clear_v2` removes the old partition;
+  `push_control_revision=wide_v2` expands action bounds without changing the arc
+  distribution, optical crossbar or 5 mm physical success rule. Old configs keep
+  the partition and original action mapping. Added native/config/resume tests.
+- Frozen-policy matched validation at seed31000: original best fixed seed2
+  gets346/512 (67.58%); removing only the partition gives383/512 (74.80%).
+  Longer horizons do not help:20s342/512,30s333/512. These are interventions,
+  not retrained or final test outcomes. Geometry is a demonstrated contributor;
+  it does not explain all failures.
+- Started bounded fresh-optimizer PPO repairs from the original fixed seed2
+  checkpoint, with smaller exploration std and zero entropy coefficient.
+  `--initialize-from` preserves actor/critic weights, resets optimizer/std and
+  records source hashes. Widened action mappings analytically remap the actor's
+  output head to preserve original unclipped physical requests at initialization.
+- Plug direct RGB DAgger was ineffective at4,000 steps (all1/256, YM2/256),
+  so stopped those trials with checkpoints and failure evidence retained.
+  Structured RGB target estimation plus a prescribed lift-align-descend motion
+  is more promising: YM improved18/256 at2,000 steps to158/256 at4,000 on
+  independent validation. It has NOT yet met the requested threshold. All-four
+  variants and an encoder retaining image appearance are also being trained.
+  The structured method uses privileged target labels during training only;
+  deployment uses RGB/proprioception and a calibrated time-based motion plan.
+  It is explicitly distinct from the earlier end-to-end PPO camera benchmark.
+
+### Competence repair: plug threshold reached; push controls
+
+- Frozen dense RGB target-estimator checkpoint `plug_dense_ym/model_6000.pt`
+  selected with218/256 validation successes before test job52306061. Fresh test
+  seed90000: **890/1024 (86.91%; Wilson95%84.71–88.84%)**, zero physical
+  success violations. Teacher/privileged target labels absent at evaluation.
+  This explicitly easier setting uses YM only,8s horizon,original±8mm fixture
+  jitter and2mm/three-sample hold. It is a learned visual estimator with a
+  prescribed insertion motion, not the original end-to-end PPO policy.
+- Later dense-estimator training regressed; preserve6000 as selected rather than
+  claiming monotonic learning. Unsuccessful direct DAgger/target-estimator trials
+  and checkpoints remain available. Factorized all-variant visual estimation is
+  a separate ongoing diagnostic and is not covered by the86.9% result.
+- Push small-noise controls at250updates:336/512(std.3),345/512(std1) versus
+  original346/512 on identical validation seeds. Stopped these and the weak
+  fresh privileged-state diagnostic, retaining logs. Initial partition-free
+  fine-tunes get364/512(originalbounds),360/512(widebounds), both below the
+  frozen partition-removal control383/512. Thus retraining has not yet shown
+  additional benefit; do not attribute the geometry benefit to PPO updates.
+- Fresh matched push test and action-mean-regularized validation are ongoing.
+  HTML now embeds browser-compatible WebM, plots, and video poster frames;
+  final report refresh will include repaired-model evidence and scope.
+
+### Repair audit and bounded control outcomes
+
+- Clean push fresh matched test(seed90000): original694/1024(67.77%);
+  partition removal737/1024(71.97%). All1,024 initial physics hashes match.
+  The corrected environment gains122 successes and loses79 relative to the
+  original. This is an environment correction with unchanged weights, not a
+  learned-policy improvement. All-nine-policy paired tests are in progress.
+- At500 updates, PPO controls regress: original-bounds clear317/512; wide-bounds
+  clear322/512. Mean-regularized wide-bounds250 gets368/512, below frozen
+  partition-removal383/512. These bounded trials are stopped and preserved.
+  Smaller-noise fine-tunes also change optimizer, learning rate and entropy;
+  they should not be described as pure noise-only causal interventions.
+- Initial plug model robustness:420/1024(41.02%) under dynamic occlusion.
+  A separate dynamic-occlusion warm start improves validation from137/256 at
+ 2k to159/256 at4k and186/256 at6k; clean validation211,225,218 respectively.
+  Final checkpoint selection and a new test seed will follow the8k endpoint.
+- Freezing the initial model's visual estimate earlier does not solve robustness:
+  inspection_end .72s gives114/256 clean and114/256 dynamic;1.2s144/128;
+ 1.6s153/117. All-four-variant factorized estimation reaches61/256 at6k;
+  stopped without claiming the YM result generalizes to other variants.
+-72 targeted tests pass. Portable report validation checks8 embedded plots,
+ 156 videos decoded at first/middle/last frames, links, hashes and ZIP CRC.
+  Real Chromium/CDP verification decodes and seeks14 sampled embedded WebM
+  streams and renders all8 plots on white; screenshot visually inspected.
+- Selected deployable checkpoint/config copies are under
+  `artifacts/competence_repair/selected/`; `selected_models.json` records hashes
+  and exact evaluation argument lists. They currently reflect the initial clean
+  YM model and the unchanged push model in the corrected environment.
+
+## 2026-10-12 — Competence repairs evaluated and selected
+
+- Selected plug checkpoint: `plug_dense_ym_dynamic/model_8000.pt`, SHA256
+  `c544e0c1a90100f65b6db40877ccda119f58dbeb21e8f1f87b9a6ded745969ca`.
+  Validation-only selection maximized dynamic success subject to clean success
+  at least80%. Selected validation:225/256 clean,197/256 dynamic. Fresh tests
+  at reserved seed91000: **920/1024 clean(89.84%;95% Wilson87.84–91.55%)** and
+  **814/1024 dynamic(79.49%;76.91–81.85%)**. All physical-success audits pass.
+  The requested80–90% range is achieved on clean scenes; dynamic performance
+  is explicitly reported below80%, not rounded up into a success claim.
+- Scope: YM only, wrist/fixed RGB estimator trained with simulator target labels,
+  prescribed lift-align-descend motion,8s horizon. Inference uses RGB/proprio;
+  no teacher or privileged target state. Original2mm/three-sample success and
+  ±8mm fixture jitter remain. It does not solve the original four-variant PPO
+  benchmark. Total supervised transitions:1,536,000 initial+2,048,000 warm-start.
+- Push partition correction improves **all nine** existing policies on matched
+ 512-episode clean tests: aggregate2809/4608(60.96%) ->2955/4608(64.13%). Means
+  across three seeds: wrist60.74 ->63.15%; fixed65.49 ->68.16%; active56.64 ->
+ 61.07%. Initial physical-state hashes match within every pair. Original arc,
+  visual crossbar, action bounds,5mm tolerance and settling/withdrawal/contact
+  success conditions remain unchanged.
+- Selected fixed-camera push policy's separate1024-episode comparison:
+ 694/1024(67.77%) original ->737/1024(71.97%) corrected. This is a modest,
+  consistent environment benefit. No tested PPO fine-tune surpassed the frozen
+  corrected-policy validation result383/512. Frozen bounds-only checks also
+  fell short: direct wider mapping366/512; affine-remapped head370/512.
+- Remaining push failure evidence: all287 selected-policy misses were outside
+ 5mm; median failed XY error19.86mm.126 had goal X outside the original command
+  range. Those facts identify placement/control limitations; they do not prove
+  a widened command range alone solves them. A privileged contact-controller
+  diagnostic also remained weak(136/512), and is not a learned-policy result.
+- `selected_models.json`, `selected/`, and `README.md` provide deployable copies,
+  hashes, exact test arguments and training recipes. Historical checkpoints,
+  failed trials and original scientific defaults are preserved. All repair
+  training jobs are complete or explicitly stopped with retained checkpoints;
+  the user's interactive allocation was left untouched.
+- Report now includes the selected plug tests, all-nine-policy push comparison,
+  spatial failure map, validation curves, unsuccessful controls and recorded
+  success/failure cases. Figures and videos are embedded, with white HTML
+  backgrounds and video thumbnails. Final bundle/browser checks follow rebuild.
+
+## 2026-10-12 — Common delta controls and matched small-policy screen
+
+- User requested a systematic sequence: standardize both task action spaces, test
+  delta control with small plug policies, then investigate active-camera benefit.
+- Added opt-in `control_revision=pose_v1`: manipulator world XYZ target deltas and
+  camera world XYZ/pan/tilt target deltas, integrated from previous commands. Both
+  tasks use 5 mm manipulation increments and 10 mm / 0.05 rad camera increments.
+  Absolute-command ablations share the 5 mm slew limit. Camera IK is now shared.
+  Fixed and active sensing use the same arm-mounted initial view. Historical
+  checkpoint mappings remain versioned under legacy_v1.
+- Added a separate tanh Gaussian with transformed log probabilities/entropy and
+  bounded latent means/std for later optimization experiments. First control
+  screen retains the original Gaussian, std1 and entropy0.01 to isolate mapping.
+- CPU regression run:238 passed,6 GPU tests deselected; an older held-success test
+  assumed the former default reward. Made its reward profile explicit;65 focused
+  checks subsequently pass. New checks cover native/Warp delta agreement, pause,
+  partial reset, bounds, camera update interval and transformed density gradients.
+- CUDA gate52443882 failed in the new harness before training because raw env
+  observations were a dict; fixed by using the RL wrapper. Replacement52444195
+  passes all six plug/push × fixed/active Gaussian/squashed cases: real PPO updates,
+  both image encoders, checkpoint reload, identical fixed/active starting images.
+- Frozen plan:artifacts/common_control_study/control_v2/plan.json. Array52444316
+  has12 fresh runs,200 PPO updates ×256 envs ×24 steps =1,228,800 transitions each;
+  absolute/delta × wrist/fixed/active × seeds0/1, at most4 concurrent GPUs.
+  Original four variants,3.5s horizon,128x96 RGB, unchanged physical success/reward.
+  Checkpoint selection uses256 clean validation episodes at seed110000; separate
+ 512-episode clean/dynamic tests use seed120000. No test-based checkpoint selection.
+- A native reset-view audit found no improvement over home for plug within the
+  original camera bounds:8/32 resets reveal both prongs and fixture across the
+  tested15 poses, all from YP. Push has8/32 home,12/32 best fixed endpoint,16/32
+  per-reset oracle. This is a segmentation/kinematic screen, not task success.
+  A larger camera inspection workspace is being audited separately before use.
+
+- Control screen completed all12 runs. Two-seed clean/dynamic means (percent):
+  absolute wrist1.07/0.88, delta wrist0.29/0.20; absolute fixed0.49/0.49,
+  delta fixed0.59/0.20; absolute active0/0, delta active1.76/0.59. Delta gives
+  a small active-policy gain but not competent insertion or a general gain. All
+  paired initial physical hashes match; all physical-success audits pass.
+- Independent native scripted lift-align-descend control succeeds32/32 with
+  each mapping at the same horizon/rate/criterion. This is a privileged physical
+  feasibility check, not a learned-policy result.
+- Calibrated inspection pose improves clean reset landmark visibility8/32 to31/32;
+  selection among tested reachable views also31/32. Camera placement is the main
+  clean-view improvement. Expanded bounds alone include poorly tracked targets,
+  so the chosen starting poses use attained FK poses checked again through IK.
+- Inspection CUDA gate52449725 passed all six cases and checkpoint roundtrips.
+  Camera screen52449726 follows the completed control screen:18 policies, two
+  seeds, matched fixed/active,1,228,800 transitions each. Recipes separate low
+  noise, squashing, calibrated start, dynamic training and slower camera updates.
+  The same frozen plan now permits18 concurrent GPUs (original8), and the
+  control array was raised4→8; these reduce elapsed time without changing total
+  training budgets. Existing interactive allocation remains untouched.
+- Final CPU regression:242 passed,6 GPU tests deselected. Separate real CUDA
+  gates cover rendered PPO updates and fixed/active sensor parity. Shared action
+  contract, source snapshots and per-run evidence live under
+  artifacts/common_control_study; its report validates raw physical outcomes.
+
+- Fresh plug/push CLI training now defaults to pose_v1/delta. Saved experiments
+  still inherit legacy mappings. Historical study and benchmark launchers pin
+  legacy_v1 explicitly; the new studies already pin pose_v1. Reject conflicting
+  legacy action flags rather than silently overriding their meanings. Updated
+  regression run:252 passed,6 GPU tests deselected; edited files pass Ruff.
+- Sweep-phase visibility probe holds the manipulation scene at reset and samples
+  five phases of the existing blocker. Plug best fixed80/160 versus oracle among
+  the tested reachable views92/160; push70/160 versus75/160. This excludes camera
+  travel time and measures landmarks, not target-estimation error or task success.
+  Original plug sweeps always start after0.35s and clear by2.59s in a3.5s episode;
+  the fixed fixture and recurrent memory leave alternatives to active motion.
+
+- All30 common-control/camera policies are now complete:36,864,000 training
+  transitions total,1,228,800 per fresh policy. All150 validation/test/intervention
+  evaluations (61,440 physical episodes),130 frozen source entries and checkpoint
+  selection rules pass the final audit. No test results selected checkpoints.
+- Camera-stage clean/dynamic two-seed means (percent): fixed low-noise0.10/0.10,
+  bounded0.49/0, inspection0.49/0.29, inspection+dynamic1.17/0.59; active low-noise
+ 0.98/1.56, bounded0.20/0.29, inspection0.29/0.29, inspection+dynamic0.68/0.68,
+  slower inspection+dynamic1.86/1.86. None establishes competent insertion.
+- Slower active camera dynamic19/1024 versus matched fixed6/1024. Holding external
+  RGB from reset yields22/1024; holding after1s21/1024; freezing the camera after1s
+ 12/1024. These results do not establish an updated-external-view benefit. Nearly
+  all camera-stage successes are XM, and most misses are coarse positioning errors.
+- Current arc-target push_v2 additionally passes19 focused tests (including
+  native/Warp agreement) and CUDA gate52463311: all three fixed/active and
+  Gaussian/squashed cases, matching initial images, encoder updates and reloads.
+- Report aggregation initially shadowed its plan path when intervention files
+  appeared, omitting later runs; fixed and added a plan-to-row completeness check.
+  Raw results were unaffected. Original report now links the completed local study,
+  whose plots/CSV/JSON include all30 runs and paired causal interventions.
+- Conclusion: shared controls and camera fixes are implemented and verified, but
+  reliable learned active-perception benefit remains unproven at this budget.
+  Physical feasibility and camera visibility are present; reliable perception and
+  four-variant manipulation learning are the next bottleneck. Existing sweep
+  timing and static targets also allow initial-view memory or waiting. All study
+  jobs finished; the user's interactive allocation remains untouched.

@@ -8,9 +8,9 @@ from types import SimpleNamespace
 import pytest
 import torch
 
-from active_perception_arms import mdp
+from active_perception_arms import mdp, plug_learning
 from active_perception_arms.config import Experiment, saved_experiment
-from active_perception_arms.train import initial_std_from_args, main, parser
+from active_perception_arms.train import experiment_from_args, initial_std_from_args, main, parser
 
 
 def reward_env(monkeypatch, profile="legacy_log_hold"):
@@ -67,6 +67,104 @@ def test_log_reward_prefers_nearer_unsolved_states(monkeypatch):
     near = mdp.task_reward(env).item()
     assert far < near < 0
     assert not env.task_state.succeeded.item()
+
+
+def test_insertion_reward_boundary_and_distance_values():
+    obj = torch.zeros(6, 3, dtype=torch.float64)
+    obj[:, 0] = torch.tensor([0, 0.001999, 0.002, 0.003, 0.01, 0.03], dtype=obj.dtype)
+    reward = plug_learning.insertion_reward(obj, torch.zeros_like(obj))
+    torch.testing.assert_close(
+        reward,
+        torch.tensor(
+            [1000, 1000, -math.log(1.2), -math.log(1.3), -math.log(2), -math.log(4)],
+            dtype=obj.dtype,
+        ),
+    )
+
+
+def test_insertion_bonus_is_exact_instantaneous_and_does_not_advance_hold(monkeypatch):
+    env = reward_env(monkeypatch, "plug_insertion")
+    # Current qpos is within tolerance, while the mocked derived pose is 50 mm away.
+    env.action_manager.action[:] = 1
+    assert mdp.task_reward(env).item() == 1000
+    assert env.task_state.hold.item() == 0
+    for step in (1, 2, 3):
+        env.common_step_counter = step
+        assert mdp.success(env).item() == (step == 3)
+        assert mdp.task_reward(env).item() == 1000
+        assert env.task_state.hold.item() == step
+
+
+@pytest.mark.parametrize("condition", ("wrist", "wrist_static", "active"))
+def test_insertion_has_no_action_time_or_stage_cost(monkeypatch, condition):
+    env = reward_env(monkeypatch, "plug_insertion")
+    env.task_state.cfg = Experiment(condition=condition)
+    env.sim.data.qpos[:, 0] = 0.03
+    env.action_manager.action = torch.ones(1, env.task_state.cfg.action_dim)
+    env.task_state.plug_raised = env.task_state.plug_aligned = torch.tensor([True])
+    expected = -math.log(4)
+    assert mdp.task_reward(env).item() == pytest.approx(expected)
+    env.action_manager.action.zero_()
+    env.task_state.plug_raised = env.task_state.plug_aligned = torch.tensor([False])
+    assert mdp.task_reward(env).item() == pytest.approx(expected)
+
+
+def test_insertion_optional_rotation_matches_upstream_quaternion_metric():
+    obj = torch.tensor([[0.03, 0.0, 0.0], [0.001, 0.0, 0.0]], dtype=torch.float64)
+    quat = torch.tensor([[0.0, 0.0, 0.0, 1.0]] * 2, dtype=obj.dtype)
+    reward = plug_learning.insertion_reward(obj, torch.zeros_like(obj), quat)
+    assert reward[0].item() == pytest.approx(-math.log(1 + 100 * math.sqrt(0.03**2 + 2)))
+    assert reward[1].item() == 1000  # Upstream bonus tests position, even with rotation.
+
+
+def test_insertion_default_scope_and_resume_compatibility(tmp_path, capsys):
+    assert Experiment().reward_profile == "plug_insertion"
+    assert Experiment(plug_control="delta5mm").reward_profile == "plug_insertion"
+    assert Experiment(task="push").reward_profile == "progress"
+    assert Experiment(task="transfer").reward_profile == "transfer_staged"
+    assert Experiment(success_state_sample="derived_substep").reward_profile == "progress"
+    for options in ({"task": "push"}, {"success_state_sample": "derived_substep"}):
+        with pytest.raises(ValueError, match="plug_insertion requires"):
+            Experiment(reward_profile="plug_insertion", **options)
+    main(["--task", "plug", "--dry-run"])
+    assert json.loads(capsys.readouterr().out)["experiment"]["reward_profile"] == "plug_insertion"
+    for profile in ("progress", "legacy_log_hold", "plug_staged", "plug_insertion"):
+        cfg = Experiment(reward_profile=profile, plug_control="delta5mm")
+        (tmp_path / "experiment.json").write_text(json.dumps(cfg.to_dict()))
+        args = ["--task", "plug", "--resume", str(tmp_path / "model.pt"), "--dry-run"]
+        assert experiment_from_args(parser().parse_args(args)).reward_profile == profile
+        if profile != "plug_insertion":
+            with pytest.raises(ValueError, match="Resume reward_profile differs"):
+                experiment_from_args(
+                    parser().parse_args([*args, "--reward-profile", "plug_insertion"])
+                )
+
+
+def test_insertion_reward_real_environment_uses_variant_goal_and_current_qpos():
+    from mjlab.envs import ManagerBasedRlEnv
+
+    from active_perception_arms.environment import make_env_cfg
+
+    cfg = Experiment(num_envs=4, render_sensors=False)
+    env_cfg = make_env_cfg(cfg)
+    assert env_cfg.scale_rewards_by_dt is False
+    assert env_cfg.rewards["task"].weight == 1
+    env = ManagerBasedRlEnv(env_cfg, device="cpu")
+    try:
+        env.reset(seed=9)
+        s = mdp.state(env)
+        goal = mdp.positions(env)[3].clone()
+        socket = env.scene["fixture"].data.site_pos_w[:, 0]
+        torch.testing.assert_close(goal[:, :2], socket[:, :2] - s.plug_offsets)
+        # Do not forward derived state: both actor-independent critic state and
+        # reward must observe these newly integrated physical coordinates.
+        env.sim.data.qpos[:, s.object_qpos_address : s.object_qpos_address + 3] = goal
+        env.sim.data.qpos[2:, s.object_qpos_address] += 0.03
+        rewards = mdp.task_reward(env)
+        torch.testing.assert_close(rewards, torch.tensor([1000, 1000, -math.log(4), -math.log(4)]))
+        assert s.hold.tolist() == [0, 0, 0, 0]
+    finally:
+        env.close()
 
 
 @pytest.mark.parametrize("profile", ("progress", "legacy_log_hold"))

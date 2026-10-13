@@ -9,6 +9,7 @@ import mujoco
 import numpy as np
 from PIL import Image, ImageDraw
 
+from . import transfer
 from .config import OCCLUSIONS, TASKS, Experiment
 from .native import NativeEnv, ScriptedPolicy
 from .scenes import OVERVIEW_SIZE
@@ -168,11 +169,12 @@ def run(
         else None
     )
     success_hold = 0
+    required_hold = transfer.HOLD_STEPS if transfer.is_v2(cfg) else 3
     max_contacts = 0
     try:
         for step in range(int(seconds / cfg.step_dt)):
             success_hold = success_hold + 1 if env.step(policy()) else 0
-            successful = success_hold >= 3 or successful
+            successful = success_hold >= required_hold or successful
             max_contacts = max(max_contacts, env.data.ncon)
             if not np.isfinite(env.data.qpos).all():
                 raise RuntimeError(f"Non-finite physics in {task} at step {step}")
@@ -205,7 +207,7 @@ def run(
             "occlusion": occlusion,
             "seed": seed,
             "scripted_success": successful,
-            "final_success": env.success(),
+            "final_success": success_hold >= required_hold,
             "final_object": env.object_pos.tolist(),
             "goal": env.goal.tolist(),
             "max_contacts": int(max_contacts),

@@ -194,6 +194,8 @@ def prepare(profile, source, data, revision):
         str(source / ".venv/bin/python"),
         "-m",
         "active_perception_arms.train",
+        "--control-revision",
+        "legacy_v1",
         *arguments,
         "--iterations",
         "751",

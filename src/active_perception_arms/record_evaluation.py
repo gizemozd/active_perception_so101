@@ -80,7 +80,11 @@ def main():
                 media = {}
                 for index, (variant, won, episode) in indices.items():
                     name = f"{variant}_{'success' if won else 'failure'}_episode{episode}"
-                    proxy = NativeEnv(replace(cfg, num_envs=1, plug_variant=variant))
+                    proxy = NativeEnv(
+                        replace(
+                            cfg, num_envs=1, plug_variant=variant if cfg.task == "plug" else None
+                        )
+                    )
                     overview_path = args.output / f"{name}_outside.mp4"
                     policy_path = args.output / f"{name}_policy.mp4"
                     observer = OverviewRecorder(proxy.model, overview_path, fps=1 / cfg.step_dt)

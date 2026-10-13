@@ -1,11 +1,17 @@
-"""Batched fixed-orientation TCP and five-axis camera control for the legacy plug."""
+"""Batched TCP control with optional wrist yaw and five-axis camera control."""
 
 import numpy as np
 import torch
 
 from .. import plug
 from ..config import ARM_JOINTS, MANIP_BASE
-from .kinematics import BaseFrame, SO101Chain, grasp_site_rotation, pan_tilt_to_axis
+from .kinematics import (
+    BaseFrame,
+    SO101Chain,
+    axis_angle_to_mat,
+    grasp_site_rotation,
+    pan_tilt_to_axis,
+)
 
 
 class PlugIK:
@@ -53,9 +59,11 @@ class PlugIK:
             pos, rot, site_axis=(1, 0, 0), iters_axis=80, iters_full=50, damping=0.008
         )
 
-    def manip_step(self, tcp, previous_q):
+    def manip_step(self, tcp, previous_q, yaw=None):
         pos = self.manip_frame.pos_to_base(tcp)
         rot = self.rotation.expand(len(tcp), 3, 3)
+        if yaw is not None:
+            rot = axis_angle_to_mat(self.tensor((0, 0, 1)), yaw) @ rot
         q = self.manip.solve_ik(
             pos,
             previous_q,

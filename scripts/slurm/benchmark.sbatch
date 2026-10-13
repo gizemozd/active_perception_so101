@@ -25,7 +25,7 @@ if [[ "${SKIP_INFERENCE:-0}" != 1 ]]; then
   run_python -m active_perception_arms.benchmark --task plug --condition "$condition" \
     --fixed-view "$view" --num-envs "$count" --actor --wandb --output "${output}-inference.json"
 fi
-run_python -m active_perception_arms.train --task plug --condition "$condition" \
+run_python -m active_perception_arms.train --control-revision legacy_v1 --task plug --condition "$condition" \
   --fixed-view "$view" --num-envs "$count" --memory gru --occlusion clean --seed 0 \
   --iterations "${BENCH_ITERATIONS:-12}" --warmup-iterations 3 --job-type benchmark \
   --log-root logs/benchmarks --result "${output}-ppo.json"

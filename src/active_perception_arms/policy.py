@@ -1,5 +1,7 @@
 """Shared recurrent visual actor and compact PPO storage for RSL-RL 5.2."""
 
+from copy import deepcopy
+
 import torch
 from mjlab.rl import RslRlModelCfg, RslRlOnPolicyRunnerCfg, RslRlPpoAlgorithmCfg
 from mjlab.rl.spatial_softmax import SpatialSoftmaxCNNModel
@@ -119,7 +121,9 @@ class CompactPPO(PPO):
         groups = resolve_obs_groups(obs, cfg["obs_groups"], ["actor", "critic"])
         models = []
         for name, output in (("actor", env.num_actions), ("critic", 1)):
-            options = dict(cfg[name])
+            # RSL constructors pop nested distribution keys; preserve the saved
+            # runner configuration for checkpoint reconstruction and logging.
+            options = deepcopy(cfg[name])
             cls = resolve_callable(options.pop("class_name"))
             models.append(cls(obs, groups, name, output, **options).to(device))
         storage = CompactStorage(
@@ -131,7 +135,7 @@ class CompactPPO(PPO):
 
 
 def runner_cfg(experiment, iterations=3000):
-    return RslRlOnPolicyRunnerCfg(
+    cfg = RslRlOnPolicyRunnerCfg(
         actor=RslRlModelCfg(
             class_name="active_perception_arms.policy:"
             + ("VisualMemoryModel" if experiment.memory == "gru" else "VisualFeedForwardModel"),
@@ -178,3 +182,24 @@ def runner_cfg(experiment, iterations=3000):
         upload_model=False,
         save_interval=100,
     )
+    if experiment.policy_profile == "legacy_ff":
+        # Match the recovered legacy widths and PPO settings, while retaining
+        # current RGB encoders, physical scoring, geometry and observation schema.
+        cfg.actor.hidden_dims = cfg.critic.hidden_dims = (256, 256, 128)
+        cfg.critic.class_name = "MLPModel"
+        cfg.critic.rnn_type = cfg.critic.rnn_hidden_dim = None
+        cfg.critic.rnn_num_layers = None
+        cfg.actor.distribution_cfg["init_std"] = 1.0
+        cfg.algorithm.learning_rate = 0.001
+        cfg.algorithm.entropy_coef = 0.005
+        cfg.algorithm.num_learning_epochs = 5
+        cfg.algorithm.num_mini_batches = 4
+    if experiment.actor_observation == "privileged":
+        cfg.obs_groups = {"actor": ("privileged",), "critic": ("privileged",)}
+        cfg.actor.cnn_cfg = None
+        for model in (cfg.actor, cfg.critic):
+            model.class_name = "RNNModel" if experiment.memory == "gru" else "MLPModel"
+            model.hidden_dims = (256, 256)
+            if experiment.memory == "none":
+                model.rnn_type = model.rnn_hidden_dim = model.rnn_num_layers = None
+    return cfg

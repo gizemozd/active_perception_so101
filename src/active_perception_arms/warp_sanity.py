@@ -11,6 +11,7 @@ import numpy as np
 import torch
 from mjlab.envs import ManagerBasedRlEnv
 
+from . import transfer
 from .config import OCCLUSIONS, TASKS, Experiment
 from .environment import make_env_cfg
 from .mdp import instantaneous_success
@@ -42,6 +43,8 @@ def sync_native_state(proxy, env, step, index=0):
         term = env.action_manager.get_term("arms")
         proxy.tcp_target = term.tcp_target[index].cpu().numpy().copy()
         proxy.gimbal_target = term.gimbal_target[index].cpu().numpy().copy()
+        if proxy.cfg.plug_wrist_yaw:
+            proxy.wrist_yaw_target = float(term.wrist_yaw_target[index].cpu())
     mujoco.mj_forward(proxy.model, proxy.data)
 
 
@@ -75,6 +78,7 @@ def run(task, output, device="cpu", seconds=8.0, occlusion="phase", overview=Tru
     )
     frames = []
     successful, hold = False, 0
+    required_hold = transfer.HOLD_STEPS if transfer.is_v2(cfg) else 3
     try:
         obs, _ = env.reset()
         sync_native_state(proxy, env, 0)
@@ -91,7 +95,7 @@ def run(task, output, device="cpu", seconds=8.0, occlusion="phase", overview=Tru
                     observer.capture(proxy.data)
 
                 hold = hold + 1 if instantaneous_success(env)[0].item() else 0
-                successful = successful or hold >= 3
+                successful = successful or hold >= required_hold
                 if step % 3 == 0:
                     images = [obs[name][0].permute(1, 2, 0).cpu().numpy() for name in cfg.sensors]
                     tile = mosaic(
@@ -118,7 +122,7 @@ def run(task, output, device="cpu", seconds=8.0, occlusion="phase", overview=Tru
             "device": device,
             "occlusion": occlusion,
             "scripted_success": successful,
-            "final_success": bool(hold >= 3),
+            "final_success": bool(hold >= required_hold),
             "training_started": False,
             "resolution": [cfg.width, cfg.height],
             "overview_resolution": list(OVERVIEW_SIZE) if observer else None,

@@ -18,7 +18,7 @@ run_cell() {
   srun --exclusive --ntasks=1 --cpus-per-task=8 --mem=48G --gres=gpu:1 \
     env XDG_CACHE_HOME="$XDG_CACHE_HOME/$cell" \
     WANDB_TAGS="restored-plug,benchmark,colocation,$cell,active,gru" \
-    .venv/bin/python -m active_perception_arms.train --task plug --condition active \
+    .venv/bin/python -m active_perception_arms.train --control-revision legacy_v1 --task plug --condition active \
     --num-envs "$count" --memory gru --occlusion clean --seed 0 \
     --iterations 12 --warmup-iterations 3 --job-type benchmark \
     --log-root "logs/benchmarks/colocation/$SLURM_JOB_ID/$cell" \

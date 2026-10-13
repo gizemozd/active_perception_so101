@@ -1,4 +1,4 @@
-from dataclasses import asdict
+from dataclasses import asdict, replace
 
 import pytest
 import torch
@@ -107,6 +107,9 @@ def test_cuda_graph_cameras_and_runner(task):
 def test_terminal_success_survives_auto_reset(env, monkeypatch):
     env.reset()
     s = mdp.state(env)
+    # This test checks the held-success reward, not the insertion reward's
+    # separate instantaneous physical-distance bonus.
+    monkeypatch.setattr(s, "cfg", replace(s.cfg, reward_profile="progress"))
     s.hold[:] = 2
     s.last_success_step = -1
     monkeypatch.setattr(mdp, "instantaneous_success", lambda _: torch.ones(2, dtype=torch.bool))

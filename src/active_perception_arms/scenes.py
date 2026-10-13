@@ -6,7 +6,7 @@ from pathlib import Path
 import mujoco
 import numpy as np
 
-from . import plug
+from . import plug, transfer
 from .config import CAMERA_BASE, CAMERA_BASE_YAW, FOVY, MANIP_BASE, Experiment
 
 ROBOT_XML = Path(__file__).parent / "assets/so101/so101_arm.xml"
@@ -77,7 +77,7 @@ def object_spec(task, variant="xm"):
     return spec
 
 
-def fixture_spec(task, clearance=0.002):
+def fixture_spec(task, clearance=0.002, push_marker_half_size=0.026):
     if task == "plug":
         return plug.fixture_spec(clearance)
     spec = mujoco.MjSpec()
@@ -112,7 +112,7 @@ def fixture_spec(task, clearance=0.002):
             body,
             "marker",
             (0, 0, 0.0003),
-            (0.026, 0.026, 0.0003),
+            (push_marker_half_size, push_marker_half_size, 0.0003),
             (0.1, 0.8, 0.3, 1),
             collision=False,
         )
@@ -129,6 +129,30 @@ def occluder_spec(cfg=None):
         cfg.dynamic_panel_half_size if cfg and cfg.occlusion == "dynamic" else (0.040, 0.004, 0.070)
     )
     box(body, "panel", (0, 0, 0), half_size, (0.45, 0.24, 0.50, 1), collision=False)
+    return spec
+
+
+def push_visibility_spec(cfg):
+    """Fixed optical crossbar; an underpass leaves the cube's push path open."""
+    spec = mujoco.MjSpec()
+    if cfg.push_visibility_revision in ("crossbar_v1", "crossbar_v2", "crossbar_v3"):
+        half_height = (
+            0.10
+            if cfg.push_visibility_revision == "crossbar_v1"
+            else 0.125
+            if cfg.push_visibility_revision == "crossbar_v2"
+            else 0.15
+        )
+        center_height = 0.145 if cfg.push_visibility_revision == "crossbar_v1" else 0.15
+        body = spec.worldbody.add_body(name="crossbar", pos=(0.0, 0.005, center_height))
+        box(
+            body,
+            "crossbar",
+            (0, 0, 0),
+            (0.13, 0.003, half_height),
+            (0.20, 0.24, 0.31, 1),
+            collision=False,
+        )
     return spec
 
 
@@ -157,6 +181,15 @@ def grasp_relpose():
 
 
 def finish_scene(spec, cfg: Experiment, marker_prototype=False):
+    if cfg.task == "push" and cfg.push_workspace_revision == "arc_clear_v2":
+        # The old fixed-goal partition intersects the wider arc target support.
+        # This is an explicit task revision; historical scenes retain their wall.
+        spec.delete(spec.geom("table/partition"))
+    if transfer.is_v2(cfg):
+        # Include existing torsional/rolling friction in object-floor contact.
+        # With condim=3 those coefficients are ignored; some GPU placements
+        # rock indefinitely after release despite remaining at the goal.
+        spec.geom("object/block").condim = 6
     spec.option.timestep = cfg.timestep
     spec.option.integrator = mujoco.mjtIntegrator.mjINT_IMPLICITFAST
     spec.option.cone = mujoco.mjtCone.mjCONE_PYRAMIDAL
@@ -315,8 +348,14 @@ def native_spec(cfg: Experiment, *, marker_prototype=False):
         ("manipulator", arm_spec(), MANIP_BASE, (1, 0, 0, 0)),
         ("camera_arm", arm_spec(), cam_base, yaw_quat(cam_yaw)),
         ("object", object_spec(task, cfg.plug_variant or "xm"), (0, 0, 0), (1, 0, 0, 0)),
-        ("fixture", fixture_spec(task, cfg.clearance), (0, 0, 0), (1, 0, 0, 0)),
+        (
+            "fixture",
+            fixture_spec(task, cfg.clearance, cfg.push_marker_half_size),
+            (0, 0, 0),
+            (1, 0, 0, 0),
+        ),
         ("occluder", occluder_spec(cfg), (0, 0, 0), (1, 0, 0, 0)),
+        ("visibility", push_visibility_spec(cfg), (0, 0, 0), (1, 0, 0, 0)),
         ("table", table_spec(cfg.task), (0, 0, 0), (1, 0, 0, 0)),
     ):
         frame = spec.worldbody.add_frame(pos=pos, quat=quat)

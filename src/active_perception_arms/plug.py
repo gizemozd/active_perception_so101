@@ -22,6 +22,11 @@ GRIP_OFFSET = (0.0, -0.0015, 0.045)
 ACTION_LOW = (-0.07, -0.045, 0.055)
 ACTION_HIGH = (0.07, 0.076, 0.09)
 TCP_MAX_DELTA = 0.03
+# Optional world-vertical wrist yaw, relative to the canonical grasp. Translation
+# and yaw are both held during the common inspection pause.
+WRIST_YAW_LIMIT = 0.5235987755982988  # 30 degrees
+WRIST_YAW_MAX_DELTA = 0.05235987755982989  # 3 degrees per 40 ms control step
+SUCCESS_ANGLE = 0.03490658503988659  # 2 degrees from the socket-aligned plug pose
 CAMERA_BASE = (-0.02, 0.50, 0.05)
 CAMERA_BASE_YAW = -1.494
 GIMBAL_HOME = (0.0, 0.19, 0.22, -1.42, 0.837)

@@ -12,7 +12,6 @@ import numpy as np
 import torch
 from rsl_rl.utils import resolve_callable
 
-from . import plug
 from .config import OCCLUSIONS, SUCCESS_STATE_SAMPLES, saved_experiment
 from .environment import make_env
 from .occlusion import with_occlusion
@@ -43,6 +42,24 @@ def wilson(successes, total):
     return [max(0.0, center - half), min(1.0, center + half)]
 
 
+def task_overrides(args, original):
+    """Explicit curriculum-to-original-task evaluation; never changes action meanings."""
+    overrides = {}
+    for name in ("episode_seconds", "reset_xy_jitter", "success_state_sample"):
+        value = getattr(args, name, None)
+        if value is not None:
+            overrides[name] = value
+    if "episode_seconds" in overrides and overrides["episode_seconds"] != original.episode_seconds:
+        # Default sweep timing scales with episode length; do not retain an 8s curriculum sweep.
+        overrides.update(dynamic_onset_range=None, dynamic_duration_range=None)
+    variant = getattr(args, "plug_variant", None)
+    if variant is not None:
+        if original.task != "plug":
+            raise ValueError("plug-variant evaluation requires a plug checkpoint")
+        overrides["plug_variant"] = None if variant == "all" else variant
+    return overrides
+
+
 def evaluate(args):
     start_time = time.perf_counter()
     if args.episodes < 1 or args.num_envs < 1:
@@ -50,9 +67,7 @@ def evaluate(args):
     original = saved_experiment(
         json.loads(args.checkpoint.with_name("experiment.json").read_text())
     )
-    overrides = {}
-    if getattr(args, "success_state_sample", None) is not None:
-        overrides["success_state_sample"] = args.success_state_sample
+    overrides = task_overrides(args, original)
     cfg = with_occlusion(
         original,
         args.occlusion,
@@ -78,6 +93,10 @@ def evaluate(args):
     outcomes, times, distances, variants = [], [], [], []
     capture = None
     capture_path = None
+    action_diagnostics = getattr(args, "action_diagnostics", False)
+    action_count = torch.zeros(original.action_dim, device=args.device)
+    action_saturated = torch.zeros_like(action_count)
+    action_abs = torch.zeros_like(action_count)
     if getattr(args, "capture_representatives", None):
         from .capture_evaluation import RepresentativeCapture
 
@@ -133,6 +152,20 @@ def evaluate(args):
                         if args.camera_trace_out:
                             recorded.append(action[:, cfg.manip_dim :].cpu().numpy())
                     before = env.scene["camera_arm"].data.joint_pos.clone()
+                    if action_diagnostics:
+                        valid = (~finished) & (
+                            torch.arange(cfg.num_envs, device=args.device)
+                            < min(cfg.num_envs, args.episodes - len(outcomes))
+                        )
+                        # The manipulation pause and decimated camera steps do not execute deltas.
+                        executing = valid[:, None].expand_as(action).clone()
+                        if t < cfg.initial_seconds:
+                            executing[:, : cfg.manip_dim] = False
+                        if cfg.camera_control and step % cfg.camera_interval:
+                            executing[:, cfg.manip_dim :] = False
+                        action_count += executing.sum(0)
+                        action_saturated += ((action.abs() >= 0.95) & executing).sum(0)
+                        action_abs += (action.abs() * executing).sum(0)
                     if capture:
                         capture.step(env, obs, action)
                     obs, reward, terminated, truncated, _ = env.step(action)
@@ -158,12 +191,7 @@ def evaluate(args):
                     finished |= done
                     actor.reset(done)
                 count = min(cfg.num_envs, args.episodes - len(outcomes))
-                variants.extend(
-                    [
-                        plug.VARIANTS[i]
-                        for i in plug.variant_assignment(cfg.num_envs, cfg.plug_variant)
-                    ][:count]
-                )
+                variants.extend(cfg.variant_labels[:count])
                 outcomes.extend(won[:count].cpu().tolist())
                 times.extend(elapsed[:count].cpu().tolist())
                 distances.extend(motion[:count].cpu().tolist())
@@ -196,6 +224,19 @@ def evaluate(args):
         "split": args.split,
         "seed": args.seed,
         "training_seed": original.seed,
+        "task_overrides": overrides,
+        "action_diagnostics": {
+            "executed_samples_per_axis": action_count.cpu().tolist(),
+            "near_limit_fraction_per_axis": (action_saturated / action_count.clamp_min(1))
+            .cpu()
+            .tolist(),
+            "mean_absolute_action_per_axis": (action_abs / action_count.clamp_min(1))
+            .cpu()
+            .tolist(),
+            "note": "Normalized actor deltas; near limit means abs(action)>=0.95. Not workspace-bound saturation.",
+        }
+        if action_diagnostics
+        else None,
         "episodes": len(outcomes),
         "successes": successes,
         "success_rate": successes / len(outcomes),
@@ -322,10 +363,14 @@ def main(argv=None):
     p.add_argument("--seed", type=int, default=None)
     p.add_argument("--split", choices=("validation", "test"), default="test")
     p.add_argument("--occlusion", choices=OCCLUSIONS)
+    p.add_argument("--plug-variant", choices=("all", "xm", "xp", "ym", "yp"))
+    p.add_argument("--episode-seconds", type=float)
+    p.add_argument("--reset-xy-jitter", type=float)
     p.add_argument("--device", default="cuda:0")
     p.add_argument("--freeze-camera-after", type=float)
     p.add_argument("--hold-external-after", type=float)
     p.add_argument("--reset-memory", action="store_true")
+    p.add_argument("--action-diagnostics", action="store_true")
     p.add_argument("--camera-trace-in", type=Path)
     p.add_argument("--camera-trace-out", type=Path)
     p.add_argument("--wandb", action="store_true")

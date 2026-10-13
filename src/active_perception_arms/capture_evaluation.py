@@ -1,6 +1,7 @@
 """Save representative trajectories during evaluation; render without resimulating."""
 
 import json
+from contextlib import nullcontext
 from dataclasses import replace
 from pathlib import Path
 
@@ -8,7 +9,7 @@ import imageio.v2 as imageio
 import mujoco
 import numpy as np
 
-from . import mdp, plug
+from . import mdp
 from .config import saved_experiment
 from .native import NativeEnv
 from .sanity import OverviewRecorder, mosaic
@@ -44,6 +45,11 @@ class RepresentativeCapture:
                 .numpy()
                 .copy(),
                 **{name: obs[name].cpu().numpy().copy() for name in self.cfg.sensors},
+                **(
+                    {"privileged": obs["privileged"].cpu().numpy().copy()}
+                    if self.cfg.actor_observation == "privileged"
+                    else {}
+                ),
             }
         )
 
@@ -51,9 +57,9 @@ class RepresentativeCapture:
         self.frames[-1]["reward"] = reward.cpu().numpy().copy()
 
     def finish_batch(self, batch, won, elapsed, count):
-        variants = plug.variant_assignment(self.cfg.num_envs, self.cfg.plug_variant)
+        variants = self.cfg.variant_labels
         for i in range(count):
-            variant = plug.VARIANTS[variants[i]]
+            variant = variants[i]
             success = bool(won[i].item())
             key = (variant, success)
             if key in self.selected:
@@ -105,14 +111,20 @@ def render_capture(report, output):
     records = capture["records"]
     for record in records:
         name = Path(record["trace"]).stem
-        proxy = NativeEnv(replace(cfg, num_envs=1, plug_variant=record["variant"]))
+        proxy = NativeEnv(
+            replace(cfg, num_envs=1, plug_variant=record["variant"] if cfg.task == "plug" else None)
+        )
         outside = output / f"{name}_outside.mp4"
         policy = output / f"{name}_policy.mp4"
         observer = OverviewRecorder(proxy.model, outside, fps=1 / cfg.step_dt)
         try:
             with (
                 np.load(record["trace"]) as data,
-                imageio.get_writer(policy, fps=1 / cfg.step_dt, macro_block_size=2) as writer,
+                (
+                    imageio.get_writer(policy, fps=1 / cfg.step_dt, macro_block_size=2)
+                    if cfg.sensors
+                    else nullcontext(None)
+                ) as writer,
             ):
                 for step in range(len(data["qpos"])):
                     origin = data["origins"][step]
@@ -125,15 +137,16 @@ def render_capture(report, output):
                         )
                     mujoco.mj_forward(proxy.model, proxy.data)
                     observer.capture(proxy.data)
-                    frames = [data[name][step].transpose(1, 2, 0) for name in cfg.sensors]
-                    tile = mosaic(
-                        frames,
-                        [
-                            f"{name}: captured input t={step * cfg.step_dt:.2f}s"
-                            for name in cfg.sensors
-                        ],
-                    )
-                    writer.append_data(np.asarray(tile))
+                    if writer is not None:
+                        frames = [data[name][step].transpose(1, 2, 0) for name in cfg.sensors]
+                        tile = mosaic(
+                            frames,
+                            [
+                                f"{name}: captured input t={step * cfg.step_dt:.2f}s"
+                                for name in cfg.sensors
+                            ],
+                        )
+                        writer.append_data(np.asarray(tile))
                 if cfg.condition == "initial":
                     targets = data["camera_targets"][round(cfg.initial_seconds / cfg.step_dt) :]
                     record["camera_target_max_change_after_inspection"] = (
@@ -141,7 +154,9 @@ def render_capture(report, output):
                     )
         finally:
             observer.close()
-        record.update(outside_video=str(outside), policy_video=str(policy))
+        record.update(outside_video=str(outside), actor_observation=cfg.actor_observation)
+        if cfg.sensors:
+            record["policy_video"] = str(policy)
     result = dict(
         selection="First observed success/failure per variant in recorded evaluation repeat",
         source="Captured actual trajectory and actor inputs; no second physics rollout",
