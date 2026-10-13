@@ -1,0 +1,155 @@
+{
+  "condition": "wrist_static",
+  "status": "completed",
+  "updates": 1465,
+  "transitions": 18001920,
+  "evaluations": [
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_insertion_study_v2/wrist_static/evaluation-750-clean-validation.json",
+      "sha256": "6f3f3f2746576b44d975b16b5b1aedc483a403e7047eebb54221238318fd28a7",
+      "updates": 750,
+      "transitions": 9216000,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 5,
+      "episodes": 512,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 4,
+          "success_rate": 0.03125
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        }
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_insertion_study_v2/wrist_static/evaluation-750-dynamic-validation.json",
+      "sha256": "9a531db4b62dfeaaeb9383e6bad0497c8d6e84ee35a88a5b34b17d5101a8f250",
+      "updates": 750,
+      "transitions": 9216000,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 7,
+      "episodes": 512,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 6,
+          "success_rate": 0.046875
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_insertion_study_v2/wrist_static/evaluation-1465-clean-test.json",
+      "sha256": "95f2620a3a0a9a3958d8473fdba040ffa0c715588f4cc439f9ec5f506f9208a1",
+      "updates": 1465,
+      "transitions": 18001920,
+      "split": "test",
+      "occlusion": "clean",
+      "successes": 21,
+      "episodes": 1024,
+      "per_variant": {
+        "xm": {
+          "episodes": 256,
+          "successes": 1,
+          "success_rate": 0.00390625
+        },
+        "xp": {
+          "episodes": 256,
+          "successes": 6,
+          "success_rate": 0.0234375
+        },
+        "ym": {
+          "episodes": 256,
+          "successes": 8,
+          "success_rate": 0.03125
+        },
+        "yp": {
+          "episodes": 256,
+          "successes": 6,
+          "success_rate": 0.0234375
+        }
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_insertion_study_v2/wrist_static/evaluation-1465-dynamic-test.json",
+      "sha256": "a0eefd481236199154129ba1d78c9fe5df09e7593d2e28a34f5f72bd32d61c16",
+      "updates": 1465,
+      "transitions": 18001920,
+      "split": "test",
+      "occlusion": "dynamic",
+      "successes": 14,
+      "episodes": 1024,
+      "per_variant": {
+        "xm": {
+          "episodes": 256,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 256,
+          "successes": 3,
+          "success_rate": 0.01171875
+        },
+        "ym": {
+          "episodes": 256,
+          "successes": 8,
+          "success_rate": 0.03125
+        },
+        "yp": {
+          "episodes": 256,
+          "successes": 3,
+          "success_rate": 0.01171875
+        }
+      }
+    }
+  ],
+  "allocations": [
+    {
+      "job_id": "51715355",
+      "started_at": "2026-10-09T23:30:11.673557+00:00"
+    }
+  ],
+  "current_command": [
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "-m",
+    "active_perception_arms.record_evaluation",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_insertion_study_v2/wrist_static/evaluation-1465-dynamic-test.json",
+    "--output",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_insertion_study_v2/wrist_static/videos-dynamic"
+  ],
+  "updated_at": "2026-10-10T01:50:11.327617+00:00",
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/wrist_static/plug_wrist_static_clean_gru_v7_s0_n512_plug_insertion_18m_20261009T233022Z/model_1464.pt",
+  "checkpoint_sha256": "e2188ff9e5d96afe1fb12cb7c999817700ded07b15047239097a372e818089e3",
+  "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/wrist_static/plug_wrist_static_clean_gru_v7_s0_n512_plug_insertion_18m_20261009T233022Z",
+  "completed_at": "2026-10-10T01:50:36.363529+00:00"
+}

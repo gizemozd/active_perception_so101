@@ -1,0 +1,22 @@
+{
+  "status": "submitted",
+  "created_at": "2026-10-09T20:12:46.894202+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "--job-name=plug-precision-wrist_static",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-precision-train-20261009T201219Z/run.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-precision-train-20261009T201219Z/run_plug_precision.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_precision/plan.json",
+    "wrist_static"
+  ],
+  "returncode": 0,
+  "stdout": "51666125\n",
+  "stderr": "",
+  "job_id": "51666125"
+}

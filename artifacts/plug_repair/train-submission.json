@@ -1,0 +1,26 @@
+{
+  "status": "submitted",
+  "recorded_at": "2026-10-09T17:01:40.560496+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--job-name=plug-recipe-pair",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/plug_recipe_repair.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_repair/recipe-plan.json",
+    "train",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-recipe-20261009T165806Z/run_plug_recipe_repair.py"
+  ],
+  "manifest_sha256": "d5e737d91f627d91ff5ebc01ddbe5c3ed93749d541484e59d37f283b83a7fdc7",
+  "gpu_validation_sha256": "b44bf0ba785976764dcc05fea6d6f6f9a5713b72f8aea80974cf8f72faefc619",
+  "gpus": 1,
+  "wall_limit_hours": 4,
+  "training_transitions": 18456576,
+  "stdout": "51624849\n",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51624849"
+}

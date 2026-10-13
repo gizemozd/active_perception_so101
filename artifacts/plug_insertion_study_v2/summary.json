@@ -1,0 +1,402 @@
+{
+  "built_at": "2026-10-10T02:16:09.095203+00:00",
+  "runs": [
+    {
+      "condition": "wrist",
+      "status": "completed",
+      "updates": 1465,
+      "transitions": 18001920,
+      "target": 18001920,
+      "job_ids": [
+        "51715352"
+      ],
+      "evaluations": [
+        {
+          "updates": 750,
+          "split": "validation",
+          "occlusion": "clean",
+          "successes": 20,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 15,
+              "success_rate": 0.1171875
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 5,
+              "success_rate": 0.0390625
+            }
+          },
+          "file": "wrist/evaluation-750-clean-validation.json"
+        },
+        {
+          "updates": 750,
+          "split": "validation",
+          "occlusion": "dynamic",
+          "successes": 25,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 18,
+              "success_rate": 0.140625
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 7,
+              "success_rate": 0.0546875
+            }
+          },
+          "file": "wrist/evaluation-750-dynamic-validation.json"
+        },
+        {
+          "updates": 1465,
+          "split": "test",
+          "occlusion": "clean",
+          "successes": 58,
+          "episodes": 1024,
+          "per_variant": {
+            "xm": {
+              "episodes": 256,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 256,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 256,
+              "successes": 46,
+              "success_rate": 0.1796875
+            },
+            "yp": {
+              "episodes": 256,
+              "successes": 12,
+              "success_rate": 0.046875
+            }
+          },
+          "file": "wrist/evaluation-1465-clean-test.json"
+        },
+        {
+          "updates": 1465,
+          "split": "test",
+          "occlusion": "dynamic",
+          "successes": 64,
+          "episodes": 1024,
+          "per_variant": {
+            "xm": {
+              "episodes": 256,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 256,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 256,
+              "successes": 50,
+              "success_rate": 0.1953125
+            },
+            "yp": {
+              "episodes": 256,
+              "successes": 14,
+              "success_rate": 0.0546875
+            }
+          },
+          "file": "wrist/evaluation-1465-dynamic-test.json"
+        }
+      ]
+    },
+    {
+      "condition": "wrist_static",
+      "status": "completed",
+      "updates": 1465,
+      "transitions": 18001920,
+      "target": 18001920,
+      "job_ids": [
+        "51715355"
+      ],
+      "evaluations": [
+        {
+          "updates": 750,
+          "split": "validation",
+          "occlusion": "clean",
+          "successes": 5,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 4,
+              "success_rate": 0.03125
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 1,
+              "success_rate": 0.0078125
+            }
+          },
+          "file": "wrist_static/evaluation-750-clean-validation.json"
+        },
+        {
+          "updates": 750,
+          "split": "validation",
+          "occlusion": "dynamic",
+          "successes": 7,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 1,
+              "success_rate": 0.0078125
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 6,
+              "success_rate": 0.046875
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            }
+          },
+          "file": "wrist_static/evaluation-750-dynamic-validation.json"
+        },
+        {
+          "updates": 1465,
+          "split": "test",
+          "occlusion": "clean",
+          "successes": 21,
+          "episodes": 1024,
+          "per_variant": {
+            "xm": {
+              "episodes": 256,
+              "successes": 1,
+              "success_rate": 0.00390625
+            },
+            "xp": {
+              "episodes": 256,
+              "successes": 6,
+              "success_rate": 0.0234375
+            },
+            "ym": {
+              "episodes": 256,
+              "successes": 8,
+              "success_rate": 0.03125
+            },
+            "yp": {
+              "episodes": 256,
+              "successes": 6,
+              "success_rate": 0.0234375
+            }
+          },
+          "file": "wrist_static/evaluation-1465-clean-test.json"
+        },
+        {
+          "updates": 1465,
+          "split": "test",
+          "occlusion": "dynamic",
+          "successes": 14,
+          "episodes": 1024,
+          "per_variant": {
+            "xm": {
+              "episodes": 256,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 256,
+              "successes": 3,
+              "success_rate": 0.01171875
+            },
+            "ym": {
+              "episodes": 256,
+              "successes": 8,
+              "success_rate": 0.03125
+            },
+            "yp": {
+              "episodes": 256,
+              "successes": 3,
+              "success_rate": 0.01171875
+            }
+          },
+          "file": "wrist_static/evaluation-1465-dynamic-test.json"
+        }
+      ]
+    },
+    {
+      "condition": "active",
+      "status": "completed",
+      "updates": 1465,
+      "transitions": 18001920,
+      "target": 18001920,
+      "job_ids": [
+        "51715366"
+      ],
+      "evaluations": [
+        {
+          "updates": 750,
+          "split": "validation",
+          "occlusion": "clean",
+          "successes": 30,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 2,
+              "success_rate": 0.015625
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 2,
+              "success_rate": 0.015625
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 20,
+              "success_rate": 0.15625
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 6,
+              "success_rate": 0.046875
+            }
+          },
+          "file": "active/evaluation-750-clean-validation.json"
+        },
+        {
+          "updates": 750,
+          "split": "validation",
+          "occlusion": "dynamic",
+          "successes": 35,
+          "episodes": 512,
+          "per_variant": {
+            "xm": {
+              "episodes": 128,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 128,
+              "successes": 5,
+              "success_rate": 0.0390625
+            },
+            "ym": {
+              "episodes": 128,
+              "successes": 19,
+              "success_rate": 0.1484375
+            },
+            "yp": {
+              "episodes": 128,
+              "successes": 11,
+              "success_rate": 0.0859375
+            }
+          },
+          "file": "active/evaluation-750-dynamic-validation.json"
+        },
+        {
+          "updates": 1465,
+          "split": "test",
+          "occlusion": "clean",
+          "successes": 65,
+          "episodes": 1024,
+          "per_variant": {
+            "xm": {
+              "episodes": 256,
+              "successes": 1,
+              "success_rate": 0.00390625
+            },
+            "xp": {
+              "episodes": 256,
+              "successes": 6,
+              "success_rate": 0.0234375
+            },
+            "ym": {
+              "episodes": 256,
+              "successes": 50,
+              "success_rate": 0.1953125
+            },
+            "yp": {
+              "episodes": 256,
+              "successes": 8,
+              "success_rate": 0.03125
+            }
+          },
+          "file": "active/evaluation-1465-clean-test.json"
+        },
+        {
+          "updates": 1465,
+          "split": "test",
+          "occlusion": "dynamic",
+          "successes": 72,
+          "episodes": 1024,
+          "per_variant": {
+            "xm": {
+              "episodes": 256,
+              "successes": 0,
+              "success_rate": 0.0
+            },
+            "xp": {
+              "episodes": 256,
+              "successes": 8,
+              "success_rate": 0.03125
+            },
+            "ym": {
+              "episodes": 256,
+              "successes": 49,
+              "success_rate": 0.19140625
+            },
+            "yp": {
+              "episodes": 256,
+              "successes": 15,
+              "success_rate": 0.05859375
+            }
+          },
+          "file": "active/evaluation-1465-dynamic-test.json"
+        }
+      ]
+    }
+  ],
+  "transitions_per_policy": 18001920
+}

@@ -1,0 +1,217 @@
+{
+  "backend": "native MuJoCo",
+  "learner_updates": 0,
+  "interpretation": "One known hard case; not aggregate learned-policy performance.",
+  "cases": [
+    {
+      "seed": 10011,
+      "variant": "xm",
+      "lift_first": false,
+      "held_success": false,
+      "steps": 88,
+      "closest_error_m": 0.06258823147658714,
+      "final_body_error_m": 0.06295551032469993,
+      "tcp_target_m": [
+        0.06210402590167852,
+        0.004584945247509603,
+        0.085
+      ],
+      "physical_tcp_m": [
+        0.012791205641972492,
+        0.006395593032540078,
+        0.06542406246622252
+      ],
+      "body_goal_m": [
+        0.06210402590167852,
+        0.006084945247509599,
+        0.016
+      ],
+      "warm_ik_position_residual_m": 1.4304896245381992e-17,
+      "cold_ik_position_residual_m": 2.7755575615628914e-17,
+      "contacts": [
+        {
+          "geoms": [
+            "fixture/left",
+            "object/prong_a"
+          ],
+          "normal_force_N": 7.49366109447846
+        },
+        {
+          "geoms": [
+            "fixture/left",
+            "object/prong_a"
+          ],
+          "normal_force_N": 6.5027803106758615
+        },
+        {
+          "geoms": [
+            "object/housing",
+            "fixture/back"
+          ],
+          "normal_force_N": 4.434251123432674
+        },
+        {
+          "geoms": [
+            "manipulator/moving_jaw_box3",
+            "object/collar"
+          ],
+          "normal_force_N": 2.2758123666034296
+        },
+        {
+          "geoms": [
+            "manipulator/moving_jaw_box2",
+            "object/collar"
+          ],
+          "normal_force_N": 2.0281734911894556
+        },
+        {
+          "geoms": [
+            "fixture/back",
+            "object/prong_a"
+          ],
+          "normal_force_N": 2.003116840944572
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_sph_tip3",
+            "object/collar"
+          ],
+          "normal_force_N": 1.890057623771526
+        },
+        {
+          "geoms": [
+            "manipulator/moving_jaw_sph_tip2",
+            "object/collar"
+          ],
+          "normal_force_N": 1.4781196913992622
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_sph_tip1",
+            "object/collar"
+          ],
+          "normal_force_N": 1.458673608194589
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_box4",
+            "object/collar"
+          ],
+          "normal_force_N": 0.5282776673392355
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_box3",
+            "object/collar"
+          ],
+          "normal_force_N": 0.2361875761073105
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_sph_tip2",
+            "object/collar"
+          ],
+          "normal_force_N": 0.15898814180827647
+        },
+        {
+          "geoms": [
+            "manipulator/moving_jaw_sph_tip3",
+            "object/collar"
+          ],
+          "normal_force_N": 0.12318648716356725
+        }
+      ]
+    },
+    {
+      "seed": 10011,
+      "variant": "xm",
+      "lift_first": true,
+      "held_success": true,
+      "steps": 57,
+      "closest_error_m": 0.000205189556513915,
+      "final_body_error_m": 0.0004371598603807624,
+      "tcp_target_m": [
+        0.06210402590167852,
+        0.004584945247509603,
+        0.061
+      ],
+      "physical_tcp_m": [
+        0.06183477405005252,
+        0.0045953378184266265,
+        0.060749508467368804
+      ],
+      "body_goal_m": [
+        0.06210402590167852,
+        0.006084945247509599,
+        0.016
+      ],
+      "warm_ik_position_residual_m": 2.797157557069881e-17,
+      "cold_ik_position_residual_m": 6.216025217875883e-17,
+      "contacts": [
+        {
+          "geoms": [
+            "manipulator/moving_jaw_box3",
+            "object/collar"
+          ],
+          "normal_force_N": 2.1540686454676146
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_sph_tip1",
+            "object/collar"
+          ],
+          "normal_force_N": 1.9729027964685262
+        },
+        {
+          "geoms": [
+            "manipulator/moving_jaw_box2",
+            "object/collar"
+          ],
+          "normal_force_N": 1.863215324823654
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_sph_tip2",
+            "object/collar"
+          ],
+          "normal_force_N": 1.285035903484173
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_sph_tip3",
+            "object/collar"
+          ],
+          "normal_force_N": 1.038225607285563
+        },
+        {
+          "geoms": [
+            "manipulator/moving_jaw_sph_tip3",
+            "object/collar"
+          ],
+          "normal_force_N": 0.7738779850622541
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_box4",
+            "object/collar"
+          ],
+          "normal_force_N": 0.6445362591686414
+        },
+        {
+          "geoms": [
+            "manipulator/moving_jaw_sph_tip2",
+            "object/collar"
+          ],
+          "normal_force_N": 0.4574395446032631
+        },
+        {
+          "geoms": [
+            "manipulator/fixed_jaw_box3",
+            "object/collar"
+          ],
+          "normal_force_N": 0.31195920564802515
+        }
+      ]
+    }
+  ]
+}

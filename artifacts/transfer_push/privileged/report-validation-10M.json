@@ -1,0 +1,35 @@
+{
+  "html": {
+    "index.html": {
+      "unique_ids": 17,
+      "local_refs": 82
+    },
+    "transfer_push.html": {
+      "unique_ids": 2,
+      "local_refs": 12
+    },
+    "privileged.html": {
+      "unique_ids": 1,
+      "local_refs": 21
+    }
+  },
+  "evaluations": {
+    "transfer": 6,
+    "push": 6
+  },
+  "media": {
+    "artifacts/transfer_push/privileged/transfer/videos/nominal_failure_episode0_outside.mp4": {
+      "frames": 300
+    },
+    "artifacts/transfer_push/privileged/push/videos/nominal_failure_episode3_outside.mp4": {
+      "frames": 300
+    },
+    "artifacts/transfer_push/privileged/push/videos/nominal_success_episode0_outside.mp4": {
+      "frames": 136
+    }
+  },
+  "finite_loss_rows": {
+    "transfer": 581,
+    "push": 730
+  }
+}

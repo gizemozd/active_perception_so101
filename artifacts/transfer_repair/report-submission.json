@@ -1,0 +1,19 @@
+{
+  "job_id": "51645257",
+  "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-report-51644983",
+  "source_sha256": {
+    "build_transfer_repair_report.py": "dd00db4a934a4d62c7f24f4411b4d25891d2836e76198e86252ca1fc3b69f2df",
+    "transfer_report.sbatch": "abbfae861e49766dbb3a1b6150f6e3f9bebd80b62214b6baccf9ea2fe700adc5"
+  },
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=test",
+    "--dependency=afterany:51644983",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-report-51644983/transfer_report.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-report-51644983",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-pilot-20261009T182615Z"
+  ]
+}

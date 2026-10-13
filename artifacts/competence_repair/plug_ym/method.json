@@ -1,0 +1,20 @@
+{
+  "method": "online DAgger",
+  "teacher": "lift-align-descend with privileged goal in training only",
+  "actor_inputs": [
+    "wrist RGB",
+    "external RGB",
+    "proprioception"
+  ],
+  "args": {
+    "output": "artifacts/competence_repair/plug_ym",
+    "variant": "ym",
+    "steps": 16000,
+    "num_envs": 256,
+    "horizon": 8,
+    "clearance": 0.002,
+    "seed": 0,
+    "teacher_only": false,
+    "eval_interval": 2000
+  }
+}

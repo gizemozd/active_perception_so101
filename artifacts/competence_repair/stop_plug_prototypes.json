@@ -1,0 +1,10 @@
+{
+  "time": "2026-10-12T04:50:31.247024+00:00",
+  "jobs": [
+    52304053,
+    52304054,
+    52304800,
+    52304801
+  ],
+  "reason": "Freeze selected dense YM step6000; continued training regresses (step10000 5/256). Stop weak all-variant and inspection-only prototypes; retain checkpoints and evaluations. Factorized inspection trial continues independently."
+}

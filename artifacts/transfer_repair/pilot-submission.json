@@ -1,0 +1,16 @@
+{
+  "job_id": "51644983",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-pilot-20261009T182615Z/transfer_pilot.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-pilot-20261009T182615Z/run_transfer_pilot.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-plan.json"
+  ],
+  "plan_sha256": "723692f2fb558fbdf6bcd60126e6a56abad3c2c45cb0cb4ded796caa22b806b7",
+  "submitted_utc": "2026-10-09T18:26:19.227475+00:00"
+}

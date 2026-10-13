@@ -1,0 +1,189 @@
+{
+  "created_utc": "2026-10-13T05:43:28.577513+00:00",
+  "rows": [
+    {
+      "name": "plug_wrist_static_s0",
+      "task": "plug",
+      "kind": "direct",
+      "condition": "wrist_static",
+      "seed": 0,
+      "evaluations": [],
+      "transitions": 0,
+      "status": "training",
+      "job_id": "52553605"
+    },
+    {
+      "name": "plug_active_s0",
+      "task": "plug",
+      "kind": "direct",
+      "condition": "active",
+      "seed": 0,
+      "evaluations": [],
+      "transitions": 0,
+      "status": "training",
+      "job_id": "52553606"
+    },
+    {
+      "name": "plug_wrist_static_s1",
+      "task": "plug",
+      "kind": "direct",
+      "condition": "wrist_static",
+      "seed": 1,
+      "evaluations": [],
+      "transitions": 0,
+      "status": "training",
+      "job_id": "52553607"
+    },
+    {
+      "name": "plug_active_s1",
+      "task": "plug",
+      "kind": "direct",
+      "condition": "active",
+      "seed": 1,
+      "evaluations": [],
+      "transitions": 0,
+      "status": "training",
+      "job_id": "52553608"
+    },
+    {
+      "name": "plug_wrist_static_s2",
+      "task": "plug",
+      "kind": "direct",
+      "condition": "wrist_static",
+      "seed": 2,
+      "evaluations": [],
+      "transitions": 0,
+      "status": "training",
+      "job_id": "52553620"
+    },
+    {
+      "name": "plug_active_s2",
+      "task": "plug",
+      "kind": "direct",
+      "condition": "active",
+      "seed": 2,
+      "evaluations": [],
+      "transitions": 0,
+      "status": "training",
+      "job_id": "52553625"
+    },
+    {
+      "name": "plug_privileged_s0",
+      "task": "plug",
+      "kind": "diagnostic",
+      "condition": "wrist_static",
+      "seed": 0,
+      "evaluations": [],
+      "transitions": 0,
+      "status": "training",
+      "job_id": "52553626"
+    },
+    {
+      "name": "push_wrist_static_s0",
+      "task": "push",
+      "kind": "direct",
+      "condition": "wrist_static",
+      "seed": 0,
+      "evaluations": [],
+      "transitions": 0,
+      "status": "training",
+      "job_id": "52553632"
+    },
+    {
+      "name": "push_active_s0",
+      "task": "push",
+      "kind": "direct",
+      "condition": "active",
+      "seed": 0,
+      "status": "pending"
+    },
+    {
+      "name": "push_wrist_static_s1",
+      "task": "push",
+      "kind": "direct",
+      "condition": "wrist_static",
+      "seed": 1,
+      "status": "pending"
+    },
+    {
+      "name": "push_active_s1",
+      "task": "push",
+      "kind": "direct",
+      "condition": "active",
+      "seed": 1,
+      "status": "pending"
+    },
+    {
+      "name": "push_wrist_static_s2",
+      "task": "push",
+      "kind": "direct",
+      "condition": "wrist_static",
+      "seed": 2,
+      "status": "pending"
+    },
+    {
+      "name": "push_active_s2",
+      "task": "push",
+      "kind": "direct",
+      "condition": "active",
+      "seed": 2,
+      "status": "pending"
+    },
+    {
+      "name": "push_privileged_s0",
+      "task": "push",
+      "kind": "diagnostic",
+      "condition": "wrist_static",
+      "seed": 0,
+      "status": "pending"
+    },
+    {
+      "name": "plug_curriculum_wrist_static_s0",
+      "task": "plug",
+      "kind": "curriculum",
+      "condition": "wrist_static",
+      "seed": 0,
+      "status": "pending"
+    },
+    {
+      "name": "plug_curriculum_active_s0",
+      "task": "plug",
+      "kind": "curriculum",
+      "condition": "active",
+      "seed": 0,
+      "status": "pending"
+    },
+    {
+      "name": "plug_curriculum_wrist_static_s1",
+      "task": "plug",
+      "kind": "curriculum",
+      "condition": "wrist_static",
+      "seed": 1,
+      "status": "pending"
+    },
+    {
+      "name": "plug_curriculum_active_s1",
+      "task": "plug",
+      "kind": "curriculum",
+      "condition": "active",
+      "seed": 1,
+      "status": "pending"
+    },
+    {
+      "name": "plug_curriculum_wrist_static_s2",
+      "task": "plug",
+      "kind": "curriculum",
+      "condition": "wrist_static",
+      "seed": 2,
+      "status": "pending"
+    },
+    {
+      "name": "plug_curriculum_active_s2",
+      "task": "plug",
+      "kind": "curriculum",
+      "condition": "active",
+      "seed": 2,
+      "status": "pending"
+    }
+  ]
+}

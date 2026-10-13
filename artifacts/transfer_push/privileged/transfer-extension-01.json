@@ -1,0 +1,21 @@
+{
+  "job_id": "51669740",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=ALL",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "--job-name=state-transfer-20M",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/privileged_diagnostic.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/driver-extension-01.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/extension-plan.json",
+    "transfer",
+    "--resume-diagnostic"
+  ],
+  "driver_sha256": "b7aefcd0a2c784efa2301cb2943c8db3a6e36a46af2ba9225d5446b9e87fd5f2",
+  "reason": "Transfer has no complete held-out lifts at 10M, but training bilateral grasps grew from 9.3% at 5M to 84.8% at 10M, with mean normalized lift rising from 0.0125 to 0.5214 (approximately 13 mm). Give this developing grasp/lift behavior one bounded extension to 20M before changing the recipe. This is not a competence pass."
+}

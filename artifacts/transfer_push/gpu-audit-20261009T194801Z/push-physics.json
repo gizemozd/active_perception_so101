@@ -1,0 +1,6082 @@
+{
+  "sampling": "After termination_manager.compute(), before reward/reset/forward; no physics or random-state changes.",
+  "episodes": 128,
+  "terminal_flags": {
+    "success": 128,
+    "failure": 0,
+    "timeout": 0
+  },
+  "max_derived_to_qpos_displacement_m": 0.0,
+  "success_hold_violations": 0,
+  "success_transfer_violations": null,
+  "success_push_violations": 0,
+  "success_distance_violations": null,
+  "success_three_sample_violations": null,
+  "success_qpos_above_distance_threshold": null,
+  "success_orientation_violations": null,
+  "mean_terminal_position_error_m": 0.007641816173418192,
+  "mean_success_terminal_position_error_m": 0.007641816173418192,
+  "records": [
+    {
+      "manager_position_error_m": 0.010653254576027393,
+      "derived_position_error_m": 0.010653254576027393,
+      "qpos_position_error_m": 0.010653254576027393,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.013892476446926594,
+        0.013408028520643711,
+        0.010653254576027393
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.006854414939880371,
+        0.009064164012670517,
+        0.03993792459368706
+      ],
+      "physical_object_position": [
+        -0.007310556713491678,
+        0.03005671501159668,
+        0.006620206870138645
+      ],
+      "physical_goal_position": [
+        -0.007887942716479301,
+        0.04042469710111618,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.033403269946575165,
+      "push_xy_error": 0.010384047403931618,
+      "push_z_error": 0.002379792742431164,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0068638683296740055,
+        0.00906441081315279,
+        0.021937929093837738
+      ],
+      "index": 29,
+      "steps": 101
+    },
+    {
+      "manager_position_error_m": 0.0086063789203763,
+      "derived_position_error_m": 0.0086063789203763,
+      "qpos_position_error_m": 0.0086063789203763,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008869768120348454,
+        0.008700969628989697,
+        0.0086063789203763
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02839985489845276,
+        0.00764830969274044,
+        0.04273243620991707
+      ],
+      "physical_object_position": [
+        -0.02996610850095749,
+        0.029056711122393608,
+        0.008356704376637936
+      ],
+      "physical_goal_position": [
+        -0.030227025970816612,
+        0.03763504698872566,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.013968978077173233,
+      "push_xy_error": 0.008582303300499916,
+      "push_z_error": 0.0006432952359318733,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.028501227498054504,
+        0.007652575150132179,
+        0.024732723832130432
+      ],
+      "index": 118,
+      "steps": 102
+    },
+    {
+      "manager_position_error_m": 0.007599829230457544,
+      "derived_position_error_m": 0.007599829230457544,
+      "qpos_position_error_m": 0.007599829230457544,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007709014229476452,
+        0.007613584399223328,
+        0.007599829230457544
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03300057351589203,
+        0.007681908085942268,
+        0.044439900666475296
+      ],
+      "physical_object_position": [
+        -0.034679628908634186,
+        0.02831023372709751,
+        0.007908510975539684
+      ],
+      "physical_goal_position": [
+        -0.03525324910879135,
+        0.03580936789512634,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.014043987728655338,
+      "push_xy_error": 0.007521040737628937,
+      "push_z_error": 0.0010914886370301247,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03301994502544403,
+        0.007682750001549721,
+        0.026439912617206573
+      ],
+      "index": 38,
+      "steps": 103
+    },
+    {
+      "manager_position_error_m": 0.0051832040771842,
+      "derived_position_error_m": 0.0051832040771842,
+      "qpos_position_error_m": 0.0051832040771842,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.005522515624761581,
+        0.005232899449765682,
+        0.0051832040771842
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.013866603374481201,
+        0.00907990150153637,
+        0.04443284496665001
+      ],
+      "physical_object_position": [
+        -0.013606206513941288,
+        0.031671907752752304,
+        0.008457310497760773
+      ],
+      "physical_goal_position": [
+        -0.014414079487323761,
+        0.03676292300224304,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004659807309508324,
+      "push_xy_error": 0.005154715850949287,
+      "push_z_error": 0.0005426891148090363,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.01388962659984827,
+        0.00908052921295166,
+        0.026432862505316734
+      ],
+      "index": 4,
+      "steps": 104
+    },
+    {
+      "manager_position_error_m": 0.008679157122969627,
+      "derived_position_error_m": 0.008679157122969627,
+      "qpos_position_error_m": 0.008679157122969627,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008680392988026142,
+        0.008679280057549477,
+        0.008679157122969627
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.004693135619163513,
+        0.00905621238052845,
+        0.044396158307790756
+      ],
+      "physical_object_position": [
+        -0.005939186550676823,
+        0.02972744032740593,
+        0.008960675448179245
+      ],
+      "physical_goal_position": [
+        -0.006530990824103355,
+        0.038386307656764984,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0002582194865681231,
+      "push_xy_error": 0.008679067716002464,
+      "push_z_error": 3.9324164390563965e-05,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.004721331410109997,
+        0.0090569369494915,
+        0.02639618329703808
+      ],
+      "index": 9,
+      "steps": 104
+    },
+    {
+      "manager_position_error_m": 0.0078496802598238,
+      "derived_position_error_m": 0.0078496802598238,
+      "qpos_position_error_m": 0.0078496802598238,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.0075611937791109085,
+        0.008027013391256332,
+        0.0078496802598238
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.038255929946899414,
+        0.009192245081067085,
+        0.044446010142564774
+      ],
+      "physical_object_position": [
+        -0.03968627378344536,
+        0.03082326613366604,
+        0.006989155430346727
+      ],
+      "physical_goal_position": [
+        -0.03960838168859482,
+        0.03841061890125275,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.015981338918209076,
+      "push_xy_error": 0.007587752770632505,
+      "push_z_error": 0.0020108441822230816,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0382641963660717,
+        0.009192511439323425,
+        0.026446014642715454
+      ],
+      "index": 24,
+      "steps": 104
+    },
+    {
+      "manager_position_error_m": 0.008138111792504787,
+      "derived_position_error_m": 0.008138111792504787,
+      "qpos_position_error_m": 0.008138111792504787,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008262643590569496,
+        0.008381053805351257,
+        0.008138111792504787
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03693915903568268,
+        0.009156625717878342,
+        0.04445293918251991
+      ],
+      "physical_object_position": [
+        -0.03399495407938957,
+        0.02997846156358719,
+        0.006969984155148268
+      ],
+      "physical_goal_position": [
+        -0.032847560942173004,
+        0.037775345146656036,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.022184379398822784,
+      "push_xy_error": 0.007880856283009052,
+      "push_z_error": 0.002030015457421541,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03694677725434303,
+        0.009156870655715466,
+        0.026452943682670593
+      ],
+      "index": 25,
+      "steps": 104
+    },
+    {
+      "manager_position_error_m": 0.008607872761785984,
+      "derived_position_error_m": 0.008607872761785984,
+      "qpos_position_error_m": 0.008607872761785984,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008639927953481674,
+        0.008614465594291687,
+        0.008607872761785984
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.022091180086135864,
+        0.009072445333003998,
+        0.04441637173295021
+      ],
+      "physical_object_position": [
+        -0.023277977481484413,
+        0.02921460196375847,
+        0.008151249028742313
+      ],
+      "physical_goal_position": [
+        -0.02390187978744507,
+        0.03775777667760849,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.012822223827242851,
+      "push_xy_error": 0.008565925993025303,
+      "push_z_error": 0.0008487505838274956,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.022112900391221046,
+        0.009073076769709587,
+        0.026416385546326637
+      ],
+      "index": 32,
+      "steps": 104
+    },
+    {
+      "manager_position_error_m": 0.0071202549152076244,
+      "derived_position_error_m": 0.0071202549152076244,
+      "qpos_position_error_m": 0.0071202549152076244,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007157863117754459,
+        0.007117824628949165,
+        0.0071202549152076244
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.025989383459091187,
+        0.009155474603176117,
+        0.04443569853901863
+      ],
+      "physical_object_position": [
+        -0.0297494288533926,
+        0.030911365523934364,
+        0.00870298221707344
+      ],
+      "physical_goal_position": [
+        -0.030802786350250244,
+        0.03794700652360916,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.00294112809933722,
+      "push_xy_error": 0.007114056963473558,
+      "push_z_error": 0.0002970173954963684,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.026018749922513962,
+        0.009156334213912487,
+        0.026435723528265953
+      ],
+      "index": 110,
+      "steps": 104
+    },
+    {
+      "manager_position_error_m": 0.008242093957960606,
+      "derived_position_error_m": 0.008242093957960606,
+      "qpos_position_error_m": 0.008242093957960606,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008299903944134712,
+        0.008248882368206978,
+        0.008242093957960606
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.031204447150230408,
+        0.009150771424174309,
+        0.044445622712373734
+      ],
+      "physical_object_position": [
+        -0.03412412852048874,
+        0.029838670045137405,
+        0.008564865216612816
+      ],
+      "physical_goal_position": [
+        -0.03560689836740494,
+        0.03793460503220558,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005556229967623949,
+      "push_xy_error": 0.008230599574744701,
+      "push_z_error": 0.0004351343959569931,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03122309409081936,
+        0.009151342324912548,
+        0.02644563466310501
+      ],
+      "index": 121,
+      "steps": 104
+    },
+    {
+      "manager_position_error_m": 0.007859970442950726,
+      "derived_position_error_m": 0.007859970442950726,
+      "qpos_position_error_m": 0.007859970442950726,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007995059713721275,
+        0.007863170467317104,
+        0.007859970442950726
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.010882735252380371,
+        0.010597776621580124,
+        0.04442359879612923
+      ],
+      "physical_object_position": [
+        -0.010316227562725544,
+        0.033349860459566116,
+        0.007789200637489557
+      ],
+      "physical_goal_position": [
+        -0.010665491223335266,
+        0.0411081537604332,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.00867129024118185,
+      "push_xy_error": 0.0077661508694291115,
+      "push_z_error": 0.0012107989750802517,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.010912295430898666,
+        0.01059824600815773,
+        0.026423625648021698
+      ],
+      "index": 17,
+      "steps": 105
+    },
+    {
+      "manager_position_error_m": 0.005726075265556574,
+      "derived_position_error_m": 0.005726075265556574,
+      "qpos_position_error_m": 0.005726075265556574,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.0056793829426169395,
+        0.005735632963478565,
+        0.005726075265556574
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.014601930975914001,
+        0.010609754361212254,
+        0.044431913644075394
+      ],
+      "physical_object_position": [
+        -0.014670987613499165,
+        0.03318710997700691,
+        0.0068884678184986115
+      ],
+      "physical_goal_position": [
+        -0.015406349673867226,
+        0.038458600640296936,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.022346757352352142,
+      "push_xy_error": 0.005322534125298262,
+      "push_z_error": 0.0021115317940711975,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0146255511790514,
+        0.01061013713479042,
+        0.02643193118274212
+      ],
+      "index": 26,
+      "steps": 105
+    },
+    {
+      "manager_position_error_m": 0.008850733749568462,
+      "derived_position_error_m": 0.008850733749568462,
+      "qpos_position_error_m": 0.008850733749568462,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00890632439404726,
+        0.008832626044750214,
+        0.008850733749568462
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0077904462814331055,
+        0.012080495245754719,
+        0.04288053140044212
+      ],
+      "physical_object_position": [
+        -0.0077231284230947495,
+        0.03253614902496338,
+        0.007825534790754318
+      ],
+      "physical_goal_position": [
+        -0.007799545302987099,
+        0.04130828008055687,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.01627468317747116,
+      "push_xy_error": 0.008772463537752628,
+      "push_z_error": 0.0011744648218154907,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.007820609956979752,
+        0.012080651707947254,
+        0.024880558252334595
+      ],
+      "index": 47,
+      "steps": 105
+    },
+    {
+      "manager_position_error_m": 0.008182208053767681,
+      "derived_position_error_m": 0.008182208053767681,
+      "qpos_position_error_m": 0.008182208053767681,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008121661841869354,
+        0.00831014197319746,
+        0.008182208053767681
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.029162347316741943,
+        0.010647480376064777,
+        0.04444039985537529
+      ],
+      "physical_object_position": [
+        -0.030953416600823402,
+        0.03158172592520714,
+        0.007696772459894419
+      ],
+      "physical_goal_position": [
+        -0.031765587627887726,
+        0.03961854800581932,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.010774809867143631,
+      "push_xy_error": 0.008077755570411682,
+      "push_z_error": 0.0013032271526753902,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02918148972094059,
+        0.010647822171449661,
+        0.026440413668751717
+      ],
+      "index": 52,
+      "steps": 105
+    },
+    {
+      "manager_position_error_m": 0.008195242844522,
+      "derived_position_error_m": 0.008195242844522,
+      "qpos_position_error_m": 0.008195242844522,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008211004547774792,
+        0.008195546455681324,
+        0.008195242844522
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0033192336559295654,
+        0.007573036476969719,
+        0.04737507179379463
+      ],
+      "physical_object_position": [
+        -0.00479485560208559,
+        0.029128510504961014,
+        0.007778563071042299
+      ],
+      "physical_goal_position": [
+        -0.00657244585454464,
+        0.03703485429286957,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007737594190984964,
+      "push_xy_error": 0.008103708736598492,
+      "push_z_error": 0.0012214365415275097,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0033432436175644398,
+        0.007573888637125492,
+        0.029375091195106506
+      ],
+      "index": 90,
+      "steps": 105
+    },
+    {
+      "manager_position_error_m": 0.007304308004677296,
+      "derived_position_error_m": 0.007304308004677296,
+      "qpos_position_error_m": 0.007304308004677296,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007354089990258217,
+        0.007322546094655991,
+        0.007304308004677296
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.023974627256393433,
+        0.012137548066675663,
+        0.044447530061006546
+      ],
+      "physical_object_position": [
+        -0.024381859228014946,
+        0.03406844660639763,
+        0.008512442000210285
+      ],
+      "physical_goal_position": [
+        -0.02481868863105774,
+        0.041343361139297485,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0036572690587490797,
+      "push_xy_error": 0.007288017775863409,
+      "push_z_error": 0.0004875576123595238,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.024003062397241592,
+        0.012137701734900475,
+        0.026447555050253868
+      ],
+      "index": 44,
+      "steps": 106
+    },
+    {
+      "manager_position_error_m": 0.0056815361604094505,
+      "derived_position_error_m": 0.0056815361604094505,
+      "qpos_position_error_m": 0.0056815361604094505,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.005680135451257229,
+        0.005805120337754488,
+        0.0056815361604094505
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.017673969268798828,
+        0.0121092414483428,
+        0.04435941204428673
+      ],
+      "physical_object_position": [
+        -0.02073243446648121,
+        0.03451064974069595,
+        0.007788814138621092
+      ],
+      "physical_goal_position": [
+        -0.018094729632139206,
+        0.03939484804868698,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.033993326127529144,
+      "push_xy_error": 0.005550934933125973,
+      "push_z_error": 0.0012111854739487171,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.01770670898258686,
+        0.012109417468309402,
+        0.026359442621469498
+      ],
+      "index": 57,
+      "steps": 106
+    },
+    {
+      "manager_position_error_m": 0.004997781943529844,
+      "derived_position_error_m": 0.004997781943529844,
+      "qpos_position_error_m": 0.004997781943529844,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.005492437165230513,
+        0.005029778927564621,
+        0.004997781943529844
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.009060069918632507,
+        0.012093586847186089,
+        0.044411446899175644
+      ],
+      "physical_object_position": [
+        -0.011945521458983421,
+        0.03556433320045471,
+        0.007946886122226715
+      ],
+      "physical_goal_position": [
+        -0.012339664623141289,
+        0.04043397679924965,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.021082593128085136,
+      "push_xy_error": 0.004885568283498287,
+      "push_z_error": 0.0010531134903430939,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.009086591191589832,
+        0.012093723751604557,
+        0.026411468163132668
+      ],
+      "index": 115,
+      "steps": 106
+    },
+    {
+      "manager_position_error_m": 0.006798562128096819,
+      "derived_position_error_m": 0.006798562128096819,
+      "qpos_position_error_m": 0.006798562128096819,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006864005699753761,
+        0.006833577528595924,
+        0.006798562128096819
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02801312506198883,
+        0.013658283278346062,
+        0.044431377202272415
+      ],
+      "physical_object_position": [
+        -0.031031617894768715,
+        0.036075420677661896,
+        0.00772340502589941
+      ],
+      "physical_goal_position": [
+        -0.028633935377001762,
+        0.04230774566531181,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004194954875856638,
+      "push_xy_error": 0.006677631288766861,
+      "push_z_error": 0.0012765945866703987,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.028033524751663208,
+        0.013658146373927593,
+        0.026431391015648842
+      ],
+      "index": 36,
+      "steps": 107
+    },
+    {
+      "manager_position_error_m": 0.006703808903694153,
+      "derived_position_error_m": 0.006703808903694153,
+      "qpos_position_error_m": 0.006703808903694153,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006721707992255688,
+        0.006732605863362551,
+        0.006703808903694153
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.025478646159172058,
+        0.013646508567035198,
+        0.044446948915719986
+      ],
+      "physical_object_position": [
+        -0.0283946692943573,
+        0.034136347472667694,
+        0.00865755882114172
+      ],
+      "physical_goal_position": [
+        -0.029277991503477097,
+        0.040772877633571625,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004930225200951099,
+      "push_xy_error": 0.006695057265460491,
+      "push_z_error": 0.00034244079142808914,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02550600655376911,
+        0.013646330684423447,
+        0.02644697017967701
+      ],
+      "index": 69,
+      "steps": 107
+    },
+    {
+      "manager_position_error_m": 0.005061144009232521,
+      "derived_position_error_m": 0.005061144009232521,
+      "qpos_position_error_m": 0.005061144009232521,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.005207514390349388,
+        0.0051698642782866955,
+        0.005061144009232521
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01333114504814148,
+        0.013632319867610931,
+        0.04443233832716942
+      ],
+      "physical_object_position": [
+        -0.01351192407310009,
+        0.036282267421483994,
+        0.008311288431286812
+      ],
+      "physical_goal_position": [
+        -0.014181471429765224,
+        0.04125142842531204,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.012165127322077751,
+      "push_xy_error": 0.005014065653085709,
+      "push_z_error": 0.0006887111812829971,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.01335440669208765,
+        0.013632184825837612,
+        0.026432354003190994
+      ],
+      "index": 91,
+      "steps": 107
+    },
+    {
+      "manager_position_error_m": 0.006897430866956711,
+      "derived_position_error_m": 0.006897430866956711,
+      "qpos_position_error_m": 0.006897430866956711,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006808040197938681,
+        0.006786797195672989,
+        0.006897430866956711
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.014835819602012634,
+        0.013607708737254143,
+        0.04443227872252464
+      ],
+      "physical_object_position": [
+        -0.01737053319811821,
+        0.03487486019730568,
+        0.007748359814286232
+      ],
+      "physical_goal_position": [
+        -0.018199056386947632,
+        0.04160698503255844,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0058930423110723495,
+      "push_xy_error": 0.006782916374504566,
+      "push_z_error": 0.001251639798283577,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.014859483577311039,
+        0.013607573695480824,
+        0.026432296261191368
+      ],
+      "index": 92,
+      "steps": 107
+    },
+    {
+      "manager_position_error_m": 0.007582517806440592,
+      "derived_position_error_m": 0.007582517806440592,
+      "qpos_position_error_m": 0.007582517806440592,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007655639201402664,
+        0.007596628740429878,
+        0.007582517806440592
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.024843111634254456,
+        0.013624369166791439,
+        0.0443868450820446
+      ],
+      "physical_object_position": [
+        -0.027040941640734673,
+        0.03416977450251579,
+        0.008362945169210434
+      ],
+      "physical_goal_position": [
+        -0.026910966262221336,
+        0.04172436520457268,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0050515709444880486,
+      "push_xy_error": 0.007555708754807711,
+      "push_z_error": 0.000637054443359375,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.024867026135325432,
+        0.013624218292534351,
+        0.026386864483356476
+      ],
+      "index": 100,
+      "steps": 107
+    },
+    {
+      "manager_position_error_m": 0.007995188236236572,
+      "derived_position_error_m": 0.007995188236236572,
+      "qpos_position_error_m": 0.007995188236236572,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007997199892997742,
+        0.007987568154931068,
+        0.007995188236236572
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.030179917812347412,
+        0.015153019689023495,
+        0.04445507004857063
+      ],
+      "physical_object_position": [
+        -0.030629482120275497,
+        0.03603781387209892,
+        0.00821603275835514
+      ],
+      "physical_goal_position": [
+        -0.031055903062224388,
+        0.043983038514852524,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005384152755141258,
+      "push_xy_error": 0.00795665942132473,
+      "push_z_error": 0.0007839668542146683,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03019675426185131,
+        0.015152696520090103,
+        0.026455078274011612
+      ],
+      "index": 5,
+      "steps": 108
+    },
+    {
+      "manager_position_error_m": 0.00797330867499113,
+      "derived_position_error_m": 0.00797330867499113,
+      "qpos_position_error_m": 0.00797330867499113,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008406173437833786,
+        0.008147412911057472,
+        0.00797330867499113
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.021715492010116577,
+        0.01662854291498661,
+        0.04294874146580696
+      ],
+      "physical_object_position": [
+        -0.02362348698079586,
+        0.038762614130973816,
+        0.007979030720889568
+      ],
+      "physical_goal_position": [
+        -0.024288590997457504,
+        0.04664226621389389,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007325389422476292,
+      "push_xy_error": 0.00790767278522253,
+      "push_z_error": 0.0010209688916802406,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02174958400428295,
+        0.016627542674541473,
+        0.02494877576828003
+      ],
+      "index": 53,
+      "steps": 108
+    },
+    {
+      "manager_position_error_m": 0.007056428585201502,
+      "derived_position_error_m": 0.007056428585201502,
+      "qpos_position_error_m": 0.007056428585201502,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006972961593419313,
+        0.007253014482557774,
+        0.007056428585201502
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.040456146001815796,
+        0.015161599963903427,
+        0.044447626918554306
+      ],
+      "physical_object_position": [
+        -0.041714537888765335,
+        0.03646010905504227,
+        0.00815581064671278
+      ],
+      "physical_goal_position": [
+        -0.041900910437107086,
+        0.04346337914466858,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.01848526857793331,
+      "push_xy_error": 0.007005749735981226,
+      "push_z_error": 0.000844188965857029,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.04046333581209183,
+        0.01516144908964634,
+        0.026447631418704987
+      ],
+      "index": 64,
+      "steps": 108
+    },
+    {
+      "manager_position_error_m": 0.008278225548565388,
+      "derived_position_error_m": 0.008278225548565388,
+      "qpos_position_error_m": 0.008278225548565388,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008277791552245617,
+        0.008267432451248169,
+        0.008278225548565388
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.026799604296684265,
+        0.015137054957449436,
+        0.0444369874894619
+      ],
+      "physical_object_position": [
+        -0.028044776991009712,
+        0.0357685349881649,
+        0.008451646193861961
+      ],
+      "physical_goal_position": [
+        -0.028904462233185768,
+        0.04398372024297714,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005771982483565807,
+      "push_xy_error": 0.00826004333794117,
+      "push_z_error": 0.0005483534187078476,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02682853303849697,
+        0.015136518515646458,
+        0.02643701434135437
+      ],
+      "index": 80,
+      "steps": 108
+    },
+    {
+      "manager_position_error_m": 0.00790800154209137,
+      "derived_position_error_m": 0.00790800154209137,
+      "qpos_position_error_m": 0.00790800154209137,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007947847247123718,
+        0.00790444202721119,
+        0.00790800154209137
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03743898868560791,
+        0.010682378895580769,
+        0.04892339929938316
+      ],
+      "physical_object_position": [
+        -0.042319491505622864,
+        0.03184852749109268,
+        0.008432026021182537
+      ],
+      "physical_goal_position": [
+        -0.04353749752044678,
+        0.039641495794057846,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005624451208859682,
+      "push_xy_error": 0.007887578569352627,
+      "push_z_error": 0.0005679735913872719,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03748107701539993,
+        0.010683170519769192,
+        0.030923450365662575
+      ],
+      "index": 83,
+      "steps": 108
+    },
+    {
+      "manager_position_error_m": 0.007669189013540745,
+      "derived_position_error_m": 0.007669189013540745,
+      "qpos_position_error_m": 0.007669189013540745,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007851862348616123,
+        0.007668604142963886,
+        0.007669189013540745
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.012469500303268433,
+        0.015100710093975067,
+        0.04443086311221123
+      ],
+      "physical_object_position": [
+        -0.015250795520842075,
+        0.03753485158085823,
+        0.007252638228237629
+      ],
+      "physical_goal_position": [
+        -0.0162642989307642,
+        0.04493322968482971,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0029420028440654278,
+      "push_xy_error": 0.0074674757197499275,
+      "push_z_error": 0.00174736138433218,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.012492816895246506,
+        0.01510032918304205,
+        0.026430878788232803
+      ],
+      "index": 87,
+      "steps": 108
+    },
+    {
+      "manager_position_error_m": 0.008322157897055149,
+      "derived_position_error_m": 0.008322157897055149,
+      "qpos_position_error_m": 0.008322157897055149,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008566854521632195,
+        0.008457029238343239,
+        0.008322157897055149
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01167723536491394,
+        0.01658751256763935,
+        0.04442184045910835
+      ],
+      "physical_object_position": [
+        -0.011484140530228615,
+        0.039215534925460815,
+        0.007325226906687021
+      ],
+      "physical_goal_position": [
+        -0.01147883478552103,
+        0.04736743122339249,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.011069933883845806,
+      "push_xy_error": 0.00815189816057682,
+      "push_z_error": 0.0016747727058827877,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.011703304946422577,
+        0.01658681035041809,
+        0.026421859860420227
+      ],
+      "index": 1,
+      "steps": 109
+    },
+    {
+      "manager_position_error_m": 0.007761805783957243,
+      "derived_position_error_m": 0.007761805783957243,
+      "qpos_position_error_m": 0.007761805783957243,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007762382738292217,
+        0.007751531433314085,
+        0.007761805783957243
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.005386441946029663,
+        0.01955530047416687,
+        0.04439890757203102
+      ],
+      "physical_object_position": [
+        -0.005195679608732462,
+        0.0409383699297905,
+        0.007822291925549507
+      ],
+      "physical_goal_position": [
+        -0.005515493452548981,
+        0.048603639006614685,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.00792889203876257,
+      "push_xy_error": 0.00767193827778101,
+      "push_z_error": 0.0011777076870203018,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0054144300520420074,
+        0.019554011523723602,
+        0.026398928835988045
+      ],
+      "index": 19,
+      "steps": 111
+    },
+    {
+      "manager_position_error_m": 0.008725663647055626,
+      "derived_position_error_m": 0.008725663647055626,
+      "qpos_position_error_m": 0.008725663647055626,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008669503033161163,
+        0.008764063939452171,
+        0.008725663647055626
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.027890607714653015,
+        0.019606489688158035,
+        0.044439565390348434
+      ],
+      "physical_object_position": [
+        -0.027891134843230247,
+        0.04000398516654968,
+        0.007246599532663822
+      ],
+      "physical_goal_position": [
+        -0.02825324237346649,
+        0.04854398965835571,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.011989093385636806,
+      "push_xy_error": 0.008547677658498287,
+      "push_z_error": 0.0017534000799059868,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02791854366660118,
+        0.019604956731200218,
+        0.026439588516950607
+      ],
+      "index": 22,
+      "steps": 111
+    },
+    {
+      "manager_position_error_m": 0.008604944683611393,
+      "derived_position_error_m": 0.008604944683611393,
+      "qpos_position_error_m": 0.008604944683611393,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008604527451097965,
+        0.00859468337148428,
+        0.008604944683611393
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.019004464149475098,
+        0.01954866759479046,
+        0.044444773346185684
+      ],
+      "physical_object_position": [
+        -0.019651129841804504,
+        0.03971423581242561,
+        0.008105260320007801
+      ],
+      "physical_goal_position": [
+        -0.0200691856443882,
+        0.04826232045888901,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.019167035818099976,
+      "push_xy_error": 0.008558301255106926,
+      "push_z_error": 0.0008947392925620079,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.019031118601560593,
+        0.019547313451766968,
+        0.026444794610142708
+      ],
+      "index": 23,
+      "steps": 111
+    },
+    {
+      "manager_position_error_m": 0.0061219194903969765,
+      "derived_position_error_m": 0.0061219194903969765,
+      "qpos_position_error_m": 0.0061219194903969765,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.0066431062296032906,
+        0.006234124768525362,
+        0.0061219194903969765
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.017959684133529663,
+        0.01809849962592125,
+        0.045896854251623154
+      ],
+      "physical_object_position": [
+        -0.020301520824432373,
+        0.04134378209710121,
+        0.007749956101179123
+      ],
+      "physical_goal_position": [
+        -0.019290583208203316,
+        0.047250837087631226,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005889995954930782,
+      "push_xy_error": 0.00599293690174818,
+      "push_z_error": 0.001250043511390686,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.017990829423069954,
+        0.018097268417477608,
+        0.027896882966160774
+      ],
+      "index": 74,
+      "steps": 111
+    },
+    {
+      "manager_position_error_m": 0.006991765461862087,
+      "derived_position_error_m": 0.006991765461862087,
+      "qpos_position_error_m": 0.006991765461862087,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00699195871129632,
+        0.007032750640064478,
+        0.006991765461862087
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02096886932849884,
+        0.018105003982782364,
+        0.045901279896497726
+      ],
+      "physical_object_position": [
+        -0.020840253680944443,
+        0.03928147256374359,
+        0.008451891131699085
+      ],
+      "physical_goal_position": [
+        -0.02107415907084942,
+        0.04624779522418976,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.012432998046278954,
+      "push_xy_error": 0.006970248185098171,
+      "push_z_error": 0.0005481084808707237,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.021000735461711884,
+        0.018103715032339096,
+        0.027901310473680496
+      ],
+      "index": 95,
+      "steps": 111
+    },
+    {
+      "manager_position_error_m": 0.008488500490784645,
+      "derived_position_error_m": 0.008488500490784645,
+      "qpos_position_error_m": 0.008488500490784645,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008596671745181084,
+        0.008535326458513737,
+        0.008488500490784645
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.023535385727882385,
+        0.019624177366495132,
+        0.044382888823747635
+      ],
+      "physical_object_position": [
+        -0.022421078756451607,
+        0.0401657298207283,
+        0.008719357661902905
+      ],
+      "physical_goal_position": [
+        -0.021335620433092117,
+        0.0485798642039299,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008464030921459198,
+      "push_xy_error": 0.008483859710395336,
+      "push_z_error": 0.00028064195066690445,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.023559635505080223,
+        0.019622888416051865,
+        0.02638290822505951
+      ],
+      "index": 116,
+      "steps": 111
+    },
+    {
+      "manager_position_error_m": 0.008405287750065327,
+      "derived_position_error_m": 0.008405287750065327,
+      "qpos_position_error_m": 0.008405287750065327,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008361637592315674,
+        0.008399630896747112,
+        0.008405287750065327
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.030562594532966614,
+        0.0211452879011631,
+        0.04444555565714836
+      ],
+      "physical_object_position": [
+        -0.0319976732134819,
+        0.04197324439883232,
+        0.007783063687384129
+      ],
+      "physical_goal_position": [
+        -0.03234054520726204,
+        0.05028289929032326,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0030989740043878555,
+      "push_xy_error": 0.008316725492477417,
+      "push_z_error": 0.0012169359251856804,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.030580956488847733,
+        0.021144023165106773,
+        0.02644556760787964
+      ],
+      "index": 33,
+      "steps": 112
+    },
+    {
+      "manager_position_error_m": 0.006903255358338356,
+      "derived_position_error_m": 0.006903255358338356,
+      "qpos_position_error_m": 0.006903255358338356,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00711423996835947,
+        0.006982594262808561,
+        0.006903255358338356
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01584652066230774,
+        0.021088985726237297,
+        0.0444340817630291
+      ],
+      "physical_object_position": [
+        -0.015829605981707573,
+        0.041828010231256485,
+        0.008703873492777348
+      ],
+      "physical_goal_position": [
+        -0.01667303405702114,
+        0.04867314547300339,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.009826106019318104,
+      "push_xy_error": 0.006896901410073042,
+      "push_z_error": 0.0002961261197924614,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.015870165079832077,
+        0.021087544038891792,
+        0.026434099301695824
+      ],
+      "index": 55,
+      "steps": 112
+    },
+    {
+      "manager_position_error_m": 0.008178881369531155,
+      "derived_position_error_m": 0.008178881369531155,
+      "qpos_position_error_m": 0.008178881369531155,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008251075632870197,
+        0.008165830746293068,
+        0.008178881369531155
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01555335521697998,
+        0.018050730228424072,
+        0.047389592975378036
+      ],
+      "physical_object_position": [
+        -0.01691526360809803,
+        0.03893600031733513,
+        0.007809317670762539
+      ],
+      "physical_goal_position": [
+        -0.017473815008997917,
+        0.0470084473490715,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.01400043535977602,
+      "push_xy_error": 0.008091747760772705,
+      "push_z_error": 0.00119068194180727,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.015585226006805897,
+        0.01804950460791588,
+        0.029389623552560806
+      ],
+      "index": 122,
+      "steps": 112
+    },
+    {
+      "manager_position_error_m": 0.006192387547343969,
+      "derived_position_error_m": 0.006192387547343969,
+      "qpos_position_error_m": 0.006192387547343969,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006006084382534027,
+        0.006118120159953833,
+        0.006192387547343969
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03848709166049957,
+        0.021218154579401016,
+        0.0444721095263958
+      ],
+      "physical_object_position": [
+        -0.039460476487874985,
+        0.043122563511133194,
+        0.0073981937021017075
+      ],
+      "physical_goal_position": [
+        -0.04073832184076309,
+        0.04896610602736473,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.02665969543159008,
+      "push_xy_error": 0.005981628317385912,
+      "push_z_error": 0.0016018059104681015,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0385022796690464,
+        0.021217025816440582,
+        0.026472117751836777
+      ],
+      "index": 125,
+      "steps": 112
+    },
+    {
+      "manager_position_error_m": 0.007497723214328289,
+      "derived_position_error_m": 0.007497723214328289,
+      "qpos_position_error_m": 0.007497723214328289,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007476550992578268,
+        0.007524570450186729,
+        0.007497723214328289
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03714527189731598,
+        0.019641883671283722,
+        0.04743219539523125
+      ],
+      "physical_object_position": [
+        -0.04219112545251846,
+        0.03969358652830124,
+        0.008117590099573135
+      ],
+      "physical_goal_position": [
+        -0.04253985732793808,
+        0.04713103175163269,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008508092723786831,
+      "push_xy_error": 0.007445616647601128,
+      "push_z_error": 0.0008824095129966736,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03718007728457451,
+        0.01963980682194233,
+        0.029432229697704315
+      ],
+      "index": 3,
+      "steps": 113
+    },
+    {
+      "manager_position_error_m": 0.007840658538043499,
+      "derived_position_error_m": 0.007840658538043499,
+      "qpos_position_error_m": 0.007840658538043499,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008183972910046577,
+        0.00796402059495449,
+        0.007840658538043499
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.010767057538032532,
+        0.02401548996567726,
+        0.04287754371762276
+      ],
+      "physical_object_position": [
+        -0.012311224825680256,
+        0.04538775607943535,
+        0.008314142934978008
+      ],
+      "physical_goal_position": [
+        -0.013103807345032692,
+        0.05315804108977318,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.009875091724097729,
+      "push_xy_error": 0.007810602895915508,
+      "push_z_error": 0.0006858566775918007,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.010800568386912346,
+        0.024012822657823563,
+        0.024877576157450676
+      ],
+      "index": 10,
+      "steps": 113
+    },
+    {
+      "manager_position_error_m": 0.00522244768217206,
+      "derived_position_error_m": 0.00522244768217206,
+      "qpos_position_error_m": 0.00522244768217206,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.005335362162441015,
+        0.00525062158703804,
+        0.00522244768217206
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.019482895731925964,
+        0.02261069044470787,
+        0.04444359615445137
+      ],
+      "physical_object_position": [
+        -0.021902242675423622,
+        0.04546995460987091,
+        0.008457797579467297
+      ],
+      "physical_goal_position": [
+        -0.02137655019760132,
+        0.05063750967383385,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004685555584728718,
+      "push_xy_error": 0.0051942253485322,
+      "push_z_error": 0.0005422020331025124,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.019509820267558098,
+        0.022608693689107895,
+        0.026443617418408394
+      ],
+      "index": 12,
+      "steps": 113
+    },
+    {
+      "manager_position_error_m": 0.008091423660516739,
+      "derived_position_error_m": 0.008091423660516739,
+      "qpos_position_error_m": 0.008091423660516739,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00810900330543518,
+        0.008235887624323368,
+        0.008091423660516739
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.014242604374885559,
+        0.022553985938429832,
+        0.04443413391709328
+      ],
+      "physical_object_position": [
+        -0.01481818687170744,
+        0.04365215823054314,
+        0.007692475337535143
+      ],
+      "physical_goal_position": [
+        -0.015129905194044113,
+        0.051631152629852295,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.033050909638404846,
+      "push_xy_error": 0.007985081523656845,
+      "push_z_error": 0.001307524275034666,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0142658157274127,
+        0.022552339360117912,
+        0.026434149593114853
+      ],
+      "index": 40,
+      "steps": 113
+    },
+    {
+      "manager_position_error_m": 0.008541450835764408,
+      "derived_position_error_m": 0.008541450835764408,
+      "qpos_position_error_m": 0.008541450835764408,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008921455591917038,
+        0.008605534210801125,
+        0.008541450835764408
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01715846359729767,
+        0.024027593433856964,
+        0.04292746260762215
+      ],
+      "physical_object_position": [
+        -0.019003398716449738,
+        0.044341668486595154,
+        0.008038257248699665
+      ],
+      "physical_goal_position": [
+        -0.019939538091421127,
+        0.052777014672756195,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005656301975250244,
+      "push_xy_error": 0.00848713330924511,
+      "push_z_error": 0.0009617423638701439,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0171941127628088,
+        0.024024618789553642,
+        0.024927498772740364
+      ],
+      "index": 56,
+      "steps": 113
+    },
+    {
+      "manager_position_error_m": 0.006591187324374914,
+      "derived_position_error_m": 0.006591187324374914,
+      "qpos_position_error_m": 0.006591187324374914,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006719343364238739,
+        0.00657643610611558,
+        0.006591187324374914
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.010462239384651184,
+        0.024075791239738464,
+        0.04442582651972771
+      ],
+      "physical_object_position": [
+        -0.009633400477468967,
+        0.04562282934784889,
+        0.007980052381753922
+      ],
+      "physical_goal_position": [
+        -0.009307656437158585,
+        0.05212647095322609,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.028356915339827538,
+      "push_xy_error": 0.006511793937534094,
+      "push_z_error": 0.0010199472308158875,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.010487964376807213,
+        0.024073738604784012,
+        0.02642584778368473
+      ],
+      "index": 88,
+      "steps": 114
+    },
+    {
+      "manager_position_error_m": 0.008634286001324654,
+      "derived_position_error_m": 0.008634286001324654,
+      "qpos_position_error_m": 0.008634286001324654,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008750731125473976,
+        0.008634340949356556,
+        0.008634286001324654
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02678319811820984,
+        0.024059651419520378,
+        0.04444287344813347
+      ],
+      "physical_object_position": [
+        -0.02812197618186474,
+        0.044319119304418564,
+        0.008478909730911255
+      ],
+      "physical_goal_position": [
+        -0.028844166547060013,
+        0.05290735512971878,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0039572943933308125,
+      "push_xy_error": 0.008618547581136227,
+      "push_z_error": 0.0005210898816585541,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02681022509932518,
+        0.024057215079665184,
+        0.026442894712090492
+      ],
+      "index": 89,
+      "steps": 114
+    },
+    {
+      "manager_position_error_m": 0.007990149781107903,
+      "derived_position_error_m": 0.007990149781107903,
+      "qpos_position_error_m": 0.007990149781107903,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008544719778001308,
+        0.008544894866645336,
+        0.007990149781107903
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03224895894527435,
+        0.025625862181186676,
+        0.04298461601138115
+      ],
+      "physical_object_position": [
+        -0.033774226903915405,
+        0.04603281989693642,
+        0.006039012689143419
+      ],
+      "physical_goal_position": [
+        -0.034327827394008636,
+        0.05343339964747429,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.03295496106147766,
+      "push_xy_error": 0.007421256974339485,
+      "push_z_error": 0.0029609869234263897,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03229880705475807,
+        0.025620505213737488,
+        0.024984687566757202
+      ],
+      "index": 99,
+      "steps": 114
+    },
+    {
+      "manager_position_error_m": 0.008486335165798664,
+      "derived_position_error_m": 0.008486335165798664,
+      "qpos_position_error_m": 0.008486335165798664,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.009082267060875893,
+        0.00881616398692131,
+        0.008486335165798664
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01362752914428711,
+        0.025550197809934616,
+        0.042911674827337265
+      ],
+      "physical_object_position": [
+        -0.012940642423927784,
+        0.04769963398575783,
+        0.007505640387535095
+      ],
+      "physical_goal_position": [
+        -0.012702169828116894,
+        0.05604995787143707,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.02267136611044407,
+      "push_xy_error": 0.00835372880101204,
+      "push_z_error": 0.0014943592250347137,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.013663400895893574,
+        0.025546884164214134,
+        0.02491171471774578
+      ],
+      "index": 124,
+      "steps": 114
+    },
+    {
+      "manager_position_error_m": 0.008854926563799381,
+      "derived_position_error_m": 0.008854926563799381,
+      "qpos_position_error_m": 0.008854926563799381,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00895779300481081,
+        0.008878625929355621,
+        0.008854926563799381
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03932340443134308,
+        0.02568868175148964,
+        0.04444808140397072
+      ],
+      "physical_object_position": [
+        -0.04167840629816055,
+        0.045844536274671555,
+        0.00801174622029066
+      ],
+      "physical_goal_position": [
+        -0.042988765984773636,
+        0.05454603210091591,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.016295505687594414,
+      "push_xy_error": 0.008799606934189796,
+      "push_z_error": 0.000988253392279148,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03933209553360939,
+        0.0256876852363348,
+        0.0264480859041214
+      ],
+      "index": 41,
+      "steps": 115
+    },
+    {
+      "manager_position_error_m": 0.007199278566986322,
+      "derived_position_error_m": 0.007199278566986322,
+      "qpos_position_error_m": 0.007199278566986322,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007112638559192419,
+        0.007065035402774811,
+        0.007199278566986322
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.016297876834869385,
+        0.025554675608873367,
+        0.04443460330367088
+      ],
+      "physical_object_position": [
+        -0.015358982607722282,
+        0.04755440726876259,
+        0.007019775453954935
+      ],
+      "physical_goal_position": [
+        -0.015451665967702866,
+        0.05447537079453468,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.014942583627998829,
+      "push_xy_error": 0.006921583786606789,
+      "push_z_error": 0.001980224158614874,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0163214560598135,
+        0.025552453473210335,
+        0.02643462084233761
+      ],
+      "index": 66,
+      "steps": 115
+    },
+    {
+      "manager_position_error_m": 0.00365446787327528,
+      "derived_position_error_m": 0.00365446787327528,
+      "qpos_position_error_m": 0.00365446787327528,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.004467320162802935,
+        0.0038570461329072714,
+        0.00365446787327528
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.005371212959289551,
+        0.025553107261657715,
+        0.04439730569720268
+      ],
+      "physical_object_position": [
+        -0.0074705989100039005,
+        0.049701347947120667,
+        0.00787761528044939
+      ],
+      "physical_goal_position": [
+        -0.0069782547652721405,
+        0.05314416438341141,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0020464067347347736,
+      "push_xy_error": 0.0034778425469994545,
+      "push_z_error": 0.0011223843321204185,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.005399344488978386,
+        0.025550656020641327,
+        0.026397332549095154
+      ],
+      "index": 101,
+      "steps": 115
+    },
+    {
+      "manager_position_error_m": 0.006424820050597191,
+      "derived_position_error_m": 0.006424820050597191,
+      "qpos_position_error_m": 0.006424820050597191,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006474460940808058,
+        0.0064366660080850124,
+        0.006424820050597191
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.004920676350593567,
+        0.02107223868370056,
+        0.04887031391263008
+      ],
+      "physical_object_position": [
+        -0.00568755716085434,
+        0.042080022394657135,
+        0.007954517379403114
+      ],
+      "physical_goal_position": [
+        -0.0053780581802129745,
+        0.04841164872050285,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004910408519208431,
+      "push_xy_error": 0.0063391863368451595,
+      "push_z_error": 0.0010454822331666946,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0049469443038105965,
+        0.021070759743452072,
+        0.030870335176587105
+      ],
+      "index": 106,
+      "steps": 115
+    },
+    {
+      "manager_position_error_m": 0.007052765227854252,
+      "derived_position_error_m": 0.007052765227854252,
+      "qpos_position_error_m": 0.007052765227854252,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007272752001881599,
+        0.007063116412609816,
+        0.007052765227854252
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.037981122732162476,
+        0.027056105434894562,
+        0.04444592818617821
+      ],
+      "physical_object_position": [
+        -0.0383930467069149,
+        0.04798871651291847,
+        0.00796851608902216
+      ],
+      "physical_goal_position": [
+        -0.039286158978939056,
+        0.05490824580192566,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005375121720135212,
+      "push_xy_error": 0.006976928561925888,
+      "push_z_error": 0.0010314835235476494,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03800081089138985,
+        0.02705363556742668,
+        0.026445940136909485
+      ],
+      "index": 8,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.007556953467428684,
+      "derived_position_error_m": 0.007556953467428684,
+      "qpos_position_error_m": 0.007556953467428684,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007307268213480711,
+        0.00749253248795867,
+        0.007556953467428684
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.021823137998580933,
+        0.01961064338684082,
+        0.05188514664769173
+      ],
+      "physical_object_position": [
+        -0.022657619789242744,
+        0.04167501628398895,
+        0.00681620417162776
+      ],
+      "physical_goal_position": [
+        -0.02272171340882778,
+        0.048909272998571396,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007187418639659882,
+      "push_xy_error": 0.007234540767967701,
+      "push_z_error": 0.002183795440942049,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.021856315433979034,
+        0.019608905538916588,
+        0.033885180950164795
+      ],
+      "index": 63,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.008363507688045502,
+      "derived_position_error_m": 0.008363507688045502,
+      "qpos_position_error_m": 0.008363507688045502,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008375439792871475,
+        0.008330186828970909,
+        0.008363507688045502
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.039815306663513184,
+        0.027209440246224403,
+        0.04445559158921242
+      ],
+      "physical_object_position": [
+        -0.03834739327430725,
+        0.04930656775832176,
+        0.007868754677474499
+      ],
+      "physical_goal_position": [
+        -0.035704005509614944,
+        0.05716029554605484,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007094343658536673,
+      "push_xy_error": 0.00828664842993021,
+      "push_z_error": 0.0011312449350953102,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.039823323488235474,
+        0.02720840647816658,
+        0.026455596089363098
+      ],
+      "index": 76,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.008805986493825912,
+      "derived_position_error_m": 0.008805986493825912,
+      "qpos_position_error_m": 0.008805986493825912,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008951548486948013,
+        0.008864859119057655,
+        0.008805986493825912
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.015613436698913574,
+        0.025478573516011238,
+        0.04589356854557991
+      ],
+      "physical_object_position": [
+        -0.01574266515672207,
+        0.04582010209560394,
+        0.00813083816319704
+      ],
+      "physical_goal_position": [
+        -0.01582648791372776,
+        0.054582688957452774,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008719313889741898,
+      "push_xy_error": 0.008762987330555916,
+      "push_z_error": 0.0008691614493727684,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.015644319355487823,
+        0.025475695729255676,
+        0.02789359726011753
+      ],
+      "index": 84,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.0077199735678732395,
+      "derived_position_error_m": 0.0077199735678732395,
+      "qpos_position_error_m": 0.0077199735678732395,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007720230612903833,
+        0.007719419896602631,
+        0.0077199735678732395
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02548058331012726,
+        0.027051836252212524,
+        0.04444267228245735
+      ],
+      "physical_object_position": [
+        -0.028817133978009224,
+        0.04721517488360405,
+        0.008544402197003365
+      ],
+      "physical_goal_position": [
+        -0.03008335828781128,
+        0.05481695756316185,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004718881566077471,
+      "push_xy_error": 0.007706518284976482,
+      "push_z_error": 0.0004555974155664444,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.025508232414722443,
+        0.027048712596297264,
+        0.026442697271704674
+      ],
+      "index": 86,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.0058444831520318985,
+      "derived_position_error_m": 0.0058444831520318985,
+      "qpos_position_error_m": 0.0058444831520318985,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.005899342708289623,
+        0.005884832236915827,
+        0.0058444831520318985
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03636394441127777,
+        0.027166174724698067,
+        0.04444470629096031
+      ],
+      "physical_object_position": [
+        -0.03906714916229248,
+        0.049853213131427765,
+        0.008444003760814667
+      ],
+      "physical_goal_position": [
+        -0.03785562887787819,
+        0.055543649941682816,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008502457290887833,
+      "push_xy_error": 0.005817976780235767,
+      "push_z_error": 0.0005559958517551422,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0363844595849514,
+        0.027163617312908173,
+        0.02644472010433674
+      ],
+      "index": 107,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.007356299553066492,
+      "derived_position_error_m": 0.007356299553066492,
+      "qpos_position_error_m": 0.007356299553066492,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.0074007390066981316,
+        0.007362906355410814,
+        0.007356299553066492
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.04036809504032135,
+        0.02731618471443653,
+        0.044479284435510635
+      ],
+      "physical_object_position": [
+        -0.04142032563686371,
+        0.048020604997873306,
+        0.00875111948698759
+      ],
+      "physical_goal_position": [
+        -0.042595528066158295,
+        0.05527815967798233,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005720439832657576,
+      "push_xy_error": 0.007352088112384081,
+      "push_z_error": 0.00024888012558221817,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.04037020727992058,
+        0.027315910905599594,
+        0.026479287073016167
+      ],
+      "index": 109,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.008661043830215931,
+      "derived_position_error_m": 0.008661043830215931,
+      "qpos_position_error_m": 0.008661043830215931,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008684733882546425,
+        0.00861339271068573,
+        0.008661043830215931
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.015142351388931274,
+        0.024030085653066635,
+        0.047388140112161636
+      ],
+      "physical_object_position": [
+        -0.016429880633950233,
+        0.044322848320007324,
+        0.007847549393773079
+      ],
+      "physical_goal_position": [
+        -0.017327280715107918,
+        0.0528598390519619,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.025820480659604073,
+      "push_xy_error": 0.008584028109908104,
+      "push_z_error": 0.00115245021879673,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.015174266882240772,
+        0.02402746118605137,
+        0.029388168826699257
+      ],
+      "index": 111,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.00800709892064333,
+      "derived_position_error_m": 0.00800709892064333,
+      "qpos_position_error_m": 0.00800709892064333,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00799291580915451,
+        0.008048061281442642,
+        0.00800709892064333
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.010250687599182129,
+        0.027020951732993126,
+        0.04442564770579338
+      ],
+      "physical_object_position": [
+        -0.009978629648685455,
+        0.047299906611442566,
+        0.008364981971681118
+      ],
+      "physical_goal_position": [
+        -0.010201736353337765,
+        0.05527866631746292,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005316420458257198,
+      "push_xy_error": 0.007981878705322742,
+      "push_z_error": 0.000635017640888691,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.010275255888700485,
+        0.027018480002880096,
+        0.026425665244460106
+      ],
+      "index": 127,
+      "steps": 116
+    },
+    {
+      "manager_position_error_m": 0.008180220611393452,
+      "derived_position_error_m": 0.008180220611393452,
+      "qpos_position_error_m": 0.008180220611393452,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008414150215685368,
+        0.008227422833442688,
+        0.008180220611393452
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0262204110622406,
+        0.028590098023414612,
+        0.04444883391261101
+      ],
+      "physical_object_position": [
+        -0.026824194937944412,
+        0.0495280958712101,
+        0.008319391869008541
+      ],
+      "physical_goal_position": [
+        -0.026668230071663857,
+        0.0576784610748291,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005680867470800877,
+      "push_xy_error": 0.008151857182383537,
+      "push_z_error": 0.0006806077435612679,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02624780684709549,
+        0.028586648404598236,
+        0.02644885703921318
+      ],
+      "index": 7,
+      "steps": 117
+    },
+    {
+      "manager_position_error_m": 0.008853382430970669,
+      "derived_position_error_m": 0.008853382430970669,
+      "qpos_position_error_m": 0.008853382430970669,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00891435518860817,
+        0.008858506567776203,
+        0.008853382430970669
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.015654772520065308,
+        0.028535962104797363,
+        0.04443630203604698
+      ],
+      "physical_object_position": [
+        -0.01512030977755785,
+        0.04879117012023926,
+        0.008542906492948532
+      ],
+      "physical_goal_position": [
+        -0.014933961443603039,
+        0.05763078108429909,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0043962374329566956,
+      "push_xy_error": 0.008841575123369694,
+      "push_z_error": 0.00045709311962127686,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.015677882358431816,
+        0.028533287346363068,
+        0.026436319574713707
+      ],
+      "index": 78,
+      "steps": 117
+    },
+    {
+      "manager_position_error_m": 0.008500195108354092,
+      "derived_position_error_m": 0.008500195108354092,
+      "qpos_position_error_m": 0.008500195108354092,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008595959283411503,
+        0.0085240937769413,
+        0.008500195108354092
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03635713458061218,
+        0.028534600511193275,
+        0.04444397613406181
+      ],
+      "physical_object_position": [
+        -0.039379000663757324,
+        0.04970015212893486,
+        0.007693792227655649
+      ],
+      "physical_goal_position": [
+        -0.04044871777296066,
+        0.05803098902106285,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007182923145592213,
+      "push_xy_error": 0.008399234153330326,
+      "push_z_error": 0.0013062073849141598,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03637706860899925,
+        0.0285318773239851,
+        0.02644398994743824
+      ],
+      "index": 98,
+      "steps": 117
+    },
+    {
+      "manager_position_error_m": 0.00845347810536623,
+      "derived_position_error_m": 0.00845347810536623,
+      "qpos_position_error_m": 0.00845347810536623,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008461525663733482,
+        0.008454086259007454,
+        0.00845347810536623
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.015325590968132019,
+        0.025524038821458817,
+        0.04738839343190193
+      ],
+      "physical_object_position": [
+        -0.014629127457737923,
+        0.04588641598820686,
+        0.008946221321821213
+      ],
+      "physical_goal_position": [
+        -0.014452860690653324,
+        0.05433788523077965,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0007294755196198821,
+      "push_xy_error": 0.0084533067420125,
+      "push_z_error": 5.377829074859619e-05,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.015357514843344688,
+        0.025521058589220047,
+        0.029388422146439552
+      ],
+      "index": 112,
+      "steps": 117
+    },
+    {
+      "manager_position_error_m": 0.008524195291101933,
+      "derived_position_error_m": 0.008524195291101933,
+      "qpos_position_error_m": 0.008524195291101933,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008529989048838615,
+        0.008524598553776741,
+        0.008524195291101933
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.012213826179504395,
+        0.03001318871974945,
+        0.044425118714571
+      ],
+      "physical_object_position": [
+        -0.010021168738603592,
+        0.050885558128356934,
+        0.008951513096690178
+      ],
+      "physical_goal_position": [
+        -0.009543121792376041,
+        0.05939619988203049,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0005572628579102457,
+      "push_xy_error": 0.00852405745536089,
+      "push_z_error": 4.848651587963104e-05,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.012243271805346012,
+        0.030009552836418152,
+        0.02642514556646347
+      ],
+      "index": 14,
+      "steps": 118
+    },
+    {
+      "manager_position_error_m": 0.007912308908998966,
+      "derived_position_error_m": 0.007912308908998966,
+      "qpos_position_error_m": 0.007912308908998966,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007884731516242027,
+        0.008009872399270535,
+        0.007912308908998966
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03462402522563934,
+        0.030067596584558487,
+        0.04445252940058708
+      ],
+      "physical_object_position": [
+        -0.03701392188668251,
+        0.05163070559501648,
+        0.008159251883625984
+      ],
+      "physical_goal_position": [
+        -0.03725414723157883,
+        0.05949455127120018,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.025080425664782524,
+      "push_xy_error": 0.007867514155805111,
+      "push_z_error": 0.0008407477289438248,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03464117273688316,
+        0.030065065249800682,
+        0.02645254135131836
+      ],
+      "index": 45,
+      "steps": 118
+    },
+    {
+      "manager_position_error_m": 0.008586429990828037,
+      "derived_position_error_m": 0.008586429990828037,
+      "qpos_position_error_m": 0.008586429990828037,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008553632535040379,
+        0.008562766015529633,
+        0.008586429990828037
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0377650260925293,
+        0.030216034501791,
+        0.04445202276110649
+      ],
+      "physical_object_position": [
+        -0.039421334862709045,
+        0.0507957823574543,
+        0.0076309447176754475
+      ],
+      "physical_goal_position": [
+        -0.039650335907936096,
+        0.05926927179098129,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.002520823385566473,
+      "push_xy_error": 0.008476583287119865,
+      "push_z_error": 0.0013690548948943615,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.037773795425891876,
+        0.030214693397283554,
+        0.02645202726125717
+      ],
+      "index": 48,
+      "steps": 118
+    },
+    {
+      "manager_position_error_m": 0.008008462376892567,
+      "derived_position_error_m": 0.008008462376892567,
+      "qpos_position_error_m": 0.008008462376892567,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007949410006403923,
+        0.007898405194282532,
+        0.008008462376892567
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.04270271956920624,
+        0.030235154554247856,
+        0.04445701465010643
+      ],
+      "physical_object_position": [
+        -0.04248819872736931,
+        0.05137474834918976,
+        0.007734253071248531
+      ],
+      "physical_goal_position": [
+        -0.041133537888526917,
+        0.05916565656661987,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.006366321351379156,
+      "push_xy_error": 0.007907803170382977,
+      "push_z_error": 0.0012657465413212776,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.042710497975349426,
+        0.03023391030728817,
+        0.02645701915025711
+      ],
+      "index": 49,
+      "steps": 118
+    },
+    {
+      "manager_position_error_m": 0.008163200691342354,
+      "derived_position_error_m": 0.008163200691342354,
+      "qpos_position_error_m": 0.008163200691342354,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00818344671279192,
+        0.00813154224306345,
+        0.008163200691342354
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.04246632754802704,
+        0.02713857963681221,
+        0.0474529005587101
+      ],
+      "physical_object_position": [
+        -0.042569249868392944,
+        0.04735288769006729,
+        0.007919992320239544
+      ],
+      "physical_goal_position": [
+        -0.04316578805446625,
+        0.055422309786081314,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008338553830981255,
+      "push_xy_error": 0.008091442286968231,
+      "push_z_error": 0.001080007292330265,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.04249560460448265,
+        0.027134733274579048,
+        0.02945292741060257
+      ],
+      "index": 51,
+      "steps": 118
+    },
+    {
+      "manager_position_error_m": 0.008502868935465813,
+      "derived_position_error_m": 0.008502868935465813,
+      "qpos_position_error_m": 0.008502868935465813,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00862391572445631,
+        0.008576028980314732,
+        0.008502868935465813
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.036013081669807434,
+        0.030271880328655243,
+        0.04443638399243355
+      ],
+      "physical_object_position": [
+        -0.03988261520862579,
+        0.050325240939855576,
+        0.008290352299809456
+      ],
+      "physical_goal_position": [
+        -0.03992166370153427,
+        0.058798354119062424,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004872073885053396,
+      "push_xy_error": 0.008473203517496586,
+      "push_z_error": 0.0007096473127603531,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03602449968457222,
+        0.030270153656601906,
+        0.026436390355229378
+      ],
+      "index": 93,
+      "steps": 118
+    },
+    {
+      "manager_position_error_m": 0.008249788545072079,
+      "derived_position_error_m": 0.008249788545072079,
+      "qpos_position_error_m": 0.008249788545072079,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008216875605285168,
+        0.008228709921240807,
+        0.008249788545072079
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.027006328105926514,
+        0.031557176262140274,
+        0.04444756731390953
+      ],
+      "physical_object_position": [
+        -0.02949519455432892,
+        0.053361766040325165,
+        0.007804088294506073
+      ],
+      "physical_goal_position": [
+        -0.02978651598095894,
+        0.061519213020801544,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005951281636953354,
+      "push_xy_error": 0.008162647485733032,
+      "push_z_error": 0.001195911318063736,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.027034487575292587,
+        0.031552936881780624,
+        0.026447592303156853
+      ],
+      "index": 28,
+      "steps": 119
+    },
+    {
+      "manager_position_error_m": 0.008583016693592072,
+      "derived_position_error_m": 0.008583016693592072,
+      "qpos_position_error_m": 0.008583016693592072,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008561299182474613,
+        0.008570180274546146,
+        0.008583016693592072
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.018496453762054443,
+        0.03162755072116852,
+        0.04444387927651405
+      ],
+      "physical_object_position": [
+        -0.019773220643401146,
+        0.05186539888381958,
+        0.008543337695300579
+      ],
+      "physical_goal_position": [
+        -0.020564284175634384,
+        0.060399673879146576,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004414670169353485,
+      "push_xy_error": 0.008570859208703041,
+      "push_z_error": 0.0004566619172692299,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.01852341927587986,
+        0.03162373602390289,
+        0.026443900540471077
+      ],
+      "index": 77,
+      "steps": 119
+    },
+    {
+      "manager_position_error_m": 0.008881093002855778,
+      "derived_position_error_m": 0.008881093002855778,
+      "qpos_position_error_m": 0.008881093002855778,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008782122284173965,
+        0.008746501989662647,
+        0.008881093002855778
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03378991782665253,
+        0.03312217816710472,
+        0.044454414397478104
+      ],
+      "physical_object_position": [
+        -0.033345311880111694,
+        0.05333900824189186,
+        0.00742220738902688
+      ],
+      "physical_goal_position": [
+        -0.033305324614048004,
+        0.06207873299717903,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.015171782113611698,
+      "push_xy_error": 0.008739816956222057,
+      "push_z_error": 0.0015777922235429287,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.033806733787059784,
+        0.03311927616596222,
+        0.026454424485564232
+      ],
+      "index": 2,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.007123223971575499,
+      "derived_position_error_m": 0.007123223971575499,
+      "qpos_position_error_m": 0.007123223971575499,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007236703764647245,
+        0.007188493385910988,
+        0.007123223971575499
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.012619167566299438,
+        0.033020440489053726,
+        0.04442845657467842
+      ],
+      "physical_object_position": [
+        -0.012563364580273628,
+        0.05357799306511879,
+        0.008339843712747097
+      ],
+      "physical_goal_position": [
+        -0.012457145377993584,
+        0.06066976487636566,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.01198060903698206,
+      "push_xy_error": 0.007092567160725594,
+      "push_z_error": 0.0006601558998227119,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.012648111209273338,
+        0.033016227185726166,
+        0.026428483426570892
+      ],
+      "index": 30,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.008343431167304516,
+      "derived_position_error_m": 0.008343431167304516,
+      "qpos_position_error_m": 0.008343431167304516,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008356593549251556,
+        0.008344468660652637,
+        0.008343431167304516
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01664099097251892,
+        0.031600646674633026,
+        0.04590854421257973
+      ],
+      "physical_object_position": [
+        -0.017852459102869034,
+        0.05315466225147247,
+        0.00892417412251234
+      ],
+      "physical_goal_position": [
+        -0.016503125429153442,
+        0.061387911438941956,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0009053951944224536,
+      "push_xy_error": 0.008343086577951908,
+      "push_z_error": 7.582549005746841e-05,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.016669373959302902,
+        0.03159669041633606,
+        0.02790856920182705
+      ],
+      "index": 59,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.008037995547056198,
+      "derived_position_error_m": 0.008037995547056198,
+      "qpos_position_error_m": 0.008037995547056198,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008296256884932518,
+        0.008024412207305431,
+        0.008037995547056198
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.011636689305305481,
+        0.033020343631505966,
+        0.044428545981645584
+      ],
+      "physical_object_position": [
+        -0.010210428386926651,
+        0.05390772968530655,
+        0.007667845115065575
+      ],
+      "physical_goal_position": [
+        -0.009917648509144783,
+        0.061829157173633575,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.009084830991923809,
+      "push_xy_error": 0.007926836609840393,
+      "push_z_error": 0.0013321544975042343,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.011661904864013195,
+        0.03301670029759407,
+        0.02642856538295746
+      ],
+      "index": 61,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.009297323413193226,
+      "derived_position_error_m": 0.009297323413193226,
+      "qpos_position_error_m": 0.009297323413193226,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008976731449365616,
+        0.009401245042681694,
+        0.009297323413193226
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.019187092781066895,
+        0.03304406255483627,
+        0.04444475099444389
+      ],
+      "physical_object_position": [
+        -0.01855570077896118,
+        0.05384181812405586,
+        0.006864805240184069
+      ],
+      "physical_goal_position": [
+        -0.0187122393399477,
+        0.06288928538560867,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005570117849856615,
+      "push_xy_error": 0.009048821404576302,
+      "push_z_error": 0.0021351943723857403,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.01920943148434162,
+        0.033040646463632584,
+        0.02644476667046547
+      ],
+      "index": 72,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.007773864548653364,
+      "derived_position_error_m": 0.007773864548653364,
+      "qpos_position_error_m": 0.007773864548653364,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00813642144203186,
+        0.008123976178467274,
+        0.007773864548653364
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.016441166400909424,
+        0.033055372536182404,
+        0.044433679431676865
+      ],
+      "physical_object_position": [
+        -0.016904056072235107,
+        0.05519494786858559,
+        0.007780180778354406
+      ],
+      "physical_goal_position": [
+        -0.017110854387283325,
+        0.06286972761154175,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.026380397379398346,
+      "push_xy_error": 0.007677565328776836,
+      "push_z_error": 0.0012198188342154026,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.01646825298666954,
+        0.03305131196975708,
+        0.026433702558279037
+      ],
+      "index": 96,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.007184149697422981,
+      "derived_position_error_m": 0.007184149697422981,
+      "qpos_position_error_m": 0.007184149697422981,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006835289765149355,
+        0.007030316162854433,
+        0.007184149697422981
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03456006944179535,
+        0.03311249241232872,
+        0.04445333406329155
+      ],
+      "physical_object_position": [
+        -0.040219757705926895,
+        0.05390237644314766,
+        0.006365479435771704
+      ],
+      "physical_goal_position": [
+        -0.04154767096042633,
+        0.060452792793512344,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.027945123612880707,
+      "push_xy_error": 0.006683659739792347,
+      "push_z_error": 0.0026345201767981052,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03457726165652275,
+        0.03310950845479965,
+        0.026453346014022827
+      ],
+      "index": 97,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.00768737168982625,
+      "derived_position_error_m": 0.00768737168982625,
+      "qpos_position_error_m": 0.00768737168982625,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007843605242669582,
+        0.007719697430729866,
+        0.00768737168982625
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02065485715866089,
+        0.03306460753083229,
+        0.04444681480526924
+      ],
+      "physical_object_position": [
+        -0.021595841273665428,
+        0.05391595885157585,
+        0.006679936777800322
+      ],
+      "physical_goal_position": [
+        -0.02230706438422203,
+        0.061210282146930695,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004405356477946043,
+      "push_xy_error": 0.0073289149440824986,
+      "push_z_error": 0.0023200628347694874,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.020677145570516586,
+        0.033061157912015915,
+        0.026446830481290817
+      ],
+      "index": 104,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.008838430978357792,
+      "derived_position_error_m": 0.008838430978357792,
+      "qpos_position_error_m": 0.008838430978357792,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008759688585996628,
+        0.008836241438984871,
+        0.008838430978357792
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02989499270915985,
+        0.0331621877849102,
+        0.04445106163620949
+      ],
+      "physical_object_position": [
+        -0.03139603137969971,
+        0.05380813404917717,
+        0.007436450570821762
+      ],
+      "physical_goal_position": [
+        -0.03194160386919975,
+        0.06249004229903221,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.010826563462615013,
+      "push_xy_error": 0.008699033409357071,
+      "push_z_error": 0.0015635490417480469,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02991228923201561,
+        0.0331592932343483,
+        0.026451071724295616
+      ],
+      "index": 113,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.008649890311062336,
+      "derived_position_error_m": 0.008649890311062336,
+      "qpos_position_error_m": 0.008649890311062336,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008634211495518684,
+        0.008622207678854465,
+        0.008649890311062336
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.033974722027778625,
+        0.03306158632040024,
+        0.044457804411649704
+      ],
+      "physical_object_position": [
+        -0.029491771012544632,
+        0.053624872118234634,
+        0.007815600372850895
+      ],
+      "physical_goal_position": [
+        -0.027226345613598824,
+        0.06188838556408882,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008510718122124672,
+      "push_xy_error": 0.008568419143557549,
+      "push_z_error": 0.001184399239718914,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03399098664522171,
+        0.033058784902095795,
+        0.026457812637090683
+      ],
+      "index": 114,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.006696141790598631,
+      "derived_position_error_m": 0.006696141790598631,
+      "qpos_position_error_m": 0.006696141790598631,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006815233267843723,
+        0.006678488105535507,
+        0.006696141790598631
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.006322935223579407,
+        0.030012700706720352,
+        0.04738149419426918
+      ],
+      "physical_object_position": [
+        -0.006586338859051466,
+        0.05202141031622887,
+        0.007473114877939224
+      ],
+      "physical_goal_position": [
+        -0.007119782269001007,
+        0.058519285172224045,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.01209414005279541,
+      "push_xy_error": 0.006519734859466553,
+      "push_z_error": 0.0015268847346305847,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.006348202005028725,
+        0.030009707435965538,
+        0.029381513595581055
+      ],
+      "index": 117,
+      "steps": 120
+    },
+    {
+      "manager_position_error_m": 0.011773593723773956,
+      "derived_position_error_m": 0.011773593723773956,
+      "qpos_position_error_m": 0.011773593723773956,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.015034787356853485,
+        0.013083572499454021,
+        0.011773593723773956
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0293302983045578,
+        0.03918532282114029,
+        0.03995484486222267
+      ],
+      "physical_object_position": [
+        -0.03203640505671501,
+        0.058955349028110504,
+        0.006808385718613863
+      ],
+      "physical_goal_position": [
+        -0.033595629036426544,
+        0.07041759788990021,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.024296477437019348,
+      "push_xy_error": 0.011567814275622368,
+      "push_z_error": 0.002191613893955946,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02933938428759575,
+        0.039183359593153,
+        0.021954849362373352
+      ],
+      "index": 60,
+      "steps": 121
+    },
+    {
+      "manager_position_error_m": 0.007086718454957008,
+      "derived_position_error_m": 0.007086718454957008,
+      "qpos_position_error_m": 0.007086718454957008,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.0073761288076639175,
+        0.007099398411810398,
+        0.007086718454957008
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0395142138004303,
+        0.0331912636756897,
+        0.04592790827155113
+      ],
+      "physical_object_position": [
+        -0.04113719239830971,
+        0.05502938851714134,
+        0.007825293578207493
+      ],
+      "physical_goal_position": [
+        -0.04231034219264984,
+        0.06191889941692352,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008780268020927906,
+      "push_xy_error": 0.006988679524511099,
+      "push_z_error": 0.0011747060343623161,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.039564553648233414,
+        0.03318209573626518,
+        0.027927983552217484
+      ],
+      "index": 75,
+      "steps": 121
+    },
+    {
+      "manager_position_error_m": 0.005542485974729061,
+      "derived_position_error_m": 0.005542485974729061,
+      "qpos_position_error_m": 0.005542485974729061,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.005585022270679474,
+        0.005545746069401503,
+        0.005542485974729061
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02243916690349579,
+        0.03005991131067276,
+        0.04889458045363426
+      ],
+      "physical_object_position": [
+        -0.024577420204877853,
+        0.0543794184923172,
+        0.008928392082452774
+      ],
+      "physical_goal_position": [
+        -0.024064965546131134,
+        0.05989769846200943,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.001573485555127263,
+      "push_xy_error": 0.0055420235730707645,
+      "push_z_error": 7.160753011703491e-05,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.022471822798252106,
+        0.030055547133088112,
+        0.03089461289346218
+      ],
+      "index": 105,
+      "steps": 121
+    },
+    {
+      "manager_position_error_m": 0.0062536634504795074,
+      "derived_position_error_m": 0.0062536634504795074,
+      "qpos_position_error_m": 0.0062536634504795074,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006249814759939909,
+        0.006270415149629116,
+        0.0062536634504795074
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01428958773612976,
+        0.03603766858577728,
+        0.0444309376180172
+      ],
+      "physical_object_position": [
+        -0.017534587532281876,
+        0.05689968168735504,
+        0.00849258154630661
+      ],
+      "physical_goal_position": [
+        -0.018061621114611626,
+        0.06311040371656418,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007085558958351612,
+      "push_xy_error": 0.0062330435030162334,
+      "push_z_error": 0.0005074180662631989,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.014312919229269028,
+        0.03603371977806091,
+        0.026430955156683922
+      ],
+      "index": 20,
+      "steps": 122
+    },
+    {
+      "manager_position_error_m": 0.007115130312740803,
+      "derived_position_error_m": 0.007115130312740803,
+      "qpos_position_error_m": 0.007115130312740803,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007496424950659275,
+        0.007267053704708815,
+        0.007115130312740803
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.022271141409873962,
+        0.03601431846618652,
+        0.04444147273898125
+      ],
+      "physical_object_position": [
+        -0.024108653888106346,
+        0.05736549198627472,
+        0.008520000614225864
+      ],
+      "physical_goal_position": [
+        -0.024975189939141273,
+        0.06441132724285126,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.015956003218889236,
+      "push_xy_error": 0.007098921108990908,
+      "push_z_error": 0.00047999899834394455,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.022294355556368828,
+        0.036010149866342545,
+        0.026441490277647972
+      ],
+      "index": 35,
+      "steps": 122
+    },
+    {
+      "manager_position_error_m": 0.006845905911177397,
+      "derived_position_error_m": 0.006845905911177397,
+      "qpos_position_error_m": 0.006845905911177397,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006838271394371986,
+        0.006821449380367994,
+        0.006845905911177397
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.021489843726158142,
+        0.03307304158806801,
+        0.04740322753787041
+      ],
+      "physical_object_position": [
+        -0.02391824871301651,
+        0.057370614260435104,
+        0.007803860120475292
+      ],
+      "physical_goal_position": [
+        -0.021822882816195488,
+        0.06377726048231125,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.00779136223718524,
+      "push_xy_error": 0.006740599405020475,
+      "push_z_error": 0.0011961394920945168,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02152048610150814,
+        0.03306826576590538,
+        0.029403256252408028
+      ],
+      "index": 79,
+      "steps": 122
+    },
+    {
+      "manager_position_error_m": 0.00839450117200613,
+      "derived_position_error_m": 0.00839450117200613,
+      "qpos_position_error_m": 0.00839450117200613,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.0084144352003932,
+        0.008380998857319355,
+        0.00839450117200613
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.035706132650375366,
+        0.037805043160915375,
+        0.0444427989423275
+      ],
+      "physical_object_position": [
+        -0.03501805663108826,
+        0.05814173445105553,
+        0.008418681100010872
+      ],
+      "physical_goal_position": [
+        -0.03516605496406555,
+        0.06651477515697479,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.010549946688115597,
+      "push_xy_error": 0.008374348282814026,
+      "push_z_error": 0.0005813185125589371,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.035725515335798264,
+        0.037800855934619904,
+        0.026442812755703926
+      ],
+      "index": 11,
+      "steps": 123
+    },
+    {
+      "manager_position_error_m": 0.007619213312864304,
+      "derived_position_error_m": 0.007619213312864304,
+      "qpos_position_error_m": 0.007619213312864304,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00763237988576293,
+        0.007471252232789993,
+        0.007619213312864304
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02743704617023468,
+        0.03894033655524254,
+        0.04288599267601967
+      ],
+      "physical_object_position": [
+        -0.030224809423089027,
+        0.05982551351189613,
+        0.007344225887209177
+      ],
+      "physical_goal_position": [
+        -0.032322388142347336,
+        0.06696070730686188,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.021886782720685005,
+      "push_xy_error": 0.007437124848365784,
+      "push_z_error": 0.001655773725360632,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.027491698041558266,
+        0.038928817957639694,
+        0.024886082857847214
+      ],
+      "index": 31,
+      "steps": 123
+    },
+    {
+      "manager_position_error_m": 0.008299521170556545,
+      "derived_position_error_m": 0.008299521170556545,
+      "qpos_position_error_m": 0.008299521170556545,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00844988226890564,
+        0.008357057347893715,
+        0.008299521170556545
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.032029569149017334,
+        0.0375259630382061,
+        0.044444773346185684
+      ],
+      "physical_object_position": [
+        -0.03352953866124153,
+        0.059380535036325455,
+        0.008701068349182606
+      ],
+      "physical_goal_position": [
+        -0.033678121864795685,
+        0.06767334043979645,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0090394401922822,
+      "push_xy_error": 0.008294136263430119,
+      "push_z_error": 0.0002989312633872032,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03204791247844696,
+        0.03752216696739197,
+        0.02644478529691696
+      ],
+      "index": 34,
+      "steps": 123
+    },
+    {
+      "manager_position_error_m": 0.008183940313756466,
+      "derived_position_error_m": 0.008183940313756466,
+      "qpos_position_error_m": 0.008183940313756466,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008217359893023968,
+        0.008186085149645805,
+        0.008183940313756466
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02383570373058319,
+        0.031591277569532394,
+        0.050386007875204086
+      ],
+      "physical_object_position": [
+        -0.023773707449436188,
+        0.053172748535871506,
+        0.008922959677875042
+      ],
+      "physical_goal_position": [
+        -0.02317335084080696,
+        0.0613342747092247,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0014715602155774832,
+      "push_xy_error": 0.008183577097952366,
+      "push_z_error": 7.7039934694767e-05,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02386941947042942,
+        0.03158631548285484,
+        0.032386042177677155
+      ],
+      "index": 42,
+      "steps": 123
+    },
+    {
+      "manager_position_error_m": 0.008822179399430752,
+      "derived_position_error_m": 0.008822179399430752,
+      "qpos_position_error_m": 0.008822179399430752,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008744077757000923,
+        0.00872392114251852,
+        0.008822179399430752
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0422070175409317,
+        0.03786161541938782,
+        0.04445682838559151
+      ],
+      "physical_object_position": [
+        -0.0438154973089695,
+        0.05791899561882019,
+        0.007413456216454506
+      ],
+      "physical_goal_position": [
+        -0.04435010254383087,
+        0.0665808618068695,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008700705133378506,
+      "push_xy_error": 0.008678347803652287,
+      "push_z_error": 0.001586543396115303,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.042213086038827896,
+        0.03786022588610649,
+        0.02645683102309704
+      ],
+      "index": 54,
+      "steps": 123
+    },
+    {
+      "manager_position_error_m": 0.00810193456709385,
+      "derived_position_error_m": 0.00810193456709385,
+      "qpos_position_error_m": 0.00810193456709385,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008023671805858612,
+        0.00806616060435772,
+        0.00810193456709385
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.006677031517028809,
+        0.03748190402984619,
+        0.04441120848059654
+      ],
+      "physical_object_position": [
+        -0.0066399904899299145,
+        0.058317117393016815,
+        0.007751957047730684
+      ],
+      "physical_goal_position": [
+        -0.006292451173067093,
+        0.06631480157375336,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007873224094510078,
+      "push_xy_error": 0.008005231618881226,
+      "push_z_error": 0.0012480425648391247,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.0067031364887952805,
+        0.03747745603322983,
+        0.026411227881908417
+      ],
+      "index": 58,
+      "steps": 123
+    },
+    {
+      "manager_position_error_m": 0.008189249783754349,
+      "derived_position_error_m": 0.008189249783754349,
+      "qpos_position_error_m": 0.008189249783754349,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008357432670891285,
+        0.008202810771763325,
+        0.008189249783754349
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03629586100578308,
+        0.038836345076560974,
+        0.042984213680028915
+      ],
+      "physical_object_position": [
+        -0.03381230682134628,
+        0.05940360948443413,
+        0.008541355840861797
+      ],
+      "physical_goal_position": [
+        -0.0331910066306591,
+        0.06755636632442474,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.006122766528278589,
+      "push_xy_error": 0.00817639660090208,
+      "push_z_error": 0.00045864377170801163,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03634738177061081,
+        0.03882469981908798,
+        0.024984290823340416
+      ],
+      "index": 71,
+      "steps": 123
+    },
+    {
+      "manager_position_error_m": 0.006545861251652241,
+      "derived_position_error_m": 0.006545861251652241,
+      "qpos_position_error_m": 0.006545861251652241,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006986998487263918,
+        0.006627900525927544,
+        0.006545861251652241
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.043003663420677185,
+        0.04039263352751732,
+        0.04301418736577034
+      ],
+      "physical_object_position": [
+        -0.0431823655962944,
+        0.06154347211122513,
+        0.007930934429168701
+      ],
+      "physical_goal_position": [
+        -0.04289237782359123,
+        0.06799492985010147,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.013861122541129589,
+      "push_xy_error": 0.006457971874624491,
+      "push_z_error": 0.0010690651834011078,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.04306207224726677,
+        0.040377773344516754,
+        0.02501428872346878
+      ],
+      "index": 0,
+      "steps": 124
+    },
+    {
+      "manager_position_error_m": 0.007833726704120636,
+      "derived_position_error_m": 0.007833726704120636,
+      "qpos_position_error_m": 0.007833726704120636,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00782978255301714,
+        0.007830518297851086,
+        0.007833726704120636
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0188911110162735,
+        0.039066482335329056,
+        0.04443862661719322
+      ],
+      "physical_object_position": [
+        -0.01867211051285267,
+        0.06012760475277901,
+        0.008528224192559719
+      ],
+      "physical_goal_position": [
+        -0.018320247530937195,
+        0.06793919205665588,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007945806719362736,
+      "push_xy_error": 0.007819508202373981,
+      "push_z_error": 0.0004717754200100899,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.018917761743068695,
+        0.039061203598976135,
+        0.026438647881150246
+      ],
+      "index": 13,
+      "steps": 124
+    },
+    {
+      "manager_position_error_m": 0.008239797316491604,
+      "derived_position_error_m": 0.008239797316491604,
+      "qpos_position_error_m": 0.008239797316491604,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008464145474135876,
+        0.008423009887337685,
+        0.008239797316491604
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.025463193655014038,
+        0.028569374233484268,
+        0.05485844239592552
+      ],
+      "physical_object_position": [
+        -0.02558079920709133,
+        0.050745029002428055,
+        0.008159714750945568
+      ],
+      "physical_goal_position": [
+        -0.024852126836776733,
+        0.05890941619873047,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008385160006582737,
+      "push_xy_error": 0.00819683913141489,
+      "push_z_error": 0.0008402848616242409,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.025501128286123276,
+        0.028564630076289177,
+        0.03685848414897919
+      ],
+      "index": 50,
+      "steps": 124
+    },
+    {
+      "manager_position_error_m": 0.0085778022184968,
+      "derived_position_error_m": 0.0085778022184968,
+      "qpos_position_error_m": 0.0085778022184968,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008770459331572056,
+        0.0083844643086195,
+        0.0085778022184968
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.007609352469444275,
+        0.04049627110362053,
+        0.04286854341626167
+      ],
+      "physical_object_position": [
+        -0.01723126508295536,
+        0.05911950394511223,
+        0.006879816297441721
+      ],
+      "physical_goal_position": [
+        -0.02248528227210045,
+        0.06555990874767303,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.01884577050805092,
+      "push_xy_error": 0.008311649784445763,
+      "push_z_error": 0.002120183315128088,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.007637927308678627,
+        0.04049077257514,
+        0.024868568405508995
+      ],
+      "index": 94,
+      "steps": 124
+    },
+    {
+      "manager_position_error_m": 0.0068766833283007145,
+      "derived_position_error_m": 0.0068766833283007145,
+      "qpos_position_error_m": 0.0068766833283007145,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007080982439219952,
+        0.006905545946210623,
+        0.0068766833283007145
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.014607459306716919,
+        0.03898373991250992,
+        0.04443034157156944
+      ],
+      "physical_object_position": [
+        -0.01247196365147829,
+        0.061152197420597076,
+        0.008513315580785275
+      ],
+      "physical_goal_position": [
+        -0.011917706578969955,
+        0.06798920780420303,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0049773273058235645,
+      "push_xy_error": 0.006859439425170422,
+      "push_z_error": 0.00048668403178453445,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.014630760066211224,
+        0.03897928446531296,
+        0.026430359110236168
+      ],
+      "index": 103,
+      "steps": 124
+    },
+    {
+      "manager_position_error_m": 0.0067040701396763325,
+      "derived_position_error_m": 0.0067040701396763325,
+      "qpos_position_error_m": 0.0067040701396763325,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006756755989044905,
+        0.0067123048938810825,
+        0.0067040701396763325
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03611977398395538,
+        0.04063474386930466,
+        0.044455837458372116
+      ],
+      "physical_object_position": [
+        -0.037777651101350784,
+        0.06306713074445724,
+        0.008881835266947746
+      ],
+      "physical_goal_position": [
+        -0.03715841472148895,
+        0.06974149495363235,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.002880105981603265,
+      "push_xy_error": 0.006703028455376625,
+      "push_z_error": 0.00011816434562206268,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03613634034991264,
+        0.04063074663281441,
+        0.026455847546458244
+      ],
+      "index": 81,
+      "steps": 125
+    },
+    {
+      "manager_position_error_m": 0.006167151499539614,
+      "derived_position_error_m": 0.006167151499539614,
+      "qpos_position_error_m": 0.006167151499539614,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006352806929498911,
+        0.006193146575242281,
+        0.006167151499539614
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.028473466634750366,
+        0.04050904139876366,
+        0.0444461889564991
+      ],
+      "physical_object_position": [
+        -0.027922140434384346,
+        0.06368594616651535,
+        0.00849252287298441
+      ],
+      "physical_goal_position": [
+        -0.026432937011122704,
+        0.06964904069900513,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.003237982979044318,
+      "push_xy_error": 0.006146236322820187,
+      "push_z_error": 0.0005074767395853996,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.028500257059931755,
+        0.04050300642848015,
+        0.026446212083101273
+      ],
+      "index": 85,
+      "steps": 125
+    },
+    {
+      "manager_position_error_m": 0.0077954852022230625,
+      "derived_position_error_m": 0.0077954852022230625,
+      "qpos_position_error_m": 0.0077954852022230625,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007498298306018114,
+        0.007603658363223076,
+        0.0077954852022230625
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03701329231262207,
+        0.04074785113334656,
+        0.04444343224167824
+      ],
+      "physical_object_position": [
+        -0.03643345460295677,
+        0.06177087128162384,
+        0.006524029187858105
+      ],
+      "physical_goal_position": [
+        -0.03477366268634796,
+        0.06897394359111786,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.014025876298546791,
+      "push_xy_error": 0.007391830440610647,
+      "push_z_error": 0.0024759704247117043,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03702270984649658,
+        0.04074555262923241,
+        0.02644343674182892
+      ],
+      "index": 126,
+      "steps": 125
+    },
+    {
+      "manager_position_error_m": 0.008729469031095505,
+      "derived_position_error_m": 0.008729469031095505,
+      "qpos_position_error_m": 0.008729469031095505,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008820082060992718,
+        0.008786947466433048,
+        0.008729469031095505
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03848293423652649,
+        0.042016029357910156,
+        0.044451747089624405
+      ],
+      "physical_object_position": [
+        -0.038959112018346786,
+        0.06276882439851761,
+        0.007735436782240868
+      ],
+      "physical_goal_position": [
+        -0.03864295035600662,
+        0.07140042632818222,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008538766764104366,
+      "push_xy_error": 0.008637390099465847,
+      "push_z_error": 0.0012645628303289413,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03850133344531059,
+        0.04201127216219902,
+        0.026451759040355682
+      ],
+      "index": 16,
+      "steps": 126
+    },
+    {
+      "manager_position_error_m": 0.006156050134450197,
+      "derived_position_error_m": 0.006156050134450197,
+      "qpos_position_error_m": 0.006156050134450197,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006280931644141674,
+        0.0061678197234869,
+        0.006156050134450197
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.010925129055976868,
+        0.04196624457836151,
+        0.0444088838994503
+      ],
+      "physical_object_position": [
+        -0.009279223158955574,
+        0.06432696431875229,
+        0.008185365237295628
+      ],
+      "physical_goal_position": [
+        -0.009795325808227062,
+        0.07040701061487198,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0034698627423495054,
+      "push_xy_error": 0.006101911421865225,
+      "push_z_error": 0.0008146343752741814,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.01095187570899725,
+        0.0419606938958168,
+        0.026408905163407326
+      ],
+      "index": 37,
+      "steps": 126
+    },
+    {
+      "manager_position_error_m": 0.006982775870710611,
+      "derived_position_error_m": 0.006982775870710611,
+      "qpos_position_error_m": 0.006982775870710611,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007044305559247732,
+        0.007015661336481571,
+        0.006982775870710611
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02896668016910553,
+        0.04074821621179581,
+        0.04591876640915871
+      ],
+      "physical_object_position": [
+        -0.029371052980422974,
+        0.06167987361550331,
+        0.007796171586960554
+      ],
+      "physical_goal_position": [
+        -0.029621271416544914,
+        0.06855354458093643,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.013180339708924294,
+      "push_xy_error": 0.0068782237358391285,
+      "push_z_error": 0.0012038280256092548,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02899855002760887,
+        0.04074094444513321,
+        0.027918796986341476
+      ],
+      "index": 65,
+      "steps": 126
+    },
+    {
+      "manager_position_error_m": 0.00709620350971818,
+      "derived_position_error_m": 0.00709620350971818,
+      "qpos_position_error_m": 0.00709620350971818,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00710301985964179,
+        0.007091423496603966,
+        0.00709620350971818
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03660176694393158,
+        0.04230296611785889,
+        0.04445263370871544
+      ],
+      "physical_object_position": [
+        -0.035378627479076385,
+        0.06295228749513626,
+        0.008421811275184155
+      ],
+      "physical_goal_position": [
+        -0.03554590791463852,
+        0.07002291828393936,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004250954370945692,
+      "push_xy_error": 0.007072609383612871,
+      "push_z_error": 0.0005781883373856544,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03661920502781868,
+        0.042298488318920135,
+        0.026452645659446716
+      ],
+      "index": 73,
+      "steps": 126
+    },
+    {
+      "manager_position_error_m": 0.008623691275715828,
+      "derived_position_error_m": 0.008623691275715828,
+      "qpos_position_error_m": 0.008623691275715828,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008443357422947884,
+        0.008405547589063644,
+        0.008623691275715828
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.029955565929412842,
+        0.04350615292787552,
+        0.0444478876888752
+      ],
+      "physical_object_position": [
+        -0.030936826020479202,
+        0.06377728283405304,
+        0.007238085847347975
+      ],
+      "physical_goal_position": [
+        -0.03161490336060524,
+        0.07219178974628448,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005154072307050228,
+      "push_xy_error": 0.008441784419119358,
+      "push_z_error": 0.0017619137652218342,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.029981793835759163,
+        0.043499525636434555,
+        0.02644791081547737
+      ],
+      "index": 18,
+      "steps": 127
+    },
+    {
+      "manager_position_error_m": 0.006036462262272835,
+      "derived_position_error_m": 0.006036462262272835,
+      "qpos_position_error_m": 0.006036462262272835,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006040280684828758,
+        0.006023413501679897,
+        0.006036462262272835
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0344676673412323,
+        0.04349910467863083,
+        0.04445822909474373
+      ],
+      "physical_object_position": [
+        -0.03650246560573578,
+        0.06508520990610123,
+        0.008065065369009972
+      ],
+      "physical_goal_position": [
+        -0.03796226158738136,
+        0.07086740434169769,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0039468188770115376,
+      "push_xy_error": 0.005963621195405722,
+      "push_z_error": 0.0009349342435598373,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03448452800512314,
+        0.043494679033756256,
+        0.026458241045475006
+      ],
+      "index": 43,
+      "steps": 127
+    },
+    {
+      "manager_position_error_m": 0.00875897891819477,
+      "derived_position_error_m": 0.00875897891819477,
+      "qpos_position_error_m": 0.00875897891819477,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00878798309713602,
+        0.00873753521591425,
+        0.00875897891819477
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.013872906565666199,
+        0.04344974830746651,
+        0.0444268174469471
+      ],
+      "physical_object_position": [
+        -0.0123512027785182,
+        0.06377684324979782,
+        0.007774534169584513
+      ],
+      "physical_goal_position": [
+        -0.01172376237809658,
+        0.0724269449710846,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.007732838857918978,
+      "push_xy_error": 0.00867282785475254,
+      "push_z_error": 0.0012254654429852962,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.013898040167987347,
+        0.04344414919614792,
+        0.026426836848258972
+      ],
+      "index": 46,
+      "steps": 127
+    },
+    {
+      "manager_position_error_m": 0.0081290602684021,
+      "derived_position_error_m": 0.0081290602684021,
+      "qpos_position_error_m": 0.0081290602684021,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008112577721476555,
+        0.008094926364719868,
+        0.0081290602684021
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.009064540266990662,
+        0.04357416182756424,
+        0.044405754655599594
+      ],
+      "physical_object_position": [
+        -0.008086933754384518,
+        0.06395160406827927,
+        0.006983917206525803
+      ],
+      "physical_goal_position": [
+        -0.007630916312336922,
+        0.07181347906589508,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.03023052029311657,
+      "push_xy_error": 0.007875089533627033,
+      "push_z_error": 0.0020160824060440063,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.009091324172914028,
+        0.04356837645173073,
+        0.026405779644846916
+      ],
+      "index": 67,
+      "steps": 127
+    },
+    {
+      "manager_position_error_m": 0.0066268909722566605,
+      "derived_position_error_m": 0.0066268909722566605,
+      "qpos_position_error_m": 0.0066268909722566605,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.0067377774976193905,
+        0.0066471402533352375,
+        0.0066268909722566605
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.0340622216463089,
+        0.043790221214294434,
+        0.044445302337408066
+      ],
+      "physical_object_position": [
+        -0.03138362616300583,
+        0.06479035317897797,
+        0.008821160532534122
+      ],
+      "physical_goal_position": [
+        -0.03131180256605148,
+        0.07141444087028503,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.004611385986208916,
+      "push_xy_error": 0.006624476984143257,
+      "push_z_error": 0.0001788390800356865,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03408057615160942,
+        0.04378537833690643,
+        0.026445314288139343
+      ],
+      "index": 82,
+      "steps": 127
+    },
+    {
+      "manager_position_error_m": 0.007809064816683531,
+      "derived_position_error_m": 0.007809064816683531,
+      "qpos_position_error_m": 0.007809064816683531,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007857425138354301,
+        0.008012744598090649,
+        0.007809064816683531
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.008305832743644714,
+        0.04349406808614731,
+        0.04440004751086235
+      ],
+      "physical_object_position": [
+        -0.00734475813806057,
+        0.06391707807779312,
+        0.008284582756459713
+      ],
+      "physical_goal_position": [
+        -0.006903558969497681,
+        0.07168077677488327,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.024121029302477837,
+      "push_xy_error": 0.007776224985718727,
+      "push_z_error": 0.000715416856110096,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.008333491161465645,
+        0.04348813742399216,
+        0.026400072500109673
+      ],
+      "index": 102,
+      "steps": 127
+    },
+    {
+      "manager_position_error_m": 0.008233302272856236,
+      "derived_position_error_m": 0.008233302272856236,
+      "qpos_position_error_m": 0.008233302272856236,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.008098958991467953,
+        0.008140885271131992,
+        0.008233302272856236
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.020451128482818604,
+        0.04352318495512009,
+        0.044444698840379715
+      ],
+      "physical_object_position": [
+        -0.01881076581776142,
+        0.06414086371660233,
+        0.007130823098123074
+      ],
+      "physical_goal_position": [
+        -0.018421096727252007,
+        0.07214970886707306,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.015879230573773384,
+      "push_xy_error": 0.008018318563699722,
+      "push_z_error": 0.0018691765144467354,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02047709934413433,
+        0.0435170941054821,
+        0.02644472010433674
+      ],
+      "index": 108,
+      "steps": 127
+    },
+    {
+      "manager_position_error_m": 0.006997779011726379,
+      "derived_position_error_m": 0.006997779011726379,
+      "qpos_position_error_m": 0.006997779011726379,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00701381778344512,
+        0.006959513295441866,
+        0.006997779011726379
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.040495678782463074,
+        0.043622374534606934,
+        0.04444754496216774
+      ],
+      "physical_object_position": [
+        -0.04038294777274132,
+        0.06498143076896667,
+        0.007986536249518394
+      ],
+      "physical_goal_position": [
+        -0.039727773517370224,
+        0.07187436521053314,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005907937418669462,
+      "push_xy_error": 0.00692400150001049,
+      "push_z_error": 0.0010134633630514145,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.040515147149562836,
+        0.04361696541309357,
+        0.026447558775544167
+      ],
+      "index": 123,
+      "steps": 127
+    },
+    {
+      "manager_position_error_m": 0.006907004397362471,
+      "derived_position_error_m": 0.006907004397362471,
+      "qpos_position_error_m": 0.006907004397362471,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007192889228463173,
+        0.007060267496854067,
+        0.006907004397362471
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.01625661551952362,
+        0.04496407508850098,
+        0.04443241283297539
+      ],
+      "physical_object_position": [
+        -0.015217759646475315,
+        0.06579037010669708,
+        0.008257866837084293
+      ],
+      "physical_goal_position": [
+        -0.014755826443433762,
+        0.07264183461666107,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.015875771641731262,
+      "push_xy_error": 0.00686701899394393,
+      "push_z_error": 0.0007421327754855156,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.01627959869801998,
+        0.044958606362342834,
+        0.026432430371642113
+      ],
+      "index": 6,
+      "steps": 128
+    },
+    {
+      "manager_position_error_m": 0.006667620502412319,
+      "derived_position_error_m": 0.006667620502412319,
+      "qpos_position_error_m": 0.006667620502412319,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006669886410236359,
+        0.006667706649750471,
+        0.006667620502412319
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.038945525884628296,
+        0.04484336078166962,
+        0.04444865509867668
+      ],
+      "physical_object_position": [
+        -0.038461241871118546,
+        0.06610821932554245,
+        0.00895946566015482
+      ],
+      "physical_goal_position": [
+        -0.038694608956575394,
+        0.07277163118124008,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.00015224904927890748,
+      "push_xy_error": 0.006667497102171183,
+      "push_z_error": 4.053395241498947e-05,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03896428272128105,
+        0.04483801871538162,
+        0.026448668912053108
+      ],
+      "index": 15,
+      "steps": 128
+    },
+    {
+      "manager_position_error_m": 0.008312725462019444,
+      "derived_position_error_m": 0.008312725462019444,
+      "qpos_position_error_m": 0.008312725462019444,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00831990409642458,
+        0.00831377413123846,
+        0.008312725462019444
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03518189489841461,
+        0.04503198713064194,
+        0.044443752616643906
+      ],
+      "physical_object_position": [
+        -0.03614354506134987,
+        0.06556560844182968,
+        0.00837024673819542
+      ],
+      "physical_goal_position": [
+        -0.036037057638168335,
+        0.0738537609577179,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0036129835061728954,
+      "push_xy_error": 0.008288836106657982,
+      "push_z_error": 0.0006297528743743896,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.035200461745262146,
+        0.04502683877944946,
+        0.026443764567375183
+      ],
+      "index": 39,
+      "steps": 128
+    },
+    {
+      "manager_position_error_m": 0.007932017557322979,
+      "derived_position_error_m": 0.007932017557322979,
+      "qpos_position_error_m": 0.007932017557322979,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007942736148834229,
+        0.007932965643703938,
+        0.007932017557322979
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02682940661907196,
+        0.04497203975915909,
+        0.044449012726545334
+      ],
+      "physical_object_position": [
+        -0.02500189282000065,
+        0.06637634336948395,
+        0.008417436853051186
+      ],
+      "physical_goal_position": [
+        -0.024248261004686356,
+        0.0742509588599205,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.006812394596636295,
+      "push_xy_error": 0.007910596206784248,
+      "push_z_error": 0.0005825627595186234,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.02685663290321827,
+        0.04496501013636589,
+        0.026449037715792656
+      ],
+      "index": 62,
+      "steps": 128
+    },
+    {
+      "manager_position_error_m": 0.007635155227035284,
+      "derived_position_error_m": 0.007635155227035284,
+      "qpos_position_error_m": 0.007635155227035284,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007906203158199787,
+        0.007729094009846449,
+        0.007635155227035284
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.04092557728290558,
+        0.04627975821495056,
+        0.042998772114515305
+      ],
+      "physical_object_position": [
+        -0.039495475590229034,
+        0.06716548651456833,
+        0.008217389695346355
+      ],
+      "physical_goal_position": [
+        -0.03880530223250389,
+        0.07472900301218033,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.008334707468748093,
+      "push_xy_error": 0.0075949402526021,
+      "push_z_error": 0.0007826099172234535,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.040973298251628876,
+        0.04626530036330223,
+        0.024998843669891357
+      ],
+      "index": 68,
+      "steps": 128
+    },
+    {
+      "manager_position_error_m": 0.0065244524739682674,
+      "derived_position_error_m": 0.0065244524739682674,
+      "qpos_position_error_m": 0.0065244524739682674,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006684090476483107,
+        0.006669594440609217,
+        0.0065244524739682674
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.008012458682060242,
+        0.04339287430047989,
+        0.04737815633416176
+      ],
+      "physical_object_position": [
+        -0.0070302109234035015,
+        0.06636669486761093,
+        0.008432011120021343
+      ],
+      "physical_goal_position": [
+        -0.009043775498867035,
+        0.07254661619663239,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.01860787160694599,
+      "push_xy_error": 0.006499682553112507,
+      "push_z_error": 0.0005679884925484657,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.00803743489086628,
+        0.04338754713535309,
+        0.029378175735473633
+      ],
+      "index": 27,
+      "steps": 129
+    },
+    {
+      "manager_position_error_m": 0.0065787918865680695,
+      "derived_position_error_m": 0.0065787918865680695,
+      "qpos_position_error_m": 0.0065787918865680695,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.00706025306135416,
+        0.0066375816240906715,
+        0.0065787918865680695
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03113250434398651,
+        0.04340500384569168,
+        0.04891063645482063
+      ],
+      "physical_object_position": [
+        -0.030391458421945572,
+        0.06469939649105072,
+        0.007826680317521095
+      ],
+      "physical_goal_position": [
+        -0.031257398426532745,
+        0.07111453264951706,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.014974754303693771,
+      "push_xy_error": 0.006473316345363855,
+      "push_z_error": 0.0011733192950487137,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.031169265508651733,
+        0.04339565336704254,
+        0.030910678207874298
+      ],
+      "index": 119,
+      "steps": 130
+    },
+    {
+      "manager_position_error_m": 0.0062079657800495625,
+      "derived_position_error_m": 0.0062079657800495625,
+      "qpos_position_error_m": 0.0062079657800495625,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.006220915820449591,
+        0.0062010823749005795,
+        0.0062079657800495625
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03329768776893616,
+        0.04486154019832611,
+        0.04891546443104744
+      ],
+      "physical_object_position": [
+        -0.03216949850320816,
+        0.06672069430351257,
+        0.00843555573374033
+      ],
+      "physical_goal_position": [
+        -0.03257055580615997,
+        0.07288992404937744,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.005265333224087954,
+      "push_xy_error": 0.006182251963764429,
+      "push_z_error": 0.0005644438788294792,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03333265334367752,
+        0.04485205188393593,
+        0.030915502458810806
+      ],
+      "index": 21,
+      "steps": 131
+    },
+    {
+      "manager_position_error_m": 0.007599599193781614,
+      "derived_position_error_m": 0.007599599193781614,
+      "qpos_position_error_m": 0.007599599193781614,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007658769376575947,
+        0.00760659808292985,
+        0.007599599193781614
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.03895103931427002,
+        0.04634697735309601,
+        0.047438401728868484
+      ],
+      "physical_object_position": [
+        -0.038209542632102966,
+        0.06705252826213837,
+        0.008572349324822426
+      ],
+      "physical_goal_position": [
+        -0.03743407130241394,
+        0.07460035383701324,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0055481609888374805,
+      "push_xy_error": 0.007587557192891836,
+      "push_z_error": 0.0004276502877473831,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.03898559510707855,
+        0.04633667320013046,
+        0.029438441619277
+      ],
+      "index": 70,
+      "steps": 131
+    },
+    {
+      "manager_position_error_m": 0.007112994324415922,
+      "derived_position_error_m": 0.007112994324415922,
+      "qpos_position_error_m": 0.007112994324415922,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 3,
+      "last_three_manager_errors_m": [
+        0.007153345271945,
+        0.007115810178220272,
+        0.007112994324415922
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "push_criterion_history": [
+        true,
+        true,
+        true
+      ],
+      "physical_tcp_position": [
+        -0.02824939787387848,
+        0.04507569223642349,
+        0.048902783542871475
+      ],
+      "physical_object_position": [
+        -0.027395503595471382,
+        0.06730986386537552,
+        0.008904584683477879
+      ],
+      "physical_goal_position": [
+        -0.026659712195396423,
+        0.07438405603170395,
+        0.008999999612569809
+      ],
+      "linear_speed": 0.0014802094083279371,
+      "push_xy_error": 0.007112354505807161,
+      "push_z_error": 9.541492909193039e-05,
+      "push_withdrawn": true,
+      "push_contact_free": true,
+      "physical_tool_position": [
+        -0.028280414640903473,
+        0.04506756737828255,
+        0.030902815982699394
+      ],
+      "index": 120,
+      "steps": 131
+    }
+  ],
+  "experiment": {
+    "task": "push",
+    "condition": "wrist_static",
+    "occlusion": "clean",
+    "seed": 10000,
+    "num_envs": 128,
+    "width": 96,
+    "height": 72,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 12.0,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "manip_control": "cartesian",
+    "reset_xy_jitter": 0.02,
+    "fixed_position": [
+      -0.119,
+      -0.187,
+      0.274
+    ],
+    "fixed_lookat": [
+      0.0,
+      0.025,
+      0.045
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "policy_profile": "compact",
+    "plug_wrist_yaw": false,
+    "plug_variant": null,
+    "task_revision": "push_v2",
+    "success_state_sample": "current_qpos",
+    "reward_profile": "push_dense",
+    "occlusion_revision": null,
+    "dynamic_onset_range": null,
+    "dynamic_duration_range": null,
+    "dynamic_center": null,
+    "dynamic_center_jitter": null,
+    "dynamic_travel_range": null,
+    "dynamic_panel_half_size": null,
+    "dynamic_panel_yaw": null
+  }
+}

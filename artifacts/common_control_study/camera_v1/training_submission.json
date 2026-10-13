@@ -1,0 +1,17 @@
+{
+  "job_id": "52449726",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--job-name=common-camera-screen",
+    "--array=0-17%8",
+    "--dependency=afterok:52449725:52444316",
+    "--export=ALL",
+    "scripts/slurm/common_control_study.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/plan.json",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/source"
+  ]
+}

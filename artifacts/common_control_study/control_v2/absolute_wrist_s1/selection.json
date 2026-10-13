@@ -1,0 +1,5 @@
+{
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_s1/logs/plug_wrist_clean_gru_v0_s1_n256_absolute_wrist_s1_20261012T210435Z/model_199.pt",
+  "validation_successes": 5,
+  "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+}

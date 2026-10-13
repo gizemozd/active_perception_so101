@@ -1,0 +1,26 @@
+{
+  "task": "push",
+  "job_id": "51666942",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=ALL",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "--job-name=state-push",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/privileged_diagnostic.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/driver-repair-01.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/plan.json",
+    "push",
+    "--resume-diagnostic"
+  ],
+  "driver_repair": {
+    "reason": "Render only non-null captures; explicit resume skips saved training and completed evaluations. Simulation/reward/policy source unchanged.",
+    "driver": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/driver-repair-01.py",
+    "sha256": "8443fa6fa1b6453d153e9d206f138900dda007456430b14954041e44b1771458",
+    "created_utc": "2026-10-09T20:16:12.910804+00:00"
+  }
+}

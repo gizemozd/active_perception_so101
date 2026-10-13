@@ -1,0 +1,8 @@
+{
+  "failures": 287,
+  "failed_xy_outside_5mm": 287,
+  "failed_within_5mm": 0,
+  "median_failure_xy_mm": 19.861940294504166,
+  "goal_x_outside_original_command_range": 180,
+  "outside_goal_failures": 126
+}

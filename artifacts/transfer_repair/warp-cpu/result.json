@@ -1,0 +1,266 @@
+{
+  "cases": [
+    {
+      "sampling": "After termination_manager.compute(), before reward/reset/forward; no physics or random-state changes.",
+      "episodes": 4,
+      "terminal_flags": {
+        "success": 4,
+        "failure": 0,
+        "timeout": 0
+      },
+      "max_derived_to_qpos_displacement_m": 3.747910568563384e-06,
+      "success_hold_violations": 0,
+      "success_transfer_violations": 0,
+      "success_distance_violations": null,
+      "success_three_sample_violations": null,
+      "success_qpos_above_distance_threshold": null,
+      "success_orientation_violations": null,
+      "mean_terminal_position_error_m": 0.002579219755716622,
+      "mean_success_terminal_position_error_m": 0.002579219755716622,
+      "records": [
+        {
+          "manager_position_error_m": 0.0024321831297129393,
+          "derived_position_error_m": 0.0024327156133949757,
+          "qpos_position_error_m": 0.0024321831297129393,
+          "derived_to_qpos_displacement_m": 1.5895261640253011e-06,
+          "success_hold_steps": 5,
+          "last_three_manager_errors_m": [
+            0.0024256696924567223,
+            0.0024255989119410515,
+            0.0024321831297129393
+          ],
+          "success": true,
+          "failure": false,
+          "timeout": false,
+          "transfer_criterion_history": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "transfer_lifted": true,
+          "transfer_released": true,
+          "transfer_placed": true,
+          "transfer_settled": true,
+          "physical_tcp_position": [
+            -0.04084792733192444,
+            0.051166750490665436,
+            0.07591784000396729
+          ],
+          "physical_object_position": [
+            0.02130383811891079,
+            0.05624321475625038,
+            0.057859744876623154
+          ],
+          "physical_goal_position": [
+            0.019195089116692543,
+            0.05744696781039238,
+            0.057999998331069946
+          ],
+          "hand_distance": 0.06492077559232712,
+          "linear_speed": 0.0007955343462526798,
+          "angular_speed": 0.03906666114926338,
+          "index": 3,
+          "steps": 136,
+          "stage": 7,
+          "episode_return": 17.041030883789062
+        },
+        {
+          "manager_position_error_m": 0.0025384281761944294,
+          "derived_position_error_m": 0.002538550179451704,
+          "qpos_position_error_m": 0.0025384281761944294,
+          "derived_to_qpos_displacement_m": 3.747910568563384e-06,
+          "success_hold_steps": 5,
+          "last_three_manager_errors_m": [
+            0.0025379927828907967,
+            0.002530657686293125,
+            0.0025384281761944294
+          ],
+          "success": true,
+          "failure": false,
+          "timeout": false,
+          "transfer_criterion_history": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "transfer_lifted": true,
+          "transfer_released": true,
+          "transfer_placed": true,
+          "transfer_settled": true,
+          "physical_tcp_position": [
+            -0.0384095162153244,
+            0.038218431174755096,
+            0.07864713668823242
+          ],
+          "physical_object_position": [
+            0.03511995077133179,
+            0.04632025584578514,
+            0.05790122225880623
+          ],
+          "physical_goal_position": [
+            0.032960355281829834,
+            0.04765067249536514,
+            0.057999998331069946
+          ],
+          "hand_distance": 0.0768284797668457,
+          "linear_speed": 0.0018735692137852311,
+          "angular_speed": 0.001846478320658207,
+          "index": 1,
+          "steps": 137,
+          "stage": 7,
+          "episode_return": 16.915843963623047
+        },
+        {
+          "manager_position_error_m": 0.0028588189743459225,
+          "derived_position_error_m": 0.0028588189743459225,
+          "qpos_position_error_m": 0.0028588189743459225,
+          "derived_to_qpos_displacement_m": 1.862645149230957e-09,
+          "success_hold_steps": 5,
+          "last_three_manager_errors_m": [
+            0.0028588196728378534,
+            0.0028588194400072098,
+            0.0028588189743459225
+          ],
+          "success": true,
+          "failure": false,
+          "timeout": false,
+          "transfer_criterion_history": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "transfer_lifted": true,
+          "transfer_released": true,
+          "transfer_placed": true,
+          "transfer_settled": true,
+          "physical_tcp_position": [
+            -0.04240913689136505,
+            0.049550771713256836,
+            0.07966123521327972
+          ],
+          "physical_object_position": [
+            0.02263864502310753,
+            0.054698362946510315,
+            0.057953331619501114
+          ],
+          "physical_goal_position": [
+            0.022608688101172447,
+            0.0575566440820694,
+            0.057999998331069946
+          ],
+          "hand_distance": 0.06876732409000397,
+          "linear_speed": 1.3783243275611312e-06,
+          "angular_speed": 8.598989370511845e-05,
+          "index": 2,
+          "steps": 137,
+          "stage": 7,
+          "episode_return": 16.952392578125
+        },
+        {
+          "manager_position_error_m": 0.0024874487426131964,
+          "derived_position_error_m": 0.002487451070919633,
+          "qpos_position_error_m": 0.0024874487426131964,
+          "derived_to_qpos_displacement_m": 4.114717455649952e-08,
+          "success_hold_steps": 5,
+          "last_three_manager_errors_m": [
+            0.002487636636942625,
+            0.002487507415935397,
+            0.0024874487426131964
+          ],
+          "success": true,
+          "failure": false,
+          "timeout": false,
+          "transfer_criterion_history": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "transfer_lifted": true,
+          "transfer_released": true,
+          "transfer_placed": true,
+          "transfer_settled": true,
+          "physical_tcp_position": [
+            -0.04216037690639496,
+            0.0389835387468338,
+            0.0830603539943695
+          ],
+          "physical_object_position": [
+            0.029432257637381554,
+            0.0468536801636219,
+            0.057964082807302475
+          ],
+          "physical_goal_position": [
+            0.027245739474892616,
+            0.048039112240076065,
+            0.057999998331069946
+          ],
+          "hand_distance": 0.07627101242542267,
+          "linear_speed": 2.0757426682393998e-05,
+          "angular_speed": 0.0001772104442352429,
+          "index": 0,
+          "steps": 138,
+          "stage": 7,
+          "episode_return": 16.774845123291016
+        }
+      ],
+      "experiment": {
+        "task": "transfer",
+        "condition": "wrist_static",
+        "occlusion": "clean",
+        "seed": 10000,
+        "num_envs": 4,
+        "width": 96,
+        "height": 72,
+        "timestep": 0.002,
+        "decimation": 20,
+        "episode_seconds": 12.0,
+        "initial_seconds": 1.0,
+        "joint_step": 0.035,
+        "randomize": true,
+        "perturb_push": false,
+        "fixed_position": [
+          -0.119,
+          -0.187,
+          0.274
+        ],
+        "fixed_lookat": [
+          0.0,
+          0.025,
+          0.045
+        ],
+        "clearance": 0.002,
+        "render_sensors": false,
+        "memory": "gru",
+        "policy_profile": "compact",
+        "plug_wrist_yaw": false,
+        "plug_variant": null,
+        "task_revision": "pick_place_v2",
+        "success_state_sample": "current_qpos",
+        "reward_profile": "transfer_staged",
+        "occlusion_revision": null,
+        "dynamic_onset_range": null,
+        "dynamic_duration_range": null,
+        "dynamic_center": null,
+        "dynamic_center_jitter": null,
+        "dynamic_travel_range": null,
+        "dynamic_panel_half_size": null,
+        "dynamic_panel_yaw": null
+      },
+      "backend": "MuJoCo Warp",
+      "device": "cpu",
+      "controller": "privileged diagnostic; no learned policy",
+      "training_updates": 0
+    }
+  ],
+  "ppo_smoke": null,
+  "competence_claim": false,
+  "gpu": null
+}

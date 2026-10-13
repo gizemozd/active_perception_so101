@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-10-13T05:43:28.344080+00:00",
+  "passed": true,
+  "source_files_verified": 132,
+  "main_gpu_gate": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/gpu_gate/passed.json",
+  "curriculum_gpu_gate": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/curriculum_gpu_gate/passed.json",
+  "cpu_tests": "258 passed; subsequent focused suite 76 passed",
+  "native_render_tests": "4 passed on the GPU gate allocation",
+  "first_policy_updates": [
+    {
+      "case": "plug_wrist_static_s0",
+      "status": "training",
+      "metrics": {
+        "Mean value loss": 4828.8378,
+        "Mean surrogate loss": -0.0043,
+        "Mean action std": 0.21
+      }
+    },
+    {
+      "case": "plug_active_s0",
+      "status": "training",
+      "metrics": {
+        "Mean value loss": 9.0687,
+        "Mean surrogate loss": -0.0087,
+        "Mean action std": 0.31
+      }
+    },
+    {
+      "case": "plug_wrist_static_s1",
+      "status": "training",
+      "metrics": {
+        "Mean value loss": 12.5043,
+        "Mean surrogate loss": -0.0125,
+        "Mean action std": 0.19
+      }
+    },
+    {
+      "case": "plug_active_s1",
+      "status": "training",
+      "metrics": {
+        "Mean value loss": 3170.3098,
+        "Mean surrogate loss": -0.0017,
+        "Mean action std": 0.31
+      }
+    },
+    {
+      "case": "plug_wrist_static_s2",
+      "status": "training",
+      "metrics": {
+        "Mean value loss": 14.4156,
+        "Mean surrogate loss": -0.0151,
+        "Mean action std": 0.21
+      }
+    },
+    {
+      "case": "plug_active_s2",
+      "status": "training",
+      "metrics": {
+        "Mean value loss": 43447.7396,
+        "Mean surrogate loss": -0.0062,
+        "Mean action std": 0.3
+      }
+    },
+    {
+      "case": "plug_privileged_s0",
+      "status": "training",
+      "metrics": {
+        "Mean value loss": 1604335.373,
+        "Mean surrogate loss": -0.0112,
+        "Mean action std": 0.09
+      }
+    },
+    {
+      "case": "push_wrist_static_s0",
+      "status": "training",
+      "metrics": {
+        "Mean value loss": 0.558,
+        "Mean surrogate loss": -0.0131,
+        "Mean action std": 0.17
+      }
+    }
+  ],
+  "note": "Finite early training losses establish pipeline startup, not held-out competence. Curriculum GPU smoke scores are not learning results."
+}

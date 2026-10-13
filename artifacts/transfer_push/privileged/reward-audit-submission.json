@@ -1,0 +1,25 @@
+{
+  "job_id": "51667536",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=ALL",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "--job-name=state-reward-audit",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/reward-audit-code/run.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/privileged-diagnostic-20261009T201024Z",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/reward-audit-code/audit_manipulation_rewards.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/reward-audit.json"
+  ],
+  "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/privileged-diagnostic-20261009T201024Z",
+  "audit_sha256": {
+    "audit_manipulation_rewards.py": "dd86dbb6e2a61977b1030baded51f85f0424e99512812e804deaf2e047cc8ab1",
+    "audit_manipulation_study.py": "b24986963c79b79ca88d14a085484c709f77f6768b5638e5aabbbfaf4663cfe9",
+    "audit_transfer_warp.py": "a4350de09366bf789594be1e972d69201ea440225b427c3267971fac01a67ed6",
+    "run.sbatch": "704d44e36150b39b56ab3478d4cddae7e9da6516100774e0e027fcec3cd85fd6"
+  }
+}

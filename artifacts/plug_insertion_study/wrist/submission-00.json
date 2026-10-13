@@ -1,0 +1,22 @@
+{
+  "status": "submitted",
+  "created_at": "2026-10-09T23:29:14.105417+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "--job-name=plug-insertion-wrist",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-20261009T232851Z/run.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-20261009T232851Z/run_plug_precision.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_insertion_study/plan.json",
+    "wrist"
+  ],
+  "returncode": 0,
+  "stdout": "51714960\n",
+  "stderr": "",
+  "job_id": "51714960"
+}

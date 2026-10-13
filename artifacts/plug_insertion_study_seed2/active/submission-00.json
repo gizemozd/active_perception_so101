@@ -1,0 +1,22 @@
+{
+  "status": "submitted",
+  "created_at": "2026-10-09T23:34:45.530950+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "--job-name=plug-insertion-active",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-seed2-20261009T233420369082Z/run.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-seed2-20261009T233420369082Z/run_plug_insertion_study.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_insertion_study_seed2/plan.json",
+    "active"
+  ],
+  "returncode": 0,
+  "stdout": "51716211\n",
+  "stderr": "",
+  "job_id": "51716211"
+}

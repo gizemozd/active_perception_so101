@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-10-09T17:06:05.066806+00:00",
+  "job_id": "51624849",
+  "case": "legacy_ff_yaw0",
+  "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/recipe_repair/plug_wrist_static_clean_none_v7_s0_n512_legacy_ff_yaw0_20261009T170152Z",
+  "observed_updates": 59,
+  "observed_transitions": 724992,
+  "all_history_finite": true,
+  "configuration_matches_plan": true,
+  "wandb": {
+    "id": "674x90se",
+    "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/674x90se",
+    "entity": "pgozdil-harvard-university",
+    "project": "active-perception-so101",
+    "mode": "online"
+  },
+  "gpu_smoke_passed": true,
+  "validation_success_rate": null
+}

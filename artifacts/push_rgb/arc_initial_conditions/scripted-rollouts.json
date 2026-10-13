@@ -1,0 +1,119 @@
+{
+  "experiment": {
+    "task": "push",
+    "condition": "wrist",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 256,
+    "width": 96,
+    "height": 72,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 12.0,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "manip_control": "cartesian",
+    "reset_xy_jitter": 0.02,
+    "fixed_position": [
+      -0.119,
+      -0.187,
+      0.274
+    ],
+    "fixed_lookat": [
+      0.0,
+      0.025,
+      0.045
+    ],
+    "clearance": 0.002,
+    "render_sensors": false,
+    "actor_observation": "rgb",
+    "memory": "gru",
+    "policy_profile": "compact",
+    "plug_wrist_yaw": false,
+    "plug_control": "absolute",
+    "plug_variant": null,
+    "task_revision": "push_v2",
+    "success_state_sample": "current_qpos",
+    "reward_profile": "push_dense",
+    "occlusion_revision": null,
+    "push_visibility_revision": "crossbar_v3",
+    "push_target_layout": "arc_v1",
+    "dynamic_onset_range": null,
+    "dynamic_duration_range": null,
+    "dynamic_center": null,
+    "dynamic_center_jitter": null,
+    "dynamic_travel_range": null,
+    "dynamic_panel_half_size": null,
+    "dynamic_panel_yaw": null
+  },
+  "successes": 3,
+  "episodes": 9,
+  "scope": "Existing privileged scripted controller; not a trained policy or proof of global task feasibility",
+  "rows": [
+    {
+      "seed": 40000,
+      "angle_deg": 48.74526421808241,
+      "success": false,
+      "steps": 300,
+      "terminal_xy_error_mm": 51.92750286356597
+    },
+    {
+      "seed": 40001,
+      "angle_deg": -6.400654397737162,
+      "success": true,
+      "steps": 89,
+      "terminal_xy_error_mm": 1.4468601592043233
+    },
+    {
+      "seed": 40002,
+      "angle_deg": 75.61740941119417,
+      "success": false,
+      "steps": 300,
+      "terminal_xy_error_mm": 8.676345334870156
+    },
+    {
+      "seed": 40003,
+      "angle_deg": 46.4527915020628,
+      "success": false,
+      "steps": 300,
+      "terminal_xy_error_mm": 46.205747303313125
+    },
+    {
+      "seed": 40004,
+      "angle_deg": -60.775025864547004,
+      "success": false,
+      "steps": 300,
+      "terminal_xy_error_mm": 40.656085975763496
+    },
+    {
+      "seed": 40005,
+      "angle_deg": -11.69029673172778,
+      "success": true,
+      "steps": 95,
+      "terminal_xy_error_mm": 2.0088444685734417
+    },
+    {
+      "seed": 40006,
+      "angle_deg": -42.86323523718963,
+      "success": false,
+      "steps": 300,
+      "terminal_xy_error_mm": 28.83561088876763
+    },
+    {
+      "seed": 40007,
+      "angle_deg": 19.60224992461775,
+      "success": true,
+      "steps": 91,
+      "terminal_xy_error_mm": 1.5812109165539419
+    },
+    {
+      "seed": 40008,
+      "angle_deg": -33.076183340006125,
+      "success": false,
+      "steps": 300,
+      "terminal_xy_error_mm": 40.82397386545819
+    }
+  ]
+}

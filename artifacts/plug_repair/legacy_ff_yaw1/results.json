@@ -1,0 +1,66 @@
+{
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/recipe_repair/plug_wrist_static_clean_none_v7_s0_n512_legacy_ff_yaw1_20261009T181337Z/model_750.pt",
+  "checkpoint_sha256": "08b3622692eb4518267ed00367f3e986d45bff68614c91cf73b0742b867baa2b",
+  "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/recipe_repair/plug_wrist_static_clean_none_v7_s0_n512_legacy_ff_yaw1_20261009T181337Z",
+  "updates": 751,
+  "transitions": 9228288,
+  "evaluations": [
+    {
+      "repeat": 1,
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_repair/legacy_ff_yaw1/evaluation-repeat1.json",
+      "sha256": "08d6e31f2802071b0cefef01947911650667164a9c572bebdf96299357904155",
+      "successes": 0,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_repair/legacy_ff_yaw1/evaluation-repeat2.json",
+      "sha256": "f4c40ecc57371cefffec562cc337dce77e7a1f24660a43551a770337f80a0ad7",
+      "successes": 0,
+      "per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      }
+    }
+  ],
+  "competence_gate_passed": false
+}

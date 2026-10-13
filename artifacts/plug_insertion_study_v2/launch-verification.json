@@ -1,0 +1,36 @@
+{
+  "verified_at": "2026-10-09T23:32:49.738879+00:00",
+  "source_files": 63,
+  "target_transitions_each": 18001920,
+  "rows": [
+    {
+      "condition": "wrist",
+      "job_id": "51715352",
+      "status": "training",
+      "updates": 11,
+      "transitions": 135168,
+      "wandb": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/f64bbu44"
+    },
+    {
+      "condition": "wrist_static",
+      "job_id": "51715355",
+      "status": "training",
+      "updates": 9,
+      "transitions": 110592,
+      "wandb": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/76pm0ojl"
+    },
+    {
+      "condition": "active",
+      "job_id": "51715366",
+      "status": "training",
+      "updates": 12,
+      "transitions": 147456,
+      "wandb": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/c17ojlbe"
+    }
+  ],
+  "initial_failed_jobs": [
+    "51714960",
+    "51714972",
+    "51714997"
+  ]
+}

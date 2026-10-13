@@ -1,0 +1,22 @@
+{
+  "stage": "smoke",
+  "status": "failed",
+  "started_at": "2026-10-09T16:49:44.124944+00:00",
+  "job_id": "51621445",
+  "manifest_sha256": "cf3b89153ca6ea353ce566f23ed15f40495c2590cc12ab703faff9a4ec8b6241",
+  "steps": [
+    {
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-recipe-20261009T164609Z/validate_plug_repair_gpu.py",
+        "--output",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_repair/gpu-validation.json"
+      ],
+      "started_at": "2026-10-09T16:49:44.500966+00:00",
+      "returncode": 1,
+      "finished_at": "2026-10-09T16:51:15.183432+00:00"
+    }
+  ],
+  "error": "CalledProcessError: Command '['/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python', '/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-recipe-20261009T164609Z/validate_plug_repair_gpu.py', '--output', '/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_repair/gpu-validation.json']' returned non-zero exit status 1.",
+  "finished_at": "2026-10-09T16:51:15.226878+00:00"
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "task": "plug",
+    "checkpoint": "artifacts/competence_repair/selected/plug/model.pt",
+    "source": "artifacts/competence_repair/plug_dense_ym_dynamic/model_8000.pt",
+    "sha256": "c544e0c1a90100f65b6db40877ccda119f58dbeb21e8f1f87b9a6ded745969ca",
+    "description": "Occlusion-trained YM RGB target estimator + prescribed insertion motion;8s;2mm hold",
+    "test_report": "artifacts/competence_repair/plug_dense_ym_dynamic/final-clean-test.json",
+    "evaluate": [
+      ".venv/bin/python",
+      "-m",
+      "active_perception_arms.evaluate",
+      "artifacts/competence_repair/selected/plug/model.pt",
+      "--episodes",
+      "1024",
+      "--num-envs",
+      "128",
+      "--seed",
+      "91000",
+      "--split",
+      "test",
+      "--occlusion",
+      "clean",
+      "--audit-termination",
+      "--output",
+      "artifacts/competence_repair/selected/plug/reproduced-test.json"
+    ]
+  },
+  {
+    "task": "push",
+    "checkpoint": "artifacts/competence_repair/selected/push/model.pt",
+    "source": "artifacts/competence_repair/push_wall_ablation/model.pt",
+    "sha256": "3d69ac9af7e2f4218bfa734894b7239956227ee9eef8005b2c83c8b5429fe347",
+    "description": "Original fixed-camera seed2 learned weights with obsolete partition removed",
+    "test_report": "artifacts/competence_repair/push_wall_ablation/final-test.json",
+    "evaluate": [
+      ".venv/bin/python",
+      "-m",
+      "active_perception_arms.evaluate",
+      "artifacts/competence_repair/selected/push/model.pt",
+      "--episodes",
+      "1024",
+      "--num-envs",
+      "128",
+      "--seed",
+      "90000",
+      "--split",
+      "test",
+      "--occlusion",
+      "clean",
+      "--audit-termination",
+      "--output",
+      "artifacts/competence_repair/selected/push/reproduced-test.json"
+    ]
+  }
+]

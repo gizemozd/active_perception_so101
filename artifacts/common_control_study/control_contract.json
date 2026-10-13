@@ -1,0 +1,89 @@
+{
+  "scope": "pose_v1 active controls; task geometry and workspace centers intentionally differ",
+  "tasks": {
+    "plug": {
+      "action_dim": 8,
+      "translation_control": "delta",
+      "manip_delta_m": 0.005,
+      "camera_delta": [
+        0.01,
+        0.01,
+        0.01,
+        0.05,
+        0.05
+      ],
+      "control_hz": 25.0,
+      "image_shape": [
+        96,
+        128,
+        3
+      ],
+      "target_reference": "previous commanded world pose",
+      "camera_home": [
+        0.0,
+        0.19,
+        0.22,
+        -1.42,
+        0.837
+      ],
+      "camera_bounds": [
+        [
+          -0.05,
+          0.14,
+          0.175,
+          -1.8399999999999999,
+          0.567
+        ],
+        [
+          0.05,
+          0.24,
+          0.265,
+          -1.0,
+          1.107
+        ]
+      ]
+    },
+    "push": {
+      "action_dim": 8,
+      "translation_control": "delta",
+      "manip_delta_m": 0.005,
+      "camera_delta": [
+        0.01,
+        0.01,
+        0.01,
+        0.05,
+        0.05
+      ],
+      "control_hz": 25.0,
+      "image_shape": [
+        96,
+        128,
+        3
+      ],
+      "target_reference": "previous commanded world pose",
+      "camera_home": [
+        -0.119,
+        -0.187,
+        0.274,
+        1.0593031243665165,
+        0.7555092812749066
+      ],
+      "camera_bounds": [
+        [
+          -0.16899999999999998,
+          -0.237,
+          0.22900000000000004,
+          0.6393031243665166,
+          0.48550928127490656
+        ],
+        [
+          -0.06899999999999999,
+          -0.137,
+          0.319,
+          1.4793031243665165,
+          1.0255092812749065
+        ]
+      ]
+    }
+  }
+}

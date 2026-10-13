@@ -1,0 +1,11 @@
+{
+  "job_id": "51622754",
+  "status": "submitted",
+  "recorded_at": "2026-10-09T16:54:09.240416+00:00",
+  "stage": "smoke",
+  "wall_limit_minutes": 15,
+  "gpus": 1,
+  "manifest": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_repair/recipe-plan.json",
+  "manifest_sha256": "bb786e8dfa598c0ce04756762ee4af217dc361f533e859f1d9d1c7a4e64c55b2",
+  "prior_attempt": "attempts/smoke-51621445/outcome.json"
+}

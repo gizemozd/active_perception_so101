@@ -1,0 +1,7 @@
+{
+  "stopped_jobs": [
+    "52302847",
+    "52302848"
+  ],
+  "reason": "Direct DAgger held-out validation remains 1/256 (all variants) and 2/256 (YM) after 4,000 steps; preserve checkpoints and focus on target estimation with a calibrated motion controller."
+}

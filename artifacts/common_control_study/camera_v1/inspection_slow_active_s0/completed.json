@@ -1,0 +1,8 @@
+{
+  "selected_checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_slow_active_s0/logs/plug_active_dynamic_gru_v0_s0_n256_inspection_slow_active_s0_20261012T212437Z/model_199.pt",
+  "source_manifest": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/plan.json",
+  "results": {
+    "clean": 0.02734375,
+    "dynamic": 0.02734375
+  }
+}

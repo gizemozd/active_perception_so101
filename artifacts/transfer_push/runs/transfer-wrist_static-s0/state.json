@@ -1,0 +1,86 @@
+{
+  "run": {
+    "id": "transfer-wrist_static-s0",
+    "task": "transfer",
+    "condition": "wrist_static",
+    "seed": 0,
+    "fixed_view": 4
+  },
+  "status": "stopped_for_privileged_validation",
+  "evaluations": [],
+  "updates": 121,
+  "transitions": 5947392,
+  "allocations": [
+    {
+      "job_id": "51661708",
+      "started_utc": "2026-10-09T19:52:34.233388+00:00"
+    },
+    {
+      "job_id": "51663565",
+      "started_utc": "2026-10-09T20:03:53.574054+00:00"
+    },
+    {
+      "job_id": "51666215",
+      "started_utc": "2026-10-09T20:12:59.964375+00:00"
+    },
+    {
+      "job_id": "51666277",
+      "started_utc": "2026-10-09T20:13:12.635345+00:00"
+    }
+  ],
+  "updated_utc": "2026-10-09T20:13:12.717644+00:00",
+  "current_command": [
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "-m",
+    "active_perception_arms.train",
+    "--task",
+    "transfer",
+    "--condition",
+    "wrist_static",
+    "--seed",
+    "0",
+    "--num-envs",
+    "2048",
+    "--iterations",
+    "245",
+    "--occlusion",
+    "dynamic",
+    "--manip-control",
+    "cartesian",
+    "--task-revision",
+    "pick_place_v2",
+    "--reward-profile",
+    "transfer_dense",
+    "--reset-xy-jitter",
+    "0.02",
+    "--initial-std",
+    "1.0",
+    "--learning-rate",
+    "0.0003",
+    "--lr-schedule",
+    "adaptive",
+    "--entropy-coef",
+    "0.01",
+    "--memory",
+    "gru",
+    "--save-interval",
+    "1000",
+    "--fixed-view",
+    "4",
+    "--job-type",
+    "study",
+    "--run-label",
+    "transfer-push-billion-20261009",
+    "--log-root",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_push_billion/transfer-wrist_static-s0",
+    "--result",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/runs/transfer-wrist_static-s0/training.json",
+    "--resume",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_push_billion/transfer-wrist_static-s0/transfer_wrist_static_dynamic_gru_v4_s0_n2048_transfer-push-billion-20261009_20261009T195243Z/interrupted.pt"
+  ],
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_push_billion/transfer-wrist_static-s0/transfer_wrist_static_dynamic_gru_v4_s0_n2048_transfer-push-billion-20261009_20261009T195243Z/interrupted.pt",
+  "checkpoint_sha256": "40055b7b4751e196caf9adfef846b7a2c250c10a9b296070a68808e119f37b2f",
+  "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_push_billion/transfer-wrist_static-s0/transfer_wrist_static_dynamic_gru_v4_s0_n2048_transfer-push-billion-20261009_20261009T195243Z",
+  "shutdown_record": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/suspension.json",
+  "logged_transitions_before_final_stop": 11059200
+}

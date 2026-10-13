@@ -1,0 +1,265 @@
+{
+  "results": [
+    {
+      "report": "artifacts/competence_repair/plug_dense_ym_dynamic/final-clean-test.json",
+      "label": "Selected plug YM \u00b7 clean",
+      "short_label": "Selected\nclean",
+      "task": "plug",
+      "scope": "Occlusion-trained RGB estimator + prescribed motion; YM only;8s;test seed91000",
+      "training_seed": 0,
+      "test_seed": 91000,
+      "checkpoint_sha256": "c544e0c1a90100f65b6db40877ccda119f58dbeb21e8f1f87b9a6ded745969ca",
+      "representatives": "artifacts/competence_repair/plug_dense_ym_dynamic/final_clean_videos/representatives.json",
+      "sha256": "7b853c607ccd072984fb52362cb394ab18e1b5d5ac12467da9d151e2b8b052e3",
+      "episodes": 1024,
+      "successes": 920,
+      "rate": 89.84375,
+      "checkpoint": "artifacts/competence_repair/plug_dense_ym_dynamic/model_8000.pt",
+      "ci": [
+        87.8421465808645,
+        91.54752903469661
+      ],
+      "seed": 91000
+    },
+    {
+      "report": "artifacts/competence_repair/plug_dense_ym_dynamic/final-dynamic-test.json",
+      "label": "Selected plug YM \u00b7 moving occlusion",
+      "short_label": "Selected\nocclusion",
+      "task": "plug",
+      "scope": "Occlusion-trained RGB estimator + prescribed motion; YM only;8s;test seed91000",
+      "training_seed": 0,
+      "test_seed": 91000,
+      "checkpoint_sha256": "c544e0c1a90100f65b6db40877ccda119f58dbeb21e8f1f87b9a6ded745969ca",
+      "representatives": "artifacts/competence_repair/plug_dense_ym_dynamic/final_dynamic_videos/representatives.json",
+      "sha256": "343715a426cb9bfb4bc161323bc5a6ab0f81dda69fa68e1563883808ebe0999d",
+      "episodes": 1024,
+      "successes": 814,
+      "rate": 79.4921875,
+      "checkpoint": "artifacts/competence_repair/plug_dense_ym_dynamic/model_8000.pt",
+      "ci": [
+        76.91115246204421,
+        81.85277409653288
+      ],
+      "seed": 91000
+    },
+    {
+      "report": "artifacts/competence_repair/push_original/final-test.json",
+      "label": "Push \u00b7 original",
+      "short_label": "Original",
+      "task": "push",
+      "scope": "Original fixed-camera seed2; original partition and action bounds",
+      "training_seed": 2,
+      "checkpoint_sha256": "3d69ac9af7e2f4218bfa734894b7239956227ee9eef8005b2c83c8b5429fe347",
+      "sha256": "952293fd351189f0986791cb2bfb00fee65e71179f6ec59b516f5001883a2f9a",
+      "episodes": 1024,
+      "successes": 694,
+      "rate": 67.7734375,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_wrist_static_s2/push_wrist_static_clean_gru_v0_s2_n2048_push-rgb-arc120-20261009T233510Z_20261009T233614Z/model_20345.pt",
+      "ci": [
+        64.84916301073817,
+        70.56485895502684
+      ],
+      "seed": 90000
+    },
+    {
+      "report": "artifacts/competence_repair/push_wall_ablation/final-test.json",
+      "label": "Push \u00b7 partition removed",
+      "short_label": "Partition\nremoved",
+      "task": "push",
+      "scope": "Same weights; obsolete partition removed; original action bounds",
+      "training_seed": 2,
+      "checkpoint_sha256": "3d69ac9af7e2f4218bfa734894b7239956227ee9eef8005b2c83c8b5429fe347",
+      "representatives": "artifacts/competence_repair/push_wall_ablation/final_videos/representatives.json",
+      "sha256": "c5a8405c5248aec26e79281df04c93fb886e627fb1eee6d7f8047df794fba395",
+      "episodes": 1024,
+      "successes": 737,
+      "rate": 71.97265625,
+      "checkpoint": "artifacts/competence_repair/push_wall_ablation/model.pt",
+      "ci": [
+        69.14356556630962,
+        74.63750554521306
+      ],
+      "seed": 90000
+    },
+    {
+      "report": "artifacts/competence_repair/plug_dense_ym/final-test.json",
+      "label": "Initial Plug YM \u00b7 clean",
+      "short_label": "Initial\nclean",
+      "task": "plug",
+      "scope": "YM only; trained RGB estimator + prescribed motion; 8 seconds",
+      "training_seed": 0,
+      "checkpoint_sha256": "95a08ff4201993bdaafd23acf45f0c046b6892d7ef3a0002a3f1f879f5de3682",
+      "representatives": "artifacts/competence_repair/plug_dense_ym/final_videos/representatives.json",
+      "sha256": "959ad8d34a322caa31ef5a55305f837969ea042425d0006aad332c9e825ca51f",
+      "episodes": 1024,
+      "successes": 890,
+      "rate": 86.9140625,
+      "checkpoint": "artifacts/competence_repair/plug_dense_ym/model_6000.pt",
+      "ci": [
+        84.7097557046534,
+        88.84244376270468
+      ],
+      "seed": 90000
+    },
+    {
+      "report": "artifacts/competence_repair/plug_dense_ym/final-dynamic-test.json",
+      "label": "Initial Plug YM \u00b7 moving occlusion",
+      "short_label": "Initial\nocclusion",
+      "task": "plug",
+      "scope": "Same frozen YM model; moving occlusion robustness test",
+      "training_seed": 0,
+      "checkpoint_sha256": "95a08ff4201993bdaafd23acf45f0c046b6892d7ef3a0002a3f1f879f5de3682",
+      "representatives": "artifacts/competence_repair/plug_dense_ym/dynamic_videos/representatives.json",
+      "sha256": "883fc3196f1e7a78f551eebda05b14b63ad45178f167cf5bbb5941847d8b0319",
+      "episodes": 1024,
+      "successes": 420,
+      "rate": 41.015625,
+      "checkpoint": "artifacts/competence_repair/plug_dense_ym/model_6000.pt",
+      "ci": [
+        38.04205207870545,
+        44.0563544001386
+      ],
+      "seed": 90000
+    }
+  ],
+  "push_population": {
+    "aggregates": [
+      {
+        "condition": "wrist",
+        "original_mean": 60.7421875,
+        "clear_mean": 63.151041666666664,
+        "original_sd": 9.204587240584514,
+        "clear_sd": 10.058751768580786,
+        "gain_pp": 2.4088541666666643
+      },
+      {
+        "condition": "wrist_static",
+        "original_mean": 65.49479166666667,
+        "clear_mean": 68.1640625,
+        "original_sd": 1.7614256846964431,
+        "clear_sd": 2.890361052138426,
+        "gain_pp": 2.6692708333333286
+      },
+      {
+        "condition": "active",
+        "original_mean": 56.640625,
+        "clear_mean": 61.067708333333336,
+        "original_sd": 6.984982321190494,
+        "clear_sd": 8.527651818664067,
+        "gain_pp": 4.427083333333336
+      }
+    ],
+    "pairs": [
+      {
+        "condition": "wrist",
+        "seed": 0,
+        "episodes": 512,
+        "original_successes": 262,
+        "clear_successes": 267,
+        "gained": 73,
+        "lost": 68,
+        "original_report": "artifacts/competence_repair/push_population/push_wrist_s0/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_wrist_s0/clear/final-test.json"
+      },
+      {
+        "condition": "wrist",
+        "seed": 1,
+        "episodes": 512,
+        "original_successes": 315,
+        "clear_successes": 335,
+        "gained": 64,
+        "lost": 44,
+        "original_report": "artifacts/competence_repair/push_population/push_wrist_s1/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_wrist_s1/clear/final-test.json"
+      },
+      {
+        "condition": "wrist",
+        "seed": 2,
+        "episodes": 512,
+        "original_successes": 356,
+        "clear_successes": 368,
+        "gained": 49,
+        "lost": 37,
+        "original_report": "artifacts/competence_repair/push_population/push_wrist_s2/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_wrist_s2/clear/final-test.json"
+      },
+      {
+        "condition": "wrist_static",
+        "seed": 0,
+        "episodes": 512,
+        "original_successes": 336,
+        "clear_successes": 339,
+        "gained": 64,
+        "lost": 61,
+        "original_report": "artifacts/competence_repair/push_population/push_wrist_static_s0/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_wrist_static_s0/clear/final-test.json"
+      },
+      {
+        "condition": "wrist_static",
+        "seed": 1,
+        "episodes": 512,
+        "original_successes": 326,
+        "clear_successes": 342,
+        "gained": 67,
+        "lost": 51,
+        "original_report": "artifacts/competence_repair/push_population/push_wrist_static_s1/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_wrist_static_s1/clear/final-test.json"
+      },
+      {
+        "condition": "wrist_static",
+        "seed": 2,
+        "episodes": 512,
+        "original_successes": 344,
+        "clear_successes": 366,
+        "gained": 65,
+        "lost": 43,
+        "original_report": "artifacts/competence_repair/push_population/push_wrist_static_s2/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_wrist_static_s2/clear/final-test.json"
+      },
+      {
+        "condition": "active",
+        "seed": 0,
+        "episodes": 512,
+        "original_successes": 328,
+        "clear_successes": 354,
+        "gained": 80,
+        "lost": 54,
+        "original_report": "artifacts/competence_repair/push_population/push_active_s0/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_active_s0/clear/final-test.json"
+      },
+      {
+        "condition": "active",
+        "seed": 1,
+        "episodes": 512,
+        "original_successes": 285,
+        "clear_successes": 317,
+        "gained": 91,
+        "lost": 59,
+        "original_report": "artifacts/competence_repair/push_population/push_active_s1/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_active_s1/clear/final-test.json"
+      },
+      {
+        "condition": "active",
+        "seed": 2,
+        "episodes": 512,
+        "original_successes": 257,
+        "clear_successes": 267,
+        "gained": 85,
+        "lost": 75,
+        "original_report": "artifacts/competence_repair/push_population/push_active_s2/original/final-test.json",
+        "clear_report": "artifacts/competence_repair/push_population/push_active_s2/clear/final-test.json"
+      }
+    ],
+    "episodes_per_environment": 4608,
+    "overall_original_rate": 60.959201388888886,
+    "overall_clear_rate": 64.12760416666667
+  },
+  "plots": [
+    "repair_success",
+    "repair_validation",
+    "repair_push_workspace",
+    "repair_push_population"
+  ],
+  "selection": "artifacts/competence_repair/report_selection.json",
+  "media_examples": 10
+}

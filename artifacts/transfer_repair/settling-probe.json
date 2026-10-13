@@ -1,0 +1,33 @@
+{
+  "trace": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/gpu-final/seed-10001/capture/nominal_failure_episode26.npz",
+  "cases": [
+    {
+      "case": "current",
+      "linear_max": 0.019358962774276733,
+      "angular_max": 4.0844057366484776e-05,
+      "angular_mean": 3.83081023755949e-05,
+      "settled_fraction": 1.0
+    },
+    {
+      "case": "iterations100",
+      "linear_max": 0.019358962774276733,
+      "angular_max": 4.0844057366484776e-05,
+      "angular_mean": 3.83081023755949e-05,
+      "settled_fraction": 1.0
+    },
+    {
+      "case": "timestep1ms",
+      "linear_max": 0.009029350243508816,
+      "angular_max": 0.216284841299057,
+      "angular_mean": 0.0038155538495630026,
+      "settled_fraction": 1.0
+    },
+    {
+      "case": "rolling5x",
+      "linear_max": 0.008828495629131794,
+      "angular_max": 3.109489261987619e-05,
+      "angular_mean": 2.8320186174823903e-05,
+      "settled_fraction": 1.0
+    }
+  ]
+}

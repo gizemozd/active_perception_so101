@@ -1,0 +1,30 @@
+{
+  "checkpoint": "artifacts/competence_repair/plug_dense_ym_dynamic/model_8000.pt",
+  "sha256": "c544e0c1a90100f65b6db40877ccda119f58dbeb21e8f1f87b9a6ded745969ca",
+  "selected_step": 8000,
+  "selection_rule": "Highest dynamic validation success among checkpoints with clean validation >=80%; ties prefer clean success then earlier step.",
+  "validation_candidates": [
+    [
+      0.53515625,
+      0.82421875,
+      -2000
+    ],
+    [
+      0.62109375,
+      0.87890625,
+      -4000
+    ],
+    [
+      0.7265625,
+      0.8515625,
+      -6000
+    ],
+    [
+      0.76953125,
+      0.87890625,
+      -8000
+    ]
+  ],
+  "test_seed": 91000,
+  "rationale_for_new_seed": "Seed90000 exposed the original occlusion weakness;91000 reserved for the updated model."
+}

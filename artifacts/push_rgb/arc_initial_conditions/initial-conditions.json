@@ -1,0 +1,173 @@
+{
+  "experiment": {
+    "task": "push",
+    "condition": "wrist_static",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 1,
+    "width": 96,
+    "height": 72,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 12.0,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "manip_control": "cartesian",
+    "reset_xy_jitter": 0.02,
+    "fixed_position": [
+      -0.119,
+      -0.187,
+      0.274
+    ],
+    "fixed_lookat": [
+      0.0,
+      0.025,
+      0.045
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "actor_observation": "rgb",
+    "memory": "gru",
+    "policy_profile": "compact",
+    "plug_wrist_yaw": false,
+    "plug_control": "absolute",
+    "plug_variant": null,
+    "task_revision": "push_v2",
+    "success_state_sample": "current_qpos",
+    "reward_profile": "push_dense",
+    "occlusion_revision": null,
+    "push_visibility_revision": "crossbar_v3",
+    "push_target_layout": "arc_v2",
+    "dynamic_onset_range": null,
+    "dynamic_duration_range": null,
+    "dynamic_center": null,
+    "dynamic_center_jitter": null,
+    "dynamic_travel_range": null,
+    "dynamic_panel_half_size": null,
+    "dynamic_panel_yaw": null
+  },
+  "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/src",
+  "samples": [
+    {
+      "seed": 40000,
+      "target_xyz_m": [
+        0.02761578440158598,
+        0.0026479366574399046,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.03092366990665286,
+        -0.048698347416490595,
+        0.009
+      ]
+    },
+    {
+      "seed": 40001,
+      "target_xyz_m": [
+        -0.03136597734149046,
+        0.05692112182870597,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.01806831132769461,
+        -0.06161801951006937,
+        0.009
+      ]
+    },
+    {
+      "seed": 40002,
+      "target_xyz_m": [
+        0.07338122281377539,
+        0.0018682527954777435,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.040419382506957174,
+        -0.02731392127214723,
+        0.009
+      ]
+    },
+    {
+      "seed": 40003,
+      "target_xyz_m": [
+        0.008328289821509183,
+        0.013440612952489505,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.033307131975273296,
+        -0.02613517636055641,
+        0.009
+      ]
+    },
+    {
+      "seed": 40004,
+      "target_xyz_m": [
+        -0.07701422863573251,
+        -0.010008886708721854,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.01856536962768116,
+        -0.04270829238709296,
+        0.009
+      ]
+    },
+    {
+      "seed": 40005,
+      "target_xyz_m": [
+        -0.05733745603806528,
+        0.048801926999762116,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.03728408070956239,
+        -0.04811481239264789,
+        0.009
+      ]
+    },
+    {
+      "seed": 40006,
+      "target_xyz_m": [
+        -0.11205549771211867,
+        0.051333469654347354,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.03216787585503323,
+        -0.03474655091312926,
+        0.009
+      ]
+    },
+    {
+      "seed": 40007,
+      "target_xyz_m": [
+        0.014802654084977489,
+        0.04121391660310151,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.01564328648452481,
+        -0.04427759436470991,
+        0.009
+      ]
+    },
+    {
+      "seed": 40008,
+      "target_xyz_m": [
+        -0.07269101387407985,
+        0.01174267566432409,
+        0.009
+      ],
+      "object_xyz_m": [
+        -0.04400662838957498,
+        -0.03229908957431109,
+        0.009
+      ]
+    }
+  ],
+  "camera": "overhead observer with optical crossbar hidden; not a policy input",
+  "sampling": "Native NumPy resets from the same uniform distribution; not bitwise Warp reset seeds"
+}

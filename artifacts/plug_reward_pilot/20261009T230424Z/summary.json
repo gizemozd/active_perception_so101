@@ -1,0 +1,115 @@
+{
+  "built_at": "2026-10-09T23:14:30.899564+00:00",
+  "updates": 100,
+  "transitions": 1228800,
+  "target_transitions": 1228800,
+  "windows": {
+    "episode_return": {
+      "first10": -143.2080534362793,
+      "last10": -49.766021278381345,
+      "first_window_updates": [
+        4,
+        13
+      ],
+      "last_window_updates": [
+        91,
+        100
+      ]
+    },
+    "terminal_distance_m": {
+      "first10": 0.055350978299975394,
+      "last10": 0.026475197076797484,
+      "first_window_updates": [
+        4,
+        13
+      ],
+      "last_window_updates": [
+        91,
+        100
+      ]
+    }
+  },
+  "reward_increased": true,
+  "evaluations": [
+    {
+      "updates": 1,
+      "transitions": 12288,
+      "successes": 0,
+      "episodes": 128,
+      "per_variant": {
+        "xm": {
+          "episodes": 32,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 32,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 32,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 32,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "mean_terminal_error_mm": 38.795047912572045,
+      "median_terminal_error_mm": 38.42592611908913,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_reward_pilot/20261009T230424Z/plug_wrist_static_clean_gru_v7_s0_n512_insertion_reward_100_20261009T230447Z/model_0.pt",
+      "checkpoint_sha256": "6fd32fe68ba927e0c570475eae6f24232d67d92d29baa8efeebea0a22c21354b",
+      "physical_success_violations": 0
+    },
+    {
+      "updates": 100,
+      "transitions": 1228800,
+      "successes": 2,
+      "episodes": 128,
+      "per_variant": {
+        "xm": {
+          "episodes": 32,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 32,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 32,
+          "successes": 1,
+          "success_rate": 0.03125
+        },
+        "yp": {
+          "episodes": 32,
+          "successes": 1,
+          "success_rate": 0.03125
+        }
+      },
+      "mean_terminal_error_mm": 23.75659955032461,
+      "median_terminal_error_mm": 22.20014948397875,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_reward_pilot/20261009T230424Z/plug_wrist_static_clean_gru_v7_s0_n512_insertion_reward_100_20261009T230447Z/model_99.pt",
+      "checkpoint_sha256": "41d057fa81ae270d27d9a191021ba520c21cdf23e7033de5b3d38b388b2b4126",
+      "physical_success_violations": 0
+    }
+  ],
+  "matched_evaluation_initial_states": true,
+  "updates_with_logged_held_success": [
+    69,
+    73,
+    80,
+    85,
+    86,
+    95,
+    98,
+    99,
+    100
+  ],
+  "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_reward_pilot/20261009T230424Z/plug_wrist_static_clean_gru_v7_s0_n512_insertion_reward_100_20261009T230447Z",
+  "limitations": "One seed, short pilot; training return includes instantaneous +1000 bonuses. Training terminal-distance and success metrics average reset batches unevenly; no training episode success rate is inferred. Success evaluation requires three held samples. First checkpoint has one PPO update, not zero. Reward trend is descriptive and does not establish task competence."
+}

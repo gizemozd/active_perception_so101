@@ -1,0 +1,20 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=ALL",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "--job-name=state-transfer",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/privileged-diagnostic-20261009T201024Z/scripts/slurm/privileged_diagnostic.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/privileged-diagnostic-20261009T201024Z/scripts/run_privileged_diagnostic.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/plan.json",
+    "transfer"
+  ],
+  "job_id": "51665235",
+  "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/privileged-diagnostic-20261009T201024Z",
+  "created_utc": "2026-10-09T20:10:27.346206+00:00"
+}

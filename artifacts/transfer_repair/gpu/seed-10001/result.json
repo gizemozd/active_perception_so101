@@ -1,0 +1,3140 @@
+{
+  "sampling": "After termination_manager.compute(), before reward/reset/forward; no physics or random-state changes.",
+  "episodes": 64,
+  "terminal_flags": {
+    "success": 61,
+    "failure": 0,
+    "timeout": 3
+  },
+  "max_derived_to_qpos_displacement_m": 3.496124190860428e-05,
+  "success_hold_violations": 0,
+  "success_transfer_violations": 0,
+  "success_distance_violations": null,
+  "success_three_sample_violations": null,
+  "success_qpos_above_distance_threshold": null,
+  "success_orientation_violations": null,
+  "mean_terminal_position_error_m": 0.002665845126102795,
+  "mean_success_terminal_position_error_m": 0.0026493242953247466,
+  "records": [
+    {
+      "manager_position_error_m": 0.0024156987201422453,
+      "derived_position_error_m": 0.002415701746940613,
+      "qpos_position_error_m": 0.0024156987201422453,
+      "derived_to_qpos_displacement_m": 5.26835597369768e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002415820024907589,
+        0.0024157592561095953,
+        0.0024156987201422453
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.037164658308029175,
+        0.04592200741171837,
+        0.07488825917243958
+      ],
+      "physical_object_position": [
+        0.03280727192759514,
+        0.053344085812568665,
+        0.05796382203698158
+      ],
+      "physical_goal_position": [
+        0.030885174870491028,
+        0.0548069030046463,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.0723712369799614,
+      "linear_speed": 3.4444294669810915e-06,
+      "angular_speed": 0.00017189676873385906,
+      "index": 1,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.05416488647461
+    },
+    {
+      "manager_position_error_m": 0.0019390106899663806,
+      "derived_position_error_m": 0.0019390087109059095,
+      "qpos_position_error_m": 0.0019390106899663806,
+      "derived_to_qpos_displacement_m": 5.26835597369768e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.00193893164396286,
+        0.0019389711087569594,
+        0.0019390106899663806
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.039662763476371765,
+        0.04998944699764252,
+        0.07561765611171722
+      ],
+      "physical_object_position": [
+        0.024114437401294708,
+        0.05561046302318573,
+        0.057960860431194305
+      ],
+      "physical_goal_position": [
+        0.023041604086756706,
+        0.05722516402602196,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06641452759504318,
+      "linear_speed": 3.3684489153529285e-06,
+      "angular_speed": 0.00015995334251783788,
+      "index": 17,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.060245513916016
+    },
+    {
+      "manager_position_error_m": 0.0026470923330634832,
+      "derived_position_error_m": 0.0026470960583537817,
+      "qpos_position_error_m": 0.0026470923330634832,
+      "derived_to_qpos_displacement_m": 5.587935447692871e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0026472408790141344,
+        0.002647166606038809,
+        0.0026470923330634832
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03721727430820465,
+        0.041280120611190796,
+        0.0747797042131424
+      ],
+      "physical_object_position": [
+        0.030911341309547424,
+        0.0480143278837204,
+        0.057963691651821136
+      ],
+      "physical_goal_position": [
+        0.02873210236430168,
+        0.04951655864715576,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07049564272165298,
+      "linear_speed": 3.2879459013201995e-06,
+      "angular_speed": 0.00014856144844088703,
+      "index": 18,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.056678771972656
+    },
+    {
+      "manager_position_error_m": 0.002569871488958597,
+      "derived_position_error_m": 0.002569870324805379,
+      "qpos_position_error_m": 0.002569871488958597,
+      "derived_to_qpos_displacement_m": 5.587935447692871e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0025698363315314054,
+        0.0025698537938296795,
+        0.002569871488958597
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04061494767665863,
+        0.05108872801065445,
+        0.07584744691848755
+      ],
+      "physical_object_position": [
+        0.022116897627711296,
+        0.055983878672122955,
+        0.057961080223321915
+      ],
+      "physical_goal_position": [
+        0.020135920494794846,
+        0.05762047693133354,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06541535258293152,
+      "linear_speed": 3.141913794024731e-06,
+      "angular_speed": 0.00012137497833464295,
+      "index": 19,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.03460693359375
+    },
+    {
+      "manager_position_error_m": 0.0025312164798378944,
+      "derived_position_error_m": 0.0025312132202088833,
+      "qpos_position_error_m": 0.0025312164798378944,
+      "derived_to_qpos_displacement_m": 5.26835597369768e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0025310968048870564,
+        0.0025311566423624754,
+        0.0025312164798378944
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.038836389780044556,
+        0.04208790510892868,
+        0.07512764632701874
+      ],
+      "physical_object_position": [
+        0.0248390045017004,
+        0.04775770381093025,
+        0.05796438828110695
+      ],
+      "physical_goal_position": [
+        0.022761529311537743,
+        0.04920334741473198,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06619124114513397,
+      "linear_speed": 3.450097210588865e-06,
+      "angular_speed": 0.00016997357306536287,
+      "index": 25,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.04092788696289
+    },
+    {
+      "manager_position_error_m": 0.0024710746947675943,
+      "derived_position_error_m": 0.0024723419919610023,
+      "qpos_position_error_m": 0.0024710746947675943,
+      "derived_to_qpos_displacement_m": 1.8967581127071753e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0024602122139185667,
+        0.0024600569158792496,
+        0.0024710746947675943
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.038898766040802,
+        0.04934968426823616,
+        0.07548004388809204
+      ],
+      "physical_object_position": [
+        0.027414308860898018,
+        0.05577349662780762,
+        0.057900186628103256
+      ],
+      "physical_goal_position": [
+        0.025331271812319756,
+        0.05709909275174141,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.068903848528862,
+      "linear_speed": 0.00948377326130867,
+      "angular_speed": 0.17757456004619598,
+      "index": 31,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.043087005615234
+    },
+    {
+      "manager_position_error_m": 0.00285326037555933,
+      "derived_position_error_m": 0.0028532554861158133,
+      "qpos_position_error_m": 0.00285326037555933,
+      "derived_to_qpos_displacement_m": 9.125060707049215e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0028530533891171217,
+        0.0028531569987535477,
+        0.00285326037555933
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.036724627017974854,
+        0.04281789809465408,
+        0.07466931641101837
+      ],
+      "physical_object_position": [
+        0.03365330025553703,
+        0.0498550720512867,
+        0.05797022953629494
+      ],
+      "physical_goal_position": [
+        0.031430117785930634,
+        0.05164327472448349,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07267347723245621,
+      "linear_speed": 3.577554252842674e-06,
+      "angular_speed": 0.0001852167770266533,
+      "index": 33,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.056365966796875
+    },
+    {
+      "manager_position_error_m": 0.003064617281779647,
+      "derived_position_error_m": 0.0030549485236406326,
+      "qpos_position_error_m": 0.003064617281779647,
+      "derived_to_qpos_displacement_m": 2.3760283511364833e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0029174447990953922,
+        0.0029643091838806868,
+        0.003064617281779647
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03990888595581055,
+        0.04575200378894806,
+        0.07552662491798401
+      ],
+      "physical_object_position": [
+        0.02241624891757965,
+        0.0506153367459774,
+        0.05695513263344765
+      ],
+      "physical_goal_position": [
+        0.020054064691066742,
+        0.05226464569568634,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06521483510732651,
+      "linear_speed": 0.011879943311214447,
+      "angular_speed": 0.1173195019364357,
+      "index": 36,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.03325653076172
+    },
+    {
+      "manager_position_error_m": 0.002227255143225193,
+      "derived_position_error_m": 0.0022282979916781187,
+      "qpos_position_error_m": 0.002227255143225193,
+      "derived_to_qpos_displacement_m": 1.7531449429952772e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0022177898790687323,
+        0.0022177433129400015,
+        0.002227255143225193
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.040122389793395996,
+        0.045267634093761444,
+        0.07558698952198029
+      ],
+      "physical_object_position": [
+        0.02039828523993492,
+        0.05010165646672249,
+        0.05785556882619858
+      ],
+      "physical_goal_position": [
+        0.018628092482686043,
+        0.0514456145465374,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06324969232082367,
+      "linear_speed": 0.0008755156886763871,
+      "angular_speed": 0.07571832090616226,
+      "index": 44,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.050891876220703
+    },
+    {
+      "manager_position_error_m": 0.002801446244120598,
+      "derived_position_error_m": 0.0028019926976412535,
+      "qpos_position_error_m": 0.002801446244120598,
+      "derived_to_qpos_displacement_m": 1.618624651200662e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0027941043954342604,
+        0.002794116735458374,
+        0.002801446244120598
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03732386231422424,
+        0.04530305042862892,
+        0.07493126392364502
+      ],
+      "physical_object_position": [
+        0.032101526856422424,
+        0.05222634598612785,
+        0.05785847455263138
+      ],
+      "physical_goal_position": [
+        0.029884319752454758,
+        0.05393282324075699,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07182824611663818,
+      "linear_speed": 0.0008081728010438383,
+      "angular_speed": 0.04444512724876404,
+      "index": 49,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.043682098388672
+    },
+    {
+      "manager_position_error_m": 0.00406110193580389,
+      "derived_position_error_m": 0.004061104729771614,
+      "qpos_position_error_m": 0.00406110193580389,
+      "derived_to_qpos_displacement_m": 3.725290298461914e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0040612248703837395,
+        0.0040611629374325275,
+        0.00406110193580389
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03704480826854706,
+        0.048571426421403885,
+        0.07498396933078766
+      ],
+      "physical_object_position": [
+        0.03557782620191574,
+        0.0555797703564167,
+        0.057953909039497375
+      ],
+      "physical_goal_position": [
+        0.03225744515657425,
+        0.05791760981082916,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07492120563983917,
+      "linear_speed": 1.4314750842459034e-06,
+      "angular_speed": 9.194282029056922e-05,
+      "index": 51,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.040863037109375
+    },
+    {
+      "manager_position_error_m": 0.002055131131783128,
+      "derived_position_error_m": 0.0020551299676299095,
+      "qpos_position_error_m": 0.002055131131783128,
+      "derived_to_qpos_displacement_m": 1.862645149230957e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0020550787448883057,
+        0.0020551050547510386,
+        0.002055131131783128
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.0401294082403183,
+        0.04754035174846649,
+        0.0756177306175232
+      ],
+      "physical_object_position": [
+        0.021663052961230278,
+        0.05267728865146637,
+        0.05795564129948616
+      ],
+      "physical_goal_position": [
+        0.020148873329162598,
+        0.05406612157821655,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06447205692529678,
+      "linear_speed": 1.6205347037612228e-06,
+      "angular_speed": 0.0001116264465963468,
+      "index": 57,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.0561466217041
+    },
+    {
+      "manager_position_error_m": 0.0028066968079656363,
+      "derived_position_error_m": 0.002815413288772106,
+      "qpos_position_error_m": 0.0028066968079656363,
+      "derived_to_qpos_displacement_m": 3.4428827348165214e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002923310734331608,
+        0.003151597222313285,
+        0.0028066968079656363
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03638477623462677,
+        0.0398893728852272,
+        0.07446002960205078
+      ],
+      "physical_object_position": [
+        0.034092385321855545,
+        0.047353070229291916,
+        0.056960579007864
+      ],
+      "physical_goal_position": [
+        0.031828299164772034,
+        0.04864576831459999,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07299977540969849,
+      "linear_speed": 0.01721506007015705,
+      "angular_speed": 0.33721286058425903,
+      "index": 61,
+      "steps": 136,
+      "stage": 7,
+      "episode_return": 17.03369903564453
+    },
+    {
+      "manager_position_error_m": 0.003109243931248784,
+      "derived_position_error_m": 0.0031092436984181404,
+      "qpos_position_error_m": 0.003109243931248784,
+      "derived_to_qpos_displacement_m": 6.4523919540704355e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0031092443969100714,
+        0.0031092441640794277,
+        0.003109243931248784
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.038071975111961365,
+        0.05349113047122955,
+        0.07546328008174896
+      ],
+      "physical_object_position": [
+        0.03260592743754387,
+        0.060530323535203934,
+        0.05797039717435837
+      ],
+      "physical_goal_position": [
+        0.03042442910373211,
+        0.06274563074111938,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07314996421337128,
+      "linear_speed": 3.556696128725889e-06,
+      "angular_speed": 0.00018439126142766327,
+      "index": 6,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.96242332458496
+    },
+    {
+      "manager_position_error_m": 0.0024125927593559027,
+      "derived_position_error_m": 0.0024125948548316956,
+      "qpos_position_error_m": 0.0024125927593559027,
+      "derived_to_qpos_displacement_m": 5.26835597369768e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0024126817006617785,
+        0.0024126372300088406,
+        0.0024125927593559027
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.0403527170419693,
+        0.04886377975344658,
+        0.07572333514690399
+      ],
+      "physical_object_position": [
+        0.02188534289598465,
+        0.053936414420604706,
+        0.05796556919813156
+      ],
+      "physical_goal_position": [
+        0.019913792610168457,
+        0.05532652512192726,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06492030620574951,
+      "linear_speed": 3.5325851968082134e-06,
+      "angular_speed": 0.00018169093527831137,
+      "index": 10,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.961666107177734
+    },
+    {
+      "manager_position_error_m": 0.0017844690009951591,
+      "derived_position_error_m": 0.0017844752874225378,
+      "qpos_position_error_m": 0.0017844690009951591,
+      "derived_to_qpos_displacement_m": 1.8630176157330425e-07,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.001785677275620401,
+        0.001784691819921136,
+        0.0017844690009951591
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.039447665214538574,
+        0.04572026804089546,
+        0.07536640763282776
+      ],
+      "physical_object_position": [
+        0.023455746471881866,
+        0.05157195031642914,
+        0.057962000370025635
+      ],
+      "physical_goal_position": [
+        0.022071734070777893,
+        0.05269773676991463,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06552857905626297,
+      "linear_speed": 9.36561482376419e-05,
+      "angular_speed": 0.00017495729844085872,
+      "index": 20,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.987218856811523
+    },
+    {
+      "manager_position_error_m": 0.001892176573164761,
+      "derived_position_error_m": 0.001892182044684887,
+      "qpos_position_error_m": 0.001892176573164761,
+      "derived_to_qpos_displacement_m": 9.125060707049215e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0018923921743407845,
+        0.0018922841409221292,
+        0.001892176573164761
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.041906073689460754,
+        0.04021007940173149,
+        0.07919245958328247
+      ],
+      "physical_object_position": [
+        0.02104325406253338,
+        0.045960161834955215,
+        0.05796996131539345
+      ],
+      "physical_goal_position": [
+        0.01979943737387657,
+        0.047385767102241516,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06667890399694443,
+      "linear_speed": 3.974625542468857e-06,
+      "angular_speed": 0.00018584419740363955,
+      "index": 21,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.928123474121094
+    },
+    {
+      "manager_position_error_m": 0.0025996367912739515,
+      "derived_position_error_m": 0.0025996356271207333,
+      "qpos_position_error_m": 0.0025996367912739515,
+      "derived_to_qpos_displacement_m": 1.862645149230957e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002599589293822646,
+        0.002599613042548299,
+        0.0025996367912739515
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04007391631603241,
+        0.039980046451091766,
+        0.07882459461688995
+      ],
+      "physical_object_position": [
+        0.029307126998901367,
+        0.04667351767420769,
+        0.05795011296868324
+      ],
+      "physical_goal_position": [
+        0.027598582208156586,
+        0.048632215708494186,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07276177406311035,
+      "linear_speed": 1.0857336292247055e-06,
+      "angular_speed": 4.873227226198651e-05,
+      "index": 23,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.909069061279297
+    },
+    {
+      "manager_position_error_m": 0.002299109473824501,
+      "derived_position_error_m": 0.0022991043515503407,
+      "qpos_position_error_m": 0.002299109473824501,
+      "derived_to_qpos_displacement_m": 9.125060707049215e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0022989052813500166,
+        0.002299007261171937,
+        0.002299109473824501
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04094618558883667,
+        0.050374649465084076,
+        0.0759308934211731
+      ],
+      "physical_object_position": [
+        0.019456053152680397,
+        0.05447258800268173,
+        0.05796855688095093
+      ],
+      "physical_goal_position": [
+        0.018156707286834717,
+        0.05636906251311302,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06314957141876221,
+      "linear_speed": 3.4734630389721133e-06,
+      "angular_speed": 0.00017142292927019298,
+      "index": 26,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.981311798095703
+    },
+    {
+      "manager_position_error_m": 0.0032728363294154406,
+      "derived_position_error_m": 0.0032683906611055136,
+      "qpos_position_error_m": 0.0032728363294154406,
+      "derived_to_qpos_displacement_m": 1.2903883543913253e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.003365968819707632,
+        0.0033000109251588583,
+        0.0032728363294154406
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04057750105857849,
+        0.04867136478424072,
+        0.07575723528862
+      ],
+      "physical_object_position": [
+        0.021366124972701073,
+        0.05272551253437996,
+        0.05770605802536011
+      ],
+      "physical_goal_position": [
+        0.018932873383164406,
+        0.05489446222782135,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06464745849370956,
+      "linear_speed": 0.0064520756714046,
+      "angular_speed": 0.23226967453956604,
+      "index": 27,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.946613311767578
+    },
+    {
+      "manager_position_error_m": 0.0022532138973474503,
+      "derived_position_error_m": 0.0022532169241458178,
+      "qpos_position_error_m": 0.0022532138973474503,
+      "derived_to_qpos_displacement_m": 5.26835597369768e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0022533307783305645,
+        0.002253272570669651,
+        0.0022532138973474503
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03818228840827942,
+        0.051296547055244446,
+        0.07539482414722443
+      ],
+      "physical_object_position": [
+        0.030818993225693703,
+        0.058618802577257156,
+        0.057962555438280106
+      ],
+      "physical_goal_position": [
+        0.029096683487296104,
+        0.06007111817598343,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07154492288827896,
+      "linear_speed": 3.56166492565535e-06,
+      "angular_speed": 0.00018554025155026466,
+      "index": 32,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.973501205444336
+    },
+    {
+      "manager_position_error_m": 0.0024251763243228197,
+      "derived_position_error_m": 0.002425741171464324,
+      "qpos_position_error_m": 0.0024251763243228197,
+      "derived_to_qpos_displacement_m": 3.582172666938277e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002419515047222376,
+        0.0024194514844566584,
+        0.0024251763243228197
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03891706466674805,
+        0.0483480840921402,
+        0.07544153928756714
+      ],
+      "physical_object_position": [
+        0.026780830696225166,
+        0.05459657311439514,
+        0.057868942618370056
+      ],
+      "physical_goal_position": [
+        0.024759722873568535,
+        0.055930525064468384,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06829387694597244,
+      "linear_speed": 0.0017903806874528527,
+      "angular_speed": 0.019085463136434555,
+      "index": 37,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.972503662109375
+    },
+    {
+      "manager_position_error_m": 0.002252614591270685,
+      "derived_position_error_m": 0.002252609468996525,
+      "qpos_position_error_m": 0.002252614591270685,
+      "derived_to_qpos_displacement_m": 9.125060707049215e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0022524073719978333,
+        0.002252511214464903,
+        0.002252614591270685
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04081431031227112,
+        0.05236447602510452,
+        0.07593728601932526
+      ],
+      "physical_object_position": [
+        0.02159174159169197,
+        0.05723291262984276,
+        0.0579710379242897
+      ],
+      "physical_goal_position": [
+        0.020068945363163948,
+        0.058892589062452316,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06512298434972763,
+      "linear_speed": 3.5956290957983583e-06,
+      "angular_speed": 0.0001875686430139467,
+      "index": 40,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.9805850982666
+    },
+    {
+      "manager_position_error_m": 0.002038889564573765,
+      "derived_position_error_m": 0.0020388890989124775,
+      "qpos_position_error_m": 0.002038889564573765,
+      "derived_to_qpos_displacement_m": 1.2355390488494322e-08,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0020388849079608917,
+        0.002038880717009306,
+        0.002038889564573765
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03984525799751282,
+        0.046226777136325836,
+        0.0755133181810379
+      ],
+      "physical_object_position": [
+        0.022245002910494804,
+        0.05164526402950287,
+        0.05796772986650467
+      ],
+      "physical_goal_position": [
+        0.020613333210349083,
+        0.052867427468299866,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06474880874156952,
+      "linear_speed": 6.5127537709486205e-06,
+      "angular_speed": 0.0001686599716776982,
+      "index": 46,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.98336410522461
+    },
+    {
+      "manager_position_error_m": 0.0025911720003932714,
+      "derived_position_error_m": 0.0025912162382155657,
+      "qpos_position_error_m": 0.0025911720003932714,
+      "derived_to_qpos_displacement_m": 2.007938292081235e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002591713797301054,
+        0.002593011362478137,
+        0.0025911720003932714
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03899642825126648,
+        0.04930223152041435,
+        0.07549875974655151
+      ],
+      "physical_object_position": [
+        0.027193628251552582,
+        0.05573262274265289,
+        0.05793742462992668
+      ],
+      "physical_goal_position": [
+        0.024904349818825722,
+        0.0569448359310627,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06878134608268738,
+      "linear_speed": 0.0010043997317552567,
+      "angular_speed": 0.00022664932475890964,
+      "index": 50,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.960908889770508
+    },
+    {
+      "manager_position_error_m": 0.0029137800447642803,
+      "derived_position_error_m": 0.0029137800447642803,
+      "qpos_position_error_m": 0.0029137800447642803,
+      "derived_to_qpos_displacement_m": 0.0,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0029137812089174986,
+        0.0029137807432562113,
+        0.0029137800447642803
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.038848087191581726,
+        0.053611934185028076,
+        0.07559335231781006
+      ],
+      "physical_object_position": [
+        0.030436674132943153,
+        0.06101439520716667,
+        0.05794993042945862
+      ],
+      "physical_goal_position": [
+        0.027775809168815613,
+        0.06220073625445366,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07187812030315399,
+      "linear_speed": 1.1144784366479144e-06,
+      "angular_speed": 5.295907976687886e-05,
+      "index": 55,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.95928955078125
+    },
+    {
+      "manager_position_error_m": 0.0018850633641704917,
+      "derived_position_error_m": 0.0018778216326609254,
+      "qpos_position_error_m": 0.0018850633641704917,
+      "derived_to_qpos_displacement_m": 2.6219211576972157e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0019080775091424584,
+        0.0018638535402715206,
+        0.0018850633641704917
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03968057036399841,
+        0.052000492811203,
+        0.07571776211261749
+      ],
+      "physical_object_position": [
+        0.025242436677217484,
+        0.0584983192384243,
+        0.057327672839164734
+      ],
+      "physical_goal_position": [
+        0.02376355603337288,
+        0.0594545379281044,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.0677894800901413,
+      "linear_speed": 0.013110021129250526,
+      "angular_speed": 0.14764557778835297,
+      "index": 59,
+      "steps": 137,
+      "stage": 7,
+      "episode_return": 16.973190307617188
+    },
+    {
+      "manager_position_error_m": 0.003699937602505088,
+      "derived_position_error_m": 0.0036999410949647427,
+      "qpos_position_error_m": 0.003699937602505088,
+      "derived_to_qpos_displacement_m": 5.26835597369768e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0037000791635364294,
+        0.0037000083830207586,
+        0.003699937602505088
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03748764097690582,
+        0.052318330854177475,
+        0.07526412606239319
+      ],
+      "physical_object_position": [
+        0.035542264580726624,
+        0.06061003357172012,
+        0.05796332657337189
+      ],
+      "physical_goal_position": [
+        0.03207498416304588,
+        0.06190083175897598,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07550786435604095,
+      "linear_speed": 3.399526121938834e-06,
+      "angular_speed": 0.00016532739391550422,
+      "index": 7,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.88037109375
+    },
+    {
+      "manager_position_error_m": 0.002568039344623685,
+      "derived_position_error_m": 0.0025680435355752707,
+      "qpos_position_error_m": 0.002568039344623685,
+      "derived_to_qpos_displacement_m": 5.587935447692871e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0025682076811790466,
+        0.002568123396486044,
+        0.002568039344623685
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.038375020027160645,
+        0.049834080040454865,
+        0.07531556487083435
+      ],
+      "physical_object_position": [
+        0.02933645434677601,
+        0.05613233521580696,
+        0.05796907842159271
+      ],
+      "physical_goal_position": [
+        0.027874024584889412,
+        0.05824306234717369,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07018128037452698,
+      "linear_speed": 3.5621139886643505e-06,
+      "angular_speed": 0.00018473270756658167,
+      "index": 14,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.922517776489258
+    },
+    {
+      "manager_position_error_m": 0.0032106877770274878,
+      "derived_position_error_m": 0.003210685681551695,
+      "qpos_position_error_m": 0.0032106877770274878,
+      "derived_to_qpos_displacement_m": 6.4523919540704355e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0032106051221489906,
+        0.0032106463331729174,
+        0.0032106877770274878
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.0367620587348938,
+        0.04473591595888138,
+        0.0747411698102951
+      ],
+      "physical_object_position": [
+        0.03497657924890518,
+        0.05262325704097748,
+        0.05796867609024048
+      ],
+      "physical_goal_position": [
+        0.0319812074303627,
+        0.05377880111336708,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.074094258248806,
+      "linear_speed": 3.4732374842860736e-06,
+      "angular_speed": 0.0001724197354633361,
+      "index": 22,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.87872314453125
+    },
+    {
+      "manager_position_error_m": 0.0032804678194224834,
+      "derived_position_error_m": 0.00328048225492239,
+      "qpos_position_error_m": 0.0032804678194224834,
+      "derived_to_qpos_displacement_m": 8.121218115775264e-07,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0032867351546883583,
+        0.003281152341514826,
+        0.0032804678194224834
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04281030595302582,
+        0.05142435431480408,
+        0.0840814858675003
+      ],
+      "physical_object_position": [
+        0.03229174017906189,
+        0.06042153015732765,
+        0.057955481112003326
+      ],
+      "physical_goal_position": [
+        0.029412565752863884,
+        0.061993103474378586,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08002395927906036,
+      "linear_speed": 0.0004059496277477592,
+      "angular_speed": 0.00017965595179703087,
+      "index": 41,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.808109283447266
+    },
+    {
+      "manager_position_error_m": 0.0024859958793967962,
+      "derived_position_error_m": 0.0024859956465661526,
+      "qpos_position_error_m": 0.0024859958793967962,
+      "derived_to_qpos_displacement_m": 9.125060707049215e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0024859856348484755,
+        0.002485990757122636,
+        0.0024859958793967962
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04009026288986206,
+        0.05443528667092323,
+        0.07590451836585999
+      ],
+      "physical_object_position": [
+        0.025374725461006165,
+        0.06027012690901756,
+        0.05796677619218826
+      ],
+      "physical_goal_position": [
+        0.023509221151471138,
+        0.06191297993063927,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06812835484743118,
+      "linear_speed": 3.4511697322159307e-06,
+      "angular_speed": 0.00016782086458988488,
+      "index": 42,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.901926040649414
+    },
+    {
+      "manager_position_error_m": 0.0018349606543779373,
+      "derived_position_error_m": 0.0018349720630794764,
+      "qpos_position_error_m": 0.0018349606543779373,
+      "derived_to_qpos_displacement_m": 3.278678661899903e-07,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.001837410731241107,
+        0.001835360424593091,
+        0.0018349606543779373
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04308629035949707,
+        0.04951076954603195,
+        0.07979761064052582
+      ],
+      "physical_object_position": [
+        0.02097488008439541,
+        0.05541105195879936,
+        0.057965729385614395
+      ],
+      "physical_goal_position": [
+        0.019750937819480896,
+        0.05677775293588638,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06793583929538727,
+      "linear_speed": 0.0001636129163671285,
+      "angular_speed": 0.00018711219308897853,
+      "index": 52,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.841415405273438
+    },
+    {
+      "manager_position_error_m": 0.002538955071941018,
+      "derived_position_error_m": 0.0025398831348866224,
+      "qpos_position_error_m": 0.002538955071941018,
+      "derived_to_qpos_displacement_m": 1.0933980775007512e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002612573327496648,
+        0.0025791246443986893,
+        0.002538955071941018
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03839436173439026,
+        0.04701437056064606,
+        0.07519693672657013
+      ],
+      "physical_object_position": [
+        0.028758112341165543,
+        0.05365864187479019,
+        0.05779914930462837
+      ],
+      "physical_goal_position": [
+        0.026624931022524834,
+        0.055020805448293686,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06968703866004944,
+      "linear_speed": 0.005467028822749853,
+      "angular_speed": 0.0029504410922527313,
+      "index": 54,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.90420150756836
+    },
+    {
+      "manager_position_error_m": 0.002112086396664381,
+      "derived_position_error_m": 0.0021120882593095303,
+      "qpos_position_error_m": 0.002112086396664381,
+      "derived_to_qpos_displacement_m": 4.165001232792065e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002112154383212328,
+        0.0021121203899383545,
+        0.002112086396664381
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03974193334579468,
+        0.05398118868470192,
+        0.07582755386829376
+      ],
+      "physical_object_position": [
+        0.026257913559675217,
+        0.06063214689493179,
+        0.0579608678817749
+      ],
+      "physical_goal_position": [
+        0.024420781061053276,
+        0.06167345494031906,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06869813054800034,
+      "linear_speed": 3.1762638172949664e-06,
+      "angular_speed": 0.00012873059313278645,
+      "index": 56,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.899887084960938
+    },
+    {
+      "manager_position_error_m": 0.0022076761815696955,
+      "derived_position_error_m": 0.002204439602792263,
+      "qpos_position_error_m": 0.0022076761815696955,
+      "derived_to_qpos_displacement_m": 1.8937003915198147e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0022176194470375776,
+        0.002217294881120324,
+        0.0022076761815696955
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04037705063819885,
+        0.05149448662996292,
+        0.07575742900371552
+      ],
+      "physical_object_position": [
+        0.02310870587825775,
+        0.056926179677248,
+        0.057898666709661484
+      ],
+      "physical_goal_position": [
+        0.021462056785821915,
+        0.05839318782091141,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.06617310643196106,
+      "linear_speed": 0.009468059055507183,
+      "angular_speed": 0.1774209439754486,
+      "index": 58,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.887481689453125
+    },
+    {
+      "manager_position_error_m": 0.002024303190410137,
+      "derived_position_error_m": 0.0020243064500391483,
+      "qpos_position_error_m": 0.002024303190410137,
+      "derived_to_qpos_displacement_m": 5.587935447692871e-09,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002024436369538307,
+        0.002024369779974222,
+        0.002024303190410137
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03815174102783203,
+        0.04772580787539482,
+        0.07517406344413757
+      ],
+      "physical_object_position": [
+        0.029670827090740204,
+        0.055180374532938004,
+        0.05795974284410477
+      ],
+      "physical_goal_position": [
+        0.027833987027406693,
+        0.05603019893169403,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07036905735731125,
+      "linear_speed": 1.952930915649631e-06,
+      "angular_speed": 0.00012333682388998568,
+      "index": 60,
+      "steps": 138,
+      "stage": 7,
+      "episode_return": 16.903467178344727
+    },
+    {
+      "manager_position_error_m": 0.0028749569319188595,
+      "derived_position_error_m": 0.0028787136543542147,
+      "qpos_position_error_m": 0.0028749569319188595,
+      "derived_to_qpos_displacement_m": 9.307250365964137e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002864573150873184,
+        0.002854257123544812,
+        0.0028749569319188595
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04523661732673645,
+        0.038663119077682495,
+        0.08701863884925842
+      ],
+      "physical_object_position": [
+        0.028377715498209,
+        0.046509817242622375,
+        0.0573405958712101
+      ],
+      "physical_goal_position": [
+        0.0261641014367342,
+        0.04822168126702309,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.07975854724645615,
+      "linear_speed": 0.00465424032881856,
+      "angular_speed": 0.11555475741624832,
+      "index": 47,
+      "steps": 139,
+      "stage": 7,
+      "episode_return": 16.69960594177246
+    },
+    {
+      "manager_position_error_m": 0.0029492692556232214,
+      "derived_position_error_m": 0.002958097495138645,
+      "qpos_position_error_m": 0.0029492692556232214,
+      "derived_to_qpos_displacement_m": 1.3933326044934802e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002909913891926408,
+        0.002898269100114703,
+        0.0029492692556232214
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.043678075075149536,
+        0.03991322219371796,
+        0.08733299374580383
+      ],
+      "physical_object_position": [
+        0.034228868782520294,
+        0.048878926783800125,
+        0.05729837343096733
+      ],
+      "physical_goal_position": [
+        0.031924501061439514,
+        0.05058063194155693,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08397591859102249,
+      "linear_speed": 0.006965884007513523,
+      "angular_speed": 0.4806555211544037,
+      "index": 62,
+      "steps": 139,
+      "stage": 7,
+      "episode_return": 16.661651611328125
+    },
+    {
+      "manager_position_error_m": 0.0027469759806990623,
+      "derived_position_error_m": 0.0027488016057759523,
+      "qpos_position_error_m": 0.0027469759806990623,
+      "derived_to_qpos_displacement_m": 8.334832273249049e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0027732886373996735,
+        0.002780128037557006,
+        0.0027469759806990623
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04154959321022034,
+        0.048733264207839966,
+        0.08385932445526123
+      ],
+      "physical_object_position": [
+        0.03485190495848656,
+        0.058284275233745575,
+        0.05761135369539261
+      ],
+      "physical_goal_position": [
+        0.032532330602407455,
+        0.05970357358455658,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08134720474481583,
+      "linear_speed": 0.004167672246694565,
+      "angular_speed": 0.23921120166778564,
+      "index": 4,
+      "steps": 140,
+      "stage": 7,
+      "episode_return": 16.65618896484375
+    },
+    {
+      "manager_position_error_m": 0.0031600662041455507,
+      "derived_position_error_m": 0.0031547234393656254,
+      "qpos_position_error_m": 0.0031600662041455507,
+      "derived_to_qpos_displacement_m": 1.4264079254644457e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0031304943840950727,
+        0.0031012995168566704,
+        0.0031600662041455507
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.047094106674194336,
+        0.04704074189066887,
+        0.09213532507419586
+      ],
+      "physical_object_position": [
+        0.03361489623785019,
+        0.05792275816202164,
+        0.057310450822114944
+      ],
+      "physical_goal_position": [
+        0.03085017204284668,
+        0.05928908288478851,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08857275545597076,
+      "linear_speed": 0.007132202386856079,
+      "angular_speed": 0.22838377952575684,
+      "index": 16,
+      "steps": 140,
+      "stage": 7,
+      "episode_return": 16.538982391357422
+    },
+    {
+      "manager_position_error_m": 0.002664540894329548,
+      "derived_position_error_m": 0.002657634438946843,
+      "qpos_position_error_m": 0.002664540894329548,
+      "derived_to_qpos_displacement_m": 9.39932851906633e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0026693178806453943,
+        0.00267333653755486,
+        0.002664540894329548
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.05283579230308533,
+        0.04560954123735428,
+        0.09518063068389893
+      ],
+      "physical_object_position": [
+        0.02286841720342636,
+        0.05469014123082161,
+        0.05768644064664841
+      ],
+      "physical_goal_position": [
+        0.020979823544621468,
+        0.05654342845082283,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08496704697608948,
+      "linear_speed": 0.004700466524809599,
+      "angular_speed": 0.4139941930770874,
+      "index": 0,
+      "steps": 141,
+      "stage": 7,
+      "episode_return": 16.41421890258789
+    },
+    {
+      "manager_position_error_m": 0.0029233386740088463,
+      "derived_position_error_m": 0.002926252083852887,
+      "qpos_position_error_m": 0.0029233386740088463,
+      "derived_to_qpos_displacement_m": 1.1052523404941894e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0028488077223300934,
+        0.0028664933051913977,
+        0.0029233386740088463
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.048029929399490356,
+        0.044765882194042206,
+        0.09163126349449158
+      ],
+      "physical_object_position": [
+        0.029210995882749557,
+        0.054243508726358414,
+        0.05715396627783775
+      ],
+      "physical_goal_position": [
+        0.02691265381872654,
+        0.05583968013525009,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08511562645435333,
+      "linear_speed": 0.005526361986994743,
+      "angular_speed": 0.36801666021347046,
+      "index": 12,
+      "steps": 141,
+      "stage": 7,
+      "episode_return": 16.472373962402344
+    },
+    {
+      "manager_position_error_m": 0.003016524016857147,
+      "derived_position_error_m": 0.0030165300704538822,
+      "qpos_position_error_m": 0.003016524016857147,
+      "derived_to_qpos_displacement_m": 9.328115169182638e-08,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.003016956150531769,
+        0.003016666742041707,
+        0.003016524016857147
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04534590244293213,
+        0.04938215762376785,
+        0.0953003466129303
+      ],
+      "physical_object_position": [
+        0.03447037562727928,
+        0.059926729649305344,
+        0.05796920880675316
+      ],
+      "physical_goal_position": [
+        0.031983986496925354,
+        0.06163445860147476,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.0887436792254448,
+      "linear_speed": 4.6113316784612834e-05,
+      "angular_speed": 0.00018432717479299754,
+      "index": 24,
+      "steps": 141,
+      "stage": 7,
+      "episode_return": 16.431629180908203
+    },
+    {
+      "manager_position_error_m": 0.0023978794924914837,
+      "derived_position_error_m": 0.0024037142284214497,
+      "qpos_position_error_m": 0.0023978794924914837,
+      "derived_to_qpos_displacement_m": 1.3492950529325753e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002375015988945961,
+        0.0024027384351938963,
+        0.0023978794924914837
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.050718262791633606,
+        0.04157109558582306,
+        0.09524105489253998
+      ],
+      "physical_object_position": [
+        0.028638768941164017,
+        0.051506295800209045,
+        0.0574142187833786
+      ],
+      "physical_goal_position": [
+        0.027072640135884285,
+        0.053224995732307434,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08847098797559738,
+      "linear_speed": 0.006746547296643257,
+      "angular_speed": 0.15995049476623535,
+      "index": 29,
+      "steps": 141,
+      "stage": 7,
+      "episode_return": 16.429306030273438
+    },
+    {
+      "manager_position_error_m": 0.002809044672176242,
+      "derived_position_error_m": 0.0028207728173583746,
+      "qpos_position_error_m": 0.002809044672176242,
+      "derived_to_qpos_displacement_m": 1.3024608051637188e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002704550279304385,
+        0.002681348705664277,
+        0.002809044672176242
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.052405938506126404,
+        0.03819884732365608,
+        0.09428979456424713
+      ],
+      "physical_object_position": [
+        0.020183121785521507,
+        0.045474644750356674,
+        0.05710690841078758
+      ],
+      "physical_goal_position": [
+        0.01892642304301262,
+        0.047822799533605576,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08188208937644958,
+      "linear_speed": 0.006512729451060295,
+      "angular_speed": 0.47694113850593567,
+      "index": 43,
+      "steps": 141,
+      "stage": 7,
+      "episode_return": 16.410476684570312
+    },
+    {
+      "manager_position_error_m": 0.002610268536955118,
+      "derived_position_error_m": 0.0026007138658314943,
+      "qpos_position_error_m": 0.002610268536955118,
+      "derived_to_qpos_displacement_m": 2.635084092617035e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0025774366222321987,
+        0.002558184554800391,
+        0.002610268536955118
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.05320484936237335,
+        0.04349729046225548,
+        0.09475822746753693
+      ],
+      "physical_object_position": [
+        0.020472165197134018,
+        0.05219389498233795,
+        0.05736624449491501
+      ],
+      "physical_goal_position": [
+        0.0183265320956707,
+        0.05353855714201927,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08307883888483047,
+      "linear_speed": 0.013175814412534237,
+      "angular_speed": 0.27706554532051086,
+      "index": 3,
+      "steps": 142,
+      "stage": 7,
+      "episode_return": 16.321659088134766
+    },
+    {
+      "manager_position_error_m": 0.003913450054824352,
+      "derived_position_error_m": 0.003912217915058136,
+      "qpos_position_error_m": 0.003913450054824352,
+      "derived_to_qpos_displacement_m": 3.18366551255167e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.003903863253071904,
+        0.003909421619027853,
+        0.003913450054824352
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.050144582986831665,
+        0.04131796956062317,
+        0.09539410471916199
+      ],
+      "physical_object_position": [
+        0.032639726996421814,
+        0.05190113186836243,
+        0.05741003528237343
+      ],
+      "physical_goal_position": [
+        0.02903692051768303,
+        0.05331067740917206,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.09169533848762512,
+      "linear_speed": 0.0015922694001346827,
+      "angular_speed": 0.1398009955883026,
+      "index": 53,
+      "steps": 142,
+      "stage": 7,
+      "episode_return": 16.34701919555664
+    },
+    {
+      "manager_position_error_m": 0.003130136989057064,
+      "derived_position_error_m": 0.0031224621925503016,
+      "qpos_position_error_m": 0.003130136989057064,
+      "derived_to_qpos_displacement_m": 1.1729443940566853e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0031745487358421087,
+        0.0031375964172184467,
+        0.003130136989057064
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.05162133276462555,
+        0.04677089303731918,
+        0.0957103967666626
+      ],
+      "physical_object_position": [
+        0.02770054340362549,
+        0.05658790469169617,
+        0.057533148676157
+      ],
+      "physical_goal_position": [
+        0.025731254369020462,
+        0.05897573009133339,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08857671916484833,
+      "linear_speed": 0.005863787140697241,
+      "angular_speed": 0.48229748010635376,
+      "index": 30,
+      "steps": 143,
+      "stage": 7,
+      "episode_return": 16.273088455200195
+    },
+    {
+      "manager_position_error_m": 0.0022224814165383577,
+      "derived_position_error_m": 0.00222164299339056,
+      "qpos_position_error_m": 0.0022224814165383577,
+      "derived_to_qpos_displacement_m": 6.0473676057881676e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002312839264050126,
+        0.0023240523878484964,
+        0.0022224814165383577
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.0470350980758667,
+        0.04395197331905365,
+        0.10336735844612122
+      ],
+      "physical_object_position": [
+        0.026580581441521645,
+        0.0528298057615757,
+        0.05725885182619095
+      ],
+      "physical_goal_position": [
+        0.024846192449331284,
+        0.054005399346351624,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08731596916913986,
+      "linear_speed": 0.003023863537237048,
+      "angular_speed": 0.18180927634239197,
+      "index": 11,
+      "steps": 144,
+      "stage": 7,
+      "episode_return": 16.048561096191406
+    },
+    {
+      "manager_position_error_m": 0.0026670428924262524,
+      "derived_position_error_m": 0.002665051259100437,
+      "qpos_position_error_m": 0.0026670428924262524,
+      "derived_to_qpos_displacement_m": 7.91604816186009e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.00280516198836267,
+        0.0027111866511404514,
+        0.0026670428924262524
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04162271320819855,
+        0.041684653609991074,
+        0.10027840733528137
+      ],
+      "physical_object_position": [
+        0.0344005711376667,
+        0.050743792206048965,
+        0.057330597192049026
+      ],
+      "physical_goal_position": [
+        0.032139167189598083,
+        0.05198921263217926,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08778452128171921,
+      "linear_speed": 0.003958033863455057,
+      "angular_speed": 0.27579402923583984,
+      "index": 48,
+      "steps": 144,
+      "stage": 7,
+      "episode_return": 16.09465789794922
+    },
+    {
+      "manager_position_error_m": 0.003210177645087242,
+      "derived_position_error_m": 0.0032059720251709223,
+      "qpos_position_error_m": 0.003210177645087242,
+      "derived_to_qpos_displacement_m": 1.7787673641578294e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0033296409528702497,
+        0.003297653282061219,
+        0.003210177645087242
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03921499848365784,
+        0.04384349286556244,
+        0.10325354337692261
+      ],
+      "physical_object_position": [
+        0.03405717760324478,
+        0.05110630765557289,
+        0.057318855077028275
+      ],
+      "physical_goal_position": [
+        0.032164689153432846,
+        0.05360826104879379,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08678453415632248,
+      "linear_speed": 0.008893653750419617,
+      "angular_speed": 0.4096430242061615,
+      "index": 63,
+      "steps": 145,
+      "stage": 7,
+      "episode_return": 15.989252090454102
+    },
+    {
+      "manager_position_error_m": 0.002387132728472352,
+      "derived_position_error_m": 0.002400366822257638,
+      "qpos_position_error_m": 0.002387132728472352,
+      "derived_to_qpos_displacement_m": 3.496124190860428e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0022675192449241877,
+        0.002358880592510104,
+        0.002387132728472352
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.056133151054382324,
+        0.04835047945380211,
+        0.10152599215507507
+      ],
+      "physical_object_position": [
+        0.019428800791502,
+        0.05821969732642174,
+        0.057044900953769684
+      ],
+      "physical_goal_position": [
+        0.017804736271500587,
+        0.05968550965189934,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08823592215776443,
+      "linear_speed": 0.01748119480907917,
+      "angular_speed": 0.06615806370973587,
+      "index": 5,
+      "steps": 146,
+      "stage": 7,
+      "episode_return": 15.95169448852539
+    },
+    {
+      "manager_position_error_m": 0.002530036261305213,
+      "derived_position_error_m": 0.002530127065256238,
+      "qpos_position_error_m": 0.002530036261305213,
+      "derived_to_qpos_displacement_m": 3.010036834893981e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0025910083204507828,
+        0.002536695683375001,
+        0.002530036261305213
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04486502707004547,
+        0.05180133879184723,
+        0.10115690529346466
+      ],
+      "physical_object_position": [
+        0.030360538512468338,
+        0.061524827033281326,
+        0.0579223558306694
+      ],
+      "physical_goal_position": [
+        0.02813779190182686,
+        0.0627308338880539,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08730783313512802,
+      "linear_speed": 0.001505248248577118,
+      "angular_speed": 0.0001719469582894817,
+      "index": 8,
+      "steps": 146,
+      "stage": 7,
+      "episode_return": 15.981904983520508
+    },
+    {
+      "manager_position_error_m": 0.003113974118605256,
+      "derived_position_error_m": 0.0031106870155781507,
+      "qpos_position_error_m": 0.003113974118605256,
+      "derived_to_qpos_displacement_m": 1.4659301996289287e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0031796882394701242,
+        0.00314126955345273,
+        0.003113974118605256
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03805665671825409,
+        0.050705909729003906,
+        0.10379461944103241
+      ],
+      "physical_object_position": [
+        0.03484402969479561,
+        0.058446019887924194,
+        0.05744089558720589
+      ],
+      "physical_goal_position": [
+        0.03269504755735397,
+        0.060629162937402725,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08673572540283203,
+      "linear_speed": 0.007330155000090599,
+      "angular_speed": 0.36428749561309814,
+      "index": 35,
+      "steps": 146,
+      "stage": 7,
+      "episode_return": 15.902838706970215
+    },
+    {
+      "manager_position_error_m": 0.003091739257797599,
+      "derived_position_error_m": 0.003092886181548238,
+      "qpos_position_error_m": 0.003091739257797599,
+      "derived_to_qpos_displacement_m": 1.5860543499002233e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.003078828100115061,
+        0.003057736437767744,
+        0.003091739257797599
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04143591225147247,
+        0.04925474524497986,
+        0.10920350253582001
+      ],
+      "physical_object_position": [
+        0.028566107153892517,
+        0.05651376023888588,
+        0.057323526591062546
+      ],
+      "physical_goal_position": [
+        0.02597126178443432,
+        0.05805259570479393,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.0874328762292862,
+      "linear_speed": 0.007929610088467598,
+      "angular_speed": 0.17663496732711792,
+      "index": 13,
+      "steps": 148,
+      "stage": 7,
+      "episode_return": 15.653585433959961
+    },
+    {
+      "manager_position_error_m": 0.0030130865052342415,
+      "derived_position_error_m": 0.0030107086058706045,
+      "qpos_position_error_m": 0.0030130865052342415,
+      "derived_to_qpos_displacement_m": 2.172306994907558e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.00303000770509243,
+        0.0030003597494214773,
+        0.0030130865052342415
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.032201290130615234,
+        0.05417585372924805,
+        0.1132141649723053
+      ],
+      "physical_object_position": [
+        0.03474481776356697,
+        0.060053639113903046,
+        0.05732240527868271
+      ],
+      "physical_goal_position": [
+        0.032670602202415466,
+        0.06213142350316048,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08740834146738052,
+      "linear_speed": 0.01086183451116085,
+      "angular_speed": 0.13189175724983215,
+      "index": 28,
+      "steps": 149,
+      "stage": 7,
+      "episode_return": 15.525153160095215
+    },
+    {
+      "manager_position_error_m": 0.002892946358770132,
+      "derived_position_error_m": 0.0029010155703872442,
+      "qpos_position_error_m": 0.002892946358770132,
+      "derived_to_qpos_displacement_m": 1.0908408512477763e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.00290088914334774,
+        0.0029066489078104496,
+        0.002892946358770132
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.03411780297756195,
+        0.0463297963142395,
+        0.11293113231658936
+      ],
+      "physical_object_position": [
+        0.03298681229352951,
+        0.05241480842232704,
+        0.05731772631406784
+      ],
+      "physical_goal_position": [
+        0.03094552643597126,
+        0.05434788763523102,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.0873665139079094,
+      "linear_speed": 0.005453948397189379,
+      "angular_speed": 0.4560245871543884,
+      "index": 2,
+      "steps": 150,
+      "stage": 7,
+      "episode_return": 15.352579116821289
+    },
+    {
+      "manager_position_error_m": 0.002007177332416177,
+      "derived_position_error_m": 0.002014374593272805,
+      "qpos_position_error_m": 0.002007177332416177,
+      "derived_to_qpos_displacement_m": 1.710313154035248e-05,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0020038923248648643,
+        0.0020035167690366507,
+        0.002007177332416177
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04126162827014923,
+        0.04949921369552612,
+        0.11188314855098724
+      ],
+      "physical_object_position": [
+        0.025453725829720497,
+        0.05611063167452812,
+        0.057398129254579544
+      ],
+      "physical_goal_position": [
+        0.024432841688394547,
+        0.05773060396313667,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08639019727706909,
+      "linear_speed": 0.008550884202122688,
+      "angular_speed": 0.10981223732233047,
+      "index": 15,
+      "steps": 150,
+      "stage": 7,
+      "episode_return": 15.479625701904297
+    },
+    {
+      "manager_position_error_m": 0.0024101221933960915,
+      "derived_position_error_m": 0.002404256258159876,
+      "qpos_position_error_m": 0.0024101221933960915,
+      "derived_to_qpos_displacement_m": 7.721454494458158e-06,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.0024074886459857225,
+        0.002410910092294216,
+        0.0024101221933960915
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04336029291152954,
+        0.04912611097097397,
+        0.1129409670829773
+      ],
+      "physical_object_position": [
+        0.022924302145838737,
+        0.05514838919043541,
+        0.05743470415472984
+      ],
+      "physical_goal_position": [
+        0.0217015091329813,
+        0.057146865874528885,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08666522055864334,
+      "linear_speed": 0.0038611525669693947,
+      "angular_speed": 0.33310478925704956,
+      "index": 39,
+      "steps": 162,
+      "stage": 7,
+      "episode_return": 13.80294418334961
+    },
+    {
+      "manager_position_error_m": 0.0027298557106405497,
+      "derived_position_error_m": 0.002729855477809906,
+      "qpos_position_error_m": 0.0027298557106405497,
+      "derived_to_qpos_displacement_m": 2.1237421776731935e-07,
+      "success_hold_steps": 5,
+      "last_three_manager_errors_m": [
+        0.002730606123805046,
+        0.0027299211360514164,
+        0.0027298557106405497
+      ],
+      "success": true,
+      "failure": false,
+      "timeout": false,
+      "transfer_criterion_history": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.047739654779434204,
+        0.04888051748275757,
+        0.1129428893327713
+      ],
+      "physical_object_position": [
+        0.01958402805030346,
+        0.05537612736225128,
+        0.05796422064304352
+      ],
+      "physical_goal_position": [
+        0.01732030138373375,
+        0.05690137296915054,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08716264367103577,
+      "linear_speed": 0.00010667797323549166,
+      "angular_speed": 0.00018546135106589645,
+      "index": 38,
+      "steps": 182,
+      "stage": 7,
+      "episode_return": 11.332155227661133
+    },
+    {
+      "manager_position_error_m": 0.0029872457962483168,
+      "derived_position_error_m": 0.003005881095305085,
+      "qpos_position_error_m": 0.0029872457962483168,
+      "derived_to_qpos_displacement_m": 3.3763422834454104e-05,
+      "success_hold_steps": 0,
+      "last_three_manager_errors_m": [
+        0.00298579060472548,
+        0.0030132473912090063,
+        0.0029872457962483168
+      ],
+      "success": false,
+      "failure": false,
+      "timeout": true,
+      "transfer_criterion_history": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": false,
+      "physical_tcp_position": [
+        -0.03588525950908661,
+        0.04207445681095123,
+        0.11293800175189972
+      ],
+      "physical_object_position": [
+        0.030716003850102425,
+        0.048385102301836014,
+        0.05608843266963959
+      ],
+      "physical_goal_position": [
+        0.029179900884628296,
+        0.050090957432985306,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08779194205999374,
+      "linear_speed": 0.016880882903933525,
+      "angular_speed": 1.3921791315078735,
+      "index": 9,
+      "steps": 300,
+      "stage": 7,
+      "episode_return": -28.449295043945312
+    },
+    {
+      "manager_position_error_m": 0.0027497517876327038,
+      "derived_position_error_m": 0.002744632074609399,
+      "qpos_position_error_m": 0.0027497517876327038,
+      "derived_to_qpos_displacement_m": 1.2914494618598837e-05,
+      "success_hold_steps": 0,
+      "last_three_manager_errors_m": [
+        0.002772799925878644,
+        0.0027508705388754606,
+        0.0027497517876327038
+      ],
+      "success": false,
+      "failure": false,
+      "timeout": true,
+      "transfer_criterion_history": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": false,
+      "physical_tcp_position": [
+        -0.0331365168094635,
+        0.040083497762680054,
+        0.11293673515319824
+      ],
+      "physical_object_position": [
+        0.03350452333688736,
+        0.046900492161512375,
+        0.05609070137143135
+      ],
+      "physical_goal_position": [
+        0.031929779797792435,
+        0.04809878394007683,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.0878576785326004,
+      "linear_speed": 0.006457826588302851,
+      "angular_speed": 0.5453028678894043,
+      "index": 34,
+      "steps": 300,
+      "stage": 7,
+      "episode_return": -28.4681453704834
+    },
+    {
+      "manager_position_error_m": 0.0032683084718883038,
+      "derived_position_error_m": 0.003272589761763811,
+      "qpos_position_error_m": 0.0032683084718883038,
+      "derived_to_qpos_displacement_m": 9.558938472764567e-06,
+      "success_hold_steps": 1,
+      "last_three_manager_errors_m": [
+        0.0032895999029278755,
+        0.003285551443696022,
+        0.0032683084718883038
+      ],
+      "success": false,
+      "failure": false,
+      "timeout": true,
+      "transfer_criterion_history": [
+        false,
+        true,
+        false,
+        false,
+        true
+      ],
+      "transfer_lifted": true,
+      "transfer_released": true,
+      "transfer_placed": true,
+      "transfer_settled": true,
+      "physical_tcp_position": [
+        -0.04666939377784729,
+        0.053879886865615845,
+        0.11294196546077728
+      ],
+      "physical_object_position": [
+        0.02079644240438938,
+        0.060788076370954514,
+        0.05608952417969704
+      ],
+      "physical_goal_position": [
+        0.018390631303191185,
+        0.06190342456102371,
+        0.057999998331069946
+      ],
+      "hand_distance": 0.08849611133337021,
+      "linear_speed": 0.004780188202857971,
+      "angular_speed": 0.37657177448272705,
+      "index": 45,
+      "steps": 300,
+      "stage": 7,
+      "episode_return": -28.419981002807617
+    }
+  ],
+  "experiment": {
+    "task": "transfer",
+    "condition": "wrist_static",
+    "occlusion": "clean",
+    "seed": 10001,
+    "num_envs": 64,
+    "width": 96,
+    "height": 72,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 12.0,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "fixed_position": [
+      -0.119,
+      -0.187,
+      0.274
+    ],
+    "fixed_lookat": [
+      0.0,
+      0.025,
+      0.045
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "memory": "gru",
+    "policy_profile": "compact",
+    "plug_wrist_yaw": false,
+    "plug_variant": null,
+    "task_revision": "pick_place_v2",
+    "success_state_sample": "current_qpos",
+    "reward_profile": "transfer_staged",
+    "occlusion_revision": null,
+    "dynamic_onset_range": null,
+    "dynamic_duration_range": null,
+    "dynamic_center": null,
+    "dynamic_center_jitter": null,
+    "dynamic_travel_range": null,
+    "dynamic_panel_half_size": null,
+    "dynamic_panel_yaw": null
+  },
+  "backend": "MuJoCo Warp",
+  "device": "cuda:0",
+  "controller": "privileged diagnostic; no learned policy",
+  "training_updates": 0,
+  "representative_capture": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/gpu/seed-10001/capture/capture.json"
+}

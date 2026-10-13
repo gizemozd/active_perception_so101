@@ -1,0 +1,176 @@
+{
+  "selection_rule": "Initial plug6000 selected on validation before seed90000 tests. Updated plug8000 selected from all scheduled checkpoints using highest dynamic validation subject to clean>=80%; fresh tests use reserved seed91000. Push unchanged weights with partition removal outperformed all tested PPO repairs on validation.",
+  "results": [
+    {
+      "report": "artifacts/competence_repair/plug_dense_ym_dynamic/final-clean-test.json",
+      "label": "Selected plug YM \u00b7 clean",
+      "short_label": "Selected\nclean",
+      "task": "plug",
+      "scope": "Occlusion-trained RGB estimator + prescribed motion; YM only;8s;test seed91000",
+      "training_seed": 0,
+      "test_seed": 91000,
+      "checkpoint_sha256": "c544e0c1a90100f65b6db40877ccda119f58dbeb21e8f1f87b9a6ded745969ca",
+      "representatives": "artifacts/competence_repair/plug_dense_ym_dynamic/final_clean_videos/representatives.json"
+    },
+    {
+      "report": "artifacts/competence_repair/plug_dense_ym_dynamic/final-dynamic-test.json",
+      "label": "Selected plug YM \u00b7 moving occlusion",
+      "short_label": "Selected\nocclusion",
+      "task": "plug",
+      "scope": "Occlusion-trained RGB estimator + prescribed motion; YM only;8s;test seed91000",
+      "training_seed": 0,
+      "test_seed": 91000,
+      "checkpoint_sha256": "c544e0c1a90100f65b6db40877ccda119f58dbeb21e8f1f87b9a6ded745969ca",
+      "representatives": "artifacts/competence_repair/plug_dense_ym_dynamic/final_dynamic_videos/representatives.json"
+    },
+    {
+      "report": "artifacts/competence_repair/push_original/final-test.json",
+      "label": "Push \u00b7 original",
+      "short_label": "Original",
+      "task": "push",
+      "scope": "Original fixed-camera seed2; original partition and action bounds",
+      "training_seed": 2,
+      "checkpoint_sha256": "3d69ac9af7e2f4218bfa734894b7239956227ee9eef8005b2c83c8b5429fe347"
+    },
+    {
+      "report": "artifacts/competence_repair/push_wall_ablation/final-test.json",
+      "label": "Push \u00b7 partition removed",
+      "short_label": "Partition\nremoved",
+      "task": "push",
+      "scope": "Same weights; obsolete partition removed; original action bounds",
+      "training_seed": 2,
+      "checkpoint_sha256": "3d69ac9af7e2f4218bfa734894b7239956227ee9eef8005b2c83c8b5429fe347",
+      "representatives": "artifacts/competence_repair/push_wall_ablation/final_videos/representatives.json"
+    },
+    {
+      "report": "artifacts/competence_repair/plug_dense_ym/final-test.json",
+      "label": "Initial Plug YM \u00b7 clean",
+      "short_label": "Initial\nclean",
+      "task": "plug",
+      "scope": "YM only; trained RGB estimator + prescribed motion; 8 seconds",
+      "training_seed": 0,
+      "checkpoint_sha256": "95a08ff4201993bdaafd23acf45f0c046b6892d7ef3a0002a3f1f879f5de3682",
+      "representatives": "artifacts/competence_repair/plug_dense_ym/final_videos/representatives.json"
+    },
+    {
+      "report": "artifacts/competence_repair/plug_dense_ym/final-dynamic-test.json",
+      "label": "Initial Plug YM \u00b7 moving occlusion",
+      "short_label": "Initial\nocclusion",
+      "task": "plug",
+      "scope": "Same frozen YM model; moving occlusion robustness test",
+      "training_seed": 0,
+      "checkpoint_sha256": "95a08ff4201993bdaafd23acf45f0c046b6892d7ef3a0002a3f1f879f5de3682",
+      "representatives": "artifacts/competence_repair/plug_dense_ym/dynamic_videos/representatives.json"
+    }
+  ],
+  "validation_curves": [
+    {
+      "task": "plug",
+      "label": "Initial visual estimator \u00b7 clean",
+      "points": [
+        [
+          2000,
+          "artifacts/competence_repair/plug_dense_ym/evaluation-2000.json"
+        ],
+        [
+          4000,
+          "artifacts/competence_repair/plug_dense_ym/evaluation-4000.json"
+        ],
+        [
+          6000,
+          "artifacts/competence_repair/plug_dense_ym/evaluation-6000.json"
+        ],
+        [
+          8000,
+          "artifacts/competence_repair/plug_dense_ym/evaluation-8000.json"
+        ],
+        [
+          10000,
+          "artifacts/competence_repair/plug_dense_ym/evaluation-10000.json"
+        ]
+      ]
+    },
+    {
+      "task": "plug",
+      "label": "Occlusion-trained \u00b7 clean",
+      "points": [
+        [
+          2000,
+          "artifacts/competence_repair/plug_dense_ym_dynamic/evaluation-2000.json"
+        ],
+        [
+          4000,
+          "artifacts/competence_repair/plug_dense_ym_dynamic/evaluation-4000.json"
+        ],
+        [
+          6000,
+          "artifacts/competence_repair/plug_dense_ym_dynamic/evaluation-6000.json"
+        ],
+        [
+          8000,
+          "artifacts/competence_repair/plug_dense_ym_dynamic/evaluation-8000.json"
+        ]
+      ]
+    },
+    {
+      "task": "plug",
+      "label": "Occlusion-trained \u00b7 dynamic",
+      "points": [
+        [
+          2000,
+          "artifacts/competence_repair/plug_dense_ym_dynamic/evaluation-dynamic-2000.json"
+        ],
+        [
+          4000,
+          "artifacts/competence_repair/plug_dense_ym_dynamic/evaluation-dynamic-4000.json"
+        ],
+        [
+          6000,
+          "artifacts/competence_repair/plug_dense_ym_dynamic/evaluation-dynamic-6000.json"
+        ],
+        [
+          8000,
+          "artifacts/competence_repair/plug_dense_ym_dynamic/evaluation-dynamic-8000.json"
+        ]
+      ]
+    },
+    {
+      "task": "push",
+      "label": "Partition removed",
+      "points": [
+        [
+          250,
+          "artifacts/competence_repair/push_clear_v2/intermediate-250.json"
+        ],
+        [
+          500,
+          "artifacts/competence_repair/push_clear_v2/intermediate-500.json"
+        ]
+      ]
+    },
+    {
+      "task": "push",
+      "label": "Partition removed + wide bounds",
+      "points": [
+        [
+          250,
+          "artifacts/competence_repair/push_clear_wide_v2/intermediate-250.json"
+        ],
+        [
+          500,
+          "artifacts/competence_repair/push_clear_wide_v2/intermediate-500.json"
+        ]
+      ]
+    },
+    {
+      "task": "push",
+      "label": "Wide bounds + mean regularization",
+      "points": [
+        [
+          250,
+          "artifacts/competence_repair/push_regularized/intermediate-250.json"
+        ]
+      ]
+    }
+  ]
+}

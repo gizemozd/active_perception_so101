@@ -1,0 +1,448 @@
+{
+  "updated_utc": "2026-10-09T20:16:30.935203+00:00",
+  "completed_runs": 0,
+  "submitted_incomplete_runs": 2,
+  "planned_runs": 18,
+  "minimum_transitions_per_run": 1000000000,
+  "runs": [
+    {
+      "run": {
+        "id": "transfer-wrist_static-s0",
+        "task": "transfer",
+        "condition": "wrist_static",
+        "seed": 0,
+        "fixed_view": 4
+      },
+      "status": "stopped_for_privileged_validation",
+      "observed_transitions": 11059200,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [
+        {
+          "status": "submitted",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--export=ALL",
+            "--account=kempner_pgozdil_lab",
+            "--partition=kempner_rtx",
+            "--exclude=holygpu7c2313",
+            "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+            "--job-name=mp-transfer-wrist_static-s0",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/slurm/manipulation_study.sbatch",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/run_manipulation_study.py",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/study-plan.json",
+            "transfer-wrist_static-s0"
+          ],
+          "created_utc": "2026-10-09T19:52:32.310391+00:00",
+          "stdout": "51661708\n",
+          "stderr": "",
+          "returncode": 0,
+          "job_id": "51661708"
+        },
+        {
+          "status": "submitted",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--export=ALL",
+            "--account=kempner_pgozdil_lab",
+            "--partition=kempner_rtx",
+            "--exclude=holygpu7c2313",
+            "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+            "--job-name=mp-transfer-wrist_static-s0",
+            "--dependency=afterany:51661708",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/slurm/manipulation_study.sbatch",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/run_manipulation_study.py",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/study-plan.json",
+            "transfer-wrist_static-s0"
+          ],
+          "created_utc": "2026-10-09T20:03:47.785808+00:00",
+          "stdout": "51663565\n",
+          "stderr": "",
+          "returncode": 0,
+          "job_id": "51663565"
+        },
+        {
+          "status": "submitted",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--export=ALL",
+            "--account=kempner_pgozdil_lab",
+            "--partition=kempner_rtx",
+            "--exclude=holygpu7c2313",
+            "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+            "--job-name=mp-transfer-wrist_static-s0",
+            "--dependency=afterany:51663565",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/slurm/manipulation_study.sbatch",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/run_manipulation_study.py",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/study-plan.json",
+            "transfer-wrist_static-s0"
+          ],
+          "created_utc": "2026-10-09T20:12:55.406643+00:00",
+          "stdout": "51666215\n",
+          "stderr": "",
+          "returncode": 0,
+          "job_id": "51666215"
+        },
+        {
+          "status": "submitted",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--export=ALL",
+            "--account=kempner_pgozdil_lab",
+            "--partition=kempner_rtx",
+            "--exclude=holygpu7c2313",
+            "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+            "--job-name=mp-transfer-wrist_static-s0",
+            "--dependency=afterany:51666215",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/slurm/manipulation_study.sbatch",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/run_manipulation_study.py",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/study-plan.json",
+            "transfer-wrist_static-s0"
+          ],
+          "created_utc": "2026-10-09T20:13:06.191032+00:00",
+          "stdout": "51666277\n",
+          "stderr": "",
+          "returncode": 0,
+          "job_id": "51666277"
+        }
+      ],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "transfer-wrist_static-s1",
+        "task": "transfer",
+        "condition": "wrist_static",
+        "seed": 1,
+        "fixed_view": 4
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "transfer-wrist_static-s2",
+        "task": "transfer",
+        "condition": "wrist_static",
+        "seed": 2,
+        "fixed_view": 4
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "transfer-wrist-s0",
+        "task": "transfer",
+        "condition": "wrist",
+        "seed": 0,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "transfer-wrist-s1",
+        "task": "transfer",
+        "condition": "wrist",
+        "seed": 1,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "transfer-wrist-s2",
+        "task": "transfer",
+        "condition": "wrist",
+        "seed": 2,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "transfer-active-s0",
+        "task": "transfer",
+        "condition": "active",
+        "seed": 0,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "transfer-active-s1",
+        "task": "transfer",
+        "condition": "active",
+        "seed": 1,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "transfer-active-s2",
+        "task": "transfer",
+        "condition": "active",
+        "seed": 2,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-wrist_static-s0",
+        "task": "push",
+        "condition": "wrist_static",
+        "seed": 0,
+        "fixed_view": 0
+      },
+      "status": "stopped_for_privileged_validation",
+      "observed_transitions": 9388032,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [
+        {
+          "status": "submitted",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--export=ALL",
+            "--account=kempner_pgozdil_lab",
+            "--partition=kempner_rtx",
+            "--exclude=holygpu7c2313",
+            "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+            "--job-name=mp-push-wrist_static-s0",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/slurm/manipulation_study.sbatch",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/run_manipulation_study.py",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/study-plan.json",
+            "push-wrist_static-s0"
+          ],
+          "created_utc": "2026-10-09T19:52:33.035986+00:00",
+          "stdout": "51661732\n",
+          "stderr": "",
+          "returncode": 0,
+          "job_id": "51661732"
+        },
+        {
+          "status": "submitted",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--export=ALL",
+            "--account=kempner_pgozdil_lab",
+            "--partition=kempner_rtx",
+            "--exclude=holygpu7c2313",
+            "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+            "--job-name=mp-push-wrist_static-s0",
+            "--dependency=afterany:51661732",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/slurm/manipulation_study.sbatch",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/run_manipulation_study.py",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/study-plan.json",
+            "push-wrist_static-s0"
+          ],
+          "created_utc": "2026-10-09T20:03:48.202649+00:00",
+          "stdout": "51663566\n",
+          "stderr": "",
+          "returncode": 0,
+          "job_id": "51663566"
+        },
+        {
+          "status": "submitted",
+          "command": [
+            "sbatch",
+            "--parsable",
+            "--export=ALL",
+            "--account=kempner_pgozdil_lab",
+            "--partition=kempner_rtx",
+            "--exclude=holygpu7c2313",
+            "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+            "--job-name=mp-push-wrist_static-s0",
+            "--dependency=afterany:51663566",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/slurm/manipulation_study.sbatch",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-push-study-20261009T195224Z/scripts/run_manipulation_study.py",
+            "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/study-plan.json",
+            "push-wrist_static-s0"
+          ],
+          "created_utc": "2026-10-09T20:12:58.452519+00:00",
+          "stdout": "51666235\n",
+          "stderr": "",
+          "returncode": 0,
+          "job_id": "51666235"
+        }
+      ],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-wrist_static-s1",
+        "task": "push",
+        "condition": "wrist_static",
+        "seed": 1,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-wrist_static-s2",
+        "task": "push",
+        "condition": "wrist_static",
+        "seed": 2,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-wrist-s0",
+        "task": "push",
+        "condition": "wrist",
+        "seed": 0,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-wrist-s1",
+        "task": "push",
+        "condition": "wrist",
+        "seed": 1,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-wrist-s2",
+        "task": "push",
+        "condition": "wrist",
+        "seed": 2,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-active-s0",
+        "task": "push",
+        "condition": "active",
+        "seed": 0,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-active-s1",
+        "task": "push",
+        "condition": "active",
+        "seed": 1,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    },
+    {
+      "run": {
+        "id": "push-active-s2",
+        "task": "push",
+        "condition": "active",
+        "seed": 2,
+        "fixed_view": 0
+      },
+      "status": "waiting for task competence",
+      "observed_transitions": 0,
+      "target_transitions": 1000046592,
+      "evaluations": [],
+      "submissions": [],
+      "competence_gate": null
+    }
+  ],
+  "claim": "Active perception advantage is not established; comparisons require matched completed runs."
+}

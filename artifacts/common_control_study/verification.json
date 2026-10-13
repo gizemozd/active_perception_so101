@@ -1,0 +1,221 @@
+{
+  "passed": true,
+  "completed_policies": 30,
+  "training_transitions": 36864000,
+  "source_files_verified": 130,
+  "evaluations_verified": 150,
+  "physical_episodes_verified": 61440,
+  "selection": "Every chosen checkpoint matches the predeclared validation-only rule.",
+  "cases": [
+    {
+      "stage": "camera_v1",
+      "case": "low_noise_wrist_static_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_low_noise_wrist_static_s0_20261012T212335Z/model_100.pt",
+      "checkpoint_sha256": "9ecb0ec35c758f84c3d8b3e1faf05c9432010f610a86153ee8de83f79989adfa"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "bounded_wrist_static_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/bounded_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_bounded_wrist_static_s0_20261012T212335Z/model_199.pt",
+      "checkpoint_sha256": "7e6030fbe23bada26a0a9d3d1fb9ee0a5f6cfdfc9846e9bfe71a41c920531289"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_wrist_static_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_inspection_wrist_static_s0_20261012T212335Z/model_100.pt",
+      "checkpoint_sha256": "e5daa746284cfd90013d6ae1f616b73943d36fb8a127d76a49a9123221bbbdd3"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_dynamic_wrist_static_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_dynamic_wrist_static_s0/logs/plug_wrist_static_dynamic_gru_v0_s0_n256_inspection_dynamic_wrist_static_s0_20261012T212343Z/model_100.pt",
+      "checkpoint_sha256": "6aa4c520d1b89503423c4534670b6fb4dedef5bc4fb3cc4f6f1bd6446c3a6f5c"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "low_noise_active_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_active_s0/logs/plug_active_clean_gru_v0_s0_n256_low_noise_active_s0_20261012T212343Z/model_199.pt",
+      "checkpoint_sha256": "a2ffda9389f5603e131b5c012aeb103c07673dc9529edb70a107a9e94dacda70"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "bounded_active_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/bounded_active_s0/logs/plug_active_clean_gru_v0_s0_n256_bounded_active_s0_20261012T212349Z/model_199.pt",
+      "checkpoint_sha256": "4cfebd65493011187d4a7cfc8967ab16b6157047aaac1604e55be8caeea17742"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_active_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_active_s0/logs/plug_active_clean_gru_v0_s0_n256_inspection_active_s0_20261012T212349Z/model_199.pt",
+      "checkpoint_sha256": "db61bb5449877fce45a0c5f5323f0bd8bbb8899c63f6a1bcdda08e02ed0e0489"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_dynamic_active_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_dynamic_active_s0/logs/plug_active_dynamic_gru_v0_s0_n256_inspection_dynamic_active_s0_20261012T212401Z/model_199.pt",
+      "checkpoint_sha256": "85e622807d9086845f3b1b1270e89cf0bbecd5716526c1cf4395a1d82107118b"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_slow_active_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_slow_active_s0/logs/plug_active_dynamic_gru_v0_s0_n256_inspection_slow_active_s0_20261012T212437Z/model_199.pt",
+      "checkpoint_sha256": "d9dfb68c4cd6cf351d326c0e3e6d5366ba1dcf2ff80c100c04282488fed8ce2b"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "low_noise_wrist_static_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_low_noise_wrist_static_s1_20261012T212436Z/model_199.pt",
+      "checkpoint_sha256": "d446e2ba334d9ccd73c65d5b88061e65ffa522f599053c9b23c648fd5a5a08ed"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "bounded_wrist_static_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/bounded_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_bounded_wrist_static_s1_20261012T212439Z/model_199.pt",
+      "checkpoint_sha256": "b5ef38d20e1acd8b2775e5704948d380f9473e2b0939d0123f312d695b20cd5a"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_wrist_static_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_inspection_wrist_static_s1_20261012T212436Z/model_199.pt",
+      "checkpoint_sha256": "e2f6a890d29e1b1ff490d0d6325cd7d2e8b7ceaac4a8a319dcb691f5421aba1f"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_dynamic_wrist_static_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_dynamic_wrist_static_s1/logs/plug_wrist_static_dynamic_gru_v0_s1_n256_inspection_dynamic_wrist_static_s1_20261012T212442Z/model_199.pt",
+      "checkpoint_sha256": "bb86b89ec126b2bcdeb17490936415dfe4ee6d3e07e8297381b9eb34da2942bd"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "low_noise_active_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_active_s1/logs/plug_active_clean_gru_v0_s1_n256_low_noise_active_s1_20261012T212453Z/model_100.pt",
+      "checkpoint_sha256": "a41398160841fad05713cff5f826f0bc0f9b2c27602278a020cb02af9f29c7d9"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "bounded_active_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/bounded_active_s1/logs/plug_active_clean_gru_v0_s1_n256_bounded_active_s1_20261012T212457Z/model_100.pt",
+      "checkpoint_sha256": "7fcef0feeaa801830107743eb85a0393798610b9ac3489fee384b2fdb53d8026"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_active_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_active_s1/logs/plug_active_clean_gru_v0_s1_n256_inspection_active_s1_20261012T212453Z/model_100.pt",
+      "checkpoint_sha256": "fdb030cc3633b5330542c87bd36a79ecc9ed3033a6fdc138a72badda662564cd"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_dynamic_active_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_dynamic_active_s1/logs/plug_active_dynamic_gru_v0_s1_n256_inspection_dynamic_active_s1_20261012T213634Z/model_100.pt",
+      "checkpoint_sha256": "878d780d092df54aef47a694be475e0a026cd96494fedcbed1508fd1d99b9d85"
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_slow_active_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_slow_active_s1/logs/plug_active_dynamic_gru_v0_s1_n256_inspection_slow_active_s1_20261012T213639Z/model_199.pt",
+      "checkpoint_sha256": "f25a5374181d638aee9db6d03577a2b205811bdeeb5d7096537d3f29fb5ae439"
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_wrist_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_s0/logs/plug_wrist_clean_gru_v0_s0_n256_absolute_wrist_s0_20261012T205151Z/model_100.pt",
+      "checkpoint_sha256": "b2aa334e5f1f60ffbd2bc8217bcb70a1d16e47eaf1d67889df4d0eb26b825cac"
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_wrist_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_wrist_s0/logs/plug_wrist_clean_gru_v0_s0_n256_delta_wrist_s0_20261012T205159Z/model_100.pt",
+      "checkpoint_sha256": "3fc555ce2800dd6b6a7e033eab35600e93563885ca26b8666a9c48b23bd97f5c"
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_wrist_static_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_absolute_wrist_static_s0_20261012T205159Z/model_199.pt",
+      "checkpoint_sha256": "9479bd6d1a82ce3a0876ec9bd39b97b18ca0633faf38c4fe779ffc4355d37c53"
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_wrist_static_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_delta_wrist_static_s0_20261012T205205Z/model_199.pt",
+      "checkpoint_sha256": "0336504476bea14d33e79a2121fee6568d5bb2bc19b6dd689805e57ee7476026"
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_active_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_active_s0/logs/plug_active_clean_gru_v0_s0_n256_absolute_active_s0_20261012T210429Z/model_100.pt",
+      "checkpoint_sha256": "90569c84573a53d0dd6ae5dae5748391d4222b1b581743d0f6adb64b4b26211e"
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_active_s0",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_active_s0/logs/plug_active_clean_gru_v0_s0_n256_delta_active_s0_20261012T210428Z/model_199.pt",
+      "checkpoint_sha256": "5a61640d2ae1b0628c5c25c7a6b73faf1781fa98f97939dc2392564ec252e6da"
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_wrist_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_s1/logs/plug_wrist_clean_gru_v0_s1_n256_absolute_wrist_s1_20261012T210435Z/model_199.pt",
+      "checkpoint_sha256": "095ab4a4471a460fd5fa8647af6c1a6bb6e9a095e81d71126e03acae038359f8"
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_wrist_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_wrist_s1/logs/plug_wrist_clean_gru_v0_s1_n256_delta_wrist_s1_20261012T210453Z/model_100.pt",
+      "checkpoint_sha256": "2d53129324d69aca8a11be8cfb2912f3d99a99e1e060005154c79af9cd0f68a2"
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_wrist_static_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_absolute_wrist_static_s1_20261012T210456Z/model_199.pt",
+      "checkpoint_sha256": "3a01f4acb8783e4edb2131be6dd035829d3f3a22e952f6a5bbcfb5c8450f3ca8"
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_wrist_static_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_delta_wrist_static_s1_20261012T210624Z/model_100.pt",
+      "checkpoint_sha256": "357f9c5e3cb9c350a38e6558baa3974538b6ccb81afc92379827b93e046a3fa3"
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_active_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_active_s1/logs/plug_active_clean_gru_v0_s1_n256_absolute_active_s1_20261012T210624Z/model_100.pt",
+      "checkpoint_sha256": "2fb78a4dad1c146ec3e88fb39734f5130be3615c3711f8942f47a6d506f11147"
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_active_s1",
+      "transitions": 1228800,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_active_s1/logs/plug_active_clean_gru_v0_s1_n256_delta_active_s1_20261012T210747Z/model_100.pt",
+      "checkpoint_sha256": "1064134e39a8ee751c2f73fe95aff584eed974014f30218701d6073a1c6125c5"
+    }
+  ]
+}

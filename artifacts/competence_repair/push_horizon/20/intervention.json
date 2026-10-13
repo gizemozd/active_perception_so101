@@ -1,0 +1,6 @@
+{
+  "source_checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_wrist_static_s2/push_wrist_static_clean_gru_v0_s2_n2048_push-rgb-arc120-20261009T233510Z_20261009T233614Z/model_20345.pt",
+  "source_sha256": "3d69ac9af7e2f4218bfa734894b7239956227ee9eef8005b2c83c8b5429fe347",
+  "intervention": "episode_seconds",
+  "value": 20
+}

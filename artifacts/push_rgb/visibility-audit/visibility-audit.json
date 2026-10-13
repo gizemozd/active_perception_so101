@@ -1,0 +1,6586 @@
+{
+  "experiment": {
+    "task": "push",
+    "condition": "wrist_static",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 1,
+    "width": 96,
+    "height": 72,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 12.0,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "randomize": true,
+    "perturb_push": false,
+    "manip_control": "cartesian",
+    "reset_xy_jitter": 0.02,
+    "fixed_position": [
+      -0.119,
+      -0.187,
+      0.274
+    ],
+    "fixed_lookat": [
+      0.0,
+      0.025,
+      0.045
+    ],
+    "clearance": 0.002,
+    "render_sensors": true,
+    "actor_observation": "rgb",
+    "memory": "gru",
+    "policy_profile": "compact",
+    "plug_wrist_yaw": false,
+    "plug_control": "absolute",
+    "plug_variant": null,
+    "task_revision": "push_v2",
+    "success_state_sample": "current_qpos",
+    "reward_profile": "push_dense",
+    "occlusion_revision": null,
+    "push_visibility_revision": "crossbar_v3",
+    "dynamic_onset_range": null,
+    "dynamic_duration_range": null,
+    "dynamic_center": null,
+    "dynamic_center_jitter": null,
+    "dynamic_travel_range": null,
+    "dynamic_panel_half_size": null,
+    "dynamic_panel_yaw": null
+  },
+  "summary": {
+    "episodes": 64,
+    "wrist_pair_rate": 0.765625,
+    "static_pair_rate": 0.0,
+    "wrist_plus_static_pair_rate": 0.765625,
+    "active_single_view_pair_rate": 1.0,
+    "active_scan_pair_rate": 1.0,
+    "active_candidate_rates": {
+      "view_0_source": 0.078125,
+      "view_0_goal": 0.265625,
+      "view_1_source": 0.671875,
+      "view_1_goal": 0.109375,
+      "view_2_goal": 0.1875,
+      "view_3_source": 0.71875,
+      "view_3_goal": 0.21875,
+      "view_4_source": 0.09375,
+      "view_4_goal": 0.609375,
+      "view_5_source": 0.828125,
+      "view_5_goal": 0.046875
+    },
+    "fovy": {
+      "wrist": 48.4554906359,
+      "static": 48.4554906359,
+      "active": 48.4554906359,
+      "configured": 48.4554906359
+    },
+    "active_path_clear_endpoint_count": 11
+  },
+  "endpoints": [
+    {
+      "name": "view_0_source",
+      "requested": [
+        -0.12,
+        -0.19,
+        0.27
+      ],
+      "target": [
+        -0.025,
+        -0.045,
+        0.009
+      ],
+      "q": [
+        -0.004556554533458144,
+        -0.36530304705261263,
+        0.5468843561612737,
+        0.2335564361908712,
+        -1.5592694770991329
+      ],
+      "actual": [
+        -0.11999999999999995,
+        -0.18999999999999997,
+        0.27
+      ],
+      "position_error": 5.003707553108401e-17,
+      "angle_error_deg": 0.0,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_0_goal",
+      "requested": [
+        -0.12,
+        -0.19,
+        0.27
+      ],
+      "target": [
+        -0.025,
+        0.055,
+        0.009
+      ],
+      "q": [
+        -0.05046805210557312,
+        -0.2994047982575364,
+        0.6308325099221974,
+        -0.09330528461055497,
+        -1.7869522040461883
+      ],
+      "actual": [
+        -0.11999999999999998,
+        -0.1899999999999999,
+        0.27
+      ],
+      "position_error": 1.1188630228279524e-16,
+      "angle_error_deg": 1.2074182697257333e-06,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_1_source",
+      "requested": [
+        -0.18,
+        -0.14,
+        0.22
+      ],
+      "target": [
+        -0.025,
+        -0.045,
+        0.009
+      ],
+      "q": [
+        -0.15098158798603184,
+        -0.1214001879952578,
+        0.545815519512096,
+        0.052744227113280154,
+        -0.8361768879870535
+      ],
+      "actual": [
+        -0.18000000000000005,
+        -0.14,
+        0.22000000000000003
+      ],
+      "position_error": 6.206335383118183e-17,
+      "angle_error_deg": 2.091309789151873e-06,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_1_goal",
+      "requested": [
+        -0.18,
+        -0.14,
+        0.22
+      ],
+      "target": [
+        -0.025,
+        0.055,
+        0.009
+      ],
+      "q": [
+        -0.20445936351518526,
+        0.09244971542452583,
+        0.6531787728514498,
+        -0.5660369961820249,
+        -1.1570124264724961
+      ],
+      "actual": [
+        -0.18000000000000002,
+        -0.13999999999999996,
+        0.21999999999999992
+      ],
+      "position_error": 1.0385185452638061e-16,
+      "angle_error_deg": 0.0,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_2_source",
+      "requested": [
+        -0.22,
+        -0.08,
+        0.18
+      ],
+      "target": [
+        -0.025,
+        -0.045,
+        0.009
+      ],
+      "q": [
+        -0.21267631445462207,
+        0.625339971699913,
+        -0.5158674013867461,
+        0.8342016700169699,
+        0.36232253535950476
+      ],
+      "actual": [
+        -0.20533730610354278,
+        -0.11035805308392732,
+        0.13603886960669634
+      ],
+      "position_error": 0.05540024336412972,
+      "angle_error_deg": 6.533305611656282,
+      "reachable": false
+    },
+    {
+      "name": "view_2_goal",
+      "requested": [
+        -0.22,
+        -0.08,
+        0.18
+      ],
+      "target": [
+        -0.025,
+        0.055,
+        0.009
+      ],
+      "q": [
+        -0.298950470780733,
+        0.40066554484544553,
+        0.042849783687475274,
+        0.019704219022668647,
+        -0.39825213236918183
+      ],
+      "actual": [
+        -0.22000000000000006,
+        -0.07999999999999993,
+        0.1799999999999999
+      ],
+      "position_error": 1.2177709378935645e-16,
+      "angle_error_deg": 8.537736462515939e-07,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_3_source",
+      "requested": [
+        -0.16,
+        -0.1,
+        0.24
+      ],
+      "target": [
+        -0.025,
+        -0.045,
+        0.009
+      ],
+      "q": [
+        -0.14959656677164118,
+        0.2360906365392085,
+        -0.2240350806784978,
+        0.6585634974980425,
+        -0.818895556499627
+      ],
+      "actual": [
+        -0.16000000000000003,
+        -0.10000000000000003,
+        0.2399999999999999
+      ],
+      "position_error": 9.205483015737869e-17,
+      "angle_error_deg": 1.2074182697257333e-06,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_3_goal",
+      "requested": [
+        -0.16,
+        -0.1,
+        0.24
+      ],
+      "target": [
+        -0.025,
+        0.055,
+        0.009
+      ],
+      "q": [
+        -0.19808597230312233,
+        0.24400323608982488,
+        0.12486737378343173,
+        -0.043071104070904385,
+        -1.157305141779617
+      ],
+      "actual": [
+        -0.15999999999999998,
+        -0.09999999999999981,
+        0.24
+      ],
+      "position_error": 1.962615573354719e-16,
+      "angle_error_deg": 0.0,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_4_source",
+      "requested": [
+        -0.1,
+        -0.16,
+        0.2
+      ],
+      "target": [
+        -0.025,
+        -0.045,
+        0.009
+      ],
+      "q": [
+        -0.00799816988071364,
+        0.19921168626499233,
+        0.5043511120254484,
+        -0.32540204338920287,
+        -1.5598624744435876
+      ],
+      "actual": [
+        -0.10000000000000006,
+        -0.16000000000000003,
+        0.19999999999999993
+      ],
+      "position_error": 1.0385185452638061e-16,
+      "angle_error_deg": 1.9090959104164224e-06,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_4_goal",
+      "requested": [
+        -0.1,
+        -0.16,
+        0.2
+      ],
+      "target": [
+        -0.025,
+        0.055,
+        0.009
+      ],
+      "q": [
+        -0.058674053147136376,
+        0.3628573669833772,
+        0.46590593027141336,
+        -0.6639732193986541,
+        -1.8465951019890112
+      ],
+      "actual": [
+        -0.09999999999999995,
+        -0.15999999999999992,
+        0.20000000000000007
+      ],
+      "position_error": 1.1443916996305594e-16,
+      "angle_error_deg": 8.537736462515939e-07,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_5_source",
+      "requested": [
+        -0.2,
+        -0.18,
+        0.2
+      ],
+      "target": [
+        -0.025,
+        -0.045,
+        0.009
+      ],
+      "q": [
+        -0.15565877164332734,
+        -0.2695456491916702,
+        1.0744636337979905,
+        -0.5111161107048359,
+        -0.8684774439720545
+      ],
+      "actual": [
+        -0.2,
+        -0.18,
+        0.2
+      ],
+      "position_error": 0.0,
+      "angle_error_deg": 1.9090959104164224e-06,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    },
+    {
+      "name": "view_5_goal",
+      "requested": [
+        -0.2,
+        -0.18,
+        0.2
+      ],
+      "target": [
+        -0.025,
+        0.055,
+        0.009
+      ],
+      "q": [
+        -0.2131380063748578,
+        0.1204861335118542,
+        1.0275986703457942,
+        -1.0972369246275273,
+        -1.1564368020176339
+      ],
+      "actual": [
+        -0.19999999999999998,
+        -0.17999999999999988,
+        0.19999999999999998
+      ],
+      "position_error": 1.1775693440128312e-16,
+      "angle_error_deg": 0.0,
+      "reachable": true,
+      "path_clear": true,
+      "path_collision_samples": []
+    }
+  ],
+  "rows": [
+    {
+      "seed": 40000,
+      "wrist": {
+        "object_pixels": 604,
+        "fixture_pixels": 21,
+        "table_fraction": 0.7556423611111112,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 67,
+        "fixture_pixels": 2,
+        "table_fraction": 0.2521701388888889,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 61,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5073784722222222,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 65,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2640335648148148,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4518229166666667,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 90,
+          "fixture_pixels": 0,
+          "table_fraction": 0.17549189814814814,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 55,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23292824074074073,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 10,
+          "table_fraction": 0.4157986111111111,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 91,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1584201388888889,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 110,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4500868055555556,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 127,
+          "fixture_pixels": 4,
+          "table_fraction": 0.14525462962962962,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4822048611111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2238136574074074,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40001,
+      "wrist": {
+        "object_pixels": 677,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7476851851851852,
+        "occluder_pixels": 2,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 38,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2562210648148148,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 33,
+          "fixture_pixels": 4,
+          "table_fraction": 0.5109953703703703,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 40,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26765046296296297,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 6,
+          "table_fraction": 0.4526909722222222,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 3,
+          "table_fraction": 0.17592592592592593,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 58,
+          "fixture_pixels": 0,
+          "table_fraction": 0.2326388888888889,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 4,
+          "table_fraction": 0.41767939814814814,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1589988425925926,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 73,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4554398148148148,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 88,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15075231481481483,
+          "occluder_pixels": 6,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 66,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4827835648148148,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 77,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22424768518518517,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40002,
+      "wrist": {
+        "object_pixels": 272,
+        "fixture_pixels": 2,
+        "table_fraction": 0.8051215277777778,
+        "occluder_pixels": 12,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 60,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2530381944444444,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 60,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5076678240740741,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 62,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2644675925925926,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 80,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45211226851851855,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1762152777777778,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 37,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23567708333333334,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 78,
+          "fixture_pixels": 3,
+          "table_fraction": 0.41652199074074076,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15870949074074073,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 104,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45109953703703703,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 113,
+          "fixture_pixels": 4,
+          "table_fraction": 0.14756944444444445,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4820601851851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 73,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22511574074074073,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40003,
+      "wrist": {
+        "object_pixels": 227,
+        "fixture_pixels": 2,
+        "table_fraction": 0.8127893518518519,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 63,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2530381944444444,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 55,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5082465277777778,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 61,
+          "fixture_pixels": 0,
+          "table_fraction": 0.26461226851851855,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45240162037037035,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17650462962962962,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 48,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2339409722222222,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1589988425925926,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 101,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4515335648148148,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 110,
+          "fixture_pixels": 3,
+          "table_fraction": 0.14756944444444445,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 66,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4827835648148148,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 73,
+          "fixture_pixels": 3,
+          "table_fraction": 0.22468171296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40004,
+      "wrist": {
+        "object_pixels": 533,
+        "fixture_pixels": 2,
+        "table_fraction": 0.7683738425925926,
+        "occluder_pixels": 5,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 45,
+        "fixture_pixels": 1,
+        "table_fraction": 0.25535300925925924,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 43,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5099826388888888,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 47,
+          "fixture_pixels": 1,
+          "table_fraction": 0.26707175925925924,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 71,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4526909722222222,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 0,
+          "table_fraction": 0.17664930555555555,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 5,
+          "table_fraction": 0.22960069444444445,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15914351851851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 80,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4542824074074074,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 4,
+          "table_fraction": 0.1501736111111111,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 67,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4826388888888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 75,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22511574074074073,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40005,
+      "wrist": {
+        "object_pixels": 569,
+        "fixture_pixels": 2,
+        "table_fraction": 0.7605613425925926,
+        "occluder_pixels": 23,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 67,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2523148148148148,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 63,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5070891203703703,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 65,
+          "fixture_pixels": 6,
+          "table_fraction": 0.2634548611111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 78,
+          "fixture_pixels": 3,
+          "table_fraction": 0.45211226851851855,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17505787037037038,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 42,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2348090277777778,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 0,
+          "table_fraction": 0.1579861111111111,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 112,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4496527777777778,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 132,
+          "fixture_pixels": 2,
+          "table_fraction": 0.14525462962962962,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48191550925925924,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22352430555555555,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40006,
+      "wrist": {
+        "object_pixels": 393,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7886284722222222,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 63,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2526041666666667,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 60,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5075231481481481,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 65,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2643229166666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 4,
+          "table_fraction": 0.45240162037037035,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1762152777777778,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 47,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2339409722222222,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4166666666666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15870949074074073,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 105,
+          "fixture_pixels": 3,
+          "table_fraction": 0.45066550925925924,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 117,
+          "fixture_pixels": 5,
+          "table_fraction": 0.1467013888888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48234953703703703,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 73,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22468171296296297,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40007,
+      "wrist": {
+        "object_pixels": 556,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7649016203703703,
+        "occluder_pixels": 5,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 39,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2562210648148148,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 36,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5111400462962963,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 39,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2677951388888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 4,
+          "table_fraction": 0.45298032407407407,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17650462962962962,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22945601851851852,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 9,
+          "table_fraction": 0.41724537037037035,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 0,
+          "table_fraction": 0.15914351851851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45601851851851855,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15205439814814814,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 67,
+          "fixture_pixels": 2,
+          "table_fraction": 0.48292824074074076,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 73,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22468171296296297,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40008,
+      "wrist": {
+        "object_pixels": 371,
+        "fixture_pixels": 2,
+        "table_fraction": 0.7922453703703703,
+        "occluder_pixels": 2,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 65,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2527488425925926,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 61,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5073784722222222,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2644675925925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 81,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4518229166666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17592592592592593,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 25,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23741319444444445,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 2,
+          "table_fraction": 0.41652199074074076,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 89,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1584201388888889,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 110,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4500868055555556,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 115,
+          "fixture_pixels": 0,
+          "table_fraction": 0.14684606481481483,
+          "occluder_pixels": 8,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4817708333333333,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 0,
+          "table_fraction": 0.22497106481481483,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40009,
+      "wrist": {
+        "object_pixels": 642,
+        "fixture_pixels": 22,
+        "table_fraction": 0.7495659722222222,
+        "occluder_pixels": 6,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 47,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2550636574074074,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 42,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5101273148148148,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 50,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2664930555555556,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4522569444444444,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1752025462962963,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 61,
+          "fixture_pixels": 0,
+          "table_fraction": 0.2322048611111111,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 8,
+          "table_fraction": 0.4162326388888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1579861111111111,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 84,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45384837962962965,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 104,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1490162037037037,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48234953703703703,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22366898148148148,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40010,
+      "wrist": {
+        "object_pixels": 560,
+        "fixture_pixels": 2,
+        "table_fraction": 0.7646122685185185,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 54,
+        "fixture_pixels": 1,
+        "table_fraction": 0.25390625,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 51,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5089699074074074,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 55,
+          "fixture_pixels": 3,
+          "table_fraction": 0.26533564814814814,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 73,
+          "fixture_pixels": 5,
+          "table_fraction": 0.4522569444444444,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17592592592592593,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 66,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23119212962962962,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 67,
+          "fixture_pixels": 10,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15885416666666666,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 97,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4519675925925926,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 111,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1480034722222222,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48234953703703703,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 75,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2243923611111111,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40011,
+      "wrist": {
+        "object_pixels": 525,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7696759259259259,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 72,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25144675925925924,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5069444444444444,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 67,
+          "fixture_pixels": 3,
+          "table_fraction": 0.2630208333333333,
+          "occluder_pixels": 6,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 82,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45167824074074076,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 96,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17433449074074073,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 36,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23582175925925927,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 84,
+          "fixture_pixels": 5,
+          "table_fraction": 0.41550925925925924,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 96,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15755208333333334,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 120,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4483506944444444,
+          "occluder_pixels": 6,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 135,
+          "fixture_pixels": 9,
+          "table_fraction": 0.14366319444444445,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4813368055555556,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22280092592592593,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40012,
+      "wrist": {
+        "object_pixels": 661,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7497106481481481,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 31,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2573784722222222,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 29,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5120081018518519,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 33,
+          "fixture_pixels": 1,
+          "table_fraction": 0.26880787037037035,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 3,
+          "table_fraction": 0.453125,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17607060185185186,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2287326388888889,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 73,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4173900462962963,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 0,
+          "table_fraction": 0.15914351851851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 58,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45775462962962965,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 71,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15393518518518517,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 65,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4830729166666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 72,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2248263888888889,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40013,
+      "wrist": {
+        "object_pixels": 212,
+        "fixture_pixels": 2,
+        "table_fraction": 0.8149594907407407,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 35,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25679976851851855,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 34,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5114293981481481,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 38,
+          "fixture_pixels": 1,
+          "table_fraction": 0.26808449074074076,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45341435185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 76,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17737268518518517,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 3,
+          "table_fraction": 0.2298900462962963,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 67,
+          "fixture_pixels": 9,
+          "table_fraction": 0.4173900462962963,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1597222222222222,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 73,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4552951388888889,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15248842592592593,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 2,
+          "table_fraction": 0.48336226851851855,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 68,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2259837962962963,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40014,
+      "wrist": {
+        "object_pixels": 304,
+        "fixture_pixels": 3,
+        "table_fraction": 0.8015046296296297,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 51,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2547743055555556,
+        "occluder_pixels": 1,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 50,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5089699074074074,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 54,
+          "fixture_pixels": 1,
+          "table_fraction": 0.26591435185185186,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45283564814814814,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 4,
+          "table_fraction": 0.17664930555555555,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 63,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2316261574074074,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15943287037037038,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 97,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4522569444444444,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 105,
+          "fixture_pixels": 3,
+          "table_fraction": 0.14858217592592593,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4832175925925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22497106481481483,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40015,
+      "wrist": {
+        "object_pixels": 593,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7598379629629629,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 71,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2515914351851852,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 63,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5069444444444444,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 68,
+          "fixture_pixels": 1,
+          "table_fraction": 0.26374421296296297,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4515335648148148,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17505787037037038,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 45,
+          "fixture_pixels": 1,
+          "table_fraction": 0.234375,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 2,
+          "table_fraction": 0.41695601851851855,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1579861111111111,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 117,
+          "fixture_pixels": 0,
+          "table_fraction": 0.44907407407407407,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 133,
+          "fixture_pixels": 0,
+          "table_fraction": 0.1449652777777778,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 73,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48191550925925924,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 3,
+          "table_fraction": 0.22352430555555555,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40016,
+      "wrist": {
+        "object_pixels": 610,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7546296296296297,
+        "occluder_pixels": 22,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 65,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2527488425925926,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 59,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5076678240740741,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26417824074074076,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4522569444444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 94,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17476851851851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 59,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2322048611111111,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 0,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1579861111111111,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 109,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4500868055555556,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 130,
+          "fixture_pixels": 2,
+          "table_fraction": 0.14525462962962962,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4817708333333333,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22352430555555555,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40017,
+      "wrist": {
+        "object_pixels": 466,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7779224537037037,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 63,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2530381944444444,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 57,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5079571759259259,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 63,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2644675925925926,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 71,
+          "fixture_pixels": 6,
+          "table_fraction": 0.45240162037037035,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17607060185185186,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 58,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23234953703703703,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 6,
+          "table_fraction": 0.41608796296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1589988425925926,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 105,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45066550925925924,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 118,
+          "fixture_pixels": 4,
+          "table_fraction": 0.1467013888888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4826388888888889,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22468171296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40018,
+      "wrist": {
+        "object_pixels": 584,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7609953703703703,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 67,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2521701388888889,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 62,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5072337962962963,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 67,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26374421296296297,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4519675925925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 91,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17505787037037038,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 40,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23509837962962962,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 8,
+          "table_fraction": 0.4157986111111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1579861111111111,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 115,
+          "fixture_pixels": 2,
+          "table_fraction": 0.44936342592592593,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 128,
+          "fixture_pixels": 6,
+          "table_fraction": 0.14467592592592593,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4816261574074074,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22366898148148148,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40019,
+      "wrist": {
+        "object_pixels": 555,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7649016203703703,
+        "occluder_pixels": 5,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 27,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2582465277777778,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 26,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5125868055555556,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 28,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26967592592592593,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4535590277777778,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 0,
+          "table_fraction": 0.17679398148148148,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 79,
+          "fixture_pixels": 3,
+          "table_fraction": 0.22902199074074073,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 0,
+          "table_fraction": 0.4175347222222222,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15928819444444445,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 52,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4587673611111111,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 59,
+          "fixture_pixels": 4,
+          "table_fraction": 0.15523726851851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4830729166666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 70,
+          "fixture_pixels": 0,
+          "table_fraction": 0.2254050925925926,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40020,
+      "wrist": {
+        "object_pixels": 711,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7424768518518519,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 31,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25766782407407407,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 29,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5121527777777778,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 31,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2689525462962963,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45326967592592593,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1763599537037037,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2287326388888889,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 0,
+          "table_fraction": 0.4175347222222222,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 0,
+          "table_fraction": 0.1589988425925926,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 56,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4578993055555556,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 67,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15422453703703703,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 2,
+          "table_fraction": 0.48336226851851855,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 72,
+          "fixture_pixels": 0,
+          "table_fraction": 0.22511574074074073,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40021,
+      "wrist": {
+        "object_pixels": 533,
+        "fixture_pixels": 2,
+        "table_fraction": 0.7685185185185185,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 73,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2511574074074074,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 63,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5069444444444444,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 71,
+          "fixture_pixels": 5,
+          "table_fraction": 0.2628761574074074,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 83,
+          "fixture_pixels": 4,
+          "table_fraction": 0.45124421296296297,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 100,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17390046296296297,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 41,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23509837962962962,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 78,
+          "fixture_pixels": 10,
+          "table_fraction": 0.4153645833333333,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 98,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15726273148148148,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 118,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4487847222222222,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 146,
+          "fixture_pixels": 0,
+          "table_fraction": 0.14351851851851852,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48119212962962965,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 88,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22280092592592593,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40022,
+      "wrist": {
+        "object_pixels": 793,
+        "fixture_pixels": 25,
+        "table_fraction": 0.7275752314814815,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 14,
+        "fixture_pixels": 2,
+        "table_fraction": 0.25969328703703703,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 14,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5143229166666666,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 17,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2711226851851852,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 57,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4552951388888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 70,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17824074074074073,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 67,
+          "fixture_pixels": 3,
+          "table_fraction": 0.2309027777777778,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 60,
+          "fixture_pixels": 7,
+          "table_fraction": 0.41869212962962965,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1607349537037037,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 36,
+          "fixture_pixels": 3,
+          "table_fraction": 0.46108217592592593,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 44,
+          "fixture_pixels": 4,
+          "table_fraction": 0.15755208333333334,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 54,
+          "fixture_pixels": 3,
+          "table_fraction": 0.484375,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2261284722222222,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40023,
+      "wrist": {
+        "object_pixels": 392,
+        "fixture_pixels": 1,
+        "table_fraction": 0.7892071759259259,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 64,
+        "fixture_pixels": 1,
+        "table_fraction": 0.25289351851851855,
+        "occluder_pixels": 1,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 61,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5073784722222222,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 63,
+          "fixture_pixels": 3,
+          "table_fraction": 0.26417824074074076,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4522569444444444,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 3,
+          "table_fraction": 0.17578125,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 38,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23538773148148148,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 88,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15856481481481483,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 107,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4505208333333333,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 116,
+          "fixture_pixels": 0,
+          "table_fraction": 0.14699074074074073,
+          "occluder_pixels": 6,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48249421296296297,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22453703703703703,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40024,
+      "wrist": {
+        "object_pixels": 650,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7486979166666666,
+        "occluder_pixels": 22,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 49,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2547743055555556,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 47,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5095486111111112,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 52,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26591435185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 6,
+          "table_fraction": 0.4519675925925926,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 91,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1753472222222222,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 68,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2310474537037037,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 3,
+          "table_fraction": 0.41695601851851855,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 91,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15813078703703703,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 90,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45298032407407407,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 106,
+          "fixture_pixels": 6,
+          "table_fraction": 0.1480034722222222,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4820601851851852,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22366898148148148,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40025,
+      "wrist": {
+        "object_pixels": 509,
+        "fixture_pixels": 3,
+        "table_fraction": 0.76953125,
+        "occluder_pixels": 20,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 65,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2527488425925926,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 58,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5078125,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 61,
+          "fixture_pixels": 4,
+          "table_fraction": 0.26417824074074076,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4522569444444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17592592592592593,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 57,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2326388888888889,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4166666666666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 89,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15856481481481483,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 104,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4508101851851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 121,
+          "fixture_pixels": 4,
+          "table_fraction": 0.1462673611111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48234953703703703,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22424768518518517,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40026,
+      "wrist": {
+        "object_pixels": 537,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7677951388888888,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 72,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2513020833333333,
+        "occluder_pixels": 5,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 65,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5067997685185185,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 70,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2630208333333333,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 82,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4513888888888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 96,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17433449074074073,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 40,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23509837962962962,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 78,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 97,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1574074074074074,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 118,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4487847222222222,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 140,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1433738425925926,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 4,
+          "table_fraction": 0.48119212962962965,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 88,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22294560185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40027,
+      "wrist": {
+        "object_pixels": 733,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7392939814814815,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 24,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2586805555555556,
+        "occluder_pixels": 1,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 22,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5130208333333334,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 25,
+          "fixture_pixels": 3,
+          "table_fraction": 0.26982060185185186,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 66,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45384837962962965,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17664930555555555,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 4,
+          "table_fraction": 0.22815393518518517,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 0,
+          "table_fraction": 0.41782407407407407,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 0,
+          "table_fraction": 0.15928819444444445,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 46,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4596354166666667,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 55,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15596064814814814,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 61,
+          "fixture_pixels": 1,
+          "table_fraction": 0.48365162037037035,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 70,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22569444444444445,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40028,
+      "wrist": {
+        "object_pixels": 742,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7379918981481481,
+        "occluder_pixels": 5,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 27,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25810185185185186,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 26,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5125868055555556,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 29,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26938657407407407,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 4,
+          "table_fraction": 0.45326967592592593,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1763599537037037,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 77,
+          "fixture_pixels": 0,
+          "table_fraction": 0.2298900462962963,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 1,
+          "table_fraction": 0.41782407407407407,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 0,
+          "table_fraction": 0.15943287037037038,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 54,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4581886574074074,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 4,
+          "table_fraction": 0.1545138888888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 63,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4835069444444444,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 70,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22511574074074073,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40029,
+      "wrist": {
+        "object_pixels": 444,
+        "fixture_pixels": 17,
+        "table_fraction": 0.7792245370370371,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 66,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2526041666666667,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 58,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5078125,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2643229166666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 6,
+          "table_fraction": 0.4518229166666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17592592592592593,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 43,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23466435185185186,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 7,
+          "table_fraction": 0.4157986111111111,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 88,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15870949074074073,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 105,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4508101851851852,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 120,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1462673611111111,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4820601851851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 76,
+          "fixture_pixels": 0,
+          "table_fraction": 0.22468171296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40030,
+      "wrist": {
+        "object_pixels": 596,
+        "fixture_pixels": 22,
+        "table_fraction": 0.7565104166666666,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 68,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2523148148148148,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 62,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5073784722222222,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 67,
+          "fixture_pixels": 4,
+          "table_fraction": 0.2634548611111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4515335648148148,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17491319444444445,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 55,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23278356481481483,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 0,
+          "table_fraction": 0.41724537037037035,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 95,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15755208333333334,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 114,
+          "fixture_pixels": 2,
+          "table_fraction": 0.44936342592592593,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 131,
+          "fixture_pixels": 6,
+          "table_fraction": 0.14453125,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 73,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4817708333333333,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22337962962962962,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40031,
+      "wrist": {
+        "object_pixels": 764,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7345196759259259,
+        "occluder_pixels": 6,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 26,
+        "fixture_pixels": 2,
+        "table_fraction": 0.2583912037037037,
+        "occluder_pixels": 0,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 25,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5124421296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 29,
+          "fixture_pixels": 3,
+          "table_fraction": 0.26924189814814814,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45341435185185186,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17650462962962962,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22945601851851852,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 0,
+          "table_fraction": 0.41796875,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15914351851851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 53,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4583333333333333,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15465856481481483,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 63,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4835069444444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 73,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22526041666666666,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40032,
+      "wrist": {
+        "object_pixels": 714,
+        "fixture_pixels": 5,
+        "table_fraction": 0.7418981481481481,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 37,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2565104166666667,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 35,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5114293981481481,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 38,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2677951388888889,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4525462962962963,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17607060185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 77,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22960069444444445,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 0,
+          "table_fraction": 0.4175347222222222,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 89,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15827546296296297,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45601851851851855,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 5,
+          "table_fraction": 0.1519097222222222,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4827835648148148,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 75,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2243923611111111,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40033,
+      "wrist": {
+        "object_pixels": 658,
+        "fixture_pixels": 23,
+        "table_fraction": 0.7473958333333334,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 19,
+        "fixture_pixels": 1,
+        "table_fraction": 0.25925925925925924,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 18,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5135995370370371,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 21,
+          "fixture_pixels": 2,
+          "table_fraction": 0.27054398148148145,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 65,
+          "fixture_pixels": 5,
+          "table_fraction": 0.45341435185185186,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 76,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17737268518518517,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 6,
+          "table_fraction": 0.22815393518518517,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 6,
+          "table_fraction": 0.4175347222222222,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1595775462962963,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 39,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4605034722222222,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 48,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15726273148148148,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 59,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4837962962962963,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 66,
+          "fixture_pixels": 0,
+          "table_fraction": 0.22583912037037038,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40034,
+      "wrist": {
+        "object_pixels": 561,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7644675925925926,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 65,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2526041666666667,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 61,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5073784722222222,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 65,
+          "fixture_pixels": 5,
+          "table_fraction": 0.26374421296296297,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 6,
+          "table_fraction": 0.45211226851851855,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 88,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17578125,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 50,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23365162037037038,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15827546296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 109,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45023148148148145,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 123,
+          "fixture_pixels": 4,
+          "table_fraction": 0.1456886574074074,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4822048611111111,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 76,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22424768518518517,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40035,
+      "wrist": {
+        "object_pixels": 628,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7547743055555556,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 62,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2526041666666667,
+        "occluder_pixels": 5,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 58,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5078125,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26417824074074076,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 80,
+          "fixture_pixels": 0,
+          "table_fraction": 0.45240162037037035,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 0,
+          "table_fraction": 0.17505787037037038,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 57,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2326388888888889,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 2,
+          "table_fraction": 0.41652199074074076,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15813078703703703,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 110,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4500868055555556,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 127,
+          "fixture_pixels": 4,
+          "table_fraction": 0.14482060185185186,
+          "occluder_pixels": 6,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48191550925925924,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22366898148148148,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40036,
+      "wrist": {
+        "object_pixels": 610,
+        "fixture_pixels": 22,
+        "table_fraction": 0.7544849537037037,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 63,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2527488425925926,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 61,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5073784722222222,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 65,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2640335648148148,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4518229166666667,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 90,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1753472222222222,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 53,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23307291666666666,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 9,
+          "table_fraction": 0.41594328703703703,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 91,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15813078703703703,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 111,
+          "fixture_pixels": 0,
+          "table_fraction": 0.44994212962962965,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 130,
+          "fixture_pixels": 5,
+          "table_fraction": 0.14482060185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4822048611111111,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22395833333333334,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40037,
+      "wrist": {
+        "object_pixels": 250,
+        "fixture_pixels": 9,
+        "table_fraction": 0.8084490740740741,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 50,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25491898148148145,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 48,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5091145833333334,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 51,
+          "fixture_pixels": 3,
+          "table_fraction": 0.26591435185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 3,
+          "table_fraction": 0.453125,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17708333333333334,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 68,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23119212962962962,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 9,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1597222222222222,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 94,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45240162037037035,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 104,
+          "fixture_pixels": 3,
+          "table_fraction": 0.14872685185185186,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 67,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4827835648148148,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 70,
+          "fixture_pixels": 0,
+          "table_fraction": 0.22569444444444445,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40038,
+      "wrist": {
+        "object_pixels": 426,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7835648148148148,
+        "occluder_pixels": 5,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 28,
+        "fixture_pixels": 1,
+        "table_fraction": 0.25795717592592593,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 29,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5121527777777778,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 33,
+          "fixture_pixels": 0,
+          "table_fraction": 0.26924189814814814,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 5,
+          "table_fraction": 0.45326967592592593,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1769386574074074,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22916666666666666,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 73,
+          "fixture_pixels": 3,
+          "table_fraction": 0.41724537037037035,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15943287037037038,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 56,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45804398148148145,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 65,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15465856481481483,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4832175925925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 69,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22569444444444445,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40039,
+      "wrist": {
+        "object_pixels": 506,
+        "fixture_pixels": 5,
+        "table_fraction": 0.7719907407407407,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 29,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2578125,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 26,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5122974537037037,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 32,
+          "fixture_pixels": 0,
+          "table_fraction": 0.26924189814814814,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 4,
+          "table_fraction": 0.45298032407407407,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17650462962962962,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 4,
+          "table_fraction": 0.2287326388888889,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4173900462962963,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1595775462962963,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 56,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4581886574074074,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 63,
+          "fixture_pixels": 4,
+          "table_fraction": 0.1545138888888889,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 65,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4830729166666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 73,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22511574074074073,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40040,
+      "wrist": {
+        "object_pixels": 290,
+        "fixture_pixels": 2,
+        "table_fraction": 0.8023726851851852,
+        "occluder_pixels": 13,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 63,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2530381944444444,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 60,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5076678240740741,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 61,
+          "fixture_pixels": 3,
+          "table_fraction": 0.2644675925925926,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4519675925925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17650462962962962,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 34,
+          "fixture_pixels": 0,
+          "table_fraction": 0.2361111111111111,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 78,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4166666666666667,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15885416666666666,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 105,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4509548611111111,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 111,
+          "fixture_pixels": 6,
+          "table_fraction": 0.14742476851851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 71,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4822048611111111,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 0,
+          "table_fraction": 0.2248263888888889,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40041,
+      "wrist": {
+        "object_pixels": 465,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7782118055555556,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 49,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25491898148148145,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 46,
+          "fixture_pixels": 3,
+          "table_fraction": 0.5095486111111112,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 52,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2662037037037037,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 3,
+          "table_fraction": 0.45283564814814814,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17607060185185186,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 69,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23075810185185186,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15914351851851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 90,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45298032407407407,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 103,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1490162037037037,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 65,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48292824074074076,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22497106481481483,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40042,
+      "wrist": {
+        "object_pixels": 385,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7897858796296297,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 60,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2534722222222222,
+        "occluder_pixels": 1,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 58,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5078125,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 61,
+          "fixture_pixels": 3,
+          "table_fraction": 0.2644675925925926,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4526909722222222,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1763599537037037,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 58,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23234953703703703,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 2,
+          "table_fraction": 0.41724537037037035,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1589988425925926,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 102,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45124421296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 116,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1472800925925926,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 4,
+          "table_fraction": 0.48249421296296297,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22453703703703703,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40043,
+      "wrist": {
+        "object_pixels": 813,
+        "fixture_pixels": 6,
+        "table_fraction": 0.7243923611111112,
+        "occluder_pixels": 25,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 12,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2601273148148148,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 11,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5149016203703703,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 13,
+          "fixture_pixels": 1,
+          "table_fraction": 0.27155671296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 51,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4561631944444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 0,
+          "table_fraction": 0.17939814814814814,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 53,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23307291666666666,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 56,
+          "fixture_pixels": 0,
+          "table_fraction": 0.4202835648148148,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 65,
+          "fixture_pixels": 2,
+          "table_fraction": 0.16218171296296297,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 34,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4609375,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 40,
+          "fixture_pixels": 5,
+          "table_fraction": 0.1579861111111111,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 53,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48466435185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 63,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22641782407407407,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40044,
+      "wrist": {
+        "object_pixels": 522,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7698206018518519,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 71,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2517361111111111,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5069444444444444,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 69,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2628761574074074,
+          "occluder_pixels": 6,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 6,
+          "table_fraction": 0.45109953703703703,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 100,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17390046296296297,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 40,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23524305555555555,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 98,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15726273148148148,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 115,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4487847222222222,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 143,
+          "fixture_pixels": 2,
+          "table_fraction": 0.14308449074074073,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 78,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48119212962962965,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 89,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22251157407407407,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40045,
+      "wrist": {
+        "object_pixels": 567,
+        "fixture_pixels": 21,
+        "table_fraction": 0.7609953703703703,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 72,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2515914351851852,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 62,
+          "fixture_pixels": 3,
+          "table_fraction": 0.5072337962962963,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 68,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2633101851851852,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 81,
+          "fixture_pixels": 5,
+          "table_fraction": 0.4513888888888889,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 91,
+          "fixture_pixels": 3,
+          "table_fraction": 0.17505787037037038,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 46,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23423032407407407,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4166666666666667,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15784143518518517,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 116,
+          "fixture_pixels": 1,
+          "table_fraction": 0.44921875,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 134,
+          "fixture_pixels": 4,
+          "table_fraction": 0.14467592592592593,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 73,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4816261574074074,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22352430555555555,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40046,
+      "wrist": {
+        "object_pixels": 631,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7543402777777778,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 56,
+        "fixture_pixels": 1,
+        "table_fraction": 0.25376157407407407,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 49,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5089699074074074,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 55,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2650462962962963,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4519675925925926,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 95,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17476851851851852,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 48,
+          "fixture_pixels": 4,
+          "table_fraction": 0.23350694444444445,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 10,
+          "table_fraction": 0.41594328703703703,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 96,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15769675925925927,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 100,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45167824074074076,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 117,
+          "fixture_pixels": 6,
+          "table_fraction": 0.1462673611111111,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48191550925925924,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2232349537037037,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40047,
+      "wrist": {
+        "object_pixels": 467,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7779224537037037,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 46,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2554976851851852,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 42,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5102719907407407,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 49,
+          "fixture_pixels": 0,
+          "table_fraction": 0.2669270833333333,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 71,
+          "fixture_pixels": 6,
+          "table_fraction": 0.4525462962962963,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17650462962962962,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 72,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23017939814814814,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15914351851851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 84,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45384837962962965,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 97,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15002893518518517,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 67,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4826388888888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 73,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22526041666666666,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40048,
+      "wrist": {
+        "object_pixels": 666,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7492766203703703,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 53,
+        "fixture_pixels": 1,
+        "table_fraction": 0.25405092592592593,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 51,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5088252314814815,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 56,
+          "fixture_pixels": 1,
+          "table_fraction": 0.26576967592592593,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 6,
+          "table_fraction": 0.45211226851851855,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 90,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17549189814814814,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 67,
+          "fixture_pixels": 3,
+          "table_fraction": 0.2309027777777778,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 91,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15827546296296297,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 95,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4522569444444444,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 111,
+          "fixture_pixels": 5,
+          "table_fraction": 0.14742476851851852,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4822048611111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22410300925925927,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40049,
+      "wrist": {
+        "object_pixels": 222,
+        "fixture_pixels": 1,
+        "table_fraction": 0.8136574074074074,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 59,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2533275462962963,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 60,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5073784722222222,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 61,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2647569444444444,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 5,
+          "table_fraction": 0.4522569444444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17679398148148148,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 47,
+          "fixture_pixels": 1,
+          "table_fraction": 0.23408564814814814,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 79,
+          "fixture_pixels": 5,
+          "table_fraction": 0.4156539351851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15943287037037038,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 105,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45066550925925924,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 109,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1480034722222222,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4826388888888889,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 73,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2248263888888889,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40050,
+      "wrist": {
+        "object_pixels": 498,
+        "fixture_pixels": 5,
+        "table_fraction": 0.7731481481481481,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 22,
+        "fixture_pixels": 2,
+        "table_fraction": 0.25882523148148145,
+        "occluder_pixels": 1,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 22,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5131655092592593,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 25,
+          "fixture_pixels": 1,
+          "table_fraction": 0.27025462962962965,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 5,
+          "table_fraction": 0.45298032407407407,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 79,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17679398148148148,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 4,
+          "table_fraction": 0.22844328703703703,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 65,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4173900462962963,
+          "occluder_pixels": 8,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15943287037037038,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 44,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45949074074074076,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 52,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15625,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 61,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48365162037037035,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 71,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22497106481481483,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40051,
+      "wrist": {
+        "object_pixels": 317,
+        "fixture_pixels": 12,
+        "table_fraction": 0.7983217592592593,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 42,
+        "fixture_pixels": 1,
+        "table_fraction": 0.25593171296296297,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 42,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5101273148148148,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 44,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2672164351851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 71,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45341435185185186,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 3,
+          "table_fraction": 0.17708333333333334,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 69,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23061342592592593,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 8,
+          "table_fraction": 0.41724537037037035,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 81,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1597222222222222,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 81,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4542824074074074,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 90,
+          "fixture_pixels": 4,
+          "table_fraction": 0.15075231481481483,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 65,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48292824074074076,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 72,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22554976851851852,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40052,
+      "wrist": {
+        "object_pixels": 412,
+        "fixture_pixels": 1,
+        "table_fraction": 0.7861689814814815,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 59,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25318287037037035,
+        "occluder_pixels": 5,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 55,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5083912037037037,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 60,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2647569444444444,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4526909722222222,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17607060185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 60,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23206018518518517,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 76,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15885416666666666,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 101,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45124421296296297,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 114,
+          "fixture_pixels": 3,
+          "table_fraction": 0.14713541666666666,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 67,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48292824074074076,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 76,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22468171296296297,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40053,
+      "wrist": {
+        "object_pixels": 638,
+        "fixture_pixels": 24,
+        "table_fraction": 0.7501446759259259,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 51,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25462962962962965,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 44,
+          "fixture_pixels": 3,
+          "table_fraction": 0.5094039351851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 51,
+          "fixture_pixels": 4,
+          "table_fraction": 0.26591435185185186,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 3,
+          "table_fraction": 0.45211226851851855,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1752025462962963,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 60,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23234953703703703,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 2,
+          "table_fraction": 0.41695601851851855,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1579861111111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 89,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45298032407407407,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 108,
+          "fixture_pixels": 3,
+          "table_fraction": 0.14829282407407407,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4820601851851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22337962962962962,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40054,
+      "wrist": {
+        "object_pixels": 587,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7605613425925926,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 65,
+        "fixture_pixels": 1,
+        "table_fraction": 0.2523148148148148,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 60,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5076678240740741,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26359953703703703,
+          "occluder_pixels": 6,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4518229166666667,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 93,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17476851851851852,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 52,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23350694444444445,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 80,
+          "fixture_pixels": 5,
+          "table_fraction": 0.4157986111111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 95,
+          "fixture_pixels": 3,
+          "table_fraction": 0.15755208333333334,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 113,
+          "fixture_pixels": 1,
+          "table_fraction": 0.44950810185185186,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 134,
+          "fixture_pixels": 3,
+          "table_fraction": 0.14424189814814814,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4816261574074074,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22294560185185186,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40055,
+      "wrist": {
+        "object_pixels": 246,
+        "fixture_pixels": 0,
+        "table_fraction": 0.8100405092592593,
+        "occluder_pixels": 6,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 30,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2578125,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 28,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5122974537037037,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 30,
+          "fixture_pixels": 2,
+          "table_fraction": 0.2690972222222222,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 66,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4535590277777778,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17722800925925927,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 4,
+          "table_fraction": 0.22916666666666666,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 4,
+          "table_fraction": 0.41724537037037035,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 79,
+          "fixture_pixels": 1,
+          "table_fraction": 0.16001157407407407,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 62,
+          "fixture_pixels": 0,
+          "table_fraction": 0.4576099537037037,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 66,
+          "fixture_pixels": 5,
+          "table_fraction": 0.15422453703703703,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 62,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4835069444444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 68,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2254050925925926,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40056,
+      "wrist": {
+        "object_pixels": 624,
+        "fixture_pixels": 4,
+        "table_fraction": 0.7550636574074074,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 63,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2530381944444444,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 54,
+          "fixture_pixels": 3,
+          "table_fraction": 0.5079571759259259,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 62,
+          "fixture_pixels": 1,
+          "table_fraction": 0.26490162037037035,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 5,
+          "table_fraction": 0.4519675925925926,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 89,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17563657407407407,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 60,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2322048611111111,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 9,
+          "table_fraction": 0.41695601851851855,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 91,
+          "fixture_pixels": 1,
+          "table_fraction": 0.1584201388888889,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 104,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4509548611111111,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 121,
+          "fixture_pixels": 2,
+          "table_fraction": 0.14597800925925927,
+          "occluder_pixels": 6,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4820601851851852,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22395833333333334,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40057,
+      "wrist": {
+        "object_pixels": 224,
+        "fixture_pixels": 7,
+        "table_fraction": 0.8123553240740741,
+        "occluder_pixels": 5,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 54,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2543402777777778,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 51,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5088252314814815,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 54,
+          "fixture_pixels": 1,
+          "table_fraction": 0.265625,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 3,
+          "table_fraction": 0.45283564814814814,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17679398148148148,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23148148148148148,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15943287037037038,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 97,
+          "fixture_pixels": 1,
+          "table_fraction": 0.4518229166666667,
+          "occluder_pixels": 5,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 109,
+          "fixture_pixels": 2,
+          "table_fraction": 0.14829282407407407,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 66,
+          "fixture_pixels": 3,
+          "table_fraction": 0.48292824074074076,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 67,
+          "fixture_pixels": 3,
+          "table_fraction": 0.22554976851851852,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40058,
+      "wrist": {
+        "object_pixels": 283,
+        "fixture_pixels": 8,
+        "table_fraction": 0.8035300925925926,
+        "occluder_pixels": 6,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 47,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25491898148148145,
+        "occluder_pixels": 5,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 48,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5091145833333334,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 52,
+          "fixture_pixels": 2,
+          "table_fraction": 0.26591435185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4526909722222222,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 80,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17679398148148148,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 67,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23119212962962962,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 9,
+          "table_fraction": 0.41724537037037035,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15928819444444445,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 95,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45240162037037035,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 103,
+          "fixture_pixels": 4,
+          "table_fraction": 0.14872685185185186,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 64,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4832175925925926,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 70,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22511574074074073,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40059,
+      "wrist": {
+        "object_pixels": 476,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7766203703703703,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 61,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25289351851851855,
+        "occluder_pixels": 5,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 55,
+          "fixture_pixels": 2,
+          "table_fraction": 0.5082465277777778,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 61,
+          "fixture_pixels": 3,
+          "table_fraction": 0.26461226851851855,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45240162037037035,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 86,
+          "fixture_pixels": 2,
+          "table_fraction": 0.17607060185185186,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 60,
+          "fixture_pixels": 2,
+          "table_fraction": 0.23206018518518517,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4168113425925926,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15885416666666666,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 103,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45109953703703703,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 117,
+          "fixture_pixels": 2,
+          "table_fraction": 0.14684606481481483,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 4,
+          "table_fraction": 0.48234953703703703,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 74,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22453703703703703,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40060,
+      "wrist": {
+        "object_pixels": 251,
+        "fixture_pixels": 2,
+        "table_fraction": 0.8093171296296297,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 63,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2530381944444444,
+        "occluder_pixels": 2,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 57,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5079571759259259,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 61,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2647569444444444,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 5,
+          "table_fraction": 0.45211226851851855,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1763599537037037,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 41,
+          "fixture_pixels": 1,
+          "table_fraction": 0.2349537037037037,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 77,
+          "fixture_pixels": 3,
+          "table_fraction": 0.41652199074074076,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 87,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15885416666666666,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 103,
+          "fixture_pixels": 1,
+          "table_fraction": 0.45109953703703703,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 108,
+          "fixture_pixels": 7,
+          "table_fraction": 0.14771412037037038,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 70,
+          "fixture_pixels": 4,
+          "table_fraction": 0.4822048611111111,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 76,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22424768518518517,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40061,
+      "wrist": {
+        "object_pixels": 221,
+        "fixture_pixels": 1,
+        "table_fraction": 0.8135127314814815,
+        "occluder_pixels": 6,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 27,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25810185185185186,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 26,
+          "fixture_pixels": 0,
+          "table_fraction": 0.5124421296296297,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 28,
+          "fixture_pixels": 1,
+          "table_fraction": 0.26924189814814814,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 67,
+          "fixture_pixels": 2,
+          "table_fraction": 0.45384837962962965,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 75,
+          "fixture_pixels": 2,
+          "table_fraction": 0.1775173611111111,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 78,
+          "fixture_pixels": 4,
+          "table_fraction": 0.22916666666666666,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 68,
+          "fixture_pixels": 9,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 79,
+          "fixture_pixels": 3,
+          "table_fraction": 0.16015625,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 56,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4578993055555556,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 64,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1545138888888889,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 62,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4835069444444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 70,
+          "fixture_pixels": 0,
+          "table_fraction": 0.22583912037037038,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40062,
+      "wrist": {
+        "object_pixels": 428,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7835648148148148,
+        "occluder_pixels": 4,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 38,
+        "fixture_pixels": 0,
+        "table_fraction": 0.2565104166666667,
+        "occluder_pixels": 3,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 37,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5109953703703703,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 39,
+          "fixture_pixels": 3,
+          "table_fraction": 0.26765046296296297,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 69,
+          "fixture_pixels": 6,
+          "table_fraction": 0.45298032407407407,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 82,
+          "fixture_pixels": 1,
+          "table_fraction": 0.17679398148148148,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 76,
+          "fixture_pixels": 2,
+          "table_fraction": 0.22974537037037038,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 74,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4171006944444444,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 85,
+          "fixture_pixels": 1,
+          "table_fraction": 0.15928819444444445,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 72,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4557291666666667,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 83,
+          "fixture_pixels": 4,
+          "table_fraction": 0.1519097222222222,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 66,
+          "fixture_pixels": 2,
+          "table_fraction": 0.4830729166666667,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 72,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22554976851851852,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        }
+      }
+    },
+    {
+      "seed": 40063,
+      "wrist": {
+        "object_pixels": 548,
+        "fixture_pixels": 3,
+        "table_fraction": 0.7663483796296297,
+        "occluder_pixels": 3,
+        "goal_in_frame": false
+      },
+      "static": {
+        "object_pixels": 68,
+        "fixture_pixels": 0,
+        "table_fraction": 0.25202546296296297,
+        "occluder_pixels": 4,
+        "goal_in_frame": true
+      },
+      "endpoints": {
+        "view_0_source": {
+          "object_pixels": 62,
+          "fixture_pixels": 1,
+          "table_fraction": 0.5072337962962963,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_0_goal": {
+          "object_pixels": 66,
+          "fixture_pixels": 5,
+          "table_fraction": 0.2634548611111111,
+          "occluder_pixels": 2,
+          "goal_in_frame": true
+        },
+        "view_1_source": {
+          "object_pixels": 81,
+          "fixture_pixels": 5,
+          "table_fraction": 0.45109953703703703,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_1_goal": {
+          "object_pixels": 92,
+          "fixture_pixels": 3,
+          "table_fraction": 0.1752025462962963,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_2_goal": {
+          "object_pixels": 32,
+          "fixture_pixels": 0,
+          "table_fraction": 0.23640046296296297,
+          "occluder_pixels": 0,
+          "goal_in_frame": true
+        },
+        "view_3_source": {
+          "object_pixels": 82,
+          "fixture_pixels": 5,
+          "table_fraction": 0.4156539351851852,
+          "occluder_pixels": 1,
+          "goal_in_frame": true
+        },
+        "view_3_goal": {
+          "object_pixels": 95,
+          "fixture_pixels": 2,
+          "table_fraction": 0.15755208333333334,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_source": {
+          "object_pixels": 116,
+          "fixture_pixels": 0,
+          "table_fraction": 0.44936342592592593,
+          "occluder_pixels": 4,
+          "goal_in_frame": true
+        },
+        "view_4_goal": {
+          "object_pixels": 129,
+          "fixture_pixels": 2,
+          "table_fraction": 0.14525462962962962,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_source": {
+          "object_pixels": 75,
+          "fixture_pixels": 3,
+          "table_fraction": 0.4813368055555556,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        },
+        "view_5_goal": {
+          "object_pixels": 84,
+          "fixture_pixels": 1,
+          "table_fraction": 0.22337962962962962,
+          "occluder_pixels": 3,
+          "goal_in_frame": true
+        }
+      }
+    }
+  ],
+  "criterion": "Visible means >=3 segmentation pixels for source body and goal marker.",
+  "scope": "Reset-state visibility only; reachability is IK pose tolerance, path clearance still required."
+}

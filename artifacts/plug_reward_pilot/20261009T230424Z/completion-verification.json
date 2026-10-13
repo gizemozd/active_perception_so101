@@ -1,0 +1,11 @@
+{
+  "verified_at": "2026-10-09T23:15:05.510005+00:00",
+  "slurm_accounting": "JobID|State|ExitCode|Elapsed|End\n51705919|CANCELLED by 68400|0:0|00:00:42|2026-10-09T19:04:24\n51706235|COMPLETED|0:0|00:09:06|2026-10-09T19:13:45\n",
+  "source_files_verified": 62,
+  "completed_updates": 100,
+  "completed_transitions": 1228800,
+  "evaluated_episodes": 256,
+  "physical_success_violations": 0,
+  "matched_initial_states_and_images": true,
+  "analysis_script_sha256": "7ce488e081938d390755f55d65e5f50a848ff4858c5f9f247221ef03af958ff2"
+}

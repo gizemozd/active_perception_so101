@@ -1,0 +1,62 @@
+{
+  "rgb_study_status": "stopped_by_user",
+  "retired": true,
+  "automatic_expansion_allowed": false,
+  "requested_utc": "2026-10-09T23:05:25.447991+00:00",
+  "reason": "User requested stopping the push RGB comparison after near-ceiling matched validation scores showed no clear active-camera advantage in this setup.",
+  "job_ids": [
+    "51677171",
+    "51677156",
+    "51677159"
+  ],
+  "preserve_checkpoints_and_evaluations": true,
+  "resumption_requirement": "Explicit user authorization required to resume this study.",
+  "verified_utc": "2026-10-09T23:06:07.983144+00:00",
+  "runs": [
+    {
+      "run": {
+        "id": "push_active_s0",
+        "task": "push",
+        "condition": "active",
+        "seed": 0,
+        "fixed_view": 0
+      },
+      "status": "stopped",
+      "transitions": 86114304,
+      "updates": 1752,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_visibility/push_active_s0/push_active_clean_gru_v0_s0_n2048_push-rgb-visibility-20261009T210456Z_20261009T210620Z/interrupted.pt",
+      "checkpoint_sha256": "f5eb448c93c1c7d463cb1a37482f2c080b9c862682e47e9466669cf2db579d96"
+    },
+    {
+      "run": {
+        "id": "push_wrist_s0",
+        "task": "push",
+        "condition": "wrist",
+        "seed": 0,
+        "fixed_view": 0
+      },
+      "status": "stopped",
+      "transitions": 136642560,
+      "updates": 2780,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_visibility/push_wrist_s0/push_wrist_clean_gru_v0_s0_n2048_push-rgb-visibility-20261009T210456Z_20261009T210619Z/interrupted.pt",
+      "checkpoint_sha256": "d19291fc755697e94e45c65e401dfdbaf81aca9bbc915dd03a88d685d162d283"
+    },
+    {
+      "run": {
+        "id": "push_wrist_static_s0",
+        "task": "push",
+        "condition": "wrist_static",
+        "seed": 0,
+        "fixed_view": 0
+      },
+      "status": "stopped",
+      "transitions": 67190784,
+      "updates": 1367,
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_visibility/push_wrist_static_s0/push_wrist_static_clean_gru_v0_s0_n2048_push-rgb-visibility-20261009T210456Z_20261009T210606Z/interrupted.pt",
+      "checkpoint_sha256": "b01d397fc035daefc731ea503a00675fa586d8673cbfa7d4b4940d2eb00f5f90"
+    }
+  ],
+  "checkpoint_and_evaluation_hashes_verified": true,
+  "no_queued_or_running_push_study_jobs": true,
+  "stop_method": "SIGTERM to batch driver; training saved interrupted.pt and exited normally; continuation disabled by suspension marker"
+}

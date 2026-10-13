@@ -1,0 +1,24 @@
+{
+  "built_at": "2026-10-09T19:42:41.871584+00:00",
+  "sources": [
+    {
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/src/active_perception_arms/tasks/insertion/README.md",
+      "snapshot": "sources/legacy-insertion-README.md",
+      "sha256": "14f87ecd3cd7da79abcae162889c2a451259a5dfe52fd428bd25b3304ba17b0d"
+    },
+    {
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/src/active_perception_arms/tasks/insertion/mdp/rewards.py",
+      "snapshot": "sources/legacy-rewards.py",
+      "sha256": "1f0274bfc74520bc134a1b29cd18da0a5d385745b58f1efbcb96f3e13ebbdc94"
+    },
+    {
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/plug_analysis/legacy_run_inventory.json",
+      "snapshot": "sources/legacy-run-inventory.json",
+      "sha256": "fbb0ce9d9aba88b8dbbf6e46f03b6d4935d86356b8f2d25c10ca2d3e8c63ba0f"
+    }
+  ],
+  "gpu_passed": true,
+  "training_status": "complete",
+  "job_id": "51624849",
+  "planned_transitions": 18456576
+}

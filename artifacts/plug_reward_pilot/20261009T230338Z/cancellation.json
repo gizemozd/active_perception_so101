@@ -1,0 +1,6 @@
+{
+  "reason": "Caught incorrect evaluation CLI flag during launch verification; cancelled during compilation before any logged PPO update. Corrected helper uses positional checkpoint.",
+  "job_id": "51705919",
+  "time": "2026-10-09T23:04:24.659413+00:00",
+  "logged_iteration_files": []
+}

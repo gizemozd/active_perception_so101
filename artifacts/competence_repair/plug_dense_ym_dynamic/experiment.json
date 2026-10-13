@@ -1,0 +1,72 @@
+{
+  "task": "plug",
+  "condition": "wrist_static",
+  "occlusion": "dynamic",
+  "seed": 0,
+  "num_envs": 256,
+  "width": 128,
+  "height": 96,
+  "timestep": 0.002,
+  "decimation": 20,
+  "episode_seconds": 8,
+  "initial_seconds": 1.0,
+  "joint_step": 0.035,
+  "randomize": true,
+  "perturb_push": false,
+  "manip_control": "joint",
+  "reset_xy_jitter": 0.008,
+  "fixed_position": [
+    1.1021821192326179e-17,
+    0.205,
+    0.08
+  ],
+  "fixed_lookat": [
+    0.022,
+    0.045,
+    0.047
+  ],
+  "clearance": 0.002,
+  "render_sensors": true,
+  "actor_observation": "rgb",
+  "memory": "gru",
+  "policy_profile": "compact",
+  "plug_wrist_yaw": false,
+  "plug_control": "absolute",
+  "plug_variant": "ym",
+  "task_revision": "hidden_prongs_v1",
+  "success_state_sample": "current_qpos",
+  "reward_profile": "plug_insertion",
+  "occlusion_revision": "world_sweep_v1",
+  "push_visibility_revision": null,
+  "push_target_layout": "square_v1",
+  "push_control_revision": "legacy_v1",
+  "push_workspace_revision": "partition_v1",
+  "dynamic_onset_range": [
+    0.8,
+    3.36
+  ],
+  "dynamic_duration_range": [
+    1.28,
+    2.56
+  ],
+  "dynamic_center": [
+    0.0,
+    0.095,
+    0.105
+  ],
+  "dynamic_center_jitter": [
+    0.015,
+    0.01,
+    0.01
+  ],
+  "dynamic_travel_range": [
+    0.1,
+    0.14
+  ],
+  "dynamic_panel_half_size": [
+    0.04,
+    0.004,
+    0.07
+  ],
+  "dynamic_panel_yaw": 0.0
+}

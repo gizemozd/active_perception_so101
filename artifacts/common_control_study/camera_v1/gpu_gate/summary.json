@@ -1,0 +1,132 @@
+{
+  "passed": true,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "results": [
+    {
+      "task": "plug",
+      "condition": "wrist_static",
+      "bounded": false,
+      "metrics": [
+        {
+          "value": 270.4186182022095,
+          "surrogate": 8.006304841022938,
+          "entropy": 1.5301970355212688
+        },
+        {
+          "value": 276.4011197090149,
+          "surrogate": 1.7340008486062288,
+          "entropy": 1.5452340878546238
+        }
+      ],
+      "passed": true,
+      "image_hash_equivalence": true,
+      "both_encoders_updated": true,
+      "checkpoint_roundtrip": true
+    },
+    {
+      "task": "plug",
+      "condition": "active",
+      "bounded": false,
+      "metrics": [
+        {
+          "value": 272.48274755477905,
+          "surrogate": 15.376690950710326,
+          "entropy": 4.047434404492378
+        },
+        {
+          "value": 272.7522873878479,
+          "surrogate": 6.437590003013611,
+          "entropy": 4.068289890885353
+        }
+      ],
+      "passed": true,
+      "image_hash_equivalence": true,
+      "both_encoders_updated": true,
+      "checkpoint_roundtrip": true
+    },
+    {
+      "task": "plug",
+      "condition": "active",
+      "bounded": true,
+      "metrics": [
+        {
+          "value": 272.7937331199646,
+          "surrogate": 4.641874755732715,
+          "entropy": 1.045584550127387
+        },
+        {
+          "value": 264.0107169151306,
+          "surrogate": 5.41986938752234,
+          "entropy": 1.0584720131009817
+        }
+      ],
+      "passed": true,
+      "image_hash_equivalence": true,
+      "both_encoders_updated": true,
+      "checkpoint_roundtrip": true
+    },
+    {
+      "task": "push",
+      "condition": "wrist_static",
+      "bounded": false,
+      "metrics": [
+        {
+          "value": 0.0006884249111749341,
+          "surrogate": 5.327798021491617,
+          "entropy": 1.5287379585206509
+        },
+        {
+          "value": 0.0030673428409500048,
+          "surrogate": 3.5166310884524137,
+          "entropy": 1.550007227808237
+        }
+      ],
+      "passed": true,
+      "image_hash_equivalence": true,
+      "both_encoders_updated": true,
+      "checkpoint_roundtrip": true
+    },
+    {
+      "task": "push",
+      "condition": "active",
+      "bounded": false,
+      "metrics": [
+        {
+          "value": 0.0030910577952454332,
+          "surrogate": 7.759216317906976,
+          "entropy": 4.065443649888039
+        },
+        {
+          "value": 0.0013948635078122607,
+          "surrogate": 6.252163538709283,
+          "entropy": 4.076270624995232
+        }
+      ],
+      "passed": true,
+      "image_hash_equivalence": true,
+      "both_encoders_updated": true,
+      "checkpoint_roundtrip": true
+    },
+    {
+      "task": "push",
+      "condition": "active",
+      "bounded": true,
+      "metrics": [
+        {
+          "value": 0.0011373041561455466,
+          "surrogate": 2.6593568346606844,
+          "entropy": 1.0590142365545034
+        },
+        {
+          "value": 0.0006941665369595285,
+          "surrogate": 6.436884639086202,
+          "entropy": 1.0608508177101612
+        }
+      ],
+      "passed": true,
+      "image_hash_equivalence": true,
+      "both_encoders_updated": true,
+      "checkpoint_roundtrip": true
+    }
+  ]
+}

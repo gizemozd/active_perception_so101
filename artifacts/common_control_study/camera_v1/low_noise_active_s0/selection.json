@@ -1,0 +1,5 @@
+{
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_active_s0/logs/plug_active_clean_gru_v0_s0_n256_low_noise_active_s0_20261012T212343Z/model_199.pt",
+  "validation_successes": 5,
+  "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+}

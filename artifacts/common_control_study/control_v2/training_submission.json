@@ -1,0 +1,17 @@
+{
+  "job_id": "52444316",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--job-name=common-control-screen",
+    "--array=0-11%4",
+    "--dependency=afterok:52444195",
+    "--export=ALL",
+    "scripts/slurm/common_control_study.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/plan.json",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/source"
+  ]
+}

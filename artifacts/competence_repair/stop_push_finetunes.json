@@ -1,0 +1,8 @@
+{
+  "time": "2026-10-12T05:05:38.035458+00:00",
+  "jobs": [
+    52303475,
+    52303478
+  ],
+  "reason": "Bounded final checkpoint at500 updates saved; evaluate500 independently before final selection. Source models and250/500 checkpoints retained. Do not continue to1000 without observed benefit over frozen corrected-environment control."
+}

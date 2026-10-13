@@ -1,0 +1,96 @@
+{
+  "commands": [
+    [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--exclude=holygpu7c2313",
+      "--export=ALL",
+      "--job-name=long-delta-gate",
+      "--time=01:00:00",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/source/long_delta_study.sbatch",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/plan.json",
+      "gate"
+    ],
+    [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--exclude=holygpu7c2313",
+      "--export=ALL",
+      "--job-name=long-delta-main",
+      "--time=12:00:00",
+      "--array=0,1,2,3,4,5,6,7,8,9,10,11,12,13%8",
+      "--dependency=afterok:52552710",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/source/long_delta_study.sbatch",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/plan.json",
+      "run"
+    ],
+    [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--exclude=holygpu7c2313",
+      "--export=ALL",
+      "--job-name=long-delta-curriculum",
+      "--time=12:00:00",
+      "--array=14,15,16,17,18,19%6",
+      "--dependency=afterok:52552715",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/source/long_delta_study.sbatch",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/plan.json",
+      "run"
+    ],
+    [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--exclude=holygpu7c2313",
+      "--export=ALL",
+      "--job-name=long-delta-review",
+      "--time=00:15:00",
+      "--gres=none",
+      "--partition=shared",
+      "--account=pgozdil_lab",
+      "--cpus-per-task=2",
+      "--mem=8G",
+      "--dependency=afterok:52552715",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/source/long_delta_study.sbatch",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/plan.json",
+      "review"
+    ],
+    [
+      "sbatch",
+      "--parsable",
+      "--account=kempner_pgozdil_lab",
+      "--partition=kempner_rtx",
+      "--exclude=holygpu7c2313",
+      "--export=ALL",
+      "--job-name=long-delta-curriculum",
+      "--time=12:00:00",
+      "--array=14-19%6",
+      "--dependency=afterok:52552715",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/source_curriculum_v2/long_delta_study.sbatch",
+      "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/curriculum-plan.json",
+      "run"
+    ]
+  ],
+  "jobs": {
+    "gate": "52552710",
+    "main": "52552715",
+    "curriculum": "52555197",
+    "review": "52552721"
+  },
+  "cancelled_curriculum_jobs": [
+    "52552720"
+  ],
+  "curriculum_plan": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/curriculum-plan.json",
+  "curriculum_gate_step": {
+    "parent_job_id": "52553605",
+    "log": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/curriculum-gate.log",
+    "passed": true
+  }
+}

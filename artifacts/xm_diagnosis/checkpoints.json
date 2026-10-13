@@ -1,0 +1,5 @@
+{
+  "progress_gru": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/exploration_repair/progress/plug_wrist_static_clean_gru_v7_s0_n512_explore_progress_4d4de324264d_20261009T065536Z/model_750.pt",
+  "legacy_ff_yaw0": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/recipe_repair/plug_wrist_static_clean_none_v7_s0_n512_legacy_ff_yaw0_20261009T170152Z/model_750.pt",
+  "legacy_ff_yaw1": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/recipe_repair/plug_wrist_static_clean_none_v7_s0_n512_legacy_ff_yaw1_20261009T181337Z/model_750.pt"
+}

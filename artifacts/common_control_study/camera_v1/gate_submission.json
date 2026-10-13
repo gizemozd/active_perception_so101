@@ -1,0 +1,21 @@
+{
+  "job_id": "52449725",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--time=00:30:00",
+    "--job-name=common-inspection-gate",
+    "--export=ALL",
+    "scripts/slurm/repair_command.sbatch",
+    "/usr/bin/env",
+    "PYTHONPATH=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/source/src",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/source/validate_common_control_gpu.py",
+    "--inspection",
+    "--output",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/gpu_gate/summary.json"
+  ]
+}

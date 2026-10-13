@@ -1,0 +1,22 @@
+{
+  "job_id": "51644216",
+  "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-audit-20261009T181636Z",
+  "helper": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-settling-probe.py",
+  "helper_sha256": "9bb65bab374fe41332f8cec83977f53fb4a18f4ce5762ce21b2e7096c105a69d",
+  "trace": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/gpu-final/seed-10001/capture/nominal_failure_episode26.npz",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--job-name=transfer-settling",
+    "--gres=gpu:1",
+    "--cpus-per-task=4",
+    "--mem=16G",
+    "--time=00:10:00",
+    "--output=logs/slurm/%x-%j.out",
+    "--error=logs/slurm/%x-%j.err",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-settling-probe.sbatch"
+  ]
+}

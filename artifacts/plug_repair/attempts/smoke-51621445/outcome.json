@@ -1,0 +1,6 @@
+{
+  "job_id": "51621445",
+  "status": "failed",
+  "reason": "Validation harness bypassed RslRlVecEnvWrapper and passed dict to compact PPO storage. Fixed harness to use the actual training wrapper.",
+  "learner_updates": 0
+}

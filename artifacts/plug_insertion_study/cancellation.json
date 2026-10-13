@@ -1,0 +1,10 @@
+{
+  "time": "2026-10-09T23:29:43.610371+00:00",
+  "reason": "Submitted helper path pointed to absent old worker filename. Jobs canceled before training; new immutable snapshot and plan will be submitted.",
+  "job_ids": [
+    "51714960",
+    "51714972",
+    "51714997"
+  ],
+  "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-20261009T232851Z"
+}

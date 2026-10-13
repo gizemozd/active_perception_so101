@@ -1,0 +1,173 @@
+{
+  "built_at": "2026-10-09T19:41:23.641287+00:00",
+  "cases": [
+    {
+      "file": "controls/legacy_ff_yaw0-baseline.json",
+      "sha256": "c59b930fbf95ea6338f4c0da03eaa8c8b95663ebe9862ff4c0f9abcca1436fa3",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw0-hold_at_2s.json",
+      "sha256": "e999a72c1659dd9e775078ee4071a2a1829c0d6ec54610f6cfa00ffad7d9764a",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw0-oracle_hold_at_2s.json",
+      "sha256": "59e735548194e621ab17b5dd1df8dfeec0cb5c4871475ab374a9bd61a96b80d7",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw0-oracle_path.json",
+      "sha256": "c3b9e5dc30813466b8b8d1e1d455f299cdbc3b81b1d870ea1d8a303d513b0d6f",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw0-slew3mm.json",
+      "sha256": "33dc1184ff9f87f930f0c6699f67450abbc384068f07607a3dfd7829877ff233",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw1-baseline.json",
+      "sha256": "c0265bf04807fec806a1a2e89c43d20bfcdf87683d5dfd5136b6db0377389575",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw1-hold_at_2s.json",
+      "sha256": "ab5e7702b760a53bc5e6e1302c124fe90ece6f45a8a50cf23a1275655b13241e",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw1-oracle_hold_at_2s.json",
+      "sha256": "0503b9ce1fd3bcc03af1deca9ee01be81cfe1a0ef71ae5bd4ac2ddee5a5aaabb",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw1-oracle_path.json",
+      "sha256": "fa4e0c0e4a6138abe486bd1680f3da2c88c4b23c941dabc37918f8acf9c2fb0b",
+      "episodes": 128
+    },
+    {
+      "file": "controls/legacy_ff_yaw1-slew3mm.json",
+      "sha256": "3c6837aa2b5b48e280539bc9c655cbf19e4c261ba0b9d02214330407382a1c31",
+      "episodes": 128
+    },
+    {
+      "file": "controls/progress_gru-baseline.json",
+      "sha256": "79b3695fcb3fce89be96a6063f221ccc8bea2cb45f2bbab8f3405dabc5480f81",
+      "episodes": 128
+    },
+    {
+      "file": "controls/progress_gru-hold_at_2s.json",
+      "sha256": "2328cde09c25b829a66657e5483bb7fd0e0f124dcd8055035317dff944f214db",
+      "episodes": 128
+    },
+    {
+      "file": "controls/progress_gru-oracle_hold_at_2s.json",
+      "sha256": "1cbddd35621f7f4a7317dd96b770a83e1f207f01ef6aab0e3dc6422289436797",
+      "episodes": 128
+    },
+    {
+      "file": "controls/progress_gru-oracle_path.json",
+      "sha256": "159958d076975b2c51049d9df7ce49a74cfc98a778c348f2ec1884c66325250b",
+      "episodes": 128
+    },
+    {
+      "file": "controls/progress_gru-slew3mm.json",
+      "sha256": "661e6316cc7d47d0b5ae1208925b0976c511678f9aa60bdad9e8256a40c1fe7f",
+      "episodes": 128
+    },
+    {
+      "file": "approach/progress_gru-oracle_lift_first.json",
+      "sha256": "a564da712d4188964e0d74bf60d42814571dd2c3166d69fa2a7433bfdf714a9c",
+      "episodes": 512
+    },
+    {
+      "file": "approach/progress_gru-oracle_lift_first_delta5mm_noise.json",
+      "sha256": "8a226c0ef7ec3d031d3e23b4ae089a2a03ad5a530e8c256f25cf613c0721325e",
+      "episodes": 512
+    },
+    {
+      "file": "approach/progress_gru-oracle_lift_first_noise.json",
+      "sha256": "88e8c335576bc9b6d4654ef778e3434813ffdc8e4752d1cf786a381f4ecf8f0e",
+      "episodes": 512
+    },
+    {
+      "file": "approach/progress_gru-oracle_lift_first_noise10.json",
+      "sha256": "62cbae064efd813ac893b2a43a93da74638af260f963d3afc9834db2ad1f86d2",
+      "episodes": 512
+    }
+  ],
+  "source_snapshots": [
+    {
+      "manifest": "submission.json",
+      "job_id": "51654119",
+      "verified_files": 59
+    },
+    {
+      "manifest": "continuation-submission.json",
+      "job_id": "51655476",
+      "verified_files": 60
+    },
+    {
+      "manifest": "approach-submission.json",
+      "job_id": "51656582",
+      "verified_files": 60
+    },
+    {
+      "manifest": "delta-submission.json",
+      "job_id": "51656972",
+      "verified_files": 60
+    }
+  ],
+  "noise": {
+    "progress_gru": {
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/exploration_repair/progress/plug_wrist_static_clean_gru_v7_s0_n512_explore_progress_4d4de324264d_20261009T065536Z/model_750.pt",
+      "sha256": "15acdb9446fcd718119eed26a23d7bc9b8b6091288d7f3a706538b08180e3dd4",
+      "normalized_std": [
+        0.2443164885044098,
+        0.22301369905471802,
+        0.2784276306629181
+      ],
+      "xyz_sigma_mm": [
+        17.102154195308685,
+        13.49232879281044,
+        4.872483536601067
+      ],
+      "yaw_sigma_deg": null
+    },
+    "legacy_ff_yaw0": {
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/recipe_repair/plug_wrist_static_clean_none_v7_s0_n512_legacy_ff_yaw0_20261009T170152Z/model_750.pt",
+      "sha256": "35917bb96560e806079e533670a272a2229e8e67e81d995f9db910f49a89a22a",
+      "normalized_std": [
+        0.3940497040748596,
+        0.0031609749421477318,
+        0.26192423701286316
+      ],
+      "xyz_sigma_mm": [
+        27.583479285240173,
+        0.19123898399993777,
+        4.583674147725105
+      ],
+      "yaw_sigma_deg": null
+    },
+    "legacy_ff_yaw1": {
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/recipe_repair/plug_wrist_static_clean_none_v7_s0_n512_legacy_ff_yaw1_20261009T181337Z/model_750.pt",
+      "sha256": "08b3622692eb4518267ed00367f3e986d45bff68614c91cf73b0742b867baa2b",
+      "normalized_std": [
+        0.11091522872447968,
+        0.2045402228832245,
+        0.0749306008219719,
+        0.7530917525291443
+      ],
+      "xyz_sigma_mm": [
+        7.764066010713577,
+        12.374683484435081,
+        1.3112855143845081
+      ],
+      "yaw_sigma_deg": 22.59275245666504
+    }
+  },
+  "paired_initial_state_and_image_hashes_match": true,
+  "physical_success_violations": 0,
+  "learner_updates": 0
+}

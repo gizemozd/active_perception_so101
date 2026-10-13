@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-10-09T20:13:35.293253+00:00",
+  "targeted_final_tests": "66 passed",
+  "broader_suite": "197 passed; two concurrent transfer/push privileged-actor tests failed with TensorDict type errors, outside the RGB plug path; preserved in full-tests-recheck.log",
+  "gpu_validation": "512/512 physical insertions, all three camera configurations passed rendered PPO/checkpoint smoke",
+  "source_files_verified": 65,
+  "source_hashes_match": true,
+  "transitions_each": 18001920,
+  "total_transitions": 54005760
+}

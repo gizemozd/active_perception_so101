@@ -1,0 +1,12 @@
+{
+  "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013_gate_attempt1/gpu_gate/rendered.json",
+  "sha256": "7d366c7e9843d72c6c059f01cf32685db10eb5a2a373a6c48ed68015cabddc8c",
+  "prior_plan": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013_gate_attempt1/plan.json",
+  "changed_sources": [
+    "run_long_delta_study.py",
+    "src/active_perception_arms/environment.py",
+    "src/active_perception_arms/evaluation_audit.py",
+    "src/active_perception_arms/mdp.py"
+  ],
+  "reason": "Only plug privileged metric routing, optional audit metrics and launcher changed; RGB controls, policy, reward and rendering remain unchanged."
+}

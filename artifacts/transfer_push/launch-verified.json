@@ -1,0 +1,59 @@
+{
+  "verified_utc": "2026-10-09T19:56:11.541884+00:00",
+  "source_files_verified": 145,
+  "minimum_per_run": 1000000000,
+  "rounded_per_run": 1000046592,
+  "runs": [
+    {
+      "run_id": "transfer-wrist_static-s0",
+      "job": "51661708",
+      "verified_updates": 24,
+      "transitions": 1179648,
+      "latest_iteration_seconds": 4.137921443674713,
+      "latest_transitions_per_second": 11878.427531565265,
+      "all_recorded_losses_finite": true,
+      "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_push_billion/transfer-wrist_static-s0/transfer_wrist_static_dynamic_gru_v4_s0_n2048_transfer-push-billion-20261009_20261009T195243Z",
+      "wandb": {
+        "id": "ba1poiu4",
+        "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/ba1poiu4",
+        "entity": "pgozdil-harvard-university",
+        "project": "active-perception-so101",
+        "mode": "online"
+      }
+    },
+    {
+      "run_id": "push-wrist_static-s0",
+      "job": "51661732",
+      "verified_updates": 11,
+      "transitions": 540672,
+      "latest_iteration_seconds": 4.702079297974706,
+      "latest_transitions_per_second": 10453.247783628596,
+      "all_recorded_losses_finite": true,
+      "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_push_billion/push-wrist_static-s0/push_wrist_static_dynamic_gru_v0_s0_n2048_transfer-push-billion-20261009_20261009T195308Z",
+      "wandb": {
+        "id": "g52ki3vz",
+        "url": "https://wandb.ai/pgozdil-harvard-university/active-perception-so101/runs/g52ki3vz",
+        "entity": "pgozdil-harvard-university",
+        "project": "active-perception-so101",
+        "mode": "online"
+      }
+    }
+  ],
+  "physical_gpu_audit": {
+    "transfer": [
+      127,
+      128
+    ],
+    "push": [
+      128,
+      128
+    ]
+  },
+  "tests": {
+    "non_gpu_non_render_passed": 186,
+    "launcher_passed": 3,
+    "targeted_after_final_test_additions_passed": 8
+  },
+  "training_complete": false,
+  "heldout_new_results_available": false
+}

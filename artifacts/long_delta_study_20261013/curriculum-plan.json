@@ -1,0 +1,1950 @@
+{
+  "root": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+  "output": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013",
+  "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/source_curriculum_v2",
+  "python": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+  "created_utc": "2026-10-13T05:24:59.758231+00:00",
+  "num_envs": 256,
+  "milestones": [
+    5000000,
+    10000000,
+    20000000
+  ],
+  "extension_milestone": 50000000,
+  "extension_authorized": true,
+  "extension_rule": "Extend both camera conditions for a task only if pooled three-seed mean validation success improves by >=2 percentage points, or mean terminal error drops >=10%, from 10M to 20M. Validation only; no 50M allocation before review.",
+  "validation_seed": 130000,
+  "test_seed": 140000,
+  "validation_episodes": 512,
+  "test_episodes": 1024,
+  "max_concurrent_gpus": 8,
+  "curriculum_stages": [
+    {
+      "name": "ym_small_clean",
+      "variant": "ym",
+      "jitter": 0.002,
+      "horizon": 8.0,
+      "occlusion": "clean"
+    },
+    {
+      "name": "all_small_clean",
+      "variant": "all",
+      "jitter": 0.002,
+      "horizon": 8.0,
+      "occlusion": "clean"
+    },
+    {
+      "name": "all_full_clean",
+      "variant": "all",
+      "jitter": 0.008,
+      "horizon": 8.0,
+      "occlusion": "clean"
+    },
+    {
+      "name": "all_full_dynamic",
+      "variant": "all",
+      "jitter": 0.008,
+      "horizon": 8.0,
+      "occlusion": "dynamic"
+    },
+    {
+      "name": "original_dynamic",
+      "variant": "all",
+      "jitter": 0.008,
+      "horizon": 3.5,
+      "occlusion": "dynamic"
+    }
+  ],
+  "curriculum_step": 2000000,
+  "curriculum_stage_cap": 4000000,
+  "curriculum_threshold": 0.8,
+  "curriculum_transfer": "Actor weights/normalization transfer; critic, optimizer and exploration std reset at each stage. Exact resume within a stage.",
+  "selection": "Maximum mean clean/dynamic validation success; earliest milestone breaks ties. Tests never select models or trigger promotion.",
+  "cases": [
+    {
+      "name": "plug_wrist_static_s0",
+      "task": "plug",
+      "seed": 0,
+      "condition": "wrist_static",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "dynamic",
+          "seed": 0,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 3.5,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.008,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": null,
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": [
+            0.35000000000000003,
+            1.47
+          ],
+          "dynamic_duration_range": [
+            0.56,
+            1.12
+          ],
+          "dynamic_center": [
+            0.0,
+            0.095,
+            0.105
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_active_s0",
+      "task": "plug",
+      "seed": 0,
+      "condition": "active",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "active",
+          "occlusion": "dynamic",
+          "seed": 0,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 3.5,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.008,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": null,
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": [
+            0.35000000000000003,
+            1.47
+          ],
+          "dynamic_duration_range": [
+            0.56,
+            1.12
+          ],
+          "dynamic_center": [
+            0.0,
+            0.095,
+            0.105
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_wrist_static_s1",
+      "task": "plug",
+      "seed": 1,
+      "condition": "wrist_static",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "dynamic",
+          "seed": 1,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 3.5,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.008,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": null,
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": [
+            0.35000000000000003,
+            1.47
+          ],
+          "dynamic_duration_range": [
+            0.56,
+            1.12
+          ],
+          "dynamic_center": [
+            0.0,
+            0.095,
+            0.105
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_active_s1",
+      "task": "plug",
+      "seed": 1,
+      "condition": "active",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "active",
+          "occlusion": "dynamic",
+          "seed": 1,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 3.5,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.008,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": null,
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": [
+            0.35000000000000003,
+            1.47
+          ],
+          "dynamic_duration_range": [
+            0.56,
+            1.12
+          ],
+          "dynamic_center": [
+            0.0,
+            0.095,
+            0.105
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_wrist_static_s2",
+      "task": "plug",
+      "seed": 2,
+      "condition": "wrist_static",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "dynamic",
+          "seed": 2,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 3.5,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.008,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": null,
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": [
+            0.35000000000000003,
+            1.47
+          ],
+          "dynamic_duration_range": [
+            0.56,
+            1.12
+          ],
+          "dynamic_center": [
+            0.0,
+            0.095,
+            0.105
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_active_s2",
+      "task": "plug",
+      "seed": 2,
+      "condition": "active",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "active",
+          "occlusion": "dynamic",
+          "seed": 2,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 3.5,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.008,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": null,
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": [
+            0.35000000000000003,
+            1.47
+          ],
+          "dynamic_duration_range": [
+            0.56,
+            1.12
+          ],
+          "dynamic_center": [
+            0.0,
+            0.095,
+            0.105
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_privileged_s0",
+      "task": "plug",
+      "seed": 0,
+      "condition": "wrist_static",
+      "kind": "diagnostic",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "dynamic",
+          "seed": 0,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 3.5,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.008,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": false,
+          "actor_observation": "privileged",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": null,
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": [
+            0.35000000000000003,
+            1.47
+          ],
+          "dynamic_duration_range": [
+            0.56,
+            1.12
+          ],
+          "dynamic_center": [
+            0.0,
+            0.095,
+            0.105
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "push_wrist_static_s0",
+      "task": "push",
+      "seed": 0,
+      "condition": "wrist_static",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "push",
+          "condition": "wrist_static",
+          "occlusion": "dynamic",
+          "seed": 0,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 12.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "cartesian",
+          "reset_xy_jitter": 0.02,
+          "fixed_position": [
+            -0.119,
+            -0.187,
+            0.274
+          ],
+          "fixed_lookat": [
+            0.0,
+            0.025,
+            0.045
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "absolute",
+          "plug_variant": null,
+          "task_revision": "push_v2",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "push_dense",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": "crossbar_v3",
+          "push_target_layout": "arc_v2",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "arc_clear_v2",
+          "dynamic_onset_range": [
+            2.0,
+            5.0
+          ],
+          "dynamic_duration_range": [
+            1.0,
+            3.5
+          ],
+          "dynamic_center": [
+            -0.045,
+            -0.105,
+            0.155
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "push_active_s0",
+      "task": "push",
+      "seed": 0,
+      "condition": "active",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "push",
+          "condition": "active",
+          "occlusion": "dynamic",
+          "seed": 0,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 12.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "cartesian",
+          "reset_xy_jitter": 0.02,
+          "fixed_position": [
+            -0.119,
+            -0.187,
+            0.274
+          ],
+          "fixed_lookat": [
+            0.0,
+            0.025,
+            0.045
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "absolute",
+          "plug_variant": null,
+          "task_revision": "push_v2",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "push_dense",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": "crossbar_v3",
+          "push_target_layout": "arc_v2",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "arc_clear_v2",
+          "dynamic_onset_range": [
+            2.0,
+            5.0
+          ],
+          "dynamic_duration_range": [
+            1.0,
+            3.5
+          ],
+          "dynamic_center": [
+            -0.045,
+            -0.105,
+            0.155
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "push_wrist_static_s1",
+      "task": "push",
+      "seed": 1,
+      "condition": "wrist_static",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "push",
+          "condition": "wrist_static",
+          "occlusion": "dynamic",
+          "seed": 1,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 12.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "cartesian",
+          "reset_xy_jitter": 0.02,
+          "fixed_position": [
+            -0.119,
+            -0.187,
+            0.274
+          ],
+          "fixed_lookat": [
+            0.0,
+            0.025,
+            0.045
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "absolute",
+          "plug_variant": null,
+          "task_revision": "push_v2",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "push_dense",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": "crossbar_v3",
+          "push_target_layout": "arc_v2",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "arc_clear_v2",
+          "dynamic_onset_range": [
+            2.0,
+            5.0
+          ],
+          "dynamic_duration_range": [
+            1.0,
+            3.5
+          ],
+          "dynamic_center": [
+            -0.045,
+            -0.105,
+            0.155
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "push_active_s1",
+      "task": "push",
+      "seed": 1,
+      "condition": "active",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "push",
+          "condition": "active",
+          "occlusion": "dynamic",
+          "seed": 1,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 12.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "cartesian",
+          "reset_xy_jitter": 0.02,
+          "fixed_position": [
+            -0.119,
+            -0.187,
+            0.274
+          ],
+          "fixed_lookat": [
+            0.0,
+            0.025,
+            0.045
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "absolute",
+          "plug_variant": null,
+          "task_revision": "push_v2",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "push_dense",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": "crossbar_v3",
+          "push_target_layout": "arc_v2",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "arc_clear_v2",
+          "dynamic_onset_range": [
+            2.0,
+            5.0
+          ],
+          "dynamic_duration_range": [
+            1.0,
+            3.5
+          ],
+          "dynamic_center": [
+            -0.045,
+            -0.105,
+            0.155
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "push_wrist_static_s2",
+      "task": "push",
+      "seed": 2,
+      "condition": "wrist_static",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "push",
+          "condition": "wrist_static",
+          "occlusion": "dynamic",
+          "seed": 2,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 12.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "cartesian",
+          "reset_xy_jitter": 0.02,
+          "fixed_position": [
+            -0.119,
+            -0.187,
+            0.274
+          ],
+          "fixed_lookat": [
+            0.0,
+            0.025,
+            0.045
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "absolute",
+          "plug_variant": null,
+          "task_revision": "push_v2",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "push_dense",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": "crossbar_v3",
+          "push_target_layout": "arc_v2",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "arc_clear_v2",
+          "dynamic_onset_range": [
+            2.0,
+            5.0
+          ],
+          "dynamic_duration_range": [
+            1.0,
+            3.5
+          ],
+          "dynamic_center": [
+            -0.045,
+            -0.105,
+            0.155
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "push_active_s2",
+      "task": "push",
+      "seed": 2,
+      "condition": "active",
+      "kind": "direct",
+      "prepared": {
+        "experiment": {
+          "task": "push",
+          "condition": "active",
+          "occlusion": "dynamic",
+          "seed": 2,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 12.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "cartesian",
+          "reset_xy_jitter": 0.02,
+          "fixed_position": [
+            -0.119,
+            -0.187,
+            0.274
+          ],
+          "fixed_lookat": [
+            0.0,
+            0.025,
+            0.045
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "absolute",
+          "plug_variant": null,
+          "task_revision": "push_v2",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "push_dense",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": "crossbar_v3",
+          "push_target_layout": "arc_v2",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "arc_clear_v2",
+          "dynamic_onset_range": [
+            2.0,
+            5.0
+          ],
+          "dynamic_duration_range": [
+            1.0,
+            3.5
+          ],
+          "dynamic_center": [
+            -0.045,
+            -0.105,
+            0.155
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "push_privileged_s0",
+      "task": "push",
+      "seed": 0,
+      "condition": "wrist_static",
+      "kind": "diagnostic",
+      "prepared": {
+        "experiment": {
+          "task": "push",
+          "condition": "wrist_static",
+          "occlusion": "dynamic",
+          "seed": 0,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 12.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "cartesian",
+          "reset_xy_jitter": 0.02,
+          "fixed_position": [
+            -0.119,
+            -0.187,
+            0.274
+          ],
+          "fixed_lookat": [
+            0.0,
+            0.025,
+            0.045
+          ],
+          "clearance": 0.002,
+          "render_sensors": false,
+          "actor_observation": "privileged",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "absolute",
+          "plug_variant": null,
+          "task_revision": "push_v2",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "push_dense",
+          "occlusion_revision": "world_sweep_v1",
+          "push_visibility_revision": "crossbar_v3",
+          "push_target_layout": "arc_v2",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "arc_clear_v2",
+          "dynamic_onset_range": [
+            2.0,
+            5.0
+          ],
+          "dynamic_duration_range": [
+            1.0,
+            3.5
+          ],
+          "dynamic_center": [
+            -0.045,
+            -0.105,
+            0.155
+          ],
+          "dynamic_center_jitter": [
+            0.015,
+            0.01,
+            0.01
+          ],
+          "dynamic_travel_range": [
+            0.1,
+            0.14
+          ],
+          "dynamic_panel_half_size": [
+            0.04,
+            0.004,
+            0.07
+          ],
+          "dynamic_panel_yaw": 0.0
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_curriculum_wrist_static_s0",
+      "task": "plug",
+      "seed": 0,
+      "condition": "wrist_static",
+      "kind": "curriculum",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "clean",
+          "seed": 0,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 8.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.002,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": "ym",
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": null,
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": null,
+          "dynamic_duration_range": null,
+          "dynamic_center": null,
+          "dynamic_center_jitter": null,
+          "dynamic_travel_range": null,
+          "dynamic_panel_half_size": null,
+          "dynamic_panel_yaw": null
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_curriculum_active_s0",
+      "task": "plug",
+      "seed": 0,
+      "condition": "active",
+      "kind": "curriculum",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "active",
+          "occlusion": "clean",
+          "seed": 0,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 8.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.002,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": "ym",
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": null,
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": null,
+          "dynamic_duration_range": null,
+          "dynamic_center": null,
+          "dynamic_center_jitter": null,
+          "dynamic_travel_range": null,
+          "dynamic_panel_half_size": null,
+          "dynamic_panel_yaw": null
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_curriculum_wrist_static_s1",
+      "task": "plug",
+      "seed": 1,
+      "condition": "wrist_static",
+      "kind": "curriculum",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "clean",
+          "seed": 1,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 8.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.002,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": "ym",
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": null,
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": null,
+          "dynamic_duration_range": null,
+          "dynamic_center": null,
+          "dynamic_center_jitter": null,
+          "dynamic_travel_range": null,
+          "dynamic_panel_half_size": null,
+          "dynamic_panel_yaw": null
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_curriculum_active_s1",
+      "task": "plug",
+      "seed": 1,
+      "condition": "active",
+      "kind": "curriculum",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "active",
+          "occlusion": "clean",
+          "seed": 1,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 8.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.002,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": "ym",
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": null,
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": null,
+          "dynamic_duration_range": null,
+          "dynamic_center": null,
+          "dynamic_center_jitter": null,
+          "dynamic_travel_range": null,
+          "dynamic_panel_half_size": null,
+          "dynamic_panel_yaw": null
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_curriculum_wrist_static_s2",
+      "task": "plug",
+      "seed": 2,
+      "condition": "wrist_static",
+      "kind": "curriculum",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "wrist_static",
+          "occlusion": "clean",
+          "seed": 2,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 8.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.002,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": "ym",
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": null,
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": null,
+          "dynamic_duration_range": null,
+          "dynamic_center": null,
+          "dynamic_center_jitter": null,
+          "dynamic_travel_range": null,
+          "dynamic_panel_half_size": null,
+          "dynamic_panel_yaw": null
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    },
+    {
+      "name": "plug_curriculum_active_s2",
+      "task": "plug",
+      "seed": 2,
+      "condition": "active",
+      "kind": "curriculum",
+      "prepared": {
+        "experiment": {
+          "task": "plug",
+          "condition": "active",
+          "occlusion": "clean",
+          "seed": 2,
+          "num_envs": 256,
+          "width": 128,
+          "height": 96,
+          "timestep": 0.002,
+          "decimation": 20,
+          "episode_seconds": 8.0,
+          "initial_seconds": 1.0,
+          "joint_step": 0.035,
+          "control_revision": "pose_v1",
+          "translation_control": "delta",
+          "translation_step": 0.005,
+          "camera_interval": 4,
+          "camera_workspace": "inspection_v2",
+          "camera_start": "inspection_v1",
+          "randomize": true,
+          "perturb_push": false,
+          "manip_control": "joint",
+          "reset_xy_jitter": 0.002,
+          "fixed_position": [
+            0.0,
+            0.19,
+            0.22
+          ],
+          "fixed_lookat": [
+            0.022,
+            0.045,
+            0.047
+          ],
+          "clearance": 0.002,
+          "render_sensors": true,
+          "actor_observation": "rgb",
+          "memory": "gru",
+          "policy_profile": "compact",
+          "plug_wrist_yaw": false,
+          "plug_control": "delta5mm",
+          "plug_variant": "ym",
+          "task_revision": "hidden_prongs_v1",
+          "success_state_sample": "current_qpos",
+          "reward_profile": "plug_insertion",
+          "occlusion_revision": null,
+          "push_visibility_revision": null,
+          "push_target_layout": "square_v1",
+          "push_control_revision": "legacy_v1",
+          "push_workspace_revision": "partition_v1",
+          "dynamic_onset_range": null,
+          "dynamic_duration_range": null,
+          "dynamic_center": null,
+          "dynamic_center_jitter": null,
+          "dynamic_travel_range": null,
+          "dynamic_panel_half_size": null,
+          "dynamic_panel_yaw": null
+        },
+        "iterations": 814,
+        "optimization": {
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "entropy_coef": 0.003
+        },
+        "initial_std": 0.3,
+        "action_distribution": "squashed",
+        "training_started": false
+      }
+    }
+  ],
+  "source_sha256": {
+    "long_delta_study.sbatch": "61a1916d523a4f6efe1442012d57643185b2987003f70f90cf533c548bf94ba7",
+    "run_long_delta_study.py": "fb35425a9a7bc99eabcf25f546754d348cb8c989ce21e733306ad8897a1d4bea",
+    "src/active_perception_arms/__init__.py": "3077aefddd7d3cff15c7769631f7b45587596162e1c720a76a9286c292e7858d",
+    "src/active_perception_arms/assets/__init__.py": "52c06159d26e922578dead12311bd5409963eb520f092db37905741dcbb7f4a9",
+    "src/active_perception_arms/assets/insertion/NOTICE.md": "159b09e5416ef12acac7b14d22e2ac3ded868ae7f22fb1256dbda02b8254d7c5",
+    "src/active_perception_arms/assets/insertion/holder1.stl": "8b700063cb703a24edc52cbdca8f400e40bcd018627d906ec44818b16a42e3e4",
+    "src/active_perception_arms/assets/so101/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "src/active_perception_arms/assets/so101/NOTICE.md": "0a8e2d387d6b144704893060d77eb99020e8884f6a1d2789ab130399815daf7a",
+    "src/active_perception_arms/assets/so101/UPSTREAM_README.md": "e2344e7c14290bed85c7907247aecb8bf6cb4392e3de0d7c45680efe9bb9b5a9",
+    "src/active_perception_arms/assets/so101/assets/base_motor_holder_so101_v1.stl": "8cd2f241037ea377af1191fffe0dd9d9006beea6dcc48543660ed41647072424",
+    "src/active_perception_arms/assets/so101/assets/base_so101_v2.stl": "bb12b7026575e1f70ccc7240051f9d943553bf34e5128537de6cd86fae33924d",
+    "src/active_perception_arms/assets/so101/assets/motor_holder_so101_base_v1.stl": "31242ae6fb59d8b15c66617b88ad8e9bded62d57c35d11c0c43a70d2f4caa95b",
+    "src/active_perception_arms/assets/so101/assets/motor_holder_so101_wrist_v1.stl": "887f92e6013cb64ea3a1ab8675e92da1e0beacfd5e001f972523540545e08011",
+    "src/active_perception_arms/assets/so101/assets/moving_jaw_so101_gripper_part0_v1.stl": "3a92e115d1934d4c45cff808c4eff2ea10361a137a7f89940033a1f8a821b88c",
+    "src/active_perception_arms/assets/so101/assets/moving_jaw_so101_gripper_part1_v1.stl": "d10f6c671d26f62988ec95efee9370a0657b5833b3c5f8aad59fd69a87ef2aee",
+    "src/active_perception_arms/assets/so101/assets/moving_jaw_so101_gripper_v1.stl": "e8a5dc040b98e27453a5b74f9087d1dbca14589cf9a17c4de7868d5ab98413cd",
+    "src/active_perception_arms/assets/so101/assets/moving_jaw_so101_v1.stl": "785a9dded2f474bc1d869e0d3dae398a3dcd9c0c345640040472210d2861fa9d",
+    "src/active_perception_arms/assets/so101/assets/rotation_pitch_so101_v1.stl": "9be900cc2a2bf718102841ef82ef8d2873842427648092c8ed2ca1e2ef4ffa34",
+    "src/active_perception_arms/assets/so101/assets/sts3215_03a_no_horn_v1.stl": "75ef3781b752e4065891aea855e34dc161a38a549549cd0970cedd07eae6f887",
+    "src/active_perception_arms/assets/so101/assets/sts3215_03a_v1.stl": "a37c871fb502483ab96c256baf457d36f2e97afc9205313d9c5ab275ef941cd0",
+    "src/active_perception_arms/assets/so101/assets/under_arm_so101_v1.stl": "d01d1f2de365651dcad9d6669e94ff87ff7652b5bb2d10752a66a456a86dbc71",
+    "src/active_perception_arms/assets/so101/assets/upper_arm_so101_v1.stl": "475056e03a17e71919b82fd88ab9a0b898ab50164f2a7943652a6b2941bb2d4f",
+    "src/active_perception_arms/assets/so101/assets/waveshare_mounting_plate_so101_v2.stl": "e197e24005a07d01bbc06a8c42311664eaeda415bf859f68fa247884d0f1a6e9",
+    "src/active_perception_arms/assets/so101/assets/wrist_roll_follower_so101_camera_mount.stl": "58c457b33a26d9c9bb337aa351173e7123f84719a93f486541adef6eba57ae21",
+    "src/active_perception_arms/assets/so101/assets/wrist_roll_follower_so101_gripper_part0_v1.stl": "370eb470a6ab48b08febcaeb5274d2bcc91246692532ce12c795fb82977def72",
+    "src/active_perception_arms/assets/so101/assets/wrist_roll_follower_so101_gripper_v1.stl": "65f32debcf265420c0160afe004f8befc5df4b3e578fd59ebaa62eade0371224",
+    "src/active_perception_arms/assets/so101/assets/wrist_roll_follower_so101_v1.stl": "4b17b410a12d64ec39554abc3e8054d8a97384b2dc4a8d95a5ecb2a93670f5f4",
+    "src/active_perception_arms/assets/so101/assets/wrist_roll_pitch_so101_v2.stl": "6c7ec5525b4d8b9e397a30ab4bb0037156a5d5f38a4adf2c7d943d6c56eda5ae",
+    "src/active_perception_arms/assets/so101/so101_arm.xml": "d911d6e066168e63ee2cff453e41c005230628e6e789bcb8f8e0a16b95356ba3",
+    "src/active_perception_arms/benchmark.py": "a0bfcb1c83962f76e550c70fc8e00af05466374c67521ab15efc8048a53911ad",
+    "src/active_perception_arms/bounded_distribution.py": "06c051b50504f23e10153da37e777379453f52c9b9c885dba3736621d16a3fa7",
+    "src/active_perception_arms/capture_evaluation.py": "cef7576b628b27e442c8b66a501664cb66bb122c9e5957d2234789156c529d1c",
+    "src/active_perception_arms/config.py": "e8d458903babee0b1eb8062cbbe6dc5e0c436c9d726f85482534b21d38b0e535",
+    "src/active_perception_arms/dynamic_occlusion_diagnostics.py": "04483a3098ab5d1b132c3a2408b1c456e3dbfa7764e869e2ce20346676e55f7b",
+    "src/active_perception_arms/environment.py": "c0962959214aa287949fe06a2957dd1ff7a7e96564f7d4064a9c30801c6047c8",
+    "src/active_perception_arms/episode_logging.py": "1a5eed3567c886276fe06f13211e55d2268c7a8fb77927ca9cdac511a5c72a80",
+    "src/active_perception_arms/evaluate.py": "64521abc2d5b97f26676edf66f27f680c3646fdfa59e1e020b7be5c4dcd28beb",
+    "src/active_perception_arms/evaluation_audit.py": "fbfecfeea61c21c3c84b65eb7a7b65284daaceace0d78eded890a99ae4c9c4a8",
+    "src/active_perception_arms/gpu_validate.py": "d007ffcc8075d0fcd6630ed7f96cacb1183d5837336fdfc1bb5e2e2adf37d559",
+    "src/active_perception_arms/manipulation.py": "067e8fcce81d793eaf7709b6ad7c8e7c36c3fbd6396b0ff3653534811c893861",
+    "src/active_perception_arms/mdp.py": "035c5defc2bbc8314eabe6b6be423567f34ece866ca009e078d7927d49fc65d2",
+    "src/active_perception_arms/native.py": "bd68f86a08a3d815ffa985a6787fdac7f1bce8a12299851fb09aa4af5faf8e1a",
+    "src/active_perception_arms/occlusion.py": "aa9f4cec079c358bc85565c3aaea31bbcc1fc03d4c24f5048d9812c5af5b4dc0",
+    "src/active_perception_arms/optimization_diagnostics.py": "9fc9e1e9e77a4c8b0dd47035dd0b2fd86639b92a3a7e141e9c0831611142fb55",
+    "src/active_perception_arms/plug.py": "825632584a242e4d3dd525b707ea3d17a3b8e3e715d96afe290353e49a156b27",
+    "src/active_perception_arms/plug_audit.py": "a8d86d58ecb1ac2c6c53941d42ec1b874e2e0cf316531f4d5dc3e5c341695d1e",
+    "src/active_perception_arms/plug_learning.py": "af8c646e08f6b0a55acae8f94fef37f35257d71d3a6a7de1f934bf132de30a16",
+    "src/active_perception_arms/policy.py": "e0f55fca5511d00c017b3a4e6d78be6e7fc2b477057fa02cadba6bdc016b0d4d",
+    "src/active_perception_arms/profile_rollout.py": "8bafd4016bbf8328c4789a763bc3bfe1fad5696c7407a2a8369eb18e0b5d5246",
+    "src/active_perception_arms/pushing.py": "f8d0863143a1f41acf93135147789a3545f5bc064193af8b12e6f51bb0bc2bbf",
+    "src/active_perception_arms/record_evaluation.py": "cc97d96733a305c1a7e8fe4491cb58c642d2c7938440b693d40d197fb26d367c",
+    "src/active_perception_arms/robots/__init__.py": "398bc3d8fc04b4f5255d65ce5ef54de6e7bccf728599c2c4d437b1899871aa57",
+    "src/active_perception_arms/robots/camera_control.py": "b80005db059f787dbb5c380ec74cc411dcd5f2e8663a6f948410d388fe9ec1cd",
+    "src/active_perception_arms/robots/kinematics.py": "a2539738be211359821b976594f8e5397424354350cb4b672521648fa9e24906",
+    "src/active_perception_arms/robots/plug_control.py": "9e9d3ce138f3dea632a7000f5aaef19cc7876fc42631fac976a3e7ffcddb8837",
+    "src/active_perception_arms/sanity.py": "4f43589660b1b5de59fe172d0a0497c3b820ab94b80716aed3ea2aecb6fd921d",
+    "src/active_perception_arms/scenes.py": "9a97743f6f2bd34beffcb4c51433aa6030126d2142b036daee700d6725f0f0bf",
+    "src/active_perception_arms/screening_diagnostics.py": "6abf4c81b6d8e4dc6eee5cf9d6db6ce19b3ad5be7ad68f41746080ed827163f5",
+    "src/active_perception_arms/select_view.py": "bb87a367c7c8ade01d08848bf234512dcf172da711896061402bbe54f1369cb4",
+    "src/active_perception_arms/task_screening.py": "6086210c6fe8fc7b58ecd9587fb5507f9e30569e8af5230af4a50c01b630b1be",
+    "src/active_perception_arms/telemetry.py": "b4ab0f0c7d5893e31dcb7f2b96a90dd8e8f63ad0ad17316e016b77d946f043f5",
+    "src/active_perception_arms/train.py": "ebe6f454a481e498ca2a22b1d28ca5c2633a099c30f94ed6d72d3478fb448c61",
+    "src/active_perception_arms/transfer.py": "5ef1f758174020674c836b81affb12e387aab256ec16bd93733e286bc4737086",
+    "src/active_perception_arms/visual_target_policy.py": "fb54207adc0a96462187bffc6c6a05e64ce87ca5593b7eae1dc22bc835439b93",
+    "src/active_perception_arms/warp_sanity.py": "e18013c992d568736edfa1177da633516174a5c65d79a35aa3420f3311ea5a39",
+    "validate_common_control_gpu.py": "adedfeb352a10312fd8862e6874598ac938638e050aa9358b2d745b921671417"
+  },
+  "rendered_gate_reuse": {
+    "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013_gate_attempt1/gpu_gate/rendered.json",
+    "sha256": "7d366c7e9843d72c6c059f01cf32685db10eb5a2a373a6c48ed68015cabddc8c",
+    "prior_plan": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013_gate_attempt1/plan.json",
+    "changed_sources": [
+      "run_long_delta_study.py",
+      "src/active_perception_arms/environment.py",
+      "src/active_perception_arms/evaluation_audit.py",
+      "src/active_perception_arms/mdp.py"
+    ],
+    "reason": "Only plug privileged metric routing, optional audit metrics and launcher changed; RGB controls, policy, reward and rendering remain unchanged."
+  },
+  "parent_plan": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/plan.json",
+  "parent_source_changes": [
+    "long_delta_study.sbatch",
+    "run_long_delta_study.py",
+    "src/active_perception_arms/train.py"
+  ],
+  "curriculum_gate": true,
+  "gate_directory": "curriculum_gpu_gate",
+  "curriculum_gate_initialize": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/long_delta_study_20261013/gpu_gate/all_small_clean/logs/plug_wrist_static_clean_gru_v0_s0_n8_plug_curriculum_wrist_static_s0_all_small_clean_20261013T053011Z/model_1.pt",
+  "curriculum_gate_initialize_sha256": "44e59f42c5e02729798465c457b2391dd62c27540a530ef5e0f0a14a57057de6",
+  "scope": "Curriculum-only source fork; fresh critic handles the additional dynamic-occlusion critic features. Direct and diagnostic policies retain the original frozen source."
+}

@@ -1,0 +1,136 @@
+{
+  "checked_utc": "2026-10-09T23:38:51.543186+00:00",
+  "target_transitions_per_run": 1000046592,
+  "gpu_preflight_job_id": "51716133",
+  "preflight_scripted_successes": 15,
+  "preflight_episodes": 64,
+  "source_files_verified": 154,
+  "runs": [
+    {
+      "run": "push_wrist_s0",
+      "condition": "wrist",
+      "training_seed": 0,
+      "job_id": "51716337",
+      "slurm": {
+        "slurm_state": "RUNNING",
+        "reason": "holygpu7c1716"
+      },
+      "status": "training",
+      "logged_updates": 15,
+      "logged_transitions": 737280,
+      "finite_ppo_losses": true
+    },
+    {
+      "run": "push_wrist_s1",
+      "condition": "wrist",
+      "training_seed": 1,
+      "job_id": "51716339",
+      "slurm": {
+        "slurm_state": "RUNNING",
+        "reason": "holygpu7c1731"
+      },
+      "status": "training",
+      "logged_updates": 15,
+      "logged_transitions": 737280,
+      "finite_ppo_losses": true
+    },
+    {
+      "run": "push_wrist_s2",
+      "condition": "wrist",
+      "training_seed": 2,
+      "job_id": "51716341",
+      "slurm": {
+        "slurm_state": "RUNNING",
+        "reason": "holygpu7c1734"
+      },
+      "status": "training",
+      "logged_updates": 20,
+      "logged_transitions": 983040,
+      "finite_ppo_losses": true
+    },
+    {
+      "run": "push_wrist_static_s0",
+      "condition": "wrist_static",
+      "training_seed": 0,
+      "job_id": "51716344",
+      "slurm": {
+        "slurm_state": "RUNNING",
+        "reason": "holygpu7c1734"
+      },
+      "status": "training",
+      "logged_updates": 9,
+      "logged_transitions": 442368,
+      "finite_ppo_losses": true
+    },
+    {
+      "run": "push_wrist_static_s1",
+      "condition": "wrist_static",
+      "training_seed": 1,
+      "job_id": "51716345",
+      "slurm": {
+        "slurm_state": "RUNNING",
+        "reason": "holygpu7c1734"
+      },
+      "status": "training",
+      "logged_updates": 9,
+      "logged_transitions": 442368,
+      "finite_ppo_losses": true
+    },
+    {
+      "run": "push_wrist_static_s2",
+      "condition": "wrist_static",
+      "training_seed": 2,
+      "job_id": "51716349",
+      "slurm": {
+        "slurm_state": "RUNNING",
+        "reason": "holygpu7c1734"
+      },
+      "status": "training",
+      "logged_updates": 9,
+      "logged_transitions": 442368,
+      "finite_ppo_losses": true
+    },
+    {
+      "run": "push_active_s0",
+      "condition": "active",
+      "training_seed": 0,
+      "job_id": "51716350",
+      "slurm": {
+        "slurm_state": "RUNNING",
+        "reason": "holygpu7c1734"
+      },
+      "status": "training",
+      "logged_updates": 11,
+      "logged_transitions": 540672,
+      "finite_ppo_losses": true
+    },
+    {
+      "run": "push_active_s1",
+      "condition": "active",
+      "training_seed": 1,
+      "job_id": "51716352",
+      "slurm": {
+        "slurm_state": "PENDING",
+        "reason": "(QOSMaxGRESPerUser)"
+      },
+      "status": "queued",
+      "logged_updates": 0,
+      "logged_transitions": 0,
+      "finite_ppo_losses": false
+    },
+    {
+      "run": "push_active_s2",
+      "condition": "active",
+      "training_seed": 2,
+      "job_id": "51716355",
+      "slurm": {
+        "slurm_state": "PENDING",
+        "reason": "(QOSMaxGRESPerUser)"
+      },
+      "status": "queued",
+      "logged_updates": 0,
+      "logged_transitions": 0,
+      "finite_ppo_losses": false
+    }
+  ]
+}

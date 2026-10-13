@@ -1,0 +1,26 @@
+{
+  "status": "submitted",
+  "recorded_at": "2026-10-09T17:05:04.735113+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=test",
+    "--dependency=afterany:51624849",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/scripts/slurm/plug_recipe_report.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-recipe-report-51624849"
+  ],
+  "source_files_sha256": {
+    "build_training_results_report.py": "b595e55bae6e9b0dfaaaf3cd9dd9ec5bee644d886057bdd4ef603dda20189deb",
+    "build_plug_repair_report.py": "d34d6e10fa8ee820545a5f98e1fc400707d317223b307635353b4e3e28123b82",
+    "validate_training_results_report.py": "22fce962105196070992a89f9d422c793ff982fd839d1c092b6cb276bf6517bc"
+  },
+  "snapshot": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-recipe-report-51624849",
+  "training_job_id": "51624849",
+  "gpus": 0,
+  "stdout": "51626017\n",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51626017"
+}

@@ -1,0 +1,97 @@
+{
+  "created_at": "2026-10-09T23:35:27.313886+00:00",
+  "runs": [
+    {
+      "seed": 0,
+      "condition": "wrist",
+      "job_id": "51715352",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_v2/index.html",
+      "plan": "../plug_insertion_study_v2/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-20261009T232943Z"
+    },
+    {
+      "seed": 0,
+      "condition": "wrist_static",
+      "job_id": "51715355",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_v2/index.html",
+      "plan": "../plug_insertion_study_v2/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-20261009T232943Z"
+    },
+    {
+      "seed": 0,
+      "condition": "active",
+      "job_id": "51715366",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_v2/index.html",
+      "plan": "../plug_insertion_study_v2/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-20261009T232943Z"
+    },
+    {
+      "seed": 1,
+      "condition": "wrist",
+      "job_id": "51716169",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_seed1/index.html",
+      "plan": "../plug_insertion_study_seed1/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-seed1-20261009T233416216372Z"
+    },
+    {
+      "seed": 1,
+      "condition": "wrist_static",
+      "job_id": "51716174",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_seed1/index.html",
+      "plan": "../plug_insertion_study_seed1/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-seed1-20261009T233416216372Z"
+    },
+    {
+      "seed": 1,
+      "condition": "active",
+      "job_id": "51716189",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_seed1/index.html",
+      "plan": "../plug_insertion_study_seed1/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-seed1-20261009T233416216372Z"
+    },
+    {
+      "seed": 2,
+      "condition": "wrist",
+      "job_id": "51716198",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_seed2/index.html",
+      "plan": "../plug_insertion_study_seed2/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-seed2-20261009T233420369082Z"
+    },
+    {
+      "seed": 2,
+      "condition": "wrist_static",
+      "job_id": "51716201",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_seed2/index.html",
+      "plan": "../plug_insertion_study_seed2/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-seed2-20261009T233420369082Z"
+    },
+    {
+      "seed": 2,
+      "condition": "active",
+      "job_id": "51716211",
+      "allocation_gpus": 1,
+      "transitions_target": 18001920,
+      "report": "../plug_insertion_study_seed2/index.html",
+      "plan": "../plug_insertion_study_seed2/plan.json",
+      "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/plug-insertion-study-seed2-20261009T233420369082Z"
+    }
+  ],
+  "requested_total_transitions": 162017280,
+  "gpu_allocation_per_run": 1
+}

@@ -1,0 +1,8 @@
+{
+  "job_id": "51622754",
+  "status": "failed",
+  "reason": "Rendered yaw-disabled PPO updates completed. Saving the post-construction mutable runner config omitted the nested distribution class, so checkpoint reload failed. Model construction now deep-copies nested config; CPU save/load regression added.",
+  "learner_updates": 2,
+  "transitions": 384,
+  "competence_claim": false
+}

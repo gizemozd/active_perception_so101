@@ -1,0 +1,986 @@
+[
+  {
+    "source": "../competence_repair/plug_dense_ym/dynamic_videos/ym_failure_episode0_outside.mp4",
+    "webm": "media/78089a77372ec43d.webm",
+    "bytes": 75538,
+    "sha256": "8b684280fadeb07d98a06b141f82476e3245ebe0108df4a55b3d37bc316c13aa"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym/dynamic_videos/ym_failure_episode0_policy.mp4",
+    "webm": "media/1fbd4e7c3f259394.webm",
+    "bytes": 177351,
+    "sha256": "53cd7d5f2cbaed54a98898eaa1846b75eac6042ef50b794c5dc6a1386c420dd1"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym/dynamic_videos/ym_success_episode2_outside.mp4",
+    "webm": "media/0468212401752c47.webm",
+    "bytes": 47756,
+    "sha256": "2eda7154b15d26cb8bbb507b0b02f7eee763e8c1613d5412849de84eb1d2a7a0"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym/dynamic_videos/ym_success_episode2_policy.mp4",
+    "webm": "media/8d53f6510197b22f.webm",
+    "bytes": 97853,
+    "sha256": "04d3f7ca71b070022236a2078aacd03ba39addf3585286a4290c949f1f04180d"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym/final_videos/ym_failure_episode3_outside.mp4",
+    "webm": "media/68c3ae4498b8fc9b.webm",
+    "bytes": 69657,
+    "sha256": "5e272d8c9e665f1c9e246d5ec0714f07336cf6f1fed957e09e98375d7f912212"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym/final_videos/ym_failure_episode3_policy.mp4",
+    "webm": "media/afc7d72096ee8210.webm",
+    "bytes": 147261,
+    "sha256": "eb493d35186158b825517f684076d954821292476fd582cf553a4e19feaf2d5b"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym/final_videos/ym_success_episode0_outside.mp4",
+    "webm": "media/2aacadd39cac2de7.webm",
+    "bytes": 46905,
+    "sha256": "4b87441dd625f56e9bd7f35d01feb0bdea42eff2a5e86f989f5d984eb79a4b53"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym/final_videos/ym_success_episode0_policy.mp4",
+    "webm": "media/9c86fa6eeac509a9.webm",
+    "bytes": 94179,
+    "sha256": "ce9ff46fe7e0f919e7a5f9bcdcf93f5621d4588cedaa64c9726def20c260904d"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym_dynamic/final_clean_videos/ym_failure_episode28_outside.mp4",
+    "webm": "media/b0b6ffe5a52315af.webm",
+    "bytes": 69485,
+    "sha256": "9ddc8ce963f1357a288fa009567fbb6c6e0bdf8371466bfaf2f68baec64da40f"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym_dynamic/final_clean_videos/ym_failure_episode28_policy.mp4",
+    "webm": "media/7388ffd377ea5f48.webm",
+    "bytes": 146256,
+    "sha256": "2c43030c213a555bb7304e1a74f2fd21671362377b8ceaf3c824291b6998ecda"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym_dynamic/final_clean_videos/ym_success_episode0_outside.mp4",
+    "webm": "media/0a363db21c2cb9b5.webm",
+    "bytes": 44883,
+    "sha256": "20f88b7375f9079c32024ae34db02f4f0dfe3ce97d34dd0b1e528790542b9677"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym_dynamic/final_clean_videos/ym_success_episode0_policy.mp4",
+    "webm": "media/30097208347d2f3f.webm",
+    "bytes": 90096,
+    "sha256": "c90c447fe3c30054089685a284b8d77af5301c6a70b21e529da74bd22df1d8a3"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym_dynamic/final_dynamic_videos/ym_failure_episode7_outside.mp4",
+    "webm": "media/fe3f2003908b68fe.webm",
+    "bytes": 74026,
+    "sha256": "bc03ae430ea2d424868a15d37e308cfe8f83dfc15b30d20949a1a1eeb41da6de"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym_dynamic/final_dynamic_videos/ym_failure_episode7_policy.mp4",
+    "webm": "media/542760f2338150cd.webm",
+    "bytes": 163522,
+    "sha256": "a2a75139b3b8533da56a4c8df6894d06921db3a93ac029f1ad373718c77f8c54"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym_dynamic/final_dynamic_videos/ym_success_episode0_outside.mp4",
+    "webm": "media/e6271ccc9509a405.webm",
+    "bytes": 46084,
+    "sha256": "3abf97f1fd18f4585c11eb16244fc9d58b35ec7cc7459305f92c9e71850e4526"
+  },
+  {
+    "source": "../competence_repair/plug_dense_ym_dynamic/final_dynamic_videos/ym_success_episode0_policy.mp4",
+    "webm": "media/cab7e94babffb1ad.webm",
+    "bytes": 96641,
+    "sha256": "c4f21eb232fe1bb605457aae76f5c9941438780ea76d838802f9418acea1ba68"
+  },
+  {
+    "source": "../competence_repair/push_wall_ablation/final_videos/nominal_failure_episode4_outside.mp4",
+    "webm": "media/1ff136e416943b77.webm",
+    "bytes": 222649,
+    "sha256": "99fe812128dc62567491ea2b86b43ee650b5462f0cf1dbcec4a6073c6cf3a308"
+  },
+  {
+    "source": "../competence_repair/push_wall_ablation/final_videos/nominal_failure_episode4_policy.mp4",
+    "webm": "media/cd42b34cc23b2d97.webm",
+    "bytes": 658631,
+    "sha256": "70b96f641123f7c067d8eaabb43a4f8e7edabf937c2042bd17d9ce2662d40c8a"
+  },
+  {
+    "source": "../competence_repair/push_wall_ablation/final_videos/nominal_success_episode0_outside.mp4",
+    "webm": "media/fdcf9442b34506ef.webm",
+    "bytes": 137917,
+    "sha256": "c6448e111ad7edb3819330e8e70286c6857479f53410cfbf313cb961085847da"
+  },
+  {
+    "source": "../competence_repair/push_wall_ablation/final_videos/nominal_success_episode0_policy.mp4",
+    "webm": "media/b827f32116a67e4e.webm",
+    "bytes": 417969,
+    "sha256": "9b29fb70c7fc272ec523ce60b3e2598ac1a7531c0f410ca7bbefbb9fc7a18381"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/active/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/66482d61a00d3385.webm",
+    "bytes": 151562,
+    "sha256": "ef40c04c75c5568f2ff86f54ebd55294cf2816a8578adf6d7311c3010cb526ab"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/active/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/bf5907d19e4ac95b.webm",
+    "bytes": 346078,
+    "sha256": "2d330cadbc4c630fdcbecc914db05cc3de4c0ffeb6e1b9758cd14bc7d2e69a12"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/active/videos-clean/ym_success_episode6_outside.mp4",
+    "webm": "media/6efcac13983983d1.webm",
+    "bytes": 165789,
+    "sha256": "6381ac106b7033197fd97d90c9ec1048e7971c78a07a33533f2ecc4a21708238"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/active/videos-clean/ym_success_episode6_policy.mp4",
+    "webm": "media/68b17031e66dcc20.webm",
+    "bytes": 317612,
+    "sha256": "a57caa1bf45b44df3166362d0325419729c7c557b788b8782cd71d234f460a28"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/active/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/234c4da15fb6628b.webm",
+    "bytes": 151644,
+    "sha256": "013e304cb8db71813b768f2872e0db5507a2e7b95a74a26f34d75d8d638584a9"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/active/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/28996aea03c794e7.webm",
+    "bytes": 302262,
+    "sha256": "851601e49c04796631cad3b1d7f1f5055403242a81616edebe7f37a9f36604c1"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/active/videos-dynamic/ym_success_episode10_outside.mp4",
+    "webm": "media/f45acf4a60190460.webm",
+    "bytes": 118282,
+    "sha256": "1d837fa455d41f91eecb4357ff5c16829467030aa7920aeb51808c6711c3e616"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/active/videos-dynamic/ym_success_episode10_policy.mp4",
+    "webm": "media/833c61c84a08d751.webm",
+    "bytes": 216131,
+    "sha256": "790815d06eaaac09c8d4f8340462c6b187a11812189cf7cedacd7b2a2c4e7f7d"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/7960bf24ec7bebed.webm",
+    "bytes": 91985,
+    "sha256": "89b23994fff01f59238a1dee1e186bf89bc8af12800247b61f8d3b4dfc8e9659"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/081f71730f54a78c.webm",
+    "bytes": 109098,
+    "sha256": "02333c50eb2000f19f979700d171f344281fdff367f20502749f5320b1a55937"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist/videos-clean/ym_success_episode6_outside.mp4",
+    "webm": "media/99212af8ce5d16cb.webm",
+    "bytes": 90701,
+    "sha256": "ea4d83f1cc78daf5e25d0fa1fcb1e291ecbaebd6743d7e39b2267c96bb3dfb25"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist/videos-clean/ym_success_episode6_policy.mp4",
+    "webm": "media/4a083ca3acbb790d.webm",
+    "bytes": 133127,
+    "sha256": "d38a50d79b747c3c3c0a88aa9fdc10332e3fdb4c8ca4ad1162d1df62e28be403"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/be2f33f9474059d5.webm",
+    "bytes": 94967,
+    "sha256": "50d09e6a71c7c1c3ee69a432d0682f091e568feb762fd3c9f9e1c79fabab9287"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/fda631195cd78d9b.webm",
+    "bytes": 117651,
+    "sha256": "52d8ebc950c22312149a418c0356de4599363be3642380ed2d6f0075c54a5353"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist/videos-dynamic/ym_success_episode6_outside.mp4",
+    "webm": "media/1c80edb3547498da.webm",
+    "bytes": 67882,
+    "sha256": "905d263abbb19a088fc25e8e0d8433acef908ae285b4a933ca96beb1754b5806"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist/videos-dynamic/ym_success_episode6_policy.mp4",
+    "webm": "media/b42a12e4d96456eb.webm",
+    "bytes": 113620,
+    "sha256": "2f227dec579c6ad7718c56c816e49c1304296403f829af39697019b230e57607"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist_static/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/d275263d64141007.webm",
+    "bytes": 101587,
+    "sha256": "e528f8ce8b29a91782ee5a9eea730e5d2db0964e65a3a07eaa24e85771cbf19b"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist_static/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/2abf9732bd6a157b.webm",
+    "bytes": 199653,
+    "sha256": "ca026ed84ae97932a085d0a4c43747c692ccb2bee0fadf2e2919f1424af5cba3"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist_static/videos-clean/ym_success_episode18_outside.mp4",
+    "webm": "media/7153137a97b0c87a.webm",
+    "bytes": 64035,
+    "sha256": "688c08133e20403e4dbd7fd4fc81913ea1bfd2d605f16209ce43313cc4af5449"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist_static/videos-clean/ym_success_episode18_policy.mp4",
+    "webm": "media/2e9822ae67fae046.webm",
+    "bytes": 146779,
+    "sha256": "80956405f75677bbe957441f96aa813ae058636e1b54cb61866f3bc9e6701477"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist_static/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/407d8e6f48d27a79.webm",
+    "bytes": 97904,
+    "sha256": "dc3fe9b3cf7f7be043973386b58980c010896aba43d393fc70ad0d7927e2e908"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist_static/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/fe11630dc0b351e2.webm",
+    "bytes": 200096,
+    "sha256": "ded269da66bdbe33a7b9b4c2904ae9ae695744a0e5dcc86879fef7eb7cd7c45a"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist_static/videos-dynamic/yp_success_episode11_outside.mp4",
+    "webm": "media/1bfc58aba17ef5b1.webm",
+    "bytes": 86588,
+    "sha256": "ac75badc67ae6236b22fde84286a56b1f6808e230a72e3239e20ac9439c1c9d8"
+  },
+  {
+    "source": "../plug_insertion_study_seed1/wrist_static/videos-dynamic/yp_success_episode11_policy.mp4",
+    "webm": "media/c584048dcf33e3f4.webm",
+    "bytes": 220379,
+    "sha256": "90d7f0b91c7be23c245d27c8acf0056f6d7501b04ec0aa70aa19bcbc0c91806f"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/active/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/fad81e2a21326dc6.webm",
+    "bytes": 158543,
+    "sha256": "201372cae4bfb4a3f4dc7d9d5cb42a846c4eadf9d3dff3cbe97c3c3ba99d7525"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/active/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/56f8d9982e8b4f37.webm",
+    "bytes": 314531,
+    "sha256": "746dbef481549455ee601c8f82b333f485f92d0c8cd69f8c6d0cd56ab7b0e7bf"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/active/videos-clean/yp_success_episode3_outside.mp4",
+    "webm": "media/40b69fa822083fee.webm",
+    "bytes": 104282,
+    "sha256": "585d92c354c68e2f464668c1d8d4ddbb294152e016dedc0219d3e74268175258"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/active/videos-clean/yp_success_episode3_policy.mp4",
+    "webm": "media/a14b66ad9c3f3e0d.webm",
+    "bytes": 252078,
+    "sha256": "bff4f9103114bdb6819ec295db1efa1c3b59c5d4acb87ca4936d09945ce3ed70"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/active/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/af1a79bd23eb25c6.webm",
+    "bytes": 160589,
+    "sha256": "4aac2e43d868a675538ca454c4245f13a12d48ad55e2a0cedb5f1b53fe9c57a6"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/active/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/74d00f112958b518.webm",
+    "bytes": 353486,
+    "sha256": "90975e8493c4fec6b06e1beb0a7d20998dc0539ebd4b6df7d40a730cb3360b79"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/active/videos-dynamic/ym_success_episode6_outside.mp4",
+    "webm": "media/5782e95effd4de35.webm",
+    "bytes": 151099,
+    "sha256": "725924330cc5400e7ed8b523f46a19cf3d8031b6852b20ec8bae6163719dc21a"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/active/videos-dynamic/ym_success_episode6_policy.mp4",
+    "webm": "media/9dd441216315c875.webm",
+    "bytes": 283419,
+    "sha256": "8a720c4e75ca768c3e302aa3c9af574acff2e614a2fb9461e5c99c31ce9d3bb6"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/08f50db6d6e853ef.webm",
+    "bytes": 67452,
+    "sha256": "0b95c4efe289b5b8799a175534ad0effbe2f2cf82d9f3f04c0e8b1695c2c36ba"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/722cdd8b435415ba.webm",
+    "bytes": 90823,
+    "sha256": "5546baf08f6bd83d21d78e8d4ffb6af54a2908eb29ceeade769429e5367fa394"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist/videos-clean/ym_success_episode14_outside.mp4",
+    "webm": "media/5cbba391fdef43d4.webm",
+    "bytes": 76371,
+    "sha256": "750a2eecf478f553a4d094a2e16e366e2e225afd94757f09d05d70bcd0b7bc09"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist/videos-clean/ym_success_episode14_policy.mp4",
+    "webm": "media/4c288bb7063d6316.webm",
+    "bytes": 131279,
+    "sha256": "2cfc98edd27ed0ac97e9452582afe6312f45ba3ad86690df5a05e944c6fe26da"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/fedc362025db4e7c.webm",
+    "bytes": 77792,
+    "sha256": "9f0037fbacf5f176a97d0aa9b95147f812b29af074004c0f1d138a57d27f22c0"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/05f68bb011aea372.webm",
+    "bytes": 117154,
+    "sha256": "cf5c24748ce662795a92fd1e9c891ddf4c61fdbcde759f3325063e8d67bf69b2"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist/videos-dynamic/ym_success_episode30_outside.mp4",
+    "webm": "media/dbdfb98b5ddb4c25.webm",
+    "bytes": 63610,
+    "sha256": "3033a22616b1c4984d510ee6a2ba6664fa1c7bc1b5dfd8cb324186004e75c30c"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist/videos-dynamic/ym_success_episode30_policy.mp4",
+    "webm": "media/beabedc21f6101de.webm",
+    "bytes": 82196,
+    "sha256": "097882de8bac608505b65e9f5d59affe52989a641fc014b9c6ba0f066504483d"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist_static/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/f9575bc9b803a137.webm",
+    "bytes": 89419,
+    "sha256": "883f0af1d39e9d0e41982519fd37ff81943ac538eb5091a648feb0f5f1abe1c8"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist_static/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/47223fd8c0797548.webm",
+    "bytes": 234610,
+    "sha256": "70272b650dcb17d92788aeb64025a06ae0547af5a5dd49e109ecbba97f3a5e88"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist_static/videos-clean/ym_success_episode10_outside.mp4",
+    "webm": "media/8fd228c8f88c33da.webm",
+    "bytes": 48441,
+    "sha256": "cff8cd2f60f4749c9650860378c047e0e4f8c0a87bf778cfbdcd82a1ee31da25"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist_static/videos-clean/ym_success_episode10_policy.mp4",
+    "webm": "media/a1716f3ea39522aa.webm",
+    "bytes": 92677,
+    "sha256": "5b34781d27c521cdc49340ec889567665486696b68644207719832f42c7ef56a"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist_static/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/411de67bc7969c5b.webm",
+    "bytes": 98348,
+    "sha256": "784749d3cd706237184ae0881168a0c000866590e3141c606daf77ec6785d7bc"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist_static/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/fde7bebb7ffd314b.webm",
+    "bytes": 222211,
+    "sha256": "d516febdcc5f50c5a31a0980b870c53810fdf023cf2f1aee68deba6291814306"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist_static/videos-dynamic/ym_success_episode6_outside.mp4",
+    "webm": "media/74fe9fa58e7c2663.webm",
+    "bytes": 90038,
+    "sha256": "875206cbd38df93d58a9e9187ad0bd9fbcbbbe188d0ddfc61edc0d5a9eb56872"
+  },
+  {
+    "source": "../plug_insertion_study_seed2/wrist_static/videos-dynamic/ym_success_episode6_policy.mp4",
+    "webm": "media/01b326ab8687ce93.webm",
+    "bytes": 215686,
+    "sha256": "c62864156f8639bfdc10791a225364666cb13ce9000ff37c7916a77d4b2c24a1"
+  },
+  {
+    "source": "../plug_insertion_study_v2/active/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/1827532db5134a3a.webm",
+    "bytes": 169231,
+    "sha256": "2fea2c6869b87669d1b2b2e04cee250f1f15de1a1b5802f681eb091c6a53e92a"
+  },
+  {
+    "source": "../plug_insertion_study_v2/active/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/580f843aab6224cf.webm",
+    "bytes": 682574,
+    "sha256": "a82c5668072f53fd2321b3fbf66327f0e2c5c91532fb0243ddd0e1547811d8d2"
+  },
+  {
+    "source": "../plug_insertion_study_v2/active/videos-clean/ym_success_episode6_outside.mp4",
+    "webm": "media/509793c279069d7b.webm",
+    "bytes": 74795,
+    "sha256": "c5d1666151c6a134ccdca6ab2ef6028d76302d41a7766751628fbdc3be732a5b"
+  },
+  {
+    "source": "../plug_insertion_study_v2/active/videos-clean/ym_success_episode6_policy.mp4",
+    "webm": "media/fb5ba7f3a80905a8.webm",
+    "bytes": 280694,
+    "sha256": "25028941b5b8c13205e3f8cfc7be3dd128e6b2215774f0dfcfffe09a26c987dc"
+  },
+  {
+    "source": "../plug_insertion_study_v2/active/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/cb7b02b04285e833.webm",
+    "bytes": 124230,
+    "sha256": "57e5746f8d59c1efb627c88968354b814e8222c1148c4ca93d507c4c53725d55"
+  },
+  {
+    "source": "../plug_insertion_study_v2/active/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/1726f719ea1479ae.webm",
+    "bytes": 504496,
+    "sha256": "037b4a82d9d57bd839d7e2478160c9087bd251eebe02db495efbc1836ae8f52c"
+  },
+  {
+    "source": "../plug_insertion_study_v2/active/videos-dynamic/xp_success_episode5_outside.mp4",
+    "webm": "media/16eec722b4ce4758.webm",
+    "bytes": 106108,
+    "sha256": "939472ae6339379a2f12b9d2d3b670c6d438f2bd9eff76ba34af3c95d364ea46"
+  },
+  {
+    "source": "../plug_insertion_study_v2/active/videos-dynamic/xp_success_episode5_policy.mp4",
+    "webm": "media/9450c29720ac36d9.webm",
+    "bytes": 387597,
+    "sha256": "dc768471f25a6138e5f2945d45f1d590a5875315a196361e51a08bf02a611f7f"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/b30d13a6df7bcac9.webm",
+    "bytes": 91689,
+    "sha256": "22f8578013af1d11d1c690834000da6c40bda0ec55a28cfffc9c0a5db28e75c1"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/d60f327da40374aa.webm",
+    "bytes": 117629,
+    "sha256": "4829b17ef8d9e6e3efa5c8c7ca6bbd688731f768ff7ae5e14856119a6becf3b4"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist/videos-clean/ym_success_episode6_outside.mp4",
+    "webm": "media/544624ebf75011b1.webm",
+    "bytes": 64833,
+    "sha256": "ef18cb4fadd355a172a26d099febd5d1cdafc745fa9ddd296c8729c46b634ef4"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist/videos-clean/ym_success_episode6_policy.mp4",
+    "webm": "media/0f7536b6e74e2e13.webm",
+    "bytes": 82262,
+    "sha256": "ca5dfb4beee19c6abbad71f52467c967c0434a54f8e3b28e86d3bb900ad1413f"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/19a940946e481de4.webm",
+    "bytes": 90025,
+    "sha256": "01e0feb482bd9dc85fac50f2c78b8c1ba3cf38b645ce83d777700ec2f5a904c4"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/7a10d6b9964d5612.webm",
+    "bytes": 130075,
+    "sha256": "21fa2cc8bfc664ba1d9a2fbb49d82c477c39015c51786ac3a9645f0b04c93395"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist/videos-dynamic/ym_success_episode6_outside.mp4",
+    "webm": "media/f0dc0b8ad9fc74d2.webm",
+    "bytes": 65550,
+    "sha256": "eedebed084f09086dc80a9640f3dbce147d861a0565005a3946c055456976135"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist/videos-dynamic/ym_success_episode6_policy.mp4",
+    "webm": "media/dbb88c6a63ac8ffe.webm",
+    "bytes": 80330,
+    "sha256": "7654c37158472c90e3a82205a05e963511d497e2cdf05fe15699f46b5acfa10b"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist_static/videos-clean/xm_failure_episode0_outside.mp4",
+    "webm": "media/2b89006ddafc433d.webm",
+    "bytes": 70325,
+    "sha256": "b119379dc22096e7ff3c5a701dd1bfe584795a354fdaaedf84174e8390764576"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist_static/videos-clean/xm_failure_episode0_policy.mp4",
+    "webm": "media/800f7f4ae64e554e.webm",
+    "bytes": 211729,
+    "sha256": "8e2fee1d6477dea2aca4a3f90a7e4607a0ab814e88573a56dd4830b94c9c390c"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist_static/videos-clean/ym_success_episode6_outside.mp4",
+    "webm": "media/86f5636a8e577ca4.webm",
+    "bytes": 81466,
+    "sha256": "6308af3b51c278da69143e9e3155b484120c59ec61a3ec16478485d33abb294e"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist_static/videos-clean/ym_success_episode6_policy.mp4",
+    "webm": "media/47db79e04816ab86.webm",
+    "bytes": 212332,
+    "sha256": "1451c25c963ff71865333f35a5c7d1836cbcc3a9e6141dc682636e48b24d504a"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist_static/videos-dynamic/xm_failure_episode0_outside.mp4",
+    "webm": "media/c3e638ada9275354.webm",
+    "bytes": 87868,
+    "sha256": "df4593f93c3bbc4faae7138a4463aeb034c700718ced951f08a7e806579a45e9"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist_static/videos-dynamic/xm_failure_episode0_policy.mp4",
+    "webm": "media/e296904c3a2cb3f6.webm",
+    "bytes": 211785,
+    "sha256": "6ed044b998bd760cd85a4e5dcbfe5541223086b4975835b98272561c4b29cddf"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist_static/videos-dynamic/yp_success_episode31_outside.mp4",
+    "webm": "media/4958c4277755611f.webm",
+    "bytes": 88231,
+    "sha256": "d18011c14bf544636ec414ccdd3365059c6ff1cd9e3dfc063a551f1d57510c75"
+  },
+  {
+    "source": "../plug_insertion_study_v2/wrist_static/videos-dynamic/yp_success_episode31_policy.mp4",
+    "webm": "media/19995792dbe40401.webm",
+    "bytes": 198162,
+    "sha256": "84aad879cf1d3867d4b0f1f0fcedfea47d69895e04ffa7bc8a648c9eb4b13302"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s0/videos-clean/nominal_failure_episode5_outside.mp4",
+    "webm": "media/9456bcc482867759.webm",
+    "bytes": 305968,
+    "sha256": "d374d67edeb35c198c8c96821a8974a02543fcfa5ae8860d55e8bd9c22cabe53"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s0/videos-clean/nominal_failure_episode5_policy.mp4",
+    "webm": "media/c8efae20e542a376.webm",
+    "bytes": 425705,
+    "sha256": "1ac1978f84a00227012abf2b1bfb94080ac0560bfbad0cbbb7975c43ba6ff1bd"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s0/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/709e10e41a4d0ac1.webm",
+    "bytes": 170492,
+    "sha256": "5cd955b56494caa77e14e9a13bb0bc1d1ffe9a0bcd30c327398518dd71f47c1f"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s0/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/c180cde1adde4b2d.webm",
+    "bytes": 200008,
+    "sha256": "5d248384468b2c15ff8db478188085530a2a55ab607c4d717fb0cac5387610ad"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s0/videos-dynamic/nominal_failure_episode9_outside.mp4",
+    "webm": "media/e0c34e61f834b7b3.webm",
+    "bytes": 397137,
+    "sha256": "79c9d277d4d29d312c8741cc99a3a1a6ba5ab2c17ec04500ead677c6d6d6f623"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s0/videos-dynamic/nominal_failure_episode9_policy.mp4",
+    "webm": "media/ce3ccb58058b9caf.webm",
+    "bytes": 412702,
+    "sha256": "6730216e98bd6351ea3511776c78f2bdab90447a871a3402129fbfecb772a0af"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s0/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/e429d38d6a7444fa.webm",
+    "bytes": 170724,
+    "sha256": "21ce342cd55e8aa38247b73b5e385ea340bada3ceb9d6aa7c394f73e9eaefb66"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s0/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/6afd88a4ac55f111.webm",
+    "bytes": 192416,
+    "sha256": "0c6449d0bcc1f963dcd86978b588ee749bf372a932c74affaf6f020d4516aa75"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s1/videos-clean/nominal_failure_episode5_outside.mp4",
+    "webm": "media/a698b872bcd1d80c.webm",
+    "bytes": 385330,
+    "sha256": "4b191ea956f9af16336999bbafe1e4bdbdab45ba811b4baa44ceb41a565f81f6"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s1/videos-clean/nominal_failure_episode5_policy.mp4",
+    "webm": "media/ffbefbaa4e4fd86b.webm",
+    "bytes": 367614,
+    "sha256": "e38216b02b087e38447c8072f2b707559c0d86d9a5986b73f0650c5eef2851ce"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s1/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/fa5b86866ecfdf69.webm",
+    "bytes": 199860,
+    "sha256": "53dbf8379e53d19bf0643aec41cf1d6f9a66ca301cce1601d57b6f885f9c58c0"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s1/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/74d98de8f3e7e2dd.webm",
+    "bytes": 160460,
+    "sha256": "3963492d4e70a03e354b9b4505db3a4ea8567db814328370125ab7a932e54051"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s1/videos-dynamic/nominal_failure_episode5_outside.mp4",
+    "webm": "media/d34c4efe93fcb6f4.webm",
+    "bytes": 397457,
+    "sha256": "86b009c82c0d725a24a1574dc5036dfed7664e43077ac1a4c3311a29da3cf005"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s1/videos-dynamic/nominal_failure_episode5_policy.mp4",
+    "webm": "media/4d3279f3477d9982.webm",
+    "bytes": 364695,
+    "sha256": "68ac5b762e5167196a95ad971d922a62a98d32b00d27776876d7c178df55613d"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s1/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/0eca7bcd0dc989d0.webm",
+    "bytes": 205403,
+    "sha256": "9c91c5bb778c81ec2da92f2a23281d32859f6cc2002c4c5d48b9ebecfb92468c"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s1/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/49f59847675eda66.webm",
+    "bytes": 163872,
+    "sha256": "e04d38eb39ea5924bd6689c63acf5dec577a630f1411cca04e8038ec02993d65"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s2/videos-clean/nominal_failure_episode1_outside.mp4",
+    "webm": "media/0af39c2e7fe2a646.webm",
+    "bytes": 566186,
+    "sha256": "42cff54f413b233af0583cd7853e0c8238bffc1df7ffb2c8d5ae893b6fa34f66"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s2/videos-clean/nominal_failure_episode1_policy.mp4",
+    "webm": "media/2e7d022d9365d4c3.webm",
+    "bytes": 349325,
+    "sha256": "611911ee64b235f6754af5c2d41a01f3e00c6341215b3e18184b72f217604f41"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s2/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/7bb47438909ddc01.webm",
+    "bytes": 277251,
+    "sha256": "775575d237d952f032575af8eaaa3fa71708efbe2678deb193db012e616e8952"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s2/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/2626db75ff05d361.webm",
+    "bytes": 186002,
+    "sha256": "930fa7cd3fa1755a520bd86f6dc672d1138fb4dad1cb3886c8edbf0ed97d8797"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s2/videos-dynamic/nominal_failure_episode4_outside.mp4",
+    "webm": "media/b9c1f11aebe33f23.webm",
+    "bytes": 553216,
+    "sha256": "e5fa966d80abdca2de4d52121c409109227fe04e77fa7b518c19de6299e3fb51"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s2/videos-dynamic/nominal_failure_episode4_policy.mp4",
+    "webm": "media/9592d7b7678c1a74.webm",
+    "bytes": 277441,
+    "sha256": "46b82a0f863d20c0a1cc53cd42d371b25c6b323f0ab5ba233d4716ae9f81d61f"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s2/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/1673f86a7e4e0ae0.webm",
+    "bytes": 279688,
+    "sha256": "dd27bb061f481f5a0748de67303f22c4e2212f17bb3d618b98a5032b75956a1c"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_active_s2/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/c8cc8d70e85442ae.webm",
+    "bytes": 153498,
+    "sha256": "f255813420fbe721f55404edb9a44bf744d8a47b8c50f58d5bc8eb9d20ccbd1d"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s0/videos-clean/nominal_failure_episode5_outside.mp4",
+    "webm": "media/69e0eb83ee8b96f1.webm",
+    "bytes": 179817,
+    "sha256": "efcb9567f1100f83a6863a6c8f42c745b18920a8e9b455196d990525b8cb4d74"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s0/videos-clean/nominal_failure_episode5_policy.mp4",
+    "webm": "media/ec096f3b19a891f7.webm",
+    "bytes": 195145,
+    "sha256": "a671198af4b9414cd5be339ae07cd0cc5642227cfd84dd37d0a4a60086e1b53d"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s0/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/e38d1aba451bdc77.webm",
+    "bytes": 126177,
+    "sha256": "3f37bb3786d3d6d4f9c626b2531288155b00e173d45c8d222b546fd9b09195f1"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s0/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/a8d0aa16b6850635.webm",
+    "bytes": 108881,
+    "sha256": "c653cd4e974e46d7a0b3fdc791edd23be6d36999e98288e24b79f7fd97db16ef"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s0/videos-dynamic/nominal_failure_episode4_outside.mp4",
+    "webm": "media/9730c8d244784619.webm",
+    "bytes": 249178,
+    "sha256": "5f285e6b5668a0accd208341f68107f76de52bd7cf41aa7838d20ada17efc7da"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s0/videos-dynamic/nominal_failure_episode4_policy.mp4",
+    "webm": "media/13a173bfa2cfa571.webm",
+    "bytes": 172338,
+    "sha256": "109667d91f7a84a769a25942594247135579636a95462d721724c1b6fb9a61d6"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s0/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/79eacacaf3e2a56e.webm",
+    "bytes": 99772,
+    "sha256": "cdf71a5180134bafdf2e9f059f043042678017eb01b46e8391364d652d86c1bc"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s0/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/2d91573591b95cea.webm",
+    "bytes": 77540,
+    "sha256": "78f6d7280ee45e70d8b97e387ad69fe30e45ae294854f6fc8a1b24dd3e86e915"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s1/videos-clean/nominal_failure_episode3_outside.mp4",
+    "webm": "media/194f128d9e27a09c.webm",
+    "bytes": 197219,
+    "sha256": "1dcb9b4d4d27cd67f6dca2feefa7ed51f51d864d1d9f8ce32122b62b5758ce1e"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s1/videos-clean/nominal_failure_episode3_policy.mp4",
+    "webm": "media/f7fe94be1670f835.webm",
+    "bytes": 182006,
+    "sha256": "9e356963602574a2afa09f0ff0f8966a3a2856df75f188aa0d900295203e234d"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s1/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/708b4259d029eb5f.webm",
+    "bytes": 90090,
+    "sha256": "31ac02103de12371e2fc84a9883d98aea570baff8e165d15e45fd70643c6c9a7"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s1/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/a1b7dbbae7070d75.webm",
+    "bytes": 69070,
+    "sha256": "6acabbf3b2f992c68a02dc0c9f766563c2af11e531be0306cbb81760374e66d9"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s1/videos-dynamic/nominal_failure_episode9_outside.mp4",
+    "webm": "media/68e7e0d3b814819c.webm",
+    "bytes": 226410,
+    "sha256": "96284aee607975362af12898a8762cec679d644559e62c83c9c9d216b07f4691"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s1/videos-dynamic/nominal_failure_episode9_policy.mp4",
+    "webm": "media/aaee49507e9752b6.webm",
+    "bytes": 197969,
+    "sha256": "ba373b7115100734737ddfe7415864bd257fb4b6918e6963adf201eaa875ed03"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s1/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/54878011832d8b42.webm",
+    "bytes": 95958,
+    "sha256": "c8b8eb1f34914b17df30fa0ce96ed3c8269b6e6fd7a1fb45e0e41ee9d6f8a870"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s1/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/ef7d441493dd9372.webm",
+    "bytes": 73654,
+    "sha256": "75fc98f8654646a5bb6bf2378620431016defb278c6c910b7ba20a366fcc61ec"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s2/videos-clean/nominal_failure_episode7_outside.mp4",
+    "webm": "media/89a89c8b6108fdfe.webm",
+    "bytes": 286385,
+    "sha256": "27330b063ea56ed823ac37cd3f27929d785224b4b28e13f560847bfcea9c8335"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s2/videos-clean/nominal_failure_episode7_policy.mp4",
+    "webm": "media/b70f6160e901b97e.webm",
+    "bytes": 205416,
+    "sha256": "684cc61b709db147c41705b22789cc9dea9bda989d1d6bc641a63521351dd933"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s2/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/3fff5e098c3d5ff8.webm",
+    "bytes": 87264,
+    "sha256": "9fb8a09d697676a66223f5c4be78b6bd32f98b731b784d27c16415eb24172133"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s2/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/fdad60f377bee88c.webm",
+    "bytes": 66717,
+    "sha256": "703236b1e515b6bc67eb61f7a54225e3c0a6b2163ea1a294285006d8cdbf8707"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s2/videos-dynamic/nominal_failure_episode8_outside.mp4",
+    "webm": "media/29b8afd780848f80.webm",
+    "bytes": 192757,
+    "sha256": "224a9ec860507f8b9a1c817af9b3b96e5dad7415854483857804e539d03bd9c0"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s2/videos-dynamic/nominal_failure_episode8_policy.mp4",
+    "webm": "media/928bbb340c0d73ec.webm",
+    "bytes": 207716,
+    "sha256": "3c45b7ef2ec755c8433777ab6594aed3c1aeab0b83c28864bb8b7310c6888416"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s2/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/790a0bf6d83ef77a.webm",
+    "bytes": 94699,
+    "sha256": "7f2a2e78cf5cea76418b03e446e4bf2bbb0609855fee3a91dee8577dc3ca8fc1"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_s2/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/abb78444eaae38a1.webm",
+    "bytes": 70267,
+    "sha256": "59bff4e4d41945646645152629c62c2bc84a678dc159312fa10cf6a357b97e88"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s0/videos-clean/nominal_failure_episode4_outside.mp4",
+    "webm": "media/c8c783843d583dd9.webm",
+    "bytes": 307333,
+    "sha256": "d67b4d7b2579713ec9ff22580f6c4e1267196e17fc085f6917a1c89eee525f54"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s0/videos-clean/nominal_failure_episode4_policy.mp4",
+    "webm": "media/e94d52ebb048a0f5.webm",
+    "bytes": 778373,
+    "sha256": "0d73d18c0ee95f58849f8771aedbd1caa8513b20f9d305cfa7392e6063046e29"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s0/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/786bcaab40ab8a57.webm",
+    "bytes": 93722,
+    "sha256": "ea3de0760ff13128d76b1ab175e342d82fd1271ae54ce1b5f95798c80382b80d"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s0/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/018e7267dcb789c7.webm",
+    "bytes": 311107,
+    "sha256": "2488dc1f097f405d910f057d07cf6f229561acc5c807ed01164b552ecf42176f"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s0/videos-dynamic/nominal_failure_episode5_outside.mp4",
+    "webm": "media/bfc0f9711ec05822.webm",
+    "bytes": 188233,
+    "sha256": "c48dea50a8eaf8a9c712c07bfc6760b857ba1b7bd17e36f010c5b41b86d70a7c"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s0/videos-dynamic/nominal_failure_episode5_policy.mp4",
+    "webm": "media/005702b1b764bcf1.webm",
+    "bytes": 573577,
+    "sha256": "d3a7cad206828a8eb31e9791663a0c96d924d40d2ae9225a2d434ce463f24419"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s0/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/04121d22f4335b86.webm",
+    "bytes": 94994,
+    "sha256": "e34ab1163fd4f56c42609ea60bd0052cee588bbd8d641773cbd7aabd5cb71495"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s0/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/2595e34f6a8592db.webm",
+    "bytes": 268126,
+    "sha256": "47b5284e4352905ab66f121f054c453a8ca566104ce4cb98510efc359c023d2a"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s1/videos-clean/nominal_failure_episode9_outside.mp4",
+    "webm": "media/8f7c8ec0b64d513b.webm",
+    "bytes": 171122,
+    "sha256": "dd23e5ab0a49da66bc3791c6f3d68f13e78255e24561bd03358bdd2590797e50"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s1/videos-clean/nominal_failure_episode9_policy.mp4",
+    "webm": "media/72b2a62dfd6025fe.webm",
+    "bytes": 526038,
+    "sha256": "3f672e990aeb49c7ae488a2f982a7425d097fe34aab8c502de887d8da37bdaf1"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s1/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/004073c95683f19b.webm",
+    "bytes": 97083,
+    "sha256": "9ecffc2ef14c8d260b95831313565b36ef1571581f06be861914bced2d5f681f"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s1/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/155702361f9e096d.webm",
+    "bytes": 327676,
+    "sha256": "a26182d026f67d3c25c539a23c54ad204b552244b722cc2c10fdff937d66c18a"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s1/videos-dynamic/nominal_failure_episode5_outside.mp4",
+    "webm": "media/5fa1b3fa7658a1ac.webm",
+    "bytes": 218255,
+    "sha256": "32e434ff65d0783992e51dbddb76f6686421ff2ec0330243bdb5b3587aca6798"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s1/videos-dynamic/nominal_failure_episode5_policy.mp4",
+    "webm": "media/87337446f57b89ef.webm",
+    "bytes": 661300,
+    "sha256": "0b7ed916d2b9c841f24f2fc51b813ab85f2a490e481c3fda9706ee530c3e7875"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s1/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/eefeba21c48edba8.webm",
+    "bytes": 102525,
+    "sha256": "2b1d508d2314872032a93cc4f41290aef81e4518a5752071f8ccb24f73f8912d"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s1/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/1c8c5b380c3822a5.webm",
+    "bytes": 294032,
+    "sha256": "71acc4a75fc4cbce0404d4ad768321e3d4e4c836a0f9c54450ed21ec57cb35ae"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s2/videos-clean/nominal_failure_episode5_outside.mp4",
+    "webm": "media/f1d95af8472a2894.webm",
+    "bytes": 166874,
+    "sha256": "50e142310499a27f52c06f7f0fb8f54620cddfa251d58d4eb2e0d60eaa06c5d3"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s2/videos-clean/nominal_failure_episode5_policy.mp4",
+    "webm": "media/c5a84011b8b32045.webm",
+    "bytes": 500373,
+    "sha256": "70ac45ae1a265c56f0e378109e309903885d1ceeadfbf4d6be566134cebbf794"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s2/videos-clean/nominal_success_episode0_outside.mp4",
+    "webm": "media/f580f5721ea1c2a4.webm",
+    "bytes": 86261,
+    "sha256": "8d9521c6613594830f440ab6214ee1f2868734857d99ccc53b4167ff1cfcc74f"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s2/videos-clean/nominal_success_episode0_policy.mp4",
+    "webm": "media/c372f4d02e10fb7b.webm",
+    "bytes": 281463,
+    "sha256": "6e2e67d1f1ccc9c3a34d8688d4759e4480874a7630d4b616ebd5132e737f44fa"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s2/videos-dynamic/nominal_failure_episode2_outside.mp4",
+    "webm": "media/a9027acbb8a92614.webm",
+    "bytes": 222663,
+    "sha256": "97ecea01bb32445d59d60aa9328354b74b6fd8206705c26eb9a3d4c40d747a1c"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s2/videos-dynamic/nominal_failure_episode2_policy.mp4",
+    "webm": "media/85c09338c97f257b.webm",
+    "bytes": 553456,
+    "sha256": "a695e8c876bde4e412d9bbdd9aa9944dd9cc286d3092a3dbe9ca4dc6f976ac69"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s2/videos-dynamic/nominal_success_episode0_outside.mp4",
+    "webm": "media/4c2a3d865572ed33.webm",
+    "bytes": 95359,
+    "sha256": "51d60291479d33900441d63a16b4459cb2f12f3731af71725159bb6a9bdd45d9"
+  },
+  {
+    "source": "../push_rgb_arc120/runs/push_wrist_static_s2/videos-dynamic/nominal_success_episode0_policy.mp4",
+    "webm": "media/07ef768d1569976b.webm",
+    "bytes": 264987,
+    "sha256": "f9933199f55d4c78c9bbfcfed3b7c5814cbef2970665aac12cdbeba8793ae9d5"
+  }
+]

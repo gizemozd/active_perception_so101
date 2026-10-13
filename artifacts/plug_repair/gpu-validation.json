@@ -1,0 +1,49 @@
+{
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "cases": [
+    {
+      "yaw": false,
+      "condition": "wrist_static",
+      "passed": true,
+      "updates": 2,
+      "transitions": 384,
+      "metrics": [
+        {
+          "value": 172.9902603149414,
+          "surrogate": -0.007080063541070558,
+          "entropy": 4.2566807746887205
+        },
+        {
+          "value": 281.59169616699216,
+          "surrogate": 0.0002672833856195211,
+          "entropy": 4.256897926330566
+        }
+      ],
+      "checkpoint_roundtrip": true,
+      "both_rgb_encoders_updated": true
+    },
+    {
+      "yaw": true,
+      "condition": "active",
+      "passed": true,
+      "updates": 2,
+      "transitions": 384,
+      "metrics": [
+        {
+          "value": 173.15742034912108,
+          "surrogate": -0.02789553989423439,
+          "entropy": 12.771476984024048
+        },
+        {
+          "value": 300.04248199462893,
+          "surrogate": -0.005830543965566903,
+          "entropy": 12.771912813186646
+        }
+      ],
+      "checkpoint_roundtrip": true,
+      "both_rgb_encoders_updated": true
+    }
+  ],
+  "passed": true,
+  "competence_claim": false
+}

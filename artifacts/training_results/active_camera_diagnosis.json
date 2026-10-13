@@ -1,0 +1,399 @@
+{
+  "created_utc": "2026-10-12T19:44:43.609131+00:00",
+  "method": "Read-only analysis of saved checkpoints, representative trajectories, final tests and intervention results; no new policy inference or training.",
+  "trace_limitation": "Saturation statistics use selected clean success/failure examples, not the full evaluation population.",
+  "checkpoints": [
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_active_s0",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_active_s0/push_active_clean_gru_v0_s0_n2048_push-rgb-arc120-20261009T233510Z_20261009T233614Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "ad3743f72c1a982f8a7f64c71c0a854a2b73223c868f9fee6ca9c7846bc341ff",
+      "action_std": [
+        8.187129020690918,
+        6.634761333465576,
+        11.50676441192627,
+        67.70467376708984,
+        71.80638122558594,
+        71.67471313476562,
+        68.92269134521484,
+        70.74911499023438
+      ],
+      "representative_clean_commands": {
+        "source": "artifacts/push_rgb_arc120/runs/push_active_s0/traces-clean/capture.json",
+        "source_sha256": "8e67abae680d66dcfaf039f6a9490f0bab2009ec6ae360bcec0d4c9f9cc6e76f",
+        "episodes": 2,
+        "steps": 427,
+        "camera_fraction_outside_unit_bounds": 0.9995316159250586,
+        "manipulator_fraction_outside_unit_bounds": 0.8423106947697112,
+        "camera_median_absolute_raw_mean": 266.5938720703125
+      }
+    },
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_active_s1",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_active_s1/push_active_clean_gru_v0_s1_n2048_push-rgb-arc120-20261009T233510Z_20261010T014409Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "3da41ed2c2a12fd89f6ecca077f7aaa168d6b4e0ceb7a8d98d519faaad9867d9",
+      "action_std": [
+        8.902677536010742,
+        7.278404235839844,
+        11.925311088562012,
+        58.260658264160156,
+        62.2785530090332,
+        55.328651428222656,
+        61.9133186340332,
+        56.501495361328125
+      ],
+      "representative_clean_commands": {
+        "source": "artifacts/push_rgb_arc120/runs/push_active_s1/traces-clean/capture.json",
+        "source_sha256": "a999326bb2f4604340b557c5f381405476a780eee6c53296853085a79a19a4d4",
+        "episodes": 2,
+        "steps": 424,
+        "camera_fraction_outside_unit_bounds": 1.0,
+        "manipulator_fraction_outside_unit_bounds": 0.8026729559748428,
+        "camera_median_absolute_raw_mean": 193.3696060180664
+      }
+    },
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_active_s2",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_active_s2/push_active_clean_gru_v0_s2_n2048_push-rgb-arc120-20261009T233510Z_20261010T014954Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "4aec35d60bd963b13f7bbd5d53ab45eb080b9e334c48de5fea8383d2d262b0a0",
+      "action_std": [
+        8.714521408081055,
+        7.337463855743408,
+        12.192694664001465,
+        39.679664611816406,
+        48.36729431152344,
+        48.911376953125,
+        46.1401481628418,
+        46.11550521850586
+      ],
+      "representative_clean_commands": {
+        "source": "artifacts/push_rgb_arc120/runs/push_active_s2/traces-clean/capture.json",
+        "source_sha256": "78cd656cd1ca767d4e447a699590f81dc40a70f7ec479fac911baa2acb98a2d6",
+        "episodes": 2,
+        "steps": 434,
+        "camera_fraction_outside_unit_bounds": 0.9986175115207373,
+        "manipulator_fraction_outside_unit_bounds": 0.8525345622119815,
+        "camera_median_absolute_raw_mean": 243.78768157958984
+      }
+    },
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_wrist_s0",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_wrist_s0/push_wrist_clean_gru_v0_s0_n2048_push-rgb-arc120-20261009T233510Z_20261009T233610Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "709f038b1109eaad655fa1373ff7461051cd61b7fc1e81f9667d134a038a8f38",
+      "action_std": [
+        8.172540664672852,
+        7.305690765380859,
+        11.22712230682373
+      ]
+    },
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_wrist_s1",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_wrist_s1/push_wrist_clean_gru_v0_s1_n2048_push-rgb-arc120-20261009T233510Z_20261009T233612Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "f1929bbd5714a8a9928457d216c7dad159eb648923d3c819ad4c30b5d1884253",
+      "action_std": [
+        8.01856803894043,
+        6.16713285446167,
+        10.983390808105469
+      ]
+    },
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_wrist_s2",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_wrist_s2/push_wrist_clean_gru_v0_s2_n2048_push-rgb-arc120-20261009T233510Z_20261009T233613Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "9d67b5c8c1fcb1a061c2d28111b3ff026f86287c44c692bff1c8a806beeab5e7",
+      "action_std": [
+        7.617136478424072,
+        6.201659679412842,
+        10.596579551696777
+      ]
+    },
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_wrist_static_s0",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_wrist_static_s0/push_wrist_static_clean_gru_v0_s0_n2048_push-rgb-arc120-20261009T233510Z_20261009T233613Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "b180f55cfe2b943f5544cd2507468d3556e63d817c04a931886a17821030ae0b",
+      "action_std": [
+        8.344237327575684,
+        6.343094348907471,
+        10.944073677062988
+      ]
+    },
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_wrist_static_s1",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_wrist_static_s1/push_wrist_static_clean_gru_v0_s1_n2048_push-rgb-arc120-20261009T233510Z_20261009T233613Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "e2e207086c2b41a9d35828d23cbad5ae9cc98f239c9c7b640e648ae924be0aa1",
+      "action_std": [
+        8.804061889648438,
+        6.417229175567627,
+        11.137595176696777
+      ]
+    },
+    {
+      "run": "artifacts/push_rgb_arc120/runs/push_wrist_static_s2",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_wrist_static_s2/push_wrist_static_clean_gru_v0_s2_n2048_push-rgb-arc120-20261009T233510Z_20261009T233614Z/model_20345.pt",
+      "checkpoint_sha256_recorded": "3d69ac9af7e2f4218bfa734894b7239956227ee9eef8005b2c83c8b5429fe347",
+      "action_std": [
+        8.054010391235352,
+        6.249348163604736,
+        10.951848030090332
+      ]
+    },
+    {
+      "run": "artifacts/plug_insertion_study_v2/active",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/active/plug_active_clean_gru_v0_s0_n512_plug_insertion_18m_20261009T233021Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "eb664198b1383f1d00c942cf71d36a1b44be27c540038a631fb24b324db168df",
+      "action_std": [
+        1.4794256687164307,
+        1.5861947536468506,
+        1.4780186414718628,
+        2.588324785232544,
+        2.6482462882995605,
+        2.7148759365081787,
+        2.6408040523529053,
+        2.813920736312866
+      ],
+      "representative_clean_commands": {
+        "source": "artifacts/plug_insertion_study_v2/active/traces-clean/capture.json",
+        "source_sha256": "360f431fce7b47a16312c115fb2ba7085b62f9a2792de6b61a007aadc861d3a4",
+        "episodes": 8,
+        "steps": 585,
+        "camera_fraction_outside_unit_bounds": 0.8369230769230769,
+        "manipulator_fraction_outside_unit_bounds": 0.8985754985754986,
+        "camera_median_absolute_raw_mean": 3.244692802429199
+      }
+    },
+    {
+      "run": "artifacts/plug_insertion_study_v2/wrist",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/wrist/plug_wrist_clean_gru_v0_s0_n512_plug_insertion_18m_20261009T233021Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "fe9bd4adbe6b78103640f5ca8aeb5f9e24cf3f1fb87052ec3ed26de43566e1c3",
+      "action_std": [
+        0.8742371797561646,
+        0.035081613808870316,
+        1.697787880897522
+      ]
+    },
+    {
+      "run": "artifacts/plug_insertion_study_v2/wrist_static",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/wrist_static/plug_wrist_static_clean_gru_v7_s0_n512_plug_insertion_18m_20261009T233022Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "e2188ff9e5d96afe1fb12cb7c999817700ded07b15047239097a372e818089e3",
+      "action_std": [
+        0.7709459662437439,
+        1.0147804021835327,
+        0.9558149576187134
+      ]
+    },
+    {
+      "run": "artifacts/plug_insertion_study_seed1/active",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/seed_1/active/plug_active_clean_gru_v0_s1_n512_plug_insertion_18m_seed1_20261009T233450Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "866987344b4b2244beb97fe8c265743f5d1d39999e8ebf77e32521e1b640b524",
+      "action_std": [
+        1.032863974571228,
+        1.0659449100494385,
+        1.571571946144104,
+        2.6888020038604736,
+        2.5629076957702637,
+        2.810479164123535,
+        2.307657241821289,
+        3.0318853855133057
+      ],
+      "representative_clean_commands": {
+        "source": "artifacts/plug_insertion_study_seed1/active/traces-clean/capture.json",
+        "source_sha256": "e77e337d7c96e81fbfdc6a8a305261ddc73c89d710135d7205d736a5e5a361f8",
+        "episodes": 6,
+        "steps": 527,
+        "camera_fraction_outside_unit_bounds": 0.8129032258064516,
+        "manipulator_fraction_outside_unit_bounds": 0.9082858950031626,
+        "camera_median_absolute_raw_mean": 2.669642448425293
+      }
+    },
+    {
+      "run": "artifacts/plug_insertion_study_seed1/wrist",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/seed_1/wrist/plug_wrist_clean_gru_v0_s1_n512_plug_insertion_18m_seed1_20261009T233439Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "72d4ea8a336b62d950ba8be5a97e2b4709ae961b61c7c1185e972a658871d5e4",
+      "action_std": [
+        0.2255716472864151,
+        0.17908526957035065,
+        1.198232650756836
+      ]
+    },
+    {
+      "run": "artifacts/plug_insertion_study_seed1/wrist_static",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/seed_1/wrist_static/plug_wrist_static_clean_gru_v7_s1_n512_plug_insertion_18m_seed1_20261009T233448Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "9afee53ce4011b7f0ccfa0c7f74109fd4278077577169a1a9d98ee41129b4fd6",
+      "action_std": [
+        0.3029211461544037,
+        0.6099137663841248,
+        1.0049066543579102
+      ]
+    },
+    {
+      "run": "artifacts/plug_insertion_study_seed2/active",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/seed_2/active/plug_active_clean_gru_v0_s2_n512_plug_insertion_18m_seed2_20261009T233501Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "b0a5fba05e8d5c6bad34ab66686c2d3953365651b4e360fda97b00f2af435725",
+      "action_std": [
+        1.2183833122253418,
+        0.9832582473754883,
+        1.4939621686935425,
+        2.6661853790283203,
+        2.3923096656799316,
+        2.9452078342437744,
+        2.6574485301971436,
+        2.6831626892089844
+      ],
+      "representative_clean_commands": {
+        "source": "artifacts/plug_insertion_study_seed2/active/traces-clean/capture.json",
+        "source_sha256": "beb7c11a432c56ec219fe3f51dd1b34e9c66fd7a316e009d260df1ad8a3caf03",
+        "episodes": 7,
+        "steps": 527,
+        "camera_fraction_outside_unit_bounds": 0.8193548387096774,
+        "manipulator_fraction_outside_unit_bounds": 0.894370651486401,
+        "camera_median_absolute_raw_mean": 3.171694278717041
+      }
+    },
+    {
+      "run": "artifacts/plug_insertion_study_seed2/wrist",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/seed_2/wrist/plug_wrist_clean_gru_v0_s2_n512_plug_insertion_18m_seed2_20261009T233453Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "d41730e64ef90222e1358b9e6d129df17c92de88b34334ec14b64cc2bc0e5da6",
+      "action_std": [
+        0.8470727801322937,
+        0.011132095009088516,
+        0.935649037361145
+      ]
+    },
+    {
+      "run": "artifacts/plug_insertion_study_seed2/wrist_static",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/plug_insertion_study/seed_2/wrist_static/plug_wrist_static_clean_gru_v7_s2_n512_plug_insertion_18m_seed2_20261009T233454Z/model_1464.pt",
+      "checkpoint_sha256_recorded": "7bc8840d9d78d9898fa1afd6286b13af2c0fd27e688668b47f09fbcf879340dc",
+      "action_std": [
+        0.570142924785614,
+        0.2568039894104004,
+        1.1921021938323975
+      ]
+    }
+  ],
+  "push_interventions": [
+    {
+      "seed": 0,
+      "baseline_source": "artifacts/push_rgb_arc120/runs/push_active_s0/evaluation-20346-dynamic-test.json",
+      "baseline_successes": 645,
+      "episodes": 1024,
+      "interventions": {
+        "freeze_camera": {
+          "source": "artifacts/push_rgb_arc120/runs/push_active_s0/intervention-freeze_camera.json",
+          "source_sha256": "b60cc35581e9925023a27e68d6f9fa1a085ee0b4288e3a991212cd05a40d7b26",
+          "successes": 306,
+          "settings": {
+            "freeze_camera_after": 1.0,
+            "hold_external_after": null,
+            "reset_memory": false,
+            "camera_trace_in": null,
+            "success_state_sample_override": null
+          },
+          "same_checkpoint": true,
+          "matched_initial_physics": true,
+          "matched_initial_sensors": true,
+          "gained_successes": 38,
+          "lost_successes": 377
+        },
+        "hold_external": {
+          "source": "artifacts/push_rgb_arc120/runs/push_active_s0/intervention-hold_external.json",
+          "source_sha256": "7229f986de79832704ce88c5f3a8f1a8527d1f284efb2814d0fdd4d2c4b6cdbe",
+          "successes": 641,
+          "settings": {
+            "freeze_camera_after": null,
+            "hold_external_after": 1.0,
+            "reset_memory": false,
+            "camera_trace_in": null,
+            "success_state_sample_override": null
+          },
+          "same_checkpoint": true,
+          "matched_initial_physics": true,
+          "matched_initial_sensors": true,
+          "gained_successes": 105,
+          "lost_successes": 109
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "baseline_source": "artifacts/push_rgb_arc120/runs/push_active_s1/evaluation-20346-dynamic-test.json",
+      "baseline_successes": 582,
+      "episodes": 1024,
+      "interventions": {
+        "freeze_camera": {
+          "source": "artifacts/push_rgb_arc120/runs/push_active_s1/intervention-freeze_camera.json",
+          "source_sha256": "e9b75c8c6672ac42a3ddc41e4109078a10504edf9c90b38371ac5112614a07fd",
+          "successes": 90,
+          "settings": {
+            "freeze_camera_after": 1.0,
+            "hold_external_after": null,
+            "reset_memory": false,
+            "camera_trace_in": null,
+            "success_state_sample_override": null
+          },
+          "same_checkpoint": true,
+          "matched_initial_physics": true,
+          "matched_initial_sensors": true,
+          "gained_successes": 18,
+          "lost_successes": 510
+        },
+        "hold_external": {
+          "source": "artifacts/push_rgb_arc120/runs/push_active_s1/intervention-hold_external.json",
+          "source_sha256": "879f5dc872046b05c1b9bd596b98883f4d094cb051ed3117ea01bb58b9a243ee",
+          "successes": 553,
+          "settings": {
+            "freeze_camera_after": null,
+            "hold_external_after": 1.0,
+            "reset_memory": false,
+            "camera_trace_in": null,
+            "success_state_sample_override": null
+          },
+          "same_checkpoint": true,
+          "matched_initial_physics": true,
+          "matched_initial_sensors": true,
+          "gained_successes": 120,
+          "lost_successes": 149
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "baseline_source": "artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-20346-dynamic-test.json",
+      "baseline_successes": 506,
+      "episodes": 1024,
+      "interventions": {
+        "freeze_camera": {
+          "source": "artifacts/push_rgb_arc120/runs/push_active_s2/intervention-freeze_camera.json",
+          "source_sha256": "bf19e8d747e04bf8871f354ec9fde5a216bc203388924d1d583d5e99b554a70d",
+          "successes": 1,
+          "settings": {
+            "freeze_camera_after": 1.0,
+            "hold_external_after": null,
+            "reset_memory": false,
+            "camera_trace_in": null,
+            "success_state_sample_override": null
+          },
+          "same_checkpoint": true,
+          "matched_initial_physics": true,
+          "matched_initial_sensors": true,
+          "gained_successes": 0,
+          "lost_successes": 505
+        },
+        "hold_external": {
+          "source": "artifacts/push_rgb_arc120/runs/push_active_s2/intervention-hold_external.json",
+          "source_sha256": "833a0d2e24221408db31c9a4cc8df6b200095829741c84c7d41dd79874c73336",
+          "successes": 66,
+          "settings": {
+            "freeze_camera_after": null,
+            "hold_external_after": 1.0,
+            "reset_memory": false,
+            "camera_trace_in": null,
+            "success_state_sample_override": null
+          },
+          "same_checkpoint": true,
+          "matched_initial_physics": true,
+          "matched_initial_sensors": true,
+          "gained_successes": 16,
+          "lost_successes": 456
+        }
+      }
+    }
+  ]
+}

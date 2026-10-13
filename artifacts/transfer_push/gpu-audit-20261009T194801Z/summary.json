@@ -1,0 +1,50 @@
+{
+  "transfer": {
+    "successes": 127,
+    "episodes": 128,
+    "smoke": {
+      "passed": true,
+      "updates": 2,
+      "transitions": 384,
+      "both_rgb_encoders_updated": true,
+      "checkpoint_roundtrip": true,
+      "metrics": [
+        {
+          "value": 0.1023358681704849,
+          "surrogate": 16.820227693766356,
+          "entropy": 2.030679278075695
+        },
+        {
+          "value": 0.1906341586727649,
+          "surrogate": 3.2059193165041506,
+          "entropy": 2.0358719751238823
+        }
+      ],
+      "competence_claim": false
+    }
+  },
+  "push": {
+    "successes": 128,
+    "episodes": 128,
+    "smoke": {
+      "passed": true,
+      "updates": 2,
+      "transitions": 384,
+      "both_rgb_encoders_updated": true,
+      "checkpoint_roundtrip": true,
+      "metrics": [
+        {
+          "value": 0.4227732131257653,
+          "surrogate": 3.0177406924776733,
+          "entropy": 1.5244586877524853
+        },
+        {
+          "value": 0.5323548996821046,
+          "surrogate": 3.037582017481327,
+          "entropy": 1.5295764692127705
+        }
+      ],
+      "competence_claim": false
+    }
+  }
+}

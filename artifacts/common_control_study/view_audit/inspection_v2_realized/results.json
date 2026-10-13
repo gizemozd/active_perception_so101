@@ -1,0 +1,5330 @@
+{
+  "scope": "Native reset-state segmentation at policy resolution. Collision-checked kinematic paths, not dynamic task completion. Visibility is an information proxy, not proof of usable target estimation.",
+  "tasks": {
+    "plug": {
+      "summary": {
+        "episodes": 32,
+        "home_pair": 8,
+        "best_single_endpoint": 31,
+        "best_single_endpoint_index": 3,
+        "per_reset_oracle": 31,
+        "valid_endpoints_per_reset": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "endpoint_counts": [
+          8,
+          24,
+          0,
+          31
+        ]
+      },
+      "rows": [
+        {
+          "seed": 130000,
+          "variant": "xm",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1442,
+            "table_fraction": 0.4056803385416667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 657,
+                "fixture_pixels": 354,
+                "table_fraction": 0.771728515625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1435,
+                "fixture_pixels": 1031,
+                "table_fraction": 0.3583984375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 18,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 139,
+                "table_fraction": 0.611328125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 781,
+                "fixture_pixels": 544,
+                "table_fraction": 0.3604329427083333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 15,
+                "prong_b_pixels": 16,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130001,
+          "variant": "xm",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 310,
+            "table_fraction": 0.497802734375,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 822,
+                "fixture_pixels": 1006,
+                "table_fraction": 0.6239420572916666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1746,
+                "fixture_pixels": 1254,
+                "table_fraction": 0.320068359375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 23,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1387,
+                "fixture_pixels": 0,
+                "table_fraction": 0.5732421875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 35,
+                "prong_b_pixels": 32,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 802,
+                "fixture_pixels": 512,
+                "table_fraction": 0.3592122395833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 17,
+                "prong_b_pixels": 12,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130002,
+          "variant": "xm",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 977,
+            "table_fraction": 0.4435221354166667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 719,
+                "fixture_pixels": 461,
+                "table_fraction": 0.703857421875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 2041,
+                "fixture_pixels": 678,
+                "table_fraction": 0.3406575520833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 27,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 307,
+                "fixture_pixels": 0,
+                "table_fraction": 0.6068522135416666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 38,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 937,
+                "fixture_pixels": 353,
+                "table_fraction": 0.364990234375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 19,
+                "prong_b_pixels": 15,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130003,
+          "variant": "xm",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 974,
+            "table_fraction": 0.4400227864583333,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 649,
+                "fixture_pixels": 848,
+                "table_fraction": 0.7694498697916666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1268,
+                "fixture_pixels": 1206,
+                "table_fraction": 0.3604329427083333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 19,
+                "prong_b_pixels": 25,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 548,
+                "fixture_pixels": 81,
+                "table_fraction": 0.5982259114583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 29,
+                "prong_b_pixels": 23,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 569,
+                "fixture_pixels": 567,
+                "table_fraction": 0.3699544270833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 14,
+                "prong_b_pixels": 13,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130004,
+          "variant": "xm",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1056,
+            "table_fraction": 0.4370930989583333,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 808,
+                "fixture_pixels": 735,
+                "table_fraction": 0.63720703125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1903,
+                "fixture_pixels": 1652,
+                "table_fraction": 0.2781575520833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 25,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1323,
+                "fixture_pixels": 313,
+                "table_fraction": 0.548583984375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 37,
+                "prong_b_pixels": 30,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 836,
+                "fixture_pixels": 776,
+                "table_fraction": 0.3343912760416667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 18,
+                "prong_b_pixels": 16,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130005,
+          "variant": "xm",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1294,
+            "table_fraction": 0.413330078125,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 627,
+                "fixture_pixels": 1047,
+                "table_fraction": 0.7672526041666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1136,
+                "fixture_pixels": 1473,
+                "table_fraction": 0.348876953125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 16,
+                "prong_b_pixels": 19,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 414,
+                "fixture_pixels": 106,
+                "table_fraction": 0.601318359375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 10,
+                "prong_b_pixels": 24,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 552,
+                "fixture_pixels": 761,
+                "table_fraction": 0.3556315104166667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 12,
+                "prong_b_pixels": 12,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130006,
+          "variant": "xm",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1019,
+            "table_fraction": 0.4401041666666667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 687,
+                "fixture_pixels": 1067,
+                "table_fraction": 0.7036946614583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1449,
+                "fixture_pixels": 2018,
+                "table_fraction": 0.2762044270833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 21,
+                "prong_b_pixels": 20,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 539,
+                "table_fraction": 0.5787760416666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 559,
+                "fixture_pixels": 990,
+                "table_fraction": 0.33154296875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 18,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130007,
+          "variant": "xm",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1109,
+            "table_fraction": 0.4327799479166667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 660,
+                "fixture_pixels": 491,
+                "table_fraction": 0.76171875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1368,
+                "fixture_pixels": 1015,
+                "table_fraction": 0.3636881510416667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 20,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 34,
+                "table_fraction": 0.619873046875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 618,
+                "fixture_pixels": 510,
+                "table_fraction": 0.369873046875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 19,
+                "prong_b_pixels": 20,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130000,
+          "variant": "xp",
+          "wrist": {
+            "object_pixels": 4835,
+            "fixture_pixels": 1433,
+            "table_fraction": 0.4056803385416667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 9,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 657,
+                "fixture_pixels": 354,
+                "table_fraction": 0.771728515625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1433,
+                "fixture_pixels": 1033,
+                "table_fraction": 0.3583984375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 16,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 139,
+                "table_fraction": 0.611328125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 786,
+                "fixture_pixels": 540,
+                "table_fraction": 0.3603515625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 16,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130001,
+          "variant": "xp",
+          "wrist": {
+            "object_pixels": 4835,
+            "fixture_pixels": 310,
+            "table_fraction": 0.4970703125,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 9,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 822,
+                "fixture_pixels": 1006,
+                "table_fraction": 0.6239420572916666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1769,
+                "fixture_pixels": 1254,
+                "table_fraction": 0.3181966145833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 26,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1359,
+                "fixture_pixels": 0,
+                "table_fraction": 0.5755208333333334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 39,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 810,
+                "fixture_pixels": 512,
+                "table_fraction": 0.3585611979166667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 21,
+                "prong_b_pixels": 16,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130002,
+          "variant": "xp",
+          "wrist": {
+            "object_pixels": 4835,
+            "fixture_pixels": 977,
+            "table_fraction": 0.4427897135416667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 9,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 719,
+                "fixture_pixels": 461,
+                "table_fraction": 0.703857421875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 2032,
+                "fixture_pixels": 651,
+                "table_fraction": 0.3435872395833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 19,
+                "prong_b_pixels": 19,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 269,
+                "fixture_pixels": 0,
+                "table_fraction": 0.6099446614583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 941,
+                "fixture_pixels": 326,
+                "table_fraction": 0.3668619791666667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 18,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130003,
+          "variant": "xp",
+          "wrist": {
+            "object_pixels": 4835,
+            "fixture_pixels": 965,
+            "table_fraction": 0.4400227864583333,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 9,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 649,
+                "fixture_pixels": 848,
+                "table_fraction": 0.7694498697916666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1259,
+                "fixture_pixels": 1199,
+                "table_fraction": 0.3617350260416667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 15,
+                "prong_b_pixels": 20,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 501,
+                "fixture_pixels": 81,
+                "table_fraction": 0.60205078125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 5,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 576,
+                "fixture_pixels": 567,
+                "table_fraction": 0.369384765625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 20,
+                "prong_b_pixels": 14,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130004,
+          "variant": "xp",
+          "wrist": {
+            "object_pixels": 4835,
+            "fixture_pixels": 1047,
+            "table_fraction": 0.4370930989583333,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 9,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 808,
+                "fixture_pixels": 735,
+                "table_fraction": 0.63720703125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1920,
+                "fixture_pixels": 1615,
+                "table_fraction": 0.27978515625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 19,
+                "prong_b_pixels": 23,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1290,
+                "fixture_pixels": 311,
+                "table_fraction": 0.5514322916666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 34,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 841,
+                "fixture_pixels": 758,
+                "table_fraction": 0.33544921875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 22,
+                "prong_b_pixels": 17,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130005,
+          "variant": "xp",
+          "wrist": {
+            "object_pixels": 4835,
+            "fixture_pixels": 1294,
+            "table_fraction": 0.41259765625,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 9,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 627,
+                "fixture_pixels": 1047,
+                "table_fraction": 0.7672526041666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1132,
+                "fixture_pixels": 1473,
+                "table_fraction": 0.3492024739583333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 12,
+                "prong_b_pixels": 19,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 380,
+                "fixture_pixels": 106,
+                "table_fraction": 0.6040852864583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 557,
+                "fixture_pixels": 761,
+                "table_fraction": 0.355224609375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 15,
+                "prong_b_pixels": 14,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130006,
+          "variant": "xp",
+          "wrist": {
+            "object_pixels": 4835,
+            "fixture_pixels": 1019,
+            "table_fraction": 0.4393717447916667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 9,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 687,
+                "fixture_pixels": 1067,
+                "table_fraction": 0.7036946614583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1447,
+                "fixture_pixels": 2018,
+                "table_fraction": 0.2763671875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 21,
+                "prong_b_pixels": 18,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 539,
+                "table_fraction": 0.5787760416666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 537,
+                "fixture_pixels": 990,
+                "table_fraction": 0.3333333333333333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 16,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130007,
+          "variant": "xp",
+          "wrist": {
+            "object_pixels": 4835,
+            "fixture_pixels": 1100,
+            "table_fraction": 0.4327799479166667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 9,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 660,
+                "fixture_pixels": 491,
+                "table_fraction": 0.76171875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1368,
+                "fixture_pixels": 1018,
+                "table_fraction": 0.3634440104166667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 17,
+                "prong_b_pixels": 23,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 34,
+                "table_fraction": 0.619873046875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 599,
+                "fixture_pixels": 520,
+                "table_fraction": 0.37060546875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 20,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130000,
+          "variant": "ym",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1442,
+            "table_fraction": 0.4056803385416667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 657,
+                "fixture_pixels": 354,
+                "table_fraction": 0.771728515625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1399,
+                "fixture_pixels": 1067,
+                "table_fraction": 0.3583984375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 2,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 139,
+                "table_fraction": 0.611328125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 770,
+                "fixture_pixels": 557,
+                "table_fraction": 0.3602701822916667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 10,
+                "prong_b_pixels": 10,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130001,
+          "variant": "ym",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 310,
+            "table_fraction": 0.497802734375,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 822,
+                "fixture_pixels": 1006,
+                "table_fraction": 0.6239420572916666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1723,
+                "fixture_pixels": 1254,
+                "table_fraction": 0.3219401041666667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1352,
+                "fixture_pixels": 0,
+                "table_fraction": 0.5760904947916666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 17,
+                "prong_b_pixels": 15,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 790,
+                "fixture_pixels": 512,
+                "table_fraction": 0.3601888020833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 10,
+                "prong_b_pixels": 7,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130002,
+          "variant": "ym",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 977,
+            "table_fraction": 0.4435221354166667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 719,
+                "fixture_pixels": 461,
+                "table_fraction": 0.703857421875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1994,
+                "fixture_pixels": 689,
+                "table_fraction": 0.3435872395833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 269,
+                "fixture_pixels": 0,
+                "table_fraction": 0.6099446614583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 920,
+                "fixture_pixels": 343,
+                "table_fraction": 0.3671875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 10,
+                "prong_b_pixels": 7,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130003,
+          "variant": "ym",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 974,
+            "table_fraction": 0.4400227864583333,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 649,
+                "fixture_pixels": 848,
+                "table_fraction": 0.7694498697916666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1236,
+                "fixture_pixels": 1206,
+                "table_fraction": 0.363037109375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 6,
+                "prong_b_pixels": 6,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 514,
+                "fixture_pixels": 81,
+                "table_fraction": 0.6009928385416666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 18,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 556,
+                "fixture_pixels": 567,
+                "table_fraction": 0.3710123697916667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 8,
+                "prong_b_pixels": 6,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130004,
+          "variant": "ym",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1056,
+            "table_fraction": 0.4370930989583333,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 808,
+                "fixture_pixels": 735,
+                "table_fraction": 0.63720703125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1878,
+                "fixture_pixels": 1652,
+                "table_fraction": 0.2801920572916667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1289,
+                "fixture_pixels": 306,
+                "table_fraction": 0.5519205729166666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 14,
+                "prong_b_pixels": 19,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 814,
+                "fixture_pixels": 773,
+                "table_fraction": 0.33642578125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 6,
+                "prong_b_pixels": 6,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130005,
+          "variant": "ym",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1294,
+            "table_fraction": 0.413330078125,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 627,
+                "fixture_pixels": 1047,
+                "table_fraction": 0.7672526041666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1115,
+                "fixture_pixels": 1473,
+                "table_fraction": 0.3505859375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 6,
+                "prong_b_pixels": 8,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 392,
+                "fixture_pixels": 106,
+                "table_fraction": 0.6031087239583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 12,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 545,
+                "fixture_pixels": 761,
+                "table_fraction": 0.356201171875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 9,
+                "prong_b_pixels": 8,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130006,
+          "variant": "ym",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1019,
+            "table_fraction": 0.4401041666666667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 687,
+                "fixture_pixels": 1067,
+                "table_fraction": 0.7036946614583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1408,
+                "fixture_pixels": 2018,
+                "table_fraction": 0.279541015625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 539,
+                "table_fraction": 0.5787760416666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 531,
+                "fixture_pixels": 990,
+                "table_fraction": 0.3338216145833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 2,
+                "prong_b_pixels": 8,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130007,
+          "variant": "ym",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1109,
+            "table_fraction": 0.4327799479166667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 660,
+                "fixture_pixels": 491,
+                "table_fraction": 0.76171875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1331,
+                "fixture_pixels": 1052,
+                "table_fraction": 0.3636881510416667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 3,
+                "prong_b_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 34,
+                "table_fraction": 0.619873046875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 595,
+                "fixture_pixels": 529,
+                "table_fraction": 0.3701985677083333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 8,
+                "prong_b_pixels": 8,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130000,
+          "variant": "yp",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1442,
+            "table_fraction": 0.4056803385416667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 679,
+                "fixture_pixels": 332,
+                "table_fraction": 0.771728515625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 10,
+                "prong_b_pixels": 12,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1485,
+                "fixture_pixels": 981,
+                "table_fraction": 0.3583984375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 44,
+                "prong_b_pixels": 44,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 139,
+                "table_fraction": 0.611328125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 804,
+                "fixture_pixels": 522,
+                "table_fraction": 0.3603515625,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 29,
+                "prong_b_pixels": 25,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130001,
+          "variant": "yp",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 310,
+            "table_fraction": 0.497802734375,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 848,
+                "fixture_pixels": 1006,
+                "table_fraction": 0.621826171875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 12,
+                "prong_b_pixels": 14,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1842,
+                "fixture_pixels": 1254,
+                "table_fraction": 0.312255859375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 78,
+                "prong_b_pixels": 41,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1442,
+                "fixture_pixels": 0,
+                "table_fraction": 0.5687662760416666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 68,
+                "prong_b_pixels": 54,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 833,
+                "fixture_pixels": 512,
+                "table_fraction": 0.356689453125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 33,
+                "prong_b_pixels": 27,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130002,
+          "variant": "yp",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 977,
+            "table_fraction": 0.4435221354166667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 735,
+                "fixture_pixels": 461,
+                "table_fraction": 0.7025553385416666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 8,
+                "prong_b_pixels": 8,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 2103,
+                "fixture_pixels": 636,
+                "table_fraction": 0.3390299479166667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 53,
+                "prong_b_pixels": 56,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 269,
+                "fixture_pixels": 0,
+                "table_fraction": 0.6099446614583334,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 966,
+                "fixture_pixels": 326,
+                "table_fraction": 0.3648274739583333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 34,
+                "prong_b_pixels": 29,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130003,
+          "variant": "yp",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 974,
+            "table_fraction": 0.4400227864583333,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 673,
+                "fixture_pixels": 836,
+                "table_fraction": 0.7684733072916666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 12,
+                "prong_b_pixels": 12,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1308,
+                "fixture_pixels": 1188,
+                "table_fraction": 0.358642578125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 42,
+                "prong_b_pixels": 42,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 535,
+                "fixture_pixels": 81,
+                "table_fraction": 0.5992838541666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 39,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 583,
+                "fixture_pixels": 567,
+                "table_fraction": 0.3688151041666667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 24,
+                "prong_b_pixels": 17,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130004,
+          "variant": "yp",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1056,
+            "table_fraction": 0.4370930989583333,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 829,
+                "fixture_pixels": 727,
+                "table_fraction": 0.6361490885416666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 8,
+                "prong_b_pixels": 13,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 2023,
+                "fixture_pixels": 1579,
+                "table_fraction": 0.2743326822916667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 73,
+                "prong_b_pixels": 72,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": true,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 1378,
+                "fixture_pixels": 282,
+                "table_fraction": 0.546630859375,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 68,
+                "prong_b_pixels": 54,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 858,
+                "fixture_pixels": 768,
+                "table_fraction": 0.333251953125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 29,
+                "prong_b_pixels": 27,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130005,
+          "variant": "yp",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1294,
+            "table_fraction": 0.413330078125,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 651,
+                "fixture_pixels": 1047,
+                "table_fraction": 0.7652994791666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 12,
+                "prong_b_pixels": 12,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1177,
+                "fixture_pixels": 1473,
+                "table_fraction": 0.3455403645833333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 35,
+                "prong_b_pixels": 41,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 421,
+                "fixture_pixels": 106,
+                "table_fraction": 0.6007486979166666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 41,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 571,
+                "fixture_pixels": 761,
+                "table_fraction": 0.3540852864583333,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 24,
+                "prong_b_pixels": 19,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130006,
+          "variant": "yp",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1019,
+            "table_fraction": 0.4401041666666667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 702,
+                "fixture_pixels": 1053,
+                "table_fraction": 0.70361328125,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 8,
+                "prong_b_pixels": 7,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1464,
+                "fixture_pixels": 1995,
+                "table_fraction": 0.27685546875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 8,
+                "prong_b_pixels": 48,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 539,
+                "table_fraction": 0.5787760416666666,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 563,
+                "fixture_pixels": 987,
+                "table_fraction": 0.3314615885416667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 12,
+                "prong_b_pixels": 30,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130007,
+          "variant": "yp",
+          "wrist": {
+            "object_pixels": 4826,
+            "fixture_pixels": 1109,
+            "table_fraction": 0.4327799479166667,
+            "occluder_pixels": 0,
+            "prong_a_pixels": 0,
+            "prong_b_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 682,
+                "fixture_pixels": 469,
+                "table_fraction": 0.76171875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 11,
+                "prong_b_pixels": 11,
+                "goal_in_frame": true
+              },
+              "position_error_m": 1.430594803732087e-16,
+              "axis_error_rad": 0.0,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 1398,
+                "fixture_pixels": 985,
+                "table_fraction": 0.3636881510416667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 28,
+                "prong_b_pixels": 42,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0008957980638032013,
+              "axis_error_rad": 9.518834948363331e-05,
+              "contacts": []
+            },
+            {
+              "valid": false,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 0,
+                "fixture_pixels": 34,
+                "table_fraction": 0.619873046875,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 0,
+                "prong_b_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 0.0031323476494210514,
+              "axis_error_rad": 0.0008624899077087683,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 639,
+                "fixture_pixels": 490,
+                "table_fraction": 0.3697916666666667,
+                "occluder_pixels": 0,
+                "prong_a_pixels": 32,
+                "prong_b_pixels": 28,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.0020379087023709485,
+              "axis_error_rad": 0.013419978093110753,
+              "contacts": []
+            }
+          ]
+        }
+      ],
+      "targets": [
+        [
+          5.160802341031001e-17,
+          0.18999999999999995,
+          0.22000000000000003,
+          -1.4199999999999997,
+          0.837
+        ],
+        [
+          1.9178460574593992e-05,
+          0.18903884039735136,
+          0.08590693936808826,
+          -1.4204686649416198,
+          0.20114538402336027
+        ],
+        [
+          0.021915375687125933,
+          0.20842454988135148,
+          0.06728715205581252,
+          -2.2586464961304378,
+          0.4001731102460507
+        ],
+        [
+          0.057704525342885726,
+          0.25160496476000643,
+          0.08293362071020616,
+          -2.052735906916593,
+          0.13616786365465733
+        ]
+      ]
+    },
+    "push": {
+      "summary": {
+        "episodes": 32,
+        "home_pair": 8,
+        "best_single_endpoint": 14,
+        "best_single_endpoint_index": 1,
+        "per_reset_oracle": 15,
+        "valid_endpoints_per_reset": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "endpoint_counts": [
+          8,
+          14,
+          12,
+          9
+        ]
+      },
+      "rows": [
+        {
+          "seed": 130000,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 444,
+            "fixture_pixels": 0,
+            "table_fraction": 0.8108723958333334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 83,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2716471354166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 99,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2530924479166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 237,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16780598958333334,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 133,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08577473958333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130001,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 560,
+            "fixture_pixels": 0,
+            "table_fraction": 0.8014322916666666,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 119,
+                "fixture_pixels": 6,
+                "table_fraction": 0.2682291666666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 127,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2509765625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 266,
+                "fixture_pixels": 37,
+                "table_fraction": 0.16292317708333334,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 124,
+                "fixture_pixels": 21,
+                "table_fraction": 0.08479817708333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130002,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 967,
+            "fixture_pixels": 0,
+            "table_fraction": 0.768310546875,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 136,
+                "fixture_pixels": 0,
+                "table_fraction": 0.267333984375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 55,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2559407552083333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 346,
+                "fixture_pixels": 0,
+                "table_fraction": 0.1572265625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 154,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08406575520833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130003,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 857,
+            "fixture_pixels": 16,
+            "table_fraction": 0.7759602864583334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 106,
+                "fixture_pixels": 0,
+                "table_fraction": 0.269775390625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 94,
+                "fixture_pixels": 22,
+                "table_fraction": 0.2511393229166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 269,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16349283854166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 138,
+                "fixture_pixels": 12,
+                "table_fraction": 0.08447265625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130004,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 409,
+            "fixture_pixels": 0,
+            "table_fraction": 0.813720703125,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 91,
+                "fixture_pixels": 0,
+                "table_fraction": 0.27099609375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 107,
+                "fixture_pixels": 0,
+                "table_fraction": 0.252685546875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 239,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16796875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 135,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08561197916666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130005,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1111,
+            "fixture_pixels": 0,
+            "table_fraction": 0.756591796875,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 35,
+                "fixture_pixels": 32,
+                "table_fraction": 0.2730305989583333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 61,
+                "fixture_pixels": 22,
+                "table_fraction": 0.2537434895833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 196,
+                "fixture_pixels": 26,
+                "table_fraction": 0.16739908854166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 70,
+                "fixture_pixels": 0,
+                "table_fraction": 0.09090169270833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130006,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 976,
+            "fixture_pixels": 0,
+            "table_fraction": 0.767578125,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 129,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2679036458333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 120,
+                "fixture_pixels": 9,
+                "table_fraction": 0.24991861979166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 314,
+                "fixture_pixels": 2,
+                "table_fraction": 0.15966796875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 140,
+                "fixture_pixels": 16,
+                "table_fraction": 0.08390299479166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130007,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 673,
+            "fixture_pixels": 0,
+            "table_fraction": 0.792236328125,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 119,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2687174479166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 127,
+                "fixture_pixels": 0,
+                "table_fraction": 0.25048828125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 272,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16422526041666666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 120,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08683268229166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130008,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 532,
+            "fixture_pixels": 0,
+            "table_fraction": 0.8037109375,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 116,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2689615885416667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 113,
+                "fixture_pixels": 12,
+                "table_fraction": 0.2510579427083333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 250,
+                "fixture_pixels": 19,
+                "table_fraction": 0.1650390625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 136,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08553059895833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130009,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1105,
+            "fixture_pixels": 0,
+            "table_fraction": 0.757080078125,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 49,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2744140625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 65,
+                "fixture_pixels": 4,
+                "table_fraction": 0.2548014322916667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 207,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16853841145833334,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 87,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08951822916666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130010,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 909,
+            "fixture_pixels": 4,
+            "table_fraction": 0.772705078125,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 117,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2688802083333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 94,
+                "fixture_pixels": 12,
+                "table_fraction": 0.251953125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 276,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16292317708333334,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 141,
+                "fixture_pixels": 18,
+                "table_fraction": 0.08382161458333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130011,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1214,
+            "fixture_pixels": 155,
+            "table_fraction": 0.735595703125,
+            "occluder_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 95,
+                "fixture_pixels": 14,
+                "table_fraction": 0.26953125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 66,
+                "fixture_pixels": 35,
+                "table_fraction": 0.252197265625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 290,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16178385416666666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 133,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08577473958333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130012,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1180,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7509765625,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 101,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2701822916666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 55,
+                "fixture_pixels": 14,
+                "table_fraction": 0.2548014322916667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 312,
+                "fixture_pixels": 16,
+                "table_fraction": 0.15869140625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 135,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08561197916666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130013,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 632,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7955729166666666,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 110,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2694498697916667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 108,
+                "fixture_pixels": 0,
+                "table_fraction": 0.251953125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 255,
+                "fixture_pixels": 0,
+                "table_fraction": 0.165283203125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 137,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08544921875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130014,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1007,
+            "fixture_pixels": 35,
+            "table_fraction": 0.76220703125,
+            "occluder_pixels": 0,
+            "goal_in_frame": true
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 127,
+                "fixture_pixels": 55,
+                "table_fraction": 0.2635904947916667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 30,
+                "fixture_pixels": 45,
+                "table_fraction": 0.2543131510416667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 354,
+                "fixture_pixels": 4,
+                "table_fraction": 0.15625,
+                "occluder_pixels": 0,
+                "goal_in_frame": false
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 150,
+                "fixture_pixels": 2,
+                "table_fraction": 0.084228515625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130015,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1193,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7499186197916666,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 89,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2711588541666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 26,
+                "fixture_pixels": 0,
+                "table_fraction": 0.25830078125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 321,
+                "fixture_pixels": 0,
+                "table_fraction": 0.15926106770833334,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 110,
+                "fixture_pixels": 0,
+                "table_fraction": 0.087646484375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130016,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1073,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7596842447916666,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 85,
+                "fixture_pixels": 0,
+                "table_fraction": 0.271484375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 74,
+                "fixture_pixels": 0,
+                "table_fraction": 0.25439453125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 265,
+                "fixture_pixels": 0,
+                "table_fraction": 0.163818359375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 129,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08610026041666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130017,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 810,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7810872395833334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 119,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2687174479166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 118,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2508138020833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 280,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16259765625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 140,
+                "fixture_pixels": 0,
+                "table_fraction": 0.085205078125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130018,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1077,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7593587239583334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 130,
+                "fixture_pixels": 0,
+                "table_fraction": 0.267822265625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 72,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2545572916666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 322,
+                "fixture_pixels": 0,
+                "table_fraction": 0.1591796875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 150,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08439127604166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130019,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 268,
+            "fixture_pixels": 0,
+            "table_fraction": 0.8251953125,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 76,
+                "fixture_pixels": 0,
+                "table_fraction": 0.272216796875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 101,
+                "fixture_pixels": 12,
+                "table_fraction": 0.2523600260416667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 227,
+                "fixture_pixels": 7,
+                "table_fraction": 0.169189453125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 126,
+                "fixture_pixels": 1,
+                "table_fraction": 0.08626302083333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130020,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 328,
+            "fixture_pixels": 0,
+            "table_fraction": 0.8203125,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 55,
+                "fixture_pixels": 0,
+                "table_fraction": 0.27392578125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 94,
+                "fixture_pixels": 6,
+                "table_fraction": 0.2530924479166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 202,
+                "fixture_pixels": 0,
+                "table_fraction": 0.17081705729166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 108,
+                "fixture_pixels": 1,
+                "table_fraction": 0.08772786458333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130021,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1411,
+            "fixture_pixels": 0,
+            "table_fraction": 0.732177734375,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 39,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2752278645833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 44,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2568359375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 230,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16666666666666666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 66,
+                "fixture_pixels": 0,
+                "table_fraction": 0.09122721354166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130022,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1296,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7415364583333334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 77,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2721354166666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 50,
+                "fixture_pixels": 0,
+                "table_fraction": 0.25634765625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 281,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16251627604166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 112,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08748372395833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130023,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 579,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7998860677083334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 102,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2701009114583333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 103,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2523600260416667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 250,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16593424479166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 136,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08553059895833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130024,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1041,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7622884114583334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 134,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2674967447916667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 70,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2547200520833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 328,
+                "fixture_pixels": 0,
+                "table_fraction": 0.15869140625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 154,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08406575520833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130025,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 542,
+            "fixture_pixels": 0,
+            "table_fraction": 0.8028971354166666,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 117,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2688802083333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 119,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2513834635416667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 256,
+                "fixture_pixels": 0,
+                "table_fraction": 0.166259765625,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 137,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08544921875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130026,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1131,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7549641927083334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 112,
+                "fixture_pixels": 0,
+                "table_fraction": 0.269287109375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 36,
+                "fixture_pixels": 7,
+                "table_fraction": 0.2569173177083333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 333,
+                "fixture_pixels": 38,
+                "table_fraction": 0.15543619791666666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 141,
+                "fixture_pixels": 48,
+                "table_fraction": 0.08121744791666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130027,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1030,
+            "fixture_pixels": 0,
+            "table_fraction": 0.76318359375,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 128,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2679850260416667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 104,
+                "fixture_pixels": 0,
+                "table_fraction": 0.251953125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 313,
+                "fixture_pixels": 0,
+                "table_fraction": 0.159912109375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 150,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08439127604166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130028,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 944,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7701822916666666,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 123,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2683919270833333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 113,
+                "fixture_pixels": 0,
+                "table_fraction": 0.251220703125,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 292,
+                "fixture_pixels": 0,
+                "table_fraction": 0.16162109375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 146,
+                "fixture_pixels": 0,
+                "table_fraction": 0.084716796875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130029,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1129,
+            "fixture_pixels": 0,
+            "table_fraction": 0.755126953125,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 102,
+                "fixture_pixels": 3,
+                "table_fraction": 0.2699381510416667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 26,
+                "fixture_pixels": 14,
+                "table_fraction": 0.25732421875,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 342,
+                "fixture_pixels": 30,
+                "table_fraction": 0.15519205729166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 121,
+                "fixture_pixels": 33,
+                "table_fraction": 0.08414713541666667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130030,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1055,
+            "fixture_pixels": 23,
+            "table_fraction": 0.75927734375,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": true,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 131,
+                "fixture_pixels": 0,
+                "table_fraction": 0.2677408854166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 93,
+                "fixture_pixels": 48,
+                "table_fraction": 0.24894205729166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 324,
+                "fixture_pixels": 0,
+                "table_fraction": 0.15901692708333334,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": true,
+              "useful_pair": true,
+              "pixels": {
+                "object_pixels": 148,
+                "fixture_pixels": 39,
+                "table_fraction": 0.08138020833333333,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        },
+        {
+          "seed": 130031,
+          "variant": null,
+          "wrist": {
+            "object_pixels": 1161,
+            "fixture_pixels": 0,
+            "table_fraction": 0.7525227864583334,
+            "occluder_pixels": 0,
+            "goal_in_frame": false
+          },
+          "home_pair": false,
+          "views": [
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 112,
+                "fixture_pixels": 0,
+                "table_fraction": 0.269287109375,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.721958498152797e-17,
+              "axis_error_rad": 2.1073424255447017e-08,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 52,
+                "fixture_pixels": 2,
+                "table_fraction": 0.2560221354166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 0.001591366702333072,
+              "axis_error_rad": 0.00033049116186148963,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 323,
+                "fixture_pixels": 0,
+                "table_fraction": 0.15909830729166666,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 5.8469099402697525e-05,
+              "axis_error_rad": 5.836216270066725e-06,
+              "contacts": []
+            },
+            {
+              "valid": true,
+              "visible_pair": false,
+              "useful_pair": false,
+              "pixels": {
+                "object_pixels": 144,
+                "fixture_pixels": 0,
+                "table_fraction": 0.08487955729166667,
+                "occluder_pixels": 0,
+                "goal_in_frame": true
+              },
+              "position_error_m": 6.62030408739873e-05,
+              "axis_error_rad": 3.947486071469928e-06,
+              "contacts": []
+            }
+          ]
+        }
+      ],
+      "targets": [
+        [
+          -0.11899999999999997,
+          -0.18699999999999994,
+          0.274,
+          1.0593031243665165,
+          0.7555092812749064
+        ],
+        [
+          -0.25730494318400776,
+          -0.1877270998640598,
+          0.13330507185208815,
+          0.6863639782916455,
+          0.25983154906475225
+        ],
+        [
+          -0.11902184650683237,
+          -0.18703873867892193,
+          0.1340381565676546,
+          1.0593045442520124,
+          0.3509346574832622
+        ],
+        [
+          -0.11902588902289166,
+          -0.11705441189790088,
+          0.2739719570585534,
+          0.8732963239236244,
+          0.890564067062818
+        ]
+      ]
+    }
+  },
+  "normalized_offsets": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    [
+      -1,
+      -1,
+      -1,
+      0,
+      0
+    ],
+    [
+      -1,
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      1,
+      -1,
+      -1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      -1,
+      0,
+      0
+    ]
+  ]
+}

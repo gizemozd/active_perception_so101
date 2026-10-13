@@ -1,0 +1,27 @@
+{
+  "push": {
+    "successes": 128,
+    "episodes": 128,
+    "smoke": {
+      "passed": true,
+      "updates": 2,
+      "transitions": 384,
+      "both_rgb_encoders_updated": true,
+      "checkpoint_roundtrip": true,
+      "metrics": [
+        {
+          "value": 0.3725922144949436,
+          "surrogate": 8.83964528888464,
+          "entropy": 4.0710650235414505
+        },
+        {
+          "value": 0.5320788202807307,
+          "surrogate": 34.54622598970309,
+          "entropy": 4.08332821726799
+        }
+      ],
+      "competence_claim": false
+    },
+    "warp_rgb_and_collisionless_screen": true
+  }
+}

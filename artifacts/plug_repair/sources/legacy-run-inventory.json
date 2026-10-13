@@ -1,0 +1,2119 @@
+{
+  "legacy_root": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms",
+  "records": [
+    {
+      "run_name": "pl3_wrist_s0",
+      "wandb_id": "bw0sxpia",
+      "wandb_project": "active-perception-arms",
+      "saved_config": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/wandb/run-20260803_015458-bw0sxpia/files/config.yaml",
+      "saved_config_sha256": "6616d71fa196cd40a68f329aaf9be38622d2bd4b3e17722084e6e6467df52141",
+      "source_commit": "c179c896457817df9396c2ea4c5ed075c8bbaf7b",
+      "reward_source_sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef",
+      "log_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-52-46_pl3_wrist_s0",
+      "final_checkpoint": {
+        "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-52-46_pl3_wrist_s0/model_1999.pt",
+        "exists": true,
+        "iteration_index": 1999,
+        "sha256": "400a54f486b5da680a25a0a799b86b19cac265ad7198529901a4bd8f8bdfd530"
+      },
+      "runner": {
+        "seed": 0,
+        "max_iterations": 2000,
+        "num_steps_per_env": 24,
+        "multi_gpu": {
+          "global_rank": 0,
+          "local_rank": 0,
+          "world_size": 4
+        },
+        "actor": {
+          "activation": "elu",
+          "cnn_cfg": {
+            "activation": "elu",
+            "global_pool": "none",
+            "kernel_size": [
+              5,
+              3
+            ],
+            "max_pool": false,
+            "output_channels": [
+              16,
+              32
+            ],
+            "padding": "zeros",
+            "spatial_softmax": true,
+            "spatial_softmax_temperature": 1,
+            "stride": [
+              2,
+              2
+            ]
+          },
+          "distribution_cfg": {
+            "init_std": 1,
+            "std_type": "scalar"
+          },
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "critic": {
+          "activation": "elu",
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "algorithm": {
+          "clip_param": 0.2,
+          "desired_kl": 0.01,
+          "entropy_coef": 0.005,
+          "gamma": 0.99,
+          "lam": 0.95,
+          "learning_rate": 0.001,
+          "max_grad_norm": 1,
+          "normalize_advantage_per_mini_batch": false,
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "optimizer": "adam",
+          "rnd_cfg": null,
+          "schedule": "adaptive",
+          "symmetry_cfg": null,
+          "use_clipped_value_loss": true,
+          "value_loss_coef": 1
+        },
+        "obs_groups": {
+          "actor": [
+            "proprio",
+            "camera"
+          ],
+          "critic": [
+            "critic"
+          ]
+        }
+      },
+      "environment": {
+        "num_envs_per_rank": 1024,
+        "episode_seconds": 5,
+        "physics_timestep": 0.0044,
+        "decimation": 5,
+        "scale_rewards_by_dt": false,
+        "finite_horizon": false,
+        "variants": [
+          "xm",
+          "xp",
+          "ym",
+          "yp"
+        ],
+        "actions": {
+          "insertion": {
+            "action_high": [
+              0.07,
+              0.076,
+              0.09
+            ],
+            "action_low": [
+              -0.07,
+              -0.045,
+              0.055
+            ],
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "aim_mode": "pose",
+            "clip": null,
+            "cold_iters": [
+              16,
+              10
+            ],
+            "compile_solver": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "manipulator",
+            "frame_name": "gripperframe",
+            "frame_type": "site",
+            "joint_limit_weight": 0,
+            "max_delta": 0.03,
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "use_relative_mode": false,
+            "warm_iters": [
+              8,
+              6
+            ]
+          }
+        },
+        "rewards": {
+          "insertion": {
+            "func": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+            "params": {
+              "with_rotation": false
+            },
+            "weight": 1
+          }
+        },
+        "terminations": {
+          "success": {
+            "func": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success",
+            "time_out": false
+          },
+          "time_out": {
+            "func": "mjlab.envs.mdp.terminations.time_out",
+            "time_out": true
+          }
+        },
+        "reset": {
+          "func": "active_perception_arms.tasks.insertion.mdp.events.reset_insertion",
+          "interval_range_s": null,
+          "is_global_time": false,
+          "min_step_count_between_reset": 0,
+          "mode": "reset",
+          "params": {
+            "insert_z": 0.013,
+            "wall_hide_z": -1,
+            "wall_shapes": null,
+            "with_rotation": false
+          }
+        },
+        "sensors": [
+          {
+            "camera_name": "manipulator/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "manip_wrist_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          }
+        ]
+      },
+      "saved_training_summary": {
+        "Episode_Metrics/success_rate": 1,
+        "Episode_Reward/insertion": 197.1088104248047,
+        "Train/mean_reward": 985.8760113525391,
+        "Episode_Termination/success": 63.875
+      },
+      "scope": "Historical training summary, not independently reproduced held-out success. Checkpoint presence is not Slurm completion evidence. Different horizon, reward, architecture, simulation and possible task cues preclude a direct comparison."
+    },
+    {
+      "run_name": "pl3_wrist_s2",
+      "wandb_id": "eaeuxieu",
+      "wandb_project": "active-perception-arms",
+      "saved_config": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/wandb/run-20260803_015853-eaeuxieu/files/config.yaml",
+      "saved_config_sha256": "bda800db16acaa5c1cbc90203e6f93e67561c375b748905ac6f00cac75a382af",
+      "source_commit": "c179c896457817df9396c2ea4c5ed075c8bbaf7b",
+      "reward_source_sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef",
+      "log_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-58-14_pl3_wrist_s2",
+      "final_checkpoint": {
+        "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-58-14_pl3_wrist_s2/model_1999.pt",
+        "exists": true,
+        "iteration_index": 1999,
+        "sha256": "cc1d39a2cd17df4176935fe139c57d4a8bd46b00a76146c7bb179fd7b3e84a16"
+      },
+      "runner": {
+        "seed": 2,
+        "max_iterations": 2000,
+        "num_steps_per_env": 24,
+        "multi_gpu": {
+          "global_rank": 0,
+          "local_rank": 0,
+          "world_size": 4
+        },
+        "actor": {
+          "activation": "elu",
+          "cnn_cfg": {
+            "activation": "elu",
+            "global_pool": "none",
+            "kernel_size": [
+              5,
+              3
+            ],
+            "max_pool": false,
+            "output_channels": [
+              16,
+              32
+            ],
+            "padding": "zeros",
+            "spatial_softmax": true,
+            "spatial_softmax_temperature": 1,
+            "stride": [
+              2,
+              2
+            ]
+          },
+          "distribution_cfg": {
+            "init_std": 1,
+            "std_type": "scalar"
+          },
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "critic": {
+          "activation": "elu",
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "algorithm": {
+          "clip_param": 0.2,
+          "desired_kl": 0.01,
+          "entropy_coef": 0.005,
+          "gamma": 0.99,
+          "lam": 0.95,
+          "learning_rate": 0.001,
+          "max_grad_norm": 1,
+          "normalize_advantage_per_mini_batch": false,
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "optimizer": "adam",
+          "rnd_cfg": null,
+          "schedule": "adaptive",
+          "symmetry_cfg": null,
+          "use_clipped_value_loss": true,
+          "value_loss_coef": 1
+        },
+        "obs_groups": {
+          "actor": [
+            "proprio",
+            "camera"
+          ],
+          "critic": [
+            "critic"
+          ]
+        }
+      },
+      "environment": {
+        "num_envs_per_rank": 1024,
+        "episode_seconds": 5,
+        "physics_timestep": 0.0044,
+        "decimation": 5,
+        "scale_rewards_by_dt": false,
+        "finite_horizon": false,
+        "variants": [
+          "xm",
+          "xp",
+          "ym",
+          "yp"
+        ],
+        "actions": {
+          "insertion": {
+            "action_high": [
+              0.07,
+              0.076,
+              0.09
+            ],
+            "action_low": [
+              -0.07,
+              -0.045,
+              0.055
+            ],
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "aim_mode": "pose",
+            "clip": null,
+            "cold_iters": [
+              16,
+              10
+            ],
+            "compile_solver": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "manipulator",
+            "frame_name": "gripperframe",
+            "frame_type": "site",
+            "joint_limit_weight": 0,
+            "max_delta": 0.03,
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "use_relative_mode": false,
+            "warm_iters": [
+              8,
+              6
+            ]
+          }
+        },
+        "rewards": {
+          "insertion": {
+            "func": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+            "params": {
+              "with_rotation": false
+            },
+            "weight": 1
+          }
+        },
+        "terminations": {
+          "success": {
+            "func": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success",
+            "time_out": false
+          },
+          "time_out": {
+            "func": "mjlab.envs.mdp.terminations.time_out",
+            "time_out": true
+          }
+        },
+        "reset": {
+          "func": "active_perception_arms.tasks.insertion.mdp.events.reset_insertion",
+          "interval_range_s": null,
+          "is_global_time": false,
+          "min_step_count_between_reset": 0,
+          "mode": "reset",
+          "params": {
+            "insert_z": 0.013,
+            "wall_hide_z": -1,
+            "wall_shapes": null,
+            "with_rotation": false
+          }
+        },
+        "sensors": [
+          {
+            "camera_name": "manipulator/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "manip_wrist_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          }
+        ]
+      },
+      "saved_training_summary": {
+        "Episode_Metrics/success_rate": 0.9808130264282227,
+        "Train/mean_reward": 915.1630070495605,
+        "Episode_Reward/insertion": 189.6335906982422,
+        "Episode_Termination/success": 31.666667938232422
+      },
+      "scope": "Historical training summary, not independently reproduced held-out success. Checkpoint presence is not Slurm completion evidence. Different horizon, reward, architecture, simulation and possible task cues preclude a direct comparison."
+    },
+    {
+      "run_name": "pl3_static_s0",
+      "wandb_id": "pjgmx6p9",
+      "wandb_project": "active-perception-arms",
+      "saved_config": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/wandb/run-20260803_015853-pjgmx6p9/files/config.yaml",
+      "saved_config_sha256": "226c4d73f463473c0bbb6bf851b1e392add7bb47c392aea514972ad9c81dcc48",
+      "source_commit": "c179c896457817df9396c2ea4c5ed075c8bbaf7b",
+      "reward_source_sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef",
+      "log_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-58-14_pl3_static_s0",
+      "final_checkpoint": {
+        "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-58-14_pl3_static_s0/model_1999.pt",
+        "exists": true,
+        "iteration_index": 1999,
+        "sha256": "f3233f3841d29239a03bf554fe8fb947f275cfd055bbfa344c6926af7cd6a96b"
+      },
+      "runner": {
+        "seed": 0,
+        "max_iterations": 2000,
+        "num_steps_per_env": 24,
+        "multi_gpu": {
+          "global_rank": 0,
+          "local_rank": 0,
+          "world_size": 4
+        },
+        "actor": {
+          "activation": "elu",
+          "cnn_cfg": {
+            "activation": "elu",
+            "global_pool": "none",
+            "kernel_size": [
+              5,
+              3
+            ],
+            "max_pool": false,
+            "output_channels": [
+              16,
+              32
+            ],
+            "padding": "zeros",
+            "spatial_softmax": true,
+            "spatial_softmax_temperature": 1,
+            "stride": [
+              2,
+              2
+            ]
+          },
+          "distribution_cfg": {
+            "init_std": 1,
+            "std_type": "scalar"
+          },
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "critic": {
+          "activation": "elu",
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "algorithm": {
+          "clip_param": 0.2,
+          "desired_kl": 0.01,
+          "entropy_coef": 0.005,
+          "gamma": 0.99,
+          "lam": 0.95,
+          "learning_rate": 0.001,
+          "max_grad_norm": 1,
+          "normalize_advantage_per_mini_batch": false,
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "optimizer": "adam",
+          "rnd_cfg": null,
+          "schedule": "adaptive",
+          "symmetry_cfg": null,
+          "use_clipped_value_loss": true,
+          "value_loss_coef": 1
+        },
+        "obs_groups": {
+          "actor": [
+            "proprio",
+            "camera"
+          ],
+          "critic": [
+            "critic"
+          ]
+        }
+      },
+      "environment": {
+        "num_envs_per_rank": 1024,
+        "episode_seconds": 5,
+        "physics_timestep": 0.0044,
+        "decimation": 5,
+        "scale_rewards_by_dt": false,
+        "finite_horizon": false,
+        "variants": [
+          "xm",
+          "xp",
+          "ym",
+          "yp"
+        ],
+        "actions": {
+          "insertion": {
+            "action_high": [
+              0.07,
+              0.076,
+              0.09
+            ],
+            "action_low": [
+              -0.07,
+              -0.045,
+              0.055
+            ],
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "aim_mode": "pose",
+            "clip": null,
+            "cold_iters": [
+              16,
+              10
+            ],
+            "compile_solver": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "manipulator",
+            "frame_name": "gripperframe",
+            "frame_type": "site",
+            "joint_limit_weight": 0,
+            "max_delta": 0.03,
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "use_relative_mode": false,
+            "warm_iters": [
+              8,
+              6
+            ]
+          }
+        },
+        "rewards": {
+          "insertion": {
+            "func": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+            "params": {
+              "with_rotation": false
+            },
+            "weight": 1
+          }
+        },
+        "terminations": {
+          "success": {
+            "func": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success",
+            "time_out": false
+          },
+          "time_out": {
+            "func": "mjlab.envs.mdp.terminations.time_out",
+            "time_out": true
+          }
+        },
+        "reset": {
+          "func": "active_perception_arms.tasks.insertion.mdp.events.reset_insertion",
+          "interval_range_s": null,
+          "is_global_time": false,
+          "min_step_count_between_reset": 0,
+          "mode": "reset",
+          "params": {
+            "insert_z": 0.013,
+            "wall_hide_z": -1,
+            "wall_shapes": null,
+            "with_rotation": false
+          }
+        },
+        "sensors": [
+          {
+            "camera_name": "camera_arm/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "cam_arm_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          },
+          {
+            "camera_name": "manipulator/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "manip_wrist_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          }
+        ]
+      },
+      "saved_training_summary": {
+        "Episode_Termination/success": 48.25,
+        "Train/mean_reward": 978.4595123291016,
+        "Episode_Reward/insertion": 195.8944549560547,
+        "Episode_Metrics/success_rate": 0.9992560148239136
+      },
+      "scope": "Historical training summary, not independently reproduced held-out success. Checkpoint presence is not Slurm completion evidence. Different horizon, reward, architecture, simulation and possible task cues preclude a direct comparison."
+    },
+    {
+      "run_name": "pl3_wrist_s1",
+      "wandb_id": "1rux2fno",
+      "wandb_project": "active-perception-arms",
+      "saved_config": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/wandb/run-20260803_015856-1rux2fno/files/config.yaml",
+      "saved_config_sha256": "169d2143f42e6efb46fc5be9329492abbd77fa70806344f902c57a6b1cbec25f",
+      "source_commit": "c179c896457817df9396c2ea4c5ed075c8bbaf7b",
+      "reward_source_sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef",
+      "log_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-58-24_pl3_wrist_s1",
+      "final_checkpoint": {
+        "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_01-58-24_pl3_wrist_s1/model_1999.pt",
+        "exists": true,
+        "iteration_index": 1999,
+        "sha256": "bac8359eba954b6f68c93b4381e0577c0fab82639b44981a6a8a11a5fb37b701"
+      },
+      "runner": {
+        "seed": 1,
+        "max_iterations": 2000,
+        "num_steps_per_env": 24,
+        "multi_gpu": {
+          "global_rank": 0,
+          "local_rank": 0,
+          "world_size": 4
+        },
+        "actor": {
+          "activation": "elu",
+          "cnn_cfg": {
+            "activation": "elu",
+            "global_pool": "none",
+            "kernel_size": [
+              5,
+              3
+            ],
+            "max_pool": false,
+            "output_channels": [
+              16,
+              32
+            ],
+            "padding": "zeros",
+            "spatial_softmax": true,
+            "spatial_softmax_temperature": 1,
+            "stride": [
+              2,
+              2
+            ]
+          },
+          "distribution_cfg": {
+            "init_std": 1,
+            "std_type": "scalar"
+          },
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "critic": {
+          "activation": "elu",
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "algorithm": {
+          "clip_param": 0.2,
+          "desired_kl": 0.01,
+          "entropy_coef": 0.005,
+          "gamma": 0.99,
+          "lam": 0.95,
+          "learning_rate": 0.001,
+          "max_grad_norm": 1,
+          "normalize_advantage_per_mini_batch": false,
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "optimizer": "adam",
+          "rnd_cfg": null,
+          "schedule": "adaptive",
+          "symmetry_cfg": null,
+          "use_clipped_value_loss": true,
+          "value_loss_coef": 1
+        },
+        "obs_groups": {
+          "actor": [
+            "proprio",
+            "camera"
+          ],
+          "critic": [
+            "critic"
+          ]
+        }
+      },
+      "environment": {
+        "num_envs_per_rank": 1024,
+        "episode_seconds": 5,
+        "physics_timestep": 0.0044,
+        "decimation": 5,
+        "scale_rewards_by_dt": false,
+        "finite_horizon": false,
+        "variants": [
+          "xm",
+          "xp",
+          "ym",
+          "yp"
+        ],
+        "actions": {
+          "insertion": {
+            "action_high": [
+              0.07,
+              0.076,
+              0.09
+            ],
+            "action_low": [
+              -0.07,
+              -0.045,
+              0.055
+            ],
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "aim_mode": "pose",
+            "clip": null,
+            "cold_iters": [
+              16,
+              10
+            ],
+            "compile_solver": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "manipulator",
+            "frame_name": "gripperframe",
+            "frame_type": "site",
+            "joint_limit_weight": 0,
+            "max_delta": 0.03,
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "use_relative_mode": false,
+            "warm_iters": [
+              8,
+              6
+            ]
+          }
+        },
+        "rewards": {
+          "insertion": {
+            "func": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+            "params": {
+              "with_rotation": false
+            },
+            "weight": 1
+          }
+        },
+        "terminations": {
+          "success": {
+            "func": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success",
+            "time_out": false
+          },
+          "time_out": {
+            "func": "mjlab.envs.mdp.terminations.time_out",
+            "time_out": true
+          }
+        },
+        "reset": {
+          "func": "active_perception_arms.tasks.insertion.mdp.events.reset_insertion",
+          "interval_range_s": null,
+          "is_global_time": false,
+          "min_step_count_between_reset": 0,
+          "mode": "reset",
+          "params": {
+            "insert_z": 0.013,
+            "wall_hide_z": -1,
+            "wall_shapes": null,
+            "with_rotation": false
+          }
+        },
+        "sensors": [
+          {
+            "camera_name": "manipulator/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "manip_wrist_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          }
+        ]
+      },
+      "saved_training_summary": {
+        "Episode_Reward/insertion": 195.62852478027344,
+        "Episode_Metrics/success_rate": 1,
+        "Episode_Termination/success": 41.375,
+        "Train/mean_reward": 979.4460888671875
+      },
+      "scope": "Historical training summary, not independently reproduced held-out success. Checkpoint presence is not Slurm completion evidence. Different horizon, reward, architecture, simulation and possible task cues preclude a direct comparison."
+    },
+    {
+      "run_name": "pl3_static_s1",
+      "wandb_id": "9q3lkc64",
+      "wandb_project": "active-perception-arms",
+      "saved_config": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/wandb/run-20260803_044803-9q3lkc64/files/config.yaml",
+      "saved_config_sha256": "ebd31747fe0c7f585d29827258d2ac11b7deedc073b4720f3835f811c05a24f4",
+      "source_commit": "c179c896457817df9396c2ea4c5ed075c8bbaf7b",
+      "reward_source_sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef",
+      "log_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_04-47-42_pl3_static_s1",
+      "final_checkpoint": {
+        "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_04-47-42_pl3_static_s1/model_1999.pt",
+        "exists": true,
+        "iteration_index": 1999,
+        "sha256": "c765d78e74fbc30c28a58dde6ee6320a9a04b7eb3f178ef3d314d80ae38da316"
+      },
+      "runner": {
+        "seed": 1,
+        "max_iterations": 2000,
+        "num_steps_per_env": 24,
+        "multi_gpu": {
+          "global_rank": 0,
+          "local_rank": 0,
+          "world_size": 4
+        },
+        "actor": {
+          "activation": "elu",
+          "cnn_cfg": {
+            "activation": "elu",
+            "global_pool": "none",
+            "kernel_size": [
+              5,
+              3
+            ],
+            "max_pool": false,
+            "output_channels": [
+              16,
+              32
+            ],
+            "padding": "zeros",
+            "spatial_softmax": true,
+            "spatial_softmax_temperature": 1,
+            "stride": [
+              2,
+              2
+            ]
+          },
+          "distribution_cfg": {
+            "init_std": 1,
+            "std_type": "scalar"
+          },
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "critic": {
+          "activation": "elu",
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "algorithm": {
+          "clip_param": 0.2,
+          "desired_kl": 0.01,
+          "entropy_coef": 0.005,
+          "gamma": 0.99,
+          "lam": 0.95,
+          "learning_rate": 0.001,
+          "max_grad_norm": 1,
+          "normalize_advantage_per_mini_batch": false,
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "optimizer": "adam",
+          "rnd_cfg": null,
+          "schedule": "adaptive",
+          "symmetry_cfg": null,
+          "use_clipped_value_loss": true,
+          "value_loss_coef": 1
+        },
+        "obs_groups": {
+          "actor": [
+            "proprio",
+            "camera"
+          ],
+          "critic": [
+            "critic"
+          ]
+        }
+      },
+      "environment": {
+        "num_envs_per_rank": 1024,
+        "episode_seconds": 5,
+        "physics_timestep": 0.0044,
+        "decimation": 5,
+        "scale_rewards_by_dt": false,
+        "finite_horizon": false,
+        "variants": [
+          "xm",
+          "xp",
+          "ym",
+          "yp"
+        ],
+        "actions": {
+          "insertion": {
+            "action_high": [
+              0.07,
+              0.076,
+              0.09
+            ],
+            "action_low": [
+              -0.07,
+              -0.045,
+              0.055
+            ],
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "aim_mode": "pose",
+            "clip": null,
+            "cold_iters": [
+              16,
+              10
+            ],
+            "compile_solver": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "manipulator",
+            "frame_name": "gripperframe",
+            "frame_type": "site",
+            "joint_limit_weight": 0,
+            "max_delta": 0.03,
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "use_relative_mode": false,
+            "warm_iters": [
+              8,
+              6
+            ]
+          }
+        },
+        "rewards": {
+          "insertion": {
+            "func": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+            "params": {
+              "with_rotation": false
+            },
+            "weight": 1
+          }
+        },
+        "terminations": {
+          "success": {
+            "func": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success",
+            "time_out": false
+          },
+          "time_out": {
+            "func": "mjlab.envs.mdp.terminations.time_out",
+            "time_out": true
+          }
+        },
+        "reset": {
+          "func": "active_perception_arms.tasks.insertion.mdp.events.reset_insertion",
+          "interval_range_s": null,
+          "is_global_time": false,
+          "min_step_count_between_reset": 0,
+          "mode": "reset",
+          "params": {
+            "insert_z": 0.013,
+            "wall_hide_z": -1,
+            "wall_shapes": null,
+            "with_rotation": false
+          }
+        },
+        "sensors": [
+          {
+            "camera_name": "camera_arm/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "cam_arm_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          },
+          {
+            "camera_name": "manipulator/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "manip_wrist_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          }
+        ]
+      },
+      "saved_training_summary": {
+        "Episode_Termination/success": 60.66666793823242,
+        "Episode_Metrics/success_rate": 1,
+        "Train/mean_reward": 981.8067523193359,
+        "Episode_Reward/insertion": 196.7194061279297
+      },
+      "scope": "Historical training summary, not independently reproduced held-out success. Checkpoint presence is not Slurm completion evidence. Different horizon, reward, architecture, simulation and possible task cues preclude a direct comparison."
+    },
+    {
+      "run_name": "pl3_active_s0",
+      "wandb_id": "yw296r72",
+      "wandb_project": "active-perception-arms",
+      "saved_config": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/wandb/run-20260803_044913-yw296r72/files/config.yaml",
+      "saved_config_sha256": "b1c2f9d8dbad0787b3fcc9004434ab36eee695fe64853c7b4eef1bca7f72721c",
+      "source_commit": "c179c896457817df9396c2ea4c5ed075c8bbaf7b",
+      "reward_source_sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef",
+      "log_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_active_vision/2026-08-03_04-48-50_pl3_active_s0",
+      "final_checkpoint": {
+        "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_active_vision/2026-08-03_04-48-50_pl3_active_s0/model_1999.pt",
+        "exists": true,
+        "iteration_index": 1999,
+        "sha256": "6b7c8961ddac5b47671d6a4eaa134f9ad77ce65925d146d7a74f500102c42b8c"
+      },
+      "runner": {
+        "seed": 0,
+        "max_iterations": 2000,
+        "num_steps_per_env": 24,
+        "multi_gpu": {
+          "global_rank": 0,
+          "local_rank": 0,
+          "world_size": 4
+        },
+        "actor": {
+          "activation": "elu",
+          "cnn_cfg": {
+            "activation": "elu",
+            "global_pool": "none",
+            "kernel_size": [
+              5,
+              3
+            ],
+            "max_pool": false,
+            "output_channels": [
+              16,
+              32
+            ],
+            "padding": "zeros",
+            "spatial_softmax": true,
+            "spatial_softmax_temperature": 1,
+            "stride": [
+              2,
+              2
+            ]
+          },
+          "distribution_cfg": {
+            "init_std": 1,
+            "std_type": "scalar"
+          },
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "critic": {
+          "activation": "elu",
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "algorithm": {
+          "clip_param": 0.2,
+          "desired_kl": 0.01,
+          "entropy_coef": 0.005,
+          "gamma": 0.99,
+          "lam": 0.95,
+          "learning_rate": 0.001,
+          "max_grad_norm": 1,
+          "normalize_advantage_per_mini_batch": false,
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "optimizer": "adam",
+          "rnd_cfg": null,
+          "schedule": "adaptive",
+          "symmetry_cfg": null,
+          "use_clipped_value_loss": true,
+          "value_loss_coef": 1
+        },
+        "obs_groups": {
+          "actor": [
+            "proprio",
+            "camera"
+          ],
+          "critic": [
+            "critic"
+          ]
+        }
+      },
+      "environment": {
+        "num_envs_per_rank": 1024,
+        "episode_seconds": 5,
+        "physics_timestep": 0.0044,
+        "decimation": 5,
+        "scale_rewards_by_dt": false,
+        "finite_horizon": false,
+        "variants": [
+          "xm",
+          "xp",
+          "ym",
+          "yp"
+        ],
+        "actions": {
+          "active_camera": {
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "clip": null,
+            "compile_solver": true,
+            "control": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "camera_arm",
+            "frame_name": "wrist_cam_site",
+            "frame_type": "site",
+            "gimbal_high": [
+              0.05,
+              0.24,
+              0.265,
+              -1,
+              1.107
+            ],
+            "gimbal_home": [
+              0,
+              0.19,
+              0.22,
+              -1.42,
+              0.837
+            ],
+            "gimbal_low": [
+              -0.05,
+              0.14,
+              0.175,
+              -1.8399999999999999,
+              0.567
+            ],
+            "init_high": [
+              0.04,
+              0.04,
+              0.04,
+              0.4,
+              0.25
+            ],
+            "init_low": [
+              -0.04,
+              -0.04,
+              -0.04,
+              -0.4,
+              -0.25
+            ],
+            "joint_limit_weight": 0,
+            "max_delta": [
+              0.01,
+              0.01,
+              0.01,
+              0.05,
+              0.05
+            ],
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "randomize_init": false,
+            "solve_iters": 4,
+            "solve_max_dq": 0.15,
+            "use_relative_mode": false
+          },
+          "insertion": {
+            "action_high": [
+              0.07,
+              0.076,
+              0.09
+            ],
+            "action_low": [
+              -0.07,
+              -0.045,
+              0.055
+            ],
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "aim_mode": "pose",
+            "clip": null,
+            "cold_iters": [
+              16,
+              10
+            ],
+            "compile_solver": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "manipulator",
+            "frame_name": "gripperframe",
+            "frame_type": "site",
+            "joint_limit_weight": 0,
+            "max_delta": 0.03,
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "use_relative_mode": false,
+            "warm_iters": [
+              8,
+              6
+            ]
+          }
+        },
+        "rewards": {
+          "insertion": {
+            "func": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+            "params": {
+              "with_rotation": false
+            },
+            "weight": 1
+          }
+        },
+        "terminations": {
+          "success": {
+            "func": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success",
+            "time_out": false
+          },
+          "time_out": {
+            "func": "mjlab.envs.mdp.terminations.time_out",
+            "time_out": true
+          }
+        },
+        "reset": {
+          "func": "active_perception_arms.tasks.insertion.mdp.events.reset_insertion",
+          "interval_range_s": null,
+          "is_global_time": false,
+          "min_step_count_between_reset": 0,
+          "mode": "reset",
+          "params": {
+            "insert_z": 0.013,
+            "wall_hide_z": -1,
+            "wall_shapes": null,
+            "with_rotation": false
+          }
+        },
+        "sensors": [
+          {
+            "camera_name": "camera_arm/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "cam_arm_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          },
+          {
+            "camera_name": "manipulator/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "manip_wrist_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          }
+        ]
+      },
+      "saved_training_summary": {
+        "Train/mean_reward": 981.6306365966797,
+        "Episode_Termination/success": 52.875,
+        "Episode_Reward/insertion": 196.3127899169922,
+        "Episode_Metrics/success_rate": 1
+      },
+      "scope": "Historical training summary, not independently reproduced held-out success. Checkpoint presence is not Slurm completion evidence. Different horizon, reward, architecture, simulation and possible task cues preclude a direct comparison."
+    },
+    {
+      "run_name": "pl3_static_s2",
+      "wandb_id": "sp5jjxos",
+      "wandb_project": "active-perception-arms",
+      "saved_config": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/wandb/run-20260803_044916-sp5jjxos/files/config.yaml",
+      "saved_config_sha256": "cbf0d8603aea0dd2e7321abc547e5e338e485d9af020257fc7eea2174b0a6fbe",
+      "source_commit": "c179c896457817df9396c2ea4c5ed075c8bbaf7b",
+      "reward_source_sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef",
+      "log_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_04-48-54_pl3_static_s2",
+      "final_checkpoint": {
+        "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_vision/2026-08-03_04-48-54_pl3_static_s2/model_1999.pt",
+        "exists": true,
+        "iteration_index": 1999,
+        "sha256": "3b473538514f8775183e3acdc65a70caf807b2462d4af9bf68b5980ffd7112f2"
+      },
+      "runner": {
+        "seed": 2,
+        "max_iterations": 2000,
+        "num_steps_per_env": 24,
+        "multi_gpu": {
+          "global_rank": 0,
+          "local_rank": 0,
+          "world_size": 4
+        },
+        "actor": {
+          "activation": "elu",
+          "cnn_cfg": {
+            "activation": "elu",
+            "global_pool": "none",
+            "kernel_size": [
+              5,
+              3
+            ],
+            "max_pool": false,
+            "output_channels": [
+              16,
+              32
+            ],
+            "padding": "zeros",
+            "spatial_softmax": true,
+            "spatial_softmax_temperature": 1,
+            "stride": [
+              2,
+              2
+            ]
+          },
+          "distribution_cfg": {
+            "init_std": 1,
+            "std_type": "scalar"
+          },
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "critic": {
+          "activation": "elu",
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "algorithm": {
+          "clip_param": 0.2,
+          "desired_kl": 0.01,
+          "entropy_coef": 0.005,
+          "gamma": 0.99,
+          "lam": 0.95,
+          "learning_rate": 0.001,
+          "max_grad_norm": 1,
+          "normalize_advantage_per_mini_batch": false,
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "optimizer": "adam",
+          "rnd_cfg": null,
+          "schedule": "adaptive",
+          "symmetry_cfg": null,
+          "use_clipped_value_loss": true,
+          "value_loss_coef": 1
+        },
+        "obs_groups": {
+          "actor": [
+            "proprio",
+            "camera"
+          ],
+          "critic": [
+            "critic"
+          ]
+        }
+      },
+      "environment": {
+        "num_envs_per_rank": 1024,
+        "episode_seconds": 5,
+        "physics_timestep": 0.0044,
+        "decimation": 5,
+        "scale_rewards_by_dt": false,
+        "finite_horizon": false,
+        "variants": [
+          "xm",
+          "xp",
+          "ym",
+          "yp"
+        ],
+        "actions": {
+          "insertion": {
+            "action_high": [
+              0.07,
+              0.076,
+              0.09
+            ],
+            "action_low": [
+              -0.07,
+              -0.045,
+              0.055
+            ],
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "aim_mode": "pose",
+            "clip": null,
+            "cold_iters": [
+              16,
+              10
+            ],
+            "compile_solver": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "manipulator",
+            "frame_name": "gripperframe",
+            "frame_type": "site",
+            "joint_limit_weight": 0,
+            "max_delta": 0.03,
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "use_relative_mode": false,
+            "warm_iters": [
+              8,
+              6
+            ]
+          }
+        },
+        "rewards": {
+          "insertion": {
+            "func": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+            "params": {
+              "with_rotation": false
+            },
+            "weight": 1
+          }
+        },
+        "terminations": {
+          "success": {
+            "func": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success",
+            "time_out": false
+          },
+          "time_out": {
+            "func": "mjlab.envs.mdp.terminations.time_out",
+            "time_out": true
+          }
+        },
+        "reset": {
+          "func": "active_perception_arms.tasks.insertion.mdp.events.reset_insertion",
+          "interval_range_s": null,
+          "is_global_time": false,
+          "min_step_count_between_reset": 0,
+          "mode": "reset",
+          "params": {
+            "insert_z": 0.013,
+            "wall_hide_z": -1,
+            "wall_shapes": null,
+            "with_rotation": false
+          }
+        },
+        "sensors": [
+          {
+            "camera_name": "camera_arm/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "cam_arm_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          },
+          {
+            "camera_name": "manipulator/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "manip_wrist_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          }
+        ]
+      },
+      "saved_training_summary": {
+        "Train/mean_reward": 965.4851208496094,
+        "Episode_Reward/insertion": 193.19993591308594,
+        "Episode_Metrics/success_rate": 0.9936938285827637,
+        "Episode_Termination/success": 35.083335876464844
+      },
+      "scope": "Historical training summary, not independently reproduced held-out success. Checkpoint presence is not Slurm completion evidence. Different horizon, reward, architecture, simulation and possible task cues preclude a direct comparison."
+    },
+    {
+      "run_name": "pl3_active_s1",
+      "wandb_id": "0d03dvp7",
+      "wandb_project": "active-perception-arms",
+      "saved_config": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/wandb/run-20260803_052034-0d03dvp7/files/config.yaml",
+      "saved_config_sha256": "f870b3f89ce8d52f0302d772c045327b2080eebe49061504702728b2821ebd65",
+      "source_commit": "c179c896457817df9396c2ea4c5ed075c8bbaf7b",
+      "reward_source_sha256": "08340e4f0e880cf0af0e9b78e4bb680dfa7c0eb44fd72a5fe7f11e57378d5cef",
+      "log_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_active_vision/2026-08-03_05-20-06_pl3_active_s1",
+      "final_checkpoint": {
+        "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/logs/rsl_rl/insertion_active_vision/2026-08-03_05-20-06_pl3_active_s1/model_1999.pt",
+        "exists": true,
+        "iteration_index": 1999,
+        "sha256": "b1c53402615655b4555503bdde518769b126998a2baee4d90ef57a5ccc8770ca"
+      },
+      "runner": {
+        "seed": 1,
+        "max_iterations": 2000,
+        "num_steps_per_env": 24,
+        "multi_gpu": {
+          "global_rank": 0,
+          "local_rank": 0,
+          "world_size": 4
+        },
+        "actor": {
+          "activation": "elu",
+          "cnn_cfg": {
+            "activation": "elu",
+            "global_pool": "none",
+            "kernel_size": [
+              5,
+              3
+            ],
+            "max_pool": false,
+            "output_channels": [
+              16,
+              32
+            ],
+            "padding": "zeros",
+            "spatial_softmax": true,
+            "spatial_softmax_temperature": 1,
+            "stride": [
+              2,
+              2
+            ]
+          },
+          "distribution_cfg": {
+            "init_std": 1,
+            "std_type": "scalar"
+          },
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "critic": {
+          "activation": "elu",
+          "hidden_dims": [
+            256,
+            256,
+            128
+          ],
+          "obs_normalization": true
+        },
+        "algorithm": {
+          "clip_param": 0.2,
+          "desired_kl": 0.01,
+          "entropy_coef": 0.005,
+          "gamma": 0.99,
+          "lam": 0.95,
+          "learning_rate": 0.001,
+          "max_grad_norm": 1,
+          "normalize_advantage_per_mini_batch": false,
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "optimizer": "adam",
+          "rnd_cfg": null,
+          "schedule": "adaptive",
+          "symmetry_cfg": null,
+          "use_clipped_value_loss": true,
+          "value_loss_coef": 1
+        },
+        "obs_groups": {
+          "actor": [
+            "proprio",
+            "camera"
+          ],
+          "critic": [
+            "critic"
+          ]
+        }
+      },
+      "environment": {
+        "num_envs_per_rank": 1024,
+        "episode_seconds": 5,
+        "physics_timestep": 0.0044,
+        "decimation": 5,
+        "scale_rewards_by_dt": false,
+        "finite_horizon": false,
+        "variants": [
+          "xm",
+          "xp",
+          "ym",
+          "yp"
+        ],
+        "actions": {
+          "active_camera": {
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "clip": null,
+            "compile_solver": true,
+            "control": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "camera_arm",
+            "frame_name": "wrist_cam_site",
+            "frame_type": "site",
+            "gimbal_high": [
+              0.05,
+              0.24,
+              0.265,
+              -1,
+              1.107
+            ],
+            "gimbal_home": [
+              0,
+              0.19,
+              0.22,
+              -1.42,
+              0.837
+            ],
+            "gimbal_low": [
+              -0.05,
+              0.14,
+              0.175,
+              -1.8399999999999999,
+              0.567
+            ],
+            "init_high": [
+              0.04,
+              0.04,
+              0.04,
+              0.4,
+              0.25
+            ],
+            "init_low": [
+              -0.04,
+              -0.04,
+              -0.04,
+              -0.4,
+              -0.25
+            ],
+            "joint_limit_weight": 0,
+            "max_delta": [
+              0.01,
+              0.01,
+              0.01,
+              0.05,
+              0.05
+            ],
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "randomize_init": false,
+            "solve_iters": 4,
+            "solve_max_dq": 0.15,
+            "use_relative_mode": false
+          },
+          "insertion": {
+            "action_high": [
+              0.07,
+              0.076,
+              0.09
+            ],
+            "action_low": [
+              -0.07,
+              -0.045,
+              0.055
+            ],
+            "actuator_names": [
+              "shoulder_pan",
+              "shoulder_lift",
+              "elbow_flex",
+              "wrist_flex",
+              "wrist_roll"
+            ],
+            "aim_mode": "pose",
+            "clip": null,
+            "cold_iters": [
+              16,
+              10
+            ],
+            "compile_solver": true,
+            "damping": 0.05,
+            "delta_ori_scale": 1,
+            "delta_pos_scale": 1,
+            "entity_name": "manipulator",
+            "frame_name": "gripperframe",
+            "frame_type": "site",
+            "joint_limit_weight": 0,
+            "max_delta": 0.03,
+            "max_dq": 0.5,
+            "orientation_weight": 1,
+            "position_weight": 1,
+            "posture_target": null,
+            "posture_weight": 0,
+            "use_relative_mode": false,
+            "warm_iters": [
+              8,
+              6
+            ]
+          }
+        },
+        "rewards": {
+          "insertion": {
+            "func": "active_perception_arms.tasks.insertion.mdp.rewards.insertion_reward",
+            "params": {
+              "with_rotation": false
+            },
+            "weight": 1
+          }
+        },
+        "terminations": {
+          "success": {
+            "func": "active_perception_arms.tasks.insertion.mdp.terminations.insertion_success",
+            "time_out": false
+          },
+          "time_out": {
+            "func": "mjlab.envs.mdp.terminations.time_out",
+            "time_out": true
+          }
+        },
+        "reset": {
+          "func": "active_perception_arms.tasks.insertion.mdp.events.reset_insertion",
+          "interval_range_s": null,
+          "is_global_time": false,
+          "min_step_count_between_reset": 0,
+          "mode": "reset",
+          "params": {
+            "insert_z": 0.013,
+            "wall_hide_z": -1,
+            "wall_shapes": null,
+            "with_rotation": false
+          }
+        },
+        "sensors": [
+          {
+            "camera_name": "camera_arm/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "cam_arm_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          },
+          {
+            "camera_name": "manipulator/wrist_cam",
+            "clone_data": false,
+            "data_types": [
+              "rgb"
+            ],
+            "enabled_geom_groups": [
+              0,
+              1,
+              2
+            ],
+            "fovy": null,
+            "height": 96,
+            "name": "manip_wrist_view",
+            "orthographic": false,
+            "parent_body": null,
+            "pos": [
+              0,
+              0,
+              1
+            ],
+            "quat": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "use_shadows": false,
+            "use_textures": true,
+            "width": 96
+          }
+        ]
+      },
+      "saved_training_summary": {
+        "Train/mean_reward": 981.6431842041015,
+        "Episode_Termination/success": 53.125,
+        "Episode_Metrics/success_rate": 0.9950418472290039,
+        "Episode_Reward/insertion": 195.3650360107422
+      },
+      "scope": "Historical training summary, not independently reproduced held-out success. Checkpoint presence is not Slurm completion evidence. Different horizon, reward, architecture, simulation and possible task cues preclude a direct comparison."
+    }
+  ],
+  "verified_reward_at_saved_commit": "-log(100 * positional_error_m + 1), replaced by 1000 when instantaneous error < 2mm; no three-step hold",
+  "training_budget_note": "1024 envs per rank, 24 steps, 2000 updates. Saved multi_gpu world size must be included in global transitions; do not equate per-rank49.152M with global total.",
+  "independent_evaluation_verified": false
+}

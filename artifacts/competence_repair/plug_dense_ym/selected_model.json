@@ -1,0 +1,7 @@
+{
+  "checkpoint": "artifacts/competence_repair/plug_dense_ym/model_6000.pt",
+  "sha256": "95a08ff4201993bdaafd23acf45f0c046b6892d7ef3a0002a3f1f879f5de3682",
+  "validation": "evaluation-6000.json",
+  "selection": "218/256 on validation seed31000; fixed before launching fresh test job52306061",
+  "scope": "YM only; learned RGB target estimator plus prescribed lift-align-descend; horizon8s, jitter8mm, clearance2mm"
+}

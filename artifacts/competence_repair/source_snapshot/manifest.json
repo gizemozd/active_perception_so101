@@ -1,0 +1,229 @@
+{
+  "purpose": "Final compatible evaluation/reproduction source snapshot; model weights and experiment/runner configs have separate hashes.",
+  "files": [
+    {
+      "path": "scripts/analyze_competence_baselines.py",
+      "sha256": "d6da315f1bf3908eb23d434951927a1658ab64c370861ce8626e29c3aa211980"
+    },
+    {
+      "path": "scripts/audit_push_teacher_repair.py",
+      "sha256": "755d28fb8c18c0f12c9c1d8fde723f182b43415a075d28ced33552c541b625ff"
+    },
+    {
+      "path": "scripts/build_competence_repair_report.py",
+      "sha256": "71d626fb764ce10e791493acb19f0e71f572b8e80047d59ab51d6dc2637443d9"
+    },
+    {
+      "path": "scripts/build_latest_training_results.py",
+      "sha256": "48f92ac6a1b9f0ee2950a30579733e560e44b038073fd29eebede8cdd2b0caa3"
+    },
+    {
+      "path": "scripts/build_push_population_report.py",
+      "sha256": "e0274dcc34bfef7f12c16ce0c987d9e0fc4241b20595bddb147edce66966ef2f"
+    },
+    {
+      "path": "scripts/build_training_results_report.py",
+      "sha256": "75d83ffe8c1d490d7e790a5e01f2debcb3e00d31ac0b04e51b3cfbcf20af34bc"
+    },
+    {
+      "path": "scripts/encode_report_webm.py",
+      "sha256": "bd0e8a7b6159980b0f44d577a088918d05475d5347ffd012ed41e123fcba0428"
+    },
+    {
+      "path": "scripts/evaluate_plug_inspection_ablation.py",
+      "sha256": "2bbae28e30b96cfe179e95e465e106748d2be04487ba5d11c34c9e49de6fe3a7"
+    },
+    {
+      "path": "scripts/evaluate_push_bounds_ablation.py",
+      "sha256": "04796a6290ee808d8b33f56b6e718442c13591cf6677d19072b156995c2335b0"
+    },
+    {
+      "path": "scripts/evaluate_push_horizon_repair.py",
+      "sha256": "29ae868ec88edb5c9df0f525ba4ff9d636e399f0d5112dd588ed290e89f19532"
+    },
+    {
+      "path": "scripts/evaluate_push_population_repair.py",
+      "sha256": "9cfee3be87e9a8422e39483bbbc5dc46faa47654b0309e1a1a612fbda2ac6da5"
+    },
+    {
+      "path": "scripts/evaluate_push_wall_ablation.py",
+      "sha256": "1b9aea7ff8638da9abf1a03c94a25700df887e394f0e75a1138c7e7ebf0eb131"
+    },
+    {
+      "path": "scripts/evaluate_repair_checkpoints.py",
+      "sha256": "d505debe260d90466f09a30dbfb705b653afc17373c8dfe548e4b57adb95988e"
+    },
+    {
+      "path": "scripts/evaluate_selected_plug_repair.py",
+      "sha256": "9dce41bca87ce378e716c7d23a5b3c1fe70e94e5f862d831dbc636cc4a0fb23e"
+    },
+    {
+      "path": "scripts/run_push_precision_repair.py",
+      "sha256": "3068089bb9214f6bdc9afdb71ed8871312936a3314a5e9290887f73d8d16daf3"
+    },
+    {
+      "path": "scripts/slurm/repair_command.sbatch",
+      "sha256": "19330e81109ab5486f13b81e043ae9136394932f6e0e7764d405913a68792382"
+    },
+    {
+      "path": "scripts/train_visual_target_repair.py",
+      "sha256": "af9f9a31c142d5fbdde599cdfe8ff08d5dd76c59795d4a07e7688da3a3b4cc08"
+    },
+    {
+      "path": "scripts/validate_report_browser.py",
+      "sha256": "4039d604f3d01567ae6cee817795b1803fe0983e81b1ebb3ecb8e55383041df9"
+    },
+    {
+      "path": "scripts/validate_training_results_report.py",
+      "sha256": "624b1adebf57444472d8f322d8bb4163ece2479f1203bdb9e20536a146648de4"
+    },
+    {
+      "path": "src/active_perception_arms/__init__.py",
+      "sha256": "3077aefddd7d3cff15c7769631f7b45587596162e1c720a76a9286c292e7858d"
+    },
+    {
+      "path": "src/active_perception_arms/assets/__init__.py",
+      "sha256": "52c06159d26e922578dead12311bd5409963eb520f092db37905741dcbb7f4a9"
+    },
+    {
+      "path": "src/active_perception_arms/benchmark.py",
+      "sha256": "a0bfcb1c83962f76e550c70fc8e00af05466374c67521ab15efc8048a53911ad"
+    },
+    {
+      "path": "src/active_perception_arms/bounded_distribution.py",
+      "sha256": "ebf21f40124fc4afe863989c03bb1dbb0f2dd659467039a6382aa85502a4130c"
+    },
+    {
+      "path": "src/active_perception_arms/capture_evaluation.py",
+      "sha256": "cef7576b628b27e442c8b66a501664cb66bb122c9e5957d2234789156c529d1c"
+    },
+    {
+      "path": "src/active_perception_arms/config.py",
+      "sha256": "e4456da85f561adff53aacb98c6c1f01254e79676a72184435751a73a4e6c18f"
+    },
+    {
+      "path": "src/active_perception_arms/dynamic_occlusion_diagnostics.py",
+      "sha256": "04483a3098ab5d1b132c3a2408b1c456e3dbfa7764e869e2ce20346676e55f7b"
+    },
+    {
+      "path": "src/active_perception_arms/environment.py",
+      "sha256": "9165e6d8d21275f677cc7b2e73be43423de37fbea0da91392a0b5cd65a75517b"
+    },
+    {
+      "path": "src/active_perception_arms/episode_logging.py",
+      "sha256": "1a5eed3567c886276fe06f13211e55d2268c7a8fb77927ca9cdac511a5c72a80"
+    },
+    {
+      "path": "src/active_perception_arms/evaluate.py",
+      "sha256": "90f5d3de2f24a904d48c7ef96c1ad6a5e71443ba4f225f32ad079827cfaf318b"
+    },
+    {
+      "path": "src/active_perception_arms/evaluation_audit.py",
+      "sha256": "ef8208323a42ed58cb51e5cd9a489c35a2e8b6fd2be78ed9f816ae4cb3d57546"
+    },
+    {
+      "path": "src/active_perception_arms/gpu_validate.py",
+      "sha256": "d007ffcc8075d0fcd6630ed7f96cacb1183d5837336fdfc1bb5e2e2adf37d559"
+    },
+    {
+      "path": "src/active_perception_arms/manipulation.py",
+      "sha256": "067e8fcce81d793eaf7709b6ad7c8e7c36c3fbd6396b0ff3653534811c893861"
+    },
+    {
+      "path": "src/active_perception_arms/mdp.py",
+      "sha256": "9f382436fe0c63025aec3e73014113b556a7be3c9b67b98222b4f7aa21a2175d"
+    },
+    {
+      "path": "src/active_perception_arms/native.py",
+      "sha256": "df8ef5bdcd419ddbcdbbddc6df9c9c9c2e05c8f97f2f217f66fbad759aa66771"
+    },
+    {
+      "path": "src/active_perception_arms/occlusion.py",
+      "sha256": "aa9f4cec079c358bc85565c3aaea31bbcc1fc03d4c24f5048d9812c5af5b4dc0"
+    },
+    {
+      "path": "src/active_perception_arms/optimization_diagnostics.py",
+      "sha256": "9fc9e1e9e77a4c8b0dd47035dd0b2fd86639b92a3a7e141e9c0831611142fb55"
+    },
+    {
+      "path": "src/active_perception_arms/plug.py",
+      "sha256": "825632584a242e4d3dd525b707ea3d17a3b8e3e715d96afe290353e49a156b27"
+    },
+    {
+      "path": "src/active_perception_arms/plug_audit.py",
+      "sha256": "a8d86d58ecb1ac2c6c53941d42ec1b874e2e0cf316531f4d5dc3e5c341695d1e"
+    },
+    {
+      "path": "src/active_perception_arms/plug_learning.py",
+      "sha256": "af8c646e08f6b0a55acae8f94fef37f35257d71d3a6a7de1f934bf132de30a16"
+    },
+    {
+      "path": "src/active_perception_arms/policy.py",
+      "sha256": "e0f55fca5511d00c017b3a4e6d78be6e7fc2b477057fa02cadba6bdc016b0d4d"
+    },
+    {
+      "path": "src/active_perception_arms/profile_rollout.py",
+      "sha256": "8bafd4016bbf8328c4789a763bc3bfe1fad5696c7407a2a8369eb18e0b5d5246"
+    },
+    {
+      "path": "src/active_perception_arms/pushing.py",
+      "sha256": "f8d0863143a1f41acf93135147789a3545f5bc064193af8b12e6f51bb0bc2bbf"
+    },
+    {
+      "path": "src/active_perception_arms/record_evaluation.py",
+      "sha256": "cc97d96733a305c1a7e8fe4491cb58c642d2c7938440b693d40d197fb26d367c"
+    },
+    {
+      "path": "src/active_perception_arms/robots/__init__.py",
+      "sha256": "398bc3d8fc04b4f5255d65ce5ef54de6e7bccf728599c2c4d437b1899871aa57"
+    },
+    {
+      "path": "src/active_perception_arms/robots/kinematics.py",
+      "sha256": "a2539738be211359821b976594f8e5397424354350cb4b672521648fa9e24906"
+    },
+    {
+      "path": "src/active_perception_arms/robots/plug_control.py",
+      "sha256": "9e9d3ce138f3dea632a7000f5aaef19cc7876fc42631fac976a3e7ffcddb8837"
+    },
+    {
+      "path": "src/active_perception_arms/sanity.py",
+      "sha256": "4f43589660b1b5de59fe172d0a0497c3b820ab94b80716aed3ea2aecb6fd921d"
+    },
+    {
+      "path": "src/active_perception_arms/scenes.py",
+      "sha256": "9a97743f6f2bd34beffcb4c51433aa6030126d2142b036daee700d6725f0f0bf"
+    },
+    {
+      "path": "src/active_perception_arms/screening_diagnostics.py",
+      "sha256": "6abf4c81b6d8e4dc6eee5cf9d6db6ce19b3ad5be7ad68f41746080ed827163f5"
+    },
+    {
+      "path": "src/active_perception_arms/select_view.py",
+      "sha256": "bb87a367c7c8ade01d08848bf234512dcf172da711896061402bbe54f1369cb4"
+    },
+    {
+      "path": "src/active_perception_arms/task_screening.py",
+      "sha256": "6086210c6fe8fc7b58ecd9587fb5507f9e30569e8af5230af4a50c01b630b1be"
+    },
+    {
+      "path": "src/active_perception_arms/telemetry.py",
+      "sha256": "b4ab0f0c7d5893e31dcb7f2b96a90dd8e8f63ad0ad17316e016b77d946f043f5"
+    },
+    {
+      "path": "src/active_perception_arms/train.py",
+      "sha256": "78f63512c364fbb7d3ab4bb01ca7575f35990bd61fef29079dbfb49d17c0e247"
+    },
+    {
+      "path": "src/active_perception_arms/transfer.py",
+      "sha256": "5ef1f758174020674c836b81affb12e387aab256ec16bd93733e286bc4737086"
+    },
+    {
+      "path": "src/active_perception_arms/visual_target_policy.py",
+      "sha256": "fb54207adc0a96462187bffc6c6a05e64ce87ca5593b7eae1dc22bc835439b93"
+    },
+    {
+      "path": "src/active_perception_arms/warp_sanity.py",
+      "sha256": "e18013c992d568736edfa1177da633516174a5c65d79a35aa3420f3311ea5a39"
+    }
+  ]
+}

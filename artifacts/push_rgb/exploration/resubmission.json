@@ -1,0 +1,14 @@
+{
+  "job_id": "51672860",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--job-name=push-view-design",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb/exploration/run.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb/exploration"
+  ]
+}

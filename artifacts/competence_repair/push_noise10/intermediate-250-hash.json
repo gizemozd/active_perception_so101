@@ -1,0 +1,4 @@
+{
+  "checkpoint": "artifacts/competence_repair/push_noise10/logs/push_wrist_static_clean_gru_v0_s2_n2048_precision_repair_20261012T041117Z/model_250.pt",
+  "sha256": "1e50e70b8f4859fe3349aec64ce314b1fa59f50881251e4afd57d53e15d7b1bb"
+}

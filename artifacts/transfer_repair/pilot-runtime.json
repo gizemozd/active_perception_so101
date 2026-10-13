@@ -1,0 +1,154 @@
+{
+  "status": "completed",
+  "job_id": "51644983",
+  "steps": [
+    {
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+        "-m",
+        "active_perception_arms.train",
+        "--task",
+        "transfer",
+        "--task-revision",
+        "pick_place_v2",
+        "--condition",
+        "wrist_static",
+        "--fixed-view",
+        "0",
+        "--occlusion",
+        "clean",
+        "--num-envs",
+        "256",
+        "--iterations",
+        "501",
+        "--seed",
+        "0",
+        "--initial-std",
+        "1.0",
+        "--run-label",
+        "transfer_v2_pilot",
+        "--job-type",
+        "pilot",
+        "--log-root",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_pilot",
+        "--result",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-training-summary.json"
+      ],
+      "started_utc": "2026-10-09T18:26:21.624396+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-09T18:38:13.751147+00:00"
+    },
+    {
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+        "-m",
+        "active_perception_arms.evaluate",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_pilot/transfer_wrist_static_clean_gru_v0_s0_n256_transfer_v2_pilot_20261009T182630Z/model_500.pt",
+        "--episodes",
+        "512",
+        "--num-envs",
+        "128",
+        "--seed",
+        "20000",
+        "--split",
+        "validation",
+        "--occlusion",
+        "clean",
+        "--audit-termination",
+        "--capture-representatives",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-traces-clean",
+        "--output",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-evaluation-clean.json"
+      ],
+      "started_utc": "2026-10-09T18:38:13.788102+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-09T18:39:29.909922+00:00"
+    },
+    {
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-pilot-20261009T182615Z/render_transfer_capture.py",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-evaluation-clean.json",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-videos-clean"
+      ],
+      "started_utc": "2026-10-09T18:39:29.943693+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-09T18:39:47.652526+00:00"
+    },
+    {
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+        "-m",
+        "active_perception_arms.evaluate",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_pilot/transfer_wrist_static_clean_gru_v0_s0_n256_transfer_v2_pilot_20261009T182630Z/model_500.pt",
+        "--episodes",
+        "512",
+        "--num-envs",
+        "128",
+        "--seed",
+        "20000",
+        "--split",
+        "validation",
+        "--occlusion",
+        "dynamic",
+        "--audit-termination",
+        "--capture-representatives",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-traces-dynamic",
+        "--output",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-evaluation-dynamic.json"
+      ],
+      "started_utc": "2026-10-09T18:39:47.667872+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-09T18:40:58.194753+00:00"
+    },
+    {
+      "command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/transfer-pilot-20261009T182615Z/render_transfer_capture.py",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-evaluation-dynamic.json",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-videos-dynamic"
+      ],
+      "started_utc": "2026-10-09T18:40:58.233020+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-09T18:41:14.301668+00:00"
+    }
+  ],
+  "started_utc": "2026-10-09T18:26:21.612884+00:00",
+  "learned_success_rate": null,
+  "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_pilot/transfer_wrist_static_clean_gru_v0_s0_n256_transfer_v2_pilot_20261009T182630Z",
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_pilot/transfer_wrist_static_clean_gru_v0_s0_n256_transfer_v2_pilot_20261009T182630Z/model_500.pt",
+  "checkpoint_sha256": "5529edd2e416f369edcde9189bce001db7db752eb27c0400c511df2407af3a0f",
+  "updates": 501,
+  "transitions": 3078144,
+  "evaluations": {
+    "clean": {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-evaluation-clean.json",
+      "successes": 0,
+      "episodes": 512,
+      "success_rate": 0.0,
+      "failure_breakdown": {
+        "no_lift": 512,
+        "not_placed": 0,
+        "not_released": 0,
+        "not_settled": 0,
+        "not_withdrawn_or_held": 0
+      },
+      "sha256": "647bb3cd9ff4a726ccda16c00bfd14cc212f61ac80847623054d4049162323be"
+    },
+    "dynamic": {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/pilot-evaluation-dynamic.json",
+      "successes": 0,
+      "episodes": 512,
+      "success_rate": 0.0,
+      "failure_breakdown": {
+        "no_lift": 512,
+        "not_placed": 0,
+        "not_released": 0,
+        "not_settled": 0,
+        "not_withdrawn_or_held": 0
+      },
+      "sha256": "73d0fba920d966c9e5621419f4ff22649d97cb3f7765ecf079dc99282acc6e64"
+    }
+  },
+  "updated_utc": "2026-10-09T18:41:14.314604+00:00"
+}

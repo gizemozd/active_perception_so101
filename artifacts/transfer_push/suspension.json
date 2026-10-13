@@ -1,0 +1,41 @@
+{
+  "rgb_study_status": "stopped_for_privileged_validation",
+  "automatic_expansion_allowed": false,
+  "reason": "User requested state-based reward/learnability validation first.",
+  "stopped_utc": "2026-10-09T20:03:44.934366+00:00",
+  "runs": [
+    {
+      "run": "transfer-wrist_static-s0",
+      "job_id": "51661708",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_push_billion/transfer-wrist_static-s0/transfer_wrist_static_dynamic_gru_v4_s0_n2048_transfer-push-billion-20261009_20261009T195243Z/interrupted.pt",
+      "checkpoint_sha256": "40055b7b4751e196caf9adfef846b7a2c250c10a9b296070a68808e119f37b2f",
+      "updates": 121,
+      "transitions": 5947392,
+      "logged_transitions_before_final_stop": 11059200,
+      "checkpoint_hash_still_matches": true
+    },
+    {
+      "run": "push-wrist_static-s0",
+      "job_id": "51661732",
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_push_billion/push-wrist_static-s0/push_wrist_static_dynamic_gru_v0_s0_n2048_transfer-push-billion-20261009_20261009T195308Z/interrupted.pt",
+      "checkpoint_sha256": "8a0d2bfd295798eb69e6df035d97d73628890e9187ab215c6ec0a63d3b05aa1a",
+      "updates": 96,
+      "transitions": 4718592,
+      "logged_transitions_before_final_stop": 9388032,
+      "checkpoint_hash_still_matches": true
+    }
+  ],
+  "shutdown_correction": {
+    "reason": "SIGTERM cancellation activated legacy continuation handlers. Continuations were cancelled; final transfer driver was killed directly before cleanup. New launcher resumes only on USR1 and checks suspension at both submission and worker startup.",
+    "cancelled_job_ids": [
+      "51663565",
+      "51663566",
+      "51666215",
+      "51666235",
+      "51666277"
+    ],
+    "verified_utc": "2026-10-09T20:14:19.509738+00:00"
+  },
+  "retired": true,
+  "resumption_requirement": "Create a new reviewed campaign and frozen source snapshot containing the guarded launcher. Do not re-enable the old frozen driver."
+}

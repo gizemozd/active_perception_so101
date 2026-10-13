@@ -1,0 +1,303 @@
+{
+  "updated_utc": "2026-10-09T20:40:38.514463+00:00",
+  "stage": "privileged_state_diagnostic",
+  "rgb_status": "stopped",
+  "tasks": {
+    "transfer": {
+      "status": "completed_diagnostic",
+      "task": "transfer",
+      "job_id": "51669740",
+      "updates": 407,
+      "transitions": 20004864,
+      "evaluations": [
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-41-s30000.json",
+          "transitions": 2015232,
+          "seed": 30000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "no_lift": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-41-s31000.json",
+          "transitions": 2015232,
+          "seed": 31000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "no_lift": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-102-s30000.json",
+          "transitions": 5013504,
+          "seed": 30000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "no_lift": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-102-s31000.json",
+          "transitions": 5013504,
+          "seed": 31000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "no_lift": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-204-s30000.json",
+          "transitions": 10027008,
+          "seed": 30000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "no_lift": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-204-s31000.json",
+          "transitions": 10027008,
+          "seed": 31000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "no_lift": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-407-s30000.json",
+          "transitions": 20004864,
+          "seed": 30000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "not_placed": 510,
+            "no_lift": 2
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-407-s31000.json",
+          "transitions": 20004864,
+          "seed": 31000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "not_placed": 509,
+            "no_lift": 3
+          }
+        }
+      ],
+      "started_utc": "2026-10-09T20:10:32.543413+00:00",
+      "current_command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+        "-m",
+        "active_perception_arms.evaluate",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/privileged_diagnostic/transfer/transfer_wrist_static_dynamic_none_v4_s0_n2048_privileged-learnability-20261009_20261009T201041Z/model_406.pt",
+        "--episodes",
+        "512",
+        "--num-envs",
+        "128",
+        "--seed",
+        "31000",
+        "--split",
+        "validation",
+        "--audit-termination",
+        "--output",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-407-s31000.json"
+      ],
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/privileged_diagnostic/transfer/transfer_wrist_static_dynamic_none_v4_s0_n2048_privileged-learnability-20261009_20261009T201041Z/model_406.pt",
+      "checkpoint_sha256": "06586e83132894ec96af011b67070c38c8b60165238a7fd3c8eb5c9879e69903",
+      "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/privileged_diagnostic/transfer/transfer_wrist_static_dynamic_none_v4_s0_n2048_privileged-learnability-20261009_20261009T201041Z",
+      "updated_utc": "2026-10-09T20:40:37.433455+00:00",
+      "resumptions": [
+        {
+          "job_id": "51666937",
+          "previous_status": "failed",
+          "previous_error": "CalledProcessError(1, ['/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python', '/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/privileged-diagnostic-20261009T201024Z/scripts/render_transfer_capture.py', '/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/validation-41-s30000.json', '/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/transfer/videos'])",
+          "resumed_utc": "2026-10-09T20:16:14.933333+00:00"
+        },
+        {
+          "job_id": "51669740",
+          "previous_status": "completed_diagnostic",
+          "previous_error": null,
+          "resumed_utc": "2026-10-09T20:30:02.661805+00:00"
+        }
+      ],
+      "competence_demonstrated": false,
+      "next_step": "Review state-policy results and trajectories before any RGB training."
+    },
+    "push": {
+      "status": "completed_diagnostic",
+      "task": "push",
+      "job_id": "51668904",
+      "updates": 407,
+      "transitions": 20004864,
+      "evaluations": [
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-41-s30000.json",
+          "transitions": 2015232,
+          "seed": 30000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "outside_goal": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-41-s31000.json",
+          "transitions": 2015232,
+          "seed": 31000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "outside_goal": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-102-s30000.json",
+          "transitions": 5013504,
+          "seed": 30000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "outside_goal": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-102-s31000.json",
+          "transitions": 5013504,
+          "seed": 31000,
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "stages": {
+            "outside_goal": 512
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-204-s30000.json",
+          "transitions": 10027008,
+          "seed": 30000,
+          "successes": 361,
+          "episodes": 512,
+          "success_rate": 0.705078125,
+          "stages": {
+            "success": 361,
+            "outside_goal": 147,
+            "contact": 1,
+            "hold_not_completed": 1,
+            "moving": 2
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-204-s31000.json",
+          "transitions": 10027008,
+          "seed": 31000,
+          "successes": 345,
+          "episodes": 512,
+          "success_rate": 0.673828125,
+          "stages": {
+            "success": 345,
+            "outside_goal": 160,
+            "moving": 3,
+            "hold_not_completed": 3,
+            "contact": 1
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-407-s30000.json",
+          "transitions": 20004864,
+          "seed": 30000,
+          "successes": 501,
+          "episodes": 512,
+          "success_rate": 0.978515625,
+          "stages": {
+            "success": 501,
+            "outside_goal": 11
+          }
+        },
+        {
+          "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-407-s31000.json",
+          "transitions": 20004864,
+          "seed": 31000,
+          "successes": 510,
+          "episodes": 512,
+          "success_rate": 0.99609375,
+          "stages": {
+            "success": 510,
+            "outside_goal": 2
+          }
+        }
+      ],
+      "started_utc": "2026-10-09T20:10:32.460897+00:00",
+      "current_command": [
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+        "-m",
+        "active_perception_arms.evaluate",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/privileged_diagnostic/push/push_wrist_static_dynamic_none_v0_s0_n2048_privileged-learnability-20261009_20261009T201041Z/model_406.pt",
+        "--episodes",
+        "512",
+        "--num-envs",
+        "128",
+        "--seed",
+        "31000",
+        "--split",
+        "validation",
+        "--audit-termination",
+        "--output",
+        "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-407-s31000.json"
+      ],
+      "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/privileged_diagnostic/push/push_wrist_static_dynamic_none_v0_s0_n2048_privileged-learnability-20261009_20261009T201041Z/model_406.pt",
+      "checkpoint_sha256": "667b90b270408b5aaf30d933376c295bdca3db4b92b8cfacf40625897ad03a3d",
+      "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/privileged_diagnostic/push/push_wrist_static_dynamic_none_v0_s0_n2048_privileged-learnability-20261009_20261009T201041Z",
+      "updated_utc": "2026-10-09T20:34:51.420848+00:00",
+      "resumptions": [
+        {
+          "job_id": "51666942",
+          "previous_status": "failed",
+          "previous_error": "CalledProcessError(1, ['/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python', '/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/privileged-diagnostic-20261009T201024Z/scripts/render_transfer_capture.py', '/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/validation-41-s30000.json', '/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_push/privileged/push/videos'])",
+          "resumed_utc": "2026-10-09T20:16:16.930463+00:00"
+        },
+        {
+          "job_id": "51668904",
+          "previous_status": "completed_diagnostic",
+          "previous_error": null,
+          "resumed_utc": "2026-10-09T20:27:22.551968+00:00"
+        }
+      ],
+      "competence_demonstrated": true,
+      "next_step": "Review state-policy results and trajectories before any RGB training."
+    }
+  },
+  "review": {
+    "updated_utc": "2026-10-09T20:30:58.789044+00:00",
+    "findings": [
+      "The initial 10M diagnostics are complete. At 2M and 5M, both tasks scored zero successes on both 512-episode held-out validation sets.",
+      "At 10,027,008 transitions, push scored 361/512 (70.5%) and 345/512 (67.4%) on the two held-out sets, versus zero at 5M. Actual evaluated success and failure trajectories were captured and rendered. This establishes substantial learning under the existing recipe, but does not meet the provisional \u226590% competence criterion.",
+      "Transfer scored 0/512 and 0/512 at 10M; all failures lacked the required physical lift history. Its training reward increased from approximately 21 at 2M to 69 at 10M while full task success remained zero. This is a concrete warning against treating reward growth as task competence. Bilateral grasps and partial lifts are developing, so a bounded extension can test whether they lead to the next stage.",
+      "The matched-reset physical reward audit favors scripted completion over each tested stalled controller for both total and discounted return. Transfer completion averaged 37.99 discounted return, versus 12.16 for reaching only, 13.15 for grasping without lifting, and 23.01 for lifting without placing. Push completion averaged 41.79, versus 11.41 for remaining behind the object and 18.65 for the controller without explicit withdrawal. This is a limited reward sanity check, not evidence of learned competence.",
+      "Both tasks have one reviewed extension to 20M cumulative transitions, using unchanged rewards, controls and PPO settings. Neither passed the initial competence gate. RGB remains stopped; its eventual per-run minimum remains 1B transitions."
+    ]
+  },
+  "latest_interpretation": [
+    "Transfer at 20,004,864 transitions: 0/512 / 0/512. No held-out completions. Reward growth alone does not establish task learnability.",
+    "Push at 20,004,864 transitions: 501/512 / 510/512. Meets the provisional 90% competence criterion on both sets. Review trajectories before RGB training."
+  ]
+}

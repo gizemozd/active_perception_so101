@@ -1,0 +1,1652 @@
+{
+  "validated_at": "2026-10-12T05:25:31.320640+00:00",
+  "files_hash_verified": 425,
+  "local_links_checked": 254,
+  "video_examples": 82,
+  "embedded_videos_verified": 164,
+  "embedded_plots_verified": 9,
+  "videos_decoded": 164,
+  "archive_crc_passed": true,
+  "videos": [
+    {
+      "path": "artifacts/training_results/media/004073c95683f19b.webm",
+      "frames": 127,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/005702b1b764bcf1.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/018e7267dcb789c7.webm",
+      "frames": 123,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/01b326ab8687ce93.webm",
+      "frames": 80,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/04121d22f4335b86.webm",
+      "frames": 117,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/0468212401752c47.webm",
+      "frames": 100,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/05f68bb011aea372.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/07ef768d1569976b.webm",
+      "frames": 111,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/081f71730f54a78c.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/08f50db6d6e853ef.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/0a363db21c2cb9b5.webm",
+      "frames": 100,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/0af39c2e7fe2a646.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/0eca7bcd0dc989d0.webm",
+      "frames": 126,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/0f7536b6e74e2e13.webm",
+      "frames": 62,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/13a173bfa2cfa571.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/155702361f9e096d.webm",
+      "frames": 127,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/1673f86a7e4e0ae0.webm",
+      "frames": 114,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/16eec722b4ce4758.webm",
+      "frames": 61,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/1726f719ea1479ae.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/1827532db5134a3a.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/194f128d9e27a09c.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/19995792dbe40401.webm",
+      "frames": 79,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/19a940946e481de4.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/1bfc58aba17ef5b1.webm",
+      "frames": 85,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/1c80edb3547498da.webm",
+      "frames": 66,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/1c8c5b380c3822a5.webm",
+      "frames": 122,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/1fbd4e7c3f259394.webm",
+      "frames": 200,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/1ff136e416943b77.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/234c4da15fb6628b.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/2595e34f6a8592db.webm",
+      "frames": 117,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/2626db75ff05d361.webm",
+      "frames": 134,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/28996aea03c794e7.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/29b8afd780848f80.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/2aacadd39cac2de7.webm",
+      "frames": 100,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/2abf9732bd6a157b.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/2b89006ddafc433d.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/2d91573591b95cea.webm",
+      "frames": 121,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/2e7d022d9365d4c3.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/2e9822ae67fae046.webm",
+      "frames": 60,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/30097208347d2f3f.webm",
+      "frames": 100,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/3fff5e098c3d5ff8.webm",
+      "frames": 110,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/407d8e6f48d27a79.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/40b69fa822083fee.webm",
+      "frames": 56,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/411de67bc7969c5b.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/47223fd8c0797548.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/47db79e04816ab86.webm",
+      "frames": 80,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/4958c4277755611f.webm",
+      "frames": 79,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/49f59847675eda66.webm",
+      "frames": 126,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/4a083ca3acbb790d.webm",
+      "frames": 84,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/4c288bb7063d6316.webm",
+      "frames": 74,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/4c2a3d865572ed33.webm",
+      "frames": 111,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/4d3279f3477d9982.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/509793c279069d7b.webm",
+      "frames": 40,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/542760f2338150cd.webm",
+      "frames": 200,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/544624ebf75011b1.webm",
+      "frames": 62,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/54878011832d8b42.webm",
+      "frames": 113,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/56f8d9982e8b4f37.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/5782e95effd4de35.webm",
+      "frames": 76,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/580f843aab6224cf.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/5cbba391fdef43d4.webm",
+      "frames": 74,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/5fa1b3fa7658a1ac.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/66482d61a00d3385.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/68b17031e66dcc20.webm",
+      "frames": 87,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/68c3ae4498b8fc9b.webm",
+      "frames": 200,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/68e7e0d3b814819c.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/69e0eb83ee8b96f1.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/6afd88a4ac55f111.webm",
+      "frames": 121,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/6efcac13983983d1.webm",
+      "frames": 87,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/708b4259d029eb5f.webm",
+      "frames": 113,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/709e10e41a4d0ac1.webm",
+      "frames": 127,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/7153137a97b0c87a.webm",
+      "frames": 60,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/722cdd8b435415ba.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/72b2a62dfd6025fe.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/7388ffd377ea5f48.webm",
+      "frames": 200,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/74d00f112958b518.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/74d98de8f3e7e2dd.webm",
+      "frames": 124,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/74fe9fa58e7c2663.webm",
+      "frames": 80,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/78089a77372ec43d.webm",
+      "frames": 200,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/786bcaab40ab8a57.webm",
+      "frames": 123,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/790a0bf6d83ef77a.webm",
+      "frames": 117,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/7960bf24ec7bebed.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/79eacacaf3e2a56e.webm",
+      "frames": 121,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/7a10d6b9964d5612.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/7bb47438909ddc01.webm",
+      "frames": 134,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/800f7f4ae64e554e.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/833c61c84a08d751.webm",
+      "frames": 61,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/85c09338c97f257b.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/86f5636a8e577ca4.webm",
+      "frames": 80,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/87337446f57b89ef.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/89a89c8b6108fdfe.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/8d53f6510197b22f.webm",
+      "frames": 100,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/8f7c8ec0b64d513b.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/8fd228c8f88c33da.webm",
+      "frames": 47,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/928bbb340c0d73ec.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/9450c29720ac36d9.webm",
+      "frames": 61,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/9456bcc482867759.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/9592d7b7678c1a74.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/9730c8d244784619.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/99212af8ce5d16cb.webm",
+      "frames": 84,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/9c86fa6eeac509a9.webm",
+      "frames": 100,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/9dd441216315c875.webm",
+      "frames": 76,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/a14b66ad9c3f3e0d.webm",
+      "frames": 56,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/a1716f3ea39522aa.webm",
+      "frames": 47,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/a1b7dbbae7070d75.webm",
+      "frames": 113,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/a698b872bcd1d80c.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/a8d0aa16b6850635.webm",
+      "frames": 156,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/a9027acbb8a92614.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/aaee49507e9752b6.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/abb78444eaae38a1.webm",
+      "frames": 117,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/af1a79bd23eb25c6.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/afc7d72096ee8210.webm",
+      "frames": 200,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/b0b6ffe5a52315af.webm",
+      "frames": 200,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/b30d13a6df7bcac9.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/b42a12e4d96456eb.webm",
+      "frames": 66,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/b70f6160e901b97e.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/b827f32116a67e4e.webm",
+      "frames": 206,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/b9c1f11aebe33f23.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/be2f33f9474059d5.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/beabedc21f6101de.webm",
+      "frames": 63,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/bf5907d19e4ac95b.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/bfc0f9711ec05822.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/c180cde1adde4b2d.webm",
+      "frames": 127,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/c372f4d02e10fb7b.webm",
+      "frames": 106,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/c3e638ada9275354.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/c584048dcf33e3f4.webm",
+      "frames": 85,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/c5a84011b8b32045.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/c8c783843d583dd9.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/c8cc8d70e85442ae.webm",
+      "frames": 114,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/c8efae20e542a376.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/cab7e94babffb1ad.webm",
+      "frames": 100,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/cb7b02b04285e833.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/cd42b34cc23b2d97.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/ce3ccb58058b9caf.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/d275263d64141007.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/d34c4efe93fcb6f4.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/d60f327da40374aa.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/dbb88c6a63ac8ffe.webm",
+      "frames": 61,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/dbdfb98b5ddb4c25.webm",
+      "frames": 63,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/e0c34e61f834b7b3.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/e296904c3a2cb3f6.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/e38d1aba451bdc77.webm",
+      "frames": 156,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/e429d38d6a7444fa.webm",
+      "frames": 121,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/e6271ccc9509a405.webm",
+      "frames": 100,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/e94d52ebb048a0f5.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/ec096f3b19a891f7.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/eefeba21c48edba8.webm",
+      "frames": 122,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/ef7d441493dd9372.webm",
+      "frames": 113,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/f0dc0b8ad9fc74d2.webm",
+      "frames": 61,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/f1d95af8472a2894.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/f45acf4a60190460.webm",
+      "frames": 61,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/f580f5721ea1c2a4.webm",
+      "frames": 106,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/f7fe94be1670f835.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/f9575bc9b803a137.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fa5b86866ecfdf69.webm",
+      "frames": 124,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fad81e2a21326dc6.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fb5ba7f3a80905a8.webm",
+      "frames": 40,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fda631195cd78d9b.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        384,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fdad60f377bee88c.webm",
+      "frames": 110,
+      "fps": 25.0,
+      "size": [
+        288,
+        258
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fdcf9442b34506ef.webm",
+      "frames": 206,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fde7bebb7ffd314b.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fe11630dc0b351e2.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        768,
+        330
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fe3f2003908b68fe.webm",
+      "frames": 200,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/fedc362025db4e7c.webm",
+      "frames": 88,
+      "fps": 25.0,
+      "size": [
+        960,
+        540
+      ],
+      "decoded": true
+    },
+    {
+      "path": "artifacts/training_results/media/ffbefbaa4e4fd86b.webm",
+      "frames": 300,
+      "fps": 25.0,
+      "size": [
+        576,
+        258
+      ],
+      "decoded": true
+    }
+  ]
+}

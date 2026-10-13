@@ -1,0 +1,301 @@
+{
+  "run": {
+    "id": "push_active_s2",
+    "task": "push",
+    "condition": "active",
+    "seed": 2,
+    "fixed_view": 0
+  },
+  "status": "completed",
+  "evaluations": [
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-245-clean-validation.json",
+      "transitions": 12042240,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 8,
+      "episodes": 512,
+      "success_rate": 0.015625,
+      "sha256": "393d6d6ddfaded218bd2c9c07e6acd8cde3d1f3e948387af1d3a664ead98983f"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-245-dynamic-validation.json",
+      "transitions": 12042240,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 7,
+      "episodes": 512,
+      "success_rate": 0.013671875,
+      "sha256": "583f00178ad953afd7ddc6a48156ac4a21a64ef23ef9a6669888db495399a73a"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-1018-clean-validation.json",
+      "transitions": 50036736,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 59,
+      "episodes": 512,
+      "success_rate": 0.115234375,
+      "sha256": "e2373cec3c3539e1fef944dab4ed75726383c24d2d25245624cb11bbaadf9ae5"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-1018-dynamic-validation.json",
+      "transitions": 50036736,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 61,
+      "episodes": 512,
+      "success_rate": 0.119140625,
+      "sha256": "1dc2deced301c909725bf249fe15879f1ecbf34947d2e96531c4fdb98c72b8cd"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-2035-clean-validation.json",
+      "transitions": 100024320,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 173,
+      "episodes": 512,
+      "success_rate": 0.337890625,
+      "sha256": "3e1bfb6df980b2cb20a788197474500c94cc8d90bb94289aafef35cafbcc3b1d"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-2035-dynamic-validation.json",
+      "transitions": 100024320,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 155,
+      "episodes": 512,
+      "success_rate": 0.302734375,
+      "sha256": "781a2f00de8edf5aeb86126ba01ed160ae1d7a8aabdfbe081db15d5b79d8f483"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-4070-clean-validation.json",
+      "transitions": 200048640,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 239,
+      "episodes": 512,
+      "success_rate": 0.466796875,
+      "sha256": "860241cb680349cf36ede22a34e079b7e062e7209d1be3f9a44e1b9a882d08c0"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-4070-dynamic-validation.json",
+      "transitions": 200048640,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 255,
+      "episodes": 512,
+      "success_rate": 0.498046875,
+      "sha256": "586d84d1b63c568772cc73f2d2bb6e8503b5fa78ac9abb0d4af28c9efd92475b"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-6105-clean-validation.json",
+      "transitions": 300072960,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 295,
+      "episodes": 512,
+      "success_rate": 0.576171875,
+      "sha256": "70ee6b424c71c926f27892293c3dadaad0abbbb4075a43c1c691753efb53ebb1"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-6105-dynamic-validation.json",
+      "transitions": 300072960,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 291,
+      "episodes": 512,
+      "success_rate": 0.568359375,
+      "sha256": "555367fad0cbe57947302fcc25013e24c1d561abce8b8b22be5aac8b855df7d8"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-8140-clean-validation.json",
+      "transitions": 400097280,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 299,
+      "episodes": 512,
+      "success_rate": 0.583984375,
+      "sha256": "f7c7eb63b17a56ff1f53cf508768d5ef076f6d2093d02120c344c766fca0e417"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-8140-dynamic-validation.json",
+      "transitions": 400097280,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 305,
+      "episodes": 512,
+      "success_rate": 0.595703125,
+      "sha256": "8a82542f2419f1a011494edfb1704e8c98840d72edf83e1aee4626105574e08d"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-10175-clean-validation.json",
+      "transitions": 500121600,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 312,
+      "episodes": 512,
+      "success_rate": 0.609375,
+      "sha256": "02fce2a76c1595e0f1ccf1a8d7829e173e7d56b791a44d37e35873d03cf72ded"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-10175-dynamic-validation.json",
+      "transitions": 500121600,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 292,
+      "episodes": 512,
+      "success_rate": 0.5703125,
+      "sha256": "a35a2ac48ec5bc613b5b02e0f9f27c902450cf5ad0054c554373dca52c2192cb"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-12210-clean-validation.json",
+      "transitions": 600145920,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 280,
+      "episodes": 512,
+      "success_rate": 0.546875,
+      "sha256": "058434d771f1b60aef38932507a0aacfae98a571fa47780180d5f76794b663ce"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-12210-dynamic-validation.json",
+      "transitions": 600145920,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 297,
+      "episodes": 512,
+      "success_rate": 0.580078125,
+      "sha256": "f1d52d66b6d6fdd69d4a88810860e3e73dbc2a516123d36e7017dcb3a3bae300"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-14245-clean-validation.json",
+      "transitions": 700170240,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 300,
+      "episodes": 512,
+      "success_rate": 0.5859375,
+      "sha256": "285c97cb0a2f24be3d53c35d238d5edc3ad34286cb2fd6ede6df2c551221763e"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-14245-dynamic-validation.json",
+      "transitions": 700170240,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 315,
+      "episodes": 512,
+      "success_rate": 0.615234375,
+      "sha256": "07381b573f3569901a7440ae1f82d3da8d45896cb620395c11771b39eafead4b"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-16280-clean-validation.json",
+      "transitions": 800194560,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 289,
+      "episodes": 512,
+      "success_rate": 0.564453125,
+      "sha256": "5d402b6951769aa1689c823a3fc3f2d87d1dfac024b3391108d010db1f3101fb"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-16280-dynamic-validation.json",
+      "transitions": 800194560,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 279,
+      "episodes": 512,
+      "success_rate": 0.544921875,
+      "sha256": "6d159df9fc384747bb170157af2aba83663ad812bc5e494146c8d5b860d17666"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-18315-clean-validation.json",
+      "transitions": 900218880,
+      "split": "validation",
+      "occlusion": "clean",
+      "successes": 296,
+      "episodes": 512,
+      "success_rate": 0.578125,
+      "sha256": "1cf87fabb2db31de4955eca4da7ba88b31834ad575839af18bb906fcffd7503e"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-18315-dynamic-validation.json",
+      "transitions": 900218880,
+      "split": "validation",
+      "occlusion": "dynamic",
+      "successes": 257,
+      "episodes": 512,
+      "success_rate": 0.501953125,
+      "sha256": "6469398108b73b15ec5bfa832c16395d61665e5d052a3bfb6ce835ed222a94bb"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-20346-clean-test.json",
+      "transitions": 1000046592,
+      "split": "test",
+      "occlusion": "clean",
+      "successes": 498,
+      "episodes": 1024,
+      "success_rate": 0.486328125,
+      "sha256": "217d5a785e9f0000d008086ea6335e1839ab09a955b3007c7b26730687b963ce"
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/evaluation-20346-dynamic-test.json",
+      "transitions": 1000046592,
+      "split": "test",
+      "occlusion": "dynamic",
+      "successes": 506,
+      "episodes": 1024,
+      "success_rate": 0.494140625,
+      "sha256": "04a82ebbcba3c078001b60580767b44667a5d80123b607340bd6535ddc75e2b4"
+    }
+  ],
+  "updates": 20346,
+  "transitions": 1000046592,
+  "allocations": [
+    {
+      "job_id": "51716355",
+      "started_utc": "2026-10-10T01:49:34.811527+00:00"
+    }
+  ],
+  "updated_utc": "2026-10-10T23:25:16.197029+00:00",
+  "current_command": [
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "-m",
+    "active_perception_arms.evaluate",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_active_s2/push_active_clean_gru_v0_s2_n2048_push-rgb-arc120-20261009T233510Z_20261010T014954Z/model_20345.pt",
+    "--episodes",
+    "1024",
+    "--num-envs",
+    "128",
+    "--seed",
+    "80000",
+    "--split",
+    "test",
+    "--occlusion",
+    "dynamic",
+    "--hold-external-after",
+    "1.0",
+    "--audit-termination",
+    "--output",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/intervention-hold_external.json"
+  ],
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_active_s2/push_active_clean_gru_v0_s2_n2048_push-rgb-arc120-20261009T233510Z_20261010T014954Z/model_20345.pt",
+  "checkpoint_sha256": "4aec35d60bd963b13f7bbd5d53ab45eb080b9e334c48de5fea8383d2d262b0a0",
+  "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/push_rgb_arc120/push_active_s2/push_active_clean_gru_v0_s2_n2048_push-rgb-arc120-20261009T233510Z_20261010T014954Z",
+  "interventions": {
+    "freeze_camera": {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/intervention-freeze_camera.json",
+      "successes": 1,
+      "episodes": 1024,
+      "success_rate": 0.0009765625,
+      "sha256": "bf19e8d747e04bf8871f354ec9fde5a216bc203388924d1d583d5e99b554a70d"
+    },
+    "hold_external": {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/runs/push_active_s2/intervention-hold_external.json",
+      "successes": 66,
+      "episodes": 1024,
+      "success_rate": 0.064453125,
+      "sha256": "833a0d2e24221408db31c9a4cc8df6b200095829741c84c7d41dd79874c73336"
+    }
+  }
+}

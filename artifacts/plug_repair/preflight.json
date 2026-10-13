@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-09T16:59:26.900032+00:00",
+  "frozen_source_files_verified": 59,
+  "manifest_sha256": "d5e737d91f627d91ff5ebc01ddbe5c3ed93749d541484e59d37f283b83a7fdc7",
+  "cpu_checks": [
+    {
+      "suite": "full non-GPU suite before configuration-copy correction",
+      "passed": 166,
+      "deselected": 6
+    },
+    {
+      "suite": "orientation audit and repair controls",
+      "passed": 15
+    },
+    {
+      "suite": "repair controls, policy, reward profiles, CLI after checkpoint correction",
+      "passed": 71
+    }
+  ],
+  "native_diagnostic_sha256": "45551be02b7ec6d7feafd3dfa2549a39543168a0cd00f1fe895b574798f1a35d",
+  "ruff_passed": true,
+  "git_diff_check_passed": true
+}

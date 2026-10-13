@@ -1,0 +1,23 @@
+{
+  "status": "submitted",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=ALL",
+    "--account=kempner_pgozdil_lab",
+    "--partition=kempner_rtx",
+    "--exclude=holygpu7c2313",
+    "--chdir=/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101",
+    "--job-name=mp-push_wrist_static_s1",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/push-rgb-arc120-20261009T233352Z/scripts/slurm/push_rgb_study.sbatch",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.cache/push-rgb-arc120-20261009T233352Z/scripts/run_push_rgb_study.py",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/push_rgb_arc120/study-plan.json",
+    "push_wrist_static_s1"
+  ],
+  "created_utc": "2026-10-09T23:36:03.465559+00:00",
+  "stdout": "51716345\n",
+  "stderr": "",
+  "returncode": 0,
+  "job_id": "51716345"
+}

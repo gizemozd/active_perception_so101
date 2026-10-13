@@ -1,0 +1,23 @@
+{
+  "method": "supervised visual target estimation with prescribed lift-align-descend",
+  "teacher": "privileged target labels during training only; actor uses RGB/proprio and a time-based motion plan",
+  "actor_inputs": [
+    "wrist RGB",
+    "external RGB",
+    "proprioception"
+  ],
+  "args": {
+    "output": "artifacts/competence_repair/plug_inspection_ym_v2",
+    "variant": "ym",
+    "steps": 20000,
+    "num_envs": 256,
+    "horizon": 8,
+    "clearance": 0.002,
+    "seed": 0,
+    "teacher_only": false,
+    "jitter": 0.008,
+    "dense": false,
+    "inspection_only": true,
+    "eval_interval": 2000
+  }
+}

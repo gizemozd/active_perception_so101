@@ -1,0 +1,826 @@
+{
+  "points": 729,
+  "max_position_error_mm": 91.09228130669163,
+  "within_action_bounds": 663,
+  "within_joint_limits": 729,
+  "position_within_2mm": 696,
+  "scope": "Static IK endpoints only; no path collision or physical rollout certification",
+  "failures": [
+    {
+      "angle": -80,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 7.91155630660524e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 2.0816681711721685e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 7.144028522217822e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 2.5018537765542005e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 6.088854689467823e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 1.3877787807814457e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 17.39166661499946,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 76.54490432017688,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -40,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 12.56296491731508,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -40,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 47.769029430058296,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 1.5515838457795457e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 2.4037033579794548e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 12.352632054385122,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 48.807321550991894,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 3.772774310137954e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 14.264488913117566,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 28.293748345063225,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 91.09228130669163,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -40,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 10.395632884600902,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -40,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 33.363436787115845,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 9.549780168808828,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 28.640015653027795,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 26.299655959156862,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 88.3510719765348,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 7.9123995929909485,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.085,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 27.53798074218572,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 25.01555173717594,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 87.9123831934836,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -40,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 1.5515838457795457e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -40,
+      "radius": 0.12,
+      "source_xy": [
+        -0.045,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 5.312000493291163,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 9.813077866773594e-15,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 6.973502068242161e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 10.181165752461297,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 33.07033386182749,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 4.2774214746361783e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 8.12176708575559e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 9.594072179219232,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 29.0455169923306,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 13.647117482807976,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 55.41793214054822,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 7.110250420355456e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 1.962615573354719e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 17.005681722184896,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 75.95830351715878,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 12.871581464620256,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 49.12619046573837,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 7.027236119578164e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.025,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 4.4734344555831624e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 8.498374721940739e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 2.5018537765542005e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 7.152448122690996e-15,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 1.3985787785349405e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.065
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 5.099024833164444e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.065
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 2.0816681711721685e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 6.938893903907228e-15,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 4.163336342344337e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 4.8684911927311605,
+      "within_action_bounds": true,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 3.4737810535209726e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 4.166948782366562e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.045
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 1.5515838457795457e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.045
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 4.602741507868935e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 0.6915641136379972,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 23.698460938726875,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": -60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 2.4343561363085473,
+      "within_action_bounds": true,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 7.757919228897728e-15,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 60,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 1.3877787807814457e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.024999999999999998
+      ],
+      "stage": "contact_end",
+      "position_error_mm": 4.683753385137379e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    },
+    {
+      "angle": 80,
+      "radius": 0.12,
+      "source_xy": [
+        -0.005000000000000001,
+        -0.024999999999999998
+      ],
+      "stage": "withdraw",
+      "position_error_mm": 7.078437059792873e-14,
+      "within_action_bounds": false,
+      "within_joint_limits": true
+    }
+  ]
+}

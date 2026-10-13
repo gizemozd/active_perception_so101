@@ -1,0 +1,10 @@
+{
+  "updated_utc": "2026-10-09T20:30:58.789044+00:00",
+  "findings": [
+    "The initial 10M diagnostics are complete. At 2M and 5M, both tasks scored zero successes on both 512-episode held-out validation sets.",
+    "At 10,027,008 transitions, push scored 361/512 (70.5%) and 345/512 (67.4%) on the two held-out sets, versus zero at 5M. Actual evaluated success and failure trajectories were captured and rendered. This establishes substantial learning under the existing recipe, but does not meet the provisional \u226590% competence criterion.",
+    "Transfer scored 0/512 and 0/512 at 10M; all failures lacked the required physical lift history. Its training reward increased from approximately 21 at 2M to 69 at 10M while full task success remained zero. This is a concrete warning against treating reward growth as task competence. Bilateral grasps and partial lifts are developing, so a bounded extension can test whether they lead to the next stage.",
+    "The matched-reset physical reward audit favors scripted completion over each tested stalled controller for both total and discounted return. Transfer completion averaged 37.99 discounted return, versus 12.16 for reaching only, 13.15 for grasping without lifting, and 23.01 for lifting without placing. Push completion averaged 41.79, versus 11.41 for remaining behind the object and 18.65 for the controller without explicit withdrawal. This is a limited reward sanity check, not evidence of learned competence.",
+    "Both tasks have one reviewed extension to 20M cumulative transitions, using unchanged rewards, controls and PPO settings. Neither passed the initial competence gate. RGB remains stopped; its eventual per-run minimum remains 1B transitions."
+  ]
+}

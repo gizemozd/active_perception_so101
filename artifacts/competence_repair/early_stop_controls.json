@@ -1,0 +1,9 @@
+{
+  "time": "2026-10-12T04:47:26.243611+00:00",
+  "jobs": [
+    52302803,
+    52302805,
+    52304187
+  ],
+  "reason": "Bounded controls stopped after >=250-update independent validation: noise0.3=336/512, noise1.0=345/512 versus original346/512; fresh privileged state27/512. Saved checkpoints/logs retained. Prioritize geometry correction and action-mean regularization."
+}

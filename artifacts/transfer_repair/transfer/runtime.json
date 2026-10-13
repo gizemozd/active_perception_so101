@@ -1,0 +1,110 @@
+{
+  "status": "completed_diagnostic",
+  "task": "transfer",
+  "job_id": "51681681",
+  "updates": 204,
+  "transitions": 10027008,
+  "evaluations": [
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-41-s30000.json",
+      "transitions": 2015232,
+      "seed": 30000,
+      "successes": 0,
+      "episodes": 512,
+      "success_rate": 0.0,
+      "stages": {
+        "no_lift": 406,
+        "not_placed": 106
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-41-s31000.json",
+      "transitions": 2015232,
+      "seed": 31000,
+      "successes": 0,
+      "episodes": 512,
+      "success_rate": 0.0,
+      "stages": {
+        "no_lift": 392,
+        "not_placed": 120
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-102-s30000.json",
+      "transitions": 5013504,
+      "seed": 30000,
+      "successes": 19,
+      "episodes": 512,
+      "success_rate": 0.037109375,
+      "stages": {
+        "success": 19,
+        "not_placed": 419,
+        "no_lift": 74
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-102-s31000.json",
+      "transitions": 5013504,
+      "seed": 31000,
+      "successes": 7,
+      "episodes": 512,
+      "success_rate": 0.013671875,
+      "stages": {
+        "not_placed": 418,
+        "no_lift": 85,
+        "success": 7,
+        "not_settled": 2
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-204-s30000.json",
+      "transitions": 10027008,
+      "seed": 30000,
+      "successes": 9,
+      "episodes": 512,
+      "success_rate": 0.017578125,
+      "stages": {
+        "not_placed": 502,
+        "success": 9,
+        "not_withdrawn_or_held": 1
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-204-s31000.json",
+      "transitions": 10027008,
+      "seed": 31000,
+      "successes": 14,
+      "episodes": 512,
+      "success_rate": 0.02734375,
+      "stages": {
+        "not_placed": 494,
+        "not_withdrawn_or_held": 4,
+        "success": 14
+      }
+    }
+  ],
+  "started_utc": "2026-10-09T21:23:29.169018+00:00",
+  "current_command": [
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/.venv/bin/python",
+    "-m",
+    "active_perception_arms.evaluate",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_repair/transfer/transfer_wrist_static_clean_none_v4_s0_n2048_transfer-transport-privileged-20261009T212301Z_20261009T212339Z/model_203.pt",
+    "--episodes",
+    "512",
+    "--num-envs",
+    "128",
+    "--seed",
+    "31000",
+    "--split",
+    "validation",
+    "--audit-termination",
+    "--output",
+    "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-204-s31000.json"
+  ],
+  "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_repair/transfer/transfer_wrist_static_clean_none_v4_s0_n2048_transfer-transport-privileged-20261009T212301Z_20261009T212339Z/model_203.pt",
+  "checkpoint_sha256": "9cba8a13a9af750b9bb08f1a03a8f937123c086511f41d6c6f52266b94398773",
+  "run_directory": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/logs/transfer_repair/transfer/transfer_wrist_static_clean_none_v4_s0_n2048_transfer-transport-privileged-20261009T212301Z_20261009T212339Z",
+  "competence_demonstrated": false,
+  "next_step": "Review state-policy results and trajectories before any RGB training.",
+  "updated_utc": "2026-10-09T21:41:16.286243+00:00"
+}

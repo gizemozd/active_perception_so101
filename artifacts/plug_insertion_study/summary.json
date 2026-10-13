@@ -1,0 +1,33 @@
+{
+  "built_at": "2026-10-09T23:29:08.806949+00:00",
+  "runs": [
+    {
+      "condition": "wrist",
+      "status": "prepared",
+      "updates": 0,
+      "transitions": 0,
+      "target": 18001920,
+      "job_ids": [],
+      "evaluations": []
+    },
+    {
+      "condition": "wrist_static",
+      "status": "prepared",
+      "updates": 0,
+      "transitions": 0,
+      "target": 18001920,
+      "job_ids": [],
+      "evaluations": []
+    },
+    {
+      "condition": "active",
+      "status": "prepared",
+      "updates": 0,
+      "transitions": 0,
+      "target": 18001920,
+      "job_ids": [],
+      "evaluations": []
+    }
+  ],
+  "transitions_per_policy": 18001920
+}

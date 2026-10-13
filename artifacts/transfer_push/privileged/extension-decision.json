@@ -1,0 +1,18 @@
+{
+  "reason": "Both tasks receive one reviewed extension to 20M cumulative steps, with unchanged rewards, controls and PPO settings. Push reached 70.5%/67.4% held-out success at 10M; transfer is still at zero success but is learning bilateral grasps and partial lifts. Evaluate both again before any RGB training.",
+  "authorized_by": "User: Yes\u201410M steps first, extend if useful",
+  "created_utc": "2026-10-09T20:27:19.311463+00:00",
+  "tasks": {
+    "push": {
+      "initial_budget": 10027008,
+      "extended_budget": 20004864,
+      "reason": "Push improved from 0/512 twice at 5M to 361/512 and 345/512 at 10M. Extend push to 20M cumulative steps with unchanged reward, controls and optimizer; the curve is improving but competence is below 90%. Transfer extension remains undecided until its 10M evaluations finish."
+    },
+    "transfer": {
+      "initial_budget": 10027008,
+      "extended_budget": 20004864,
+      "reason": "Transfer has no complete held-out lifts at 10M, but training bilateral grasps grew from 9.3% at 5M to 84.8% at 10M, with mean normalized lift rising from 0.0125 to 0.5214 (approximately 13 mm). Give this developing grasp/lift behavior one bounded extension to 20M before changing the recipe. This is not a competence pass."
+    }
+  },
+  "updated_utc": "2026-10-09T20:29:57.457339+00:00"
+}

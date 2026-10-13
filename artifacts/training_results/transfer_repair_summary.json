@@ -1,0 +1,84 @@
+{
+  "status": "completed_diagnostic",
+  "transitions": 10027008,
+  "evaluations": [
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-41-s30000.json",
+      "transitions": 2015232,
+      "seed": 30000,
+      "successes": 0,
+      "episodes": 512,
+      "success_rate": 0.0,
+      "stages": {
+        "no_lift": 406,
+        "not_placed": 106
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-41-s31000.json",
+      "transitions": 2015232,
+      "seed": 31000,
+      "successes": 0,
+      "episodes": 512,
+      "success_rate": 0.0,
+      "stages": {
+        "no_lift": 392,
+        "not_placed": 120
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-102-s30000.json",
+      "transitions": 5013504,
+      "seed": 30000,
+      "successes": 19,
+      "episodes": 512,
+      "success_rate": 0.037109375,
+      "stages": {
+        "success": 19,
+        "not_placed": 419,
+        "no_lift": 74
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-102-s31000.json",
+      "transitions": 5013504,
+      "seed": 31000,
+      "successes": 7,
+      "episodes": 512,
+      "success_rate": 0.013671875,
+      "stages": {
+        "not_placed": 418,
+        "no_lift": 85,
+        "success": 7,
+        "not_settled": 2
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-204-s30000.json",
+      "transitions": 10027008,
+      "seed": 30000,
+      "successes": 9,
+      "episodes": 512,
+      "success_rate": 0.017578125,
+      "stages": {
+        "not_placed": 502,
+        "success": 9,
+        "not_withdrawn_or_held": 1
+      }
+    },
+    {
+      "path": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/transfer_repair/transfer/validation-204-s31000.json",
+      "transitions": 10027008,
+      "seed": 31000,
+      "successes": 14,
+      "episodes": 512,
+      "success_rate": 0.02734375,
+      "stages": {
+        "not_placed": 494,
+        "not_withdrawn_or_held": 4,
+        "success": 14
+      }
+    }
+  ],
+  "competence_demonstrated": false
+}

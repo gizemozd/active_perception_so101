@@ -1,0 +1,5 @@
+condition,failures,failed_timeout,explicit_failure,terminal_le2mm,terminal_2to5mm,terminal_5to10mm,terminal_gt10mm
+wrist,504,504,0,1,145,10,348
+wrist_static,489,489,0,10,95,11,373
+active,410,410,0,13,184,11,202
+initial,365,365,0,15,202,11,137

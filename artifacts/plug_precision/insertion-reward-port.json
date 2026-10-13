@@ -1,0 +1,13 @@
+{
+  "source": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_arms/src/active_perception_arms/tasks/insertion/mdp/rewards.py",
+  "source_sha256": "1f0274bfc74520bc134a1b29cd18da0a5d385745b58f1efbcb96f3e13ebbdc94",
+  "function": "insertion_reward",
+  "samples_each": 10000,
+  "rotation_modes": [
+    false,
+    true
+  ],
+  "exact_parity": true,
+  "sampling_adapter": "current qpos rather than stale derived pose; same corrected goal",
+  "termination": "existing three-sample hold retained; source reward bonus is instantaneous"
+}

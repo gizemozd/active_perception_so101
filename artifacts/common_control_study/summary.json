@@ -1,0 +1,2983 @@
+{
+  "updated_utc": "2026-10-12T21:54:35.234855+00:00",
+  "scope": "Small-budget screening; two training seeds. Episode counts do not replace independent training seeds. Final tests excluded from checkpoint selection.",
+  "rows": [
+    {
+      "stage": "camera_v1",
+      "case": "low_noise_wrist_static_s0",
+      "condition": "wrist_static",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.0,
+      "clean_successes": 0,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/low_noise_wrist_static_s0/test-clean.json",
+      "clean_terminal_error_mm": 25.171414518808888,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 24.556650780141354,
+      "clean_failures_over_20mm": 340,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/low_noise_wrist_static_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 25.12995256938666,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 24.860458448529243,
+      "dynamic_failures_over_20mm": 337,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_low_noise_wrist_static_s0_20261012T212335Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "bounded_wrist_static_s0",
+      "condition": "wrist_static",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.005859375,
+      "clean_successes": 3,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/bounded_wrist_static_s0/test-clean.json",
+      "clean_terminal_error_mm": 23.847830892236743,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 22.25690335035324,
+      "clean_failures_over_20mm": 310,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/bounded_wrist_static_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 23.34257142865681,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 22.19240553677082,
+      "dynamic_failures_over_20mm": 306,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/bounded_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_bounded_wrist_static_s0_20261012T212335Z/model_199.pt",
+        "validation_successes": 2,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_wrist_static_s0",
+      "condition": "wrist_static",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.00390625,
+      "clean_successes": 2,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_wrist_static_s0/test-clean.json",
+      "clean_terminal_error_mm": 33.26400950436437,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 33.92886742949486,
+      "clean_failures_over_20mm": 411,
+      "dynamic": 0.00390625,
+      "dynamic_successes": 2,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_wrist_static_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 32.57888975304013,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 33.995283767580986,
+      "dynamic_failures_over_20mm": 404,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_inspection_wrist_static_s0_20261012T212335Z/model_100.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_dynamic_wrist_static_s0",
+      "condition": "wrist_static",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "dynamic",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.001953125,
+      "clean_successes": 1,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_dynamic_wrist_static_s0/test-clean.json",
+      "clean_terminal_error_mm": 26.47768475048906,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 24.463163688778877,
+      "clean_failures_over_20mm": 349,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_dynamic_wrist_static_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 27.05735405697851,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 25.13085026293993,
+      "dynamic_failures_over_20mm": 356,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_dynamic_wrist_static_s0/logs/plug_wrist_static_dynamic_gru_v0_s0_n256_inspection_dynamic_wrist_static_s0_20261012T212343Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "low_noise_active_s0",
+      "condition": "active",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.017578125,
+      "clean_successes": 9,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/low_noise_active_s0/test-clean.json",
+      "clean_terminal_error_mm": 25.150584478979,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 9,
+          "success_rate": 0.0703125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 24.90920014679432,
+      "clean_failures_over_20mm": 370,
+      "dynamic": 0.03125,
+      "dynamic_successes": 16,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/low_noise_active_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 25.292818697039365,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 16,
+          "success_rate": 0.125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 25.04683844745159,
+      "dynamic_failures_over_20mm": 382,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 30,
+          "episodes": 512,
+          "success_rate": 0.05859375,
+          "source": "camera_v1/low_noise_active_s0/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 13,
+          "episodes": 512,
+          "success_rate": 0.025390625,
+          "source": "camera_v1/low_noise_active_s0/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 15,
+          "episodes": 512,
+          "success_rate": 0.029296875,
+          "source": "camera_v1/low_noise_active_s0/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_active_s0/logs/plug_active_clean_gru_v0_s0_n256_low_noise_active_s0_20261012T212343Z/model_199.pt",
+        "validation_successes": 5,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "bounded_active_s0",
+      "condition": "active",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.00390625,
+      "clean_successes": 2,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/bounded_active_s0/test-clean.json",
+      "clean_terminal_error_mm": 23.144748673644244,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 21.84178587049246,
+      "clean_failures_over_20mm": 304,
+      "dynamic": 0.005859375,
+      "dynamic_successes": 3,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/bounded_active_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 23.209106515651,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 3,
+          "success_rate": 0.0234375
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 21.84845507144928,
+      "dynamic_failures_over_20mm": 303,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 2,
+          "episodes": 512,
+          "success_rate": 0.00390625,
+          "source": "camera_v1/bounded_active_s0/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/bounded_active_s0/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 1,
+          "episodes": 512,
+          "success_rate": 0.001953125,
+          "source": "camera_v1/bounded_active_s0/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/bounded_active_s0/logs/plug_active_clean_gru_v0_s0_n256_bounded_active_s0_20261012T212349Z/model_199.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_active_s0",
+      "condition": "active",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.00390625,
+      "clean_successes": 2,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_active_s0/test-clean.json",
+      "clean_terminal_error_mm": 25.723618077108767,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 23.359574377536774,
+      "clean_failures_over_20mm": 315,
+      "dynamic": 0.00390625,
+      "dynamic_successes": 2,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_active_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 25.82162157887069,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 23.262443020939827,
+      "dynamic_failures_over_20mm": 315,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 1,
+          "episodes": 512,
+          "success_rate": 0.001953125,
+          "source": "camera_v1/inspection_active_s0/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 2,
+          "episodes": 512,
+          "success_rate": 0.00390625,
+          "source": "camera_v1/inspection_active_s0/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 1,
+          "episodes": 512,
+          "success_rate": 0.001953125,
+          "source": "camera_v1/inspection_active_s0/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_active_s0/logs/plug_active_clean_gru_v0_s0_n256_inspection_active_s0_20261012T212349Z/model_199.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_dynamic_active_s0",
+      "condition": "active",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "dynamic",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.013671875,
+      "clean_successes": 7,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_dynamic_active_s0/test-clean.json",
+      "clean_terminal_error_mm": 26.787584808744214,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 7,
+          "success_rate": 0.0546875
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 24.77152645587921,
+      "clean_failures_over_20mm": 354,
+      "dynamic": 0.013671875,
+      "dynamic_successes": 7,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_dynamic_active_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 26.90914029517444,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 7,
+          "success_rate": 0.0546875
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 24.805931374430656,
+      "dynamic_failures_over_20mm": 354,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 9,
+          "episodes": 512,
+          "success_rate": 0.017578125,
+          "source": "camera_v1/inspection_dynamic_active_s0/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 9,
+          "episodes": 512,
+          "success_rate": 0.017578125,
+          "source": "camera_v1/inspection_dynamic_active_s0/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 6,
+          "episodes": 512,
+          "success_rate": 0.01171875,
+          "source": "camera_v1/inspection_dynamic_active_s0/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_dynamic_active_s0/logs/plug_active_dynamic_gru_v0_s0_n256_inspection_dynamic_active_s0_20261012T212401Z/model_199.pt",
+        "validation_successes": 7,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_slow_active_s0",
+      "condition": "active",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 4,
+      "training_occlusion": "dynamic",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.02734375,
+      "clean_successes": 14,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_slow_active_s0/test-clean.json",
+      "clean_terminal_error_mm": 32.38373371755188,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 14,
+          "success_rate": 0.109375
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 32.03786350786686,
+      "clean_failures_over_20mm": 412,
+      "dynamic": 0.02734375,
+      "dynamic_successes": 14,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_slow_active_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 31.680494891134003,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 14,
+          "success_rate": 0.109375
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 31.421588733792305,
+      "dynamic_failures_over_20mm": 404,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 5,
+          "episodes": 512,
+          "success_rate": 0.009765625,
+          "source": "camera_v1/inspection_slow_active_s0/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 16,
+          "episodes": 512,
+          "success_rate": 0.03125,
+          "source": "camera_v1/inspection_slow_active_s0/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 15,
+          "episodes": 512,
+          "success_rate": 0.029296875,
+          "source": "camera_v1/inspection_slow_active_s0/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_slow_active_s0/logs/plug_active_dynamic_gru_v0_s0_n256_inspection_slow_active_s0_20261012T212437Z/model_199.pt",
+        "validation_successes": 8,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "low_noise_wrist_static_s1",
+      "condition": "wrist_static",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.001953125,
+      "clean_successes": 1,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/low_noise_wrist_static_s1/test-clean.json",
+      "clean_terminal_error_mm": 20.092656586257363,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 19.843319430947304,
+      "clean_failures_over_20mm": 252,
+      "dynamic": 0.001953125,
+      "dynamic_successes": 1,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/low_noise_wrist_static_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 20.263810564756568,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 20.215243101119995,
+      "dynamic_failures_over_20mm": 261,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_low_noise_wrist_static_s1_20261012T212436Z/model_199.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "bounded_wrist_static_s1",
+      "condition": "wrist_static",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.00390625,
+      "clean_successes": 2,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/bounded_wrist_static_s1/test-clean.json",
+      "clean_terminal_error_mm": 28.90834646109397,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 27.789336629211903,
+      "clean_failures_over_20mm": 422,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/bounded_wrist_static_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 29.20002926930465,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 28.25630735605955,
+      "dynamic_failures_over_20mm": 426,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/bounded_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_bounded_wrist_static_s1_20261012T212439Z/model_199.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_wrist_static_s1",
+      "condition": "wrist_static",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.005859375,
+      "clean_successes": 3,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_wrist_static_s1/test-clean.json",
+      "clean_terminal_error_mm": 21.626393482620188,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 3,
+          "success_rate": 0.0234375
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 21.112529560923576,
+      "clean_failures_over_20mm": 289,
+      "dynamic": 0.001953125,
+      "dynamic_successes": 1,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_wrist_static_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 21.758900594250008,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 20.79716883599758,
+      "dynamic_failures_over_20mm": 288,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_inspection_wrist_static_s1_20261012T212436Z/model_199.pt",
+        "validation_successes": 3,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_dynamic_wrist_static_s1",
+      "condition": "wrist_static",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "dynamic",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.021484375,
+      "clean_successes": 11,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_dynamic_wrist_static_s1/test-clean.json",
+      "clean_terminal_error_mm": 21.60484903856741,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 11,
+          "success_rate": 0.0859375
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 22.16242253780365,
+      "clean_failures_over_20mm": 312,
+      "dynamic": 0.01171875,
+      "dynamic_successes": 6,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_dynamic_wrist_static_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 21.36759929726395,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 6,
+          "success_rate": 0.046875
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 22.195574827492237,
+      "dynamic_failures_over_20mm": 308,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_dynamic_wrist_static_s1/logs/plug_wrist_static_dynamic_gru_v0_s1_n256_inspection_dynamic_wrist_static_s1_20261012T212442Z/model_199.pt",
+        "validation_successes": 2,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "low_noise_active_s1",
+      "condition": "active",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.001953125,
+      "clean_successes": 1,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/low_noise_active_s1/test-clean.json",
+      "clean_terminal_error_mm": 29.22062067227671,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 24.57403391599655,
+      "clean_failures_over_20mm": 329,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/low_noise_active_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 28.941288614532823,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 24.743592366576195,
+      "dynamic_failures_over_20mm": 336,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/low_noise_active_s1/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/low_noise_active_s1/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/low_noise_active_s1/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/low_noise_active_s1/logs/plug_active_clean_gru_v0_s1_n256_low_noise_active_s1_20261012T212453Z/model_100.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "bounded_active_s1",
+      "condition": "active",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.0,
+      "clean_successes": 0,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/bounded_active_s1/test-clean.json",
+      "clean_terminal_error_mm": 41.06663421680423,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 41.372185572981834,
+      "clean_failures_over_20mm": 423,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/bounded_active_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 40.686595718398166,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 41.13350063562393,
+      "dynamic_failures_over_20mm": 423,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/bounded_active_s1/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/bounded_active_s1/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/bounded_active_s1/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/bounded_active_s1/logs/plug_active_clean_gru_v0_s1_n256_bounded_active_s1_20261012T212457Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_active_s1",
+      "condition": "active",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.001953125,
+      "clean_successes": 1,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_active_s1/test-clean.json",
+      "clean_terminal_error_mm": 49.025476289216385,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 53.80988121032715,
+      "clean_failures_over_20mm": 449,
+      "dynamic": 0.001953125,
+      "dynamic_successes": 1,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_active_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 49.681975166322445,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 54.41541224718094,
+      "dynamic_failures_over_20mm": 448,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 1,
+          "episodes": 512,
+          "success_rate": 0.001953125,
+          "source": "camera_v1/inspection_active_s1/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/inspection_active_s1/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 1,
+          "episodes": 512,
+          "success_rate": 0.001953125,
+          "source": "camera_v1/inspection_active_s1/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_active_s1/logs/plug_active_clean_gru_v0_s1_n256_inspection_active_s1_20261012T212453Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_dynamic_active_s1",
+      "condition": "active",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 1,
+      "training_occlusion": "dynamic",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.0,
+      "clean_successes": 0,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_dynamic_active_s1/test-clean.json",
+      "clean_terminal_error_mm": 30.44758160967831,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 28.70797272771597,
+      "clean_failures_over_20mm": 373,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_dynamic_active_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 30.942368346131843,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 30.366213992238045,
+      "dynamic_failures_over_20mm": 379,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/inspection_dynamic_active_s1/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/inspection_dynamic_active_s1/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 0,
+          "episodes": 512,
+          "success_rate": 0.0,
+          "source": "camera_v1/inspection_dynamic_active_s1/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_dynamic_active_s1/logs/plug_active_dynamic_gru_v0_s1_n256_inspection_dynamic_active_s1_20261012T213634Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "camera_v1",
+      "case": "inspection_slow_active_s1",
+      "condition": "active",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "squashed",
+      "camera_interval": 4,
+      "training_occlusion": "dynamic",
+      "camera_start": "inspection_v1",
+      "camera_workspace": "inspection_v2",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.009765625,
+      "clean_successes": 5,
+      "clean_episodes": 512,
+      "clean_source": "camera_v1/inspection_slow_active_s1/test-clean.json",
+      "clean_terminal_error_mm": 28.888314210234967,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 5,
+          "success_rate": 0.0390625
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 27.42057293653488,
+      "clean_failures_over_20mm": 388,
+      "dynamic": 0.009765625,
+      "dynamic_successes": 5,
+      "dynamic_episodes": 512,
+      "dynamic_source": "camera_v1/inspection_slow_active_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 29.26857728084542,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 5,
+          "success_rate": 0.0390625
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 27.765385806560516,
+      "dynamic_failures_over_20mm": 393,
+      "interventions": {
+        "freeze_camera_1": {
+          "successes": 7,
+          "episodes": 512,
+          "success_rate": 0.013671875,
+          "source": "camera_v1/inspection_slow_active_s1/intervention-freeze_camera_1.json"
+        },
+        "hold_external_0": {
+          "successes": 6,
+          "episodes": 512,
+          "success_rate": 0.01171875,
+          "source": "camera_v1/inspection_slow_active_s1/intervention-hold_external_0.json"
+        },
+        "hold_external_1": {
+          "successes": 6,
+          "episodes": 512,
+          "success_rate": 0.01171875,
+          "source": "camera_v1/inspection_slow_active_s1/intervention-hold_external_1.json"
+        }
+      },
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/camera_v1/inspection_slow_active_s1/logs/plug_active_dynamic_gru_v0_s1_n256_inspection_slow_active_s1_20261012T213639Z/model_199.pt",
+        "validation_successes": 4,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_wrist_s0",
+      "condition": "wrist",
+      "seed": 0,
+      "control": "absolute",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.0,
+      "clean_successes": 0,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/absolute_wrist_s0/test-clean.json",
+      "clean_terminal_error_mm": 27.276951609110256,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 24.05043411999941,
+      "clean_failures_over_20mm": 340,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/absolute_wrist_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 27.58482340550472,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 24.39042367041111,
+      "dynamic_failures_over_20mm": 350,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_s0/logs/plug_wrist_clean_gru_v0_s0_n256_absolute_wrist_s0_20261012T205151Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_wrist_s0",
+      "condition": "wrist",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.0,
+      "clean_successes": 0,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/delta_wrist_s0/test-clean.json",
+      "clean_terminal_error_mm": 20.635952558905046,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 20.758433267474174,
+      "clean_failures_over_20mm": 274,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/delta_wrist_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 20.336323415449442,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 20.398356951773167,
+      "dynamic_failures_over_20mm": 272,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_wrist_s0/logs/plug_wrist_clean_gru_v0_s0_n256_delta_wrist_s0_20261012T205159Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_wrist_static_s0",
+      "condition": "wrist_static",
+      "seed": 0,
+      "control": "absolute",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.00390625,
+      "clean_successes": 2,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/absolute_wrist_static_s0/test-clean.json",
+      "clean_terminal_error_mm": 19.831315233545865,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        }
+      },
+      "clean_failure_median_error_mm": 21.53606992214918,
+      "clean_failures_over_20mm": 294,
+      "dynamic": 0.00390625,
+      "dynamic_successes": 2,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/absolute_wrist_static_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 21.153716857725158,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        }
+      },
+      "dynamic_failure_median_error_mm": 21.884369663894176,
+      "dynamic_failures_over_20mm": 293,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_absolute_wrist_static_s0_20261012T205159Z/model_199.pt",
+        "validation_successes": 3,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_wrist_static_s0",
+      "condition": "wrist_static",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.005859375,
+      "clean_successes": 3,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/delta_wrist_static_s0/test-clean.json",
+      "clean_terminal_error_mm": 22.808066843936103,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        }
+      },
+      "clean_failure_median_error_mm": 22.1809521317482,
+      "clean_failures_over_20mm": 311,
+      "dynamic": 0.001953125,
+      "dynamic_successes": 1,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/delta_wrist_static_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 23.28707048184242,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        }
+      },
+      "dynamic_failure_median_error_mm": 22.19470962882042,
+      "dynamic_failures_over_20mm": 316,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_wrist_static_s0/logs/plug_wrist_static_clean_gru_v0_s0_n256_delta_wrist_static_s0_20261012T205205Z/model_199.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_active_s0",
+      "condition": "active",
+      "seed": 0,
+      "control": "absolute",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.0,
+      "clean_successes": 0,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/absolute_active_s0/test-clean.json",
+      "clean_terminal_error_mm": 29.876103802052967,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 28.445368632674217,
+      "clean_failures_over_20mm": 373,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/absolute_active_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 30.138993370201206,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 28.27335149049759,
+      "dynamic_failures_over_20mm": 374,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_active_s0/logs/plug_active_clean_gru_v0_s0_n256_absolute_active_s0_20261012T210429Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_active_s0",
+      "condition": "active",
+      "seed": 0,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.01953125,
+      "clean_successes": 10,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/delta_active_s0/test-clean.json",
+      "clean_terminal_error_mm": 22.476486903315163,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 10,
+          "success_rate": 0.078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 21.92929107695818,
+      "clean_failures_over_20mm": 315,
+      "dynamic": 0.00390625,
+      "dynamic_successes": 2,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/delta_active_s0/test-dynamic.json",
+      "dynamic_terminal_error_mm": 22.59679852750196,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 21.946949884295464,
+      "dynamic_failures_over_20mm": 314,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_active_s0/logs/plug_active_clean_gru_v0_s0_n256_delta_active_s0_20261012T210428Z/model_199.pt",
+        "validation_successes": 4,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_wrist_s1",
+      "condition": "wrist",
+      "seed": 1,
+      "control": "absolute",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.021484375,
+      "clean_successes": 11,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/absolute_wrist_s1/test-clean.json",
+      "clean_terminal_error_mm": 22.917342256960183,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 10,
+          "success_rate": 0.078125
+        }
+      },
+      "clean_failure_median_error_mm": 21.93307876586914,
+      "clean_failures_over_20mm": 295,
+      "dynamic": 0.017578125,
+      "dynamic_successes": 9,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/absolute_wrist_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 22.75257746987336,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 9,
+          "success_rate": 0.0703125
+        }
+      },
+      "dynamic_failure_median_error_mm": 22.00562134385109,
+      "dynamic_failures_over_20mm": 302,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_s1/logs/plug_wrist_clean_gru_v0_s1_n256_absolute_wrist_s1_20261012T210435Z/model_199.pt",
+        "validation_successes": 5,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_wrist_s1",
+      "condition": "wrist",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.005859375,
+      "clean_successes": 3,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/delta_wrist_s1/test-clean.json",
+      "clean_terminal_error_mm": 24.071390329027054,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        }
+      },
+      "clean_failure_median_error_mm": 21.884344518184662,
+      "clean_failures_over_20mm": 317,
+      "dynamic": 0.00390625,
+      "dynamic_successes": 2,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/delta_wrist_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 23.802266709481046,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        }
+      },
+      "dynamic_failure_median_error_mm": 21.84328157454729,
+      "dynamic_failures_over_20mm": 304,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_wrist_s1/logs/plug_wrist_clean_gru_v0_s1_n256_delta_wrist_s1_20261012T210453Z/model_100.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_wrist_static_s1",
+      "condition": "wrist_static",
+      "seed": 1,
+      "control": "absolute",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.005859375,
+      "clean_successes": 3,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/absolute_wrist_static_s1/test-clean.json",
+      "clean_terminal_error_mm": 20.846238566718966,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 3,
+          "success_rate": 0.0234375
+        }
+      },
+      "clean_failure_median_error_mm": 21.28480188548565,
+      "clean_failures_over_20mm": 280,
+      "dynamic": 0.005859375,
+      "dynamic_successes": 3,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/absolute_wrist_static_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 20.726205840901457,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        }
+      },
+      "dynamic_failure_median_error_mm": 21.37245424091816,
+      "dynamic_failures_over_20mm": 281,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_absolute_wrist_static_s1_20261012T210456Z/model_199.pt",
+        "validation_successes": 1,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_wrist_static_s1",
+      "condition": "wrist_static",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.005859375,
+      "clean_successes": 3,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/delta_wrist_static_s1/test-clean.json",
+      "clean_terminal_error_mm": 26.40780010767685,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 2,
+          "success_rate": 0.015625
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        }
+      },
+      "clean_failure_median_error_mm": 22.86771684885025,
+      "clean_failures_over_20mm": 334,
+      "dynamic": 0.001953125,
+      "dynamic_successes": 1,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/delta_wrist_static_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 26.205058765754075,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 1,
+          "success_rate": 0.0078125
+        }
+      },
+      "dynamic_failure_median_error_mm": 23.097286000847816,
+      "dynamic_failures_over_20mm": 340,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_wrist_static_s1/logs/plug_wrist_static_clean_gru_v0_s1_n256_delta_wrist_static_s1_20261012T210624Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "absolute_active_s1",
+      "condition": "active",
+      "seed": 1,
+      "control": "absolute",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.0,
+      "clean_successes": 0,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/absolute_active_s1/test-clean.json",
+      "clean_terminal_error_mm": 25.85390805552379,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 22.41572644561529,
+      "clean_failures_over_20mm": 315,
+      "dynamic": 0.0,
+      "dynamic_successes": 0,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/absolute_active_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 25.931538044915214,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 22.47143629938364,
+      "dynamic_failures_over_20mm": 314,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/absolute_active_s1/logs/plug_active_clean_gru_v0_s1_n256_absolute_active_s1_20261012T210624Z/model_100.pt",
+        "validation_successes": 0,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    },
+    {
+      "stage": "control_v2",
+      "case": "delta_active_s1",
+      "condition": "active",
+      "seed": 1,
+      "control": "delta",
+      "distribution": "gaussian",
+      "camera_interval": 1,
+      "training_occlusion": "clean",
+      "camera_start": "home",
+      "camera_workspace": "local_v1",
+      "budget": 1228800,
+      "completed": true,
+      "actual_transitions": 1228800,
+      "clean": 0.015625,
+      "clean_successes": 8,
+      "clean_episodes": 512,
+      "clean_source": "control_v2/delta_active_s1/test-clean.json",
+      "clean_terminal_error_mm": 27.55715168223105,
+      "clean_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 8,
+          "success_rate": 0.0625
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "clean_failure_median_error_mm": 25.050981901586056,
+      "clean_failures_over_20mm": 368,
+      "dynamic": 0.0078125,
+      "dynamic_successes": 4,
+      "dynamic_episodes": 512,
+      "dynamic_source": "control_v2/delta_active_s1/test-dynamic.json",
+      "dynamic_terminal_error_mm": 27.626017956663418,
+      "dynamic_per_variant": {
+        "xm": {
+          "episodes": 128,
+          "successes": 4,
+          "success_rate": 0.03125
+        },
+        "xp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "ym": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        "yp": {
+          "episodes": 128,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      },
+      "dynamic_failure_median_error_mm": 24.622983299195766,
+      "dynamic_failures_over_20mm": 364,
+      "interventions": {},
+      "selection": {
+        "checkpoint": "/n/holylabs/pgozdil_lab/Lab/active-perception/active_perception_so101/artifacts/common_control_study/control_v2/delta_active_s1/logs/plug_active_clean_gru_v0_s1_n256_delta_active_s1_20261012T210747Z/model_100.pt",
+        "validation_successes": 2,
+        "rule": "Highest clean validation success, earliest checkpoint breaks ties; final tests never select checkpoints."
+      }
+    }
+  ],
+  "means": [
+    {
+      "stage": "camera_v1",
+      "recipe": "low_noise_wrist_static",
+      "clean_mean": 0.0009765625,
+      "clean_seed_sd": 0.0013810679320049757,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0009765625,
+      "dynamic_seed_sd": 0.0013810679320049757,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "camera_v1",
+      "recipe": "bounded_wrist_static",
+      "clean_mean": 0.0048828125,
+      "clean_seed_sd": 0.0013810679320049757,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0,
+      "dynamic_seed_sd": 0.0,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "camera_v1",
+      "recipe": "inspection_wrist_static",
+      "clean_mean": 0.0048828125,
+      "clean_seed_sd": 0.0013810679320049757,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0029296875,
+      "dynamic_seed_sd": 0.0013810679320049757,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "camera_v1",
+      "recipe": "inspection_dynamic_wrist_static",
+      "clean_mean": 0.01171875,
+      "clean_seed_sd": 0.013810679320049757,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.005859375,
+      "dynamic_seed_sd": 0.008286407592029853,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "camera_v1",
+      "recipe": "low_noise_active",
+      "clean_mean": 0.009765625,
+      "clean_seed_sd": 0.011048543456039806,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.015625,
+      "dynamic_seed_sd": 0.02209708691207961,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "camera_v1",
+      "recipe": "bounded_active",
+      "clean_mean": 0.001953125,
+      "clean_seed_sd": 0.0027621358640099515,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0029296875,
+      "dynamic_seed_sd": 0.0041432037960149265,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "camera_v1",
+      "recipe": "inspection_active",
+      "clean_mean": 0.0029296875,
+      "clean_seed_sd": 0.0013810679320049757,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0029296875,
+      "dynamic_seed_sd": 0.0013810679320049757,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "camera_v1",
+      "recipe": "inspection_dynamic_active",
+      "clean_mean": 0.0068359375,
+      "clean_seed_sd": 0.00966747552403483,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0068359375,
+      "dynamic_seed_sd": 0.00966747552403483,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "camera_v1",
+      "recipe": "inspection_slow_active",
+      "clean_mean": 0.0185546875,
+      "clean_seed_sd": 0.01242961138804478,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0185546875,
+      "dynamic_seed_sd": 0.01242961138804478,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "control_v2",
+      "recipe": "absolute_wrist",
+      "clean_mean": 0.0107421875,
+      "clean_seed_sd": 0.015191747252054731,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0087890625,
+      "dynamic_seed_sd": 0.01242961138804478,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "control_v2",
+      "recipe": "delta_wrist",
+      "clean_mean": 0.0029296875,
+      "clean_seed_sd": 0.0041432037960149265,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.001953125,
+      "dynamic_seed_sd": 0.0027621358640099515,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "control_v2",
+      "recipe": "absolute_wrist_static",
+      "clean_mean": 0.0048828125,
+      "clean_seed_sd": 0.0013810679320049757,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0048828125,
+      "dynamic_seed_sd": 0.0013810679320049757,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "control_v2",
+      "recipe": "delta_wrist_static",
+      "clean_mean": 0.005859375,
+      "clean_seed_sd": 0.0,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.001953125,
+      "dynamic_seed_sd": 0.0,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "control_v2",
+      "recipe": "absolute_active",
+      "clean_mean": 0.0,
+      "clean_seed_sd": 0.0,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.0,
+      "dynamic_seed_sd": 0.0,
+      "dynamic_seeds": 2
+    },
+    {
+      "stage": "control_v2",
+      "recipe": "delta_active",
+      "clean_mean": 0.017578125,
+      "clean_seed_sd": 0.0027621358640099515,
+      "clean_seeds": 2,
+      "dynamic_mean": 0.005859375,
+      "dynamic_seed_sd": 0.0027621358640099515,
+      "dynamic_seeds": 2
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "stage": "camera_v1",
+      "baseline": "low_noise_wrist_static_s0",
+      "candidate": "low_noise_active_s0",
+      "mode": "clean",
+      "difference_pp": 1.7578125,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "low_noise_wrist_static_s0",
+      "candidate": "low_noise_active_s0",
+      "mode": "dynamic",
+      "difference_pp": 3.125,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "bounded_wrist_static_s0",
+      "candidate": "bounded_active_s0",
+      "mode": "clean",
+      "difference_pp": -0.1953125,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "bounded_wrist_static_s0",
+      "candidate": "bounded_active_s0",
+      "mode": "dynamic",
+      "difference_pp": 0.5859375,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_wrist_static_s0",
+      "candidate": "inspection_active_s0",
+      "mode": "clean",
+      "difference_pp": 0.0,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_wrist_static_s0",
+      "candidate": "inspection_active_s0",
+      "mode": "dynamic",
+      "difference_pp": 0.0,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_dynamic_wrist_static_s0",
+      "candidate": "inspection_dynamic_active_s0",
+      "mode": "clean",
+      "difference_pp": 1.171875,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_dynamic_wrist_static_s0",
+      "candidate": "inspection_dynamic_active_s0",
+      "mode": "dynamic",
+      "difference_pp": 1.3671875,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_dynamic_wrist_static_s0",
+      "candidate": "inspection_slow_active_s0",
+      "mode": "clean",
+      "difference_pp": 2.5390625,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_dynamic_wrist_static_s0",
+      "candidate": "inspection_slow_active_s0",
+      "mode": "dynamic",
+      "difference_pp": 2.734375,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "low_noise_wrist_static_s1",
+      "candidate": "low_noise_active_s1",
+      "mode": "clean",
+      "difference_pp": 0.0,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "low_noise_wrist_static_s1",
+      "candidate": "low_noise_active_s1",
+      "mode": "dynamic",
+      "difference_pp": -0.1953125,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "bounded_wrist_static_s1",
+      "candidate": "bounded_active_s1",
+      "mode": "clean",
+      "difference_pp": -0.390625,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "bounded_wrist_static_s1",
+      "candidate": "bounded_active_s1",
+      "mode": "dynamic",
+      "difference_pp": 0.0,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_wrist_static_s1",
+      "candidate": "inspection_active_s1",
+      "mode": "clean",
+      "difference_pp": -0.390625,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_wrist_static_s1",
+      "candidate": "inspection_active_s1",
+      "mode": "dynamic",
+      "difference_pp": 0.0,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_dynamic_wrist_static_s1",
+      "candidate": "inspection_dynamic_active_s1",
+      "mode": "clean",
+      "difference_pp": -2.1484375,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_dynamic_wrist_static_s1",
+      "candidate": "inspection_dynamic_active_s1",
+      "mode": "dynamic",
+      "difference_pp": -1.171875,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_dynamic_wrist_static_s1",
+      "candidate": "inspection_slow_active_s1",
+      "mode": "clean",
+      "difference_pp": -1.171875,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "camera_v1",
+      "baseline": "inspection_dynamic_wrist_static_s1",
+      "candidate": "inspection_slow_active_s1",
+      "mode": "dynamic",
+      "difference_pp": -0.1953125,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_wrist_s0",
+      "candidate": "delta_wrist_s0",
+      "mode": "clean",
+      "difference_pp": 0.0,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_wrist_s0",
+      "candidate": "delta_wrist_s0",
+      "mode": "dynamic",
+      "difference_pp": 0.0,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_wrist_static_s0",
+      "candidate": "delta_wrist_static_s0",
+      "mode": "clean",
+      "difference_pp": 0.1953125,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_wrist_static_s0",
+      "candidate": "delta_wrist_static_s0",
+      "mode": "dynamic",
+      "difference_pp": -0.1953125,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_active_s0",
+      "candidate": "delta_active_s0",
+      "mode": "clean",
+      "difference_pp": 1.953125,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_active_s0",
+      "candidate": "delta_active_s0",
+      "mode": "dynamic",
+      "difference_pp": 0.390625,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_wrist_s1",
+      "candidate": "delta_wrist_s1",
+      "mode": "clean",
+      "difference_pp": -1.5625,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_wrist_s1",
+      "candidate": "delta_wrist_s1",
+      "mode": "dynamic",
+      "difference_pp": -1.3671875,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_wrist_static_s1",
+      "candidate": "delta_wrist_static_s1",
+      "mode": "clean",
+      "difference_pp": 0.0,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_wrist_static_s1",
+      "candidate": "delta_wrist_static_s1",
+      "mode": "dynamic",
+      "difference_pp": -0.390625,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_active_s1",
+      "candidate": "delta_active_s1",
+      "mode": "clean",
+      "difference_pp": 1.5625,
+      "initial_physics_match": true
+    },
+    {
+      "stage": "control_v2",
+      "baseline": "absolute_active_s1",
+      "candidate": "delta_active_s1",
+      "mode": "dynamic",
+      "difference_pp": 0.78125,
+      "initial_physics_match": true
+    }
+  ],
+  "conclusion": {
+    "active_perception_benefit_established": false,
+    "slow_camera_dynamic_percent": 1.85546875,
+    "matched_fixed_dynamic_percent": 0.5859375,
+    "slow_camera_held_image_dynamic_percent": 2.1484375,
+    "scope": "Two training seeds per recipe; 1,228,800 transitions per fresh policy; original four-variant 3.5-second plug task."
+  }
+}
