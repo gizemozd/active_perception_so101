@@ -1,0 +1,144 @@
+{
+  "args": {
+    "revision": "v2",
+    "reward_profile": null,
+    "plug_success_rule": null,
+    "plug_jam_failure": null,
+    "plug_reset_scale": null,
+    "plug_assist_fraction": null,
+    "plug_variant": null,
+    "episode_seconds": null,
+    "translation_control": "delta",
+    "translation_step": 0.005,
+    "observation": "privileged",
+    "num_envs": 256,
+    "threads": 5,
+    "iterations": 300,
+    "steps_per_env": 24,
+    "hidden": [
+      256,
+      256
+    ],
+    "init_std": 0.4,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.003,
+    "gamma": 0.99,
+    "epochs": 4,
+    "minibatches": 8,
+    "seed": 0,
+    "eval_every": 100,
+    "eval_episodes": 256,
+    "eval_seed": 50000,
+    "output": "artifacts/diagnosis/privileged_v2_noassist_relaxed"
+  },
+  "experiment": {
+    "task": "plug",
+    "condition": "wrist_static",
+    "occlusion": "clean",
+    "seed": 0,
+    "num_envs": 256,
+    "width": 128,
+    "height": 96,
+    "timestep": 0.002,
+    "decimation": 20,
+    "episode_seconds": 5.0,
+    "initial_seconds": 1.0,
+    "joint_step": 0.035,
+    "control_revision": "pose_v1",
+    "translation_control": "delta",
+    "translation_step": 0.005,
+    "camera_interval": 1,
+    "camera_workspace": "local_v1",
+    "camera_start": "home",
+    "camera_action": "delta_v1",
+    "randomize": true,
+    "perturb_push": false,
+    "manip_control": "joint",
+    "reset_xy_jitter": 0.008,
+    "fixed_position": [
+      0.0,
+      0.19,
+      0.22
+    ],
+    "fixed_lookat": [
+      0.022,
+      0.045,
+      0.047
+    ],
+    "clearance": 0.002,
+    "render_sensors": false,
+    "actor_observation": "rgb",
+    "memory": "gru",
+    "policy_profile": "compact",
+    "plug_wrist_yaw": false,
+    "plug_control": "delta5mm",
+    "plug_variant": null,
+    "plug_success_rule": "seated_v2",
+    "plug_jam_failure": true,
+    "plug_reset_scale": 1.0,
+    "plug_assist_fraction": 0.0,
+    "plug_screen": "none",
+    "aux_targets": false,
+    "camera_visibility_reward": 0.0,
+    "task_revision": "hidden_prongs_v2",
+    "success_state_sample": "current_qpos",
+    "reward_profile": "plug_seat_v2",
+    "occlusion_revision": null,
+    "push_visibility_revision": null,
+    "push_target_layout": "square_v1",
+    "push_control_revision": "legacy_v1",
+    "push_workspace_revision": "partition_v1",
+    "dynamic_onset_range": null,
+    "dynamic_duration_range": null,
+    "dynamic_center": null,
+    "dynamic_center_jitter": null,
+    "dynamic_travel_range": null,
+    "dynamic_panel_half_size": null,
+    "dynamic_panel_yaw": null
+  },
+  "runner": {
+    "num_steps_per_env": 24,
+    "obs_groups": {
+      "actor": [
+        "policy"
+      ],
+      "critic": [
+        "critic"
+      ]
+    },
+    "multi_gpu": null,
+    "actor": {
+      "class_name": "rsl_rl.models:MLPModel",
+      "hidden_dims": [
+        256,
+        256
+      ],
+      "obs_normalization": true,
+      "distribution_cfg": {
+        "class_name": "rsl_rl.modules.distribution:GaussianDistribution",
+        "init_std": 0.4,
+        "std_type": "scalar"
+      }
+    },
+    "critic": {
+      "class_name": "rsl_rl.models:MLPModel",
+      "hidden_dims": [
+        256,
+        256
+      ],
+      "obs_normalization": true
+    },
+    "algorithm": {
+      "class_name": "rsl_rl.algorithms:PPO",
+      "num_learning_epochs": 4,
+      "num_mini_batches": 8,
+      "learning_rate": 0.0003,
+      "schedule": "adaptive",
+      "entropy_coef": 0.003,
+      "gamma": 0.99,
+      "lam": 0.95,
+      "rnd_cfg": null,
+      "symmetry_cfg": null
+    }
+  }
+}

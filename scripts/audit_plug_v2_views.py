@@ -164,9 +164,7 @@ def main():
             tcp = np.r_[xy, plug.SPAWN_Z] + np.array(plug.GRIP_OFFSET)
             q = ik.reset_manip(torch.as_tensor(tcp)[None])[0].numpy()
             socket = rng.uniform(0, 0.05, 2)
-            gap = float(
-                plug_v2.sample_gap(torch.tensor([rng.uniform()]), torch.tensor([xy]))[0]
-            )
+            gap = float(plug_v2.sample_gap(torch.tensor([rng.uniform()]), torch.tensor([xy]))[0])
             for v in plug.VARIANTS:
                 m, d = models[v], datas[v]
                 mujoco.mj_resetData(m, d)

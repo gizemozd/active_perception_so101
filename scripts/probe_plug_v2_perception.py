@@ -20,27 +20,27 @@ import torch.nn as nn
 from active_perception_arms import plug, plug_v2
 from active_perception_arms.config import JOINTS, Experiment
 from active_perception_arms.native import calibration
-from active_perception_arms.robots.camera_control import CameraPoseIK, LOOKAT_BOX
+from active_perception_arms.robots.camera_control import LOOKAT_BOX, CameraPoseIK
 from active_perception_arms.robots.kinematics import axis_to_pan_tilt
 from active_perception_arms.robots.plug_control import PlugIK
 from active_perception_arms.scenes import grasp_relpose, native_spec
 
-VIEWS = ("wrist", "fixed", "gap_aligned")
+VIEWS = ("wrist", "fixed", "gap_aligned", "gap_aligned_high")
 
 
-def gap_aligned_pose(plug_pos, gap):
-    """Camera on the line from the plug underside through the gap centre, low height."""
+def gap_aligned_pose(plug_pos, gap, height=0.06):
+    """Camera on the line from the plug underside through the gap centre."""
     low, high = (np.array(v) for v in LOOKAT_BOX["plug"])
     target = np.array(plug_pos, dtype=float)
     target[2] -= 0.006
     y = 0.21
     scale = (y - target[1]) / (plug_v2.SCREEN_Y - target[1])
     position = target + (np.array([gap, plug_v2.SCREEN_Y, target[2]]) - target) * scale
-    position[1], position[2] = y, 0.06
+    position[1], position[2] = y, height
     return np.clip(position, low, high), target
 
 
-def render_dataset(count, seed):
+def render_dataset(count, seed, width=128, height=96, views=VIEWS):
     base = Experiment(
         task="plug",
         condition="active",
@@ -53,7 +53,7 @@ def render_dataset(count, seed):
     )
     models = {v: native_spec(replace(base, plug_variant=v)).compile() for v in plug.VARIANTS}
     datas = {v: mujoco.MjData(m) for v, m in models.items()}
-    renderers = {v: mujoco.Renderer(m, 96, 128) for v, m in models.items()}
+    renderers = {v: mujoco.Renderer(m, height, width) for v, m in models.items()}
     model = models["xm"]
     ik = PlugIK(model, dtype=torch.float64)
     camera_ik = CameraPoseIK(model, base, dtype=torch.float64)
@@ -71,7 +71,7 @@ def render_dataset(count, seed):
     option.geomgroup[:] = (1, 1, 1, 0, 0, 0)
     option.sitegroup[:] = 0
     rng = np.random.default_rng(seed)
-    images = {view: np.zeros((count, 3, 96, 128), np.uint8) for view in VIEWS}
+    images = {view: np.zeros((count, 3, height, width), np.uint8) for view in views}
     labels = np.zeros(count, np.int64)
     for i in range(count):
         variant = plug.VARIANTS[i % 4]
@@ -96,10 +96,14 @@ def render_dataset(count, seed):
         mujoco.mju_mulQuat(quat, d.xquat[gripper], q_rel)
         d.qpos[obj_adr : obj_adr + 7] = np.r_[d.xpos[gripper] + rot @ p_rel, quat]
         mujoco.mj_forward(m, d)
-        for view in VIEWS:
+        for view in views:
             camera = "manipulator/wrist_cam" if view == "wrist" else "camera_arm/wrist_cam"
-            if view == "gap_aligned":
-                position, target = gap_aligned_pose(d.qpos[obj_adr : obj_adr + 3], gap)
+            # Every view starts from the parked (shared fixed) camera-arm pose.
+            d.qpos[qadr["camera_arm"]] = home["camera_arm"]
+            mujoco.mj_forward(m, d)
+            if view.startswith("gap_aligned"):
+                height = 0.12 if view == "gap_aligned_high" else 0.06
+                position, target = gap_aligned_pose(d.qpos[obj_adr : obj_adr + 3], gap, height)
                 pan, tilt = axis_to_pan_tilt(torch.as_tensor(target - position))
                 pose = camera_ik.tensor(np.r_[position, pan.item(), tilt.item()])[None]
                 qc = camera_ik.tensor(home["camera_arm"][:5])[None]
@@ -159,7 +163,11 @@ def train(images, labels, train_count, device, epochs, seed):
         logits = torch.cat(
             [model(x[i : i + 256].to(device)).cpu() for i in range(train_count, len(x), 256)]
         )
-    return float((logits.argmax(-1) == y[train_count:]).float().mean())
+    predicted = logits.argmax(-1)
+    confusion = torch.zeros(4, 4, dtype=torch.long)
+    for truth, guess in zip(y[train_count:].tolist(), predicted.tolist(), strict=True):
+        confusion[truth, guess] += 1
+    return float((predicted == y[train_count:]).float().mean()), confusion.tolist()
 
 
 def main():
@@ -167,22 +175,33 @@ def main():
     parser.add_argument("--train", type=int, default=1600)
     parser.add_argument("--test", type=int, default=400)
     parser.add_argument("--epochs", type=int, default=30)
+    parser.add_argument("--width", type=int, default=128)
+    parser.add_argument("--height", type=int, default=96)
+    parser.add_argument("--views", nargs="+", default=list(VIEWS), choices=VIEWS)
+    parser.add_argument("--label", default="")
     parser.add_argument("--output", type=Path, default=Path("artifacts/diagnosis/perception_probe"))
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
-    images, labels = render_dataset(args.train + args.test, seed=4242)
+    images, labels = render_dataset(
+        args.train + args.test, seed=4242, width=args.width, height=args.height, views=args.views
+    )
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     result = {
         "train": args.train,
         "test": args.test,
         "epochs": args.epochs,
+        "resolution": [args.width, args.height],
         "chance": 0.25,
-        "test_accuracy": {
-            view: train(images[view], labels, args.train, device, args.epochs, seed=0)
-            for view in VIEWS
-        },
+        "class_order": list(plug.VARIANTS),
+        "test_accuracy": {},
+        "confusion": {},
     }
-    (args.output / "result.json").write_text(json.dumps(result, indent=2))
+    for view in args.views:
+        accuracy, confusion = train(images[view], labels, args.train, device, args.epochs, seed=0)
+        result["test_accuracy"][view] = accuracy
+        result["confusion"][view] = confusion
+    name = f"result{('_' + args.label) if args.label else ''}.json"
+    (args.output / name).write_text(json.dumps(result, indent=2))
     print(json.dumps(result, indent=2))
 
 

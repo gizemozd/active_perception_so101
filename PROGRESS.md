@@ -2272,6 +2272,13 @@ evidence under `artifacts/diagnosis/`.
   the original reset distribution (XM 95.3, XP 93.8, YM 89.1, YP 93.8%). Two
   intermediate drafts failed for documented reasons (descent credit plateau; a
   3 mm jam threshold that terminated 84% of random explorations near the goal).
+- Ablations: without assisted starts v2 also reaches 100% deterministic success at
+  1.2M (0% at 0.6M) — the curriculum only speeds learning. With the socket known but
+  the variant hidden, full-state PPO stays at 0% (a wrong guess jams, so it declines).
+- Supervised variant probe (policy CNN, 4,000/800 images, 128x96): shared fixed start
+  view 25.7% (chance), wrist 48.2% (XP edge leak only), low gap-aligned view 99.6%,
+  gap-aligned at 12 cm 26.8%. The pixel-audit "58% informative" fixed rate is not
+  learnable in practice; the variant is readable only from low, gap-aligned views.
 - Verification: 20 new tests (`tests/test_plug_v2.py`) incl. MjLab/Warp CPU env,
   a real PPO update with the auxiliary loss on rendered v2 observations and v2
   checkpoint evaluation; 151 existing tests in affected modules pass; Ruff passes.

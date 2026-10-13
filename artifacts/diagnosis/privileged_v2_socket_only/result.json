@@ -1,0 +1,66 @@
+{
+  "evaluations": [
+    {
+      "episodes": 256,
+      "success": 0.0,
+      "jam": 0.0,
+      "timeout": 1.0,
+      "xy_error_mm": 18.53954590290888,
+      "height_mm": 28.835311063254576,
+      "error_3d_mm": 35.32474622232817,
+      "success_xm": 0.0,
+      "success_xp": 0.0,
+      "success_ym": 0.0,
+      "success_yp": 0.0,
+      "iteration": 100,
+      "transitions": 614400
+    },
+    {
+      "episodes": 256,
+      "success": 0.0,
+      "jam": 0.0,
+      "timeout": 1.0,
+      "xy_error_mm": 17.928580329175098,
+      "height_mm": 28.82656438629261,
+      "error_3d_mm": 34.83997352446118,
+      "success_xm": 0.0,
+      "success_xp": 0.0,
+      "success_ym": 0.0,
+      "success_yp": 0.0,
+      "iteration": 200,
+      "transitions": 1228800
+    },
+    {
+      "episodes": 256,
+      "success": 0.0,
+      "jam": 0.0,
+      "timeout": 1.0,
+      "xy_error_mm": 17.254964687542408,
+      "height_mm": 28.820647595084434,
+      "error_3d_mm": 34.06207765305494,
+      "success_xm": 0.0,
+      "success_xp": 0.0,
+      "success_ym": 0.0,
+      "success_yp": 0.0,
+      "iteration": 300,
+      "transitions": 1843200
+    },
+    {
+      "episodes": 256,
+      "success": 0.0,
+      "jam": 0.0,
+      "timeout": 1.0,
+      "xy_error_mm": 15.998207942568268,
+      "height_mm": 28.820485023918366,
+      "error_3d_mm": 33.34953262822151,
+      "success_xm": 0.0,
+      "success_xp": 0.0,
+      "success_ym": 0.0,
+      "success_yp": 0.0,
+      "iteration": 400,
+      "transitions": 2457600
+    }
+  ],
+  "transitions": 2457600,
+  "note": "Completed 400 iterations; 0% deterministic success at every evaluation."
+}

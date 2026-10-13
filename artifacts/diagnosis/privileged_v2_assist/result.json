@@ -1,0 +1,36 @@
+{
+  "evaluations": [
+    {
+      "episodes": 256,
+      "success": 0.9296875,
+      "jam": 0.0546875,
+      "timeout": 0.015625,
+      "xy_error_mm": 1.472509515154858,
+      "height_mm": -1.0828791636496178,
+      "error_3d_mm": 2.859469365766751,
+      "success_xm": 0.953125,
+      "success_xp": 0.9375,
+      "success_ym": 0.890625,
+      "success_yp": 0.9375,
+      "iteration": 100,
+      "transitions": 614400
+    },
+    {
+      "episodes": 256,
+      "success": 1.0,
+      "jam": 0.0,
+      "timeout": 0.0,
+      "xy_error_mm": 0.4460618271966883,
+      "height_mm": -1.9524658184884853,
+      "error_3d_mm": 2.01590089311168,
+      "success_xm": 1.0,
+      "success_xp": 1.0,
+      "success_ym": 1.0,
+      "success_yp": 1.0,
+      "iteration": 200,
+      "transitions": 1228800
+    }
+  ],
+  "transitions": 1253376,
+  "stopped_early": "Stopped after 100% deterministic evaluation at iteration 200 to free CPU for ablations."
+}
