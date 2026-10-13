@@ -1,0 +1,52 @@
+{
+  "min_pixels": 6,
+  "episodes": 24,
+  "scenes": {
+    "v1_clean": {
+      "reachable_arm_poses": 116,
+      "wrist_informative": 0.0,
+      "arm_best_single_pose": [
+        -0.09,
+        0.24,
+        0.12
+      ],
+      "arm_best_single_pose_informative": 1.0,
+      "arm_best_single_pose_socket_visible": 1.0,
+      "arm_oracle_per_episode_informative": 1.0,
+      "arm_oracle_informative_and_socket": 1.0,
+      "arm_pose_informative_rate_quantiles": [
+        0.5416666666666666,
+        1.0,
+        1.0
+      ],
+      "free_fixed_best_view": 3,
+      "free_fixed_best_informative": 1.0,
+      "free_fixed_view7_informative": 1.0,
+      "free_fixed_oracle_informative": 1.0,
+      "informative_poses_per_episode_median": 61.0
+    },
+    "v2_gap_screen": {
+      "reachable_arm_poses": 96,
+      "wrist_informative": 0.0,
+      "arm_best_single_pose": [
+        0.03,
+        0.3,
+        0.05
+      ],
+      "arm_best_single_pose_informative": 0.5,
+      "arm_best_single_pose_socket_visible": 0.5416666666666666,
+      "arm_oracle_per_episode_informative": 0.7916666666666666,
+      "arm_oracle_informative_and_socket": 0.7916666666666666,
+      "arm_pose_informative_rate_quantiles": [
+        0.08333333333333333,
+        0.375,
+        0.5
+      ],
+      "free_fixed_best_view": 3,
+      "free_fixed_best_informative": 1.0,
+      "free_fixed_view7_informative": 0.375,
+      "free_fixed_oracle_informative": 1.0,
+      "informative_poses_per_episode_median": 16.0
+    }
+  }
+}

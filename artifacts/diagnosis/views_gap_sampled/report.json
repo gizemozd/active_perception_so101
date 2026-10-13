@@ -1,0 +1,29 @@
+{
+  "min_pixels": 6,
+  "episodes": 24,
+  "scenes": {
+    "v2_gap_screen": {
+      "reachable_arm_poses": 96,
+      "wrist_informative": 0.0,
+      "arm_best_single_pose": [
+        -0.03,
+        0.3,
+        0.08
+      ],
+      "arm_best_single_pose_informative": 0.5833333333333334,
+      "arm_best_single_pose_socket_visible": 0.875,
+      "arm_oracle_per_episode_informative": 1.0,
+      "arm_oracle_informative_and_socket": 1.0,
+      "arm_pose_informative_rate_quantiles": [
+        0.14583333333333331,
+        0.4583333333333333,
+        0.5833333333333334
+      ],
+      "free_fixed_best_view": 3,
+      "free_fixed_best_informative": 1.0,
+      "free_fixed_view7_informative": 0.4166666666666667,
+      "free_fixed_oracle_informative": 1.0,
+      "informative_poses_per_episode_median": 20.0
+    }
+  }
+}

@@ -1,6 +1,7 @@
 """Explicit training CLI. --dry-run validates configuration without running training."""
 
 import argparse
+import copy
 import json
 import math
 import os
@@ -11,7 +12,6 @@ import signal
 import subprocess
 import sys
 import time
-from dataclasses import asdict
 from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
@@ -43,6 +43,39 @@ def parser():
     p.add_argument("--push-workspace-revision", choices=("partition_v1", "arc_clear_v2"))
     p.add_argument("--plug-control", choices=("absolute", "delta5mm"))
     p.add_argument("--plug-variant", choices=("all", "xm", "xp", "ym", "yp"))
+    p.add_argument(
+        "--plug-success-rule",
+        choices=("hover_v1", "seated_v2"),
+        help="Fresh default follows --task-revision (hidden_prongs_v2: seated_v2)",
+    )
+    p.add_argument(
+        "--plug-jam-failure",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="Terminate misaligned presses on the socket plate (v2 default on)",
+    )
+    p.add_argument(
+        "--plug-reset-scale",
+        type=float,
+        help="hidden_prongs_v2 curriculum: scale of the original spawn/socket ranges",
+    )
+    p.add_argument(
+        "--plug-assist-fraction",
+        type=float,
+        help="hidden_prongs_v2 training curriculum: fraction of resets aligned above the goal",
+    )
+    p.add_argument("--plug-screen", choices=("none", "gap_v1"))
+    p.add_argument(
+        "--aux-loss-coef",
+        type=float,
+        help="Auxiliary perception loss weight (plug); stores privileged labels, never actor input",
+    )
+    p.add_argument("--camera-action", choices=("delta_v1", "lookat_v2"))
+    p.add_argument(
+        "--camera-visibility-reward",
+        type=float,
+        help="v2 training-only camera shaping weight for analytic prong visibility",
+    )
     p.add_argument(
         "--control-revision",
         choices=("legacy_v1", "pose_v1"),
@@ -131,7 +164,8 @@ def experiment_from_args(args):
         ("translation_step", 0.005),
         ("camera_interval", 1),
         ("camera_workspace", "local_v1"),
-        ("camera_start", "home"),
+        ("camera_start", "lookat_v2" if args.camera_action == "lookat_v2" else "home"),
+        ("camera_action", "delta_v1"),
     ):
         value = getattr(args, key)
         if args.resume:
@@ -178,6 +212,20 @@ def experiment_from_args(args):
     push_target_layout = args.push_target_layout
     push_control_revision = args.push_control_revision
     push_workspace_revision = args.push_workspace_revision
+    plug_fields = {
+        name: getattr(args, name)
+        for name in (
+            "plug_success_rule",
+            "plug_jam_failure",
+            "plug_reset_scale",
+            "plug_assist_fraction",
+            "plug_screen",
+            "camera_visibility_reward",
+        )
+    }
+    plug_fields["aux_targets"] = (
+        None if args.aux_loss_coef is None else bool(args.aux_loss_coef > 0)
+    )
     if args.resume:
         saved_cfg = saved_experiment(
             json.loads(args.resume.with_name("experiment.json").read_text())
@@ -232,6 +280,10 @@ def experiment_from_args(args):
         if plug_control is not None and plug_control != saved_cfg.plug_control:
             raise ValueError("Resume plug_control differs; use a distinct run")
         plug_control = saved_cfg.plug_control
+        for name, value in plug_fields.items():
+            if value is not None and value != getattr(saved_cfg, name):
+                raise ValueError(f"Resume {name} differs; use a distinct run")
+            plug_fields[name] = getattr(saved_cfg, name)
     return Experiment(
         **shared,
         task=args.task,
@@ -267,6 +319,7 @@ def experiment_from_args(args):
         dynamic_travel_range=args.dynamic_travel_range,
         dynamic_panel_half_size=args.dynamic_panel_half_size,
         dynamic_panel_yaw=args.dynamic_panel_yaw,
+        **{name: value for name, value in plug_fields.items() if value is not None},
     )
 
 
@@ -398,7 +451,7 @@ def main(argv=None):
     from mjlab.rl import MjlabOnPolicyRunner, RslRlVecEnvWrapper
 
     from .environment import make_env
-    from .policy import runner_cfg
+    from .policy import runner_cfg, runner_dict
 
     if not args.device.startswith("cuda") or not torch.cuda.is_available():
         raise RuntimeError("Training requires an NVIDIA GPU. Use --dry-run or arms-sanity locally.")
@@ -454,10 +507,22 @@ def main(argv=None):
         )
     for key, value in optimization.items():
         setattr(runner_options.algorithm, key, value)
+    aux_coef = args.aux_loss_coef
+    if args.resume:
+        saved_aux = json.loads(args.resume.with_name("runner.json").read_text())["algorithm"].get(
+            "aux_coef", 0.0
+        )
+        if aux_coef is not None and aux_coef != saved_aux:
+            raise ValueError("Resume aux-loss-coef differs; use a distinct run")
+        aux_coef = saved_aux
+    aux_coef = aux_coef or 0.0
+    if not math.isfinite(aux_coef) or aux_coef < 0:
+        raise ValueError("aux-loss-coef must be finite and nonnegative")
     runner_options.logger = "wandb"
     runner_options.wandb_project = os.environ["WANDB_PROJECT"]
     runner_options.save_interval = args.save_interval or max(1, args.iterations // 2)
-    (log_dir / "runner.json").write_text(json.dumps(asdict(runner_options), indent=2))
+    train_cfg = runner_dict(runner_options, cfg, aux_coef)
+    (log_dir / "runner.json").write_text(json.dumps(train_cfg, indent=2))
     revision = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True)
     metadata = {
         "command": sys.argv,
@@ -492,7 +557,7 @@ def main(argv=None):
     init_seconds = time.perf_counter() - init_start
     try:
         wrapped = RslRlVecEnvWrapper(env)
-        runner = MjlabOnPolicyRunner(wrapped, asdict(runner_options), str(log_dir), args.device)
+        runner = MjlabOnPolicyRunner(wrapped, copy.deepcopy(train_cfg), str(log_dir), args.device)
         if args.initialize_from:
             import hashlib
 

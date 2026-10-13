@@ -95,7 +95,7 @@ def calibration(task, marker_prototype=False, camera_start="home"):
         ]
     else:
         cam = np.r_[ik.camera(np.array(CAMERA_HOME)), 0.6]
-    if camera_start == "inspection_v1":
+    if camera_start in ("inspection_v1", "lookat_v2"):
         from .robots.camera_control import CameraPoseIK
 
         pose_ik = CameraPoseIK(
@@ -105,12 +105,18 @@ def calibration(task, marker_prototype=False, camera_start="home"):
                 control_revision="pose_v1",
                 camera_workspace="inspection_v2",
                 camera_start=camera_start,
+                camera_action="lookat_v2" if camera_start == "lookat_v2" else "delta_v1",
             ),
             dtype=torch.float64,
         )
         q = pose_ik.tensor(cam[:5])[None]
-        for alpha in np.linspace(0, 1, 33):
-            q = pose_ik.solve((pose_ik.home + alpha * (pose_ik.initial - pose_ik.home))[None], q)
+        if camera_start == "lookat_v2":
+            q = _robust_camera_pose(pose_ik, pose_ik.initial, q)
+        else:
+            for alpha in np.linspace(0, 1, 33):
+                q = pose_ik.solve(
+                    (pose_ik.home + alpha * (pose_ik.initial - pose_ik.home))[None], q
+                )
         cam[:5] = q[0].numpy()
     path = [cam[:5]]
     for p, target in (
@@ -139,6 +145,31 @@ def calibration(task, marker_prototype=False, camera_start="home"):
         "plug_pose": np.r_[pos, quat],
         "tcp": np.array(tcp),
     }
+
+
+def _robust_camera_pose(pose_ik, pose, seed):
+    """Best of several converged camera IK solves (incremental paths can stall)."""
+    chain, frame = pose_ik.chain, pose_ik.frame
+    target = frame.pos_to_base(pose[None, :3])
+    from .robots.kinematics import pan_tilt_to_axis
+
+    axis = frame.vec_to_base(pan_tilt_to_axis(pose[None, 3], pose[None, 4]))
+    generator = torch.Generator().manual_seed(0)
+    seeds = [seed] + [
+        chain.joint_low
+        + torch.rand(1, chain.n, dtype=chain.dtype, generator=generator)
+        * (chain.joint_high - chain.joint_low)
+        for _ in range(15)
+    ]
+    best, best_error = seed, float("inf")
+    for start in seeds:
+        q = chain.solve_ik(target, start, target_axis=axis, iters=200, damping=0.02, max_dq=0.3)
+        position, rotation = chain.fk(q)
+        optical = rotation @ torch.tensor([0, 0, -1.0], dtype=chain.dtype)
+        error = float((position - target).norm() + 0.05 * (optical - axis).norm())
+        if error < best_error:
+            best, best_error = q, error
+    return best
 
 
 def schedule_fraction(time, cfg):
@@ -217,6 +248,11 @@ class NativeEnv:
             if self.camera_pose_ik
             else np.array(plug.GIMBAL_HOME)
         )
+        self.look_target = (
+            self.camera_pose_ik.initial_look.numpy().copy()
+            if self.camera_pose_ik is not None and self.camera_pose_ik.lookat_enabled
+            else np.zeros(2)
+        )
         self.wrist_yaw_target = 0.0
         jitter = self.cfg.reset_xy_jitter if self.cfg.randomize else 0.0
         goal_xy = np.array(TARGET_XY if self.cfg.task != "push" else (-0.025, 0.055))
@@ -234,7 +270,7 @@ class NativeEnv:
             # Original distributions, independent of the hidden geometry.
             xy = np.array(plug.SPAWN_CENTER)
             if self.cfg.randomize:
-                xy += self.rng.uniform(-1, 1, 2) * plug.SPAWN_HALF
+                xy += self.rng.uniform(-1, 1, 2) * plug.SPAWN_HALF * self.cfg.plug_reset_scale
             self.tcp_target = np.r_[xy, plug.SPAWN_Z] + plug.GRIP_OFFSET
             q = self.plug_ik.reset_manip(self.plug_ik.tensor(self.tcp_target)[None])[0].numpy()
             self.targets["manipulator"][:5] = q
@@ -248,8 +284,25 @@ class NativeEnv:
             quat = np.empty(4)
             mujoco.mju_mulQuat(quat, self.data.xquat[body], q_rel)
             pose = np.r_[self.data.xpos[body] + self.data.xmat[body].reshape(3, 3) @ p_rel, quat]
-            socket = self.rng.uniform(0, 0.05, 2) if self.cfg.randomize else (0.025, 0.025)
+            if self.cfg.task_revision == "hidden_prongs_v2":
+                socket = 0.025 + (
+                    self.rng.uniform(-1, 1, 2) * 0.025 * self.cfg.plug_reset_scale
+                    if self.cfg.randomize
+                    else np.zeros(2)
+                )
+            else:
+                socket = self.rng.uniform(0, 0.05, 2) if self.cfg.randomize else (0.025, 0.025)
             self.data.mocap_pos[self.fixture_id] = np.r_[socket, 0]
+            if self.cfg.plug_screen != "none":
+                from . import plug_v2
+
+                draw = self.rng.uniform() if self.cfg.randomize else 0.5
+                plug_xy = torch.as_tensor(self.tcp_target[:2] - np.array(plug.GRIP_OFFSET[:2]))
+                self.screen_gap = float(plug_v2.sample_gap(torch.tensor([draw]), plug_xy[None])[0])
+                centers = plug_v2.screen_segment_centers(torch.tensor([self.screen_gap]))
+                for side, center in zip(("left", "right"), centers, strict=True):
+                    mocap = self.model.body(f"screen_{side}/panel").mocapid[0]
+                    self.data.mocap_pos[mocap] = center[0].numpy()
         self.data.qpos[self.object_adr : self.object_adr + 7] = pose
         self.panel_center = self.panel_travel = None
         if self.cfg.occlusion == "dynamic":
@@ -359,7 +412,19 @@ class NativeEnv:
             and (cfg.condition == "active" or t < cfg.initial_seconds)
             and self.step_count % cfg.camera_interval == 0
         ):
-            if self.camera_pose_ik is not None:
+            if self.camera_pose_ik is not None and self.camera_pose_ik.lookat_enabled:
+                ik = self.camera_pose_ik
+                _, look, gimbal = ik.lookat(
+                    ik.tensor(self.gimbal_target[:3])[None],
+                    ik.tensor(self.look_target)[None],
+                    ik.tensor(action[cfg.manip_dim :])[None],
+                    ik.tensor([1.0]),
+                )
+                self.look_target, self.gimbal_target = look[0].numpy(), gimbal[0].numpy()
+                self.targets["camera_arm"][:5] = ik.solve(
+                    gimbal, ik.tensor(self.targets["camera_arm"][:5])[None]
+                )[0].numpy()
+            elif self.camera_pose_ik is not None:
                 ik = self.camera_pose_ik
                 self.gimbal_target = np.clip(
                     self.gimbal_target + action[cfg.manip_dim :] * ik.delta.numpy(),
@@ -428,6 +493,11 @@ class NativeEnv:
             return bool(transfer.native_features(self)["instantaneous_success"].item())
         obj, goal = self.object_pos, self.goal
         speed = np.linalg.norm(self.data.qvel[-6:-3])
+        if self.cfg.task == "plug" and self.cfg.plug_success_rule == "seated_v2":
+            from . import plug_v2
+
+            obj = self.data.qpos[self.object_adr : self.object_adr + 3]
+            return bool(plug_v2.seated(torch.as_tensor(obj)[None], torch.as_tensor(goal)[None]))
         if self.cfg.task == "plug":
             aligned = np.linalg.norm(obj - goal) < plug.SUCCESS_DISTANCE
             if self.cfg.plug_wrist_yaw:
@@ -457,6 +527,16 @@ class NativeEnv:
             and speed < 0.035
             and (pushing.native_clear(self) if self.cfg.task_revision == "push_v2" else True)
         )
+
+
+def native_plug_jammed(env):
+    """hidden_prongs_v2 jam predicate on a native environment's current qpos."""
+    from . import plug_v2
+
+    obj = torch.as_tensor(env.data.qpos[env.object_adr : env.object_adr + 3])[None]
+    socket = torch.as_tensor(env.data.mocap_pos[env.fixture_id])[None]
+    offset = torch.as_tensor(plug.OFFSETS[env.variant])[None]
+    return bool(plug_v2.jammed(obj, torch.as_tensor(env.goal)[None], offset, socket))
 
 
 class ScriptedPolicy:

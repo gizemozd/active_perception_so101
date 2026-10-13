@@ -27,3 +27,4 @@ artifacts/task_screening/*
 !artifacts/task_screening/diagnostics/
 !artifacts/task_screening/diagnostics/**/*.mp4
 !artifacts/task_screening/diagnostics/*.mp4
+artifacts/diagnosis/**/*.pt

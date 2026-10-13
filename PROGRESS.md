@@ -2226,3 +2226,54 @@ handoff instruction alone.
   four-variant manipulation learning are the next bottleneck. Existing sweep
   timing and static targets also allow initial-view memory or waiting. All study
   jobs finished; the user's interactive allocation remains untouched.
+
+## 2026-10-13 — Diagnosis and hidden_prongs_v2 redesign (branch `active-perception-redesign`)
+
+User asked why plug insertion stays near 10% and why active perception shows no
+benefit, and to work on environment/task/reward on a new branch. All work ran on the
+local Mac (native MuJoCo on CPU, MjLab/Warp CPU for integration tests); no cluster
+jobs were submitted. Full write-up: [docs/DIAGNOSIS_2026-10-13.md](docs/DIAGNOSIS_2026-10-13.md);
+evidence under `artifacts/diagnosis/`.
+
+- Added a threaded native-MuJoCo batch environment (`native_vec.py`, ~1k
+  transitions/s per 5 threads) and `scripts/train_native_privileged.py`, which runs
+  the pinned RSL-RL PPO with full-state actors to separate control/reward
+  learnability from perception.
+- **Reward exploit in v1:** with the true goal in its observation, PPO on the
+  unchanged v1 plug task (pose_v1 deltas, `plug_insertion`, 3.5 s) reaches 7.4%
+  deterministic success at 1.2M steps and **0%/0.8% at 1.8M/2.5M**, while mean step
+  reward climbs to ~190. At 1.2M the deterministic policy spends 10.6 steps per
+  episode inside the 2 mm sphere with a mean longest streak of 0.93 steps; its return
+  (~10.5k) is 3.5x that of a clean success. The +1000 paid every step plus the
+  3-sample termination makes dithering optimal.
+- **Success geometry in v1:** a fully seated plug (housing on the plate, prongs in
+  both holes) measures 2.0-3.0 mm from the goal, which is 2 mm above the seat, so it
+  never scores (native test, all variants).
+- **Action pathology (existing evidence):** final 3-seed plug checkpoints have
+  manipulator std ~1.5 and camera std 2.6-2.8 (initial 1.0); 90%/84% of
+  manipulator/camera commands lie outside [-1, 1]. Push 1B-step active runs: camera
+  std 40-72, ~100% saturated. Source: `training_results/active_camera_diagnosis.json`.
+- **Plug `reset_xy_jitter` is ignored** (socket U[0,50 mm]^2, spawn +-50 mm always),
+  so long-delta curriculum jitter stages are no-ops and the competence repair's
+  "+-8 mm fixture jitter" label is incorrect. v1 behaviour is left unchanged.
+- **Information audit** (matched four-variant renders at 128x96): original scene —
+  wrist 0% informative, best single camera-arm pose 100%, per-episode oracle 100%.
+  A fixed camera already has all the information; motion cannot add any.
+- Implemented `hidden_prongs_v2`: seated success, jam failure (prong pressed onto
+  the solid plate), bounded `plug_seat_v2` reward, 4 s manipulation, reset scale,
+  training-only assisted starts; optical gap screen; absolute look-at camera
+  (`lookat_v2`); auxiliary perception loss; training-only analytic camera
+  visibility reward (116/120 agreement with rendered segmentation). Old configs and
+  checkpoints keep their v1 behaviour.
+- Gap-screen audit (gap drawn where a gap-aligned view is reachable): wrist 0%,
+  best single fixed camera-arm pose 58% (shared start pose for fixed and active),
+  per-episode camera pose 100%.
+- **Privileged v2 learnability:** 93.0% deterministic success at 0.61M transitions on
+  the original reset distribution (XM 95.3, XP 93.8, YM 89.1, YP 93.8%). Two
+  intermediate drafts failed for documented reasons (descent credit plateau; a
+  3 mm jam threshold that terminated 84% of random explorations near the goal).
+- Verification: 20 new tests (`tests/test_plug_v2.py`) incl. MjLab/Warp CPU env,
+  a real PPO update with the auxiliary loss on rendered v2 observations and v2
+  checkpoint evaluation; 151 existing tests in affected modules pass; Ruff passes.
+- Prepared `scripts/slurm/plug_v2_study.sbatch` (wrist/fixed/initial/active x 3
+  seeds, 50M transitions, squashed actions, aux loss); not submitted.

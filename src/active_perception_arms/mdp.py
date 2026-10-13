@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import torch
 from mjlab.managers.action_manager import ActionTerm, ActionTermCfg
 
-from . import manipulation, plug, plug_learning, pushing, transfer
+from . import manipulation, plug, plug_learning, plug_v2, pushing, transfer
 from .config import ARM_JOINTS, MANIP_BASE, SOURCE_XY, TARGET_XY, Experiment
 from .native import calibration
 from .occlusion import dynamic_position_torch, sample_dynamic_torch
@@ -47,6 +47,10 @@ class State:
         self.transfer_lifted = torch.zeros(n, dtype=torch.bool, device=device)
         self.plug_raised = torch.zeros(n, dtype=torch.bool, device=device)
         self.plug_aligned = torch.zeros(n, dtype=torch.bool, device=device)
+        # hidden_prongs_v2: per-episode screen gap and once-per-step jam cache.
+        self.screen_gap = torch.zeros(n, device=device)
+        self.jam = torch.zeros(n, dtype=torch.bool, device=device)
+        self.last_jam_step = -1
         if transfer.is_v2(cfg) or cfg.task_revision == "push_v2":
             names = ["manipulator/" + joint for joint in ARM_JOINTS]
             self.tcp_chain = SO101Chain(
@@ -77,6 +81,9 @@ class State:
             [plug.OFFSETS[plug.VARIANTS[i]] for i in plug.variant_assignment(n, cfg.plug_variant)],
             device=device,
         )
+        self.variant_index = torch.tensor(
+            plug.variant_assignment(n, cfg.plug_variant), device=device, dtype=torch.long
+        )
 
 
 def state(env, cfg=None):
@@ -94,7 +101,11 @@ def positions(env):
     if s.cfg.task == "plug":
         goal = goal.clone()
         goal[:, :2] -= s.plug_offsets
-        if getattr(s.cfg, "reward_profile", None) in ("plug_staged", "plug_insertion"):
+        if getattr(s.cfg, "reward_profile", None) in (
+            "plug_staged",
+            "plug_insertion",
+            "plug_seat_v2",
+        ):
             term = env.action_manager.get_term("arms")
             tcp, _ = term.plug_ik.manip.fk(env.sim.data.qpos[:, term.plug_qpos_addresses])
             tcp = term.plug_ik.manip_frame.pos_to_world(tcp) + env.scene.env_origins
@@ -153,11 +164,31 @@ def reset_task(env, env_ids, cfg):
         term = env.action_manager.get_term("arms")
         xy = torch.tensor(plug.SPAWN_CENTER, device=env.device).expand(n, -1).clone()
         if cfg.randomize:
-            xy += (torch.rand(n, 2, device=env.device) * 2 - 1) * torch.tensor(
-                plug.SPAWN_HALF, device=env.device
+            # v2 can shrink the original ranges for a curriculum; scale 1 is the
+            # original distribution. v1 ignores reset_xy_jitter, as it always did.
+            xy += (
+                (torch.rand(n, 2, device=env.device) * 2 - 1)
+                * torch.tensor(plug.SPAWN_HALF, device=env.device)
+                * cfg.plug_reset_scale
             )
         tcp = torch.cat((xy, torch.full((n, 1), plug.SPAWN_Z, device=env.device)), dim=-1)
         tcp += torch.tensor(plug.GRIP_OFFSET, device=env.device)
+        if cfg.task_revision == "hidden_prongs_v2":
+            # Sample the socket first so assisted training starts can align with it.
+            fixture[:, :2] = 0.025 + (
+                (torch.rand(n, 2, device=env.device) * 2 - 1) * 0.025 * cfg.plug_reset_scale
+                if cfg.randomize
+                else 0.0
+            )
+            if cfg.plug_assist_fraction:
+                assist = torch.rand(n, device=env.device) < cfg.plug_assist_fraction
+                goal = fixture[:, :2] - s.plug_offsets[ids]
+                goal += (torch.rand(n, 2, device=env.device) * 2 - 1) * plug_v2.ASSIST_XY
+                low, high = plug_v2.ASSIST_HEIGHT
+                height = low + torch.rand(n, 1, device=env.device) * (high - low)
+                aligned = torch.cat((goal, plug.INSERT_Z + height), dim=-1)
+                aligned += torch.tensor(plug.GRIP_OFFSET, device=env.device)
+                tcp = torch.where(assist[:, None], aligned, tcp)
         q = term.plug_ik.reset_manip(tcp)
         joints = s.home["manipulator"].expand(n, -1).clone()
         joints[:, :5] = q
@@ -172,6 +203,8 @@ def reset_task(env, env_ids, cfg):
         term.gimbal_target[ids] = (
             term.camera_pose_ik.initial if term.camera_pose_ik is not None else term.plug_ik.home
         )
+        if term.camera_pose_ik is not None and term.camera_pose_ik.lookat_enabled:
+            term.look_target[ids] = term.camera_pose_ik.initial_look
         # Full-pose reset IK is accurate to numerical tolerance. The original
         # fixed grasp defines an identity plug rotation at this pose.
         fk_pos, fk_rot = term.plug_ik.manip.fk(q)
@@ -194,9 +227,27 @@ def reset_task(env, env_ids, cfg):
             body_rot
             @ quat_wxyz_to_mat(torch.as_tensor(q_rel, device=env.device, dtype=torch.float32)[None])
         )
-        fixture[:, :2] = torch.rand(n, 2, device=env.device) * 0.05 if cfg.randomize else 0.025
+        if cfg.task_revision != "hidden_prongs_v2":
+            fixture[:, :2] = torch.rand(n, 2, device=env.device) * 0.05 if cfg.randomize else 0.025
         fixture[:, :2] += origins[:, :2]
         env.scene["fixture"].write_mocap_pose_to_sim(fixture, env_ids=ids)
+        if cfg.plug_screen != "none":
+            draw = (
+                torch.rand(n, device=env.device)
+                if cfg.randomize
+                else torch.full((n,), 0.5, device=env.device)
+            )
+            # Plug XY at reset (world-local); the object pose is set below.
+            plug_xy = tcp[:, :2] - torch.tensor(plug.GRIP_OFFSET[:2], device=env.device)
+            gap = plug_v2.sample_gap(draw, plug_xy)
+            s.screen_gap[ids] = gap
+            for side, center in zip(
+                ("left", "right"), plug_v2.screen_segment_centers(gap), strict=True
+            ):
+                pose = torch.zeros(n, 7, device=env.device)
+                pose[:, :3] = center + origins
+                pose[:, 3] = 1
+                env.scene[f"screen_{side}"].write_mocap_pose_to_sim(pose, env_ids=ids)
     obj[:, :3] += origins
     env.scene["object"].write_root_state_to_sim(obj, env_ids=ids)
     if cfg.occlusion == "dynamic":
@@ -299,6 +350,10 @@ class ArmsAction(ActionTerm):
         self.gimbal_target = torch.tensor(plug.GIMBAL_HOME, device=env.device).repeat(
             env.num_envs, 1
         )
+        # lookat_v2 look-at point on the work surface (unused by delta cameras).
+        self.look_target = torch.zeros(env.num_envs, 2, device=env.device)
+        if self.camera_pose_ik is not None and self.camera_pose_ik.lookat_enabled:
+            self.look_target[:] = self.camera_pose_ik.initial_look
 
     @property
     def action_dim(self):
@@ -313,6 +368,8 @@ class ArmsAction(ActionTerm):
         self._raw[ids] = 0
         if self.camera_pose_ik is not None:
             self.gimbal_target[ids] = self.camera_pose_ik.initial
+            if self.camera_pose_ik.lookat_enabled:
+                self.look_target[ids] = self.camera_pose_ik.initial_look
         for name in self.targets:
             self.targets[name][ids] = self._env.scene[name].data.joint_pos[ids]
         if self.exp.task == "plug":
@@ -386,8 +443,20 @@ class ArmsAction(ActionTerm):
             enabled &= env.episode_length_buf.remainder(cfg.camera_interval) == 0
             if self.camera_pose_ik is not None:
                 ik = self.camera_pose_ik
-                self.gimbal_target += self._raw[:, cfg.manip_dim :] * ik.delta * enabled[:, None]
-                self.gimbal_target.clamp_(ik.low, ik.high)
+                if ik.lookat_enabled:
+                    _, look, gimbal = ik.lookat(
+                        self.gimbal_target[:, :3],
+                        self.look_target,
+                        self._raw[:, cfg.manip_dim :],
+                        enabled,
+                    )
+                    self.look_target.copy_(look)
+                    self.gimbal_target.copy_(gimbal)
+                else:
+                    self.gimbal_target += (
+                        self._raw[:, cfg.manip_dim :] * ik.delta * enabled[:, None]
+                    )
+                    self.gimbal_target.clamp_(ik.low, ik.high)
                 q = ik.solve(self.gimbal_target, self.targets["camera_arm"][:, :5])
                 self.targets["camera_arm"][:, :5] = torch.where(
                     enabled[:, None], q, self.targets["camera_arm"][:, :5]
@@ -454,6 +523,8 @@ def proprio(env):
         pieces += [term.tcp_target, term.gimbal_target]
         if term.exp.plug_wrist_yaw:
             pieces += [term.wrist_yaw_target[:, None]]
+        if term.exp.camera_action == "lookat_v2":
+            pieces += [term.look_target]
     elif term.exp.control_revision == "pose_v1":
         pieces += [term.gimbal_target]
     # Pose of each image's camera is reconstructable from the joint angles. Include
@@ -493,6 +564,9 @@ def critic_state(env):
         pieces += [s.transfer_lifted[:, None].float()]
     if getattr(s.cfg, "reward_profile", None) == "plug_staged":
         pieces += [s.plug_raised[:, None].float(), s.plug_aligned[:, None].float()]
+    if getattr(s.cfg, "task_revision", None) == "hidden_prongs_v2":
+        # Privileged critic-only context: hidden offset and the screen gap.
+        pieces += [s.plug_offsets, s.screen_gap[:, None]]
     return torch.cat(pieces, dim=-1)
 
 
@@ -509,6 +583,9 @@ def instantaneous_success(env):
         if cfg.success_state_sample == "current_qpos":
             address = state(env).object_qpos_address
             obj = env.sim.data.qpos[:, address : address + 3]
+        if getattr(cfg, "plug_success_rule", "hover_v1") == "seated_v2":
+            origins = env.scene.env_origins
+            return plug_v2.seated(obj - origins, goal - origins)
         aligned = torch.linalg.vector_norm(obj - goal, dim=-1) < plug.SUCCESS_DISTANCE
         if cfg.plug_wrist_yaw:
             aligned &= plug_orientation_error(env) < plug.SUCCESS_ANGLE
@@ -524,6 +601,32 @@ def instantaneous_success(env):
         & (speed < 0.035)
         & (pushing.warp_clear(env) if cfg.task_revision == "push_v2" else True)
     )
+
+
+def aux_targets(env):
+    """Privileged perception labels for the auxiliary actor loss (never actor input).
+
+    Variant one-hot, goal minus current TCP (x10, metres) and socket XY offset from
+    the nominal centre (x40). Scales give roughly unit-range regression targets.
+    """
+    s = state(env)
+    tcp, _, _, goal = positions(env)
+    socket = plug_socket(env)[:, :2] - 0.025
+    one_hot = torch.nn.functional.one_hot(s.variant_index, len(plug.VARIANTS)).float()
+    return torch.cat((one_hot, 10 * (goal - tcp), 40 * socket), dim=-1)
+
+
+def camera_prong_visibility(env):
+    """Analytic prong-tip visibility from the camera arm (training-only shaping)."""
+    s = state(env)
+    site = s.ids["camera_arm/wrist_cam_site"]
+    origins = env.scene.env_origins
+    camera = env.sim.data.site_xpos[:, site] - origins
+    axis = -env.sim.data.site_xmat[:, site].reshape(-1, 3, 3)[:, :, 2]
+    address = s.object_qpos_address
+    obj = env.sim.data.qpos[:, address : address + 3] - origins
+    gap = s.screen_gap if s.cfg.plug_screen != "none" else None
+    return plug_v2.prong_visibility(camera, axis, obj, s.plug_offsets, gap)
 
 
 def privileged_actor_state(env):
@@ -567,9 +670,14 @@ def diagnostic_metric(env, name):
     if name == "hand_distance":
         return (tcp - obj).norm(dim=-1)
     if s.cfg.task == "plug":
+        if name == "plug_jam":
+            return plug_jam(env).float()
+        if name == "prong_visibility":
+            return camera_prong_visibility(env)
         return {
             "plug_xy_error": (obj[:, :2] - goal[:, :2]).norm(dim=-1),
             "plug_z_error": (obj[:, 2] - goal[:, 2]).abs(),
+            "plug_height": obj[:, 2] - goal[:, 2],
             "plug_hold_steps": s.hold.float(),
         }[name]
     if s.cfg.task == "transfer":
@@ -598,7 +706,30 @@ def failure(env):
         else env.scene["object"].data.root_link_pos_w
     ) - env.scene.env_origins
     q = env.scene["manipulator"].data.joint_pos
-    return (obj[:, 2] < -0.035) | (obj[:, :2].abs().amax(-1) > 0.42) | ~torch.isfinite(q).all(-1)
+    lost = (obj[:, 2] < -0.035) | (obj[:, :2].abs().amax(-1) > 0.42) | ~torch.isfinite(q).all(-1)
+    if getattr(s.cfg, "plug_jam_failure", False):
+        lost |= plug_jam(env)
+    return lost
+
+
+def plug_socket(env):
+    """World-local socket centre (the fixture's goal site before the hidden offset)."""
+    s = state(env)
+    return env.sim.data.site_xpos[:, s.ids["fixture/goal"]] - env.scene.env_origins
+
+
+def plug_jam(env):
+    """Misaligned prongs pressed onto the plate; computed once per control step."""
+    s = state(env)
+    if s.last_jam_step != env.common_step_counter:
+        address = s.object_qpos_address
+        obj = env.sim.data.qpos[:, address : address + 3] - env.scene.env_origins
+        _, _, _, goal = positions(env)
+        s.jam[:] = plug_v2.jammed(
+            obj, goal - env.scene.env_origins, s.plug_offsets, plug_socket(env)
+        )
+        s.last_jam_step = env.common_step_counter
+    return s.jam
 
 
 def plug_orientation_error(env):
@@ -638,6 +769,19 @@ def task_reward(env):
         return plug_learning.insertion_reward(
             pose[:, :3], goal, pose[:, 3:7] if s.cfg.plug_wrist_yaw else None
         )
+    if s.cfg.reward_profile == "plug_seat_v2":
+        _, _, _, goal = positions(env)
+        address = s.object_qpos_address
+        origins = env.scene.env_origins
+        obj = env.sim.data.qpos[:, address : address + 3] - origins
+        phi = plug_v2.potential(obj, goal - origins)
+        jam = plug_jam(env) if s.cfg.plug_jam_failure else torch.zeros_like(s.jam)
+        out = plug_v2.reward(phi, s.previous_potential, s.potential_valid, success(env), jam)
+        s.previous_potential.copy_(phi)
+        s.potential_valid[:] = True
+        if s.cfg.camera_visibility_reward:
+            out = out + s.cfg.camera_visibility_reward * camera_prong_visibility(env)
+        return out
     if s.cfg.reward_profile == "plug_staged":
         tcp, obj, _, goal = positions(env)
         phi = plug_learning.features(env, s, tcp, obj, goal)

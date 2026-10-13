@@ -45,6 +45,9 @@ def wilson(successes, total):
 def task_overrides(args, original):
     """Explicit curriculum-to-original-task evaluation; never changes action meanings."""
     overrides = {}
+    if getattr(original, "plug_assist_fraction", 0.0):
+        # Assisted aligned starts are a training curriculum, never an evaluation reset.
+        overrides["plug_assist_fraction"] = 0.0
     for name in ("episode_seconds", "reset_xy_jitter", "success_state_sample"):
         value = getattr(args, name, None)
         if value is not None:

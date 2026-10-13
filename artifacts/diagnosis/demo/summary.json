@@ -1,0 +1,16 @@
+{
+  "fixed": {
+    "steps": 56,
+    "seated_held": true,
+    "steps_with_prongs_visible": 0,
+    "screen_gap_m": 0.07499197344390109,
+    "variant": "xm"
+  },
+  "active": {
+    "steps": 56,
+    "seated_held": true,
+    "steps_with_prongs_visible": 26,
+    "screen_gap_m": 0.07499197344390109,
+    "variant": "xm"
+  }
+}

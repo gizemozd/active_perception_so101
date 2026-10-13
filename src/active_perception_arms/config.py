@@ -11,11 +11,13 @@ TASKS = ("plug", "transfer", "push")
 CONDITIONS = ("wrist", "static", "wrist_static", "initial", "scheduled", "active")
 OCCLUSIONS = ("clean", "static", "phase", "random", "dynamic")
 SUCCESS_STATE_SAMPLES = ("derived_substep", "current_qpos")
+PLUG_REVISIONS = ("hidden_prongs_v1", "hidden_prongs_v2")
 REWARD_PROFILES = (
     "progress",
     "plug_insertion",
     "legacy_log_hold",
     "plug_staged",
+    "plug_seat_v2",
     "transfer_staged",
     "transfer_dense",
     "transfer_transport",
@@ -54,7 +56,8 @@ class Experiment:
     translation_step: float = 0.005
     camera_interval: int = 1
     camera_workspace: Literal["local_v1", "inspection_v2"] = "local_v1"
-    camera_start: Literal["home", "inspection_v1"] = "home"
+    camera_start: Literal["home", "inspection_v1", "lookat_v2"] = "home"
+    camera_action: Literal["delta_v1", "lookat_v2"] = "delta_v1"
     randomize: bool = True
     perturb_push: bool = False
     manip_control: Literal["joint", "cartesian"] = "joint"
@@ -69,6 +72,22 @@ class Experiment:
     plug_wrist_yaw: bool = False
     plug_control: Literal["absolute", "delta5mm"] = "absolute"
     plug_variant: Literal["xm", "xp", "ym", "yp"] | None = None
+    # hidden_prongs_v2 scores the physically seated plug, can terminate a
+    # misaligned press as a jam, and scales the original reset ranges for
+    # curricula. None resolves from task_revision; v1 runs keep their rules.
+    plug_success_rule: Literal["hover_v1", "seated_v2"] | None = None
+    plug_jam_failure: bool | None = None
+    plug_reset_scale: float = 1.0
+    # Training-only v2 curriculum: fraction of resets starting aligned above the goal.
+    plug_assist_fraction: float = 0.0
+    # Optical gap screen between the camera arm and the plug task (v2 only).
+    plug_screen: Literal["none", "gap_v1"] = "none"
+    # Store privileged perception labels ("aux" group) for an auxiliary actor
+    # loss. Never an actor input; old configurations default to off.
+    aux_targets: bool = False
+    # Training-only camera shaping (v2 plug, camera-controlled conditions): reward
+    # per step for analytic prong-tip visibility from the camera arm.
+    camera_visibility_reward: float = 0.0
     task_revision: str | None = None
     # Derived positions lag integration by one physics substep in MjLab1.4.
     # Existing saved runs retain their original sampling in saved_experiment().
@@ -106,9 +125,17 @@ class Experiment:
             raise ValueError("Unknown camera_workspace")
         if self.camera_workspace != "local_v1" and self.control_revision != "pose_v1":
             raise ValueError("Inspection workspace requires pose_v1 controls")
-        if self.camera_start not in ("home", "inspection_v1"):
+        if self.camera_start not in ("home", "inspection_v1", "lookat_v2"):
             raise ValueError("Unknown camera_start")
-        if self.camera_start != "home" and self.camera_workspace != "inspection_v2":
+        if self.camera_action not in ("delta_v1", "lookat_v2"):
+            raise ValueError("Unknown camera_action")
+        if (self.camera_action == "lookat_v2") != (self.camera_start == "lookat_v2"):
+            raise ValueError("camera_action=lookat_v2 and camera_start=lookat_v2 go together")
+        if self.camera_action == "lookat_v2" and (
+            self.task != "plug" or self.control_revision != "pose_v1"
+        ):
+            raise ValueError("lookat_v2 camera control is defined for the pose_v1 plug task")
+        if self.camera_start == "inspection_v1" and self.camera_workspace != "inspection_v2":
             raise ValueError("Inspection starting pose requires inspection_v2 workspace")
         if self.control_revision == "pose_v1":
             if self.task not in ("plug", "push") or self.plug_wrist_yaw:
@@ -133,28 +160,69 @@ class Experiment:
                 self.task, "v1"
             ),
             "reward_profile": (
-                "plug_insertion"
+                "plug_seat_v2"
+                if self.task == "plug" and self.task_revision == "hidden_prongs_v2"
+                else "plug_insertion"
                 if self.task == "plug" and self.success_state_sample == "current_qpos"
                 else "transfer_staged"
                 if self.task == "transfer" and self.task_revision != "v1"
                 else "progress"
             ),
+            "plug_success_rule": (
+                "seated_v2" if self.task_revision == "hidden_prongs_v2" else "hover_v1"
+            ),
+            "plug_jam_failure": self.task_revision == "hidden_prongs_v2",
             "occlusion": "clean" if self.task == "plug" else "random",
             "width": 128 if self.task == "plug" or self.control_revision == "pose_v1" else 96,
             "height": 96 if self.task == "plug" or self.control_revision == "pose_v1" else 72,
             # Same inspection pause for every sensing condition, followed by the
-            # original plug task's 2.5-second manipulation budget.
-            "episode_seconds": self.initial_seconds + 2.5 if self.task == "plug" else 12.0,
+            # original plug task's 2.5-second manipulation budget (v2: 4 s, since
+            # jam termination removes the blind-probing loophole a longer
+            # horizon would otherwise open).
+            "episode_seconds": (
+                self.initial_seconds + (4.0 if self.task_revision == "hidden_prongs_v2" else 2.5)
+                if self.task == "plug"
+                else 12.0
+            ),
             "fixed_position": plug.GIMBAL_HOME[:3] if self.task == "plug" else CAMERA_HOME,
             "fixed_lookat": (0.022, 0.045, 0.047) if self.task == "plug" else CAMERA_LOOKAT,
         }
         for name, value in defaults.items():
             if getattr(self, name) is None:
                 object.__setattr__(self, name, value)
-        if self.task == "plug" and self.task_revision != "hidden_prongs_v1":
+        if self.task == "plug" and self.task_revision not in PLUG_REVISIONS:
             raise ValueError(
                 "The centered-pin plug prototype is incompatible with hidden_prongs_v1"
             )
+        if self.plug_success_rule not in ("hover_v1", "seated_v2"):
+            raise ValueError("Unknown plug_success_rule")
+        if (
+            self.plug_success_rule == "seated_v2"
+            or self.plug_jam_failure
+            or self.reward_profile == "plug_seat_v2"
+        ) and (self.task != "plug" or self.success_state_sample != "current_qpos"):
+            raise ValueError("Seated/jam plug rules require plug and current_qpos sampling")
+        if not math.isfinite(self.plug_reset_scale) or not 0 < self.plug_reset_scale <= 1:
+            raise ValueError("plug_reset_scale must be in (0, 1]")
+        if self.plug_screen not in ("none", "gap_v1"):
+            raise ValueError("Unknown plug_screen")
+        if self.plug_screen != "none" and self.task_revision != "hidden_prongs_v2":
+            raise ValueError("plug_screen requires hidden_prongs_v2")
+        if not math.isfinite(self.camera_visibility_reward) or self.camera_visibility_reward < 0:
+            raise ValueError("camera_visibility_reward must be finite and nonnegative")
+        if self.camera_visibility_reward and (
+            self.task_revision != "hidden_prongs_v2" or not self.camera_control
+        ):
+            raise ValueError("Camera visibility shaping requires v2 plug with camera control")
+        if self.aux_targets and self.task != "plug":
+            raise ValueError("Auxiliary perception targets are defined for the plug task")
+        if not 0 <= self.plug_assist_fraction < 1:
+            raise ValueError("plug_assist_fraction must be in [0, 1)")
+        if self.plug_assist_fraction and self.task_revision != "hidden_prongs_v2":
+            raise ValueError("plug_assist_fraction requires hidden_prongs_v2")
+        if self.plug_reset_scale != 1 and self.task_revision != "hidden_prongs_v2":
+            # v1 ignored reset_xy_jitter for plug; keep its distributions exact.
+            raise ValueError("plug_reset_scale requires hidden_prongs_v2")
         if self.task == "transfer" and self.task_revision not in ("v1", "pick_place_v2"):
             raise ValueError("Unsupported transfer task revision")
         if (
@@ -406,7 +474,7 @@ def static_candidates(task=None):
 
 def saved_experiment(data):
     """Reject old plug checkpoints instead of silently changing their task."""
-    if data.get("task", "plug") == "plug" and data.get("task_revision") != "hidden_prongs_v1":
+    if data.get("task", "plug") == "plug" and data.get("task_revision") not in PLUG_REVISIONS:
         raise ValueError("Legacy centered-pin experiment; restore its code revision to evaluate it")
     return Experiment(
         **{

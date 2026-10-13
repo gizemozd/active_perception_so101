@@ -73,6 +73,12 @@ def make_env_cfg(cfg: Experiment):
             init_state=EntityCfg.InitialStateCfg(joint_pos={}),
         ),
     }
+    if cfg.plug_screen != "none":
+        for side in ("left", "right"):
+            entities[f"screen_{side}"] = EntityCfg(
+                spec_fn=partial(scenes.plug_screen_spec, cfg, side),
+                init_state=EntityCfg.InitialStateCfg(pos=(0, 0, -1), joint_pos={}),
+            )
     if cfg.push_visibility_revision is not None:
         entities["visibility"] = EntityCfg(
             spec_fn=partial(scenes.push_visibility_spec, cfg),
@@ -95,11 +101,28 @@ def make_env_cfg(cfg: Experiment):
             {"state": ObservationTermCfg(func=mdp.critic_state)}, concatenate_terms=True
         ),
     }
+    if cfg.aux_targets:
+        obs["aux"] = ObservationGroupCfg(
+            {"targets": ObservationTermCfg(func=mdp.aux_targets)}, concatenate_terms=True
+        )
     metrics = {"success_rate": MetricsTermCfg(func=mdp.success_metric, reduce="last")}
     if cfg.task == "plug" and cfg.reward_profile == "plug_insertion":
         metrics["goal_distance"] = MetricsTermCfg(
             func=mdp.diagnostic_metric, params={"name": "goal_distance"}, reduce="last"
         )
+    if cfg.task == "plug" and cfg.task_revision == "hidden_prongs_v2":
+        metrics.update(
+            {
+                name: MetricsTermCfg(
+                    func=mdp.diagnostic_metric, params={"name": name}, reduce="last"
+                )
+                for name in ("goal_distance", "plug_xy_error", "plug_height", "plug_jam")
+            }
+        )
+        if cfg.camera_control:
+            metrics["prong_visibility"] = MetricsTermCfg(
+                func=mdp.diagnostic_metric, params={"name": "prong_visibility"}, reduce="mean"
+            )
     if cfg.actor_observation == "privileged":
         obs["privileged"] = ObservationGroupCfg(
             {"state": ObservationTermCfg(func=mdp.privileged_actor_state)}, concatenate_terms=True

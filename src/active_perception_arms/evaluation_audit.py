@@ -5,7 +5,7 @@ import hashlib
 import numpy as np
 import torch
 
-from . import mdp, plug, pushing, transfer
+from . import mdp, plug, plug_v2, pushing, transfer
 
 
 class TerminationAudit:
@@ -19,6 +19,7 @@ class TerminationAudit:
         self.last_three_angles = None
         self.transfer_history = None
         self.push_history = None
+        self.seated_history = None
         self.snapshot = None
         env.termination_manager.compute = self.compute
 
@@ -33,6 +34,10 @@ class TerminationAudit:
                 self.env.num_envs, 3, dtype=torch.bool, device=self.env.device
             )
 
+        if getattr(mdp.state(self.env).cfg, "plug_success_rule", "hover_v1") == "seated_v2":
+            self.seated_history = torch.zeros(
+                self.env.num_envs, 3, dtype=torch.bool, device=self.env.device
+            )
         if getattr(mdp.state(self.env).cfg, "plug_wrist_yaw", False):
             self.last_three_angles = torch.full_like(self.last_three_errors, float("nan"))
         if transfer.is_v2(mdp.state(self.env).cfg):
@@ -131,6 +136,19 @@ class TerminationAudit:
             )
             if tcp is not None:
                 self.snapshot["plug_tcp_goal_clearance_m"] = (tcp[:, 2] - goal[:, 2]).clone()
+            if self.seated_history is not None:
+                origins = self.env.scene.env_origins
+                seated = plug_v2.seated(raw_obj - origins, goal - origins)
+                self.seated_history = torch.cat(
+                    (self.seated_history[:, 1:], seated[:, None]), dim=1
+                )
+                self.snapshot.update(
+                    plug_seated_history=self.seated_history.clone(),
+                    plug_height_m=(raw_obj[:, 2] - goal[:, 2]).clone(),
+                    plug_jam=mdp.plug_jam(self.env).clone()
+                    if getattr(cfg, "plug_jam_failure", False)
+                    else torch.zeros_like(seated),
+                )
         if getattr(cfg, "reward_profile", None) == "plug_staged":
             s = mdp.state(self.env)
             # History through the previous reward sample; this observer never
@@ -195,6 +213,9 @@ class TerminationAudit:
 
 def summarize_termination_audit(records, task):
     successes = [r for r in records if r["success"]]
+    # hidden_prongs_v2 scores the seated state; the v1 hover sphere is not its criterion.
+    seated = bool(records) and "plug_seated_history" in records[0]
+    hover = task == "plug" and not seated
     return {
         "sampling": "After termination_manager.compute(), before reward/reset/forward; no physics or random-state changes.",
         "episodes": len(records),
@@ -220,8 +241,12 @@ def summarize_termination_audit(records, task):
         "success_distance_violations": sum(
             r["manager_position_error_m"] >= plug.SUCCESS_DISTANCE for r in successes
         )
-        if task == "plug"
+        if hover
         else None,
+        "success_seated_violations": sum(not all(r["plug_seated_history"]) for r in successes)
+        if seated
+        else None,
+        "jam_failures": sum(bool(r["plug_jam"]) for r in records) if seated else None,
         "success_three_sample_violations": sum(
             any(
                 not np.isfinite(v) or v >= plug.SUCCESS_DISTANCE
@@ -229,12 +254,12 @@ def summarize_termination_audit(records, task):
             )
             for r in successes
         )
-        if task == "plug"
+        if hover
         else None,
         "success_qpos_above_distance_threshold": sum(
             r["qpos_position_error_m"] >= plug.SUCCESS_DISTANCE for r in successes
         )
-        if task == "plug"
+        if hover
         else None,
         "success_orientation_violations": sum(
             any(

@@ -132,6 +132,22 @@ def occluder_spec(cfg=None):
     return spec
 
 
+def plug_screen_spec(cfg, side="left"):
+    """One segment of the optical gap screen (hidden_prongs_v2); moved per episode."""
+    from . import plug_v2
+
+    spec = mujoco.MjSpec()
+    if getattr(cfg, "plug_screen", "none") == "gap_v1":
+        size = (
+            plug_v2.SCREEN_SEGMENT_HALF_LENGTH,
+            plug_v2.SCREEN_HALF_THICKNESS,
+            plug_v2.SCREEN_HALF_HEIGHT,
+        )
+        body = spec.worldbody.add_body(name="panel", mocap=True, pos=(0, 0, -1))
+        box(body, f"screen_{side}", (0, 0, 0), size, (0.30, 0.33, 0.38, 1), collision=False)
+    return spec
+
+
 def push_visibility_spec(cfg):
     """Fixed optical crossbar; an underpass leaves the cube's push path open."""
     spec = mujoco.MjSpec()
@@ -356,6 +372,8 @@ def native_spec(cfg: Experiment, *, marker_prototype=False):
         ),
         ("occluder", occluder_spec(cfg), (0, 0, 0), (1, 0, 0, 0)),
         ("visibility", push_visibility_spec(cfg), (0, 0, 0), (1, 0, 0, 0)),
+        ("screen_left", plug_screen_spec(cfg, "left"), (0, 0, 0), (1, 0, 0, 0)),
+        ("screen_right", plug_screen_spec(cfg, "right"), (0, 0, 0), (1, 0, 0, 0)),
         ("table", table_spec(cfg.task), (0, 0, 0), (1, 0, 0, 0)),
     ):
         frame = spec.worldbody.add_frame(pos=pos, quat=quat)

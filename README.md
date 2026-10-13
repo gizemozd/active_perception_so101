@@ -349,6 +349,40 @@ and [raw audit](artifacts/push_rgb/arc_initial_conditions/fixed-camera-visibilit
 Some far side targets are outside the current manipulator action range or static IK
 reach, so this wider recipe is not yet validated for a new training campaign.
 
+## Plug v2: diagnosis and redesigned active-perception task (branch `active-perception-redesign`)
+
+[docs/DIAGNOSIS_2026-10-13.md](docs/DIAGNOSIS_2026-10-13.md) explains why end-to-end
+plug training stayed near 10% and why the movable camera showed no benefit. In short:
+the ported +1000-per-step reward with a 3-step hold makes dithering more valuable than
+finishing (a privileged-state policy that knows the goal learns 0% deterministic
+success), the 2 mm sphere sits 2 mm above the seated pose so a fully inserted plug
+never counts, unbounded Gaussian actions saturated 84-100% of camera commands, and
+the original scene gives one fixed camera-arm pose 100% of the variant information.
+
+`--task-revision hidden_prongs_v2` keeps the four hidden-prong variants and the
+current-qpos physics, and changes the rules: seated success (prongs engaged >= 8 mm,
+body inside the hole clearance, 3 samples), optional jam failure when a prong is
+pressed onto the solid plate (blocks blind probing), the bounded `plug_seat_v2`
+reward, a 4 s manipulation budget, `--plug-reset-scale`, and the training-only
+`--plug-assist-fraction` curriculum (evaluation always uses the original resets).
+Sensing options: `--plug-screen gap_v1` (optical screen with a per-episode gap
+between the camera arm and the task), `--camera-action lookat_v2` (absolute camera
+position + look-at point), `--aux-loss-coef` (auxiliary variant/goal/socket head on
+the actor latent from a stored privileged group, never an actor input) and the
+training-only `--camera-visibility-reward`. Saved v1 configurations are unchanged.
+
+```bash
+.venv/bin/python -m active_perception_arms.train --task plug --condition active \
+  --task-revision hidden_prongs_v2 --plug-screen gap_v1 --camera-action lookat_v2 \
+  --action-distribution squashed --aux-loss-coef 0.5 --camera-visibility-reward 0.02 \
+  --plug-assist-fraction 0.3 --num-envs 1024 --iterations 2035 --dry-run
+# Cluster array (wrist / wrist_static / initial / active x 3 seeds):
+sbatch --account=ACCOUNT --partition=PARTITION scripts/slurm/plug_v2_study.sbatch
+# CPU learnability diagnostic with full state (threaded native MuJoCo, no rendering):
+.venv/bin/python scripts/train_native_privileged.py --revision v2 --plug-assist-fraction 0.3 \
+  --output artifacts/diagnosis/privileged_v2_assist
+```
+
 ## Longer delta-control and memory study
 
 The [long delta + GRU report](artifacts/long_delta_study_20261013/index.html) tracks

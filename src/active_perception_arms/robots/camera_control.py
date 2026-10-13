@@ -6,6 +6,24 @@ from .. import plug
 from ..config import ARM_JOINTS, CAMERA_HOME, CAMERA_LOOKAT
 from .kinematics import BaseFrame, SO101Chain, axis_to_pan_tilt, pan_tilt_to_axis
 
+# camera_action="lookat_v2": absolute camera-position targets inside a box the
+# camera arm reaches while viewing the task (north of the optional gap screen),
+# plus a look-at point on the work surface. Random actions therefore still give
+# task-centred views; targets are rate limited and solved by the same IK.
+# The box is the region the per-step IK tracks from the start branch (98% of
+# random targets within 3 mm); higher views need another IK branch. Informative
+# views of the prongs are all low, and the socket is seen through the gap.
+LOOKAT_BOX = {"plug": ((-0.06, 0.18, 0.05), (0.08, 0.30, 0.14))}
+LOOKAT_CENTER = {"plug": (0.02, 0.03, 0.03)}
+LOOKAT_HALF = {"plug": (0.04, 0.04)}
+LOOKAT_SPEED = 0.02  # metres of camera travel per control step
+LOOK_POINT_SPEED = 0.02  # metres of look-at travel per control step
+# Shared start (and fixed-camera) pose for camera_start="lookat_v2": the single
+# camera-arm pose that most often identifies the hidden variant behind the gap
+# screen (58% of audited resets; the per-episode best pose reaches 100%; see
+# artifacts/diagnosis/views_gap_sampled). Active control can only add by moving.
+LOOKAT_START = {"plug": (-0.03, 0.30, 0.08)}
+
 # Calibrated attained poses from the independent reset-view audit, seed130000+.
 # They are scene calibration constants, not episode-specific target information.
 INSPECTION_POSES = {
@@ -45,6 +63,16 @@ class CameraPoseIK:
             if cfg.camera_start == "inspection_v1"
             else self.home
         )
+        self.lookat_enabled = getattr(cfg, "camera_action", "delta_v1") == "lookat_v2"
+        if self.lookat_enabled:
+            low, high = LOOKAT_BOX[cfg.task]
+            self.box_low, self.box_high = self.tensor(low), self.tensor(high)
+            self.look_center = self.tensor(LOOKAT_CENTER[cfg.task])
+            self.look_half = self.tensor(LOOKAT_HALF[cfg.task])
+            self.initial_look = self.look_center[:2].clone()
+            start = self.tensor(LOOKAT_START[cfg.task])
+            pan, tilt = axis_to_pan_tilt(self.look_center - start)
+            self.initial = torch.cat((start, pan[None], tilt[None]))
         if str(device).startswith("cuda"):
             self.solve = torch.compile(self.solve, mode="reduce-overhead", fullgraph=True)
 
@@ -60,3 +88,15 @@ class CameraPoseIK:
             damping=0.05,
             max_dq=0.15,
         )
+
+    def lookat(self, position, look, raw, enabled):
+        """Rate-limited absolute look-at targets -> (position, look point, gimbal pose)."""
+        desired = self.box_low + (raw[:, :3] + 1) * 0.5 * (self.box_high - self.box_low)
+        step = (desired - position).clamp(-LOOKAT_SPEED, LOOKAT_SPEED)
+        position = position + step * enabled[:, None]
+        wanted = self.look_center[:2] + raw[:, 3:5] * self.look_half
+        move = (wanted - look).clamp(-LOOK_POINT_SPEED, LOOK_POINT_SPEED)
+        look = look + move * enabled[:, None]
+        point = torch.cat((look, self.look_center[2].expand(len(look), 1)), dim=-1)
+        pan, tilt = axis_to_pan_tilt(point - position)
+        return position, look, torch.cat((position, pan[:, None], tilt[:, None]), dim=-1)

@@ -3,12 +3,22 @@
 from copy import deepcopy
 
 import torch
+import torch.nn as nn
 from mjlab.rl import RslRlModelCfg, RslRlOnPolicyRunnerCfg, RslRlPpoAlgorithmCfg
 from mjlab.rl.spatial_softmax import SpatialSoftmaxCNNModel
 from rsl_rl.algorithms import PPO
 from rsl_rl.modules import RNN
 from rsl_rl.storage import RolloutStorage
-from rsl_rl.utils import resolve_callable, resolve_obs_groups
+from rsl_rl.utils import resolve_callable, resolve_obs_groups, unpad_trajectories
+
+# Auxiliary perception targets (plug): hidden variant one-hot, then scaled
+# goal-minus-TCP and socket offsets. Labels come from the privileged "aux"
+# observation group, which is stored for training but never an actor input.
+AUX_CLASSES = 4
+
+
+def aux_head(latent_dim, aux_dim):
+    return nn.Sequential(nn.Linear(latent_dim, 128), nn.ELU(), nn.Linear(128, aux_dim))
 
 
 class VisualMemoryModel(SpatialSoftmaxCNNModel):
@@ -16,10 +26,15 @@ class VisualMemoryModel(SpatialSoftmaxCNNModel):
 
     is_recurrent = True
 
-    def __init__(self, *args, rnn_type="gru", rnn_hidden_dim=128, rnn_num_layers=1, **kwargs):
+    def __init__(
+        self, *args, rnn_type="gru", rnn_hidden_dim=128, rnn_num_layers=1, aux_dim=0, **kwargs
+    ):
         self.latent_dim = rnn_hidden_dim
         super().__init__(*args, **kwargs)
         self.rnn = RNN(super()._get_latent_dim(), rnn_hidden_dim, rnn_num_layers, rnn_type)
+        # Optional auxiliary perception head on the recurrent latent (training only).
+        self.aux_head = aux_head(self.latent_dim, aux_dim) if aux_dim else None
+        self.last_latent = None
 
     def _get_latent_dim(self):
         return self.latent_dim
@@ -43,7 +58,9 @@ class VisualMemoryModel(SpatialSoftmaxCNNModel):
         return torch.cat(result, dim=-1)
 
     def get_latent(self, obs, masks=None, hidden_state=None):
-        return self.rnn(self.encode(obs, masks), masks, hidden_state).squeeze(0)
+        latent = self.rnn(self.encode(obs, masks), masks, hidden_state).squeeze(0)
+        self.last_latent = latent
+        return latent
 
     def reset(self, dones=None, hidden_state=None):
         self.rnn.reset(dones, hidden_state)
@@ -80,16 +97,137 @@ class VisualFeedForwardModel(SpatialSoftmaxCNNModel):
 
     encode = VisualMemoryModel.encode
 
-    def __init__(self, *args, rnn_type=None, rnn_hidden_dim=None, rnn_num_layers=None, **kwargs):
+    def __init__(
+        self, *args, rnn_type=None, rnn_hidden_dim=None, rnn_num_layers=None, aux_dim=0, **kwargs
+    ):
         super().__init__(*args, **kwargs)
+        self.aux_head = aux_head(self._get_latent_dim(), aux_dim) if aux_dim else None
+        self.last_latent = None
 
     def get_latent(self, obs, masks=None, hidden_state=None):
         # MLPModel.forward has already removed recurrent padding for this model.
-        return self.encode(obs)
+        latent = self.encode(obs)
+        self.last_latent = latent
+        return latent
 
 
 class CompactPPO(PPO):
-    """Compact image storage and bootstrap evaluation without consuming RNN state."""
+    """Compact image storage and bootstrap evaluation without consuming RNN state.
+
+    ``aux_coef`` > 0 adds a supervised auxiliary perception loss on the actor's
+    latent (privileged labels from the stored "aux" observation group). The
+    update below is RSL-RL 5.2's PPO.update with that single extra term; with
+    ``aux_coef`` = 0 it performs the upstream computation.
+    """
+
+    def __init__(self, *args, aux_coef=0.0, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.aux_coef = float(aux_coef)
+        if self.aux_coef and getattr(self.actor, "aux_head", None) is None:
+            raise ValueError("aux_coef requires an actor built with aux_dim > 0")
+
+    def aux_loss(self, batch):
+        latent = self.actor.last_latent
+        labels = batch.observations["aux"]
+        if batch.masks is not None:
+            labels = unpad_trajectories(labels, batch.masks)
+        prediction = self.actor.aux_head(latent).reshape(-1, labels.shape[-1])
+        labels = labels.reshape(-1, labels.shape[-1])
+        classes = labels[:, :AUX_CLASSES].argmax(-1)
+        logits = prediction[:, :AUX_CLASSES]
+        loss = torch.nn.functional.cross_entropy(logits, classes)
+        loss = loss + torch.nn.functional.mse_loss(
+            prediction[:, AUX_CLASSES:], labels[:, AUX_CLASSES:]
+        )
+        accuracy = (logits.argmax(-1) == classes).float().mean()
+        return loss, accuracy
+
+    def update(self):
+        if not self.aux_coef:
+            return super().update()
+        if self.rnd or self.symmetry or self.is_multi_gpu:
+            raise NotImplementedError("Auxiliary loss is implemented for single-GPU PPO only")
+        mean_value_loss = mean_surrogate_loss = mean_entropy = 0.0
+        mean_aux_loss = mean_aux_accuracy = 0.0
+        if self.actor.is_recurrent or self.critic.is_recurrent:
+            generator = self.storage.recurrent_mini_batch_generator(
+                self.num_mini_batches, self.num_learning_epochs
+            )
+        else:
+            generator = self.storage.mini_batch_generator(
+                self.num_mini_batches, self.num_learning_epochs
+            )
+        for batch in generator:
+            if self.normalize_advantage_per_mini_batch:
+                with torch.no_grad():
+                    batch.advantages = (batch.advantages - batch.advantages.mean()) / (
+                        batch.advantages.std() + 1e-8
+                    )
+            self.actor(
+                batch.observations,
+                masks=batch.masks,
+                hidden_state=batch.hidden_states[0],
+                stochastic_output=True,
+            )
+            actions_log_prob = self.actor.get_output_log_prob(batch.actions)
+            values = self.critic(
+                batch.observations, masks=batch.masks, hidden_state=batch.hidden_states[1]
+            )
+            distribution_params = self.actor.output_distribution_params
+            entropy = self.actor.output_entropy
+            if self.desired_kl is not None and self.schedule == "adaptive":
+                with torch.inference_mode():
+                    kl = self.actor.get_kl_divergence(
+                        batch.old_distribution_params, distribution_params
+                    )
+                    kl_mean = torch.mean(kl)
+                    if kl_mean > self.desired_kl * 2.0:
+                        self.learning_rate = max(1e-5, self.learning_rate / 1.5)
+                    elif kl_mean < self.desired_kl / 2.0 and kl_mean > 0.0:
+                        self.learning_rate = min(1e-2, self.learning_rate * 1.5)
+                    for param_group in self.optimizer.param_groups:
+                        param_group["lr"] = self.learning_rate
+            ratio = torch.exp(actions_log_prob - torch.squeeze(batch.old_actions_log_prob))
+            surrogate = -torch.squeeze(batch.advantages) * ratio
+            surrogate_clipped = -torch.squeeze(batch.advantages) * torch.clamp(
+                ratio, 1.0 - self.clip_param, 1.0 + self.clip_param
+            )
+            surrogate_loss = torch.max(surrogate, surrogate_clipped).mean()
+            if self.use_clipped_value_loss:
+                value_clipped = batch.values + (values - batch.values).clamp(
+                    -self.clip_param, self.clip_param
+                )
+                value_losses = (values - batch.returns).pow(2)
+                value_losses_clipped = (value_clipped - batch.returns).pow(2)
+                value_loss = torch.max(value_losses, value_losses_clipped).mean()
+            else:
+                value_loss = (batch.returns - values).pow(2).mean()
+            aux_loss, aux_accuracy = self.aux_loss(batch)
+            loss = (
+                surrogate_loss
+                + self.value_loss_coef * value_loss
+                - self.entropy_coef * entropy.mean()
+                + self.aux_coef * aux_loss
+            )
+            self.optimizer.zero_grad()
+            loss.backward()
+            nn.utils.clip_grad_norm_(self.actor.parameters(), self.max_grad_norm)
+            nn.utils.clip_grad_norm_(self.critic.parameters(), self.max_grad_norm)
+            self.optimizer.step()
+            mean_value_loss += value_loss.item()
+            mean_surrogate_loss += surrogate_loss.item()
+            mean_entropy += entropy.mean().item()
+            mean_aux_loss += aux_loss.item()
+            mean_aux_accuracy += aux_accuracy.item()
+        num_updates = self.num_learning_epochs * self.num_mini_batches
+        self.storage.clear()
+        return {
+            "value": mean_value_loss / num_updates,
+            "surrogate": mean_surrogate_loss / num_updates,
+            "entropy": mean_entropy / num_updates,
+            "aux": mean_aux_loss / num_updates,
+            "aux_variant_accuracy": mean_aux_accuracy / num_updates,
+        }
 
     def compute_returns(self, obs):
         # Upstream evaluates the next observation to bootstrap GAE. The runner
@@ -202,4 +340,18 @@ def runner_cfg(experiment, iterations=3000):
             model.hidden_dims = (256, 256)
             if experiment.memory == "none":
                 model.rnn_type = model.rnn_hidden_dim = model.rnn_num_layers = None
+    return cfg
+
+
+def runner_dict(runner_options, experiment, aux_coef=0.0):
+    """Serialisable runner config; adds auxiliary-loss options absent from MjLab's dataclasses."""
+    from dataclasses import asdict
+
+    cfg = asdict(runner_options)
+    if getattr(experiment, "aux_targets", False):
+        # Variant classes plus goal-minus-TCP (3) and socket XY (2) regressions.
+        cfg["actor"]["aux_dim"] = AUX_CLASSES + 5
+        cfg["algorithm"]["aux_coef"] = float(aux_coef)
+    elif aux_coef:
+        raise ValueError("aux_coef requires aux_targets in the experiment")
     return cfg
